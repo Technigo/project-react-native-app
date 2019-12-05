@@ -54,9 +54,11 @@ Ask for help and share your knowledge about this project with the 'project-react
 Make sure you've commited and pushed a version of your project before starting with the stretch goals.
 
 **_Add multiple screens to your app_**
+
 Add some kind of navigation in your app, either with bottomtabs or navigation backwards and forwards between screens.
 
 **_Add some animations to your app_**
+
 Either have a look at panResponders or take a look at how to implement animations with the help of [Lottie](https://lottiefiles.com/)
 
 ---
