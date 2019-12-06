@@ -6,7 +6,15 @@ In this week's project, you'll be building your first mobile application with Re
 
 ![Niagara Falls](https://images.unsplash.com/photo-1489447068241-b3490214e879?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)
 
-This week's project is a very free one. Your only restrictions are that it should be a mobile app created with React Native, using styled components and have some functionality that uses the sensors of your mobile phone. (camera, gyro, accelerometer, etc.)
+This week's project is a very free one. Your only restrictions are that it should be a mobile app created with React Native, using styled components and have one functionality that uses the sensors of your mobile phone. (camera, gyro, accelerometer, voice assistance, ARKit etc.)
+
+## Ideas that you could build 💡
+- step counter
+- photo booth
+- some kind of game based on shakes/tilts on the phone 
+- camera app
+- a bubble level
+- Or maybe you remember [this game](https://www.youtube.com/watch?v=nT9gxQkSCN8&feature=youtu.be)!? 
 
 ## What you will learn 🧠
 
@@ -26,7 +34,7 @@ This week's project is a very free one. Your only restrictions are that it shoul
 
 ## Requirements 🧪
 
-- Your app should have the functionality that uses the sensors of a mobile phone. (camera, gyro, accelerometer, etc.)
+- Your app should have one functionality that uses the sensors of a mobile phone. (camera, gyro, accelerometer, etc.)
 - You should use Styled Components.
 - Code follows Technigo’s code guidelines.
 - Contribute by helping others with this project on Stack Overflow.
