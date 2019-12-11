@@ -1,26 +1,33 @@
-import React from "react"
-import styled from "styled-components"
+import React, { useState } from "react"
+import { StyleSheet, Text, Button, View } from 'react-native'
+import Header from './components/Header'
+
 
 const App = () => {
+
+  const [count, setCount] = useState(0)
+
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <View style={styles.container}>
+      <Header title="Worlds greatest counter" />
+      <Text style={styles.counterText}>{count}</Text>
+      <Button title='+' onPress={() => setCount(count + 1)} />
+      <Button title='-' onPress={() => setCount(count - 1)} />
+    </View>
   )
 }
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  },
+  counterText: {
+    fontSize: 100,
+    color: 'white'
+  }
+})
 
 export default App
