@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StyleSheet, Text, Button, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import Header from './components/Header'
 
 
@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Header title="COUNTER" />
+      <Header title="MY FIRST COUNTER" headerText="an app made in react native" />
       <Text style={styles.counterText}>{count}</Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.btn} onPress={() => setCount(count + 1)}>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   counterText: {
-    fontSize: 100,
+    fontSize: 150,
     color: 'white'
   },
   buttonContainer: {

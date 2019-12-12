@@ -5,18 +5,23 @@ export default function Header(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
+      <Text style={styles.headerText}>{props.headerText}</Text>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 100,
+    alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center'
   },
   title: {
     fontSize: 30,
     color: 'white',
+  },
+  headerText: {
+    fontSize: 18,
+    color: 'white'
   }
 })
