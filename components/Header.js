@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: 20
   },
   title: {
     fontSize: 30,
