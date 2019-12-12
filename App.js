@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StyleSheet, Text, Button, View } from 'react-native'
+import { StyleSheet, Text, Button, View, TouchableOpacity } from 'react-native'
 import Header from './components/Header'
 
 
@@ -9,10 +9,16 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Header title="Worlds greatest counter" />
+      <Header title="COUNTER" />
       <Text style={styles.counterText}>{count}</Text>
-      <Button title='+' onPress={() => setCount(count + 1)} />
-      <Button title='-' onPress={() => setCount(count - 1)} />
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.btn} onPress={() => setCount(count + 1)}>
+          <Text style={styles.btnText}>+</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn} onPress={() => setCount(count - 1)}>
+          <Text style={styles.btnText}>-</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
@@ -27,6 +33,22 @@ const styles = StyleSheet.create({
   counterText: {
     fontSize: 100,
     color: 'white'
+  },
+  buttonContainer: {
+    flexDirection: 'row'
+  },
+  btn: {
+    backgroundColor: 'white',
+    height: 50,
+    width: 100,
+    borderRadius: 30,
+    margin: 20
+  },
+  btnText: {
+    fontSize: 30,
+    color: 'black',
+    textAlign: 'center',
+    alignItems: 'center'
   }
 })
 

@@ -11,7 +11,9 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'grey',
+    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   title: {
     fontSize: 30,
