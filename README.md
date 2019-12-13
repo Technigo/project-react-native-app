@@ -6,20 +6,24 @@ In this week's project, you'll be building your first mobile application with Re
 
 ![Niagara Falls](https://images.unsplash.com/photo-1489447068241-b3490214e879?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)
 
-This week's project is a very free one. Your only restrictions are that it should be a mobile app created with React Native, using styled components and have one functionality that uses the sensors of your mobile phone. (camera, gyro, accelerometer, voice assistance, ARKit etc.)
+This week's project is a very free one. Your only restrictions are that it should be a mobile app created with React Native and using styled components. Also, the app it self should either be:
+  - using one of the sensors of your mobile phone such as the camera, accelerometer or voice assistance etc. 
+  - using an external API to fetch something to your app and then interact with it.
+  - a multiscreen app by using [React Navigation](https://facebook.github.io/react-native/docs/navigation).
+  - a useful app such as a calculator, a stopwatch or a compass. 
 
-## Ideas that you could build 💡
+## Other ideas that you could build 💡
 - step counter
 - photo booth
 - some kind of game based on shakes/tilts on the phone 
 - camera app
 - a bubble level
 - Or maybe you remember [this game](https://www.youtube.com/watch?v=nT9gxQkSCN8&feature=youtu.be)!? 
+- Fetch a bunch of cute dog photos from an api and use the [share method](https://facebook.github.io/react-native/docs/share) to share it with your friends.
 
 ## What you will learn 🧠
 
 - How to use React Native to create a mobile app
-- How to add functionality that uses the sensors of a mobile phone. (camera, gyro, accelerometer, etc.)
 - Practice using Styled Components for your styling.
 
 ## How to get started 💪🏼
@@ -32,9 +36,25 @@ This week's project is a very free one. Your only restrictions are that it shoul
 6. Make sure that you have signed up to expo.io and downloaded the app to your phone.
 7. Scan the QR code to open upp the app on your phone. Make sure that your phone and your computer is connected to the same network.
 
+## Hints and tips to complete the project 🤓
+
+Start by investigating the React Native documentation and see what components there are and what else you can do in React Native such as making the phone [vibrate](https://facebook.github.io/react-native/docs/vibration), copy something to [clipboard](https://facebook.github.io/react-native/docs/clipboard), use [popup alerts](https://facebook.github.io/react-native/docs/alert).
+
+Once you have your idea, start by sketching out what your app will look like and how you'd like to use components. Now we're using styled components, but you can still break things into small, manageable components. 
+
+After that, think about how the logic should be divided up. Are you using an API? What component should handle the fetch. Are you building a compass, how should you structure you files?
+
+Then you're ready to start working on the project. This project has a base of what you need to get started, but if you want to use some extra libraries or packapages, such as React Navigation, you need to install it like this:
+
+```
+npm install --save react-navigation
+```
+
+When starting to write your code, try to work on the project in small chunks rather than taking on too much at once.
+
+
 ## Requirements 🧪
 
-- Your app should have one functionality that uses the sensors of a mobile phone. (camera, gyro, accelerometer, etc.)
 - You should use Styled Components.
 - Code follows Technigo’s code guidelines.
 - Contribute by helping others with this project on Stack Overflow.
@@ -50,7 +70,7 @@ This week's project is a very free one. Your only restrictions are that it shoul
   git push origin master
   ```
 
-- Navigate to your repo and create a Pull Request into the Technigo repo (Add a link to your deployed project.)
+- Navigate to your repo and create a Pull Request into the Technigo repo
 - Wait for the code review from your teachers
 
 ## How to get help 🆘
