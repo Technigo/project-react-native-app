@@ -18,11 +18,11 @@ import {
 //Input category costs (add to array costs)
 //Input cost (add to array costs)
 //Component to map the objects in the array listIncomes and listCosts
-//Sum component that calculates the incomes-costs to see what we have left
+//Sum component that calculates the incomes-costs to see what we have left - if <0 show "No money to spend!" with blinking animation?
 //Shake phone to reset?
 
 const App = () => {
-  const [categoryIncome, setCategoryIncome] = useState('');
+  const [categoryIncome, setCategoryIncome] = useState();
   const [categoryCost, setCategoryCost] = useState('');
   const [income, setIncome] = useState('0');
   const [cost, setCost] = useState('0');
@@ -48,35 +48,34 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden static backgroundColor="palevioletred" />
+      <StatusBar hidden backgroundColor="palevioletred" />
       <Text style={styles.textHeading}>CHECK YOUR BUDGET!</Text>
 
-      {/* ADD INCOMES */}
+      {/* ADD INCOMES - HOW TO HIDE THE NUMBERPAD AFTER INPUT, CAN'T SCROLL TO NEXT?*/}
       <View style={styles.viewSection}>
-        <Text style={styles.text}>Category income:</Text>
+
+        <Text style={styles.text}>Where did you get the money?</Text>
         <Picker
           style={styles.picker}
-          type="dropdown"
           selectedValue={categoryIncome}
           onValueChange={value => setCategoryIncome(value)}>
-          <Picker.Item label="Pick category" value="-" />
+          <Picker.Item label="Pick a category" value="-" />
           <Picker.Item label="Salary" value="Salary" />
+          <Picker.Item label="Stole it" value="Stolen money" />
+          <Picker.Item label="Borrowed" value="Borrowed" />
           <Picker.Item label="Other" value="Other" />
         </Picker>
 
-        <Text style={styles.text}>Income:</Text>
+        <Text style={styles.text}>How much?</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={text => setIncome(text)}
           value={income}
+          allowFontScaling
+          keyboardType="numeric"
+          autoCapitalize
+          clearTextOnFocus
         />
-
-        {/*<Button
-          title="💰  Add income  💰"
-          color="#525252"
-          accessibilityLabel="add button"
-          onPress={handleAddIncome}
-        />*/}
 
         <TouchableOpacity style={styles.button} onPress={handleAddIncome}>
           <Text style={styles.buttonText}>💰 ADD INCOME 💰</Text>
@@ -85,49 +84,52 @@ const App = () => {
 
       {/* ADD COSTS */}
       <View style={styles.viewSection}>
-        <Text style={styles.text}>Category cost:</Text>
+        <Text style={styles.text}>What do you spend money on?</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={text => setCategoryCost(text)}
           value={categoryCost}
+          allowFontScaling
+          clearTextOnFocus
+          autoCapitalize
         />
 
-        <Text style={styles.text}>Cost:</Text>
+        <Text style={styles.text}>How much?</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={text => setCost(text)}
           value={cost}
+          maxLength="6"
+          keyboardType="numeric"
+          allowFontScaling
+          clearTextOnFocus
         />
-
-        {/*<Button
-          title="💸  ADD COST  💸"
-          fontSize="24"
-          color="#525252"
-          onPress={handleAddCost}
-        />*/}
 
         <TouchableOpacity style={styles.button} onPress={handleAddCost}>
           <Text style={styles.buttonText}>💸  ADD COST  💸</Text>
         </TouchableOpacity>
       </View>
 
-      {/* SUMMARY */}
+      {/* SUMMARY - WHY ISN'T SPACE-BETWEEN WORKING BETWEEN items.category & items.income?*/}
       <View style={styles.viewSummary}>
+
+        {(listIncomes.length > 0 || listCosts.length > 0) && <Text style={styles.textBalance}>Your Balance:</Text>}
+
         {listIncomes.map((items, index) => (
           <Text style={styles.textSummaryIncome} key={index}>
-            <Text>{items.category}:</Text>
-            <Text>{items.income} SEK</Text>
+            <Text>{items.category}</Text>
+            <Text>  {items.income} SEK</Text>
           </Text>
         ))}
 
         {listCosts.map((items, index) => (
           <Text style={styles.textSummaryCost} key={index}>
             <Text>{items.category}:</Text>
-            <Text>-{items.cost} SEK</Text>
+            <Text>  -{items.cost} SEK</Text>
           </Text>
         ))}
 
-        <Text style={styles.textTotal}>Left to spend: XX SEK</Text>
+        {(listIncomes.length > 0 || listCosts.length > 0) && <Text style={styles.textTotal}>Left to spend: XX SEK</Text>}
       </View>
     </View>
   );
@@ -161,9 +163,17 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 
+  textBalance: {
+    fontSize: 22,
+    color: 'palevioletred',
+    marginBottom: 10,
+    borderBottomWidth: 2,
+    borderColor: 'palevioletred',
+  },
+
   picker: {
-    height: 40,
     width: 200,
+    minHeight: 40,
     backgroundColor: '#fff',
     marginBottom: 5,
   },
@@ -179,7 +189,7 @@ const styles = StyleSheet.create({
 
   button: {
     height: 40,
-    width: 150,
+    padding: 5,
     borderRadius: 10,
     backgroundColor: '#525252',
     alignItems: 'center',
@@ -193,8 +203,7 @@ const styles = StyleSheet.create({
   },
 
   viewSummary: {
-    marginTop: 30,
-    border: 2,
+    marginTop: 20,
   },
 
   textSummaryIncome: {
@@ -212,9 +221,10 @@ const styles = StyleSheet.create({
   },
 
   textTotal: {
+    marginTop: 10,
     borderTopWidth: 2,
     borderColor: 'palevioletred',
-    fontSize: 24,
+    fontSize: 22,
     color: 'palevioletred',
   },
 });
