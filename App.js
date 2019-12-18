@@ -18,10 +18,10 @@ import {
 //Input cost (add to array costs) - function handleCost?
 //Component to map the objects in the array listIncomes and listCosts
 //Sum component that calculates the incomes-costs to see what we have left
-//Shake phone to reset
+//Shake phone to reset?
 
 const App = () => {
-  // const [addToArray, setAddToArray] = useState()
+
   const [categoryIncome, setCategoryIncome] = useState('');
   const [categoryCost, setCategoryCost] = useState('');
   const [income, setIncome] = useState('0');
@@ -33,15 +33,21 @@ const App = () => {
   const [listCosts, setListCosts] = useState([]);
   const addedCosts = { category: categoryCost, income: cost };
 
-  // FUNCTIONS FOR ADDING INCOMES AND COSTS - NEED HELP WITH THIS
+  // FUNCTIONS FOR ADDING INCOMES AND COSTS
+  //Using concat() bc map() won't work otherwise..?
   const handleAddIncome = () => {
-    setListIncomes({ listIncomes: [...listIncomes, addedIncomes] })
-  }
+    // setListIncomes({ listIncomes: [...listIncomes, addedIncomes] });
+    setListIncomes(listIncomes => listIncomes.concat(addedIncomes));
+  };
   const handleAddCost = () => {
-    setListCosts({ listCosts: [...listCosts, addedCosts] })
-  }
+    //setListCosts(listCosts => [...listCosts, addedCosts]);
+    setListCosts(listCosts => listCosts.concat(addedCosts));
+  };
 
-  console.log(listIncomes, listCosts)
+  //NEED HELP WITH A FUNCTION TO CALCULATE THE INCOMES AND COSTS IN THE ARRAYS
+
+  console.log(listIncomes);
+  console.log(listCosts);
 
   return (
     <View style={styles.view}>
@@ -66,11 +72,7 @@ const App = () => {
         value={income}
       />
 
-      <Button
-        color="#525252"
-        title="Add income"
-        onPress={handleAddIncome}
-      />
+      <Button color="#525252" title="Add income" onPress={handleAddIncome} />
 
       <Text style={styles.text}>Category cost:</Text>
       <TextInput
@@ -94,13 +96,22 @@ const App = () => {
 
       <View style={styles.viewSummary}>
         <Text style={styles.text}>
-          Incomes: {categoryIncome} {income} SEK
-        </Text>
-        <Text style={styles.text}>
-          Costs: {categoryCost} {cost} SEK
+          {listIncomes.map((items, index) => (
+            <View key={index}>
+              {items.category}: {items.income} SEK
+            </View>
+          ))}
         </Text>
 
-        <Text style={styles.text}>Left to spend: {income - cost} SEK</Text>
+        <Text style={styles.text}>
+          {listCosts.map((items, index) => (
+            <View key={index}>
+              {items.category}: {items.costs} SEK
+            </View>
+          ))}
+        </Text>
+
+        <Text style={styles.text}>Left to spend: XX SEK</Text>
       </View>
     </View>
   );
