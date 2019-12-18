@@ -26,6 +26,7 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `
 
+/*Fetching the movie from here */
 const fetchRandomMovie = async () => {
   const movieId = Math.floor(Math.random() * TOP_MOVIE_ID) + 1
   const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=6420add5c0a9b0e0b9462a92916c3187&language=en-US`)
