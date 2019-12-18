@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 import moment from 'moment';
 import { render } from "react-dom";
 
+
+
 // const DATA = {   ///this was the initial code fot the data
 //   timer: 1234567,
 //   laps: [12345, 23456, 34567, 45678],
