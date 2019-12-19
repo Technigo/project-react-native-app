@@ -8,17 +8,16 @@ export default function Header(props) {
         </View>
     )
 }
-
 const styles = StyleSheet.create({
     container: {
-        height: 50,
+        height: 80,
         width: "100%",
         backgroundColor: "white",
         justifyContent: "center",
-        alignItems: "center",
-
     },
     title: {
-        fontSize: 30
-    }
+        fontSize: 15,
+        marginLeft: 20,
+        fontWeight: "bold",
+    },
 })
