@@ -1,14 +1,12 @@
 import React, { useEffect, useState, Component } from "react";
-import styled from "styled-components/native"
-import { Image, View } from 'react-native';
+import styled from "styled-components"
+import { Image, View, Text, ScrollView } from 'react-native';
 
 const apiKey = `563492ad6f917000010000016674d16c530e444482c459f1837b2a47`
-const url = "https://api.pexels.com/v1/search?query=example+crossfit&per_page=15&page=1"
-
+const url = "https://api.pexels.com/v1/search?query=example+crossfit&per_page=66&page=1"
 
 const App = () => {
   const [photos, setPhotos] = useState([])
-
   useEffect(() => {
     fetch(url, { headers: { Authorization: apiKey } })
       .then(res => res.json())
@@ -18,27 +16,41 @@ const App = () => {
       })
   }, [])
      
-
   return(
-    <Container>
-     
-          return (
-            <View>
-              <Image 
-                source={{uri: 'https://api.pexels.com/v1/search?query=example+crossfit&per_page=15&page=1'}}
-                style={{width: 400, height: 400}} />
-            </View>
-          )}
-        }
-    </Container>
+      <Container><ScrollView>
+        {photos.map((photo) => (
+          <View key={photo.id}>
+            <Text>Photo: {photo.photographer}</Text>
+            <Image
+            source={{uri: photo.src.original}}
+            style={{width:300, height: 300}}
+             />
+        </View>
+      ))}   
+      </ScrollView></Container>
   )   
 }
 
+export default App
+
 const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
+flex: 1;  
+background-color: grey;
+ 
+  align-items: center; 
+
+
+
+  
+  
+ 
 `
 
-export default App
+// const Text = styled.Text`
+//   color: white;
+// `
+
+// const Image = styled.Image`
+//   height: 100%;
+//   width:90%
+// `
