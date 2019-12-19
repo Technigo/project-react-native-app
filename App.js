@@ -16,11 +16,13 @@ function Timer({ interval, style }) {
   const duration = moment.duration(interval)
   const centiseconds = Math.floor(duration.milliseconds() / 10)
   return (
-    <View style={styles.timerContainer}>
+    // <View style={styles.timerContainer}>
+    <TimerContainer>
       <Text style={style}>{pad(duration.minutes())}:</Text>
       <Text style={style}>{pad(duration.seconds())},</Text>
       <Text style={style}>{pad(centiseconds)}</Text>
-    </View>
+    </TimerContainer>
+    // </View>
   )
 }
 
@@ -32,9 +34,10 @@ function RoundButton({ title, color, background, onPress, disabled }) {
       style={[styles.button, { backgroundColor: background }]}
       activeOpacity={disabled ? 1.0 : 0.7} //activeOpacity changed the opacity of the TouchableOpacity
     >
-      <View style={styles.buttonBorder}>
+      <ButtonBorderContainer>
+        {/* <ButtonBorderContainer style={styles.buttonBorder}> */}
         <Text style={[styles.buttonTitle, { color }]}>{title}</Text>
-      </View>
+      </ButtonBorderContainer>
     </TouchableOpacity >
   )
 }
@@ -46,10 +49,10 @@ function Lap({ number, interval, fastest, slowest }) {
     slowest && styles.slowest //if the lap is = (&&) slowest will the styles.fastest implement
   ]
   return (
-    <View style={styles.lap}>
+    <LapContainer>
       <Text style={lapStyle}>Lap {number}</Text>
       <Timer style={[lapStyle, styles.lapTimer]} interval={interval} />
-    </View>
+    </LapContainer>
   )
 }
 
@@ -67,6 +70,7 @@ function LapsTable({ laps, timer }) {
     })
   }
   return (
+
     <ScrollView style={styles.scrollView}>
       {laps.map((lap, index) => (
         <Lap
@@ -83,7 +87,7 @@ function LapsTable({ laps, timer }) {
 
 function ButtonsRow({ children }) {
   return (
-    <View style={styles.buttonsRow}>{children}</View>
+    <ButtonRowContainer>{children}</ButtonRowContainer>  //for the styled component
   )
 }
 
@@ -164,7 +168,8 @@ export default class App extends React.Component {
     const { start, now, laps } = this.state  //maybe should use useState here instead
     const timer = now - start
     return (
-      <View style={styles.container}>
+      <Container >
+        {/* <TimerBox */}
         <Timer
           interval={laps.reduce((total, curr) => total + curr, 0) + timer}
           style={styles.timer}
@@ -218,29 +223,72 @@ export default class App extends React.Component {
           </ButtonsRow>
         )}
         <LapsTable laps={laps} timer={timer} />
-      </View>
+      </Container>
 
     )
   }
 }
 
+////Styled component///
+
+const Container = styled.View`
+    flex: 1;
+    backgroundColor: #0D0D0D;
+    alignItems: center;
+    paddingTop: 130px;
+    paddingHorizontal: 20px;
+`
+
+// const TimerBox = styled.View`
+//     color: #FFFFFF;
+//     fontSize: 76px;
+//     fontWeight: 200;
+//     width: 110px;
+// `
+const TimerContainer = styled.View`
+  flex-direction: row;
+`
+// const TouchableOpacity = styled.view`
+//     width: 80;
+//     height: 80;
+//     border-radius: 40;
+//     justify-content: center;
+//     align-tems: center;
+// `
+
+const ButtonRowContainer = styled.View`
+    flex-direction: row;
+    align-self: stretch;
+    justify-content: space-between;
+    margin-top: 80px;
+    margin-bottom: 30px; 
+`
+
+const LapContainer = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    border-color: #151515;
+    border-top-width: 1;
+    padding-vertical: 10; 
+`
+
+// const ScrollView = styled.View`
+//     align-self: stretch;
+// `
+
+const ButtonBorderContainer = styled.View`
+    width: 76px;
+    height: 76px;
+    border-radius: 38px;
+    border-width: 1px;
+    justify-content: center;
+    align-items: center;
+`
+
+
+////////// Style Sheet//////
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0D0D0D',
-    alignItems: 'center',
-    paddingTop: 130,
-    paddingHorizontal: 20,
-  },
-  timerContainer: {
-    flexDirection: 'row',
-  },
-  timer: {
-    color: '#FFFFFF',
-    fontSize: 76,
-    fontWeight: '200',
-    width: 110,
-  },
+
   button: {
     width: 80,
     height: 80,
@@ -250,30 +298,25 @@ const styles = StyleSheet.create({
   },
   buttonTitle: {
     fontSize: 18,
+  },
+  timer: {
+    color: '#FFFFFF',
+    fontSize: 76,
+    fontWeight: '200',
+    width: 110,
+  },
+  // timerContainer: {
+  //   flexDirection: 'row',
+  // },
+  // buttonBorder: {
+  //   width: 76,
+  //   height: 76,
+  //   borderRadius: 38,
+  //   borderWidth: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  // },
 
-  },
-  buttonBorder: {
-    width: 76,
-    height: 76,
-    borderRadius: 38,
-    borderWidth: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonsRow: {
-    flexDirection: 'row',
-    alignSelf: 'stretch',
-    justifyContent: 'space-between',
-    marginTop: 80,
-    marginBottom: 30, //the space between buttons and laps
-  },
-  lap: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderColor: '#151515',
-    borderTopWidth: 1,
-    paddingVertical: 10, //the space between the lines
-  },
   lapText: {
     color: '#FFFFFF',
     fontSize: 18,
