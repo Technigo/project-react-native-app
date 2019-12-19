@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
-//BEST PRACTISE - IMPORT COMPONENTS FROM REACT-NATIVE AND STYLE AS I DID OR IMPORT "STYLED-COMPONENTS"?
-// import styled from "styled-components/native"
+import * as React from 'react';
+import { useState } from 'react';
+import styled from 'styled-components';
 import {
   StyleSheet,
   StatusBar,
   View,
   TextInput,
   Picker,
-  Text,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
+import { ProgressChart } from 'react-native-chart-kit';
 
 //Array of objects (category + incomes)
 //Array of objects (category + cost)
-//Input category incomes (add to array incomes)
-//Input income (add to array incomes)
-//Input category costs (add to array costs)
-//Input cost (add to array costs)
+//Input category incomes + income (add to array incomes)
+//Input category costs + cost (add to array costs)
 //Component to map the objects in the array listIncomes and listCosts
 //Sum component that calculates the incomes-costs to see what we have left - if <0 show "No money to spend!" with blinking animation?
 //HOW TO SHAKE PHONE TO RESET ALL?
 
 const App = () => {
+  const screenWidth = Dimensions.get('window').width;
+
   const [categoryIncome, setCategoryIncome] = useState();
   const [categoryCost, setCategoryCost] = useState('');
   const [income, setIncome] = useState('0');
@@ -34,41 +35,53 @@ const App = () => {
   const addedCosts = { category: categoryCost, cost: cost };
 
   // FUNCTIONS FOR ADDING INCOMES AND COSTS
-  //Using concat() bc map() won't work otherwise..?
   const handleAddIncome = () => {
-    // setListIncomes({ listIncomes: [...listIncomes, addedIncomes] });
-    setListIncomes(listIncomes => listIncomes.concat(addedIncomes));
+    setListIncomes([...listIncomes, addedIncomes]);
   };
+  console.log(listIncomes);
   const handleAddCost = () => {
-    //setListCosts(listCosts => [...listCosts, addedCosts]);
-    setListCosts(listCosts => listCosts.concat(addedCosts));
+    setListCosts([...listCosts, addedCosts]);
   };
 
-  //FUNCTIONS TO CALCULATE INCOMES-COSTS - DO THIS MORE REACTY?
+  //FUNCTIONS TO CALCULATE INCOMES-COSTS
   const incomesTotal = listIncomes.reduce(
-    (totalIncome, item) => totalIncome + parseInt(item.income, 10),
+    (totalIncome, item) => totalIncome + parseInt(item.income),
     0
   );
 
-  //EXPLAIN REDUCE - WHY THE 10 AFTER item.cost?
   const costsTotal = listCosts.reduce(
-    (totalCost, item) => totalCost + parseInt(item.cost, 10),
+    (totalCost, item) => totalCost + parseInt(item.cost),
     0
   );
 
   const leftToSpend =
     incomesTotal || costsTotal ? incomesTotal - costsTotal : null;
 
+  //PROGRESS BAR DATA
+  // const chartData = leftToSpend / incomesTotal;
+
+  // const data = {
+  //   data: [chartData],
+  // };
+
+  const chartConfig = {
+    backgroundGradientFrom: '#1E2923',
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: '#08130D',
+    backgroundGradientToOpacity: 0.5,
+    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5,
+  };
+
   return (
-    <View style={styles.container}>
+    <Container>
       <StatusBar hidden backgroundColor="palevioletred" />
       <Text style={styles.textHeading}>CHECK YOUR BUDGET!</Text>
 
-      {/* ADD INCOMES
-      HOW TO HIDE THE NUMBERPAD AFTER INPUT, CAN'T SCROLL TO NEXT? NOT WORKING IN iOS 
-      clearTextOnFocus NOT WORKING ON ANDROID - ANYTHING ELSE TO USE?*/}
+      {/* ADD INCOMES - HOW TO HIDE THE NUMBERPAD AFTER INPUT, CAN'T SCROLL TO            NEXT? NOT WORKING IN iOS */}
       <View style={styles.viewSection}>
-        <Text style={styles.text}>Where did you get the money?</Text>
+        <Text>Where did you get the money?</Text>
         <Picker
           style={styles.picker}
           selectedValue={categoryIncome}
@@ -80,7 +93,7 @@ const App = () => {
           <Picker.Item label="Other" value="Other" />
         </Picker>
 
-        <Text style={styles.text}>How much?</Text>
+        <Text>How much?</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={text => setIncome(text)}
@@ -98,7 +111,7 @@ const App = () => {
 
       {/* ADD COSTS */}
       <View style={styles.viewSection}>
-        <Text style={styles.text}>What do you spend money on?</Text>
+        <Text>What do you spend money on?</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={text => setCategoryCost(text)}
@@ -108,7 +121,7 @@ const App = () => {
           autoCapitalize
         />
 
-        <Text style={styles.text}>How much?</Text>
+        <Text>How much?</Text>
         <TextInput
           style={styles.textInput}
           onChangeText={text => setCost(text)}
@@ -130,14 +143,10 @@ const App = () => {
         )}
 
         {listIncomes.map((items, index) => (
-          <Text style={styles.textSummaryIncome} key={index}>
-            <View>
-              <Text>{items.category}</Text>
-            </View>
-            <View>
-              <Text> {items.income} SEK</Text>
-            </View>
-          </Text>
+          <View style={styles.textSummaryIncome} key={index}>
+            <Text>{items.category}</Text>
+            <Text> {items.income} SEK</Text>
+          </View>
         ))}
 
         {listCosts.map((items, index) => (
@@ -151,19 +160,42 @@ const App = () => {
           <Text style={styles.textTotal}>Left to spend: {leftToSpend} SEK</Text>
         )}
       </View>
-    </View>
+
+      {/*<ProgressChart
+        data="{data}"
+        width="{screenWidth}"
+        height="{220}"
+        chartConfig="{chartConfig}"
+        hideLegend="{true}"
+      />*/}
+    </Container>
   );
 };
 
-// STYLING COMPONENTS
+// STYLED-COMPONENTS
+
+const Container = styled.View`
+  flex: 1;
+  background-color: papayawhip;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+`
+
+const Text = styled.Text`
+  font-size: 24px;
+  color: palevioletred;
+  margin-bottom: 5;
+`
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'papayawhip',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    padding: 10,
-  },
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: 'papayawhip',
+  //   justifyContent: 'center',
+  //   alignItems: 'flex-start',
+  //   padding: 10,
+  // },
 
   viewSection: {
     justifyContent: 'center',
@@ -177,12 +209,6 @@ const styles = StyleSheet.create({
     color: '#393D3F',
     marginTop: 10,
     marginBottom: 30,
-  },
-
-  text: {
-    fontSize: 20,
-    color: 'palevioletred',
-    marginBottom: 5,
   },
 
   textBalance: {
@@ -225,12 +251,14 @@ const styles = StyleSheet.create({
   },
 
   viewSummary: {
+    backgroundColor: 'white',
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'flex-start',
   },
 
   textSummaryIncome: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     fontSize: 18,
@@ -252,17 +280,5 @@ const styles = StyleSheet.create({
     color: 'palevioletred',
   },
 });
-
-// const Container = styled.View`
-//   flex: 1;
-//   background-color: papayawhip;
-//   justify-content: center;
-//   align-items: center;
-// `
-
-// const Title = styled.Text`
-//   font-size: 24px;
-//   color: palevioletred;
-// `
 
 export default App;
