@@ -1,37 +1,40 @@
-import React from "react"
+import React from 'react'
 import styled from "styled-components/native"
+import Header from './Components/Header'
+import Counter from './Components/Counter'
 // import { Button } from './Components/Button'
 
 
 export const App = () => {
+
+  console.log('Deubuggiiiing!?')
+
   return (
     < Container >
-      <Button title="KLICKA" />
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
+      <Header title="Hello" />
+      <Counter />
+      <Title>This is my cool app!</Title>
       <Title>💅💅💅</Title>
+      <Header title="Bye bye" />
     </Container >
   )
 }
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
+  background-color: powderblue;
   align-items: center;
+  justify-content: space-around;
+  paddingTop: 60;
 `
 
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 42px;
   color: palevioletred;
 `
 
-const Button = styled.Button`
-background-color: palevioletred;
-color: white;
-padding: 8px 16px;
-margin: 12px;
-border-radius: 8px;
+const Push = styled.Button`
+color: palevioletred;
 font-size: 32px;
 `
 
