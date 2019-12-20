@@ -12,12 +12,21 @@ const styles = StyleSheet.create({
     container: {
         height: 80,
         width: "100%",
-        backgroundColor: "white",
-        justifyContent: "center",
+        backgroundColor: "peachpuff",
+        // justifyContent: "center",
+        // marginVertical: 5,
+        marginTop: 20,
     },
     title: {
-        fontSize: 15,
-        marginLeft: 20,
+        fontSize: 20,
+        marginTop: 25,
         fontWeight: "bold",
+        justifyContent: "center",
+        textAlign: "center"
     },
+    baseText: {
+        fontFamily: 'ComicSans'
+
+    },
+
 })

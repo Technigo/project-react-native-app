@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components"
-import { Image, View, Text, ScrollView } from 'react-native';
+import styled from "styled-components/native"
+import { Image, View, Text, ScrollView, TouchableOpacity, } from 'react-native';
 import Header from "./components/Header"
 
-
-// import { ButtonCss } from "./components/ButtonCss"
-// import { Button } from "./components/Button"
-
 const apiKey = `563492ad6f917000010000016674d16c530e444482c459f1837b2a47`
-const url = "https://api.pexels.com/v1/search?query=example+health&per_page=15&page=1"
+const url = "https://api.pexels.com/v1/search?query=example+food&per_page=15&page=1"
 const App = () => {
 
   const [photos, setPhotos] = useState([])
+  // const [photographer, setPhotographer] = useState([])
   useEffect(() => {
     fetch(url, { headers: { Authorization: apiKey } })
       .then(res => res.json())
@@ -21,48 +18,46 @@ const App = () => {
       })
   }, [])
 
+  const onPress = () => {
+    (photo.id)
+  }
 
   return (
     <Container><ScrollView>
-      <Header title='The most popular photos' />
+      <Header title='The best food photos' />
       {photos.map((photo) => (
-        <View key={photo.id}>
-          <Text>Photographer: {photo.photographer}</Text>
-          <Image
-            source={{ uri: photo.src.original }}
-            style={{ width: 300, height: 300 }} />
+        <View key={photo}>
+          <Button onPress={() => onPress(photo.photographer)}>
+            <Image
+              source={{ uri: photo.src.original }}
+              style={{ width: 400, height: 300, marginVertical: 10, }} />
+          </Button>
+          < Text style={{ color: 'peachpuff', }}>Photographer: {photo.photographer}</Text>
         </View>
-      ))}
-    </ScrollView></Container>
+      ))
+      }
+    </ScrollView ></Container >
   )
 }
 export default App
 
+const Button = styled.TouchableOpacity`
+  width: 400;
+  height: 300;
+  background-color: black;
+  margin-bottom: 20;
+  border-radius: 5;
+
+`
 const Container = styled.View`
-  paddingHorizontal: 60;
+  flex: 1;
+  paddingHorizontal: 20;
   paddingVertical: 20;
   flexWrap: wrap;
-  flexDirection: row;
-  background-color: peachpuff;
+  background-color: black;
   justifyContent: space-between;
   alignContent: center;
 `
 
-// export default class App extends Component {
-//   imagePressed() {
-//     Alert.alert('image pressed the photo')
-//   }
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <TouchableOpacity onPress={() => imagePressed()}>
-//           <Image
-//             style={{ height: 200, width: 200 }}
-//             source={require({ uri: photo.src.photographer })}
-//           />
-//         </TouchableOpacity>
-//       </View>
-//     );
-//   }
-// }
+
 
