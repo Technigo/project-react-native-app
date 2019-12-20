@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components/native"
+import NewPage from "NewPage.js"
 
 const App = () => {
   return (
@@ -7,6 +8,7 @@ const App = () => {
       <Title>This is your cool app!</Title>
       <Title>Go to App.js and start coding</Title>
       <Title>💅💅💅</Title>
+      <NewPage />
     </Container>
   )
 }
