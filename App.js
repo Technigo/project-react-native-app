@@ -132,7 +132,7 @@ const App = () => {
             <TextSummary>LEFT TO SPEND: {leftToSpend} SEK</TextSummary>
           )}
           <StyledButton onPress={clearInput}>
-            <Text>TRY AGAIN?</Text>
+            <Text>✌️ TRY AGAIN? ✌️</Text>
           </StyledButton>
         </ViewSummary>
       )}
