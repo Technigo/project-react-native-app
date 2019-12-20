@@ -1,13 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { StatusBar, Vibration } from 'react-native';
 import { StyledButton } from './components/Button';
 import { TextInput } from './components/TextInput';
-import { StatusBar, Dimensions } from 'react-native';
-import { ProgressChart } from 'react-native-chart-kit';
-
-//Sum component that calculates the incomes-costs to see what we have left - if <0 show "No money to spend!" with blinking animation?
-//HOW TO SHAKE PHONE TO RESET ALL?
 
 const App = () => {
   const [categoryIncome, setCategoryIncome] = useState();
@@ -44,26 +40,24 @@ const App = () => {
   const leftToSpend =
     incomesTotal || costsTotal ? incomesTotal - costsTotal : null;
 
-  //PROGRESS BAR DATA
-  // const screenWidth = Dimensions.get('window').width;
-
-  // const chartData = leftToSpend / incomesTotal;
-  // console.log('chartData', chartData);
-
-  // const chartConfig = {
-  //   backgroundGradientFromOpacity: 0,
-  //   backgroundGradientToOpacity: 0,
-  //   color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-  //   strokeWidth: 3,
-  //   barPercentage: 1,
-  // };
+  const vibeDuration = 600;
+  const scroll = React.createRef();
+  const clearInput = () => {
+    setCategoryIncome('');
+    setCategoryCost('');
+    setIncome('0');
+    setCost('0');
+    setListIncomes([]);
+    setListCosts([]);
+    scroll.current.scrollTo(0);
+    Vibration.vibrate(vibeDuration);
+  };
 
   return (
-    <Container>
-      <StatusBar hidden backgroundColor="palevioletred" />
+    <Container ref={scroll}>
+      <StatusBar hidden />
       <TextHeading>SILLY BUDGET APP</TextHeading>
 
-      {/* ADD INCOMES - HOW TO HIDE THE NUMBERPAD AFTER INPUT, CAN'T SCROLL TO            NEXT? NOT WORKING IN iOS */}
       <StyledView>
         <Text>Where did you get the money?</Text>
         <Picker
@@ -86,10 +80,11 @@ const App = () => {
           clearTextOnFocus
         />
 
-        <StyledButton onPress={handleAddIncome}>💰 ADD INCOME 💰</StyledButton>
+        <StyledButton onPress={handleAddIncome}>
+          <Text>💰 ADD INCOME 💰</Text>
+        </StyledButton>
       </StyledView>
 
-      {/* ADD COSTS */}
       <StyledView>
         <Text>What do you spend money on?</Text>
         <TextInput
@@ -109,13 +104,14 @@ const App = () => {
           clearTextOnFocus
         />
 
-        <StyledButton onPress={handleAddCost}>💸 ADD COST 💸</StyledButton>
+        <StyledButton onPress={handleAddCost}>
+          <Text>💸 ADD COST 💸</Text>
+        </StyledButton>
       </StyledView>
 
-      {/* SUMMARY - WHY ISN'T SPACE-BETWEEN WORKING BETWEEN category & income?*/}
       {(listIncomes.length > 0 || listCosts.length > 0) && (
         <ViewSummary>
-          <TextSummary>Your balance:</TextSummary>
+          <TextSummary>YOUR BALANCE:</TextSummary>
 
           {listIncomes.map((items, index) => (
             <ViewBalance key={index}>
@@ -132,8 +128,11 @@ const App = () => {
           ))}
 
           {(listIncomes.length > 0 || listCosts.length > 0) && (
-            <TextSummary>Left to spend: {leftToSpend} SEK</TextSummary>
+            <TextSummary>LEFT TO SPEND: {leftToSpend} SEK</TextSummary>
           )}
+          <StyledButton onPress={clearInput}>
+            <Text>TRY AGAIN?</Text>
+          </StyledButton>
         </ViewSummary>
       )}
     </Container>
@@ -141,14 +140,14 @@ const App = () => {
 };
 
 // STYLED-COMPONENTS
-const Container = styled.View`
+const Container = styled.ScrollView`
   font-family: Calibri;
   flex-grow: 1;
   background-color: #232A2A;
-  padding: 0px;
+  margin: 0;
 `;
 const StyledView = styled.View`
-  margin-bottom: 20px;
+  margin: 15px 0;
   padding: 15px;
 `;
 const Text = styled.Text`
@@ -162,14 +161,13 @@ const TextHeading = styled.Text`
   font-size: 24px;
   font-weight: bold;
   color: #393D3F;
-  padding: 20px 15px;
+  padding: 30px 15px;
   text-align: center;
 `;
 const Picker = styled.Picker`
   minHeight: 40px;
   background-color: #fff;
   margin-bottom: 5px;
-  border-radius: 20px;
   padding: 10px;
 `;
 const ViewSummary = styled.View`
@@ -189,10 +187,12 @@ const TextSumCosts = styled.Text`
   font-size: 20px;
   color: #B83E22;
 `;
-const TextSummary = styled(Text)`
-  margin-top: 10px;
+const TextSummary = styled.Text`
+  margin: 10px 0;
   color: #232A2A;
+  font-size: 20px;
   font-weight: bold;
+  text-align: center;
 `;
 
 export default App;
