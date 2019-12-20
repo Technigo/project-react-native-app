@@ -19,34 +19,41 @@ const App = () => {
       })
   }, [])
 
-// export default class App {
-//   imagePressed(){
-//     Alert.alert('image pressed the car')
-//   }
-//   render() {  
+  // const onPress = (photo) => {
+  //   console.log('click click', photo.id)
+  // }
+  
   return(
       <Container><ScrollView>
          <Header title='Time to get CrossFit inspired' />
         {photos.map((photo) => (
           <View key={photo.id}>
-           {/* <TouchableOpacity onPress={()=>this.imagePressed()}> */}
-            <Text
-              style={{color:'white', }}>
-                Photo: {photo.photographer}</Text>
             <Image
             source={{uri: photo.src.original}}
             style={{width:300, height:300, marginVertical: 30, }}
              />
-             {/* </TouchableOpacity> */}
+             <Button onPress={photo.photographer_url} >
+                <Text
+                style={{color:'white', }}>
+                  Photo: {photo.photographer}</Text>
+                </Button>
         </View>
-         
       ))}   
       </ScrollView></Container>
-  );   
+  )  
 }
 
 
 export default App
+
+const Button = styled.TouchableOpacity`
+  width: 150;
+  height: 30;
+  background-color: black;
+  margin-bottom: 20;
+  border-radius: 5;
+
+` 
 
 const Container = styled.View`
     
