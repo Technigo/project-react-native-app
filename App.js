@@ -61,7 +61,7 @@ const App = () => {
   return (
     <Container>
       <StatusBar hidden backgroundColor="palevioletred" />
-      <TextHeading>SUCK AT BUDGETING?</TextHeading>
+      <TextHeading>SILLY BUDGET APP</TextHeading>
 
       {/* ADD INCOMES - HOW TO HIDE THE NUMBERPAD AFTER INPUT, CAN'T SCROLL TO            NEXT? NOT WORKING IN iOS */}
       <StyledView>
@@ -115,7 +115,7 @@ const App = () => {
       {/* SUMMARY - WHY ISN'T SPACE-BETWEEN WORKING BETWEEN category & income?*/}
       {(listIncomes.length > 0 || listCosts.length > 0) && (
         <ViewSummary>
-          <Text>Your balance:</Text>
+          <TextSummary>Your balance:</TextSummary>
 
           {listIncomes.map((items, index) => (
             <ViewBalance key={index}>
@@ -142,8 +142,9 @@ const App = () => {
 
 // STYLED-COMPONENTS
 const Container = styled.View`
+  font-family: Calibri;
   flex-grow: 1;
-  background-color: papayawhip;
+  background-color: #232A2A;
   padding: 0px;
 `;
 const StyledView = styled.View`
@@ -151,42 +152,47 @@ const StyledView = styled.View`
   padding: 15px;
 `;
 const Text = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  font-size: 20px;
+  color: #fff;
   margin-bottom: 5;
+  text-align: center;
 `;
 const TextHeading = styled.Text`
+  background-color: #FFA69E;
   font-size: 24px;
   font-weight: bold;
   color: #393D3F;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  padding: 20px 15px;
   text-align: center;
 `;
 const Picker = styled.Picker`
   minHeight: 40px;
   background-color: #fff;
   margin-bottom: 5px;
+  border-radius: 20px;
+  padding: 10px;
 `;
 const ViewSummary = styled.View`
-  background-color: #D1E1DC;
+  background-color: #CED2D2;
   padding: 15px;
 `;
 const ViewBalance = styled.View`
   flex-direction: row;
   justify-content: space-between;
   font-size: 18px;
-  color: #798B00;
 `;
 const TextSumIncomes = styled.Text`
-  color: #798B00;
+  font-size: 20px;
+  color: #647200;
 `;
 const TextSumCosts = styled.Text`
-  color: #FC542E;
+  font-size: 20px;
+  color: #B83E22;
 `;
 const TextSummary = styled(Text)`
-  border-top: 2px solid palevioletred;
   margin-top: 10px;
+  color: #232A2A;
+  font-weight: bold;
 `;
 
 export default App;
