@@ -40,6 +40,7 @@ const App = () => {
   const leftToSpend =
     incomesTotal || costsTotal ? incomesTotal - costsTotal : null;
 
+  //FUNCTION TO CLEAR ALL INPUTS
   const vibeDuration = 600;
   const scroll = React.createRef();
   const clearInput = () => {
