@@ -12,11 +12,15 @@ const styles = StyleSheet.create({
     container: {
         height: 50,
         width: "100%",
-        backgroundColor: "grey",
-        justifyContent: "center",    
+        backgroundColor: "black",
+        justifyContent: "center", 
+        fontSize:64,
+        fontWeight: "100", 
     },
     
     title: {
-        fontSize: 30
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "white",
     }
 })

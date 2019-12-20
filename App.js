@@ -2,7 +2,7 @@ import React, { useEffect, useState, Component } from "react";
 import Header from "./components/Header"
 // import Button from "./components/Button"
 import styled from "styled-components"
-import { Image, View, Text, ScrollView } from 'react-native';
+import { Image, Alert, View, TouchableOpacity, Text, Title, ScrollView } from 'react-native';
 
 
 const apiKey = `563492ad6f917000010000016674d16c530e444482c459f1837b2a47`
@@ -18,34 +18,49 @@ const App = () => {
         console.log(json)
       })
   }, [])
-     
+
+// export default class App {
+//   imagePressed(){
+//     Alert.alert('image pressed the car')
+//   }
+//   render() {  
   return(
       <Container><ScrollView>
          <Header title='Time to get CrossFit inspired' />
-         {/* <Button /> */}
         {photos.map((photo) => (
           <View key={photo.id}>
-           
-            <Text>Photo: {photo.photographer}</Text>
+           {/* <TouchableOpacity onPress={()=>this.imagePressed()}> */}
+            <Text
+              style={{color:'white', }}>
+                Photo: {photo.photographer}</Text>
             <Image
-            source={{uri: photo.src.small}}
-            style={{width:130, height: 130}}
+            source={{uri: photo.src.original}}
+            style={{width:300, height:300, marginVertical: 30, }}
              />
+             {/* </TouchableOpacity> */}
         </View>
          
       ))}   
       </ScrollView></Container>
-  )   
+  );   
 }
 
 
+export default App
 
-const Container = styled.SafeAreaView`
-  flex: 1;  
-  background-color: grey; 
-  align-items: center; 
-  justify-content: space-between;
+const Container = styled.View`
+    
+  background-color: black; 
+  justify-content: space-between; 
+  align-items: center;
+  paddingHorizontal: 80;
+  paddingVertical: 20;
+  flexWrap: wrap;
+  flexDirection: row;
+  
 `
 
+ 
 
-export default App
+
+
