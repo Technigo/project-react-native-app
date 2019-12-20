@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-export const Header = props => {
+export const Header = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{props.title}</Text>
+      <Text style={styles.title}>TRENDING IMAGES FROM PEXELS</Text>
     </View>
   );
 };
@@ -12,15 +12,16 @@ export const Header = props => {
 const styles = StyleSheet.create({
   container: {
     height: 80,
-    backgroundColor: 'blue',
+    backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 600,
-    marginBottom: 400
+    width: 400,
+    marginBottom: 10,
+    marginTop: 10
   },
   title: {
     color: 'white',
-    fontSize: 30
+    fontSize: 20
   }
 });
 

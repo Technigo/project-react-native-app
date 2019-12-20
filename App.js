@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { ActivityIndicator, Image, View, Text } from 'react-native';
-import { Movie } from './components/Movie';
+import { ScrollView, Share, View, Text } from 'react-native';
+import { Header } from './components/Header';
 
 const Container = styled.View`
+  flex: 1;
   background-color: black;
   align-items: center;
   justify-content: center;
+`;
+
+const Image = styled.Image`
+  width: 300px;
+  height: 300px;
+  margin-top: 20px;
 `;
 
 const Button = styled.TouchableOpacity`
@@ -15,11 +22,12 @@ const Button = styled.TouchableOpacity`
   bottom: 40;
   padding: 10px 20px;
   border-radius: 20px;
+  color: black;
+  margin-left: 20px;
 `;
 
-const View = styled.Text`
+const PhotoText = styled(Text)`
   color: white;
-  font-size: 18;
 `;
 
 const apiKey = `563492ad6f917000010000017bc0c5e618504697b6e8169eb6815175`;
@@ -27,7 +35,6 @@ const url = 'https://api.pexels.com/v1/curated?per_page=15&page=1';
 
 export const App = () => {
   const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(url, { headers: { Authorization: apiKey } })
@@ -38,17 +45,42 @@ export const App = () => {
       });
   }, []);
 
+  onShare = async () => {
+    const result = await Share.share({
+      message: 'Hey! Look at this beautiful photo from Pexels',
+      url: photos[0].src.original,
+      title: 'Wow, did you see that?'
+    });
+
+    if (result.action === Share.sharedAction) {
+      if (result.activityType) {
+        // shared with activity type of result.activityType
+        alert('You shared an image');
+      } else {
+        // shared
+      }
+    } else if (result.action === Share.dismissedAction) {
+      // dismissed
+      alert('dismissed');
+    }
+  };
+
   return (
     <Container>
-      {photos.map(photo => (
-        <View key={photo.id}>
-          <Image
-            source={{ uri: photo.src.small }}
-            style={{ width: 300, height: 300 }}
-          />
-          <Text>{photo.photographer}</Text>
-        </View>
-      ))}
+      <Header />
+      <ScrollView>
+        {photos.map(photo => (
+          <View key={photo.id}>
+            <Image source={{ uri: photo.src.original }} />
+            <PhotoText>Photographer: {photo.photographer}</PhotoText>
+            <View>
+              <Button onPress={onShare} title="Share">
+                <Text>Share</Text>
+              </Button>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
     </Container>
   );
 };
