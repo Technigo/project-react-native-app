@@ -13,6 +13,9 @@ const App = () => {
     cost: '',
   });
 
+  //SET VIBE DURATION FOR BUTTONS
+  const vibeDuration = 300;
+
   //ARRAYS FOR INCOMES AND COSTS
   const [listIncomes, setListIncomes] = useState([]);
   const addedIncomes = {
@@ -29,10 +32,12 @@ const App = () => {
   // FUNCTIONS FOR ADDING INCOMES AND COSTS
   const handleAddIncome = () => {
     setListIncomes([...listIncomes, addedIncomes]);
+    Vibration.vibrate(vibeDuration);
   };
 
   const handleAddCost = () => {
     setListCosts([...listCosts, addedCosts]);
+    Vibration.vibrate(vibeDuration);
   };
 
   //FUNCTIONS TO CALCULATE INCOMES-COSTS
@@ -49,8 +54,7 @@ const App = () => {
   const leftToSpend =
     incomesTotal || costsTotal ? incomesTotal - costsTotal : null;
 
-  //FUNCTION TO CLEAR ALL INPUTS + VIBRATION =)
-  const vibeDuration = 600;
+  //FUNCTION TO CLEAR ALL INPUTS
   const scroll = React.createRef();
   const clearInput = () => {
     setFormValues({
@@ -90,6 +94,7 @@ const App = () => {
         <Text>How much?</Text>
         <TextInput
           onChangeText={text => setFormValues({ ...formValues, income: text })}
+          onFocus={text => setFormValues({ ...formValues, income: '' })}
           value={formValues.income}
           placeholder="0"
           allowFontScaling
@@ -109,6 +114,7 @@ const App = () => {
           onChangeText={text =>
             setFormValues({ ...formValues, categoryCost: text })
           }
+          onFocus={text => setFormValues({ ...formValues, categoryCost: '' })}
           value={formValues.categoryCost}
           placeholder="Food, car, diapers.."
           allowFontScaling
@@ -119,6 +125,7 @@ const App = () => {
         <Text>How much?</Text>
         <TextInput
           onChangeText={text => setFormValues({ ...formValues, cost: text })}
+          onFocus={text => setFormValues({ ...formValues, cost: '' })}
           value={formValues.cost}
           placeholder="0"
           keyboardType="numeric"
@@ -133,7 +140,7 @@ const App = () => {
 
       {(listIncomes.length > 0 || listCosts.length > 0) && (
         <ViewSummary>
-          <TextSummary>YOUR BALANCE:</TextSummary>
+          <TextSummary>YOUR BALANCE</TextSummary>
 
           {listIncomes.map((items, index) => (
             <ViewBalance key={index}>
@@ -150,7 +157,10 @@ const App = () => {
           ))}
 
           {(listIncomes.length > 0 || listCosts.length > 0) && (
-            <TextSummary>LEFT TO SPEND: {leftToSpend} SEK</TextSummary>
+            <ViewBalance>
+              <TextSummary>LEFT TO SPEND:</TextSummary>
+              <TextSummary>{leftToSpend} SEK</TextSummary>
+            </ViewBalance>
           )}
           <StyledButton onPress={clearInput}>
             <Text>✌️ TRY AGAIN? ✌️</Text>
@@ -165,7 +175,7 @@ const App = () => {
 const Container = styled.ScrollView`
   font-family: Calibri;
   flex-grow: 1;
-  background-color: #232A2A;
+  background: #222A2B;
   margin: 0;
 `;
 const StyledView = styled.View`
@@ -179,21 +189,23 @@ const Text = styled.Text`
   text-align: center;
 `;
 const TextHeading = styled.Text`
-  background-color: #FFA69E;
   font-size: 24px;
   font-weight: bold;
-  color: #393D3F;
-  padding: 30px 15px;
+  color: #FFF;
+  margin: 20px;
+  padding: 30px 15px 25px 15px;
   text-align: center;
+  background: transparent;
+  border: 7px solid #fff;
 `;
 const Picker = styled.Picker`
   minHeight: 40px;
-  background-color: #fff;
+  background: #fff;
   margin-bottom: 5px;
   padding: 10px;
 `;
 const ViewSummary = styled.View`
-  background-color: #CED2D2;
+  background: #CED2D2;
   padding: 15px;
 `;
 const ViewBalance = styled.View`
@@ -203,11 +215,13 @@ const ViewBalance = styled.View`
 `;
 const TextSumIncomes = styled.Text`
   font-size: 20px;
-  color: #647200;
+  font-weight: bold;
+  color: #2F4419;
 `;
 const TextSumCosts = styled.Text`
   font-size: 20px;
-  color: #B83E22;
+  font-weight: bold;
+  color: #3B0D11;
 `;
 const TextSummary = styled.Text`
   margin: 10px 0;

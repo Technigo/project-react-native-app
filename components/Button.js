@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.TouchableOpacity`
-  height: 40px;
-  padding: 5px;
+  height: 45px;
+  padding: 10px;
   margin-top: 8px;
   font-size: 20px;
-  background-color: #437064;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   color: #fff;
+  background: #964A07;
   border-radius: 20px;
 `;
