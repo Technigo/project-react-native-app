@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { ScrollView, Share, View, Text } from 'react-native';
+import {
+  ScrollView,
+  Share,
+  View,
+  Text,
+  Linking,
+  TouchableOpacity
+} from 'react-native';
 import { Header } from './components/Header';
 
 const Container = styled.View`
@@ -31,7 +38,7 @@ const PhotoText = styled(Text)`
 `;
 
 const apiKey = `563492ad6f917000010000017bc0c5e618504697b6e8169eb6815175`;
-const url = 'https://api.pexels.com/v1/curated?per_page=15&page=1';
+const url = `https://api.pexels.com/v1/curated?per_page=15&page=1`;
 
 export const App = () => {
   const [photos, setPhotos] = useState([]);
@@ -45,10 +52,15 @@ export const App = () => {
       });
   }, []);
 
-  onShare = async () => {
+  const getImageToShare = photoId => {
+    const photo = photos.find(p => p.id === photoId);
+    return photo.src.original;
+  };
+
+  const onShare = async photoId => {
     const result = await Share.share({
       message: 'Hey! Look at this beautiful photo from Pexels',
-      url: photos[0].src.original,
+      url: getImageToShare(photoId),
       title: 'Wow, did you see that?'
     });
 
@@ -65,16 +77,34 @@ export const App = () => {
     }
   };
 
+  //handlePressPhotoText = () => {};
+
+  const getPhotographer = photographerId => {
+    const photographId = photos.find(p => p.id === photographerId);
+    return Linking.openURL(photographId.photographer_url);
+  };
+
+  handlePressImage = imageId => {
+    const image = photos.find(p => p.id === imageId);
+    return Linking.openURL(image.src.original);
+  };
+
   return (
     <Container>
       <Header />
       <ScrollView>
         {photos.map(photo => (
           <View key={photo.id}>
-            <Image source={{ uri: photo.src.original }} />
-            <PhotoText>Photographer: {photo.photographer}</PhotoText>
+            <TouchableOpacity onPress={() => handlePressImage(photo.id)}>
+              <Image source={{ uri: photo.src.original }} />
+            </TouchableOpacity>
+
+            <PhotoText onPress={() => getPhotographer(photo.id)}>
+              Photographer: {photo.photographer}
+            </PhotoText>
+
             <View>
-              <Button onPress={onShare} title="Share">
+              <Button onPress={() => onShare(photo.id)} title="Share">
                 <Text>Share</Text>
               </Button>
             </View>
