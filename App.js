@@ -10,7 +10,7 @@ const api_key = "363444609247127238629594b245e069"
 
 const Container = styled.View`
 flex:1;
-background-color: black;
+background-color: white;
 align-items: center;
 justify-content: center;
 `
@@ -59,11 +59,11 @@ export default function App() {
 
   return (
     <Container>
+
       {loading
         ? <ActivityIndicator size="large" color="#fff" />
         : <Movie movie={movie} />
       }
-
       <Button onPress={fetchMovieData}>
         <ButtonText>Fetch new movie</ButtonText>
       </Button>

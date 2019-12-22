@@ -1,15 +1,21 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components/native"
+import Animation from "./Animation"
 
-const Container = styled.SafeAreaView`
-flex: 1;
+const Container = styled.View`
+flex: 0.6;
 width: 100%;
 height: 100%;
 align-items: center;
 `
+const Button = styled.TouchableOpacity`
+margin: 10px;
+background-color: ${props => props.red ? "red" : "yellow"};
+font-size: 30;
+`
+
 const Text = styled.Text`
-top: 900;
-color: #fff;
+color: #000;
 font-size: 30;
 `
 const Image = styled.ImageBackground`
@@ -18,9 +24,9 @@ height: 100%;
 `
 
 export const Movie = ({ movie }) => (
-  <Container>
-    <Text>{movie.title}</Text>
-    <Image resizeMode="contain" source={{ uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}` }} />
 
+  <Container>
+    <Animation />
+    <Image resizeMode="contain" source={{ uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}` }} />
   </Container>
 )
