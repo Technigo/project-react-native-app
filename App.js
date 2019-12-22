@@ -6,22 +6,31 @@ import { StyledButton } from './components/Button';
 import { TextInput } from './components/TextInput';
 
 const App = () => {
-  const [categoryIncome, setCategoryIncome] = useState();
-  const [categoryCost, setCategoryCost] = useState('');
-  const [income, setIncome] = useState('0');
-  const [cost, setCost] = useState('0');
+  const [formValues, setFormValues] = useState({
+    categoryIncome: '',
+    categoryCost: '',
+    income: '',
+    cost: '',
+  });
 
+  //ARRAYS FOR INCOMES AND COSTS
   const [listIncomes, setListIncomes] = useState([]);
-  const addedIncomes = { category: categoryIncome, income: income };
+  const addedIncomes = {
+    category: formValues.categoryIncome,
+    income: formValues.income,
+  };
 
   const [listCosts, setListCosts] = useState([]);
-  const addedCosts = { category: categoryCost, cost: cost };
+  const addedCosts = {
+    category: formValues.categoryCost,
+    cost: formValues.cost,
+  };
 
   // FUNCTIONS FOR ADDING INCOMES AND COSTS
   const handleAddIncome = () => {
     setListIncomes([...listIncomes, addedIncomes]);
   };
-  console.log(listIncomes);
+
   const handleAddCost = () => {
     setListCosts([...listCosts, addedCosts]);
   };
@@ -40,14 +49,16 @@ const App = () => {
   const leftToSpend =
     incomesTotal || costsTotal ? incomesTotal - costsTotal : null;
 
-  //FUNCTION TO CLEAR ALL INPUTS
+  //FUNCTION TO CLEAR ALL INPUTS + VIBRATION =)
   const vibeDuration = 600;
   const scroll = React.createRef();
   const clearInput = () => {
-    setCategoryIncome('');
-    setCategoryCost('');
-    setIncome('0');
-    setCost('0');
+    setFormValues({
+      categoryIncome: '',
+      categoryCost: '',
+      income: '',
+      cost: '',
+    });
     setListIncomes([]);
     setListCosts([]);
     scroll.current.scrollTo(0);
@@ -62,8 +73,13 @@ const App = () => {
       <StyledView>
         <Text>Where did you get the money?</Text>
         <Picker
-          selectedValue={categoryIncome}
-          onValueChange={value => setCategoryIncome(value)}>
+          selectedValue={formValues.categoryIncome}
+          onValueChange={value =>
+            setFormValues({
+              ...formValues,
+              categoryIncome: value,
+            })
+          }>
           <Picker.Item label="Pick a category" value="-" />
           <Picker.Item label="Salary" value="Salary" />
           <Picker.Item label="Stole it" value="Stolen money" />
@@ -73,8 +89,9 @@ const App = () => {
 
         <Text>How much?</Text>
         <TextInput
-          onChangeText={text => setIncome(text)}
-          value={income}
+          onChangeText={text => setFormValues({ ...formValues, income: text })}
+          value={formValues.income}
+          placeholder="0"
           allowFontScaling
           keyboardType="numeric"
           autoCapitalize
@@ -89,8 +106,11 @@ const App = () => {
       <StyledView>
         <Text>What do you spend money on?</Text>
         <TextInput
-          onChangeText={text => setCategoryCost(text)}
-          value={categoryCost}
+          onChangeText={text =>
+            setFormValues({ ...formValues, categoryCost: text })
+          }
+          value={formValues.categoryCost}
+          placeholder="Food, car, diapers.."
           allowFontScaling
           clearTextOnFocus
           autoCapitalize
@@ -98,8 +118,9 @@ const App = () => {
 
         <Text>How much?</Text>
         <TextInput
-          onChangeText={text => setCost(text)}
-          value={cost}
+          onChangeText={text => setFormValues({ ...formValues, cost: text })}
+          value={formValues.cost}
+          placeholder="0"
           keyboardType="numeric"
           allowFontScaling
           clearTextOnFocus
