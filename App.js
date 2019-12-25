@@ -8,18 +8,21 @@ const TOP_MOVIE_ID = 656516
 const Container = styled.View`
   flex: 1;
   background-color: black;
-  align-items: center;
-  justify-content: center;
+  align-items:center;
+
 `
 const Button = styled.TouchableOpacity`
-background:green;
-position:absolute;
-bottom:40;
-padding:10px 20px;
-border-radius:20px;
+  background:gray;
+  position:absolute;
+  bottom:70;
+  margin:20px;
+  padding:10px 20px;
+  border-radius:30px;
+  width:50%;
 `
 const ButtonText = styled.Text`
   color:white;
+  font-weight:bold;
   font-size:18;
 `
 
@@ -36,6 +39,7 @@ const fetchRandomMovie = async () => {
 }
 
 const App = () => {
+
   const [movie, setMovie] = useState()
   const [loading, setLoading] = useState(true)
 
@@ -55,11 +59,10 @@ const App = () => {
   return (
     <Container>
       {loading
-        ? <ActivityIndicator size="large" color="#ffffff" />
+        ? <ActivityIndicator size="large" color="white" />
         : <Movie movie={movie} />}
-
       <Button onPress={fetchMovieData}>
-        <ButtonText>Fetch new movie</ButtonText>
+        <ButtonText>Movie inspo 🎥</ButtonText>
       </Button>
     </Container>
   )
