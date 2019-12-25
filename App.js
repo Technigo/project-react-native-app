@@ -16,7 +16,7 @@ const App = () => {
 
 const Container = styled.View`
   flex-direction: ${props => (props.row ? "row" : "column")};
-  background-color: #fff;
+  background-color: #000;
   height: ${props => (props.full ? "100%" : "auto")};
   align-self: center;
   width: 100%;
