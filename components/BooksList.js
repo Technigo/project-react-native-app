@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
-import { Text, Button, ScrollView, Image } from "react-native";
+import { Text, Button, ScrollView, Image, View } from "react-native";
 
 export const BooksList = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     fetch(
-      "https://www.googleapis.com/books/v1/volumes?maxResults=40&q=sun&key=AIzaSyBDrU2j2bUKpCMfnXn6yYvADzhH0-84xQA"
+      "https://www.googleapis.com/books/v1/volumes?maxResults=40&q=tree&key=AIzaSyBDrU2j2bUKpCMfnXn6yYvADzhH0-84xQA"
     )
       .then(res => res.json())
       .then(json => {
@@ -18,14 +18,20 @@ export const BooksList = () => {
     <Container>
       {books.map(book => {
         return (
-          <Container key={book.id}>
-            <Image
-              source={{ uri: book.volumeInfo.imageLinks.thumbnail }}
-              style={{ width: 170, height: 250, marginVertical: 30 }}
-            ></Image>
-            <Title>{book.volumeInfo.title}</Title>
-            <Title>{book.volumeInfo.authors}</Title>
-            <Title>{book.volumeInfo.categories}</Title>
+          <Container key={book.id} >
+            <TextContainer >
+              <Image
+                source={{ uri: book.volumeInfo.imageLinks.thumbnail }}
+                style={{ width: 70, height: 100, marginVertical: 30 }}
+              ></Image>
+              <Container center paddingLeft widthSmaller>
+                <Title title marginBottom >
+                  "{book.volumeInfo.title}"
+                </Title>
+                <Title >{book.volumeInfo.authors}</Title>
+                <Title>{book.volumeInfo.categories}</Title>
+              </Container>
+            </TextContainer>
           </Container>
         );
       })}
@@ -37,17 +43,23 @@ const Container = styled.ScrollView`
   flex-direction: ${props => (props.row ? "row" : "column")};
   background-color: #000;
   height: ${props => (props.full ? "100%" : "auto")};
-  align-self: center;
+  align-self: ${props => (props.center ? "center" : "flex-start")};
+  padding-left: ${props => (props.paddingLeft ? 20 : 5)};
+  width: ${props => (props.widthSmaller ? "80%" : "100%")};
+`;
+
+
+
+const TextContainer = styled.View`
+  flex-direction: row;
 `;
 
 const Title = styled.Text`
-  font-size: 14px;
+  font-size: ${props => (props.title ? "15px" : "12px")};
   color: #fff;
-
-  width: 100%;
-  margin: 0 auto;
-
-  height: 20;
+  flex: 2;
+  
+  margin-bottom: ${props => (props.marginBottom ? 8 : 2)};
 `;
 
 export default BooksList;

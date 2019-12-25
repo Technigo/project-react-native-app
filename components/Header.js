@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
-import { StatusBar } from "react-native";
+import { StatusBar, Platform } from "react-native";
 
 export const Header = ({ title }) => {
   return (
@@ -11,6 +11,7 @@ export const Header = ({ title }) => {
   );
 };
 
+//Platform added for Andriod as it does not support SafeAreaView
 const Container = styled.SafeAreaView`
   flex-direction: ${props => (props.row ? "row" : "column")};
   background-color: #333333;
@@ -19,6 +20,7 @@ const Container = styled.SafeAreaView`
   width: 100%;
   align-self: center;
   margin-top: 0;
+  padding-top: ${Platform.OS === "android" ? 25 : 0};
 `;
 
 const Title = styled.Text`
