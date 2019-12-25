@@ -33,6 +33,13 @@ This week's project is a very free one. Your only restrictions are that it shoul
 3. Open up VS Code
 4. In the terminal, run `npm install` to install the dependencies needed
 5. Run the react native development server by running `npm start` or `expo start`
+   
+   FIX: Kör istället nedan
+   npm install --unsafe-perm -g expo-cli
+
+   Om det inte funkar, kör först nedan:
+   export PATH=$PATH:/mnt/c/Windows/System32
+
 6. Make sure that you have signed up to expo.io and downloaded the app to your phone.
 7. Scan the QR code to open upp the app on your phone. Make sure that your phone and your computer is connected to the same network.
 
