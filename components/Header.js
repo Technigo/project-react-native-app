@@ -16,7 +16,7 @@ const Container = styled.SafeAreaView`
   flex-direction: ${props => (props.row ? "row" : "column")};
   background-color: #333333;
   color: white;
-  height: 50;
+  height: 100;
   width: 100%;
   align-self: center;
   margin-top: 0;

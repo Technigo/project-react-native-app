@@ -28,8 +28,20 @@ export const App = () => {
 };
 
 const AppNavigator = createStackNavigator({
-  HomeScreen: { screen: HomeScreen },
-  MoreInfo: { screen: MoreInfo }
+  HomeScreen: {
+    screen: HomeScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  MoreInfo: {
+    screen: MoreInfo,
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: "#333333"
+      }
+    }
+  }
 });
 
 const AppContainer = createAppContainer(AppNavigator);
