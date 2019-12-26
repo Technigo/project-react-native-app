@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { View } from 'react-native'
+import LottieView from 'lottie-react-native'
 
 
 const App = () => {
@@ -61,11 +62,12 @@ const App = () => {
       <View>
         <Container>
         <Title>Welcome to Michels movie quiz</Title>
-        <Title>📽📽📽</Title>
+        <Title>🍿🍿🍿</Title>
         <Title>❓❓❓</Title>
         <Button>
           <ButtonText onPress={() => setQuestion('one')}>Start the quiz</ButtonText>
         </Button>
+        <LottieView source={require('./1879-movie-loading.json')} autoPlay loop style={{height: 100}}/>
         </Container>
       </View>
     )}
@@ -91,6 +93,7 @@ const App = () => {
           </Button>
         </View>
         )}
+        <Title></Title>
         <Title>{score} points</Title>
         </Container>
       </View>
@@ -117,6 +120,7 @@ const App = () => {
           </Button>
         </View>
         )}
+        <Title></Title>
         <Title>{score} points</Title>
         </Container>
       </View>
@@ -143,6 +147,7 @@ const App = () => {
           </Button>
         </View>
         )}
+        <Title></Title>
         <Title>{score} points</Title>
         </Container>
       </View>
@@ -169,6 +174,7 @@ const App = () => {
           </Button>
         </View>
         )}
+        <Title></Title>
         <Title>{score} points</Title>
         </Container>
       </View>
@@ -196,6 +202,7 @@ const App = () => {
           </Button>
         </View>
         )}
+        <Title></Title>
         <Title>{score} points</Title>
         </Container>
       </View>
@@ -257,8 +264,8 @@ const Title = styled.Text`
 `
 
 const Summary = styled(Title)`
-font-size: 16px;
-padding-bottom: 2px;
+  font-size: 16px;
+  padding-bottom: 2px;
 `
 
 const Button = styled.TouchableOpacity`
