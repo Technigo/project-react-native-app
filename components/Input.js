@@ -14,7 +14,7 @@ export const Input = ({ addText, searchText, setSearchText }) => {
         onChangeText={inputHandler}
         value={searchText}
       />
-      <ButtonSearch onPress={addText}>
+      <ButtonSearch onPress={addText} disabled={!searchText}>
         <Title>SEARCH</Title>
       </ButtonSearch>
     </Container>
