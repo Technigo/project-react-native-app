@@ -34,14 +34,14 @@ const InputField = styled.TextInput`
   background-color: white;
   border-width: 1px;
   width: 70%;
-  height: 30;
-  padding-left: 0;
+  height: 40;
+  padding-left: 5;
 `;
 
 const ButtonSearch = styled.TouchableOpacity`
   color: black;
   width: 30%;
-  height: 30;
+  height: 40;
   background-color: #00bfff;
 `;
 

@@ -2,17 +2,45 @@ import React from "react";
 import styled from "styled-components/native";
 import { Text, Button, View, Image } from "react-native";
 
-import { Header } from "./components/Header";
-import { BooksList } from "./components/BooksList";
+// import { Header } from "./components/Header";
+import HomeScreen from "./components/HomeScreen";
+import MoreInfo from "./components/MoreInfo";
 
-const App = () => {
+//////
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+
+// import HomeScreen from './components/HomeScreen';
+// import AboutScreen from './components/AboutScreen';
+
+// export default class App extends React.Component {
+//   render() {
+//     return <AppContainer />;
+//   }
+// }
+
+export const App = () => {
   return (
-    <Container>
-      <Header title="BOOKIFY" />
-      <BooksList />
-    </Container>
+    <AppContainer>
+      <Container></Container>
+    </AppContainer>
   );
 };
+
+const AppNavigator = createStackNavigator({
+  HomeScreen: { screen: HomeScreen },
+  MoreInfo: { screen: MoreInfo }
+});
+
+const AppContainer = createAppContainer(AppNavigator);
+///////
+// const App = () => {
+//   return (
+//     <Container>
+//       <HomeScreen />
+//     </Container>
+//   );
+// };
 
 const Container = styled.View`
   flex-direction: ${props => (props.row ? "row" : "column")};

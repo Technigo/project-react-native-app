@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
-import { ScrollView, Image, View, ActivityIndicator } from "react-native";
+import {
+  ScrollView,
+  Image,
+  View,
+  ActivityIndicator,
+  TouchableOpacity
+} from "react-native";
 
 import { Input } from "./Input";
+import { Header } from "./Header";
 
-export const BooksList = () => {
+export const HomeScreen = ({ navigation: { navigate } }) => {
   const [books, setBooks] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -33,6 +40,7 @@ export const BooksList = () => {
 
   return (
     <ContainerNoScroll>
+      <Header title="BOOKIFY" />
       <Input
         addText={addText}
         searchText={searchText}
@@ -49,7 +57,12 @@ export const BooksList = () => {
                 <TextContainer>
                   <Image
                     source={{ uri: book.volumeInfo.imageLinks.thumbnail }}
-                    style={{ width: 70, height: 100, marginVertical: 30 }}
+                    style={{
+                      width: 70,
+                      height: 100,
+                      marginVertical: 30,
+                      marginLeft: 5
+                    }}
                   ></Image>
                   <Container center paddingLeft widthSmaller>
                     <Title title marginBottom>
@@ -58,7 +71,9 @@ export const BooksList = () => {
                     <Title>{book.volumeInfo.authors}</Title>
                     <Title>{book.volumeInfo.categories}</Title>
                   </Container>
-                  <Icon source={require("../assets/arrow.png")} />
+                  <ButtonArrow onPress={() => navigate("MoreInfo")}>
+                    <Icon source={require("../assets/arrow.png")} />
+                  </ButtonArrow>
                 </TextContainer>
               </Container>
             );
@@ -91,6 +106,11 @@ const Icon = styled.Image`
   width: 40;
   height: 40;
   align-self: center;
+  padding-right: 5;
+`;
+
+const ButtonArrow = styled.TouchableOpacity`
+  align-self: center;
 `;
 
 const TextContainer = styled.View`
@@ -105,4 +125,4 @@ const Title = styled.Text`
   margin-bottom: ${props => (props.marginBottom ? 8 : 2)};
 `;
 
-export default BooksList;
+export default HomeScreen;
