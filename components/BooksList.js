@@ -58,6 +58,7 @@ export const BooksList = () => {
                     <Title>{book.volumeInfo.authors}</Title>
                     <Title>{book.volumeInfo.categories}</Title>
                   </Container>
+                  <Icon source={require("../assets/arrow.png")} />
                 </TextContainer>
               </Container>
             );
@@ -86,6 +87,12 @@ const ContainerNoScroll = styled.View`
   width: ${props => (props.widthSmaller ? "80%" : "100%")};
 `;
 
+const Icon = styled.Image`
+  width: 40;
+  height: 40;
+  align-self: center;
+`;
+
 const TextContainer = styled.View`
   flex-direction: row;
 `;
@@ -94,7 +101,6 @@ const Title = styled.Text`
   font-size: ${props => (props.title ? "15px" : "12px")};
   color: #fff;
   flex: 2;
-  background-color: red;
   margin-right: ${props => (props.marginRight ? 5 : 0)};
   margin-bottom: ${props => (props.marginBottom ? 8 : 2)};
 `;
