@@ -77,8 +77,6 @@ export const App = () => {
     }
   };
 
-  //handlePressPhotoText = () => {};
-
   const getPhotographer = photographerId => {
     const photographId = photos.find(p => p.id === photographerId);
     return Linking.openURL(photographId.photographer_url);
@@ -116,52 +114,3 @@ export const App = () => {
 };
 
 export default App;
-/*
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components/native';
-import Header from './components/Header';
-
-import { ActivityIndicator, Container } from 'react-native';
-import Movie from './components/Movie';
-
-const Button = styled.TouchableOpacity`
-  position: absolute;
-`;
-const ButtonText = styled.Text`
-  color: green;
-`;
-
-export const App = () => {
-  const [movies, setMovies] = useState([]);
-
-  const api_key = 'dcb0caab506cac37c3f7dc479ca8aee2';
-
-  useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(json => {
-        console.log(json);
-        setMovies(json.results);
-      }, []);
-
-    return (
-      <Container>
-        {movies.map(movie => (
-          <Text>{movie.title}</Text>
-        ))}
-      </Container>
-    );
-  });
-};
-
-export default App;
-
-/*
-<View>
-        {images.map(image => (
-          <View key={photo.id}>{image}</View>
-        ))}
-      </View>
-      */
