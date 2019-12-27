@@ -10,8 +10,9 @@ import {
 
 import { Input } from "./Input";
 import { Header } from "./Header";
+import { MoreInfo } from "./MoreInfo";
 
-export const HomeScreen = ({ navigation: { navigate } }) => {
+export const HomeScreen = ({ navigation: { navigate }, title }) => {
   const [books, setBooks] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -71,7 +72,17 @@ export const HomeScreen = ({ navigation: { navigate } }) => {
                     <Title>{book.volumeInfo.authors}</Title>
                     <Title>{book.volumeInfo.categories}</Title>
                   </Container>
-                  <ButtonArrow onPress={() => navigate("MoreInfo")}>
+                  <ButtonArrow
+                    onPress={() =>
+                      navigate("MoreInfo", {
+                        title: book.volumeInfo.title,
+                        authors: book.volumeInfo.authors,
+                        categories: book.volumeInfo.categories,
+                        image: { uri: book.volumeInfo.imageLinks.thumbnail },
+                        description: book.volumeInfo.description
+                      })
+                    }
+                  >
                     <Icon source={require("../assets/arrow.png")} />
                   </ButtonArrow>
                 </TextContainer>
