@@ -5,6 +5,7 @@ import { createStackNavigator } from "react-navigation-stack";
 
 import HomeScreen from "./components/HomeScreen";
 import MoreInfo from "./components/MoreInfo";
+import Order from "./components/Order";
 
 export const App = () => {
   return <AppContainer />;
@@ -21,6 +22,16 @@ const AppNavigator = createStackNavigator({
     screen: MoreInfo,
     navigationOptions: {
       title: "Details",
+      headerTintColor: "#00bfff",
+      headerStyle: {
+        backgroundColor: "#333333"
+      }
+    }
+  },
+  Order: {
+    screen: Order,
+    navigationOptions: {
+      title: "Order",
       headerTintColor: "#00bfff",
       headerStyle: {
         backgroundColor: "#333333"

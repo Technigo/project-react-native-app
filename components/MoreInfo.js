@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import { Text, Button, View, Image } from "react-native";
 // import { Press } from "./Press";
 
-export const MoreInfo = ({ navigation }) => {
+export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
   const title = navigation.getParam("title");
   const authors = navigation.getParam("authors");
   const categories = navigation.getParam("categories");
@@ -41,8 +41,8 @@ export const MoreInfo = ({ navigation }) => {
         </CTAButton>
       </ContainerNoScroll>
       <ContainerNoScroll marginBottom>
-        <Order>
-          <ButtonText white title marginBottom>
+        <Order onPress={() => navigate("Order")}>
+          <ButtonText title marginBottom>
             ORDER
           </ButtonText>
         </Order>
@@ -82,22 +82,23 @@ const Span = styled(Title)`
 `;
 
 const ButtonText = styled.Text`
-  color: ${props => (props.white ? "#fff" : "#000")};
+  color: #fff;
   margin: auto auto;
-  font-size: ${props => (props.title ? "20px" : "18px")};
+  font-size: ${props => (props.title ? "22px" : "17px")};
 `;
 
 const CTAButton = styled.TouchableOpacity`
   margin-top: 20;
   width: 40%;
   height: 30;
-  background-color: #ffc000;
+  background-color: #4267b2;
+  border-radius: 20;
 `;
 
 const Order = styled(CTAButton)`
   width: 90%;
   height: 40;
-  background-color: #ff4000;
+  background-color: #f56040;
 `;
 
 export default MoreInfo;
