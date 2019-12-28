@@ -9,6 +9,8 @@ const App = () => {
   const [score, setScore] = useState(0)
   const [buttonPressed, setButtonPressed] = useState(false)
   const [hide, setHide] = useState(false)
+  const [right, setRight] = useState(false)
+  const [wrong, setWrong] = useState(false)
 
   const nextQuestion = () => {
     if(question==='begin') {
@@ -17,36 +19,46 @@ const App = () => {
       setQuestion('two')
       setButtonPressed(false)
       setHide(false)
+      setRight(false)
+      setWrong(false)
     } else if(question==='two') {
       setQuestion('three')
       setButtonPressed(false)
       setHide(false)
+      setRight(false)
+      setWrong(false)
     } else if(question==='three') {
       setQuestion('four')
       setButtonPressed(false)
       setHide(false)
+      setRight(false)
+      setWrong(false)
     } else if(question==='four') {
       setQuestion('five')
       setButtonPressed(false)
       setHide(false)
+      setRight(false)
+      setWrong(false)
     } else if(question==='five') {
       setQuestion('summary')
       setHide(false)
+      setRight(false)
+      setWrong(false)
     }
   }
 
   const rightAnswer = () => {
-    alert('Correct answer! Please go to the next question')
     if(buttonPressed===false) {
       setScore(score+1)
       setHide(true)
+      setRight(true)
     }
     setButtonPressed(true)
   }
 
   const wrongAnswer = () => {
-    alert('Wrong answer! Please go to the next question')
     setHide(true)
+    setWrong(true)
   }
 
   const restartQuiz = () => {
@@ -93,6 +105,12 @@ const App = () => {
           </Button>
         </View>
         )}
+        {right && (
+          <TitleRight>Correct answer! Please go to the next question</TitleRight>
+        )}
+        {wrong && (
+          <TitleWrong>Wrong answer! Please go to the next question</TitleWrong>
+        )}
         <Title></Title>
         <Title>{score} points</Title>
         </Container>
@@ -119,6 +137,12 @@ const App = () => {
             <ButtonText onPress={wrongAnswer}>Daniel Craig</ButtonText>
           </Button>
         </View>
+        )}
+        {right && (
+          <TitleRight>Correct answer! Please go to the next question</TitleRight>
+        )}
+        {wrong && (
+          <TitleWrong>Wrong answer! Please go to the next question</TitleWrong>
         )}
         <Title></Title>
         <Title>{score} points</Title>
@@ -147,6 +171,12 @@ const App = () => {
           </Button>
         </View>
         )}
+        {right && (
+          <TitleRight>Correct answer! Please go to the next question</TitleRight>
+        )}
+        {wrong && (
+          <TitleWrong>Wrong answer! Please go to the next question</TitleWrong>
+        )}
         <Title></Title>
         <Title>{score} points</Title>
         </Container>
@@ -173,6 +203,12 @@ const App = () => {
             <ButtonText onPress={wrongAnswer}>The Others</ButtonText>
           </Button>
         </View>
+        )}
+        {right && (
+          <TitleRight>Correct answer! Please go to the next question</TitleRight>
+        )}
+        {wrong && (
+          <TitleWrong>Wrong answer! Please go to the next question</TitleWrong>
         )}
         <Title></Title>
         <Title>{score} points</Title>
@@ -201,6 +237,12 @@ const App = () => {
             <ButtonText onPress={rightAnswer}>Forrest Gump</ButtonText>
           </Button>
         </View>
+        )}
+        {right && (
+          <TitleRight>Correct answer! Please go to the summary</TitleRight>
+        )}
+        {wrong && (
+          <TitleWrong>Wrong answer! Please go to the summary</TitleWrong>
         )}
         <Title></Title>
         <Title>{score} points</Title>
@@ -264,8 +306,17 @@ const Title = styled.Text`
 `
 
 const Summary = styled(Title)`
+  border: 1px solid;
   font-size: 16px;
   padding-bottom: 2px;
+`
+
+const TitleRight = styled(Title)`
+  color: green;
+`
+
+const TitleWrong = styled(Title)`
+  color: red;
 `
 
 const Button = styled.TouchableOpacity`
