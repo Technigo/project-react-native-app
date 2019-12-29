@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import { Text, Button, View, Image } from "react-native";
-// import { Press } from "./Press";
+import { Image, Share } from "react-native";
 
 export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
   const title = navigation.getParam("title");
@@ -10,6 +9,23 @@ export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
   const categories = navigation.getParam("categories");
   const image = navigation.getParam("image");
   const description = navigation.getParam("description");
+
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: `You must read that book: "${title}" written by: ${authors}`
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          alert(`You succesfully shared your favourite book "${title}"!`);
+        }
+      } else if (result.action === Share.dismissedAction) {
+        alert("Shared dismissed!");
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <Container>
@@ -41,7 +57,7 @@ export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
           <ButtonText>LEAVE REVIEW</ButtonText>
         </CTAButton>
         <CTAButton>
-          <ButtonText>SHARE</ButtonText>
+          <ButtonText onPress={onShare}>SHARE</ButtonText>
         </CTAButton>
       </ContainerNoScroll>
       <ContainerNoScroll marginBottom>

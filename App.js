@@ -3,12 +3,12 @@ import React from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
-import HomeScreen from "./components/HomeScreen";
-import MoreInfo from "./components/MoreInfo";
-import Order from "./components/Order";
-import OrderThanks from "./components/OrderThanks";
-import Review from "./components/Review";
-import ReviewThanks from "./components/ReviewThanks";
+import HomeScreen from "./pages/HomeScreen";
+import MoreInfo from "./pages/MoreInfo";
+import Order from "./pages/Order";
+import OrderThanks from "./pages/OrderThanks";
+import Review from "./pages/Review";
+import ReviewThanks from "./pages/ReviewThanks";
 
 export const App = () => {
   return <AppContainer />;

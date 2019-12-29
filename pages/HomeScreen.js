@@ -8,8 +8,8 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import { Input } from "./Input";
-import { Header } from "./Header";
+import { Input } from "../components/Input";
+import { Header } from "../components/Header";
 
 export const HomeScreen = ({ navigation: { navigate } }) => {
   const [books, setBooks] = useState([]);

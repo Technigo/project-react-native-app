@@ -11,8 +11,6 @@ export const Review = ({ navigation, navigation: { navigate } }) => {
   const authors = navigation.getParam("authors");
   const image = navigation.getParam("image");
 
-  console.log(descriptionValue);
-
   return (
     <Container>
       <ContainerNoScroll row>
@@ -43,7 +41,7 @@ export const Review = ({ navigation, navigation: { navigate } }) => {
         onValueChange={(itemValue, itemIndex) => setDropdownValue(itemValue)}
         InputAccessoryView={() => null}
         items={[
-          { label: "1 stars", value: "1" },
+          { label: "1 star", value: "1" },
           { label: "2 stars", value: "2" },
           { label: "3 stars", value: "3" },
           { label: "4 stars", value: "4" },

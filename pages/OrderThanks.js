@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components/native";
-import { Text, Button, View, Image, Picker } from "react-native";
+import { Image } from "react-native";
 
 export const OrderThanks = ({ navigation }) => {
   const name = navigation.getParam("name");
