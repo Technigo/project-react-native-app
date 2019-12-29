@@ -33,7 +33,11 @@ export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
       <Span>Description:</Span>
       <Title>{description}</Title>
       <ContainerNoScroll>
-        <CTAButton>
+        <CTAButton
+          onPress={() =>
+            navigate("Review", { title: title, authors: authors, image: image })
+          }
+        >
           <ButtonText>LEAVE REVIEW</ButtonText>
         </CTAButton>
         <CTAButton>
