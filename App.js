@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
-import {
-  Image,
-  TouchableOpacity,
-  View,
-  Text,
-  SafeAreaView,
-  Clipboard
-} from "react-native";
+import { Image, ActivityIndicator } from "react-native";
 
-import ShareButton from "./components/ShareButton";
-import { GiphyLogo } from "./components/GiphyLogo";
+import { ButtonText, ImageWrap } from "./components/StyledCollection";
+import GifView from "./components/GifView";
+import GiphyLogo from "./components/GiphyLogo";
 
 const api_key = "XQShTN8iJAL02niAQcnHt7kuIAZXD8pf";
 
@@ -21,8 +15,7 @@ const staticTags = [
   ["pain", "Pain"],
   ["awesome", "Awesome"],
   ["hungry", "Hungry"],
-  ["sleepy", "Sleepy"],
-  ["bored", "Bored"]
+  ["sleepy", "Sleepy"]
 ];
 
 const fetchRandomGiphy = async tag => {
@@ -36,8 +29,7 @@ const fetchRandomGiphy = async tag => {
 const App = () => {
   const [tag, setTag] = useState("");
   const [giphy, setGiphy] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!tag) {
@@ -54,56 +46,60 @@ const App = () => {
 
   const { image_url } = giphy;
 
+  if (loading) {
+    return (
+      <Container>
+        <ActivityIndicator size="large" color="#ffffff" />
+        <GiphyLogo />
+      </Container>
+    );
+  }
+
+  // Tag cloud used on multiple places
+  const TagCloud = () => (
+    <ButtonWrap>
+      {staticTags.map(([tagName, label]) => (
+        <TagButton
+          key={tagName}
+          onPress={() => setTag(tagName)}
+          active={tagName === tag}
+        >
+          <ButtonText>{label}</ButtonText>
+        </TagButton>
+      ))}
+    </ButtonWrap>
+  );
+
+  // Return Gif view if image is found
+  if (image_url) {
+    return (
+      <Container>
+        <GifView image_url={image_url} tag={tag} />
+        <TagCloud />
+        <GiphyLogo />
+      </Container>
+    );
+  }
+
+  // Start view
   return (
     <Container>
       {!tag && (
         <>
           <Title>How are you feeling today?</Title>
-          <Image
-            style={{ width: "90%", height: "40%", resizeMode: "center" }}
-            source={require("./assets/man.jpg")}
-          />
-        </>
-      )}
-
-      {image_url && (
-        <>
-          <TagText>So, you're feeling {tag} today</TagText>
-          <Image
-            style={{ width: "90%", height: "50%", resizeMode: "contain" }}
-            source={{
-              uri: image_url
-            }}
-          />
-          <BottomButtons>
-            <ShareButton image_url={image_url} />
-            <Button
-              onPress={() => {
-                Clipboard.setString(image_url);
-                setCopied(true);
-                setTimeout(() => {
-                  setCopied(false);
-                }, 3000);
+          <ImageWrap>
+            <Image
+              style={{
+                width: "100%",
+                height: "100%",
+                resizeMode: "center"
               }}
-              active={copied}
-            >
-              <ButtonText>{copied ? "Copied" : "Copy"}</ButtonText>
-            </Button>
-          </BottomButtons>
+              source={require("./assets/man.jpg")}
+            />
+          </ImageWrap>
         </>
       )}
-
-      <ButtonWrap>
-        {staticTags.map(([tagName, label]) => (
-          <TagButton
-            key={tagName}
-            onPress={() => setTag(tagName)}
-            active={tagName === tag}
-          >
-            <ButtonText>{label}</ButtonText>
-          </TagButton>
-        ))}
-      </ButtonWrap>
+      <TagCloud />
       <GiphyLogo />
     </Container>
   );
@@ -114,6 +110,7 @@ const Container = styled.SafeAreaView`
   background-color: black;
   justify-content: center;
   align-items: center;
+  padding-top: 0;
 `;
 
 const ButtonWrap = styled.View`
@@ -121,51 +118,24 @@ const ButtonWrap = styled.View`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 50px 0;
+  padding-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 73px;
 `;
 
 const Title = styled.Text`
   font-size: 33px;
   color: white;
-  margin: 50px;
-`;
-
-const TagText = styled.Text`
-  margin: 10px;
-  color: white;
-  font-size: 28px;
-`;
-
-const Button = styled.TouchableOpacity`
-  background: ${({ active = false }) => (active ? "#2bc276" : "#762bc2")};
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 20px;
-`;
-
-const BottomButtons = styled.View`
-  z-index:1;
-  position: absolute;
-  bottom:0;
-  left:0;
-  width:100%
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 0;
+  margin: 0 0 20px;
+  padding: 10px 20px 20px;
+  width: 100%;
 `;
 
 const TagButton = styled.TouchableOpacity`
-  background: ${({ active = false }) => (active ? "#2bc276" : "#762bc2")};
-  padding: 5px 10px;
+  background-color: ${({ active = false }) => (active ? "#2bc276" : "#762bc2")};
+  padding: 10px 20px;
   border-radius: 20px;
-  margin: 10px;
-`;
-
-const ButtonText = styled.Text`
-  color: #ffffff;
-  font-size: 16;
+  margin: 5px 5px;
 `;
 
 export default App;

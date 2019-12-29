@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { Image } from "react-native";
 
-export const GiphyLogo = () => {
+const GiphyLogo = () => {
   return (
     <Logo
       style={{ resizeMode: "contain" }}
@@ -13,8 +13,11 @@ export const GiphyLogo = () => {
 
 const Logo = styled.Image`
   position: absolute;
-  bottom: 20px;
-  left: 35%;
-  width: 30%;
-  height: 5%;
+  bottom: 40px;
+  left: 50%;
+  width: 100px;
+  height: 13px;
+  margin-left: -50px;
 `;
+
+export default GiphyLogo;
