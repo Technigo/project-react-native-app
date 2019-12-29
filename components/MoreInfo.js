@@ -41,7 +41,11 @@ export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
         </CTAButton>
       </ContainerNoScroll>
       <ContainerNoScroll marginBottom>
-        <Order onPress={() => navigate("Order")}>
+        <Order
+          onPress={() =>
+            navigate("Order", { title: title, authors: authors, image: image })
+          }
+        >
           <ButtonText title marginBottom>
             ORDER
           </ButtonText>
@@ -91,13 +95,13 @@ const CTAButton = styled.TouchableOpacity`
   margin-top: 20;
   width: 40%;
   height: 30;
-  background-color: #4267b2;
+  background-color: #00bfff;
   border-radius: 20;
 `;
 
 const Order = styled(CTAButton)`
   width: 90%;
-  height: 40;
+  height: 60;
   background-color: #f56040;
 `;
 

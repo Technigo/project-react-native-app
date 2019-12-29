@@ -10,21 +10,11 @@ import {
 
 import { Input } from "./Input";
 import { Header } from "./Header";
-import { MoreInfo } from "./MoreInfo";
 
-export const HomeScreen = ({ navigation: { navigate }, title }) => {
+export const HomeScreen = ({ navigation: { navigate } }) => {
   const [books, setBooks] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
-  // useEffect(() => {
-  //   fetch(
-  //     "https://www.googleapis.com/books/v1/volumes?maxResults=40&q=jane&key=AIzaSyBDrU2j2bUKpCMfnXn6yYvADzhH0-84xQA"
-  //   )
-  //     .then(res => res.json())
-  //     .then(json => {
-  //       setBooks(json.items);
-  //     });
-  // }, []);
 
   const addText = () => {
     setLoading(true);
@@ -106,8 +96,8 @@ const Container = styled.ScrollView`
 
 const ContainerNoScroll = styled.View`
   flex-direction: ${props => (props.row ? "row" : "column")};
-  background-color: #fff;
-  height: ${props => (props.full ? "100%" : "auto")};
+  background-color: #000;
+  height: 100%;
   align-self: ${props => (props.center ? "center" : "flex-start")};
   padding-left: ${props => (props.paddingLeft ? 20 : 0)};
   width: ${props => (props.widthSmaller ? "80%" : "100%")};
