@@ -225,7 +225,7 @@ const TextSumCosts = styled.Text`
 `;
 const TextSummary = styled.Text`
   margin: 10px 0;
-  color: #232A2A;
+  color: #000;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
