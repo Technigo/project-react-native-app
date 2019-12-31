@@ -9,7 +9,10 @@ export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
   const categories = navigation.getParam("categories");
   const image = navigation.getParam("image");
   const description = navigation.getParam("description");
+  const price = navigation.getParam("price");
+  const currency = navigation.getParam("currency");
 
+  // onShare Button
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -63,7 +66,13 @@ export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
       <ContainerNoScroll marginBottom>
         <Order
           onPress={() =>
-            navigate("Order", { title: title, authors: authors, image: image })
+            navigate("Order", {
+              title: title,
+              authors: authors,
+              image: image,
+              price: price,
+              currency: currency
+            })
           }
         >
           <ButtonText title marginBottom>
@@ -114,7 +123,7 @@ const ButtonText = styled.Text`
 const CTAButton = styled.TouchableOpacity`
   margin-top: 20;
   width: 40%;
-  height: 30;
+  height: 40;
   background-color: #00bfff;
   border-radius: 20;
 `;

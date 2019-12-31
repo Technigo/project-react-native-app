@@ -9,6 +9,8 @@ export const Order = ({ navigation, navigation: { navigate } }) => {
   const title = navigation.getParam("title");
   const authors = navigation.getParam("authors");
   const image = navigation.getParam("image");
+  const price = navigation.getParam("price");
+  const currency = navigation.getParam("currency");
 
   return (
     <Container>
@@ -26,6 +28,10 @@ export const Order = ({ navigation, navigation: { navigate } }) => {
           <Title>{title}</Title>
           <Span>Authors:</Span>
           <Title>{authors}</Title>
+          <Span>Price:</Span>
+          <Title>
+            {price} {currency}
+          </Title>
         </ContainerNoScroll>
       </ContainerNoScroll>
       <InputField
