@@ -1,26 +1,52 @@
 import React from "react"
 import styled from "styled-components/native"
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native"
 
 const App = () => {
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <Image resizeMode='contain' source={require("./assets/logo.png")} />
+      <Title>Say goodbye to awkward silence</Title>
+      <Subtitle>
+        This app will always be by your side and help you find, if not the right
+        thing, at least something to say!
+      </Subtitle>
+      <Button>
+        <Text>Get a quote</Text>
+      </Button>
     </Container>
   )
 }
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: black;
   justify-content: center;
   align-items: center;
+`
+const Image = styled.Image`
+  height: 300;
+  margin-bottom: 100;
 `
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: white;
+  margin-bottom: 20;
+`
+const Subtitle = styled.Text`
+  font-size: 18px;
+  color: white;
+  padding: 10px 50px;
+  text-align: center;
+`
+
+const Button = styled.TouchableOpacity`
+  background-color: white;
+  border-radius: 50;
+  text-align: center;
+  padding: 10px 20px;
+  margin-top: 30;
 `
 
 export default App
