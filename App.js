@@ -1,15 +1,12 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components/native"
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
-import moment from 'moment';
-import { render } from "react-dom";
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import moment from 'moment'
+import { render } from "react-dom"
 
 
 
-// const DATA = {   ///this was the initial code fot the data
-//   timer: 1234567,
-//   laps: [12345, 23456, 34567, 45678],
-// }
+
 
 function Timer({ interval, style }) {
   const pad = (n) => n < 10 ? '0' + n : n
@@ -18,9 +15,9 @@ function Timer({ interval, style }) {
   return (
     // <View style={styles.timerContainer}>
     <TimerContainer>
-      <Text style={style}>{pad(duration.minutes())}:</Text>
-      <Text style={style}>{pad(duration.seconds())},</Text>
-      <Text style={style}>{pad(centiseconds)}</Text>
+      <StyledText style={style}>{pad(duration.minutes())}:</StyledText>
+      <StyledText style={style}>{pad(duration.seconds())},</StyledText>
+      <StyledText style={style}>{pad(centiseconds)}</StyledText>
     </TimerContainer>
     // </View>
   )
@@ -28,17 +25,15 @@ function Timer({ interval, style }) {
 
 function RoundButton({ title, color, background, onPress, disabled }) {
   return (
-    <TouchableOpacity
-      onPress={() => !disabled && onPress()
-      }
+    <ButtonContainer
+      onPress={() => !disabled && onPress()}
       style={[styles.button, { backgroundColor: background }]}
       activeOpacity={disabled ? 1.0 : 0.7} //activeOpacity changed the opacity of the TouchableOpacity
     >
       <ButtonBorderContainer>
-        {/* <ButtonBorderContainer style={styles.buttonBorder}> */}
-        <Text style={[styles.buttonTitle, { color }]}>{title}</Text>
+        <ButtonText style={[styles.buttonTitle, { color }]}>{title}</ButtonText>
       </ButtonBorderContainer>
-    </TouchableOpacity >
+    </ButtonContainer >
   )
 }
 
@@ -50,7 +45,7 @@ function Lap({ number, interval, fastest, slowest }) {
   ]
   return (
     <LapContainer>
-      <Text style={lapStyle}>Lap {number}</Text>
+      <LapText style={lapStyle}>Lap {number}</LapText>
       <Timer style={[lapStyle, styles.lapTimer]} interval={interval} />
     </LapContainer>
   )
@@ -70,8 +65,7 @@ function LapsTable({ laps, timer }) {
     })
   }
   return (
-
-    <ScrollView style={styles.scrollView}>
+    <ScrollViewContainer>
       {laps.map((lap, index) => (
         <Lap
           key={laps.length - index}
@@ -81,7 +75,7 @@ function LapsTable({ laps, timer }) {
           slowest={lap === max} //slowest when the time is equal to the highest time
         />
       ))}
-    </ScrollView>
+    </ScrollViewContainer>
   )
 }
 
@@ -96,6 +90,12 @@ function ButtonsRow({ children }) {
 
 
 export default class App extends React.Component {
+  // const App = () => {
+  // const [start, setStart] = useState(0)
+  // const [now, setNow] = useState(0)
+  // const [laps, setLaps] = useState([])
+  // }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -105,12 +105,15 @@ export default class App extends React.Component {
       laps: [],
     }
   }
+
+  //here I should have some useEffect
   componentWillUnmount() {
     clearInterval(this.timer)
   }
 
   start = () => {
     const now = new Date().getTime()
+
     this.setState({
       start: now,
       now,
@@ -167,12 +170,12 @@ export default class App extends React.Component {
   render() {
     const { start, now, laps } = this.state  //maybe should use useState here instead
     const timer = now - start
+
     return (
       <Container >
-        {/* <TimerBox */}
+
         <Timer
           interval={laps.reduce((total, curr) => total + curr, 0) + timer}
-          style={styles.timer}
         />
         {laps.length === 0 && (
           <ButtonsRow>
@@ -224,7 +227,6 @@ export default class App extends React.Component {
         )}
         <LapsTable laps={laps} timer={timer} />
       </Container>
-
     )
   }
 }
@@ -233,49 +235,27 @@ export default class App extends React.Component {
 
 const Container = styled.View`
     flex: 1;
-    backgroundColor: #0D0D0D;
-    alignItems: center;
-    paddingTop: 130px;
-    paddingHorizontal: 20px;
+    background-color: #0D0D0D;
+    align-items: center;
+    padding-top: 130px;
+    padding-horizontal: 20px;
 `
-
-// const TimerBox = styled.View`
-//     color: #FFFFFF;
-//     fontSize: 76px;
-//     fontWeight: 200;
-//     width: 110px;
-// `
 const TimerContainer = styled.View`
-  flex-direction: row;
-`
-// const TouchableOpacity = styled.view`
-//     width: 80;
-//     height: 80;
-//     border-radius: 40;
-//     justify-content: center;
-//     align-tems: center;
-// `
-
-const ButtonRowContainer = styled.View`
     flex-direction: row;
-    align-self: stretch;
-    justify-content: space-between;
-    margin-top: 80px;
-    margin-bottom: 30px; 
 `
-
-const LapContainer = styled.View`
-    flex-direction: row;
-    justify-content: space-between;
-    border-color: #151515;
-    border-top-width: 1;
-    padding-vertical: 10; 
+const StyledText = styled.Text`
+    color: #FFFFFF;
+    font-size: 76px;
+    font-weight: 200;
+    width: 110px;
 `
-
-// const ScrollView = styled.View`
-//     align-self: stretch;
-// `
-
+const ButtonContainer = styled.TouchableOpacity`
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+`
 const ButtonBorderContainer = styled.View`
     width: 76px;
     height: 76px;
@@ -284,50 +264,47 @@ const ButtonBorderContainer = styled.View`
     justify-content: center;
     align-items: center;
 `
+const ButtonRowContainer = styled.View`
+    flex-direction: row;
+    align-self: stretch;
+    justify-content: space-between;
+    margin-top: 80px;
+    margin-bottom: 30px; 
+`
+const ButtonText = styled.Text`
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 200;
+    width: 110px;
+    text-align: center;
+`
+const LapContainer = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    border-color: #151515;
+    border-top-width: 1;
+    padding-vertical: 10; 
+`
+const LapText = styled.Text`
+    color: #FFFFFF;
+    font-size: 18px;
+    width: 50px;
+`
+const ScrollViewContainer = styled.ScrollView`
+    align-self: stretch;
+`
+
+
 
 
 ////////// Style Sheet//////
 const styles = StyleSheet.create({
 
-  button: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonTitle: {
-    fontSize: 18,
-  },
-  timer: {
-    color: '#FFFFFF',
-    fontSize: 76,
-    fontWeight: '200',
-    width: 110,
-  },
-  // timerContainer: {
-  //   flexDirection: 'row',
-  // },
-  // buttonBorder: {
-  //   width: 76,
-  //   height: 76,
-  //   borderRadius: 38,
-  //   borderWidth: 1,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  // },
-
-  lapText: {
-    color: '#FFFFFF',
-    fontSize: 18,
-  },
   lapTimer: {
+    fontSize: 18,
     width: 30,
   },
-  scrollView: {
-    //makes the laps and the time go apart on the screen 
-    alignSelf: 'stretch',
-  },
+
   fastest: {
     color: '#4BC05F',
   },
@@ -338,4 +315,4 @@ const styles = StyleSheet.create({
 
 });
 
-
+// export default App
