@@ -10,7 +10,7 @@ export default function Header(props) {
 }
 const styles = StyleSheet.create({
     container: {
-        height: 50,
+        height: 80,
         width: "100%",
         backgroundColor: "black",
         justifyContent: "center", 
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     
     title: {
-        fontSize: 30,
+        fontSize: 50,
         fontWeight: "bold",
         color: "white",
     }
