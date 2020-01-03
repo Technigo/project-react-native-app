@@ -1,26 +1,48 @@
-import React from "react"
-import styled from "styled-components/native"
+import React, { useState } from "react";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import Header from "./components/header";
+import TodoItem from "./components/todoItem";
 
-const App = () => {
+export default function App() {
+  const [todo, setTodo] = useState([
+    { text: "Buy ginger", key: "1" },
+    { text: "Drink tea", key: "2" },
+    { text: "Go to the park", key: "3" }
+  ]);
+
+  const pressHandler = key => {
+    setTodo(prevTodo => {
+      return prevTodo.filter(todo => todo.key != key);
+    });
+  };
+
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
-  )
+    <View style={styles.container}>
+      <Header />
+      <View style={styles.content}>
+        {/*to form*/}
+        <View style={styles.list}>
+          <FlatList
+            data={todo}
+            renderItem={({ item }) => (
+              <TodoItem item={item} pressHandler={pressHandler} />
+            )}
+          />
+        </View>
+      </View>
+    </View>
+  );
 }
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
-
-export default App
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
+  content: {
+    padding: 40
+  },
+  list: {
+    marginTop: 30
+  }
+});
