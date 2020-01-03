@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   item: {
     padding: 20,
     marginTop: 20,
-    borderColor: "#bbb",
+    borderColor: "#ddd",
     borderWidth: 1.5,
     borderStyle: "solid",
     borderRadius: 10
