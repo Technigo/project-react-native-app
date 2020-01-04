@@ -1,10 +1,12 @@
 import React, { useState } from "react"
+import { Animated } from "react-native"
 import styled from "styled-components"
 import EightBallAnswers from "./EightBallAnswers"
 
 const App = () => {
   const [viewOne, setViewOne] = useState(false)
   const [shake, setShake] = useState(false)
+  const animatedValue = new Animated.Value(0)
 
   const shakeEightBall = () => {
     setShake(true)
@@ -23,9 +25,9 @@ const App = () => {
           {EightBallAnswers[Math.floor(Math.random() * EightBallAnswers.length)]}
         </Title>
       </Container>
-
     );
   }
+
   return (
     <Container>
       <Eightball onStartShouldSetResponder={() => shakeEightBall()}>
@@ -43,7 +45,7 @@ const Button = styled.Button`
 `
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: red;
   justify-content: center;
   align-items: center;
 `
