@@ -1,46 +1,70 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native'
+import { ScrollView } from 'react-native';
 // import isIngredient from './functions'
 
 const Wrapper = styled.View`
-flex: 1
-align-items: center;
-justify-content: center;
-background-color: black;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
 `
+
 const Title = styled.Text`
-color: white; 
-font-size: 24px;
-font-weight: 700;
-margin: 10px;
+  color: white; 
+  font-size: 24px;
+  font-weight: 700;
+  margin: 20px;
 `
+
 const Food = styled.Image`
-  height: 200px;
-  width: 200px;
+  
+  height: 280px;
+  width: 280px;
 `
 
 const Container = styled.View`
-  flex: 1;
-  margin: 0;
-  flex-direction: row;
+  
+    margin: 0;
+    flex-direction: row;
   `
 
   const Ingredients = styled.View`
     padding: 8px;
+    max-width: 250px;
+    height: 100%
+    
   `
 
   const Text = styled.Text`
-  color: white; 
+    color: white;
+    font-size: 20px; 
+    margin: 15px;
+  `
+
+  const IText = styled.Text`
+  color: white;
+  font-size: 16px; 
   display: flex;
   flex-direction: column;
   margin: 15px;
+`
+const Button = styled.TouchableOpacity`
+  background: white;
+  padding: 10px 20px;
+  border-radius: 20;
   `
+
+const ButtonText = styled.Text`
+  font-size: 20px;
+  font-weight: 900;
+`
 
   const fetchRecipe = async () => {
     const res = await fetch('https://www.themealdb.com/api/json/v1/1/random.php')
     const json = await res.json()
     // TO REMOVE ALL DESSERT RECIPES
-    if (json.meals.strCategory === 'Dessert') {
+    if (json.meals[0].strCategory === 'Dessert') {
       return fetchRecipe()
     } else {
       return json.meals[0]
@@ -82,25 +106,34 @@ export default function App() {
     return null
   }
 
+  const reload = () => {
+    myWebView.reload()
+  }
+
   return (
+    <ScrollView>
     <Wrapper>
     <Title>{strMeal}</Title>
     <Food
           source={{uri: strMealThumb}}
-        />
-    <Text>{strInstructions}</Text> 
+        /> 
+    <Text>{strInstructions}</Text>
     <Container>
     <Ingredients>
     {ingredients.map(ingredient => {
-    return <Text>{ingredient}</Text>
+    return <IText>{ingredient}</IText>
     })}
     </Ingredients>
     <Ingredients>
     {measures.map(measure => {
-      return <Text>{measure}</Text>
+      return <IText>{measure}</IText>
     })}
     </Ingredients>
     </Container>
+    <Button onPress={()=>reload} title="reload">
+        <ButtonText>NEXT</ButtonText>
+      </Button>
     </Wrapper>
+    </ScrollView>
   )
 }
