@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  ImageBackground
+} from "react-native";
 import Header from "./components/header";
 import TodoItem from "./components/todoItem";
 import AddTodo from "./components/addTodo";
@@ -51,5 +57,9 @@ const styles = StyleSheet.create({
   },
   list: {
     marginTop: 30
+  },
+  backgroundImage: {
+    width: "80%",
+    height: "80%"
   }
 });

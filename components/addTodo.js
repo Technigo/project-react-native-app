@@ -4,7 +4,6 @@ import {
   Text,
   View,
   TextInput,
-  Button,
   TouchableOpacity
 } from "react-native";
 
@@ -12,7 +11,7 @@ export default function AddTodo({ submitHandler }) {
   const [text, setText] = useState("");
 
   const changeHandler = value => {
-    setText();
+    setText(value);
   };
 
   return (
@@ -38,7 +37,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderBottomWidth: 2,
-    borderBottomColor: "#ddd"
+    borderBottomColor: "#ddd",
+    color: "#90949c"
   },
   button: {
     padding: 20,

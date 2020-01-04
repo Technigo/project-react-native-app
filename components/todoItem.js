@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
     borderColor: "#ddd",
     borderWidth: 1.5,
     borderStyle: "solid",
-    borderRadius: 10
+    borderRadius: 10,
+    color: "#90949c",
+    fontWeight: "700"
   }
 });
