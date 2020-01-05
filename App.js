@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 import TodoList from "./components/TodoList"
 import styled from "styled-components"
-import { ScrollView, Image, ImageBackground, Vibration } from "react-native"
+import { Button, Share, ScrollView, Image, ImageBackground, Vibration } from "react-native"
 import Icon from 'react-native-vector-icons/Feather'
 
 export default function App() {
@@ -30,6 +30,7 @@ export default function App() {
       })
     )
   }
+
   deleteTodo = id => {
     setTodos(
       todos.filter(todo => {
@@ -40,6 +41,31 @@ export default function App() {
     )
   }
 
+  const listOfText = todos.map(todo => {
+    return todo.text
+  })
+
+  const stringWithTextSeparatedWithLinebreak = listOfText.join("\n")
+
+  onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: stringWithTextSeparatedWithLinebreak.toString()
+      })
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message)
+    }
+  }
 
   return (
     <SafeAreaView>
@@ -73,14 +99,16 @@ export default function App() {
           />
         ))}
       </ScrollView>
+      <Button onPress={() => onShare()} title="Share List" />
       <ImageContainer>
         <Image
           style={{ width: 500, height: 120 }}
           source={require("./assets/planner.png")} />
       </ImageContainer>
-    </SafeAreaView >
+    </SafeAreaView>
   )
 }
+
 
 // STYLED COMPONENTS
 
