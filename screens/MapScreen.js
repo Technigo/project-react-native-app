@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import FavPlaces from '../components/FavPlaces'
 import PLACES from '../data/dummy-data'
-
+import { setRecoveryProps } from 'expo/build/ErrorRecovery/ErrorRecovery';
 
 
 export const MapScreen = () => {
@@ -22,11 +23,8 @@ export const MapScreen = () => {
           longitudeDelta: 0.0121,
         }}
       >
-        <Marker
-          coordinate={{ 'latitude': 59.31466, 'longitude': 18.08439 }}
-          title={"test"}
-          description={"description test"}
-        />
+        <FavPlaces />
+
       </MapView>
     </View>
 
