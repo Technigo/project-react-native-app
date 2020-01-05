@@ -2,8 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { StatusBar, Vibration } from 'react-native';
-import { StyledButton } from './components/Button';
-import { TextInput } from './components/TextInput';
 
 const App = () => {
   const [formValues, setFormValues] = useState({
@@ -203,6 +201,25 @@ const Picker = styled.Picker`
   background: #fff;
   margin-bottom: 5px;
   padding: 10px;
+`;
+const TextInput = styled.TextInput`
+  font-size: 20px;
+  height: 40px;
+  background: #fff;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+`;
+const StyledButton = styled.TouchableOpacity`
+  height: 45px;
+  padding: 10px;
+  margin-top: 8px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+  background: #964A07;
 `;
 const ViewSummary = styled.View`
   background: #CED2D2;
