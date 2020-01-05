@@ -7,10 +7,10 @@ export const MenuScreen = navData => {
 
     <View>
 
-      <TouchableOpacity style={styles.button} onPress={() => navData.navigation.navigate("Fav")}>
+      <TouchableOpacity style={styles.button} onPress={() => navData.navigation.navigate("FavPlace")}>
         <Text style={styles.buttonTitle}> My fav places </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Simple Button pressed')}>
+      <TouchableOpacity style={styles.button} onPress={() => navData.navigation.navigate("AddPlace")}>
         <Text style={styles.buttonTitle}> Add new place </Text>
       </TouchableOpacity>
     </View>
@@ -21,7 +21,7 @@ export const MenuScreen = navData => {
 //   navData.navigation.navigate("Menu")
 // }}
 MenuScreen.navigationOptions = {
-  headerTitle: "Navigation",
+  headerTitle: "Menu",
   headerStyle: {
     backgroundColor: "#413c69"
   },

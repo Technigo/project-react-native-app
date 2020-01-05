@@ -4,14 +4,14 @@ import { createStackNavigator, TransitionPresets } from 'react-navigation-stack'
 import { LandingPageScreen } from '../screens/LandingPageScreen'
 import { MapScreen } from '../screens/MapScreen'
 import { MenuScreen } from '../screens/MenuScreen'
-import { FavScreen } from '../screens/FavScreen'
-
-
+import { FavPlaceScreen } from '../screens/FavPlaceScreen'
+import { AddPlaceScreen } from '../screens/AddPlaceScreen'
 
 
 const PageNavigator = createStackNavigator({
+  AddPlace: AddPlaceScreen,
   Menu: MenuScreen,
-  Fav: FavScreen,
+  FavPlace: FavPlaceScreen,
   Map: MapScreen,
   LandingPage: LandingPageScreen,
 
