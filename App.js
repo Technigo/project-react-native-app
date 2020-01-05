@@ -1,72 +1,122 @@
-import React, { useState, useEffect } from "react"
-// import Header from "./components/Header"
-// import Counter from "./components/Counter"
-import styled from "styled-components/native"
-import { ActivityIndicator } from "react-native"
-import { Movie } from "./components/Movie"
+//Photo by The Journal Garden | Vera Bitterer on Unsplash
+//Photo by Essentialiving on Unsplash
 
-const TOP_MOVIE_ID = 656516
-const api_key = "363444609247127238629594b245e069"
-
-const Container = styled.View`
-flex:1;
-background-color: white;
-align-items: center;
-justify-content: center;
-`
-
-const Button = styled.TouchableOpacity`
-position: absolute;
-bottom: 40;
-background: pink;
-padding: 10px 20px;
-border-radius: 20px;
-`
-const ButtonText = styled.Text`
-color: white;
-font-size: 20;
-`
-
-const fetchRandomMovie = async () => {
-  const movieId = Math.floor(Math.random() * TOP_MOVIE_ID) + 1
-  const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&language=en-US`)
-  const json = await res.json()
-
-  if (json.status_code === 34 || !json.poster_path || json.adult) {
-    return fetchRandomMovie()
-  } else {
-    return json
-  }
-}
+import React, { useState } from 'react'
+import TodoList from "./components/TodoList"
+import styled from "styled-components"
+import { ScrollView, Image, ImageBackground, Vibration } from "react-native"
+import Icon from 'react-native-vector-icons/Feather'
 
 export default function App() {
-  const [movie, setMovie] = useState()
-  const [loading, setLoading] = useState(true)
+  const [value, setValue] = useState('') //"value" is the value of TextInput and it is initially passed as an empty string. The "setValue" is responsible for changing the value of "value" on TextInput and then initializing the empty value when the value from the state is assigned as an item to "todos" array. 
+  const [todos, setTodos] = useState([]) //"todos" are declared as an empty array that will later contain multiple values. "setTodos" is responsible for updating the state.
+  const DURATION = 500
 
-  const fetchMovieData = () => {
-    setLoading(true)
-    fetchRandomMovie()
-      .then((movieData) => {
-        setMovie(movieData)
-        setLoading(false)
-      })
+  //function that checks that the TextInput is not empty and the user clicks the plus icon, it will add the value from state to the "todos" and generate a unique key(the date) at the same time to retrieve each todo item record from todos array to display as a list. The initial value for checked is false since no todo item can be marked as completed by default, that is when adding it to the list.The initial value for checked is false since no todo item can be marked as completed by default, that is when adding it to the list.
+  addTodo = () => {
+    if (value.length > 0) {
+      setTodos([...todos, { text: value, key: Date.now(), checked: false }])
+      setValue('')
+    } else if (value.length <= 0) {
+      return Vibration.vibrate(DURATION)
+    }
   }
-  useEffect(() => {
-    fetchMovieData()
-  }, [])
 
-  //condition ? ifTrue : ifFalse 
+  checkTodo = id => {
+    setTodos(
+      todos.map(todo => {
+        if (todo.key === id) todo.checked = !todo.checked
+        return todo
+      })
+    )
+  }
+  deleteTodo = id => {
+    setTodos(
+      todos.filter(todo => {
+        if (todo.key !== id)
+          return true
+        return Vibration.vibrate(DURATION)
+      })
+    )
+  }
+
 
   return (
-    <Container>
-
-      {loading
-        ? <ActivityIndicator size="large" color="#fff" />
-        : <Movie movie={movie} />
-      }
-      <Button onPress={fetchMovieData}>
-        <ButtonText>Fetch new movie</ButtonText>
-      </Button>
-    </Container>
+    <SafeAreaView>
+      <ImageBackground
+        source={require("./assets/planner.png")}
+        style={{ width: "100%", height: 120 }}>
+        <HeaderText>TO DO LIST</HeaderText>
+      </ImageBackground>
+      <TextInputContainer>
+        <TextInput
+          multiline={true}
+          placeholder="What do you want to do?"
+          placeholderTextColor="#abbabb"
+          value={value}
+          onChangeText={value => setValue(value)}
+        />
+        <ButtonContainer onPress={() => addTodo()}>
+          <Icon name="plus-circle"
+            size={30} color="black"
+            style={{ marginLeft: 15 }} />
+        </ButtonContainer>
+      </TextInputContainer>
+      <ScrollView style={{ marginHorizontal: 20, width: "100%" }}>
+        {todos.map(item => (
+          <TodoList
+            text={item.text}
+            key={item.key}
+            checked={item.checked}
+            setChecked={() => checkTodo(item.key)}
+            deleteTodo={() => deleteTodo(item.key)}
+          />
+        ))}
+      </ScrollView>
+      <ImageContainer>
+        <Image
+          style={{ width: 500, height: 120 }}
+          source={require("./assets/planner.png")} />
+      </ImageContainer>
+    </SafeAreaView >
   )
 }
+
+// STYLED COMPONENTS
+
+const SafeAreaView = styled.View`
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #F5FCFF;
+`
+const HeaderText = styled.Text`
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #e26d5a;
+  padding: 30px 15px 25px 15px;
+  text-align: center;
+`
+const TextInputContainer = styled.View`
+  flex-direction: row;
+  align-items: baseline;
+  border-color: black;
+  border-bottom-width: 1;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  `
+const TextInput = styled.TextInput`
+  flex: 1;
+  height: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  padding-left: 10px;
+  min-height: 3%;
+`
+const ButtonContainer = styled.TouchableOpacity`
+`
+const ImageContainer = styled.View`
+  background-color: pink;
+`
