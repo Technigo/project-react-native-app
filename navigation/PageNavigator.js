@@ -7,7 +7,7 @@ import { SideDrawer } from '../screens/SideDrawer'
 
 
 
-const RestaurantsNavigator = createStackNavigator({
+const PageNavigator = createStackNavigator({
   LandingPage: LandingPageScreen,
   Map: MapScreen,
   SideMenu: SideDrawer
@@ -21,4 +21,4 @@ const RestaurantsNavigator = createStackNavigator({
   })
 
 
-export default createAppContainer(RestaurantsNavigator) 
+export default createAppContainer(PageNavigator) 

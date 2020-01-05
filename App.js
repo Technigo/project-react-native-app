@@ -1,12 +1,12 @@
 import React from "react"
 
-import RestaurantsNavigator from "./navigation/RestaurantsNavigator"
+import PageNavigator from "./navigation/PageNavigator"
 
 
 
 const App = () => {
   return (
-    <RestaurantsNavigator />
+    <PageNavigator />
   )
 }
 
