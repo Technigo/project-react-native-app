@@ -1,8 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components/native"
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native"
 
+const quotes = ["one", "two", "three"]
+
 const App = () => {
+  const [quote, setQuote] = useState()
+
+  const showRandomQuote = () => {
+    const randomIndex = Math.round(Math.random() * (quotes.length - 1))
+    setQuote(quotes[randomIndex])
+  }
+
   return (
     <Container>
       <Image resizeMode='contain' source={require("./assets/logo.png")} />
@@ -11,9 +20,10 @@ const App = () => {
         This app will always be by your side and help you find, if not the right
         thing, at least something to say!
       </Subtitle>
-      <Button>
+      <Button onPress={showRandomQuote}>
         <Text>Get a quote</Text>
       </Button>
+      <Subtitle>{quote}</Subtitle>
     </Container>
   )
 }
