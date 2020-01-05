@@ -3,14 +3,18 @@ import { createStackNavigator, TransitionPresets } from 'react-navigation-stack'
 
 import { LandingPageScreen } from '../screens/LandingPageScreen'
 import { MapScreen } from '../screens/MapScreen'
-import { SideDrawer } from '../screens/SideDrawer'
+import { MenuScreen } from '../screens/MenuScreen'
+import { FavScreen } from '../screens/FavScreen'
+
 
 
 
 const PageNavigator = createStackNavigator({
-  LandingPage: LandingPageScreen,
+  Fav: FavScreen,
   Map: MapScreen,
-  SideMenu: SideDrawer
+  Menu: MenuScreen,
+  LandingPage: LandingPageScreen,
+
 },
   {
     defaultNavigationOptions: {

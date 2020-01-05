@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import { HeaderButtons, Item } from "react-navigation-header-buttons"
-import FavPlaces from '../components/FavPlaces'
+import FavMarkers from '../components/FavMarkers'
 import HeaderButton from '../components/HeaderButton'
 
 export const MapScreen = () => {
@@ -22,7 +22,7 @@ export const MapScreen = () => {
           longitudeDelta: 0.0121,
         }}
       >
-        <FavPlaces />
+        <FavMarkers />
 
       </MapView>
     </View>
@@ -31,9 +31,6 @@ export const MapScreen = () => {
 }
 
 MapScreen.navigationOptions = navData => {
-
-  console.log(navData)
-
   return {
     headerTitle: "Map",
     headerStyle: {
@@ -47,7 +44,7 @@ MapScreen.navigationOptions = navData => {
         title="Menu"
         iconName={"ios-menu"}
         onPress={() => {
-          navData.navigation.navigate("SideMenu")
+          navData.navigation.navigate("Menu")
         }}
 
       />
