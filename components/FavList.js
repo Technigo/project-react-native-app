@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import PLACES from '../data/dummy-data'
 
 export const FavList = () => {
-  console.log(PLACES)
   return (
     PLACES.map(place => (
       <View style={styles.container} key={place.id}>

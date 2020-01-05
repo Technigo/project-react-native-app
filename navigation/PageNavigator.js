@@ -10,9 +10,9 @@ import { FavScreen } from '../screens/FavScreen'
 
 
 const PageNavigator = createStackNavigator({
+  Menu: MenuScreen,
   Fav: FavScreen,
   Map: MapScreen,
-  Menu: MenuScreen,
   LandingPage: LandingPageScreen,
 
 },
