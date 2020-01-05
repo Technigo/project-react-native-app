@@ -1,10 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
+import { HeaderButtons, Item } from "react-navigation-header-buttons"
 import FavPlaces from '../components/FavPlaces'
-import PLACES from '../data/dummy-data'
-import { setRecoveryProps } from 'expo/build/ErrorRecovery/ErrorRecovery';
-
+import HeaderButton from '../components/HeaderButton'
 
 export const MapScreen = () => {
   return (
@@ -31,12 +30,29 @@ export const MapScreen = () => {
   )
 }
 
-MapScreen.navigationOptions = {
-  headerTitle: "Map",
-  headerStyle: {
-    backgroundColor: "#413c69"
-  },
-  headerTintColor: "white"
+MapScreen.navigationOptions = navData => {
+
+  console.log(navData)
+
+  return {
+    headerTitle: "Map",
+    headerStyle: {
+      backgroundColor: "#413c69"
+    },
+    presentation: 'transparentModal',
+    headerMode: 'none',
+    headerTintColor: "#f4b0c7",
+    headerLeft: () => <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      <Item
+        title="Menu"
+        iconName={"ios-menu"}
+        onPress={() => {
+          navData.navigation.navigate("SideMenu")
+        }}
+
+      />
+    </HeaderButtons>
+  }
 }
 
 
@@ -53,4 +69,4 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
-});
+})

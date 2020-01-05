@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button} from 'react-native'
+import { Button } from 'react-native'
 import styled from "styled-components/native"
 
 
@@ -9,6 +9,10 @@ export const LandingPageScreen = (props) => {
       <StyledText>LETS FIND YOUR NEARBY RESTAURANTS!</StyledText>
       <Button title="Get Started!" color="#3e206d" onPress={() => {
         props.navigation.replace("Map")
+      }} />
+
+      <Button title="SideMenu" color="#3e206d" onPress={() => {
+        props.navigation.navigate("SideMenu")
       }} />
     </StyledView>
   )
