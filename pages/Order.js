@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { Text, Button, View, Image, Picker } from "react-native";
+import { Image } from "react-native";
 
 export const Order = ({ navigation, navigation: { navigate } }) => {
   const [dropdownValue, setDropdownValue] = useState();
@@ -56,9 +56,7 @@ export const Order = ({ navigation, navigation: { navigate } }) => {
       <OrderButton
         onPress={() => navigate("OrderThanks", { name: name, image: image })}
       >
-        <ButtonText title marginBottom>
-          ORDER
-        </ButtonText>
+        <ButtonText title>ORDER</ButtonText>
       </OrderButton>
     </Container>
   );
@@ -67,8 +65,8 @@ export const Order = ({ navigation, navigation: { navigate } }) => {
 const Container = styled.ScrollView`
   background-color: #000;
   color: #fff;
-  height: ${props => (props.full ? "100%" : "auto")};
-  align-self: ${props => (props.center ? "center" : "flex-start")};
+  height: auto;
+  align-self: flex-start;
   padding-left: 10;
   padding-right: 10;
   width: 100%;
@@ -77,7 +75,7 @@ const Container = styled.ScrollView`
 const ContainerNoScroll = styled.View`
   width: ${props => (props.widthSmaller ? "80%" : "100%")};
   flex-direction: ${props => (props.row ? "row" : "column")};
-  margin-bottom: ${props => (props.marginBottom ? 20 : 0)};
+  margin-bottom: 0;
   align-self: ${props => (props.center ? "center" : "flex-start")};
   padding-left: ${props => (props.paddingLeft ? 20 : 0)};
 `;

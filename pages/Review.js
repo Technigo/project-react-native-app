@@ -58,9 +58,7 @@ export const Review = ({ navigation, navigation: { navigate } }) => {
           })
         }
       >
-        <ButtonText title marginBottom>
-          LEAVE REVIEW
-        </ButtonText>
+        <ButtonText title>LEAVE REVIEW</ButtonText>
       </ReviewButton>
     </Container>
   );
@@ -83,8 +81,8 @@ const pickerStyle = {
 const Container = styled.ScrollView`
   background-color: #000;
   color: #fff;
-  height: ${props => (props.full ? "100%" : "auto")};
-  align-self: ${props => (props.center ? "center" : "flex-start")};
+  height: auto;
+  align-self: flex-start;
   padding-left: 10;
   padding-right: 10;
   width: 100%;
@@ -107,8 +105,7 @@ const Title = styled.Text`
 
 const Span = styled(Title)`
   color: #00bfff;
-  text-align: ${props => (props.center ? "center" : "left")};
-  margin: ${props => (props.centerContainer ? "0 auto" : "0")};
+  margin: 0;
 `;
 
 const InputField = styled.TextInput`

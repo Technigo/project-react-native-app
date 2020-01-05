@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components/native";
 import { Image, ActivityIndicator } from "react-native";
 
@@ -10,34 +10,22 @@ export const HomeScreen = ({ navigation: { navigate } }) => {
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const APIkey = "AIzaSyBDrU2j2bUKpCMfnXn6yYvADzhH0-84xQA";
+
   const addText = () => {
     setLoading(true);
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?maxResults=40&q=${searchText}&key=AIzaSyBDrU2j2bUKpCMfnXn6yYvADzhH0-84xQA`
+      `https://www.googleapis.com/books/v1/volumes?maxResults=40&q=${searchText}&key=${APIkey}`
     )
       .then(res => res.json())
-      //
-      // .then(
-      //   json =>
-      //     json.items.map(item => {
-      //       item.volumeInfo.imageLinks === undefined
-      //         ? ""
-      //         : `${item.volumeInfo.imageLinks.thumbnail}`;
-      //     })
-      // json.items.volumeInfo.imageLinks.filter(n => n !== undefined)
-      // )
       .then(json => {
         setBooks(json.items);
         setSearchText("");
         setLoading(false);
+      })
+      .catch(() => {
+        console.log(error.code);
       });
-
-    // error => {
-    //   console.log(error + "");
-    // };
-    // .catch(() => {
-    //   console.log(error.code);
-    // });
   };
 
   return (
@@ -121,21 +109,18 @@ export const HomeScreen = ({ navigation: { navigate } }) => {
 };
 
 const Container = styled.ScrollView`
-  flex-direction: ${props => (props.row ? "row" : "column")};
   background-color: #000;
-  height: ${props => (props.full ? "100%" : "auto")};
+  height: auto;
   align-self: ${props => (props.center ? "center" : "flex-start")};
   padding-left: ${props => (props.paddingLeft ? 20 : 0)};
   width: ${props => (props.widthSmaller ? "80%" : "100%")};
 `;
 
 const ContainerNoScroll = styled.View`
-  flex-direction: ${props => (props.row ? "row" : "column")};
   background-color: #000;
   height: 100%;
-  align-self: ${props => (props.center ? "center" : "flex-start")};
-  padding-left: ${props => (props.paddingLeft ? 20 : 0)};
-  width: ${props => (props.widthSmaller ? "80%" : "100%")};
+  align-self: flex-start;
+  width: 100%;
 `;
 
 const Icon = styled.Image`
@@ -158,7 +143,7 @@ const Title = styled.Text`
   color: #fff;
   flex: 2;
   margin-right: ${props => (props.marginRight ? 5 : 0)};
-  margin-bottom: ${props => (props.marginBottom ? 8 : 2)};
+  margin-bottom: 2;
 `;
 
 export default HomeScreen;

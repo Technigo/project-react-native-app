@@ -85,14 +85,13 @@ export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
 };
 
 const Container = styled.ScrollView`
-  flex-direction: ${props => (props.row ? "row" : "column")};
   background-color: #000;
   color: #fff;
-  height: ${props => (props.full ? "100%" : "auto")};
-  align-self: ${props => (props.center ? "center" : "flex-start")};
+  height: auto;
+  align-self: flex-start;
   padding-left: 10;
   padding-right: 10;
-  width: ${props => (props.widthSmaller ? "80%" : "100%")};
+  width: 100%;
 `;
 
 const ContainerNoScroll = styled.View`

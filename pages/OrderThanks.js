@@ -26,7 +26,7 @@ const Container = styled.View`
   background-color: #000;
   color: #fff;
   height: 100%;
-  align-self: ${props => (props.center ? "center" : "flex-start")};
+  align-self: flex-start;
   padding-left: 10;
   padding-right: 10;
   width: 100%;

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components/native";
-import { Text, Button, ScrollView, Image, View } from "react-native";
 
 export const Input = ({ addText, searchText, setSearchText }) => {
   const inputHandler = enteredText => {
@@ -24,7 +23,7 @@ export const Input = ({ addText, searchText, setSearchText }) => {
 const Container = styled.View`
   flex-direction: ${props => (props.row ? "row" : "column")};
   background-color: #000;
-  height: ${props => (props.full ? "100%" : "auto")};
+  height: auto;
   align-self: center;
   width: 100%;
 `;

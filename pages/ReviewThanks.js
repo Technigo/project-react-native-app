@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components/native";
-import { Text, Button, View, Image, Picker } from "react-native";
+import { Image } from "react-native";
 
 export const OrderThanks = ({ navigation }) => {
   const image = navigation.getParam("image");
@@ -30,7 +30,7 @@ const Container = styled.ScrollView`
   background-color: #000;
   color: #fff;
   height: 100%;
-  align-self: ${props => (props.center ? "center" : "flex-start")};
+  align-self: flex-start;
   padding-left: 10;
   padding-right: 10;
   width: 100%;
