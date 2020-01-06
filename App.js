@@ -1,20 +1,47 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components/native"
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native"
 import { DeviceMotion } from "expo-sensors"
 
-const quotes = ["one", "two", "three"]
+const quotes = [
+  "You've got to ask yourself one question: 'Do I feel lucky?' Well, do ya punk?",
+  "Toto, I've a feeling we're not in Kansas anymore",
+  "We'll always have Paris",
+  "Here's Johnny!",
+  "I'll be back",
+  "Get busy living, or get busy dying",
+  "Do — or do not. There is no try",
+  "My Mama always said, 'Life was like a box of chocolates; you never know what you're gonna get",
+  "Go ahead, make my day",
+  "Shaken, not stirred",
+  "Nobody puts baby i a corner",
+  "Wax on, wax off",
+  "Hasta la vista, baby",
+  "The first rule of Fight Club is: You do not talk about Fight Club",
+  "Show me the money!",
+  "I'm also just a girl, standing i front of a boy, asking him to love her",
+  "Keep your friends close, but your enemies closer",
+  "I see dead people",
+  "I'm the king of the world!",
+  ""
+]
 
 const App = () => {
   const [quote, setQuote] = useState()
+
+  const showRandomQuote = () => {
+    console.log("bytt")
+    const randomIndex = Math.round(Math.random() * (quotes.length - 1))
+    setQuote(quotes[randomIndex])
+  }
 
   let subscription = null
 
   const subscribe = () => {
     subscription = DeviceMotion.addListener(motionData => {
+      console.log(motionData.rotationRate.alpha)
       if (
-        motionData.rotationRate.alpha > 13 ||
-        motionData.rotationRate.alpha < -13
+        motionData.rotationRate.alpha > 8 ||
+        motionData.rotationRate.alpha < -8
       ) {
         showRandomQuote()
       }
@@ -34,21 +61,14 @@ const App = () => {
     }
   }, [])
 
-  const showRandomQuote = () => {
-    const randomIndex = Math.round(Math.random() * (quotes.length - 1))
-    setQuote(quotes[randomIndex])
-  }
-
   return (
     <Container>
-      <Image resizeMode='contain' source={require("./assets/logo.png")} />
-      <Title>Say goodbye to awkward silence</Title>
-      <Subtitle>
-        This app will always be by your side and help you find, if not the right
-        thing, at least something to say!
-      </Subtitle>
+      <Image resizeMode='contain' source={require("./assets/logo_2.png")} />
+      <Title>
+        {quote ||
+          "The cat will always be by your side and help you find, if not the right thing, at least something to say! Let it help you find your inner movie star."}
+      </Title>
       <Subtitle>Spin your phone to get a quote!</Subtitle>
-      <Subtitle>{quote}</Subtitle>
     </Container>
   )
 }
@@ -59,29 +79,25 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `
+
 const Image = styled.Image`
   height: 300;
   margin-bottom: 100;
 `
 
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 21px;
   color: white;
   margin-bottom: 20;
+  text-align: center;
+  padding: 0 10px;
 `
+
 const Subtitle = styled.Text`
-  font-size: 18px;
+  font-size: 16px;
   color: white;
   padding: 10px 50px;
   text-align: center;
-`
-
-const Button = styled.TouchableOpacity`
-  background-color: white;
-  border-radius: 50;
-  text-align: center;
-  padding: 10px 20px;
-  margin-top: 30;
 `
 
 export default App
