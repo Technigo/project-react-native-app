@@ -59,8 +59,8 @@ export const MoreInfo = ({ navigation, navigation: { navigate } }) => {
         >
           <ButtonText>LEAVE REVIEW</ButtonText>
         </CTAButton>
-        <CTAButton>
-          <ButtonText onPress={onShare}>SHARE</ButtonText>
+        <CTAButton onPress={onShare}>
+          <ButtonText>SHARE</ButtonText>
         </CTAButton>
       </ContainerNoScroll>
       <ContainerNoScroll marginBottom>
