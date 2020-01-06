@@ -20,7 +20,7 @@ export default function TodoList(props) {
       <Icon
         name="trash-2"
         size={30}
-        color="darkred"
+        color="#aa4d6a"
         style={{ marginLeft: 'auto', marginRight: 15 }}
         onPress={props.deleteTodo}
       />
@@ -49,7 +49,7 @@ const ListItem = styled.Text`
   color: #514e4c;
 `
 const VerticalLine = styled.View`
-  border-bottom-color: darkgreen;
+  border-bottom-color: darkgrey;
   border-bottom-width: 4;
   marginLeft: 10;
   width: 100%;
