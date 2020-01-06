@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, ScrollView } from 'react-native'
+import { TouchableOpacity, ScrollView } from 'react-native'
+import styled from "styled-components"
 
 import Icon from 'react-native-vector-icons/Feather'
 
 import TodoList from './Components/TodoList'
+
+
 
 export default function App() {
   const [value, setValue] = useState('')
@@ -34,11 +37,11 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Todo List</Text>
-      <View style={styles.textInputContainer}>
+    <Container>
+      <Title>Todo List</Title>
+
+      <TextInputContainer>
         <TextInput
-          style={styles.textInput}
           multiline={true}
           placeholder="Feed me Todos"
           placeholderTextColor="grey"
@@ -48,7 +51,8 @@ export default function App() {
         <TouchableOpacity onPress={() => addTodo()}>
           <Icon name="chevrons-down" size={40} color="darkgreen" style={{ marginLeft: 15 }} />
         </TouchableOpacity>
-      </View>
+      </TextInputContainer>
+
       <ScrollView style={{ width: '100%' }}>
         {todos.map(item => (
           <TodoList
@@ -60,39 +64,38 @@ export default function App() {
           />
         ))}
       </ScrollView>
-    </View>
+    </Container>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: '#9c9fa3'
-  },
-  header: {
-    marginTop: '15%',
-    fontSize: 30,
-    color: '#514e4c',
-    fontWeight: "900",
-    paddingBottom: 15
-  },
-  textInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-    borderColor: '#514e4c',
-    borderBottomWidth: 1,
-    paddingRight: 10,
-    paddingBottom: 15
-  },
-  textInput: {
-    flex: 1,
-    height: 20,
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#514e4c',
-    paddingLeft: 10,
-    minHeight: '3%'
-  }
-})
+
+const Container = styled.View`
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #9c9fa3;
+  `
+const Title = styled.Text`
+  margin-top: 15%;
+  font-size: 30;
+  color: #514e4c;
+  font-weight: 900;
+  padding-bottom: 15;
+`
+const TextInputContainer = styled.View`
+  flex-direction: row;
+  align-items: baseline;
+  border-color: #514e4c;
+  border-bottomWidth: 1;
+  padding-right: 10;
+  padding-bottom: 15;
+`
+const TextInput = styled.TextInput`
+  flex: 1;
+  height: 20;
+  font-size: 18;
+  font-weight: bold;
+  color: #514e4c;
+  padding-left: 10;
+  min-height: 3%;
+`
