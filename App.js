@@ -81,8 +81,8 @@ const Container = styled.View`
 `
 
 const Image = styled.Image`
-  height: 300;
-  margin-bottom: 100;
+  height: 330;
+  margin-bottom: 70;
 `
 
 const Title = styled.Text`
@@ -90,7 +90,7 @@ const Title = styled.Text`
   color: white;
   margin-bottom: 20;
   text-align: center;
-  padding: 0 10px;
+  padding: 0 15px;
 `
 
 const Subtitle = styled.Text`
