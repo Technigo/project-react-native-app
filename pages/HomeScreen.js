@@ -10,12 +10,10 @@ export const HomeScreen = ({ navigation: { navigate } }) => {
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const APIkey = "AIzaSyBDrU2j2bUKpCMfnXn6yYvADzhH0-84xQA";
-
   const addText = () => {
     setLoading(true);
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?maxResults=40&q=${searchText}&key=${APIkey}`
+      `https://www.googleapis.com/books/v1/volumes?maxResults=40&q=${searchText}`
     )
       .then(res => res.json())
       .then(json => {
