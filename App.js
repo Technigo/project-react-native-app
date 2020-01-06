@@ -1,78 +1,69 @@
-import React, { useState } from "react"
-import { Animated } from "react-native"
-import styled from "styled-components"
-import EightBallAnswers from "./EightBallAnswers"
+import React, { useState, useEffect } from "react";
+import { Animated, Easing } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import Answer from "./Answer";
+import Eightball from "./EightBall";
+import { ShakeEventExpo } from "./ShakeEventExpo";
+import animationRanges from "./animationRanges";
 
 const App = () => {
-  const [viewOne, setViewOne] = useState(false)
-  const [shake, setShake] = useState(false)
-  const animatedValue = new Animated.Value(0)
+  const [viewOne, setViewOne] = useState(true);
+  const animation = new Animated.Value(0);
+
+  useEffect(() => {
+    ShakeEventExpo.addListener(() => {
+      shakeEightBall();
+    });
+
+    return () => {
+      // Clean up the subscription
+      ShakeEventExpo.removeListener();
+    };
+  }, []);
 
   const shakeEightBall = () => {
-    setShake(true)
-    setTimeout(() => setViewOne(!viewOne), 2000)
-  }
+    if (viewOne) {
+      triggerAnimation();
+      setTimeout(() => setViewOne(!viewOne), 2000);
+    }
+  };
 
   const reset = () => {
-    setShake(false)
-    setViewOne(!viewOne)
-  }
+    if (!viewOne) {
+      setViewOne(!viewOne);
+    }
+  };
 
-  if (viewOne) {
-    return (
-      <Container onStartShouldSetResponder={() => reset()}>
-        <Title>
-          {EightBallAnswers[Math.floor(Math.random() * EightBallAnswers.length)]}
-        </Title>
-      </Container>
-    );
-  }
+  const triggerAnimation = () => {
+    animation.setValue(0);
+    Animated.timing(animation, {
+      duration: 2000,
+      toValue: 10,
+      ease: Easing.bounce
+    }).start();
+  };
+
+  const interpolated = animation.interpolate(animationRanges);
 
   return (
-    <Container>
-      <Eightball onStartShouldSetResponder={() => shakeEightBall()}>
-        <EightballContent>
-          <EightballText>8</EightballText>
-        </EightballContent>
-      </Eightball>
-      <Title>Ask a question and press the eight ball to get your answer.</Title>
-    </Container>
-  )
-}
+    <LinearGradient
+      colors={["#f08", "#d0e", "#91f", "#70f", "#40f", "#05f", "#09f"]}
+      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+      onStartShouldSetResponder={() => reset()}
+    >
+      {viewOne ? (
+        <Animated.View
+          style={{
+            transform: [{ translateX: interpolated }]
+          }}
+        >
+          <Eightball />
+        </Animated.View>
+      ) : (
+          <Answer />
+        )}
+    </LinearGradient>
+  );
+};
 
-const Button = styled.Button`
-
-`
-const Container = styled.View`
-  flex: 1;
-  background-color: red;
-  justify-content: center;
-  align-items: center;
-`
-
-const Eightball = styled.View`
-width: 200;
-height: 200;
-border: 55px black solid;
-border-radius: 100;
-margin-bottom: 35px;
-`
-
-const EightballContent = styled.View`
-flex: 1;
-justify-content: center;
-align-items: center;
-`
-const EightballText = styled.Text`
-font-size: 42px;
-font-weight: 700;
-`
-
-const Title = styled.Text`
-width: 200px;
-text-align: center;
-  font-size: 24px;
-  color: black;
-`
-
-export default App
+export default App;
