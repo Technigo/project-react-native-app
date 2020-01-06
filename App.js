@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { Image, View, Text, TouchableOpacity, Share, Button, ScrollView} from 'react-native'
+import { startAsync } from "expo/build/AR";
+import { isRequired } from "react-native/Libraries/DeprecatedPropTypes/DeprecatedColorPropType";
 
 
 
@@ -9,23 +11,44 @@ const url = "https://api.thecatapi.com/v1/images/search?limit=10"
 
 const Container = styled.View`
   flex:1;
-  background-color: lightblue;
+  background-color: black;
   justify-content: center;
 `
 
 const Title = styled.Text`
-  background-color: midnightblue;
-  color: lightblue; 
-  border-radius: 10; 
+  background-color: black;
+  color: white;  
   margin-top: 60;
   margin-bottom: 10; 
-  margin-left: 20;
-  margin-right: 20;
-  padding: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 50px;
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  text-align: center;
+  text-align: left;
+  width: 300px;
+`
+
+const ImageCat = styled.Image`
+ flex: 1;
+ width: 100;
+ height: 100;
+ position: absolute;
+ left: 270;
+ top: 110;
+`
+
+const ImageCats = styled.Image`
+flex:1;
+width: null;
+height: 300;
+left: 0; 
+right: 0; 
+marginLeft:0; 
+marginRight:0; 
+marginTop: 10; 
+marginBottom: 10;
 `
 
 
@@ -46,7 +69,7 @@ const App = () => {
     try {
       const result = Share.share({
         message:
-          'check this out! 😍',
+          'Check this out! 😍',
           url: photoUrl
       });
 
@@ -67,12 +90,12 @@ const App = () => {
   return(
     <Container>
       <Title>Make someone happy, share your favourite kitty.</Title>
+      <ImageCat source={require('./cat.gif')}/>
       <ScrollView>
         {photos.map((photo) =>(
           <View key={photo.id}>
             <TouchableOpacity onPress={() => onShare(photo.url)}>
-              <Image resizeMode='stretch'
-              style={{flex:1, width: null, height: 300, marginLeft:20, marginRight:20, marginTop: 10, marginBottom: 10, borderRadius: 10}}
+              <ImageCats resizeMode='stretch'
               source={{uri: photo.url}} />
             </TouchableOpacity>
           </View>

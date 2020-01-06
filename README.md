@@ -1,3 +1,15 @@
+This project was to in 1 week build a mobile app in React Native using styled components.
+The app should be using one of the sensors of the mobile phone or fetching data from an external API and interact with it, or be useful such as a calculator or stopwatch.
+
+To build this app I fetched data from an open API that shows 10 images everytime you reload, you can then share an image with friends.
+
+I used React Native, styled components to style the app, share-method to share images and as a strech goal I put an animation above the images to make it pretty.
+
+Check it out here:
+
+
+
+
 # Project React Native App 📱
 
 In this week's project, you'll be building your first mobile application with React Native!
