@@ -1,11 +1,38 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components/native"
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native"
+import { DeviceMotion } from "expo-sensors"
 
 const quotes = ["one", "two", "three"]
 
 const App = () => {
   const [quote, setQuote] = useState()
+
+  let subscription = null
+
+  const subscribe = () => {
+    subscription = DeviceMotion.addListener(motionData => {
+      if (
+        motionData.rotationRate.alpha > 13 ||
+        motionData.rotationRate.alpha < -13
+      ) {
+        showRandomQuote()
+      }
+    })
+    DeviceMotion.setUpdateInterval(1000)
+  }
+
+  const unsubscribe = () => {
+    subscription.remove()
+  }
+
+  useEffect(() => {
+    subscribe()
+
+    return () => {
+      unsubscribe()
+    }
+  }, [])
 
   const showRandomQuote = () => {
     const randomIndex = Math.round(Math.random() * (quotes.length - 1))
@@ -20,9 +47,7 @@ const App = () => {
         This app will always be by your side and help you find, if not the right
         thing, at least something to say!
       </Subtitle>
-      <Button onPress={showRandomQuote}>
-        <Text>Get a quote</Text>
-      </Button>
+      <Subtitle>Spin your phone to get a quote!</Subtitle>
       <Subtitle>{quote}</Subtitle>
     </Container>
   )
