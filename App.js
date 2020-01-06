@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import styled from "styled-components/native"
-import { Image, View, Text, TouchableOpacity, Share, ScrollView, Dimensions, Alert, Vibration, Link } from 'react-native'
+import styled from "styled-components"
+import { Image, View, ScrollView } from 'react-native'
 import moment from 'moment'
+import CustomButton from "./components/CustomButton"
 
 
 const apiKey = `ceaaa691942f4f51925568bcf5183b80`
@@ -27,8 +28,10 @@ const App = () => {
 
 
     <Container>
+      <CustomButton text="Click Me" textColor="#01d1e5" backgroundColor="lavenderblush" />
       <ScrollView>
         <Title3>This is your cool app, Nina!</Title3>
+
         <Image
           source={require('./assets/bluesky.jpg')}
           style={{ width: 340, height: 150 }} />
@@ -50,14 +53,19 @@ const App = () => {
 
           </View>
         ))}
+
+
       </ScrollView>
       <Title3>News and Images from https://newsapi.org/</Title3>
+
     </Container >
 
   )
 }
 
 export default App
+
+
 
 const Container = styled.View`
   flex: 1;
