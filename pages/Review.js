@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
 import RNPickerSelect from "react-native-picker-select";
-import { Text, Button, View, Image } from "react-native";
+import { Image } from "react-native";
 
 export const Review = ({ navigation, navigation: { navigate } }) => {
   const [dropdownValue, setDropdownValue] = useState();
