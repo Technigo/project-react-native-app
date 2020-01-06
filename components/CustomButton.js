@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const CustomButton = props => (
   <ButtonContainer
-    onPress={() => alert("Hi")}
+    onPress={() => alert("Hi, there is a link to this article if you click on the text")}
     backgroundColor={props.backgroundColor}
   >
     <ButtonText textColor={props.textColor}>{props.text}</ButtonText>
