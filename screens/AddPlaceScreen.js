@@ -1,26 +1,49 @@
-import React, { useState } from 'react'
-import { View, Text, StyleSheet, ImageBackground, TextInput, Picker, processColor } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, Text, StyleSheet, ImageBackground, TextInput, Picker, TouchableOpacity } from 'react-native'
+import Place from '../models/place'
 
 import { LOCATION_API } from 'react-native-dotenv'
+import PLACES from '../data/dummy-data'
 
-// const [location, getLocation] = useState("")
+const fetchLocationData = async (street, postal, city) => {
+  let search = `${street} ${postal} ${city} `
+  const res = await fetch(`https://eu1.locationiq.com/v1/search.php?key=${LOCATION_API}&q=${search}&format=json`)
+  const json = await res.json()
+  return json
+}
 
-// const FindLocation = async (search) => {
-//   const uri = `https://eu1.locationiq.com/v1/search.php?key=${LOCATION_API}&q=${search}&format=json`
-
-//   const res = await fetch(uri)
-//   const json = await res.json()
-//   getLocation(json)
-//   return json
-// }
-
-// FindLocation('Körsbärsvägen 9 Stockholm')
-// console.log(location)
-
-export const AddPlaceScreen = () => {
+export const AddPlaceScreen = (navData) => {
+  const [location, setLocation] = useState({})
   const [category, setCategory] = useState("")
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
+  const [street, setStreet] = useState("")
+  const [postal, setPostal] = useState("")
+  const [city, setCity] = useState("Stockholm")
+
+  let lastId = PLACES.slice(-1)[0].id
+
+
+
+  const saveData = () => {
+    console.log("saveData()")
+    fetchLocationData(street, postal, city)
+      .then((result) => {
+        console.log(Number(result[0].lat))
+        console.log(Number(result[0].lon))
+        setLocation(result)
+        PLACES.push(new Place(lastId + 1, title, description, { 'latitude': Number(result[0].lat), 'longitude': Number(result[0].lon) }))
+        navData.navigation.replace("Menu")
+      })
+
+
+  }
+
+  useEffect(() => {
+    console.log("useEffect")
+    fetchLocationData()
+
+  }, [])
 
   return (
     <ImageBackground source={require('../assets/wildberry-bg.jpg')} style={{ width: '100%', height: '100%' }}>
@@ -52,10 +75,35 @@ export const AddPlaceScreen = () => {
           <Picker.Item label="Bar" value="ios-wine" />
           <Picker.Item label="Restaurant" value="md-restaurant" />
         </Picker>
-        <Text>{category}</Text>
-        <Text>{title}</Text>
-        <Text>{description}</Text>
-        <Text>{process.env.GOOGLE_API}</Text>
+
+        <TextInput
+          style={styles.formInput}
+          placeholder={'Street'}
+          onChangeText={text => {
+            setStreet(text)
+          }}
+        />
+        <View style={styles.postcode}>
+          <TextInput
+            style={styles.formInput50}
+            placeholder={'Postal code'}
+            onChangeText={text => {
+              setPostal(text)
+            }}
+          />
+          <TextInput
+            style={styles.formInput50}
+            value={city}
+            placeholder={'City'}
+            onChangeText={text => {
+              setCity(text)
+            }}
+          />
+        </View>
+
+        <TouchableOpacity style={styles.button} onPress={saveData}>
+          <Text style={styles.buttonTitle}>Save</Text>
+        </TouchableOpacity>
       </View>
 
     </ImageBackground >
@@ -87,12 +135,33 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     fontSize: 19,
   },
+  formInput50: {
+    margin: 10,
+    padding: 10,
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    fontSize: 19,
+    flex: 0.5,
+  },
   formPicker: {
     margin: 10,
     padding: 10,
     width: 300,
     borderColor: 'gray',
     borderWidth: 1
+  },
+
+  button: {
+    backgroundColor: "yellow",
+    borderWidth: 1,
+    alignItems: "center",
+  },
+
+  buttonTitle: {
+    fontSize: 20,
+    padding: 10,
+    color: "black",
   },
 
 
@@ -112,5 +181,10 @@ const styles = StyleSheet.create({
     color: '#413c69',
     fontSize: 18,
   },
+
+  postcode: {
+    flexDirection: 'row',
+
+  }
 
 })
