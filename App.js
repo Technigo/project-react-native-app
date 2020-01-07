@@ -7,53 +7,41 @@ import LottieView from 'lottie-react-native'
 const App = () => {
   const [question, setQuestion] = useState('begin')
   const [score, setScore] = useState(0)
-  const [buttonPressed, setButtonPressed] = useState(false)
   const [hide, setHide] = useState(false)
   const [right, setRight] = useState(false)
   const [wrong, setWrong] = useState(false)
+
+  const afterAnswering = () => {
+    setHide(false)
+    setRight(false)
+    setWrong(false)
+  }
 
   const nextQuestion = () => {
     if(question==='begin') {
       setQuestion('one')
     } else if(question==='one') {
       setQuestion('two')
-      setButtonPressed(false)
-      setHide(false)
-      setRight(false)
-      setWrong(false)
+      afterAnswering()
     } else if(question==='two') {
       setQuestion('three')
-      setButtonPressed(false)
-      setHide(false)
-      setRight(false)
-      setWrong(false)
+      afterAnswering()
     } else if(question==='three') {
       setQuestion('four')
-      setButtonPressed(false)
-      setHide(false)
-      setRight(false)
-      setWrong(false)
+      afterAnswering()
     } else if(question==='four') {
       setQuestion('five')
-      setButtonPressed(false)
-      setHide(false)
-      setRight(false)
-      setWrong(false)
+      afterAnswering()
     } else if(question==='five') {
       setQuestion('summary')
-      setHide(false)
-      setRight(false)
-      setWrong(false)
+      afterAnswering()
     }
   }
 
   const rightAnswer = () => {
-    if(buttonPressed===false) {
-      setScore(score+1)
-      setHide(true)
-      setRight(true)
-    }
-    setButtonPressed(true)
+    setScore(score+1)
+    setHide(true)
+    setRight(true)
   }
 
   const wrongAnswer = () => {
@@ -64,7 +52,6 @@ const App = () => {
   const restartQuiz = () => {
     setScore(0)
     setQuestion('begin')
-    setButtonPressed(false)
   }
 
 
@@ -111,8 +98,7 @@ const App = () => {
         {wrong && (
           <TitleWrong>Wrong answer! Please go to the next question</TitleWrong>
         )}
-        <Title></Title>
-        <Title>{score} points</Title>
+        <Score>{score} points</Score>
         </Container>
       </View>
     )}
@@ -144,8 +130,7 @@ const App = () => {
         {wrong && (
           <TitleWrong>Wrong answer! Please go to the next question</TitleWrong>
         )}
-        <Title></Title>
-        <Title>{score} points</Title>
+        <Score>{score} points</Score>
         </Container>
       </View>
     )}
@@ -177,8 +162,7 @@ const App = () => {
         {wrong && (
           <TitleWrong>Wrong answer! Please go to the next question</TitleWrong>
         )}
-        <Title></Title>
-        <Title>{score} points</Title>
+        <Score>{score} points</Score>
         </Container>
       </View>
     )}
@@ -210,8 +194,7 @@ const App = () => {
         {wrong && (
           <TitleWrong>Wrong answer! Please go to the next question</TitleWrong>
         )}
-        <Title></Title>
-        <Title>{score} points</Title>
+        <Score>{score} points</Score>
         </Container>
       </View>
     )}
@@ -244,8 +227,7 @@ const App = () => {
         {wrong && (
           <TitleWrong>Wrong answer! Please go to the summary</TitleWrong>
         )}
-        <Title></Title>
-        <Title>{score} points</Title>
+        <Score>{score} points</Score>
         </Container>
       </View>
     )}
@@ -263,13 +245,12 @@ const App = () => {
         {score>= 4 && (
           <Title>You're a star!</Title>
         )}
-        <Title>Your final score is {score} points</Title>
+        <Title>Your final score is {score} / 5 points</Title>
         <Title></Title>
         <Title>The right answers are:</Title>
         <Summary>Q1: How many movies with Leonardo DiCaprio have Martin Scorsese directed? 
           Answer: 5 movies ("Gangs of New York", "The Aviator", "The Departed", 
-          "Shutter Island" and "The Wolf of Wall Street")
-        </Summary>
+          "Shutter Island" and "The Wolf of Wall Street")</Summary>
         <Summary>Q2: Which one of these actors has won an Oscar for best actor? 
           Answer: Jamie Foxx (for "Ray")</Summary>
         <Summary>Q3: Which one of the following movies was the most expensive to make? 
@@ -305,12 +286,6 @@ const Title = styled.Text`
   margin-bottom: 3px;
 `
 
-const Summary = styled(Title)`
-  border: 1px solid;
-  font-size: 16px;
-  padding-bottom: 2px;
-`
-
 const TitleRight = styled(Title)`
   color: green;
 `
@@ -319,20 +294,31 @@ const TitleWrong = styled(Title)`
   color: red;
 `
 
+const Score = styled(Title)`
+  padding-top: 10px;
+`
+
+const Summary = styled(Title)`
+  border: 1px solid;
+  font-size: 16px;
+  padding-bottom: 2px;
+`
+
 const Button = styled.TouchableOpacity`
   background: #FFB6C1;
   border-radius: 20px;
   margin-bottom: 5px;
   padding: 10px 20px;
 `
-const NextButton = styled(Button)`
-  bottom: 40;
-  position: absolute;
-`
 
 const ButtonText = styled.Text`
   color: #1f2e1f;
   font-size: 18;
+`
+
+const NextButton = styled(Button)`
+  bottom: 40;
+  position: absolute;
 `
 
 export default App
