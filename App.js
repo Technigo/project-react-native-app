@@ -59,7 +59,7 @@ const App = () => {
 
   return (
     <Container>
-      <Header title='Welcome to explore the Caribbean!' />
+      <Header title='Welcome to explore wildlife!' />
       <ScrollView>
         {photos.map((photo) => (
           <View key={photo.id}>
