@@ -5,6 +5,7 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons"
 import FavMarkers from '../components/FavMarkers'
 import HeaderButton from '../components/HeaderButton'
 
+
 export const MapScreen = () => {
   return (
 
@@ -34,11 +35,11 @@ MapScreen.navigationOptions = navData => {
   return {
     headerTitle: "Map",
     headerStyle: {
-      backgroundColor: "#413c69"
+      backgroundColor: "#fff"
     },
     presentation: 'transparentModal',
     headerMode: 'none',
-    headerTintColor: "#f4b0c7",
+    headerTintColor: "#c70d3a",
     headerLeft: () => <HeaderButtons HeaderButtonComponent={HeaderButton}>
       <Item
         title="Menu"
@@ -66,4 +67,5 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
+
 })

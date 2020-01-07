@@ -16,7 +16,7 @@ export default FavMarkers = () => {
         coordinate={place.position}
         title={place.title}
         description={place.description}
-        pinColor={'#413c69'}
+        pinColor={'#c70d3a'}
       />
 
     ))
