@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { View, Text, Button } from 'react-native'
 import styled from 'styled-components/native'
 import Character from './components/Character'
+import houseButtons from './components/HouseButtons'
 
 // const Button = styled.TouchableOpacity`
 //   display: flex;
@@ -33,20 +34,19 @@ import Character from './components/Character'
   `
 
   const POTTER_API_URL = 'https://www.potterapi.com/v1'
-  const POTTER_API_KEY =
-    '$2a$10$QO0C49uSavMxC6YqmS5me.3sTZykI3k22Hn8I8zO4t3LaAdmAzFBm'
+  const POTTER_API_KEY = '$2a$10$QO0C49uSavMxC6YqmS5me.3sTZykI3k22Hn8I8zO4t3LaAdmAzFBm'
   
-  function fetchCharacters() {
+  const fetchCharacters = () => {
     return fetch(`${POTTER_API_URL}/characters?key=${POTTER_API_KEY}`).then(
       response => response.json(),
     )
   }
   
-  function randomRangeNumber(max) {
+  const randomRangeNumber = (max) => {
     return Math.floor(Math.random() * max)
   }
   
-  function getRandomCharacter(characters) {
+  const getRandomCharacter = (characters) => {
     let character = characters[randomRangeNumber(characters.length) - 1]
   
     while (!character.house) {
@@ -56,7 +56,7 @@ import Character from './components/Character'
     return character
   }
   
-  function getRandomCharacterRecursion(characters) {
+  const getRandomCharacterRecursion = (characters) => {
     let character = characters[randomRangeNumber(characters.length) - 1]
   
     // stop condition
@@ -66,9 +66,16 @@ import Character from './components/Character'
   
     return character
   }
+
+  // Run houseMatch to see ig guess is correct
+
+  
   
   export default function App() {
     const [character, setCharacter] = useState()
+    const [house, SetHouse] = useState("")
+
+    
   
     const handleFetchCharacters = () => {
       fetchCharacters().then(json => {
@@ -78,6 +85,19 @@ import Character from './components/Character'
         let character = getRandomCharacter(json)
         setCharacter(character)
       })
+    }
+
+    const houseMatch = (house) => {
+      if (house === character.house) {
+        return ("Correct!")
+      } else {
+        return (
+          <Container>
+            <Text>
+            No, {character.name} is in {character.house}
+            </Text>
+          </Container>)
+      }
     }
   
     useEffect(() => {
@@ -96,7 +116,10 @@ import Character from './components/Character'
       <Button
         title="Gryffindor"
         onPress={() => {
-          console.log(character.house === 'Gryffindor')
+          setHouse = "Gryffindor"
+          return (
+            houseMatch(house)
+          )
         }}
       >
         Gryffindor
@@ -104,15 +127,20 @@ import Character from './components/Character'
       <Button
         title="Slytherin"
         onPress={() => {
-          console.log(character.house === 'Slytherin')
-        }}
-      >
+          setHouse = "Slytherin"
+          return (
+            houseMatch(house)
+          )
+        }}>
         Slytherin
       </Button>
       <Button
         title="Hufflepuff"
         onPress={() => {
-          console.log(character.house === 'Hufflepuff')
+          setHouse = "Hufflepuff"
+          return (
+            houseMatch(house)
+          )
         }}
       >
         Hufflepuff
@@ -120,7 +148,10 @@ import Character from './components/Character'
       <Button
         title="Ravenclaw"
         onPress={() => {
-          console.log(character.house === 'Ravenclaw')
+          setHouse = "Ravenclaw"
+          return (
+            houseMatch(house)
+          )
         }}
       >
         Ravenclaw
@@ -133,6 +164,7 @@ import Character from './components/Character'
       >
         Random
       </Button>
+      {/* <HouseButtons /> */}
       </Container>
     )
   }
