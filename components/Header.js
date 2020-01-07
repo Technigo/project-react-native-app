@@ -13,8 +13,6 @@ const styles = StyleSheet.create({
         height: 60,
         width: "100%",
         backgroundColor: "peachpuff",
-        // justifyContent: "center",
-        // marginVertical: 5,
         marginTop: 20,
     },
     title: {

@@ -11,7 +11,6 @@ import {
   Share
 } from 'react-native';
 
-
 const apiKey = `563492ad6f917000010000016674d16c530e444482c459f1837b2a47`
 const url = "https://api.pexels.com/v1/search?query=example+wildlife&per_page=15&page=1"
 
@@ -71,14 +70,15 @@ const App = () => {
             </TouchableOpacity>
 
             <Text
-              style={{ color: 'peachpuff', textAlign: 'center', marginStart: 5 }}>Photo: {photo.photographer}</Text>
+              style={{ color: 'peachpuff', textAlign: 'center', marginStart: 5 }}>Photo: {photo.photographer}
+            </Text>
 
             <View>
               <Button onPress={() => onShare(photo.id)} title="Share">
                 <Text
                   style={{ color: 'peachpuff', textAlign: 'center', fontWeight: 'bold' }}>
                   Share the wildlife
-            </Text>
+                </Text>
               </Button>
             </View>
           </View>
@@ -91,13 +91,6 @@ const App = () => {
 
 export default App
 
-// const Button = styled.TouchableOpacity`
-//   width: 400;
-//   height: 300;
-//   background-color: black;
-//   margin-bottom: 20;
-//   border-radius: 5;
-
 const Button = styled.TouchableOpacity`
   position: absolute;
   bottom: 30;
@@ -108,17 +101,6 @@ const Button = styled.TouchableOpacity`
   text-align: center;
   left: 25%;¥  
 `
-
-
-//  const Container = styled.View`
-//   flex: 1;
-//   paddingHorizontal: 20;
-//   paddingVertical: 20;
-//   flexWrap: wrap;
-//   background-color: black;
-//   justifyContent: space-between;
-//   alignContent: center;
-// `
 const Container = styled.View`
   flex: 1;
   background-color: black;
