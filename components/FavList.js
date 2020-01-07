@@ -22,6 +22,15 @@ export const FavList = () => {
           </Text>
         </View>
 
+        <View style={styles.upper}>
+          <View>
+          </View>
+          <View>
+            <Text style={{ fontSize: 12 }}>{place.position.latitude.toFixed(5)}</Text>
+            <Text style={{ fontSize: 12 }}>{place.position.longitude.toFixed(5)}</Text>
+          </View>
+        </View>
+
       </View>
 
     ))
