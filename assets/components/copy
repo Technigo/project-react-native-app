@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  ActivityIndicator,
   Image,
   Text,
   TouchableOpacity,
@@ -10,52 +9,50 @@ import {
 } from "react-native";
 import styled from "styled-components/native";
 
-const randomizePokemon = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); // max value is exclusive and min value inclusive, so the value is no lower than min but less than and not equal to max
-};
-
-const fetchRandomPokemon = async () => {
-  const randomPokemonId = randomizePokemon(1, 151);
-  const response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${randomPokemonId}/`
-  );
-  const json = await response.json();
-
-  if (json.status_code === 34 || !json.name) {
-    return fetchRandomPokemon();
-  } else {
-    return json;
-  }
-};
-
 const App = () => {
+  const [randomPokemon, setRandomPokemon] = useState();
+  const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
   const [pokemon, setPokemon] = useState();
 
+  const randomizePokemon = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+
   const fetchPokemonData = () => {
     setLoading(true);
-    fetchRandomPokemon().then(pokemonData => {
-      setPokemon(pokemonData);
-      setLoading(false);
-    });
+    const randomPokemonId = randomizePokemon(1, 964);
+    fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemonId}/`)
+      .then(response => response.json())
+      .then(json => {
+        if (json.status_code === 34) {
+          setError("Pokemon not found");
+        } else {
+          setPokemon(json);
+        }
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
     fetchPokemonData();
   }, []);
 
+  if (loading) {
+    return <Title>Loading</Title>;
+  }
+
+  if (error) {
+    return <Title>Pokémon got away</Title>;
+  }
+
   return (
     <Container>
       <Header>
         <Title>Pokémon</Title>
       </Header>
-      {loading && (
-        <PokemonCard>
-          <LoadingSpinner size="large" />
-        </PokemonCard>
-      )}
       {!loading && pokemon && (
         <PokemonCard>
           <ImageContainer>
@@ -72,17 +69,12 @@ const App = () => {
           </PokemonTypes>
         </PokemonCard>
       )}
-      <NewPokemonButton onPress={fetchPokemonData}>
+      <NewPokemonButton>
         <ButtonText>New Pokémon</ButtonText>
       </NewPokemonButton>
     </Container>
   );
 };
-
-const LoadingSpinner = styled.ActivityIndicator`
-  align-self: center;
-  margin-top: auto;
-`;
 
 const Container = styled.SafeAreaView`
   align-items: stretch;
