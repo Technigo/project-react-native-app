@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     title: {
-        fontSize: 20,
-        marginTop: 25,
+        fontSize: 15,
+        marginTop: 20,
         fontWeight: "bold",
         justifyContent: "center",
         textAlign: "center"
