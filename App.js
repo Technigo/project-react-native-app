@@ -36,13 +36,13 @@ const App = () => {
     const result = await Share.share({
       message: 'Hi there, isnt this just awsome?',
       url: getImageToShare(photoId),
-      title: 'Caribbean bliss'
+      title: 'Wildlife bliss'
     })
 
     if (result.action === Share.sharedAction) {
       if (result.activityType) {
         //shared with activity type of result.activityType
-        alert('some vacay inspo just shared!')
+        alert('some wildlife inspo shared!')
       } else {
         //shared
       }
@@ -59,7 +59,7 @@ const App = () => {
 
   return (
     <Container>
-      <Header title='Welcome to explore wildlife!' />
+      <Header title='Welcome to explore the wildlife!' />
       <ScrollView>
         {photos.map((photo) => (
           <View key={photo.id}>
