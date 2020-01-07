@@ -1,69 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-
-
-//api and key
+import { Text, View, StyleSheet, TouchableOpacity, Share, Image, ImageResizeMode } from 'react-native';
+import Constants from 'expo-constants';
 
 const apiKey = `95622557-9a41-47af-a755-23f39b9b9675`
 const url = `https://api.thedogapi.com/v1/images/search`
 
 
-//fetching json
+//reusable fetch function
 
-const App = () => { 
-  const [photos, setPhotos] = useState ([])
-    useEffect(() => {
-    fetch(url, { headers: { Authorization: apiKey} })
-      .then(res => res.json())
-      .then(json => {
-      setPhotos(json)
+const fetchDog = () => {
+  return fetch(url, { headers: { Authorization: apiKey} })
+    .then((res) => res.json())
+    .then((json) => {
+      const dogsWithBreedInfo = json.filter((dog) => dog.breeds.length > 0)
+      if (dogsWithBreedInfo.length > 0) {
+        return dogsWithBreedInfo
+      } else {
+        return fetchDog()
+      }
+    })
+}
+
+const App = () => {
+  const [photos, setPhotos] = useState([])
+
+  const fetchDogPhotos = () => {
+    fetchDog()
+      .then((json) => {
+        setPhotos(json)
         console.log(json)
-  })
-  }, [])
-
-    const onPress = (photo) => {
-    console.log('click click', photo.url)
+      })
   }
 
+  useEffect(() => {
+    fetchDogPhotos()
+  }, [])
+
+
     return(
-        <Container>
-            <View>
-             {photos.map((photo) => (
-
-             <View key={photo.id}> 
-             <Image
-               source={{uri: photo.url}}
-               style={{width: 300, height: 600, resizeMode: "contain"}} 
-              />
-           </View>
+     <Container>
+     <TouchableOpacity onPress={fetchDogPhotos}> 
+      <View>
+         {photos.map((photo) => (
+           <View key={photo.id}>
+           {/*<Text>{photo.breeds[0].name}</Text> //dont work for all apis*/}
+           <Image
+             resizeMode="contain"
+             source={{uri: photo.url}}
+             style={{width: 300, height: 600}} 
+             /> 
+           <Text>Tap the screen for new dog</Text>
+          </View>
          ))}
-
-            <TouchableOpacity onPress={(photo) => onPress(photo)}> 
-              <Text>New dog</Text>
-            </TouchableOpacity> 
-        </View>  
-      </Container>
+      </View> 
+      </TouchableOpacity>    
+    </Container>
     );
   }
 
-  export default App
+export default App
 
-
-  const Button = styled.TouchableOpacity`
-    width: 200;
-    position: absolute;
-    border-radius: 5%;
-    margin-bottom: 200px;`
-
-  const Container = styled.View`
+const Container = styled.View`
   flex: 1;
+  background-color: black;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  background-color: black;
-  padding_top: 200;
-  padding_bottom: 200;
-  `
-  const Label = styled.View`
-  color: white;`
+`
+
+const Button = styled.TouchableOpacity`
+  background: #80ff86;
+  position: absolute;
+  bottom: 40;
+  padding: 10px 20px;
+  border-radius: 20px;
+`
+const ButtonText = styled.Text`
+  flex:1;
+  align-items: center;
+  color: #1f2e1f;
+  font-size: 20;
+`
