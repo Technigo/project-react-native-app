@@ -71,13 +71,13 @@ const App = () => {
             </TouchableOpacity>
 
             <Text
-              style={{ color: 'peachpuff', textAlign: 'left', marginStart: 5 }}>Photo: {photo.photographer}</Text>
+              style={{ color: 'peachpuff', textAlign: 'center', marginStart: 5 }}>Photo: {photo.photographer}</Text>
 
             <View>
               <Button onPress={() => onShare(photo.id)} title="Share">
                 <Text
                   style={{ color: 'peachpuff', textAlign: 'center', fontWeight: 'bold' }}>
-                  Share image!
+                  Share the wildlife
             </Text>
               </Button>
             </View>
@@ -100,11 +100,15 @@ export default App
 
 const Button = styled.TouchableOpacity`
   position: absolute;
-  bottom: 34;
-  background-color: black;
-  padding: 5px 5px;  
+  bottom: 30;
+  border: 2px solid peachpuff; 
+  padding: 5px 10px; 
+  border-radius: 50;
+  text-align: center;
+  text-align: center;
+  left: 25%;¥  
 `
-// text-align: left;
+
 
 //  const Container = styled.View`
 //   flex: 1;
