@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Picker, Text, StyleSheet, View, TextInput } from 'react-native';
+import React from 'react';
+import { Button, Text, StyleSheet, View, TextInput } from 'react-native';
 
-const PickerDemo = () => {
-  const [categories, setCategories] = useState('Climate');
+const Form = () => {
+
   return (
     <View style={styles.container}>
       <Text style={styles.formLabel}>Sign up for Blue Sky news </Text>
@@ -13,25 +13,15 @@ const PickerDemo = () => {
         placeholder="Password"
         style={styles.inputStyle}
       />
-      <Picker
-        style={{ height: 50, width: 100 }}
-        selectedValue={categories}
-        onValueChange={currentCategories => setCategories(currentCategories)}>
-        <Picker.Item label="Climate News" value="Climate" />
-        <Picker.Item label="Traveling" value="Traveling" />
-        <Picker.Item label="Politics" value="Politics" />
-      </Picker>
-      <Text
-        style={{
-          fontSize: 20,
-          color: 'black',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: 10,
-        }}>
-        Selected: {categories}
-      </Text>
+
+      <Button
+        title="Submit"
+        color="black"
+        onPress={() => alert('You have signed up to Blue Sky news')}
+      />
+
     </View>
+
   )
 }
 
@@ -46,6 +36,7 @@ const styles = StyleSheet.create({
   formLabel: {
     fontSize: 20,
     color: 'black',
+    marginTop: 20,
   },
   inputStyle: {
     marginTop: 10,
@@ -68,4 +59,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PickerDemo
+export default Form

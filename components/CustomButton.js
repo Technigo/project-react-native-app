@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const CustomButton = props => (
   <ButtonContainer
-    onPress={() => alert("Hi, there is a link to this article if you click on the text")}
+    onPress={() => alert("Scroll down, there are links to the articles, if you click below the article")}
     backgroundColor={props.backgroundColor}
   >
     <ButtonText textColor={props.textColor}>{props.text}</ButtonText>
@@ -14,11 +14,12 @@ const CustomButton = props => (
 export default CustomButton
 
 const ButtonContainer = styled.TouchableOpacity`
-  width:100px;
+  width:340px;
   height:40px;
   background-color: ${props => props.backgroundColor};
   border-radius: 8px;
   padding: 8px 16px;
+  margin-top: 50px;
 `
 
 const ButtonText = styled.Text`
