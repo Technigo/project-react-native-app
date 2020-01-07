@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   notodos: {
-    color: 'red',
-    textAlign: 'center'
+    color: '#a9a9a9',
+    textAlign: 'center',
+    fontWeight: 'bold'
   }
 });

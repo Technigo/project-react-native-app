@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export function Header() {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>{'My Todos'.toUpperCase()}</Text>
+      <Text style={styles.title}>{'My Todos'}</Text>
     </View>
   );
 }
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     height: 80,
     paddingTop: 35,
     alignItems: 'center',
-    backgroundColor: 'darkblue'
+    backgroundColor: '#000075'
   },
   title: {
     textAlign: 'center',
