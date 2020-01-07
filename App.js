@@ -77,10 +77,12 @@ const App = () => {
               
               <View>
                 <Button onPress={() => onShare(photo.id)} title="Share">
+               
                   <Text
                     style={{color:'white' }}>
                     Share some RX Power!
                   </Text>
+                  
                 </Button>
               </View>
             </View>
@@ -97,20 +99,17 @@ export default App
 const Button = styled.TouchableOpacity`
   position: absolute;
   bottom: 28px;
-  background: black;
   padding: 10px 5px;
   border-radius: 20px;
   text-align: center;
   left: 31%;
-
+  border: 1px solid white;
 ` 
 
 const Container = styled.View`
   flex: 1;  
   background-color: black; 
   justifyContent: space-between; 
-  
   paddingHorizontal: 20;
   paddingVertical: 20;
-
 `
