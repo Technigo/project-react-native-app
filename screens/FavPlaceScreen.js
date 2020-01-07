@@ -17,7 +17,7 @@ export const FavPlaceScreen = () => {
 FavPlaceScreen.navigationOptions = {
   headerTitle: "My fav places",
   headerStyle: {
-    backgroundColor: "#413c69"
+    backgroundColor: "#fff"
   },
-  headerTintColor: "#f4b0c7",
+  headerTintColor: "#c70d3a",
 }

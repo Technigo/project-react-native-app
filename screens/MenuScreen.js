@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native'
-import { Item } from "react-navigation-header-buttons"
-import HeaderButton from '../components/HeaderButton'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+
+
+
 
 export const MenuScreen = navData => {
 
@@ -9,11 +11,24 @@ export const MenuScreen = navData => {
 
     <View style={styles.container}>
       <View style={styles.bottonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => navData.navigation.navigate("FavPlace")}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navData.navigation.navigate("FavPlace")} >
           <Text style={styles.buttonTitle}> My fav places </Text>
+          <Ionicons
+            style={styles.icon}
+            name="ios-arrow-forward"
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navData.navigation.navigate("AddPlace")}>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navData.navigation.navigate("AddPlace")}>
           <Text style={styles.buttonTitle}> Add new place </Text>
+          <Ionicons
+            style={styles.icon}
+            name="ios-arrow-forward"
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -47,17 +62,27 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#f4b0c7",
-    borderRadius: 4,
+    backgroundColor: "transparent",
+    borderBottomWidth: 1,
+    borderBottomColor: "#fff",
     marginTop: 15,
     marginLeft: 15,
     marginRight: 15,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 
   buttonTitle: {
     fontSize: 20,
     textAlign: 'left',
     padding: 10,
+    color: "#fff",
+  },
+
+  icon: {
+    fontSize: 35,
+    color: "#c70d3a",
   }
 
 })

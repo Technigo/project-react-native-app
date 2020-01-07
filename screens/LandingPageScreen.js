@@ -6,10 +6,11 @@ import styled from "styled-components/native"
 export const LandingPageScreen = (props) => {
   return (
     <StyledView>
-      <StyledText>WildBerry App 🍓</StyledText>
-      <StyledButtom onPress={() => props.navigation.replace("Map")}>
+      <StyledText>WildBerry🍓</StyledText>
+      <StyledSubText>Keep track of your favorite places</StyledSubText>
+      <StyledButton onPress={() => props.navigation.replace("Map")}>
         <StyledButtonText> Get Started!</StyledButtonText>
-      </StyledButtom>
+      </StyledButton>
       {/* <Button title="Get Started!" color="#3e206d" onPress={() => {
         props.navigation.replace("Map")
       }} /> */}
@@ -37,9 +38,15 @@ const StyledView = styled.View`
 
 const StyledText = styled.Text`
     color: #fff;
-    font-size: 30; 
+    font-size: 30;
+    margin: 10px; 
 `
-const StyledButtom = styled.TouchableOpacity`
+
+const StyledSubText = styled.Text`
+    color: #fff;
+    font-size: 20; 
+`
+const StyledButton = styled.TouchableOpacity`
     background-color: transparent;
     border: solid #fff;
     border-radius: 4;
