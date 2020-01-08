@@ -48,6 +48,10 @@ const App = () => {
           source={require('./assets/bluesky.jpg')}
           style={{ width: 350, height: 150 }} />
         <View1>
+          <Title4>Welcome to Blue Sky News!</Title4>
+          <Title4>Updated from the world {moment().calendar()}</Title4>
+
+
           <Picker
             style={{ height: 50, width: 150, margin: 10, }}
             selectedValue={categories}
@@ -55,21 +59,22 @@ const App = () => {
             <Picker.Item label="Climate" value="Climate" />
             <Picker.Item label="Traveling" value="Traveling" />
             <Picker.Item label="Politics" value="Politics" />
+            <Picker.Item label="Movies" value="Movies" />
+            <Picker.Item label="Google-news" value="google-news" />
           </Picker>
           <PickerText>
             Selected News category:
           </PickerText>
+
+
+          <CustomButton
+            text="How to read the articles?"
+            textColor="white"
+            backgroundColor="#8aa8e9"
+          />
+
+          <Title>{categories} News</Title>
         </View1>
-
-        <CustomButton
-          text="Links to articles"
-          textColor="white"
-          backgroundColor="#4252a3"
-        />
-
-        <Title>{categories} News</Title>
-        <Title3>Updated from the world {moment().calendar()}</Title3>
-
         {news.map((articles) => (
           <View key={articles.publishedAt}>
             <Image
@@ -96,9 +101,15 @@ const App = () => {
         ))}
 
         <Form />
+        <Image
+          source={require('./assets/bluesky.jpg')}
+          style={{ width: 350, height: 150, marginTop: 100, }} />
+        <Title4 style={{ color: "#8aa8e9" }}>
+          By Nina Månsson as a React Native Project in  Technigo Frontend bootcamp, 2020.
+            </Title4>
       </ScrollView>
 
-      <Title3>News and Images from Google News API 2020</Title3>
+      <Title4>News and Images from News API 2020</Title4>
 
     </Container >
 
@@ -117,7 +128,8 @@ const View1 = styled.View`
   flex: 1;
   background-color: white;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  
 `
 const PickerText = styled.Text`
   font-size: 18;
@@ -155,47 +167,41 @@ const Title = styled.Text`
 const Title1 = styled.Text`
   font-size: 30;
   color: black;
-  padding-bottom: 25;
+  padding-bottom: 15;
   font-weight:800;
 `
 const Title2 = styled.Text`
   font-size: 20;
   color: black;
   padding-top: 10;
-  padding-bottom: 10;
+  padding-bottom: 5;
 `
 const Title3 = styled.Text`
-  font-size: 14;
+  font-size: 16;
   color: black;
   padding-top:10;
-  padding-bottom: 10;
-  line-height: 22;
-  margin-bottom: 10;
+  line-height: 24;
 `
-
 const Title4 = styled.Text`
 font-size: 14;
 color: black;
 padding-top:10;
 padding-bottom: 10;
-
 `
 const Title5 = styled.Text`
 font-size: 18;
 font-weight: bold;
 color: white;
 `
-
 const Button3 = styled.TouchableOpacity`
   width: 350;
   height: 50;
-  background-color: #4252a3;
+  background-color: #8aa8e9;
   margin-bottom: 40;
   text-align: center;
   border-radius: 8;
   align-items: center;
   justify-content: center;
   text-align: center;
-  
 `
 
