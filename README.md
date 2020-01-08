@@ -1,14 +1,9 @@
-# Project React Native App 📱
+# Project React Native App 
 
-In this week's project, you'll be building your first mobile application with React Native.
-
-## Learning objective
-* How to use React Native to create a mobile app
-* Practice using Styled Components
-* More practice in useState and form inputs
+In this week's project, i builded a simple todo list were you can add and delete by clicking on a new "todo" items from a list.
 
 
-## technology implemente
+## technology implemented
 * JavaScript ES6
 * React Native
 * Styled Components
