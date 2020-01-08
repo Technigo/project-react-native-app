@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
-import styled from "styled-components/native"
-import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { Header } from './components/Header';
-import { TodoItem } from './components/TodoItem';
+import styled from "styled-components"
+import {
+  Text,
+  View,
+  FlatList,
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard
+} from 'react-native';
 
+import Header from './components/Header';
+import TodoItem from './components/TodoItem';
 import AddTodo from './components/addTodo';
 
 const App = () => {
 
   const [todos, setTodos] = useState([
-    { text: 'buy coffee', key: '1' },
-    { text: 'create an app', key: '2' },
-    { text: 'play on the switch', key: '3' }
+    { text: 'Buy wine', key: '1' },
+    { text: 'Learn JS', key: '2' },
+    { text: 'Yoga', key: '3' }
   ]);
 
   const pressHandler = (key) => {
@@ -62,11 +69,11 @@ const Container = styled.View`
   
 `
 const Content = styled.View`
-padding: 20;
+paddingTop: 20;
   
 `
 const List = styled.View`
-margin-top: 20;
+marginTop: 20;
   
 `
 export default App

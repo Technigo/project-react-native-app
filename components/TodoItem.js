@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
-import styled from "styled-components/native"
+import { TouchableOpacity, Text } from 'react-native';
+import styled from "styled-components"
 
 
 const TodoItem = ({ pressHandeler, item }) => {
@@ -16,13 +16,12 @@ const TodoItem = ({ pressHandeler, item }) => {
 
 
 const Item = styled.Text`
-  padding: 16;
-    margin-Top: 16;
-    border-Color: '#bbb';
-    border-Width: 1;
-    border-Style: "dashed";
-    border-Radius: 1;
-    border-Radius: 10;
+  paddingTop: 16;
+   marginTop: 16;
+    borderColor: #bbb;
+    borderWidth: 1;
+    borderStyle: "dashed";
+    borderRadius: 10;
   
 `
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, Button } from 'react-native';
-import styled from "styled-components/native"
+import { View, TextInput, Button } from 'react-native';
+import styled from "styled-components"
 
 
 const AddTodo = ({ submitHandler }) => {
@@ -24,11 +24,11 @@ const AddTodo = ({ submitHandler }) => {
 }
 
 const Input = styled.TextInput`
-  margin-Bottom: 10,
-    padding-Horizontal: 8,
-    padding-Vertical: 6,
-    border-Bottom-Width: 1,
-    border-Bottom-Color: '#ddd',
+  marginBottom: 10px;
+    paddingHorizontal: 8px;
+    paddingVertical: 6px;
+    borderBottomWidth: 1px;
+    borderBottomColor: #ddd;
 `
 
 export default AddTodo
