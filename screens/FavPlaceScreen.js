@@ -4,12 +4,14 @@ import { FavList } from '../components/FavList'
 
 export const FavPlaceScreen = () => {
   return (
-    <ImageBackground source={require('../assets/wildberry-bg.jpg')} style={{ width: '100%', height: '100%' }}>
+    // <ImageBackground source={require('../assets/wildberry-bg.jpg')} style={{ width: '100%', height: '100%' }}>
+    <View style={styles.container}>
       <ScrollView>
         <FavList />
       </ScrollView>
+    </View>
 
-    </ImageBackground>
+    /* </ImageBackground> */
 
   )
 }
@@ -21,3 +23,14 @@ FavPlaceScreen.navigationOptions = {
   },
   headerTintColor: "#c70d3a",
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#45969b",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  }
+
+}
+)

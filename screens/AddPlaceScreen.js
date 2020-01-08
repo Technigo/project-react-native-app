@@ -33,7 +33,9 @@ export const AddPlaceScreen = (navData) => {
         console.log(Number(result[0].lon))
         setLocation(result)
         PLACES.push(new Place(lastId + 1, title, description, { 'latitude': Number(result[0].lat), 'longitude': Number(result[0].lon) }))
-        navData.navigation.replace("Menu")
+        // navData.navigation.replace("Map", PLACES)
+        navData.navigation.replace("Map")
+
       })
 
 
@@ -129,7 +131,10 @@ const styles = StyleSheet.create({
   },
   formInput: {
     margin: 10,
-    padding: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    paddingRight: 5,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
@@ -137,7 +142,10 @@ const styles = StyleSheet.create({
   },
   formInput50: {
     margin: 10,
-    padding: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    paddingRight: 5,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,

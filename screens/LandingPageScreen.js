@@ -38,8 +38,10 @@ const StyledView = styled.View`
 
 const StyledText = styled.Text`
     color: #fff;
-    font-size: 30;
+    font-size: 45;
     margin: 10px; 
+    font-weight: bold;
+   
 `
 
 const StyledSubText = styled.Text`
