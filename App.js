@@ -18,15 +18,22 @@ import houseButtons from './components/HouseButtons'
 //   border: solid 3px black;
 //   font-size: 40px;
 //   `
+
+const MainContain = styled.View`
+display: flex;
+flex: 1;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: white;
+`
   const Container = styled.View`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: white;
-  padding-top: 30px;
   width: 100%;
-  color: red;
   `
 
   const Header = styled.Text`
@@ -48,6 +55,29 @@ import houseButtons from './components/HouseButtons'
   font-size: 20px;
   color: black;
 `
+const Buttonz = styled.TouchableOpacity`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 40%;
+height: 50px;
+margin: 10px;
+border-radius: 10px;
+background: white;
+color: black;
+border: solid 2px black;
+`
+const HouseContainer = styled.View`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: white;
+  width: 100%;
+  color: red;
+  `
   
 
   const POTTER_API_URL = 'https://www.potterapi.com/v1'
@@ -133,19 +163,20 @@ import houseButtons from './components/HouseButtons'
     }
   
     return (
-      <Container>
+      <MainContain>
         {/* START GAME CONTAINER + STATE */}
         {DisplayStart === false || answer === true ? (null) : (
        <Container>
          <Header>Are you a Potterhead?</Header>
-         <Button
+         <Buttonz
         title="Find out!"
         onPress={() => {
           handleFetchCharacters()
           setDisplayStart(false)
           setDisplayGame(true)
         }}>
-      </Button>
+          <Writing>Find out!</Writing>
+      </Buttonz>
        </Container>
        )}
 
@@ -158,38 +189,40 @@ import houseButtons from './components/HouseButtons'
             {character.name}
           </Header>
           <Writing>belong?</Writing>
-         <Button
+         <HouseContainer>
+         <Buttonz
               title="Gryffindor"
               onPress={() => {
                 setAnswer(houseMatch("Gryffindor", character));
                 setDisplayGame(false);
               }}>
-              Gryffindor
-            </Button>
-            <Button
+              <Writing>Gryffindor</Writing>
+            </Buttonz>
+            <Buttonz
               title="Slytherin"
               onPress={() => {
                 setAnswer(houseMatch("Slytherin", character));
                 setDisplayGame(false)
               }}>
-              Slytherin
-            </Button>
-            <Button
+              <Writing>Slytherin</Writing>
+            </Buttonz>
+            <Buttonz
               title="Hufflepuff"
               onPress={() => {
                 setAnswer(houseMatch("Hufflepuff", character));
                 setDisplayGame(false)
               }}>
-              Hufflepuff
-            </Button>
-            <Button
+              <Writing>Hufflepuff</Writing>
+            </Buttonz>
+            <Buttonz
               title="Ravenclaw"
               onPress={() => {
                 setAnswer(houseMatch("Ravenclaw", character));
                 setDisplayGame(false)
               }}>
-              Ravenclaw
-            </Button>
+              <Writing>Ravenclaw</Writing>
+            </Buttonz>
+         </HouseContainer>
           </Container>
         )}
         {/* ANSWER COMP */}
@@ -199,14 +232,17 @@ import houseButtons from './components/HouseButtons'
           <AnswerBlock>
             <Writing>{answer}</Writing>
           </AnswerBlock>
-        <Button
+        <Buttonz
         title="New character!"
         onPress={() => {
           handleFetchCharacters()
           setDisplayGame(true)
-        }}></Button>
+          setAnswer(false)
+        }}>
+          <Writing>New character!</Writing>
+        </Buttonz>
         </Container>
         )}
-      </Container>
+      </MainContain>
     )
   }
