@@ -24,10 +24,12 @@ export const FavList = () => {
 
         <View style={styles.upper}>
           <View>
+            <Text style={{ fontSize: 12 }}>{place.location.street}</Text>
+            <Text style={{ fontSize: 12 }}>{place.location.city}</Text>
           </View>
           <View>
-            <Text style={{ fontSize: 12 }}>{place.position.latitude.toFixed(5)}</Text>
-            <Text style={{ fontSize: 12 }}>{place.position.longitude.toFixed(5)}</Text>
+            <Text style={{ fontSize: 10 }}>{place.position.latitude.toFixed(5)}</Text>
+            <Text style={{ fontSize: 10 }}>{place.position.longitude.toFixed(5)}</Text>
           </View>
         </View>
 

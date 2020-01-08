@@ -6,7 +6,30 @@ import FavMarkers from '../components/FavMarkers'
 import HeaderButton from '../components/HeaderButton'
 
 
-export const MapScreen = () => {
+// -----
+import PLACES from '../data/dummy-data'
+import Place from '../models/place'
+
+
+// ------
+
+
+export const MapScreen = (navData) => {
+  let updatedPLACES = (navData.navigation.getParam('pl'))
+  console.log(updatedPLACES)
+  let newRegion = undefined
+  try {
+    let lastLat = updatedPLACES.slice(-1)[0].position.latitude
+    let lastLon = updatedPLACES.slice(-1)[0].position.longitude
+    newRegion = {
+      latitude: lastLat,
+      longitude: lastLon,
+      latitudeDelta: 0.015,
+      longitudeDelta: 0.0121,
+    }
+  }
+  catch (err) {
+  }
   return (
 
     <View style={styles.container}>
@@ -16,14 +39,14 @@ export const MapScreen = () => {
         showsMyLocationButton={true}
         showsUserLocation={true}
         mapType={"standard"}
-        region={{
+        region={newRegion || {
           latitude: 59.3280118,
           longitude: 18.0691595,
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         }}
       >
-        <FavMarkers />
+        <FavMarkers PLACES={PLACES} />
 
       </MapView>
     </View>
