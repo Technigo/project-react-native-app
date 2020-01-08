@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Alert, Text, StyleSheet } from "react-native"
+import { View, Alert, Text } from "react-native"
 import styled from 'styled-components/native'
 import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons'
 
@@ -46,7 +46,7 @@ const App = () => {
 
   const playerMove = (x,y) => {
     if( checkWin() === 1 || checkWin() === -1 ) {
-      Alert.alert("Game has already finished. Restarting!.")
+      Alert.alert("Game has already finished. Restarting.")
       restart()
     } else {
       if(moves < 10 && grid[x][y] === 0 && checkWin() === 0) {
@@ -149,7 +149,7 @@ const Grid = styled.View`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40%;
+    height: 50%;
 `
 
 const Row = styled.View`
