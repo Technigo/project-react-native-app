@@ -1,41 +1,72 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from 'react';
 import styled from "styled-components/native"
+import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { Header } from './components/Header';
+import { TodoItem } from './components/TodoItem';
 
-const apiKey = `const apiKey = 'K3UmmZiUOJcE1TWabtU7ygeF`;
-const url = `https://api.fungenerators.com/taunt/generate?category=pirate-insult`;
+import AddTodo from './components/addTodo';
 
-export const App = () => {
-  const [insult, setInsult] = useState([]);
+const App = () => {
 
+  const [todos, setTodos] = useState([
+    { text: 'buy coffee', key: '1' },
+    { text: 'create an app', key: '2' },
+    { text: 'play on the switch', key: '3' }
+  ]);
 
-  useEffect(() => {
-    fetch(url, { headers: { Authorization: apiKey } })
-      .then(res => res.json())
-      .then(json => {
-        setInsult(json.insult);
-        console.log(json);
+  const pressHandler = (key) => {
+    setTodos(prevTodos => {
+      return prevTodos.filter(todo => todo.key != key);
+    });
+  };
+
+  const submitHandler = (text) => {
+    if (text.length > 5) {
+      setText('');
+      setTodos(prevTodos => {
+        return [
+          { text, key: Math.random().toString() },
+          ...prevTodos
+        ];
       });
-  }, []);
+    } else {
+      Alert.alert('OOPS', 'New todo is to short, try again', [
+        { text: 'Understood', onPress: () => console.log('closed') }
+      ]);
+    }
+  };
 
   return (
-    <Container>
-      <Title>taunt</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <Container>
+        <Header />
+        <Content>
+          <AddTodo />
+          <List>
+            <FlatList
+              data={todos}
+              renderItem={({ item }) => (
+                <TodoItem item={item} pressHandler={pressHandler} />
+              )}
+            />
+          </List>
+        </Content>
+      </Container>
+    </TouchableWithoutFeedback>
   )
 }
 
+
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
+  
 `
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+const Content = styled.View`
+padding: 20;
+  
 `
-
+const List = styled.View`
+margin-top: 20;
+  
+`
 export default App
