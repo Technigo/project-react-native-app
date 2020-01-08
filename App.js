@@ -20,6 +20,7 @@ import houseButtons from './components/HouseButtons'
 //   `
   const Container = styled.View`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: white;
@@ -39,7 +40,7 @@ import houseButtons from './components/HouseButtons'
   const fetchCharacters = () => {
     return fetch(`${POTTER_API_URL}/characters?key=${POTTER_API_KEY}`).then(
       response => response.json(),
-    )
+    )   
   }
   
   const randomRangeNumber = (max) => {
@@ -52,8 +53,7 @@ import houseButtons from './components/HouseButtons'
     while (!character.house) {
       character = characters[randomRangeNumber(characters.length) - 1]
     }
-  
-    return character
+    return character 
   }
   
   const getRandomCharacterRecursion = (characters) => {
@@ -68,12 +68,24 @@ import houseButtons from './components/HouseButtons'
   }
 
   // Run houseMatch to see ig guess is correct
+  const houseMatch = (house, character) => {
+    console.log(character);
+    if (house === character.house) {
+       return "Correct!";
+    } else {
+      return `No, ${character.name} is in ${character.house}`;
+    }
+  };
 
   
   
   export default function App() {
     const [character, setCharacter] = useState()
-    const [house, SetHouse] = useState("")
+    const [house, setHouse] = useState()
+    const [answer, setAnswer] = useState(false)
+    const [DisplayGame, setDisplayGame] = useState (false)
+    // const [DisplayCharacter, setDisplayCharacter] = useState (false)
+    const [DisplayRandom, setDisplayRandom] = useState (false)
 
     
   
@@ -84,19 +96,15 @@ import houseButtons from './components/HouseButtons'
         // no recursion
         let character = getRandomCharacter(json)
         setCharacter(character)
+        setDisplayGame(true)
       })
     }
 
     const houseMatch = (house) => {
       if (house === character.house) {
-        return ("Correct!")
+        return (`Correct! ${character.name} is in ${character.house} at ${character.school}`)
       } else {
-        return (
-          <Container>
-            <Text>
-            No, {character.name} is in {character.house}
-            </Text>
-          </Container>)
+        return (`No, ${character.name} is in ${character.house}`)
       }
     }
   
@@ -110,59 +118,56 @@ import houseButtons from './components/HouseButtons'
   
     return (
       <Container>
+        {DisplayGame === false ? (null) : (
+          <Container>
         <Header>
           {character.name}
         </Header>
+         <Button
+              title="Gryffindor"
+              onPress={() => {
+                setAnswer(houseMatch("Gryffindor", character));
+                setDisplayGame(false);
+              }}>
+              Gryffindor
+            </Button>
+            <Button
+              title="Slytherin"
+              onPress={() => {
+                setAnswer(houseMatch("Slytherin", character));
+                setDisplayGame(false)
+              }}>
+              Slytherin
+            </Button>
+            <Button
+              title="Hufflepuff"
+              onPress={() => {
+                setAnswer(houseMatch("Hufflepuff", character));
+                setDisplayGame(false)
+              }}>
+              Hufflepuff
+            </Button>
+            <Button
+              title="Ravenclaw"
+              onPress={() => {
+                setAnswer(houseMatch("Ravenclaw", character));
+                setDisplayGame(false)
+              }}>
+              Ravenclaw
+            </Button>
+          </Container>
+        )}
+        {/* Display answer if given */}
+        {answer === false ?   (null)  : (<Text>{answer}</Text>)}
+        
       <Button
-        title="Gryffindor"
-        onPress={() => {
-          setHouse = "Gryffindor"
-          return (
-            houseMatch(house)
-          )
-        }}
-      >
-        Gryffindor
-      </Button>
-      <Button
-        title="Slytherin"
-        onPress={() => {
-          setHouse = "Slytherin"
-          return (
-            houseMatch(house)
-          )
-        }}>
-        Slytherin
-      </Button>
-      <Button
-        title="Hufflepuff"
-        onPress={() => {
-          setHouse = "Hufflepuff"
-          return (
-            houseMatch(house)
-          )
-        }}
-      >
-        Hufflepuff
-      </Button>
-      <Button
-        title="Ravenclaw"
-        onPress={() => {
-          setHouse = "Ravenclaw"
-          return (
-            houseMatch(house)
-          )
-        }}
-      >
-        Ravenclaw
-      </Button>
-      <Button
-        title="random"
+        title="Guess character!"
         onPress={() => {
           handleFetchCharacters()
+          setDisplayGame(true)
         }}
       >
-        Random
+        Guess character!
       </Button>
       {/* <HouseButtons /> */}
       </Container>
