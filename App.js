@@ -27,6 +27,10 @@ const App = () => {
     cost: formValues.cost,
   };
 
+  //FUNCTION TO ENABLE BUTTONS
+  const enabledIncome = formValues.income > 0;
+  const enabledCost = formValues.cost > 0;
+
   // FUNCTIONS FOR ADDING INCOMES AND COSTS
   const handleAddIncome = () => {
     setListIncomes([...listIncomes, addedIncomes]);
@@ -82,7 +86,7 @@ const App = () => {
               categoryIncome: value,
             })
           }>
-          <Picker.Item label="Pick a category" value="-" />
+          <Picker.Item label="Pick a category" value="" />
           <Picker.Item label="Salary" value="Salary" />
           <Picker.Item label="Stole it" value="Stolen money" />
           <Picker.Item label="Borrowed" value="Borrowed" />
@@ -101,7 +105,10 @@ const App = () => {
           clearTextOnFocus
         />
 
-        <StyledButton onPress={handleAddIncome}>
+        <StyledButton
+          onPress={handleAddIncome}
+          activeOpacity={enabledIncome ? 0.3 : 1}
+          disabled={!enabledIncome}>
           <Text>💰 ADD INCOME 💰</Text>
         </StyledButton>
       </StyledView>
@@ -131,7 +138,10 @@ const App = () => {
           clearTextOnFocus
         />
 
-        <StyledButton onPress={handleAddCost}>
+        <StyledButton
+          onPress={handleAddCost}
+          activeOpacity={enabledCost ? 0.3 : 1}
+          disabled={!enabledCost}>
           <Text>💸 ADD COST 💸</Text>
         </StyledButton>
       </StyledView>
@@ -160,7 +170,7 @@ const App = () => {
               <TextSummary>{leftToSpend} SEK</TextSummary>
             </ViewBalance>
           )}
-          <StyledButton onPress={clearInput}>
+          <StyledButton onPress={clearInput} activeOpacity={0.3}>
             <Text>✌️ TRY AGAIN? ✌️</Text>
           </StyledButton>
         </ViewSummary>
