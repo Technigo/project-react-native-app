@@ -13,13 +13,11 @@ function Timer({ interval, style }) {
   const duration = moment.duration(interval)
   const centiseconds = Math.floor(duration.milliseconds() / 10)
   return (
-    // <View style={styles.timerContainer}>
     <TimerContainer>
       <StyledText style={style}>{pad(duration.minutes())}:</StyledText>
       <StyledText style={style}>{pad(duration.seconds())},</StyledText>
       <StyledText style={style}>{pad(centiseconds)}</StyledText>
     </TimerContainer>
-    // </View>
   )
 }
 
@@ -59,7 +57,7 @@ function LapsTable({ laps, timer }) {
   let max = Number.MIN_SAFE_INTEGER
 
   if (finishedLaps.length > 2) {
-    finishedLaps.forEach(lap => {  //maybe change to map instead?
+    finishedLaps.forEach(lap => {
       if (lap < min) min = lap
       if (lap > max) max = lap
     })
@@ -81,7 +79,7 @@ function LapsTable({ laps, timer }) {
 
 function ButtonsRow({ children }) {
   return (
-    <ButtonRowContainer>{children}</ButtonRowContainer>  //for the styled component
+    <ButtonRowContainer>{children}</ButtonRowContainer>
   )
 }
 
@@ -90,7 +88,9 @@ function ButtonsRow({ children }) {
 
 
 export default class App extends React.Component {
+
   // const App = () => {
+  //continue working with it and change it to useState instead
   // const [start, setStart] = useState(0)
   // const [now, setNow] = useState(0)
   // const [laps, setLaps] = useState([])
@@ -106,7 +106,7 @@ export default class App extends React.Component {
     }
   }
 
-  //here I should have some useEffect
+  //here I should change to useEffect
   componentWillUnmount() {
     clearInterval(this.timer)
   }
@@ -168,7 +168,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { start, now, laps } = this.state  //maybe should use useState here instead
+    const { start, now, laps } = this.state  //should use useState here instead
     const timer = now - start
 
     return (
@@ -315,4 +315,4 @@ const styles = StyleSheet.create({
 
 });
 
-// export default App
+
