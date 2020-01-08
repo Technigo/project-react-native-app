@@ -67,7 +67,7 @@ const App = () => {
     });
     setListIncomes([]);
     setListCosts([]);
-    scroll.current.scrollTo(0);
+    scroll.current.scrollTo({ x: 0, y: 0 });
     Vibration.vibrate(vibeDuration);
   };
 
@@ -101,7 +101,6 @@ const App = () => {
           placeholder="0"
           allowFontScaling
           keyboardType="numeric"
-          autoCapitalize
           clearTextOnFocus
         />
 
@@ -124,7 +123,7 @@ const App = () => {
           placeholder="Food, car, diapers.."
           allowFontScaling
           clearTextOnFocus
-          autoCapitalize
+          autoCapitalize="sentences"
         />
 
         <Text>How much?</Text>
@@ -181,7 +180,6 @@ const App = () => {
 
 // STYLED-COMPONENTS
 const Container = styled.ScrollView`
-  font-family: Calibri;
   flex-grow: 1;
   background: #222A2B;
   margin: 0;
