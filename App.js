@@ -24,7 +24,7 @@ import houseButtons from './components/HouseButtons'
   justify-content: center;
   align-items: center;
   background: white;
-  height: 100%;
+  padding-top: 30px;
   width: 100%;
   color: red;
   `
@@ -33,6 +33,22 @@ import houseButtons from './components/HouseButtons'
   font-size: 30px;
   color: black;
   `
+
+  const AnswerBlock = styled.View`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: white;
+  width: 60%;
+  color: red;
+  `
+  const Writing = styled.Text`
+  font-size: 20px;
+  color: black;
+`
+  
 
   const POTTER_API_URL = 'https://www.potterapi.com/v1'
   const POTTER_API_KEY = '$2a$10$QO0C49uSavMxC6YqmS5me.3sTZykI3k22Hn8I8zO4t3LaAdmAzFBm'
@@ -67,7 +83,7 @@ import houseButtons from './components/HouseButtons'
     return character
   }
 
-  // Run houseMatch to see ig guess is correct
+  // Run houseMatch to see if guess is correct
   const houseMatch = (house, character) => {
     console.log(character);
     if (house === character.house) {
@@ -84,8 +100,9 @@ import houseButtons from './components/HouseButtons'
     const [house, setHouse] = useState()
     const [answer, setAnswer] = useState(false)
     const [DisplayGame, setDisplayGame] = useState (false)
+    const [DisplayStart, setDisplayStart] = useState (true)
     // const [DisplayCharacter, setDisplayCharacter] = useState (false)
-    const [DisplayRandom, setDisplayRandom] = useState (false)
+    
 
     
   
@@ -96,7 +113,6 @@ import houseButtons from './components/HouseButtons'
         // no recursion
         let character = getRandomCharacter(json)
         setCharacter(character)
-        setDisplayGame(true)
       })
     }
 
@@ -118,11 +134,30 @@ import houseButtons from './components/HouseButtons'
   
     return (
       <Container>
+        {/* START GAME CONTAINER + STATE */}
+        {DisplayStart === false || answer === true ? (null) : (
+       <Container>
+         <Header>Are you a Potterhead?</Header>
+         <Button
+        title="Find out!"
+        onPress={() => {
+          handleFetchCharacters()
+          setDisplayStart(false)
+          setDisplayGame(true)
+        }}>
+      </Button>
+       </Container>
+       )}
+
+       {/* GAME COMP */}
+
         {DisplayGame === false ? (null) : (
           <Container>
-        <Header>
-          {character.name}
-        </Header>
+            <Writing>In which house does</Writing>
+          <Header>
+            {character.name}
+          </Header>
+          <Writing>belong?</Writing>
          <Button
               title="Gryffindor"
               onPress={() => {
@@ -157,19 +192,21 @@ import houseButtons from './components/HouseButtons'
             </Button>
           </Container>
         )}
+        {/* ANSWER COMP */}
         {/* Display answer if given */}
-        {answer === false ?   (null)  : (<Text>{answer}</Text>)}
-        
-      <Button
-        title="Guess character!"
+        {answer === false ?   (null)  : (
+          <Container>
+          <AnswerBlock>
+            <Writing>{answer}</Writing>
+          </AnswerBlock>
+        <Button
+        title="New character!"
         onPress={() => {
           handleFetchCharacters()
           setDisplayGame(true)
-        }}
-      >
-        Guess character!
-      </Button>
-      {/* <HouseButtons /> */}
+        }}></Button>
+        </Container>
+        )}
       </Container>
     )
   }
