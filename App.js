@@ -198,7 +198,7 @@ const TextHeading = styled.Text`
   font-size: 24px;
   font-weight: bold;
   color: #FFF;
-  margin: 20px;
+  margin: 30px 20px 20px 20px;
   padding: 30px 15px 25px 15px;
   text-align: center;
   background: transparent;
