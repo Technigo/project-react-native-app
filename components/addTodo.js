@@ -3,8 +3,8 @@ import { View, TextInput, Button } from 'react-native';
 import styled from "styled-components"
 
 
-const AddTodo = ({ submitHandler }) => {
-  const [text, setText] = useState('');
+const AddTodo = ({ submitHandler, text, setText }) => {
+  // const [text, setText] = useState('');
 
   const changeHandler = (value) => {
     setText(value);
@@ -13,7 +13,6 @@ const AddTodo = ({ submitHandler }) => {
   return (
     <View>
       <Input
-        style={styles.input}
         placeholder='add your new todo.'
         onChangeText={changeHandler}
         value={text}

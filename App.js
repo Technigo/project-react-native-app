@@ -14,11 +14,12 @@ import TodoItem from './components/TodoItem';
 import AddTodo from './components/addTodo';
 
 const App = () => {
+  const [text, setText] = useState('');
 
   const [todos, setTodos] = useState([
     { text: 'Buy wine', key: '1' },
     { text: 'Learn JS', key: '2' },
-    { text: 'Yoga', key: '3' }
+    { text: 'Do some Yoga', key: '3' }
   ]);
 
   const pressHandler = (key) => {
@@ -48,7 +49,7 @@ const App = () => {
       <Container>
         <Header />
         <Content>
-          <AddTodo />
+          <AddTodo submitHandler={submitHandler} text={text} setText={setText} />
           <List>
             <FlatList
               data={todos}

@@ -3,7 +3,7 @@ import { TouchableOpacity, Text } from 'react-native';
 import styled from "styled-components"
 
 
-const TodoItem = ({ pressHandeler, item }) => {
+const TodoItem = ({ pressHandler, item }) => {
 
 
   return (
@@ -20,7 +20,7 @@ const Item = styled.Text`
    marginTop: 16;
     borderColor: #bbb;
     borderWidth: 1;
-    borderStyle: "dashed";
+    borderStyle: dashed;
     borderRadius: 10;
   
 `
