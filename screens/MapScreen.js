@@ -1,22 +1,15 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import { HeaderButtons, Item } from "react-navigation-header-buttons"
+
 import FavMarkers from '../components/FavMarkers'
 import HeaderButton from '../components/HeaderButton'
-
-
-// -----
 import PLACES from '../data/dummy-data'
-import Place from '../models/place'
-
-
-// ------
 
 
 export const MapScreen = (navData) => {
   let updatedPLACES = (navData.navigation.getParam('pl'))
-  console.log(updatedPLACES)
   let newRegion = undefined
   try {
     let lastLat = updatedPLACES.slice(-1)[0].position.latitude
@@ -75,9 +68,6 @@ MapScreen.navigationOptions = navData => {
     </HeaderButtons>
   }
 }
-
-
-
 
 const styles = StyleSheet.create({
   container: {

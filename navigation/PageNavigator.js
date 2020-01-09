@@ -10,12 +10,10 @@ import { AddPlaceScreen } from '../screens/AddPlaceScreen'
 
 const PageNavigator = createStackNavigator({
   LandingPage: LandingPageScreen,
+  AddPlace: AddPlaceScreen,
   Map: MapScreen,
   Menu: MenuScreen,
-  AddPlace: AddPlaceScreen,
   FavPlace: FavPlaceScreen,
-
-
 },
   {
     defaultNavigationOptions: {

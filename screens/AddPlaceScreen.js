@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, ImageBackground, TextInput, Picker, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import { View, StyleSheet, TextInput, Alert } from 'react-native'
 import Place from '../models/place'
-
+import { Ionicons } from '@expo/vector-icons'
+import styled from "styled-components/native"
 import { LOCATION_API } from 'react-native-dotenv'
+
 import PLACES from '../data/dummy-data'
 
 const fetchLocationData = async (street, city) => {
@@ -13,43 +15,40 @@ const fetchLocationData = async (street, city) => {
 }
 
 export const AddPlaceScreen = (navData) => {
-  const [location, setLocation] = useState({})
-  const [category, setCategory] = useState("")
+
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [street, setStreet] = useState("")
-  // const [postal, setPostal] = useState("")
   const [city, setCity] = useState("Stockholm")
 
   let lastId = PLACES.slice(-1)[0].id
 
 
-
   const saveData = () => {
-    console.log("saveData()")
-    fetchLocationData(street, postal, city)
+    fetchLocationData(street, city)
       .then((result) => {
-        console.log(result)
-        setLocation(result)
-        // let postno = postal.replace(/\s/g, '')
+
+        if (title == "" || street == "" || city == "") {
+          Alert.alert("Fill in title, street and city")
+          return
+        }
         PLACES.push(new Place(lastId + 1, title, description, { 'latitude': Number(result[0].lat), 'longitude': Number(result[0].lon) }, { 'street': street, 'city': city }))
-        // navData.navigation.replace("Map", PLACES)
+        Alert.alert('Place saved!')
         navData.navigation.navigate("Map", { pl: PLACES })
 
       })
-
-
   }
 
-  useEffect(() => {
-    fetchLocationData()
+  const clickedIcon = () => {
+    alert("Button pressed")
+  }
 
-  }, [])
 
   return (
-    <ImageBackground source={require('../assets/wildberry-bg.jpg')} style={{ width: '100%', height: '100%' }}>
+    <View style={styles.container}>
       <View style={styles.form}>
         <TextInput
+          autoCorrect={false}
           style={styles.formInput}
           placeholder={'Title'}
           onChangeText={text => {
@@ -57,27 +56,16 @@ export const AddPlaceScreen = (navData) => {
           }}
         />
         <TextInput
+          autoCorrect={false}
           style={styles.formInput}
           placeholder={'Description'}
           onChangeText={text => {
             setDescription(text)
           }}
         />
-        <Picker
-          selectedValue={category}
-          style={styles.formPicker}
-          onValueChange={(itemValue) => {
-            setCategory(itemValue)
-          }
-          }>
-          <Picker.Item label="Home" value="ios-home" />
-          <Picker.Item label="Cafe" value="ios-cafe" />
-          <Picker.Item label="Friend" value="ios-contacts" />
-          <Picker.Item label="Bar" value="ios-wine" />
-          <Picker.Item label="Restaurant" value="md-restaurant" />
-        </Picker>
 
         <TextInput
+          autoCorrect={false}
           style={styles.formInput}
           placeholder={'Street'}
           onChangeText={text => {
@@ -86,6 +74,7 @@ export const AddPlaceScreen = (navData) => {
         />
 
         <TextInput
+          autoCorrect={false}
           style={styles.formInput}
           value={city}
           placeholder={'City'}
@@ -95,42 +84,116 @@ export const AddPlaceScreen = (navData) => {
         />
 
 
-        <TouchableOpacity style={styles.button} onPress={saveData}>
-          <Text style={styles.buttonTitle}>Save</Text>
-        </TouchableOpacity>
+        <View style={styles.iconsContainer}>
+          <IconButton>
+            <Ionicons
+              color={"#fff"}
+              style={styles.icon}
+              name="ios-home"
+            />
+          </IconButton>
+          <IconButton>
+            <Ionicons
+              color={"#fff"}
+              style={styles.icon}
+              name="ios-contacts"
+            />
+          </IconButton>
+          <IconButton>
+            <Ionicons
+              color={"#fff"}
+              style={styles.icon}
+              name="ios-cafe"
+            />
+          </IconButton>
+
+          <IconButton>
+            <Ionicons
+              color={"#fff"}
+              style={styles.icon}
+              name="ios-restaurant"
+            />
+          </IconButton>
+          <IconButton onPress={clickedIcon}>
+            <Ionicons
+              color={"#fff"}
+              style={styles.icon}
+              name="ios-wine"
+            />
+          </IconButton>
+
+        </View>
+
+        <StyledButton onPress={() => saveData()}>
+          <StyledButtonText> Save place! </StyledButtonText>
+        </StyledButton>
       </View>
 
-    </ImageBackground >
+    </View>
 
   )
 }
 
 AddPlaceScreen.navigationOptions = {
-  headerTitle: "My fav places",
+  headerTitle: "Add new place",
   headerStyle: {
     backgroundColor: "#fff"
   },
   headerTintColor: "#c70d3a",
 }
 
+
+const IconButton = styled.TouchableOpacity`
+  width: 55;
+  border: 1px solid white;
+  border-radius: 5;
+  align-items: center;
+`
+const StyledButton = styled.TouchableOpacity`
+  background-color: transparent;
+  border: solid #fff;
+  border-radius: 4;
+  margin-top: 30;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 10;
+  padding-bottom: 10;
+  padding-right: 8;
+  padding-left: 8;
+`
+const StyledButtonText = styled.Text`
+    color: #c70d3a;
+    font-size: 22; 
+    text-align: center;
+`
+
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#45969b",
+    flex: 1,
+    justifyContent: "center",
+  },
   form: {
     flexDirection: 'column',
     margin: 15,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'transparent',
     padding: 15,
     borderRadius: 10,
   },
   formInput: {
+    backgroundColor: 'transparent',
     margin: 5,
     paddingTop: 5,
     paddingBottom: 5,
     paddingLeft: 10,
     paddingRight: 5,
-    height: 40,
+    height: 50,
     borderColor: 'gray',
+    borderBottomWidth: 1,
+    borderBottomColor: 'white',
     borderWidth: 1,
-    fontSize: 19,
+    fontSize: 24,
+    color: 'white',
   },
 
   formPicker: {
@@ -139,18 +202,6 @@ const styles = StyleSheet.create({
     width: 300,
     borderColor: 'gray',
     borderWidth: 1
-  },
-
-  button: {
-    backgroundColor: "yellow",
-    borderWidth: 1,
-    alignItems: "center",
-  },
-
-  buttonTitle: {
-    fontSize: 20,
-    padding: 10,
-    color: "black",
   },
 
   upper: {
@@ -169,5 +220,14 @@ const styles = StyleSheet.create({
     color: '#413c69',
     fontSize: 18,
   },
+  icon: {
+    fontSize: 50,
+  },
+  iconsContainer: {
+    marginTop: 20,
+    marginBottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  }
 
 })

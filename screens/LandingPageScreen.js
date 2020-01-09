@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, TouchableOpacity, Text } from 'react-native'
 import styled from "styled-components/native"
 
 
@@ -11,9 +10,6 @@ export const LandingPageScreen = (props) => {
       <StyledButton onPress={() => props.navigation.replace("Map")}>
         <StyledButtonText> Get Started!</StyledButtonText>
       </StyledButton>
-      {/* <Button title="Get Started!" color="#3e206d" onPress={() => {
-        props.navigation.replace("Map")
-      }} /> */}
     </StyledView>
   )
 }
@@ -55,16 +51,16 @@ const StyledButton = styled.TouchableOpacity`
     margin-top: 30;
     margin-left: 15;
     margin-right: 15;
-    width: 150;
-    padding-top: 8;
-    padding-bottom: 8;
-    padding-right: 8;
-    padding-left: 8;
+    width: 200;
+    padding-top: 12;
+    padding-bottom: 12;
+    padding-right: 15;
+    padding-left: 15;
 `
 
 const StyledButtonText = styled.Text`
     color: #c70d3a;
-    font-size: 18; 
+    font-size: 22; 
     text-align: center;
 `
 

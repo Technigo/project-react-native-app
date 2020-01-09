@@ -1,38 +1,44 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+
 import PLACES from '../data/dummy-data'
 
 export const FavList = () => {
+
+  const clickFavPlace = (place) => {
+    console.log(place)
+  }
+
   return (
     PLACES.map(place => (
-      <View style={styles.container} key={place.id}>
-
-        <View style={styles.upper}>
-          <View>
-            <Text style={styles.title}>{place.title}</Text>
+      <View style={styles.card} key={place.id}>
+        <TouchableOpacity onPress={(e) => clickFavPlace(place)}>
+          <View style={styles.upper}>
+            <View>
+              <Text style={styles.title}>{place.title}</Text>
+            </View>
+            <View>
+              <Ionicons style={styles.icon} color={'#c70d3a'} name={place.icon} />
+            </View>
           </View>
-          <View>
-            <Text>{"ICON"}</Text>
-          </View>
-        </View>
 
-        <View style={styles.lower}>
-          <Text style={styles.description}>
-            {place.description}
-          </Text>
-        </View>
-
-        <View style={styles.upper}>
-          <View>
-            <Text style={{ fontSize: 12 }}>{place.location.street}</Text>
-            <Text style={{ fontSize: 12 }}>{place.location.city}</Text>
+          <View style={styles.lower}>
+            <Text style={styles.description}>
+              {place.description}
+            </Text>
           </View>
-          <View>
-            <Text style={{ fontSize: 10 }}>{place.position.latitude.toFixed(5)}</Text>
-            <Text style={{ fontSize: 10 }}>{place.position.longitude.toFixed(5)}</Text>
-          </View>
-        </View>
 
+          <View style={styles.upper}>
+            <View>
+              <Text style={{ fontSize: 15, color: '#c70d3a' }}>{place.location.street + ", " + place.location.city}</Text>
+            </View>
+
+            <View>
+            </View>
+
+          </View>
+        </TouchableOpacity>
       </View>
 
     ))
@@ -40,12 +46,17 @@ export const FavList = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  card: {
     flexDirection: 'column',
-    margin: 15,
-    backgroundColor: '#fae3d9',
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    backgroundColor: '#fff',
     padding: 15,
     borderRadius: 10,
+  },
+  icon: {
+    fontSize: 28,
   },
   upper: {
     flexDirection: 'row',
@@ -55,13 +66,13 @@ const styles = StyleSheet.create({
     color: '#f4b0c7',
   },
   title: {
-    color: '#413c69',
+    color: '#c70d3a',
     fontSize: 21,
-    fontWeight: 'bold',
   },
   description: {
-    color: '#413c69',
+    color: '#c70d3a',
     fontSize: 18,
+    marginVertical: 5,
   },
 
 })
