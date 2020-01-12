@@ -18,6 +18,6 @@ This project is built with React Native!
 
 # The app
 
-
+I will add som images of the app eventually.
 
  🏁
