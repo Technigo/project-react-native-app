@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { Image, View, ScrollView, Button, Linking, StyleSheet, Picker, Text, Vibration } from 'react-native'
 import moment from 'moment'
 import CustomButton from "./components/CustomButton"
-import PickerDemo from "./components/CategoryPicker"
 import Form from "./components/Form"
 
 
@@ -17,10 +16,6 @@ const App = () => {
 
   const apiKey = `ceaaa691942f4f51925568bcf5183b80`
   const url = `https://newsapi.org/v2/everything?q=${categories}&from=2020-01-01`
-
-  const show = () => {
-    Vibration.vibrate()
-  }
 
 
   useEffect(() => {
@@ -50,22 +45,21 @@ const App = () => {
         <View1>
           <Title4>Welcome to Blue Sky News!</Title4>
           <Title4>Updated from the world {moment().calendar()}</Title4>
-
-
           <Picker
             style={{ height: 50, width: 150, margin: 10, }}
             selectedValue={categories}
             onValueChange={currentCategories => setCategories(currentCategories)}>
             <Picker.Item label="Climate" value="Climate" />
+            <Picker.Item label="Tesla" value="Tesla" />
+            <Picker.Item label="Energy" value="Energy" />
             <Picker.Item label="Traveling" value="Traveling" />
             <Picker.Item label="Politics" value="Politics" />
             <Picker.Item label="Movies" value="Movies" />
-            <Picker.Item label="Google-news" value="google-news" />
+
           </Picker>
           <PickerText>
             Selected News category:
           </PickerText>
-
 
           <CustomButton
             text="How to read the articles?"
@@ -79,7 +73,6 @@ const App = () => {
           <View key={articles.publishedAt}>
             <Image
               source={{ uri: articles.urlToImage }}
-              onPress={() => Linking.openURL(articles.url)}
               style={{ width: 350, height: 200, resizeMode: "contain" }}
             />
             <Title1>
@@ -107,21 +100,14 @@ const App = () => {
         <Title4 style={{ color: "#8aa8e9" }}>
           By Nina Månsson as a React Native Project in  Technigo Frontend bootcamp, 2020.
             </Title4>
+        <Title4>News and Images from News API 2020</Title4>
       </ScrollView>
-
-      <Title4>News and Images from News API 2020</Title4>
-
     </Container >
 
   )
 }
 
-
-
-
 export default App
-
-
 
 const View1 = styled.View`
   padding-bottom: 20;
@@ -145,8 +131,6 @@ const PickerText = styled.Text`
   text-align: center;
   border-radius: 8;
 `
-
-
 const Container = styled.View`
   flex: 1;
   background-color: white;
