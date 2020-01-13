@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Component } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components/native"
 import { ScrollView, RefreshControl } from "react-native"
-import { Header } from './components/Header'
 
 const Wrapper = styled.View`
   flex: 1;
@@ -9,13 +8,17 @@ const Wrapper = styled.View`
   justify-content: center;
   background-color: black;
 `
-
+const Instruction = styled.Text`
+  margin-top: 30px;
+  color: white;
+  font-style: italic;
+`
+1
 const Title = styled.Text`
   color: white;
   font-size: 24px;
   font-weight: 700;
   margin: 20px;
-  
 `
 
 const Food = styled.Image`
@@ -141,7 +144,7 @@ export default function App() {
       }
     >
       <Wrapper>
-        <Header />
+        <Instruction>{"Swipe down for new recipe"}</Instruction>
         <Title>{strMeal}</Title>
         <Food source={{ uri: strMealThumb }} />
         <Text>{strInstructions}</Text>
