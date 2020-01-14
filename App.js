@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { View } from 'react-native'
+import { View, Vibration } from 'react-native'
 import LottieView from 'lottie-react-native'
 
 
@@ -10,6 +10,7 @@ const App = () => {
   const [hide, setHide] = useState(false)
   const [right, setRight] = useState(false)
   const [wrong, setWrong] = useState(false)
+  const duration = 600
 
   const afterAnswering = () => {
     setHide(false)
@@ -47,6 +48,7 @@ const App = () => {
   const wrongAnswer = () => {
     setHide(true)
     setWrong(true)
+    return Vibration.vibrate(duration)
   }
 
   const restartQuiz = () => {
