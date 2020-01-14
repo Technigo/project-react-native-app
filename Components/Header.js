@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Image, TouchableHighlight, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 
 export default function Header(props) {
   return (
@@ -11,7 +11,7 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   container: {
-     paddingTop: 95,
+     paddingTop: 45,
   },
   title: {
     fontSize: 20,

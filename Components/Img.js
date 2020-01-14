@@ -15,11 +15,6 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "white",
-    // flexDirection: "row",
-    // justifyContent: "center",
-    // alignItems: "center",
     paddingTop: 20
 
   } }

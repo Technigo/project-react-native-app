@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components/native"
 import Header from './Components/Header'
-// import Book from './Components/Book'
-// import data from './Components/data.json'
 import Img from './Components/Img'
-// import icon 
-import { Text, View, Image, TouchableHighlight, StyleSheet, Button} from 'react-native'
+import { Button} from 'react-native'
 
 
 
@@ -35,21 +32,11 @@ export const App = () => {
     < Container >
       <Header />
       <Img />
-      <Button title="Chucke me!" onPress={() => setShowJoke(chuck)} />
 
-      {/* <TouchableHighlight onPress={() => setShowJoke(chuck)}>
-      <ButtonText>Chuck me!</ButtonText>
-    </TouchableHighlight> */}
 
-     {/* <TouchableHighlight
-        style={styles.button}
-        //  onPress={() => setShowJoke(chuck)}
-         text="Chuck me!"
-         > 
-    </TouchableHighlight> */}
-     {/* <button type="button" onClick={() => setShowJoke(chuck)}> Chuck me!</button> */}
-    
-    {showJoke && <Text>{chuck.value.joke}</Text>} 
+      <Button title="Chuck me!" color="#000" onPress={() => setShowJoke(chuck)} />
+
+      {showJoke && <Joke>{chuck.value.joke}</Joke>}    
 
     </Container >
   )
@@ -60,23 +47,14 @@ export const App = () => {
 const Container = styled.View`
 flex: 1;
   align-items: center;
-  justify-content: center;
 `
-
-const ButtonText  = styled.Text`
-  font-size: 32px;
-  fontFamily: 'CourierNewPS-BoldMT'
-  color: blue;
-  background-color: #FF00FF;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  margin-top: 300px;
-`
-
-const Push = styled.Button`
-color: palevioletred;
-font-size: 32px;
+const Joke = styled.Text`
+padding: 20px 12px 0 12px;
+color: magenta;
+font-size: 18px;
+font-family: 'CourierNewPS-BoldMT'
+font-weight: 200;
+text-align: center;
 `
 
 export default App
