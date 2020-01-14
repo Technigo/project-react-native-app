@@ -8,3 +8,5 @@ Tech:
 
 I chose to create a movie quiz app with five questions (multiple-choice with four answer-alternatives for each question).
 I created a button for each answer-alternative and created functions for the right and wrong answers. I also created a variable called "score" that was initially set to zero and that would increase with 1 for each right answer. I created a start-button, next-button and a restart button (at the end of the quiz).
+
+Link to Expo snack: https://snack.expo.io/@michellaufer/2ea9f9
