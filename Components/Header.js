@@ -1,23 +1,21 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, Image, TouchableHighlight, StyleSheet } from 'react-native'
 
 export default function Header(props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{props.title}</Text>
+         <Text style={styles.title}>Not another Chuck Norris-app!</Text>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 50,
-    backgroundColor: "white",
-    flex: 1,
-    justifyContent: "space-around",
-    alignItems: "center"
+     paddingTop: 95,
   },
   title: {
-    fontSize: 30
+    fontSize: 20,
+    color: "black",
+    fontFamily: 'CourierNewPS-BoldMT'
   }
 })
