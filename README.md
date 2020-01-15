@@ -7,3 +7,5 @@ In this week's project, i builded a simple todo list were you can add and delete
 * JavaScript ES6
 * React Native
 * Styled Components
+
+##
