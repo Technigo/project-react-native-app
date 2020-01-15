@@ -1,45 +1,43 @@
 import React, { useEffect } from "react"
-import { Image, View } from "react-native"
+import { Image, View, TouchableHighlight, FlatList } from "react-native"
 
 import styled from "styled-components/native"
 
-const FLICKR_IMAGE_URL = "https://www.flickr.com/photos/"; // append with "userid/imageid"
+const Images = ({images,  selected, setSelected }) => {
 
-const Images = ({thumbnails,  selected, setSelected }) => {
-
-
-  // console.log(thumbnails + "hej")
+  
   return (
-    <Container>
-      {thumbnails.map((url, index) => {
-        console.log(url)
-        return (
-          <Thumbnail
-            source={{url: url}}
-            key={url}
-            resizeMode="contain"
-          />
-        )
-      })}
-      
-    </Container>
+    <ImageList
+        data={images}
+        renderItem={(image) => {
+          return ( 
+          <TouchableHighlight
+          key={image.item.key}
+          onPress={() => {
+            setSelected(image.item.key)
+            image.selected = true;
+          }}
+          >
+            <Thumbnail
+              source={{url: image.item.thumbnailUrl}}
+              resizeMode="contain"
+              style={image.item.selected && {display: "none" }}
+            />
+          </TouchableHighlight>
+        )}}
+        extraData={selected}
+        // keyExtractor={thumbnails => thumbnails}
+        numColumns={4}
+        style={{flexGrow: 0}}
+    />
   )
 }
 
 export default Images
 
-const Container = styled.View`
+const ImageList = styled.FlatList`
   background-color: gray;
-  justify-content: center;
-  align-items: center;
-  display:flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  
-`
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  min-height: 400px;  
 `
 
 const Thumbnail = styled.Image`
