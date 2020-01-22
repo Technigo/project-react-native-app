@@ -2,11 +2,9 @@
 
 This week I built my first mobile application with React Native!
 
-This project was a very free one. Your only restrictions where that it should be a mobile app created with React Native and using styled components. Also, the app it self should either be:
-  - using one of the sensors of your mobile phone such as the camera, accelerometer or voice assistance etc. 
-  - using an external API to fetch something to your app and then interact with it.
-  - a multiscreen app by using [React Navigation](https://facebook.github.io/react-native/docs/navigation).
- 
+It is a mobile app created with React Native and using styled components. Also, the app it self uses an external API from Pexels to fetch photos to my app and then you can interact with it. Read more about the photographer and share photos with family and friens.
+
+  
 ## What I learned 🧠
 
 - How to use React Native to create a mobile app
@@ -29,4 +27,6 @@ share a photo.
 
 ## Requirements 🧪
 
-- You should use Styled Components.
+- use Styled Components.
+
+Here is a video of my wildlife app: cid:97216E6B-D3F4-49EF-9EB7-8617C0420BF7/72990541-AAF1-4DE7-BCD3-8E2162A8A3A6@home
