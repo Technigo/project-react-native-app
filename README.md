@@ -29,4 +29,4 @@ share a photo.
 
 - use Styled Components.
 
-Here is a video of my wildlife app: cid:97216E6B-D3F4-49EF-9EB7-8617C0420BF7/72990541-AAF1-4DE7-BCD3-8E2162A8A3A6@home
+
