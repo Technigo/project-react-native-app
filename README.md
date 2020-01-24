@@ -1,8 +1,6 @@
-This was the first project of the fourth sprint on the Technigo Frontend Bootcamp, which was focused on React Native
-
 ## 1. What is this?
 
-The purpose of this assignment was to practice React Native, there were no restrictions for this project and the only requirement was to use styled components.
+The purpose of this project was to practice React Native, the only requirement was to use styled components.
 
 ## 2. What did I do?
 
