@@ -2,6 +2,11 @@
 
 This is a React Native app that uses Pokéapi to display random pokémon.
 
+## Tech and techniques
+- React Native
+- JavaScript
+- Styled components
+
 ## What did I do?
 
 In this project I started with looking at the data I could get from Pokéapi. After that I tested fetching data from the API.
