@@ -38,46 +38,74 @@ const App = () => {
   }, [])
 
 
-    return(
-     <Container>
-     <TouchableOpacity onPress={fetchDogPhotos}> 
-      <View>
-         {photos.map((photo) => (
-           <View key={photo.id}>
-           {/*<Text>{photo.breeds[0].name}</Text> //dont work for all apis*/}
-           <Image
-             resizeMode="contain"
-             source={{uri: photo.url}}
-             style={{width: 300, height: 600}} 
-             /> 
-           <Text>Tap the screen for new dog</Text>
-          </View>
-         ))}
-      </View> 
-      </TouchableOpacity>    
-    </Container>
-    );
-  }
+  return(
+    <Container>
+    <TouchableOpacity onPress={fetchDogPhotos}> 
+     <ViewDog>
+        {photos.map((photo) => (
+          <ViewInfo key={photo.id}>
+          <Image
+            resizeMode="contain"
+            source={{uri: photo.url}}
+            style={{width: 300, height: 600}} 
+            />  
+          <TextName>{photo.breeds[0].name}</TextName>
+          <TextTemperament>{photo.breeds[0].temperament}</TextTemperament>   
+          <TextNewDog>Tap the screen for new dog</TextNewDog>
+         </ViewInfo>
+        ))}
+     </ViewDog> 
+     </TouchableOpacity>    
+   </Container>
+   );
+ }
 
 export default App
 
 const Container = styled.View`
-  flex: 1;
-  background-color: black;
-  align-items: center;
-  justify-content: center;
+ background-color: #171717;
+ flex: 1;
+ justify-content: center;
+ align-items: center;
 `
 
-const Button = styled.TouchableOpacity`
-  background: #80ff86;
-  position: absolute;
-  bottom: 40;
-  padding: 10px 20px;
-  border-radius: 20px;
+const ViewInfo = styled.View`
+ background-color: #171717;
+ justify-content: center;
+ align-items: center;
 `
-const ButtonText = styled.Text`
-  flex:1;
-  align-items: center;
-  color: #1f2e1f;
-  font-size: 20;
+
+const ViewDog = styled.View`
+ background-color: #171717;
+ flex: 1;
+ justify-content: center;
+ align-items: center;
+`
+
+const TextName = styled.Text`
+ color: white;
+ position: absolute;
+ font-size: 16px;
+ font-weight: bold;
+ position: absolute;
+ top: 30px;
+`
+
+const TextTemperament = styled.Text`
+ color: white;
+ font-size: 16px;
+ position: absolute;
+ top: 60px;
+ background-color: #171717;
+`
+
+const TextNewDog = styled.Text`
+ position: absolute;
+ bottom: 40px;
+ width: 70%;
+ background-color: white;
+ padding: 5px;
+ border-radius: 5px;
+ font-size: 16px;
+ color: black;
 `
