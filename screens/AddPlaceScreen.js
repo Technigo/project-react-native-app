@@ -3,7 +3,8 @@ import { View, StyleSheet, TextInput, Alert } from 'react-native'
 import Place from '../models/place'
 import { Ionicons } from '@expo/vector-icons'
 import styled from "styled-components/native"
-import { LOCATION_API } from 'react-native-dotenv'
+// import { LOCATION_API } from 'react-native-dotenv'
+const LOCATION_API = "2c6dcd2dc446df"
 
 import PLACES from '../data/dummy-data'
 

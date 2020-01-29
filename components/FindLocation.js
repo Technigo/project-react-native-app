@@ -1,5 +1,5 @@
-import { LOCATION_API } from 'react-native-dotenv'
-
+// import { LOCATION_API } from 'react-native-dotenv'
+const LOCATION_API = "2c6dcd2dc446df"
 
 const FindLocation = async (search) => {
 
