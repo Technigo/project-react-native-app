@@ -10,9 +10,7 @@ The latitude and longitude are fetched from [LocationIQ's geocoding API](https:/
 
 # Curious to try my app?
 
-Since this is a demo app, I couldn't deploy it. So click on the link below, scan QR code to open on IOS device.
-https://snack.expo.io/@nasimmhn/github.com-nasimmhn-project-react-native-app
-
+"This mobile app is not available on App Store but you can view it on snack - scan QR code to open on IOS device. https://snack.expo.io/@nasimmhn/github.com-nasimmhn-project-react-native-app"
 
 
 ## Learning objectives 🧠
