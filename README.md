@@ -1,6 +1,6 @@
 ## 1. What is this?
 
-The purpose of this project was to practice React Native, the only requirement was to use styled components.
+The purpose of this project was to practice React Nativeand to use styled components.
 
 ## 2. What did I do?
 
