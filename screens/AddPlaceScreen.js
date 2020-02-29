@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, StyleSheet, TextInput, Alert } from 'react-native'
 import Place from '../models/place'
 import { Ionicons } from '@expo/vector-icons'
-import styled from "styled-components/native"
+import styled from "styled-components"
 // import { LOCATION_API } from 'react-native-dotenv'
 const LOCATION_API = "2c6dcd2dc446df"
 
