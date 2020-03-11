@@ -1,27 +1,25 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import styled from "styled-components"
+import React from "react";
+import { View, Text } from "react-native";
+import styled from "styled-components";
 
 const Header = () => {
   return (
     <HeaderTop>
       <Title></Title>
-    </HeaderTop >
+    </HeaderTop>
   );
-}
+};
 
 const HeaderTop = styled.View`
-height: 80;
-paddingTop: 38;
-backgroundColor: coral;
-  
-`
+  height: 80;
+  padding-top: 38;
+  background-color: coral;
+`;
 
 const Title = styled.Text`
-textAlign: center;
-color: #fff;
-fontSize: 20;
-fontWeight: bold;
-
-`
-export default Header
+  text-align: center;
+  color: #fff;
+  font-size: 20;
+  font-weight: bold;
+`;
+export default Header;
