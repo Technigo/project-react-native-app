@@ -1,4 +1,5 @@
 import React, { useState} from "react"
+import Header from './Header';
 import styled from 'styled-components/native'
 
 const theFood = [
@@ -14,9 +15,7 @@ const theFood = [
     dinner: "tikka masala",
     link: "https://www.ica.se/recept/chicken-tikka-masala-714087/",
   },
-
   ]
-
 
  const App = () => {
   const [food, setFood] = useState(0)  
@@ -28,8 +27,10 @@ const theFood = [
 
   return (
     <Container>
+
+        <Header title="Food for Food" />
       
-      <Title> Vad blir de för mat? {food.dinner} </Title>
+      <Title> Vad blir de för mat? {food.dinner}</Title>
 
       <Button
           title="Food for the day" onPress={showFood}></Button>
