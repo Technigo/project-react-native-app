@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { NewTodo } from './NewTodo'
+import { TodoList } from './TodoList'
 
 const Container = styled.View`
   flex: 1;
@@ -24,14 +25,15 @@ const ViewCard = styled.View`
   border-top-right-radius: 10px;
   background: #fff;
 `
+
 const App = () => {
-  const [newTodoItem, setNewTodoItem] = useState({})
 
   return (
     <Container>
       <Title>GET SH#T DONE</Title>
       <ViewCard>
         <NewTodo />
+        <TodoList />
       </ViewCard>
     </Container>
   )
