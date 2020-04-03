@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { ActivityIndicator, Text } from 'react-native'
+import axios from 'axios'
 
 const Container = styled.View`
   flex: 1;
@@ -22,45 +23,28 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `
 
-const fetchData = async () => {
-  const result = await fetch("https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/type/general")
-  const json = await result.json()
-
-  if (json.status_code === 34 || !json.setup || json.punchline) {
-    return fetchData()
-  } else {
-    return json
-  }
-}
-
 const App = () => {
   const [loading, setLoading] = useState(true)
   const [joke, setJoke] = useState("")
-
-  const fetchJokeData = () => {
-    setLoading(true)
-    fetchData()
-      .then((json) => {
-        setJoke(json)
-        setLoading(False)
-      }).catch(error => {
-        console.error(error);
-        return { name: "network error", description: "" };
-      })
-  }
+  const [fetching, setFetching] = useState(false)
 
   useEffect(() => {
-    fetchJokeData()
-  }, [])
+    const fetchData = async () => {
+      setLoading(true)
+      const result = await axios("https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/type/general/")
+      setJoke(`${result.data[0].setup} ${result.data[0].punchline}`)
+      setLoading(false)
+    }
+    fetchData()
+  }, [fetching])
 
   return (
     <Container>
       {loading
-        ? <ActivityIndicator size="large" color="#ffffff" />
-        : <Text>{joke}</Text>}
-      <Text>{joke}</Text>
+        ? (<ActivityIndicator size="large" color="#ffffff" />)
+        : (<Text>{joke}</Text>)}
 
-      <Button onPress={fetchJokeData}>
+      <Button onPress={() => setFetching(!fetching)}>
         <ButtonText>Make me laugh</ButtonText>
       </Button>
     </Container>
