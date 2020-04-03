@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { View, Text, TextInput } from 'react-native'
+import { NewTodo } from './NewTodo'
 
 const Container = styled.View`
   flex: 1;
@@ -24,20 +24,14 @@ const ViewCard = styled.View`
   border-top-right-radius: 10px;
   background: #fff;
 `
-
-const InputField = styled.TextInput`
-  padding: 20px;
-  border-bottom-width: 1px;
-  border-bottom-color: #bbb;
-  font-size: 16px;
-  `
-
 const App = () => {
+  const [newTodoItem, setNewTodoItem] = useState({})
+
   return (
     <Container>
       <Title>GET SH#T DONE</Title>
       <ViewCard>
-        <InputField placeholder="Add task" />
+        <NewTodo />
       </ViewCard>
     </Container>
   )
