@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { ActivityIndicator, Text } from 'react-native'
+import { ActivityIndicator } from 'react-native'
 import axios from 'axios'
 
 const Container = styled.View`
   flex: 1;
-  background-color: white;
+  background-color: #270F59;
   align-items: center;
   justify-content: center;
+  padding: 50px;
 `
 const Button = styled.TouchableOpacity`
-  background: black;
+  background: #F272DD;
   position: absolute;
-  top: 40;
-  padding: 10px 15px;
+  bottom: 140;
+  padding: 20px 25px;
   border-radius: 8;
 `
 
@@ -21,6 +22,11 @@ const ButtonText = styled.Text`
   color: white;
   font-size: 20;
   font-weight: bold;
+`
+
+const Text = styled.Text`
+  color: white;
+  font-size: 20px;
 `
 
 const App = () => {
