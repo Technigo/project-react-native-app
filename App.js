@@ -27,7 +27,7 @@ const App = () => {
     if (firstView) {
       showAnswer()
     } else {
-      
+
     }
   }
 
