@@ -59,7 +59,7 @@ const StyledImageBackground = styled.ImageBackground`
 const StyledTitle = styled.Text`
   color: black;
   background-color: rgba(130, 168, 229, 0.8);
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bold;
   font-family: monospace;
   text-align: center;
@@ -67,7 +67,7 @@ const StyledTitle = styled.Text`
 `
 const StyledTextButton = styled.Text`
   background-color: ${props => props.userAnswer ? "rgba(216, 225, 255, 0.5)" : "rgba(150, 205, 255, 0.9)"}
-  font-size: 25px;
+  font-size: 23px;
   font-weight: bold;
   font-family: monospace;
   margin-top: 15;
