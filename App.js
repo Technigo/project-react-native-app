@@ -28,7 +28,7 @@ const theFood = [
   return (
     <Container>
 
-        <Header title="Food for Food" />
+        <Header title="Mood for today?" />
       
       <Title> Vad blir de för mat? {food.dinner}</Title>
 
