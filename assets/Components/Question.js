@@ -1,0 +1,16 @@
+import React from 'react'
+import { View, Text } from 'react-native'
+import { StyledText } from './StyledText'
+
+
+export const Question = () => {
+
+  
+
+
+  return (
+    <View>
+      <StyledText>Shake me if you want some advice</StyledText>
+    </View>
+  )
+}
