@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { Text, TouchableOpacity, Dimensions } from 'react-native'
+import { Text, TouchableOpacity, Dimensions, Button } from 'react-native'
 
-export const TodoItem = ({ text }) => {
+export const TodoItem = ({ text, item, handleBinPress }) => {
   const [completed, setCompleted] = useState(false)
   const [textCompleted, setTextCompleted] = useState(false)
 
@@ -18,23 +18,28 @@ export const TodoItem = ({ text }) => {
 
   return (
     <TodoContainer>
-      <TouchableOpacity onPress={toggleCompleted}>
+      <Touchable onPress={toggleCompleted}>
         {completed ? <CircleComplete><CheckMark>&#10003;</CheckMark></CircleComplete> : <CircleNotComplete />}
+        <Todo textCompleted={textCompleted}>{text}</Todo>
+      </Touchable>
+      <TouchableOpacity onPress={() => handleBinPress(item.key)}>
+        <Text>Bin</Text>
       </TouchableOpacity>
-      <Todo textCompleted={textCompleted}>{text}</Todo>
-    </TodoContainer>
+    </TodoContainer >
   )
 }
-/* 
-const Container = styled.ScrollView`
-  color: #000;
-` */
 
 const TodoContainer = styled.View`
-  padding: 20px;
-  padding-bottom: 0;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  padding-bottom: 0;
+`
+
+const Touchable = styled.TouchableOpacity`
+flex-direction: row;
+align-items: center;
 `
 
 const CircleComplete = styled.View`

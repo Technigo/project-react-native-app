@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { NewTodo } from './NewTodo'
-/* import { TodoList } from './TodoList' */
-import { FlatList, Text } from 'react-native'
-import { TodoItem } from './TodoItem'
+import { NewTodo } from './components/NewTodo'
+import { FlatList } from 'react-native'
+import { TodoItem } from './components/TodoItem'
 
 const Container = styled.View`
   flex: 1;
@@ -40,6 +39,12 @@ const App = () => {
     })
   }
 
+  const handleBinPress = (key) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter(todo => todo.key !== key)
+    })
+  }
+
   return (
     <Container>
       <Title>GET SH#T DONE</Title>
@@ -48,7 +53,7 @@ const App = () => {
         <FlatList
           data={todos}
           renderItem={({ item }) => (
-            <TodoItem text={item.text} />
+            <TodoItem text={item.text} item={item} handleBinPress={handleBinPress} />
           )}
         />
       </ViewCard>
