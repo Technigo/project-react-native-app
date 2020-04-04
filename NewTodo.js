@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 
-export const NewTodo = () => {
+export const NewTodo = ({ setTodos }) => {
   const [newTodo, setNewTodo] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
+    setTodos((previousTodos) => [newTodo, ...previousTodos])
+    setNewTodo('')
   }
 
   return (
@@ -13,7 +15,7 @@ export const NewTodo = () => {
       <Input
         value={newTodo}
         onChangeText={text => setNewTodo(text)}
-        placeholder='Add task 2'
+        placeholder='Add task'
       />
       <Button
         onPress={handleSubmit}

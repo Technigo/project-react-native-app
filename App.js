@@ -27,13 +27,14 @@ const ViewCard = styled.View`
 `
 
 const App = () => {
+  const [todos, setTodos] = useState([])
 
   return (
     <Container>
       <Title>GET SH#T DONE</Title>
       <ViewCard>
-        <NewTodo />
-        <TodoList />
+        <NewTodo setTodos={setTodos} />
+        <TodoList todos={todos} />
       </ViewCard>
     </Container>
   )

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { Text, TouchableOpacity, Dimensions } from 'react-native'
 
-export const TodoList = () => {
+export const TodoList = ({ todos }) => {
   const [completed, setCompleted] = useState(false)
   const [textCompleted, setTextCompleted] = useState(false)
 
@@ -18,12 +18,15 @@ export const TodoList = () => {
 
   return (
     <Container>
-      <TodoContainer>
-        <TouchableOpacity onPress={toggleCompleted}>
-          {completed ? <CircleComplete><CheckMark>&#10003;</CheckMark></CircleComplete> : <CircleNotComplete />}
-        </TouchableOpacity>
-        <Todo textCompleted={textCompleted}>Placeholder</Todo>
-      </TodoContainer>
+      {todos.map((todo) => (
+        <TodoContainer>
+          <TouchableOpacity onPress={toggleCompleted}>
+            {completed ? <CircleComplete><CheckMark>&#10003;</CheckMark></CircleComplete> : <CircleNotComplete />}
+          </TouchableOpacity>
+          <Todo textCompleted={textCompleted}>{todo}</Todo>
+        </TodoContainer>
+      ))}
+
     </Container>
   )
 }
