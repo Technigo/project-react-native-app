@@ -61,15 +61,17 @@ const Title = styled.Text`
 `
 
 const Button = styled.TouchableOpacity`
-  font-size: 26px;
-  background-color: #9a81d1;
+  background-color: #CFFFE2;
+  border-radius: 50;
+  margin-top: 350;
 `
 
 const H1 = styled.Text`
-  font-size: 22px;
-  color: grey;
+  font-size: 24px;
+  color: #000000;
   padding: 10px 50px;
   text-align: center;
+  font-weight: bold;
   `
 
 export default App
