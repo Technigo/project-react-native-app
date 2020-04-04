@@ -36,10 +36,11 @@ const Quotes = [
 
         <Header title="Mood for today?" />
       
-      <Title> {quote.answear}</Title>
+        <Title> {quote.answear}</Title>
 
-      <Button
-          title="ASK ME ANYTHING" onPress={showQuote}></Button>
+        <Button onPress={showQuote}>
+        <H1>Ask me</H1>
+        </Button>
         
       
     </Container>
@@ -49,7 +50,7 @@ const Quotes = [
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #8CFFBA;
   justify-content: center;
   align-items: center;
 `
@@ -59,9 +60,16 @@ const Title = styled.Text`
   color: palevioletred;
 `
 
-const Button = styled.Button`
-  font-size: 24px;
-  color: palevioletred;
+const Button = styled.TouchableOpacity`
+  font-size: 26px;
+  background-color: #9a81d1;
 `
+
+const H1 = styled.Text`
+  font-size: 22px;
+  color: grey;
+  padding: 10px 50px;
+  text-align: center;
+  `
 
 export default App
