@@ -32,11 +32,12 @@ export const TodoList = ({ todos }) => {
 }
 
 const Container = styled.ScrollView`
-  padding: 20px;
   color: #000;
 `
 
 const TodoContainer = styled.View`
+  padding: 20px;
+  padding-bottom: 0;
   flex-direction: row;
   align-items: center;
 `
