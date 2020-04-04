@@ -17,7 +17,7 @@ export const NewTodo = ({ handleSubmit }) => {
           handleSubmit(newTodo)
           setNewTodo('')
         }}
-        disabled={newTodo.length < 3 || newTodo.length > 20 ? true : false}
+        disabled={newTodo.length < 3 || newTodo.length > 40 ? true : false}
       >
         <ButtonText>ADD</ButtonText>
       </Button>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { Text, TouchableOpacity, Dimensions, Button } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 export const TodoItem = ({ text, item, handleBinPress }) => {
   const [completed, setCompleted] = useState(false)
@@ -23,7 +24,7 @@ export const TodoItem = ({ text, item, handleBinPress }) => {
         <Todo textCompleted={textCompleted}>{text}</Todo>
       </Touchable>
       <TouchableOpacity onPress={() => handleBinPress(item.key)}>
-        <Text>Bin</Text>
+        <Icon name="trash-o" size={25} color="#2c3e50" />
       </TouchableOpacity>
     </TodoContainer >
   )
