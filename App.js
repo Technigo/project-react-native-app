@@ -2,27 +2,33 @@ import React, { useState} from "react"
 import Header from './Header';
 import styled from 'styled-components/native'
 
-const theFood = [
+const Quotes = [
   {
-    dinner: "Tacos",
-    link: "https://mittkok.expressen.se/recept/tacos-klassiskt-recept/",
+    answear: "It is certain.",
   },
   {
-    dinner: "spaghetti bolognese",
-    link: "https://www.ica.se/recept/spaghetti-bolognese-723780/",
+    answear: "It is decidedly so.",
   },
   {
-    dinner: "tikka masala",
-    link: "https://www.ica.se/recept/chicken-tikka-masala-714087/",
+    answear: "Without a doubt.", 
+  },
+  {
+    answear: "Yes, definitely.", 
+  },
+  {
+    answear: "You may rely on it.", 
+  },
+  {
+    answear: "As I see it, yes.", 
   },
   ]
 
  const App = () => {
-  const [food, setFood] = useState(0)  
+  const [quote, setQuote] = useState(0)  
 
-  const showFood = () => {
-    const randomIndex = Math.floor(Math.random() * theFood.length)
-    setFood(theFood[randomIndex])
+  const showQuote = () => {
+    const randomIndex = Math.floor(Math.random() * Quotes.length)
+    setQuote(Quotes[randomIndex])
   }
 
   return (
@@ -30,10 +36,10 @@ const theFood = [
 
         <Header title="Mood for today?" />
       
-      <Title> Vad blir de för mat? {food.dinner}</Title>
+      <Title> {quote.answear}</Title>
 
       <Button
-          title="Food for the day" onPress={showFood}></Button>
+          title="ASK ME ANYTHING" onPress={showQuote}></Button>
         
       
     </Container>
