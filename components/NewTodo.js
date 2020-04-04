@@ -37,6 +37,7 @@ const Container = styled.View`
 const Input = styled.TextInput`
   padding: 20px;
   font-size: 16px;
+  color: #2c3e50;
   `
 
 const Button = styled.TouchableOpacity`
