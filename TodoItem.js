@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { Text, TouchableOpacity, Dimensions } from 'react-native'
 
-export const TodoList = ({ todos }) => {
+export const TodoItem = ({ text }) => {
   const [completed, setCompleted] = useState(false)
   const [textCompleted, setTextCompleted] = useState(false)
 
@@ -17,23 +17,18 @@ export const TodoList = ({ todos }) => {
   }
 
   return (
-    <Container>
-      {todos.map((todo) => (
-        <TodoContainer>
-          <TouchableOpacity onPress={toggleCompleted}>
-            {completed ? <CircleComplete><CheckMark>&#10003;</CheckMark></CircleComplete> : <CircleNotComplete />}
-          </TouchableOpacity>
-          <Todo textCompleted={textCompleted}>{todo}</Todo>
-        </TodoContainer>
-      ))}
-
-    </Container>
+    <TodoContainer>
+      <TouchableOpacity onPress={toggleCompleted}>
+        {completed ? <CircleComplete><CheckMark>&#10003;</CheckMark></CircleComplete> : <CircleNotComplete />}
+      </TouchableOpacity>
+      <Todo textCompleted={textCompleted}>{text}</Todo>
+    </TodoContainer>
   )
 }
-
+/* 
 const Container = styled.ScrollView`
   color: #000;
-`
+` */
 
 const TodoContainer = styled.View`
   padding: 20px;

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { NewTodo } from './NewTodo'
-import { TodoList } from './TodoList'
+/* import { TodoList } from './TodoList' */
+import { FlatList, Text } from 'react-native'
+import { TodoItem } from './TodoItem'
 
 const Container = styled.View`
   flex: 1;
@@ -29,12 +31,26 @@ const ViewCard = styled.View`
 const App = () => {
   const [todos, setTodos] = useState([])
 
+  const handleSubmit = (text) => {
+    setTodos((prevTodos) => {
+      return [
+        { text: text, key: Math.random().toString() },
+        ...prevTodos
+      ];
+    })
+  }
+
   return (
     <Container>
       <Title>GET SH#T DONE</Title>
       <ViewCard>
-        <NewTodo setTodos={setTodos} />
-        <TodoList todos={todos} />
+        <NewTodo handleSubmit={handleSubmit} />
+        <FlatList
+          data={todos}
+          renderItem={({ item }) => (
+            <TodoItem text={item.text} />
+          )}
+        />
       </ViewCard>
     </Container>
   )

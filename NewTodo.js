@@ -1,29 +1,27 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 
-export const NewTodo = ({ setTodos }) => {
+export const NewTodo = ({ handleSubmit }) => {
   const [newTodo, setNewTodo] = useState('')
-
-  const handleSubmit = event => {
-    event.preventDefault()
-    setTodos((previousTodos) => [newTodo, ...previousTodos])
-    setNewTodo('')
-  }
+  const handleChange = value => setNewTodo(value)
 
   return (
     <Container>
       <Input
         value={newTodo}
-        onChangeText={text => setNewTodo(text)}
+        onChangeText={handleChange}
         placeholder='Add task'
       />
       <Button
-        onPress={handleSubmit}
+        onPress={() => {
+          handleSubmit(newTodo)
+          setNewTodo('')
+        }}
         disabled={newTodo.length < 3 || newTodo.length > 20 ? true : false}
       >
         <ButtonText>ADD</ButtonText>
       </Button>
-    </Container>
+    </Container >
   )
 }
 
