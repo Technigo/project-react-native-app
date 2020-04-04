@@ -34,14 +34,13 @@ const Quotes = [
   return (
     <Container>
 
-        <Header title="Mood for today?" />
+        <Header title="MAGIC 8 BALL" />
       
         <Title> {quote.answear}</Title>
 
         <Button onPress={showQuote}>
         <H1>Ask me</H1>
-        </Button>
-        
+        </Button>  
       
     </Container>
   )
