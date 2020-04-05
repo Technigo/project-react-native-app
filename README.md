@@ -4,7 +4,7 @@ A small and simple todo app made with React Native. Thoughts can be added, marke
 
 ## The problem
 
-I decided to create a todo app as it is something I use myself regularly. I had a look at different tutorials and utilized some code from previous React projects. I divided the app into App.js and the components NewTodo.js and TodoItem.js. NewTodo.js is used to enter new todo items and TodoItem.js is used when listing them with FlatList in App.js. If I were to develop the app further I would like to make it a multi page app where the user has the ability to create several lists and swith between them.
+I decided to create a todo app as it is something I use myself regularly. I had a look at different tutorials and utilized some code from previous React projects. I divided the app into App.js and the components NewTodo.js and TodoItem.js. NewTodo.js is used to enter new todo items and TodoItem.js is used when listing them with FlatList in App.js. If I were to develop the app further I would like to make it a multi page app where the user has the ability to create several lists and switch between them.
 
 ## Learning objectives
 
