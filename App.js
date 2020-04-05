@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/native'
+import { StyleSheet, View } from 'react-native'
+import Header from './components/Header'
+import InputBar from './components/InputBar'
 
 const Container = styled.View`
   flex: 1;
@@ -14,13 +17,23 @@ const Title = styled.Text`
 `
 
 const App = () => {
+  const [toDo, setToDo] = useState(false)
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+    <Container style={StyleSheet.container}>
+
+      <Header title='ToDoapp' />
+      <InputBar />
+
+      <Title>🙈</Title>
     </Container>
   )
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+  },
+
+})
 
 export default App
