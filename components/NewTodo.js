@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
+import { Vibration } from 'react-native'
 
 export const NewTodo = ({ handleSubmit }) => {
   const [newTodo, setNewTodo] = useState('')
@@ -18,6 +19,7 @@ export const NewTodo = ({ handleSubmit }) => {
       <Button
         onPress={() => {
           handleSubmit(newTodo)
+          Vibration.vibrate()
           setNewTodo('')
         }}
         disabled={newTodo.length < 3 || newTodo.length > 25 ? true : false}
