@@ -1,4 +1,3 @@
-//import React, { useState} from "react"
 import React from 'react'
 import Header from './Header';
 import MagicBall from './MagicBall';
@@ -30,19 +29,11 @@ const Container = styled.View`
   align-items: center;
 `
 const View = styled.View`
-  height: 210; 
-  width: 210; 
-  background-color: #000000;
+  flex: 1;
+  background-color: #8CFFBA;
   margin-top: 100;
-  border-radius: 100;
   justify-content: center;
   align-items: center;
-`
-
-const Button = styled.TouchableOpacity`
-  background-color: #CFFFE2;
-  border-radius: 50;
-  margin-top: 200;
 `
 
 export default App

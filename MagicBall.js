@@ -77,11 +77,13 @@ export default function MagicBall  ()  {
 
     <View style={styles.container}>
 
-      <View>
+      <View style={styles.bigCircel}>
+        <View style={styles.smallCircel}>
         <Text> {quote.answear} </Text>
+        </View>
       </View>
 
-      <Button title="Pressme" onPress={showQuote}/>
+      <Button style={styles.button} title="Ask me" onPress={showQuote}/>
     
     </View>
 
@@ -91,17 +93,25 @@ export default function MagicBall  ()  {
 
 const styles = StyleSheet.create({
   container: {
-    height: 90, 
-    width: "100%",
+    height: 210, 
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FCED84", 
+    backgroundColor: "#8CFFBA", 
   },
-  View: {
+  bigCircel: {
     height: 210,
     width: 210,
-    backgroundColor: "#FCED84",
+    backgroundColor: "#000000",
     marginTop: 100,
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  smallCircel: {
+    height: 100,
+    width: 100,
+    backgroundColor: "#fff",
+    marginTop: 70,
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
@@ -109,8 +119,8 @@ const styles = StyleSheet.create({
   titel: {
   fontSize: 50,
   },
-  Button: {
-    backgroundColor: "#CFFFE2",
+  button: {
+    backgroundColor: "#FCED84",
     borderRadius: 50,
     marginTop: 200,
   },
