@@ -10,8 +10,9 @@ const App = () => {
   const handleSubmit = (text) => {
     setTodos((prevTodos) => {
       return [
-        { text: text, key: Math.random().toString() },
-        ...prevTodos
+        ...prevTodos,
+        { text: text, key: Math.random().toString() }
+
       ];
     })
   }
