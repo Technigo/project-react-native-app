@@ -42,7 +42,7 @@ const Container = styled.View`
 `
 
 const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#fff'
+  placeholderTextColor: '#bbb'
 })
   `
   padding: 15px 10px;

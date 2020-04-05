@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { NewTodo } from './components/NewTodo'
-import { FlatList } from 'react-native'
+import { StatusBar, FlatList } from 'react-native'
 import { TodoItem } from './components/TodoItem'
 
 const App = () => {
@@ -24,6 +24,7 @@ const App = () => {
 
   return (
     <Container>
+      <StatusBar barStyle="light-content" />
       <Title>GET SH#T DONE</Title>
 
       <ViewCard>
@@ -54,7 +55,7 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-  padding-top: 40px;
+  padding-top: 50px;
   padding-bottom: 20px;
   color: #fff;
   font-size: 24px;
