@@ -1,5 +1,5 @@
 import React, { useState} from "react"
-import {Container, Text, View, StyleSheet, Button} from 'react-native'
+import {Container, Text, View, StyleSheet, Button, TouchableOpacity} from 'react-native'
 
 const Quotes = [
   {
@@ -83,7 +83,13 @@ export default function MagicBall  ()  {
         </View>
       </View>
 
-      <Button style={styles.button} title="Ask me" onPress={showQuote}/>
+      <TouchableOpacity style={styles.TouchableOpacity} onPress={showQuote}>
+      <Text style={styles.Text}>Ask me</Text>
+      </TouchableOpacity>
+
+
+
+      
     
     </View>
 
@@ -94,13 +100,12 @@ export default function MagicBall  ()  {
 const styles = StyleSheet.create({
   container: {
     height: 210, 
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#8CFFBA", 
+    flex: 1,
+    
   },
   bigCircel: {
-    height: 210,
-    width: 210,
+    height: 215,
+    width: 215,
     backgroundColor: "#000000",
     marginTop: 100,
     borderRadius: 100,
@@ -108,20 +113,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   smallCircel: {
-    height: 100,
-    width: 100,
+    height: 130,
+    width: 130,
     backgroundColor: "#fff",
-    marginTop: 70,
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
   },
-  titel: {
-  fontSize: 50,
+  Text: {
+  fontSize: 40,
+  textAlign: "center",
   },
-  button: {
+  TouchableOpacity: {
     backgroundColor: "#FCED84",
     borderRadius: 50,
-    marginTop: 200,
+    paddingLeft: 15,
+    paddingRight: 15,
+    marginTop: 130,
+    
   },
 })

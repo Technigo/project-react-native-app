@@ -22,6 +22,8 @@ import { StyleSheet } from "react-native";
 
 }
 
+/* lägga till margin-top: 100; på const View = styled.View`?*/
+
 const Container = styled.View`
   flex: 1;
   background-color: #8CFFBA;
@@ -31,7 +33,6 @@ const Container = styled.View`
 const View = styled.View`
   flex: 1;
   background-color: #8CFFBA;
-  margin-top: 100;
   justify-content: center;
   align-items: center;
 `
