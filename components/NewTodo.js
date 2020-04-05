@@ -7,20 +7,24 @@ export const NewTodo = ({ handleSubmit }) => {
 
   return (
     <Container>
+
       <Input
         value={newTodo}
         onChangeText={handleChange}
         placeholder='Add task'
+        maxLength={25}
       />
+
       <Button
         onPress={() => {
           handleSubmit(newTodo)
           setNewTodo('')
         }}
-        disabled={newTodo.length < 3 || newTodo.length > 40 ? true : false}
+        disabled={newTodo.length < 3 || newTodo.length > 25 ? true : false}
       >
         <ButtonText>ADD</ButtonText>
       </Button>
+
     </Container >
   )
 }
@@ -35,17 +39,18 @@ const Container = styled.View`
 `
 
 const Input = styled.TextInput`
-  padding: 20px;
-  font-size: 16px;
+  padding: 15px 13px;
   color: #2c3e50;
+  font-size: 16px;
+  font-family: Courier New;
   `
 
 const Button = styled.TouchableOpacity`
+  padding: 15px 13px;
   border: none;
-  font-size: 14px;
-  padding: 20px;
-  text-align: center;
   background: transparent;
+  font-size: 14px;
+  text-align: center;
 `
 
 const ButtonText = styled.Text`
