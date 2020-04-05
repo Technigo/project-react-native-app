@@ -1,6 +1,7 @@
 import React, { useState} from "react"
 import Header from './Header';
 import styled from 'styled-components/native'
+import { StyleSheet } from "react-native";
 
 const Quotes = [
   {
@@ -21,6 +22,48 @@ const Quotes = [
   {
     answear: "As I see it, yes.", 
   },
+  {
+    answear: "Most likely.", 
+  },
+  {
+    answear: "Outlook good.", 
+  },
+  {
+    answear: "Yes.", 
+  },
+  {
+    answear: "Signs point to yes.", 
+  },
+  {
+    answear: "Reply hazy, try again.", 
+  },
+  {
+    answear: "Ask again later.", 
+  },
+  {
+    answear: "Better not tell you now.", 
+  },
+  {
+    answear: "Cannot predict now.", 
+  },
+  {
+    answear: "Concentrate and ask again.", 
+  },
+  {
+    answear: "Don't count on it.", 
+  },
+  {
+    answear: "My reply is no.", 
+  },
+  {
+    answear: "My sources say no.", 
+  },
+  {
+    answear: "Outlook not so good.", 
+  },
+  {
+    answear: "Very doubtful.", 
+  },
   ]
 
  const App = () => {
@@ -36,7 +79,7 @@ const Quotes = [
 
         <Header title="MAGIC 8 BALL" />
       
-        <Title> {quote.answear}</Title>
+        <Text>  {quote.answear} </Text>
 
         <Button onPress={showQuote}>
         <H1>Ask me</H1>
@@ -56,6 +99,10 @@ const Container = styled.View`
 
 const Title = styled.Text`
   font-size: 24px;
+  color: palevioletred;
+`
+const Text = styled.Text`
+  font-size: 26px;
   color: palevioletred;
 `
 
