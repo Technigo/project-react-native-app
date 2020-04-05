@@ -58,12 +58,10 @@ const Title = styled.Text`
   padding-bottom: 20px;
   color: #fff;
   font-size: 24px;
+  font-weight: 200;
 `
 
 const ViewCard = styled.View`
   flex: 1;
   width: 90%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background: #fff;
 `

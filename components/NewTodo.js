@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { Vibration } from 'react-native'
+import Icon from 'react-native-vector-icons/EvilIcons'
 
 export const NewTodo = ({ handleSubmit }) => {
   const [newTodo, setNewTodo] = useState('')
@@ -24,7 +25,7 @@ export const NewTodo = ({ handleSubmit }) => {
         }}
         disabled={newTodo.length < 3 || newTodo.length > 25 ? true : false}
       >
-        <ButtonText>ADD</ButtonText>
+        <ButtonText><Icon name="plus" size={35} color="#fff" /></ButtonText>
       </Button>
 
     </Container >
@@ -40,15 +41,18 @@ const Container = styled.View`
   border-bottom-color: #bbb;
 `
 
-const Input = styled.TextInput`
-  padding: 15px 13px;
-  color: #2c3e50;
+const Input = styled.TextInput.attrs({
+  placeholderTextColor: '#fff'
+})
+  `
+  padding: 15px 10px;
+  color: #fff;
   font-size: 16px;
   font-family: Courier New;
   `
 
 const Button = styled.TouchableOpacity`
-  padding: 15px 13px;
+  padding-right: 10px;
   border: none;
   background: transparent;
   font-size: 14px;
@@ -56,6 +60,6 @@ const Button = styled.TouchableOpacity`
 `
 
 const ButtonText = styled.Text`
-  color: #2c3e50;
+  color: #fff;
   font-weight: 500;
 `
