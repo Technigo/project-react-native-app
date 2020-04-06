@@ -1,13 +1,11 @@
 import React from 'react'
-//import {Text, View, StyleSheet} from 'react-native'
 import styled from 'styled-components/native'
-import { StyleSheet } from "react-native";
 
 export default function Header () {
 
 
   return (
-    <View>
+    <View >
       <Text> MAGIC 8 BALL </Text>
 
     </View>
