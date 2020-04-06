@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import { Vibration } from 'react-native'
 import Icon from 'react-native-vector-icons/EvilIcons'
 
-const Container = styled.View`
+const NewTodoContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +12,7 @@ const Container = styled.View`
   border-bottom-color: #bbb;
 `
 
-const Input = styled.TextInput.attrs({
+const NewTodoInput = styled.TextInput.attrs({
   placeholderTextColor: '#bbb'
 })
   `
@@ -22,7 +22,7 @@ const Input = styled.TextInput.attrs({
   font-family: Courier New;
   `
 
-const Button = styled.TouchableOpacity`
+const AddButton = styled.TouchableOpacity`
   padding-right: 10px;
   border: none;
   background: transparent;
@@ -30,26 +30,21 @@ const Button = styled.TouchableOpacity`
   text-align: center;
 `
 
-const ButtonText = styled.Text`
-  color: #fff;
-  font-weight: 500;
-`
-
 export const NewTodo = ({ handleSubmit }) => {
   const [newTodo, setNewTodo] = useState('')
   const handleChange = value => setNewTodo(value)
 
   return (
-    <Container>
+    <NewTodoContainer>
 
-      <Input
+      <NewTodoInput
         value={newTodo}
         onChangeText={handleChange}
         placeholder='Add task'
         maxLength={25}
       />
 
-      <Button
+      <AddButton
         onPress={() => {
           handleSubmit(newTodo)
           Vibration.vibrate()
@@ -57,9 +52,9 @@ export const NewTodo = ({ handleSubmit }) => {
         }}
         disabled={newTodo.length < 3 || newTodo.length > 25 ? true : false}
       >
-        <ButtonText><Icon name="plus" size={35} color="#fff" /></ButtonText>
-      </Button>
+        <Icon name="plus" size={35} color="#fff" />
+      </AddButton>
 
-    </Container >
+    </NewTodoContainer >
   )
 }
