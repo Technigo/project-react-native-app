@@ -22,8 +22,21 @@ const styles = StyleSheet.create({
   }
 })
 
-export const AddItem = ({ submitHandler }) => {
+
+
+
+export const AddItem = ({ setTodos }) => {
   const [text, setText] = useState('')
+
+  // Add item
+  const submitHandler = (text) => {
+    setTodos((prevTodos) => {
+      return [
+        { text: text, key: Math.random().toString() },
+        ...prevTodos
+      ]
+    })
+  }
 
   const changeHandler = (val) => {
     setText(val)

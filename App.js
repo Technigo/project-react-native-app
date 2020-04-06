@@ -3,7 +3,6 @@ import { Header } from './components/Header'
 import { StyleSheet, Text, View, FlatList, StatusBar } from 'react-native'
 import { TodoItem } from './components/TodoItem'
 import { AddItem } from './components/AddItem'
-// import { globalStyles } from './globalstyles'
 
 
 const styles = StyleSheet.create({
@@ -21,20 +20,11 @@ const styles = StyleSheet.create({
 
 const App = () => {
   const [todos, setTodos] = useState([
-    { text: 'create project', key: '1' },
-    { text: 'write article', key: '2' },
-    { text: 'take a walk', key: '3' }
+    { text: 'Yoga', key: '1' },
+    { text: 'Bake a bread', key: '2' },
+    { text: 'Write article', key: '3' }
   ])
 
-  // Add item
-  const submitHandler = (text) => {
-    setTodos((prevTodos) => {
-      return [
-        { text: text, key: Math.random().toString() },
-        ...prevTodos
-      ]
-    })
-  }
 
   // Remove items
   const pressHandler = (key) => {
@@ -54,7 +44,7 @@ const App = () => {
 
       <View style={styles.content}>
 
-        <AddItem submitHandler={submitHandler} />
+        <AddItem setTodos={setTodos} />
 
         <FlatList
           data={todos}

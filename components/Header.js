@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 export const Header = () => {
   return (
     <View style={styles.header}>
-      <Text style={[globalStyles.base, styles.title]}>Todo today</Text>
+      <Text style={[globalStyles.base, styles.title]}>Todo Today</Text>
     </View>
   )
 }
