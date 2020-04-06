@@ -11,7 +11,7 @@ const TodoContainer = styled.View`
   padding-bottom: 0;
 `
 
-const Touchable = styled.TouchableOpacity`
+const TouchableTodoItem = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
 `
@@ -31,33 +31,26 @@ const CheckMark = styled.Text`
   text-align: center;
 `
 
-const Todo = styled.Text`
+const TodoText = styled.Text`
   font-size: 16px;
   font-family: Courier New;
-  ${prop => prop.textCompleted ? 'color: #bbb; text-decoration: line-through; text-decoration-color: #bbb' : 'color: #fff'};
+  ${prop => prop.completed ? 'color: #bbb; text-decoration: line-through; text-decoration-color: #bbb' : 'color: #fff'};
 `
 
 export const TodoItem = ({ text, item, handleBinPress }) => {
   const [completed, setCompleted] = useState(false)
-  const [textCompleted, setTextCompleted] = useState(false)
 
   const toggleCompleted = () => {
-    if (completed) {
-      setCompleted(false)
-      setTextCompleted(false)
-    } else {
-      setCompleted(true)
-      setTextCompleted(true)
-    }
+    { completed ? setCompleted(false) : setCompleted(true) }
   }
 
   return (
     <TodoContainer>
 
-      <Touchable onPress={toggleCompleted}>
+      <TouchableTodoItem onPress={toggleCompleted}>
         {completed ? <Circle><CheckMark>&#10003;</CheckMark></Circle> : <Circle />}
-        <Todo textCompleted={textCompleted}>{text}</Todo>
-      </Touchable>
+        <TodoText completed={completed}>{text}</TodoText>
+      </TouchableTodoItem>
 
       <TouchableOpacity onPress={() => handleBinPress(item.key)}>
         <Icon name="trash" size={35} color="#fff" />
