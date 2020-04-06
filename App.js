@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { Question } from './assets/Components/Question'
-import { ShakeEventExpo } from './assets/Components'
+import { Answer } from './assets/Components/Answer'
+import { ShakeEventExpo } from './assets/Components/ShakeEventExpo'
 
-const Container = styled.View`
+const Background = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #dbcb9e;
   justify-content: center;
   align-items: center;
 `
 
 const App = () => {
-  const [firstView, setFirstView] = useState(false)
+  const [firstView, setFirstView] = useState()
 
   useEffect(() => {
     ShakeEventExpo.addListener(() => {
@@ -26,17 +27,18 @@ const App = () => {
   const shakePhone = () => {
     if (firstView) {
       showAnswer()
-    } else {
-
-    }
+      setTimeout(() => setViewOne(!firstView), 2000);
+    } else { setFirstView(!firstView)}
   }
 
-  
-
   return (
-    <Container>
-      <Question />
-    </Container>
+    <Background>
+      {firstView ? (
+        <Question firstView={firstView} />
+      ) : (
+        <Answer />
+      )} 
+    </Background>
   )
 }
 
