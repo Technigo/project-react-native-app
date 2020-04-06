@@ -79,18 +79,14 @@ export default function MagicBall  ()  {
 
       <View style={styles.bigCircel}>
         <View style={styles.smallCircel}>
-        <Text> {quote.answear} </Text>
+        <Text style={styles.answear}> {quote.answear} </Text>
         </View>
       </View>
 
       <TouchableOpacity style={styles.TouchableOpacity} onPress={showQuote}>
       <Text style={styles.Text}>Ask me</Text>
       </TouchableOpacity>
-
-
-
       
-    
     </View>
 
   )
@@ -100,21 +96,20 @@ export default function MagicBall  ()  {
 const styles = StyleSheet.create({
   container: {
     height: 210, 
-    flex: 1,
-    
+    flex: 1, 
   },
   bigCircel: {
-    height: 215,
-    width: 215,
+    height: 320,
+    width: 320,
     backgroundColor: "#000000",
-    marginTop: 100,
-    borderRadius: 100,
+    marginTop: 160,
+    borderRadius: 320,
     justifyContent: "center",
     alignItems: "center",
   },
   smallCircel: {
-    height: 130,
-    width: 130,
+    height: 180,
+    width: 180,
     backgroundColor: "#fff",
     borderRadius: 100,
     justifyContent: "center",
@@ -124,12 +119,17 @@ const styles = StyleSheet.create({
   fontSize: 40,
   textAlign: "center",
   },
+  answear: {
+    fontSize: 20,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
   TouchableOpacity: {
     backgroundColor: "#FCED84",
     borderRadius: 50,
     paddingLeft: 15,
     paddingRight: 15,
-    marginTop: 130,
+    marginTop: 100,
     
   },
 })
