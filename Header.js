@@ -1,28 +1,27 @@
 import React from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+//import {Text, View, StyleSheet} from 'react-native'
+import styled from 'styled-components/native'
+import { StyleSheet } from "react-native";
 
 export default function Header () {
 
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titel}> MAGIC 8 BALL </Text>
+    <View>
+      <Text> MAGIC 8 BALL </Text>
 
     </View>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 120,
-    height: 100, 
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FCED84",
-    
-  },
-  titel: {
-    fontSize: 50,
-  },
-})
+const View = styled.View`
+  margin-top: 120;
+  height: 100;
+  width: 100%;
+  background-color: #FCED84;
+  justify-content: center;
+  align-items: center;
+`
+const Text = styled.Text`
+  font-size: 50;
+`

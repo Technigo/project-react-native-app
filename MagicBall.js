@@ -122,9 +122,9 @@ const styles = StyleSheet.create({
   },
   textNumber: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: 40,
     marginTop: -60,
-    paddingBottom: 13,
+    paddingBottom: 20,
     fontWeight: "bold",
   },
   answear: {
