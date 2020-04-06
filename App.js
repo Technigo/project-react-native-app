@@ -18,7 +18,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>Step counter</Title>
+      <Title>Let's go for a walk!</Title>
       <StepCounter />
     </Container>
   )

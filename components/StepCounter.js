@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from "react"
 import styled from 'styled-components/native'
-import { Pedometer } from "expo-sensors";
+import { Text, View } from "react-native"
+import { Pedometer } from "expo-sensors"
 
 
 const Title = styled.Text`
@@ -13,9 +14,17 @@ const Container = styled.View`
 `
 
 const StepCounter = () => {
+  const [currentStepCount, setCurrentStepCount] = useState(0)
+
+  useEffect(() => {
+    Pedometer.watchStepCount(result => {
+      setCurrentStepCount(result.steps)
+    })
+  })
+
   return (
     <Container>
-      <Title>text</Title>
+      <Title>Walk and watch this go up: {currentStepCount}</Title>
     </Container>
   )
 }
