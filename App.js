@@ -10,7 +10,7 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-  font-size: 30px;
+  font-size: 36px;
   font-weight: bold;
   color: black;
 `

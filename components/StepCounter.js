@@ -6,7 +6,7 @@ import { Pedometer } from "expo-sensors"
 
 const Title = styled.Text`
   font-size: 24px;
-  padding: 14px;
+  padding-top: 20px;
   color: black;
 `
 const Container = styled.View`
