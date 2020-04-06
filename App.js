@@ -27,6 +27,7 @@ const TodoContainer = styled.View`
 const App = () => {
   const [todos, setTodos] = useState([])
 
+  //Function adding a new todo to the bottom of previous todos
   const handleSubmit = (text) => {
     setTodos((prevTodos) => {
       return [
@@ -37,7 +38,8 @@ const App = () => {
     })
   }
 
-  const handleBinPress = (key) => {
+  //Function filtering out the todo item you wish to remove and returning a new array without it
+  const handleBinPress = key => {
     setTodos((prevTodos) => {
       return prevTodos.filter(todo => todo.key !== key)
     })

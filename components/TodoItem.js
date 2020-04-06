@@ -40,6 +40,7 @@ const TodoText = styled.Text`
 export const TodoItem = ({ text, item, handleBinPress }) => {
   const [completed, setCompleted] = useState(false)
 
+  //Function used to toggle if a todo item is completed or not, used to render different styling
   const toggleCompleted = () => {
     { completed ? setCompleted(false) : setCompleted(true) }
   }
