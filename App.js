@@ -9,8 +9,8 @@ import { StyleSheet } from "react-native";
   return (
     <Container>
 
-        <Header title="MAGIC 8 BALL" /> 
-
+        <Header/> 
+        
         <View>
 
         <MagicBall/>

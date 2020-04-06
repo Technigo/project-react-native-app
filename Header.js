@@ -1,12 +1,12 @@
 import React from 'react'
 import {Text, View, StyleSheet} from 'react-native'
 
-export default function Header (props) {
+export default function Header () {
 
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titel}> {props.title} </Text>
+      <Text style={styles.titel}> MAGIC 8 BALL </Text>
 
     </View>
   )
@@ -24,6 +24,5 @@ const styles = StyleSheet.create({
   },
   titel: {
     fontSize: 50,
-    //paddingBottom: 300,
-  }
+  },
 })

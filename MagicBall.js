@@ -78,6 +78,7 @@ export default function MagicBall  ()  {
     <View style={styles.container}>
 
       <View style={styles.bigCircel}>
+          <Text style={styles.textNumber}> 8</Text>
         <View style={styles.smallCircel}>
         <Text style={styles.answear}> {quote.answear} </Text>
         </View>
@@ -116,8 +117,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   Text: {
-  fontSize: 40,
-  textAlign: "center",
+    fontSize: 40,
+    textAlign: "center",
+  },
+  textNumber: {
+    color: "#fff",
+    fontSize: 30,
+    marginTop: -60,
+    paddingBottom: 13,
+    fontWeight: "bold",
   },
   answear: {
     fontSize: 20,
