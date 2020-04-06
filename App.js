@@ -1,8 +1,8 @@
-import React from 'react'
-import Constants from 'expo-constants';
-
-import { StyleSheet, Text, View } from 'react-native'
-import { globalStyles } from './globalstyles';
+import React, { useState } from 'react'
+import { Header } from './components/Header'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
+import { TodoItem } from './components/TodoItem'
+// import { globalStyles } from './globalstyles'
 
 
 const styles = StyleSheet.create({
@@ -10,21 +10,39 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     backgroundColor: '#F4F7FF',
-    paddingTop: Constants.statusBarHeight,
-    padding: 20,
   },
-  title: {
-    color: '#000',
-    fontSize: 40,
-    fontWeight: 'bold',
-  }
 })
 
 
 const App = () => {
+  const [todos, setTodos] = useState([
+    { text: 'create project', key: '1' },
+    { text: 'write article', key: '2' },
+    { text: 'take a walk', key: '3' }
+  ])
+
+  const pressHandler = (key) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter(todo => todo.key != key)
+    })
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={[globalStyles.base, styles.title]}>Todo today</Text>
+
+      <Header />
+
+      <View style={styles.content}>
+        <View style={styles.list}>
+          <FlatList
+            data={todos}
+            renderItem={({ item }) => (
+              <TodoItem
+                item={item}
+                pressHandler={pressHandler} />
+            )} />
+        </View>
+      </View>
     </View>
   )
 }
