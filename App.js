@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Header } from './components/Header'
-import { StyleSheet, Text, View, FlatList } from 'react-native'
+import { StyleSheet, Text, View, FlatList, StatusBar } from 'react-native'
 import { TodoItem } from './components/TodoItem'
 import { AddItem } from './components/AddItem'
 // import { globalStyles } from './globalstyles'
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    backgroundColor: '#faf5e4',
+    backgroundColor: '#F7EFD4',
   },
   content: {
     flex: 1,
@@ -44,7 +44,11 @@ const App = () => {
   }
 
   return (
+
     <View style={styles.container}>
+
+      <StatusBar barStyle="light-content" hidden={false} />
+
 
       <Header />
 
