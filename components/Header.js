@@ -1,39 +1,44 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import styled from "styled-components/native";
 
-export default function Header({ title, titleTwo }) {
-  const View = styled.View`
-    width: 100%;
-    padding: 10px 0;
-    background-color: #fdf2d6;
-    border-radius: 10px;
+const HeaderView = styled.View`
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  background-color: #fdf2d6;
 
-    border: 2px solid #ab782c;
-    border-radius: 20px;
+  shadow-opacity: 1;
+  shadow-radius: 0px;
+  shadow-color: #6e4d1b;
+  shadow-offset: 0px 6px;
 
-    shadow-opacity: 1;
-    shadow-radius: 0px;
-    shadow-color: #6e4d1b;
-    shadow-offset: 0px 4px;
-  `;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-style: solid;
+  border-left-color: #ab782c;
+  border-right-color: #ab782c;
+  border-bottom-color: #ab782c;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+`;
 
-  const Text = styled.Text`
-    color: #99541c;
-    font-weight: 500;
-    font-size: ${(props) => (props.title ? "35px" : "20px")};
-    text-align: center;
-    margin-top: ${(props) => (props.title ? "30px" : "5px")};
-  `;
+const HeaderText = styled.Text`
+  color: #99541c;
+  font-weight: 500;
+  font-size: ${(props) => (props.title ? "35px" : "20px")};
+  text-align: center;
+  margin-top: ${(props) => (props.title ? "25px" : "4px")};
+`;
 
+export const Header = ({ title, titleTwo }) => {
   return (
-    <View>
-      <Text title>{title}</Text>
-      <Text>{titleTwo}</Text>
-    </View>
+    <HeaderView>
+      <HeaderText title>{title}</HeaderText>
+      <HeaderText>{titleTwo}</HeaderText>
+    </HeaderView>
   );
-}
-// shadow-opacity: 0.75;
-// shadow-radius: 1px;
-// shadow-color: orange;
-// shadow-offset: 0px 0px;
+};
+// export default Header;

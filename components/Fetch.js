@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { View } from "react-native";
 
-export default function Fetch({ setBeer }) {
+export const Fetch = ({ setBeer }) => {
   const url =
     "http://api.brewerydb.com/v2/beer/random/?key=aedb96e7de02d80914934f14a9e42cfd";
 
@@ -12,7 +12,7 @@ export default function Fetch({ setBeer }) {
   }, []);
 
   return <View />;
-}
+};
 //.catch((error) => {
 // 	console.error(error);
 // });
