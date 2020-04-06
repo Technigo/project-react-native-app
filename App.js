@@ -12,7 +12,13 @@ const Background = styled.View`
 `
 
 const App = () => {
-  const [firstView, setFirstView] = useState()
+  const [firstView, setFirstView] = useState(true)
+
+  const shakePhone = () => {
+    if (firstView) {
+      setTimeout(() => setFirstView(!firstView), 2000);
+    } else { setFirstView(!firstView)}
+  }
 
   useEffect(() => {
     ShakeEventExpo.addListener(() => {
@@ -24,20 +30,15 @@ const App = () => {
     };
   }, []);
 
-  const shakePhone = () => {
-    if (firstView) {
-      showAnswer()
-      setTimeout(() => setViewOne(!firstView), 2000);
-    } else { setFirstView(!firstView)}
-  }
+  
 
   return (
     <Background>
       {firstView ? (
-        <Question firstView={firstView} />
+        <Question shakePhone={shakePhone} />
       ) : (
         <Answer />
-      )} 
+      )}
     </Background>
   )
 }

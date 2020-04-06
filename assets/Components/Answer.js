@@ -7,15 +7,14 @@ export const Answer = () => {
 
   useEffect(() => {
     fetch('https://api.adviceslip.com/advice')
-    .then(res => res.json)
-    .then(json => setAnswer(json.slip))
+    .then(res => res.json())
+    .then(json => setAnswer(json['slip']['advice']))
     console.log(answer)
   },[])
 
   return (
     <View>
-      <StyledText>Hello!</StyledText>
-      {/* <StyledText>{answer.advice}</StyledText> */}
+      <StyledText>{answer}</StyledText>
     </View>
   )
 }
