@@ -1,25 +1,31 @@
 import React from 'react'
-import styled from 'styled-components/native'
+import Constants from 'expo-constants';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+import { StyleSheet, Text, View } from 'react-native'
+import { globalStyles } from './globalstyles';
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    backgroundColor: '#F4F7FF',
+    paddingTop: Constants.statusBarHeight,
+    padding: 20,
+  },
+  title: {
+    color: '#000',
+    fontSize: 40,
+    fontWeight: 'bold',
+  }
+})
+
 
 const App = () => {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <View style={styles.container}>
+      <Text style={[globalStyles.base, styles.title]}>Todo today</Text>
+    </View>
   )
 }
 
