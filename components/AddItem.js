@@ -1,26 +1,24 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native'
+import styled from 'styled-components/native'
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 30,
-  },
-  input: {
-    flex: 1,
-    padding: 15,
-    backgroundColor: '#fff',
-  },
-  button: {
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    backgroundColor: '#2c786c',
-  },
-  buttonText: {
-    color: '#fff',
-  }
-})
+
+const Container = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+`
+const InputText = styled.TextInput`
+  flex: 1;
+  padding: 15px;
+  background-color: #fff;
+`
+const Button = styled.TouchableOpacity`
+  padding: 20px 15px;
+  background-color: #2c786c;
+`
+const ButtonText = styled.Text`
+  color: #fff;
+`
 
 
 
@@ -43,17 +41,14 @@ export const AddItem = ({ setTodos }) => {
   }
 
   return (
-    <View style={styles.container}>
-      <TextInput
+    <Container>
+      <InputText
         placeholder="New todo"
-        onChangeText={changeHandler}
-        style={styles.input} />
+        onChangeText={changeHandler} />
 
-      <TouchableOpacity
-        onPress={() => { submitHandler(text) }}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableOpacity>
-    </View>
+      <Button onPress={() => { submitHandler(text) }}>
+        <ButtonText>Add</ButtonText>
+      </Button>
+    </Container>
   )
 }

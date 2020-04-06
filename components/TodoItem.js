@@ -1,19 +1,17 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import styled from 'styled-components/native'
 
-const styles = StyleSheet.create({
-  item: {
-    padding: 20,
-    marginTop: 10,
-    borderRadius: 10,
-    backgroundColor: '#f8b400',
-  },
-})
+const Item = styled.TouchableOpacity``
+const ItemText = styled.Text`
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #f8b400;
+`
 
 export const TodoItem = ({ item, pressHandler }) => {
   return (
-    <TouchableOpacity onPress={() => pressHandler(item.key)}>
-      <Text style={styles.item}>{item.text}</Text>
-    </TouchableOpacity>
+    <Item onPress={() => pressHandler(item.key)}>
+      <ItemText>{item.text}</ItemText>
+    </Item>
   )
 }
