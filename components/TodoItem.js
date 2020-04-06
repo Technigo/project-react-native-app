@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import { TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/EvilIcons'
 
-const TodoContainer = styled.View`
+const TodoItemContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -45,7 +45,7 @@ export const TodoItem = ({ text, item, handleBinPress }) => {
   }
 
   return (
-    <TodoContainer>
+    <TodoItemContainer>
 
       <TouchableTodoItem onPress={toggleCompleted}>
         {completed ? <Circle><CheckMark>&#10003;</CheckMark></Circle> : <Circle />}
@@ -56,6 +56,6 @@ export const TodoItem = ({ text, item, handleBinPress }) => {
         <Icon name="trash" size={35} color="#fff" />
       </TouchableOpacity>
 
-    </TodoContainer >
+    </TodoItemContainer >
   )
 }

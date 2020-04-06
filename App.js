@@ -4,7 +4,7 @@ import { NewTodo } from './components/NewTodo'
 import { StatusBar, FlatList } from 'react-native'
 import { TodoItem } from './components/TodoItem'
 
-const Container = styled.View`
+const OuterContainer = styled.View`
   flex: 1;
   justify-content: flex-start;
   align-items: center;
@@ -19,7 +19,7 @@ const Title = styled.Text`
   font-weight: 200;
 `
 
-const ViewCard = styled.View`
+const TodoContainer = styled.View`
   flex: 1;
   width: 90%;
 `
@@ -44,11 +44,12 @@ const App = () => {
   }
 
   return (
-    <Container>
+    <OuterContainer>
+
       <StatusBar barStyle="light-content" />
       <Title>GET SH#T DONE</Title>
 
-      <ViewCard>
+      <TodoContainer>
         <NewTodo handleSubmit={handleSubmit} />
         <FlatList
           data={todos}
@@ -60,9 +61,9 @@ const App = () => {
             />
           )}
         />
-      </ViewCard>
+      </TodoContainer>
 
-    </Container>
+    </OuterContainer>
   )
 }
 
