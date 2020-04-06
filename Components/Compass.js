@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components/native'
 import { Magnetometer } from 'expo-sensors';
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
-import { ImageWrapper } from './ImageWrapper';
+import {ImageWrapper} from './ImageWrapper';
 
 
 
@@ -33,7 +33,6 @@ export const Compass = () => {
           <ImageWrapper degree = {calcAngleDegrees(magnetData.y, magnetData.x)} /> 
         <Text>{direction(calcAngleDegrees(magnetData.y, magnetData.x))}</Text>
  
-
       </View>
 
   )

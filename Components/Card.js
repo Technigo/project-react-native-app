@@ -17,7 +17,7 @@ flex-direction: row;
 background-color: white;
 opacity: 0.7;
 align-items: center;
-justify-content: 'space-around';
+justify-content: space-around;
 border-width: 1px;
 border-color: black;
 

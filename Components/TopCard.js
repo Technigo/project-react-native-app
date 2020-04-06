@@ -9,7 +9,7 @@ flex-direction: row;
 background-color: black;
 opacity: 0.8;
 align-items: center;
-justify-content: 'space-around';
+justify-content: space-around;
 border-width: 1px;
 border-color: black;
 
