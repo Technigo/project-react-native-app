@@ -4,6 +4,26 @@ import { NewTodo } from './components/NewTodo'
 import { StatusBar, FlatList } from 'react-native'
 import { TodoItem } from './components/TodoItem'
 
+const Container = styled.View`
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #2c3e50;
+`
+
+const Title = styled.Text`
+  padding-top: 50px;
+  padding-bottom: 20px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 200;
+`
+
+const ViewCard = styled.View`
+  flex: 1;
+  width: 90%;
+`
+
 const App = () => {
   const [todos, setTodos] = useState([])
 
@@ -47,23 +67,3 @@ const App = () => {
 }
 
 export default App
-
-const Container = styled.View`
-  flex: 1;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #2c3e50;
-`
-
-const Title = styled.Text`
-  padding-top: 50px;
-  padding-bottom: 20px;
-  color: #fff;
-  font-size: 24px;
-  font-weight: 200;
-`
-
-const ViewCard = styled.View`
-  flex: 1;
-  width: 90%;
-`

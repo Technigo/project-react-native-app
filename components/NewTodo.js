@@ -3,35 +3,6 @@ import styled from 'styled-components/native'
 import { Vibration } from 'react-native'
 import Icon from 'react-native-vector-icons/EvilIcons'
 
-export const NewTodo = ({ handleSubmit }) => {
-  const [newTodo, setNewTodo] = useState('')
-  const handleChange = value => setNewTodo(value)
-
-  return (
-    <Container>
-
-      <Input
-        value={newTodo}
-        onChangeText={handleChange}
-        placeholder='Add task'
-        maxLength={25}
-      />
-
-      <Button
-        onPress={() => {
-          handleSubmit(newTodo)
-          Vibration.vibrate()
-          setNewTodo('')
-        }}
-        disabled={newTodo.length < 3 || newTodo.length > 25 ? true : false}
-      >
-        <ButtonText><Icon name="plus" size={35} color="#fff" /></ButtonText>
-      </Button>
-
-    </Container >
-  )
-}
-
 const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
@@ -63,3 +34,32 @@ const ButtonText = styled.Text`
   color: #fff;
   font-weight: 500;
 `
+
+export const NewTodo = ({ handleSubmit }) => {
+  const [newTodo, setNewTodo] = useState('')
+  const handleChange = value => setNewTodo(value)
+
+  return (
+    <Container>
+
+      <Input
+        value={newTodo}
+        onChangeText={handleChange}
+        placeholder='Add task'
+        maxLength={25}
+      />
+
+      <Button
+        onPress={() => {
+          handleSubmit(newTodo)
+          Vibration.vibrate()
+          setNewTodo('')
+        }}
+        disabled={newTodo.length < 3 || newTodo.length > 25 ? true : false}
+      >
+        <ButtonText><Icon name="plus" size={35} color="#fff" /></ButtonText>
+      </Button>
+
+    </Container >
+  )
+}
