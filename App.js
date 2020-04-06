@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Header } from './components/Header'
-import { StyleSheet, Text, View, FlatList, StatusBar } from 'react-native'
+import { StyleSheet, StatusBar, Text, View, FlatList, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { TodoItem } from './components/TodoItem'
 import { AddItem } from './components/AddItem'
 
@@ -34,28 +34,31 @@ const App = () => {
   }
 
   return (
+    <TouchableWithoutFeedback onPress={() => { // Dismiss keyboard when clicked
+      Keyboard.dismiss()
+    }}>
 
-    <View style={styles.container}>
+      <View style={styles.container}>
 
-      <StatusBar barStyle="light-content" hidden={false} />
+        <StatusBar barStyle="light-content" hidden={false} />
 
+        <Header />
 
-      <Header />
+        <View style={styles.content}>
 
-      <View style={styles.content}>
+          <AddItem setTodos={setTodos} />
 
-        <AddItem setTodos={setTodos} />
+          <FlatList
+            data={todos}
+            renderItem={({ item }) => (
+              <TodoItem
+                item={item}
+                pressHandler={pressHandler} />
+            )} />
 
-        <FlatList
-          data={todos}
-          renderItem={({ item }) => (
-            <TodoItem
-              item={item}
-              pressHandler={pressHandler} />
-          )} />
-
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 
