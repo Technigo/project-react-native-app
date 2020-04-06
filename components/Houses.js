@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { Detail } from './Detail'
+import {
+  Image,
+  View,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+  Linking,
+  Share
+} from 'react-native';
 
 const Container = styled.View`
   flex: 1;
@@ -34,7 +43,9 @@ export const Houses = () => {
     <Container>
       <Title>Space</Title>
       <Title>{images.date}</Title>
-
+      <Image
+        source={{ uri: images.url }}
+        style={{ width: 400, height: 300, marginVertical: 10, }} />
       <InterTitle>{images.explanation}</InterTitle>
 
     </Container>
