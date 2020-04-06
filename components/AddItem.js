@@ -2,11 +2,24 @@ import React, { useState } from 'react'
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native'
 
 const styles = StyleSheet.create({
-  input: {
-    margin: 10,
-    paddingHorizontal: 8,
-    paddingVertical: 6,
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
   },
+  input: {
+    flex: 1,
+    padding: 15,
+    backgroundColor: '#fff',
+  },
+  button: {
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    backgroundColor: '#2c786c',
+  },
+  buttonText: {
+    color: '#fff',
+  }
 })
 
 export const AddItem = ({ submitHandler }) => {
@@ -17,15 +30,16 @@ export const AddItem = ({ submitHandler }) => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <TextInput
         placeholder="New todo"
         onChangeText={changeHandler}
         style={styles.input} />
 
       <TouchableOpacity
-        onPress={() => { submitHandler(text) }}>
-        <Text>Add</Text>
+        onPress={() => { submitHandler(text) }}
+        style={styles.button}>
+        <Text style={styles.buttonText}>Add</Text>
       </TouchableOpacity>
     </View>
   )

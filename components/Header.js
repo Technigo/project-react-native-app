@@ -1,18 +1,16 @@
-import Constants from 'expo-constants'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { globalStyles } from '../globalstyles'
 
 const styles = StyleSheet.create({
   header: {
-    paddingTop: Constants.statusBarHeight,
-    padding: 20,
-    backgroundColor: '#ffffff',
+    paddingTop: 80,
+    padding: 40,
+    backgroundColor: '#004445',
   },
   title: {
-    textAlign: 'center',
-    color: '#000',
-    fontSize: 40,
+    color: '#fff',
+    fontSize: 24,
     fontWeight: 'bold',
   },
 })

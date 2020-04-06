@@ -10,9 +10,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    backgroundColor: '#F4F7FF',
+    backgroundColor: '#faf5e4',
   },
   content: {
+    flex: 1,
     padding: 40,
   }
 })
@@ -25,18 +26,20 @@ const App = () => {
     { text: 'take a walk', key: '3' }
   ])
 
-  const pressHandler = (key) => {
-    setTodos((prevTodos) => {
-      return prevTodos.filter(todo => todo.key != key)
-    })
-  }
-
+  // Add item
   const submitHandler = (text) => {
     setTodos((prevTodos) => {
       return [
         { text: text, key: Math.random().toString() },
         ...prevTodos
       ]
+    })
+  }
+
+  // Remove items
+  const pressHandler = (key) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter(todo => todo.key != key)
     })
   }
 
@@ -49,15 +52,13 @@ const App = () => {
 
         <AddItem submitHandler={submitHandler} />
 
-        <View style={styles.list}>
-          <FlatList
-            data={todos}
-            renderItem={({ item }) => (
-              <TodoItem
-                item={item}
-                pressHandler={pressHandler} />
-            )} />
-        </View>
+        <FlatList
+          data={todos}
+          renderItem={({ item }) => (
+            <TodoItem
+              item={item}
+              pressHandler={pressHandler} />
+          )} />
 
       </View>
     </View>
