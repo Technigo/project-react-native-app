@@ -10,29 +10,12 @@ import {
 } from "react-native";
 import styled from "styled-components/native";
 import RandomAnswer from "./Answers";
+import { ShakeEvent } from "./ShakeEvent";
 
 const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-`;
-
-const Eightball = styled.View`
-  width: 200;
-  height: 200;
-  border: 64px black solid;
-  border-radius: 100;
-  margin-bottom: 35px;
-`;
-
-const EightballContent = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
-const EightballText = styled.Text`
-  font-size: 42px;
-  font-weight: 700;
 `;
 
 const FadingText = styled.Text`
@@ -56,30 +39,41 @@ export default function App() {
   const backgroundImage = require("./magicBallStart.png");
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
+  useEffect(() => {
+    ShakeEvent.addListener(() => {
+      shakeEightBall();
+    });
+
+    return () => {
+      // Clean up the subscription
+      ShakeEvent.removeListener();
+    };
+  }, []);
+
   const handleAnimation = () => {
     // A loop is needed for continuous animation
-    //Animated.loop
+    Animated.loop;
     // Animation consists of a sequence of steps
     Animated.sequence([
       // start rotation in one direction (only half the time is needed)
       Animated.timing(fadeAnim, {
         toValue: 1.0,
-        duration: 150,
-        easing: Easing.linear,
+        duration: 50,
+        easing: Easing.bounce,
         useNativeDriver: true,
       }),
       // rotate in other direction, to minimum value (= twice the duration of above)
       Animated.timing(fadeAnim, {
         toValue: -1.0,
-        duration: 300,
-        easing: Easing.linear,
+        duration: 100,
+        easing: Easing.bounce,
         useNativeDriver: true,
       }),
       // return to begin position
       Animated.timing(fadeAnim, {
         toValue: 0.0,
-        duration: 150,
-        easing: Easing.linear,
+        duration: 50,
+        easing: Easing.bounce,
         useNativeDriver: true,
       }),
     ]).start();
@@ -92,14 +86,14 @@ export default function App() {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 2000,
+      duration: 8000,
     }).start();
   };
 
   const shakeEightBall = () => {
     if (viewBall) {
       fadeIn();
-      setTimeout(() => setViewBall(!viewBall), 2000);
+      setTimeout(() => setViewBall(!viewBall), 1000);
     }
   };
 
