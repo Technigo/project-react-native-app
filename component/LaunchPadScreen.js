@@ -7,13 +7,15 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const Container = styled.View`
   flex: 1;
-  background-color: #0074D9;
+  background-color: #FFF;
 `
 
 const Card = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: #0074D9;
+  border-bottom-width: 1px;
 `
 
 const Title = styled.Text`
