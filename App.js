@@ -234,7 +234,8 @@ export default function App() {
       {question === 'sumAnswer' && (
         <View>
           <Container>
-            {score >= 4 && <EndTitle>Michael Scott would be oh so proud!</EndTitle>}
+            {score >= 4 && <HighScore><EndTitle>Michael Scott would be oh so proud!</EndTitle>
+            <FinalImg source={require('./components/britney.jpg')} /></HighScore>}
             <FinalScore>Your final score is </FinalScore>
             <Title>{score} / 5 points</Title>
             <Button>
@@ -260,7 +261,7 @@ const Img = styled.Image`
   width: 500px;
   height: 300px;
   margin-bottom: 20px;
-`
+`;
 
 const Title = styled.Text`
   color: darkorange;
@@ -268,6 +269,7 @@ const Title = styled.Text`
   font-size: 32px;
   margin-bottom: 10px;
   text-align: center;
+  font-weight: bold;
 `;
 
 const Text = styled.Text`
@@ -310,11 +312,11 @@ const Score = styled(Title)`
   font-size: 12px;
 `;
 
-const Summary = styled(Title)`
-  border: 1px solid;
-  font-size: 16px;
-  padding-bottom: 2px;
-`;
+// const sumAnswer = styled(Title)`
+//   border: 1px solid;
+//   font-size: 16px;
+//   padding-bottom: 2px;
+// `;
 
 const Button = styled.TouchableOpacity`
   background: white;
@@ -334,7 +336,20 @@ const EndTitle = styled.Text`
   color: teal;
   font-size: 22px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  width: 300px;
+`
+
+const FinalImg = styled.Image`
+  width: 500px;
+  height: 300px;
+  margin: 10px 0px;
+`
+
+const HighScore = styled.View`
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
 `
 
 const FinalScore = styled.Text`
@@ -344,6 +359,6 @@ const FinalScore = styled.Text`
 `
 
 const NextButton = styled(Button)`
-  bottom: 10;
+  bottom: 30;
   position: absolute;
 `;
