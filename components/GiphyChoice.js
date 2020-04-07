@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 import { View } from 'react-native';
 
@@ -9,10 +9,9 @@ const StyledPicker = styled.Picker`
   height: 60px;
 `
 
-export const GiphyChoice = () => {
-  const [selectedValue, setSelectedValue] = useState('racoon')
-  return (
+export const GiphyChoice = ({ selectedValue, setSelectedValue }) => {
 
+  return (
     <StyledPicker selectedValue={selectedValue}
       onValueChange={(itemValue) => setSelectedValue(itemValue)}>
       <StyledPicker.Item label='Racoon Giphy 🦝' value='racoon' />
@@ -20,8 +19,6 @@ export const GiphyChoice = () => {
       <StyledPicker.Item label='Unicorn Giphy 🦄' value='unicorn' />
       <StyledPicker.Item label='Party Giphy 🍾' value='party' />
     </StyledPicker>
-
-
   );
 }
 

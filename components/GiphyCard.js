@@ -1,33 +1,25 @@
 
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { Image } from "react-native";
+import { Image, View, Title } from "react-native";
 
 
-const value = [
-  "racoon",
-  "dog",
-  "unicorn",
-  "party"]
 
-export const fetchGiphy = async value => {
-  const res = await fetch(
-    `https://api.giphy.com/v1/gifs/random?api_key=lByN5BPEwk9MR74phtPh0JpBBBBWyuVH&tag=${value}&rating=G`
-  );
-  const { data } = await res.json();
-  return data;
-};
+export const GiphyCard = ({ selectedValue, giphy, setGiphy }) => {
 
-const Gif = () => {
-  const [value, setValue] = useState("");
-  const [giphy, setGiphy] = useState({});
+
+
+  const animalURL = `https://api.giphy.com/v1/gifs/random?api_key=lByN5BPEwk9MR74phtPh0JpBBBBWyuVH&tag=${selectedValue}&rating=G`
+
 
   useEffect(() => {
-    fetch(url)
+    fetch(animalURL)
       .then((res) => res.json())
       .then((json) => setGiphy(json.data));
   }, []);
-  return <View />;
-}
 
+  console.log(giphy)
+
+  return (<Title>{giphy.id}</Title>)
+
+}
