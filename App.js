@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 import {Weather} from './components/Weather';
 import {Compass} from './components/Compass';
 import {Heading} from './components/Heading';
+import MyNewLocation from './components/MyNewLocation';
 import MyLocation from './components/MyLocation';
 
 const Container = styled.View`

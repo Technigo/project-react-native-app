@@ -43,7 +43,7 @@ export const Weather =() => {
               });
     },[weatherapi, setForecast, setToday])
 
-
+//api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={your api key}
     return (
         <View>
             <TopBox >

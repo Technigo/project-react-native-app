@@ -5,7 +5,8 @@ import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 
 //{"coords":{"latitude":59.342165300000005,"longitude":18.0621661,"altitude":null,"accuracy":34,"altitudeAccuracy":null,"heading":null,"speed":null},"timestamp":1585901296536}
-
+// latitude: this.state.location.coords.latitude,
+//longitude: this.state.location.coords.longitude
 export default class City extends Component {
   state = {
     location: null,
@@ -39,20 +40,23 @@ export default class City extends Component {
     let text = 'Waiting..';
     let city 
     let myCity = ''
+    let long = ''
+    let lat = ''
     if (this.state.errorMessage) {
       text = this.state.errorMessage;
     } else if (this.state.location) {
       text = JSON.stringify(this.state.location);
       city = Location.reverseGeocodeAsync( {latitude: this.state.location.coords.latitude, longitude:this.state.location.coords.longitude})
-      let myCity = JSON.stringify(city)
+      lat = this.state.location.coords.latitude
+      long = this.state.location.coords.longitude
     }
 
     return (
       <View style={styles.container}>
         <Text style={styles.paragraph}>
-        
-        
         {text}</Text>
+        <Text style={styles.paragraph}>
+        {`long: ${long} + lat: ${lat}`}</Text>
            <Text style={styles.paragraph}>
         {myCity}</Text>
       </View>
