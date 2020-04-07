@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { Image } from 'react-native';
-import { Rotate } from './Rotate';
+import { Image } from 'react-native'
+import { Detail } from './Detail'
+import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
+
+function Separator() {
+  return <View style={Platform.OS === "android" ? styles.separator : null} />;
+}
 
 const Container = styled.View`
-  flex: 1;
   background-color: papayawhip;
   justify-content: center;
   align-items: center;
 `
 
 const Title = styled.Text`
-  font-size: 34px;
+  font-size: 12px;
   color: palevioletred;
   font-weight: bold;
+  paddingHorizontal: 50;
+  paddingVertical: 50;
 `
 
 export const Nasa = () => {
-
+  const ONE_SECOND_IN_MS = 1000;
   const [images, setImages] = useState([])
 
   useEffect(() => {
@@ -26,8 +32,8 @@ export const Nasa = () => {
       .then((json) => setImages(json))
   }, [])
 
-
-  return (
+ 
+    return (
 
     <Container>
       <Title>{images.title}</Title>
@@ -35,6 +41,12 @@ export const Nasa = () => {
         source={{ uri: images.url }}
         style={{ width: 300, height: 300, marginVertical: 5, }} />
       <Title>{images.date}</Title>
+      <Detail></Detail>
+      <Title>{images.explanation}</Title>
+      <View>
+        <Button title="Test" onPress={() => Vibration.vibrate()} />
+      </View>
     </Container>
   )
 }
+
