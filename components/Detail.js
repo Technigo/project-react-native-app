@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { Button, Platform, Vibration, View} from "react-native";
+import { Platform, Vibration, View} from "react-native";
+import { Button } from './Button'
+
+
 
 function Separator() {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
+}
+
+export const Detail =  () => {
+  const [count, setCount] = useState(0)
+    
+  return (
+    <Container>
+      <Title>Learn more</Title>
+      <Separator />
+        <Button title="Click" onPress={() => Vibration.vibrate()}>Click here</Button>
+        <Separator />
+    </Container>
+  )
 }
 
 const Container = styled.View`
@@ -22,16 +38,9 @@ const Title = styled.Text`
   font-weight: bold;
 `
 
-export const Detail =  () => {
-
-  return (
-    <Container>
-      <Title>Learn more</Title>
-      <Separator />
-        <Button title="Click" onPress={() => Vibration.vibrate()} />
-        <Separator />
-      {/* <Title>{images.title}</Title>
-      <Title>{images.explanation}</Title> */}
-    </Container>
-  )
-}
+const Info = styled.Text`
+flex: 1;
+background-color: papayawhip;
+justify-content: center;
+align-items: center;
+`
