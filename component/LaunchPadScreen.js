@@ -1,15 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components/native'
-import {View, Text, ActivityIndicator, ScrollView} from 'react-native'
+import {View, Text, ActivityIndicator, ScrollView, Button} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const Container = styled.View`
   flex: 1;
-  background-color: powderblue;
-  justify-content: center;
-  align-items: center;
+  background-color: #0074D9;
 `
 
 const Card = styled.View`
@@ -19,14 +17,15 @@ const Card = styled.View`
 `
 
 const Title = styled.Text`
-  color: #000;
+  color: #FFF;
+  font-weight: bold;
 `
 
 function LoadingScreen () {
   return (
-    <Container style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Card>
       <ActivityIndicator color={"#000"} />
-    </Container>  
+    </Card>  
   )
 }
 
@@ -42,20 +41,21 @@ export const LaunchPadScreen = ({ navigation }) => {
   }, [])
 
   return (
-
-<Container>
-  {launches.map((launch) => (
-          // Creates a button that will navigate to Detail page and pass all data on that launch into Detail to be used.
-          // Style this touchableOpacity or better element to be my display card for each launch
-          <Card key={launch.mission_name}>
-            <TouchableOpacity
-            key={launch.mission_name}
-            onPress={() => navigation.navigate('Detail', { launch })} // navigating to details screen with the clicked house info passed along
-            >
-              <Title key={launch.mission_name}>{launch.mission_name}</Title>
-            </TouchableOpacity>
-          </Card>
-        ))}
-</Container>
+    <Container>
+      {/* Loading anitmation if fetch response takes time */}
+      {isLoading && <LoadingScreen />}
+      {launches.map((launch) => (
+              // Creates a button that will navigate to Detail page and pass all data on that launch into Detail to be used.
+              // Style this touchableOpacity or better element to be my display card for each launch
+              <Card key={launch.mission_name}>
+                <TouchableOpacity
+                key={launch.mission_name}
+                onPress={() => navigation.navigate('Detail', { launch })} // navigating to details screen with the clicked house info passed along
+                >
+                  <Title key={launch.mission_name}>{launch.mission_name}</Title>
+                </TouchableOpacity>
+              </Card>
+            ))}
+    </Container>
   )
 }
