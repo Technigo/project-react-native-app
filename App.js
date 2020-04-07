@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, View, ScrollView, ImageBackground } from 'react-native';
+import React, {useState} from 'react'
+import { StyleSheet, View, ScrollView, ImageBackground, Button } from 'react-native';
 import styled from 'styled-components/native'
 import {Weather} from './components/Weather';
 import {Compass} from './components/Compass';
@@ -15,14 +15,17 @@ const Container = styled.View`
 `
 
 const App = () => {
+  [myCord, setMyCord] = useState({latitude: 0, longitude: 0})
+  const [count, setCount] = useState(0)
   return (
     <Container>
     <ScrollView contentContainerStyle = {styles.children} >
     <ImageBackground source={require('./assets/ForestBackground.jpg')} style={styles.image} >
      <Heading />
+     <MyNewLocation myCord = {myCord} setMyCord = {setMyCord} count={count} />
      <Compass />
-    <Weather />
-    <MyLocation />
+    {(myCord.latitude !== 0 || myCord.longitude !== 0 ) && <Weather myCord = {myCord} />}
+    <Button onPress={()=>setCount(count+1)} title = "I have moved" color="darkolivegreen" />
   </ImageBackground>
   </ScrollView>
   </Container>
@@ -34,7 +37,7 @@ export default App
 const styles = StyleSheet.create({
 
   children: {
-    height: 1200,
+    height: 1500,
     width: 400,
     flexGrow: 1,
     justifyContent: 'center',

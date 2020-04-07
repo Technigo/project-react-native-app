@@ -20,16 +20,16 @@ margin: 16px auto;
 `;
 
 
-export const Weather =() => {
+export const Weather =({myCord}) => {
 
     const [forecast, setForecast] = useState([])
     const [today, setToday] = useState({})
     const [done, setDone] = useState(false)
     const weatherapi = "https://api.openweathermap.org/data/2.5/forecast?q=Stockholm&appid=2b9468766d0e54560c7e599762d2e80b"
-    
+    const openweatherApi = `https://api.openweathermap.org/data/2.5/forecast?lat=${myCord.latitude}&lon=${myCord.longitude}&appid=2b9468766d0e54560c7e599762d2e80b`
 
     useEffect(()=>{
-        fetch(weatherapi)
+        fetch(openweatherApi)
         .then(res => res.json())
         .then(json => {
             setForecast(json.list)
@@ -41,13 +41,14 @@ export const Weather =() => {
                 alert(error)
                 console.error('Error:', error);
               });
-    },[weatherapi, setForecast, setToday])
+    },[openweatherApi, setForecast, setToday])
 
 //api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={your api key}
     return (
         <View>
             <TopBox >
            {done && <TopCard info={today} />}
+    <Text>{`latitude: ${myCord.latitude} longitude: ${myCord.longitude}`}</Text>
            </TopBox>
         <WeatherWeek>
         {done && forecast.map((time)=>{
