@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, Text, View, Vibration, TouchableOpacity } from "react-native";
-import image3 from "../assets/sean-thomas-F6920BvzrZE-unsplash.jpg";
+import image from "../assets/sean-thomas-F6920BvzrZE-unsplash.jpg";
 import {NavigationContainer} from '@react-navigation/native';
 import styled from "styled-components"
 
@@ -11,7 +11,7 @@ export const Question2 = ({setCorrectAnswer, correctAnswer, navigation}) => {
 
   return (
 
-    <StyledImageBackground source={image3}> 
+    <StyledImageBackground source={image}> 
     <StyledView>
 
       <StyledTitle>Gringotts Wizarding Bank is owned and operated by what creature?</StyledTitle>
@@ -36,7 +36,7 @@ export const Question2 = ({setCorrectAnswer, correctAnswer, navigation}) => {
         <StyledCorrectAnswer userAnswer={userAnswer}>The bank is owned and operated by goblins. It was created by a goblin named Gringott, in 1474. </StyledCorrectAnswer>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => {navigation.navigate('Summary', {name: 'Summary'})}}>
+      <TouchableOpacity onPress={() => {navigation.navigate('Question 3', {name: 'Question 3'})}}>
         <StyledButton userAnswer={userAnswer}>Continue</StyledButton>
       </TouchableOpacity>
 
@@ -67,7 +67,7 @@ const StyledTitle = styled.Text`
 `
 const StyledTextButton = styled.Text`
   background-color: ${props => props.userAnswer ? "rgba(216, 225, 255, 0.5)" : "rgba(150, 205, 255, 0.9)"}
-  font-size: 23px;
+  font-size: 28px;
   font-weight: bold;
   font-family: monospace;
   margin-top: 15;
@@ -77,10 +77,10 @@ const StyledTextButton = styled.Text`
 `
 
 const StyledCorrectAnswer = styled.Text`
-  height: ${props => props.userAnswer ? "100px" : "0px"}
+  height: ${props => props.userAnswer ? "auto" : "0px"}
   background-color: ${props => props.userAnswer ? "rgba(130, 168, 229, 0.8)" : "transparent"}
   overflow: hidden;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   font-family: monospace;
   width: 350px; 

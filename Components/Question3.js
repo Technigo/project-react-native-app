@@ -1,11 +1,11 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, Text, View, Vibration, TouchableOpacity } from "react-native";
-import image from "../assets/darshan-patel-jAThVtHa34A-unsplash.jpg";
+import image from "../assets/treddy-chen-PYTqSwUQKsc-unsplash.jpg";
 import {NavigationContainer} from '@react-navigation/native';
 import styled from "styled-components"
 
-export const Question1 = ({setCorrectAnswer, correctAnswer, navigation}) => {
+export const Question3 = ({setCorrectAnswer, correctAnswer, navigation}) => {
 
   const [userAnswer, setUserAnswer] = useState(false);
 
@@ -14,32 +14,30 @@ export const Question1 = ({setCorrectAnswer, correctAnswer, navigation}) => {
     <StyledImageBackground source={image}> 
     <StyledView>
 
-      <StyledTitle>Where is Hogwarts located?</StyledTitle>
-
-      <TouchableOpacity onPress={() => {setUserAnswer(true); Vibration.vibrate()}}>
-        <StyledTextButton userAnswer={userAnswer}>England</StyledTextButton>
-      </TouchableOpacity>
+      <StyledTitle>Which store is NOT located in Hogsmeade?</StyledTitle>
 
       <TouchableOpacity onPress={() => {
         if (userAnswer) {return} 
         else {setCorrectAnswer(correctAnswer +1); setUserAnswer(true)}}}
       >
-
-        {/* om user answer är falskt ska man kunna få ett poäng. Om user answer är sant innebär det att personen tryck på fel svar innan. Knapptryckningen ska även efteråt sätta useranswer till sant för att hindra att personen kan få fler än 1 rätt svar på samma fråga. */}
-
-        <StyledTextButton>Scotland</StyledTextButton>
-        <StyledCorrectAnswer userAnswer={userAnswer}>In the magical world of Harry Potter, Hogwarts is located somewhere in Scotland. </StyledCorrectAnswer>
+        <StyledTextButton>Florean Fortescue's Ice Cream Parlour</StyledTextButton>
+        <StyledCorrectAnswer userAnswer={userAnswer}>It is owned and operated by Florean Fortescue, and located at Diagon Alley.</StyledCorrectAnswer>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => {setUserAnswer(true); Vibration.vibrate()}}>
-        <StyledTextButton userAnswer={userAnswer}>Ireland</StyledTextButton>
+        <StyledTextButton userAnswer={userAnswer}>Zonko's Joke Shop</StyledTextButton>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => {setUserAnswer(true); Vibration.vibrate()}}>
-        <StyledTextButton userAnswer={userAnswer}>Wales</StyledTextButton>
+        <StyledTextButton userAnswer={userAnswer}>Honeydukes</StyledTextButton>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => {navigation.navigate('Question 2', {name: 'Question 2'})}}>
+      <TouchableOpacity onPress={() => {setUserAnswer(true); Vibration.vibrate()}}>
+        <StyledTextButton userAnswer={userAnswer}>Madam Puddifoot's Tea Shop</StyledTextButton>
+      </TouchableOpacity>
+
+
+      <TouchableOpacity onPress={() => {navigation.navigate('Summary', {name: 'Summary'})}}>
         <StyledButton userAnswer={userAnswer}>Continue</StyledButton>
       </TouchableOpacity>
 
@@ -52,7 +50,7 @@ const StyledView = styled.View`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 70px;
 `
 const StyledImageBackground = styled.ImageBackground`
   display: flex;
@@ -70,7 +68,7 @@ const StyledTitle = styled.Text`
 `
 const StyledTextButton = styled.Text`
   background-color: ${props => props.userAnswer ? "rgba(216, 225, 255, 0.5)" : "rgba(150, 205, 255, 0.9)"}
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
   font-family: monospace;
   margin-top: 15;
@@ -83,7 +81,7 @@ const StyledCorrectAnswer = styled.Text`
   height: ${props => props.userAnswer ? "auto" : "0px"}
   background-color: ${props => props.userAnswer ? "rgba(130, 168, 229, 0.8)" : "transparent"}
   overflow: hidden;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   font-family: monospace;
   width: 350px; 
@@ -101,5 +99,3 @@ const StyledButton = styled.Text`
   padding: 0 20px;
   border-radius: 20px;
 `
-
-

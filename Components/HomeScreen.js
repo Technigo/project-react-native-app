@@ -1,14 +1,14 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, Text, View, Vibration, TouchableOpacity } from "react-native";
-import image1 from "../assets/roland-losslein-DmDYX_ltI48-unsplash.jpg";
+import image from "../assets/roland-losslein-DmDYX_ltI48-unsplash.jpg";
 import styled from "styled-components"
 
 export const HomeScreen = ({navigation}) => {
    
   return (
 
-    <StyledImageBackground source={image1} >
+    <StyledImageBackground source={image} >
       <StyledView>
       
         <StyledTitle>Welcome Muggle!</StyledTitle>

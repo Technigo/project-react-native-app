@@ -1,16 +1,35 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, Text, View, Vibration, TouchableOpacity } from "react-native";
-import image3 from "../assets/sean-thomas-F6920BvzrZE-unsplash.jpg";
+import image from "../assets/alden-maben-0PxBUTi3HXI-unsplash.jpg";
 import {NavigationContainer} from '@react-navigation/native';
 import styled from "styled-components"
 
 export const Summary = ({setCorrectAnswer, correctAnswer, navigation}) => {
+
+ const quizSummary = () => {
+
+  if (correctAnswer === 0) {
+    return (
+      <StyledText> You had {correctAnswer} correct answers! Perhaps you should watch the movies to refresh your memory. </StyledText> 
+    )
+  } else if (correctAnswer > 0 && correctAnswer < 3) {
+      return (
+        <StyledText> You had {correctAnswer} correct answers! You must like Harry Potter! </StyledText> 
+      )
+    } else if (correctAnswer === 3) {
+        return (
+          <StyledText> You had {correctAnswer} correct answers! You are a true Harry Potter fan! </StyledText>
+        ) 
+    }  
+  }
+
+ 
   return (
-    <StyledImageBackground source={image3}> 
+    <StyledImageBackground source={image}> 
     <StyledView>
 
-      <StyledText>You had {correctAnswer} correct answers! </StyledText> 
+       {quizSummary()}
 
       <TouchableOpacity onPress={() => {setCorrectAnswer(0); navigation.navigate('Home', {name: 'Home'})}}>
       <StyledButton>Start again</StyledButton>
@@ -35,15 +54,15 @@ const StyledImageBackground = styled.ImageBackground`
 `
 const StyledText = styled.Text`
   color: black;
-  background-color: rgba(194, 194, 176, 0.8);
-  font-size: 30px;
+  background-color: rgba(150, 205, 255, 0.9);
+  font-size: 25px;
   font-weight: bold;
   font-family: monospace;
   text-align: center;
   padding: 0 20px;
 `
 const StyledButton = styled.Text`
-  background-color: rgb(130, 168, 229);
+  background-color: rgb(137, 225, 106);
   font-size: 25px;
   font-weight: bold;
   font-family: monospace;
