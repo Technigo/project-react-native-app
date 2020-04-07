@@ -3,10 +3,9 @@ import styled from 'styled-components/native'
 import { Question } from './assets/Components/Question'
 import { Answer } from './assets/Components/Answer'
 import { ShakeEventExpo } from './assets/Components/ShakeEventExpo'
-import { createStackNavigator } from '@react-navigation/stack'
 
 
-export const Background = styled.View`
+const Background = styled.View`
   flex: 1;
   background-color: #DFB4B6;
   justify-content: center;

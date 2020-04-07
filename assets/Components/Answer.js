@@ -3,7 +3,8 @@ import { View } from 'react-native'
 import { StyledText } from './StyledText'
 import { useFonts } from '@use-expo/font'
 import { AppLoading } from 'expo'
-import TouchableButton from './TouchableButton'
+import  TouchableButton  from './TouchableButton'
+
 
 export const Answer = ({ onStartAgain }) => {
   const [fontsLoaded] = useFonts({
@@ -17,16 +18,14 @@ export const Answer = ({ onStartAgain }) => {
     .then(json => setAnswer(json.slip))
   },[])
 
-  console.log('answer', answer)
-
   if (!fontsLoaded) {
     return <AppLoading />
   } else {
     return (
       <View>
-      <StyledText>{answer.advice}</StyledText>
-      <TouchableButton onPress={onStartAgain} text="Try again" />
-    </View>
+        <StyledText>{answer.advice}</StyledText>
+        <TouchableButton onPress={onStartAgain} text="Try again" />
+      </View>
     )
   }
 }
