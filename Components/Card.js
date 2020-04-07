@@ -21,7 +21,7 @@ justify-content: space-around;
 border-width: 1px;
 border-color: black;
 
-`
+`;
 
 
 //${info.icon}
@@ -38,16 +38,3 @@ border-color: black;
     );
   }
  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'row',
-      backgroundColor: '#fff',
-      opacity: 0.7,
-      alignItems: 'center',
-      justifyContent: 'space-around',
-      borderWidth: 1,
-      borderColor: 'black',
-     
-    },
-  })

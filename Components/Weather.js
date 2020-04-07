@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image } from 'react-native';
-import moment from "moment";
+import moment from "./node_modules/moment";
 
 import styled from 'styled-components/native'
 import {Card} from './Card'

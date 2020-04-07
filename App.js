@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 import {Weather} from './components/Weather';
 import {Compass} from './components/Compass';
 import {Heading} from './components/Heading';
+import MyLocation from './components/MyLocation';
 
 const Container = styled.View`
   flex: 1;
@@ -20,6 +21,7 @@ const App = () => {
      <Heading />
      <Compass />
     <Weather />
+    <MyLocation />
   </ImageBackground>
   </ScrollView>
   </Container>
