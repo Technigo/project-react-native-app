@@ -1,5 +1,7 @@
 import styled from 'styled-components/native'
 
 export const StyledText = styled.Text`
-background-color: #9839f7;
+font-family: 'BrixSlab-Black'
+color: #393B6A;
+width: 200px;
 `

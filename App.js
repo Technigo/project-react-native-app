@@ -6,9 +6,10 @@ import { ShakeEventExpo } from './assets/Components/ShakeEventExpo'
 
 const Background = styled.View`
   flex: 1;
-  background-color: #dbcb9e;
+  background-color: #DFB4B6;
   justify-content: center;
   align-items: center;
+  border: 30px solid #393B6A;
 `
 
 const App = () => {
@@ -35,7 +36,7 @@ const App = () => {
   return (
     <Background>
       {firstView ? (
-        <Question shakePhone={shakePhone} />
+        <Question />
       ) : (
         <Answer />
       )}
