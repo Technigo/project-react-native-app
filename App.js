@@ -3,6 +3,7 @@ import styled from 'styled-components/native'
 import { Image, View, Text, TouchableOpacity } from 'react-native'
 import logo from './assets/logo.png'
 import * as ImagePicker from 'expo-image-picker'
+import * as Sharing from 'expo-sharing'
 
 const Container = styled.View`
   flex: 1;
@@ -41,6 +42,7 @@ const PickedImage = styled.Image`
   height: 300px;
 `
 
+
 const App = () => {
   let [selectedImage, setSelectedImage] = React.useState(null)
 
@@ -61,12 +63,24 @@ const App = () => {
     setSelectedImage({ localUri: pickerResult.uri })
   }
 
+  let openShareDialogAsync = async () => {
+    if (!(await Sharing.isAvailableAsync())) {
+      alert(`Oh no, sharing isn't available on your platform`)
+      return
+    }
+
+    Sharing.shareAsync(selectedImage.localUri)
+  }
+
   if (selectedImage !== null) {
     return (
       <ImageContainer>
         <PickedImage
           source={{ uri: selectedImage.localUri }}>
         </PickedImage>
+        <Button onPress={openShareDialogAsync}>
+          <ButtonText>Share this image</ButtonText>
+        </Button>
       </ImageContainer>
     )
   }
