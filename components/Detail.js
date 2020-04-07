@@ -10,7 +10,6 @@ function Separator() {
 }
 
 export const Detail =  () => {
-  const [count, setCount] = useState(0)
     
   return (
     <Container>
