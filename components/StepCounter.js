@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import styled from 'styled-components/native'
+import styled from "styled-components/native"
 import { Pedometer } from "expo-sensors"
 
 const Title = styled.Text`
@@ -15,7 +15,6 @@ const Text = styled.Text`
   color: #182C61;
 `
 const Container = styled.View`
-background-color: #F8EFBA;
 justify-content: center;
 align-items: center;
 `
