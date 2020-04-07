@@ -3,8 +3,10 @@ import styled from 'styled-components/native'
 import { Question } from './assets/Components/Question'
 import { Answer } from './assets/Components/Answer'
 import { ShakeEventExpo } from './assets/Components/ShakeEventExpo'
+import { createStackNavigator } from '@react-navigation/stack'
 
-const Background = styled.View`
+
+export const Background = styled.View`
   flex: 1;
   background-color: #DFB4B6;
   justify-content: center;
@@ -16,20 +18,18 @@ const App = () => {
   const [firstView, setFirstView] = useState(true)
 
   const shakePhone = () => {
-    if (firstView) {
-      setTimeout(() => setFirstView(!firstView), 2000);
-    } else { setFirstView(!firstView)}
+    setFirstView(false)
   }
 
   useEffect(() => {
     ShakeEventExpo.addListener(() => {
-      shakePhone();
-    });
+      shakePhone()
+    })
 
     return () => {
       ShakeEventExpo.removeListener();
-    };
-  }, []);
+    }
+  }, [])
 
   
 
@@ -38,7 +38,7 @@ const App = () => {
       {firstView ? (
         <Question />
       ) : (
-        <Answer />
+        <Answer onStartAgain={() => setFirstView(true)} />
       )}
     </Background>
   )
