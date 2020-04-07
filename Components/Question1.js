@@ -22,8 +22,11 @@ export const Question1 = ({setCorrectAnswer, correctAnswer, navigation}) => {
 
       <TouchableOpacity onPress={() => {
         if (userAnswer) {return} 
-        else {setCorrectAnswer(correctAnswer +1); navigation.navigate('Question 2', {name: 'Question 2'})}}}
+        else {setCorrectAnswer(correctAnswer +1); setUserAnswer(true)}}}
       >
+
+        {/* om user answer är falskt ska man kunna få ett poäng. Om user answer är sant innebär det att personen tryck på fel svar innan. Knapptryckningen ska även efteråt sätta useranswer till sant för att hindra att personen kan få fler än 1 rätt svar på samma fråga. */}
+
         <StyledTextButton>Scotland</StyledTextButton>
         <StyledCorrectAnswer userAnswer={userAnswer}>In the magical world of Harry Potter, Hogwarts is located somewhere in Scotland. </StyledCorrectAnswer>
       </TouchableOpacity>

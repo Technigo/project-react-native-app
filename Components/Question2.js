@@ -30,7 +30,7 @@ export const Question2 = ({setCorrectAnswer, correctAnswer, navigation}) => {
 
       <TouchableOpacity onPress={() => {
         if (userAnswer) {return} 
-        else {setCorrectAnswer(correctAnswer +1); navigation.navigate('Summary', {name: 'Summary'})}}}
+        else {setCorrectAnswer(correctAnswer +1); setUserAnswer(true)}}}
       >
         <StyledTextButton>Goblins</StyledTextButton>
         <StyledCorrectAnswer userAnswer={userAnswer}>The bank is owned and operated by goblins. It was created by a goblin named Gringott, in 1474. </StyledCorrectAnswer>
