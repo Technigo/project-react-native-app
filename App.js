@@ -52,12 +52,8 @@ const StyledButton = styled.Button`
 `;
 
 export default function App() {
-  // constructor(props) {
-  //   super(props)
-  //   this.animatedValue = new Animated.Value(0)
-  // }
+  const [viewBall, setViewBall] = useState(true);
   const backgroundImage = require("./magicBallStart.png");
-
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const handleAnimation = () => {
@@ -92,29 +88,32 @@ export default function App() {
   // // fadeAnim will be used as the value for opacity. Initial Value: 0
   // const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  // const fadeIn = () => {
-  //   // Will change fadeAnim value to 1 in 5 seconds
-  //   Animated.timing(fadeAnim, {
-  //     toValue: 1,
-  //     duration: 2000,
-  //   }).start();
-  // };
+  const fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 2000,
+    }).start();
+  };
 
-  const onRefresh = () => {
-    window.location.reload();
-    return false;
+  const shakeEightBall = () => {
+    if (viewBall) {
+      fadeIn();
+      setTimeout(() => setViewBall(!viewBall), 2000);
+    }
+  };
+
+  // const onRefresh = () => {
+  //   window.location.reload(false);
+  // };
+  const reset = () => {
+    if (!viewBall) {
+      setViewBall(!viewBall);
+    }
   };
 
   return (
     <Container>
-      {/* <>
-        <Eightball>
-          <EightballContent>
-            <EightballText>8</EightballText>
-          </EightballContent>
-        </Eightball>
-      </> */}
-
       <Animated.Image
         source={backgroundImage}
         resizeMode='contain'
@@ -129,28 +128,31 @@ export default function App() {
           ],
         }}
       />
-      {/* <Animated.View
-        style={[
-          styles.fadingContainer,
-          {
-            opacity: fadeAnim, // Bind opacity to animated value
-          },
-        ]}
-      >
-        <FadingText>
-          {" "}
-          <RandomAnswer />
-        </FadingText>
-      </Animated.View> */}
-      <ButtonRow>
-        <StyledButton
-          type='Button'
-          title='Shake the Eightball'
-          onPress={handleAnimation}
-          color='red'
-        />
-        <StyledButton type='Button' title='Reset' onPress={onRefresh} />
-      </ButtonRow>
+      {viewBall ? (
+        <ButtonRow>
+          <StyledButton
+            type='Button'
+            title='Shake the Eightball'
+            onPress={(handleAnimation, shakeEightBall)}
+            color='red'
+          />
+        </ButtonRow>
+      ) : (
+        <Animated.View
+          style={[
+            styles.fadingContainer,
+            {
+              opacity: fadeAnim, // Bind opacity to animated value
+            },
+          ]}
+        >
+          <FadingText>
+            {" "}
+            <RandomAnswer />
+          </FadingText>
+          <StyledButton type='Button' title='Reset' onPress={reset} />
+        </Animated.View>
+      )}
     </Container>
   );
 }
