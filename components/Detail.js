@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Text, View } from 'react-native';
+import { ImageStore } from 'react-native'
 
 const Container = styled.View`
 flex: 1;
@@ -15,16 +15,13 @@ const Title = styled.Text`
   color: palevioletred;
 `
 
-const InterTitle = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
-
-export const Detail = () => {
+export const Detail =  () => {
+ 
   
   return (
     <Container>
-     <InterTitle>details here</InterTitle>
+      <Title>{Images.explanation}</Title>
+    
     </Container>
   )
 }

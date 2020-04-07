@@ -1,24 +1,20 @@
 import React from 'react'
-import { Houses } from './components/Houses'
-import { Detail } from './components/Detail'
+import { Nasa } from './components/Nasa'
 import styled from 'styled-components/native'
 
-
 const Container = styled.View`
-flex: 1;
-background-color: orange;
-justifyContent: space-between;
-paddingHorizontal: 20;
-paddingVertical: 20;
+  flex: 1;
+  background-color: papayawhip;
+  justify-content: center;
+  align-items: center;
 `
-
 
 const App = () => {
   return (
-    <Container>
-      <Houses></Houses>
-      <Detail></Detail>
-    </Container>
+
+<Container>
+  <Nasa></Nasa>
+</Container>
   )
 }
 

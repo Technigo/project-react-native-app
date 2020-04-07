@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { Detail } from './Detail'
-import {
-  Image,
-  View,
-  TouchableOpacity,
-  Text,
-  ScrollView,
-  Linking,
-  Share
-} from 'react-native';
+import { Image } from 'react-native';
+import { Rotate } from './Rotate';
 
 const Container = styled.View`
   flex: 1;
@@ -19,16 +11,13 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 34px;
   color: palevioletred;
+  font-weight: bold;
 `
 
-const InterTitle = styled.Text`
-  font-size: 14px;
-`
+export const Nasa = () => {
 
-export const Houses = () => {
-  
   const [images, setImages] = useState([])
 
   useEffect(() => {
@@ -36,18 +25,16 @@ export const Houses = () => {
       .then((res) => res.json())
       .then((json) => setImages(json))
   }, [])
-  console.log('bild?',images.url)
+
 
   return (
 
     <Container>
-      <Title>Space</Title>
-      <Title>{images.date}</Title>
+      <Title>{images.title}</Title>
       <Image
         source={{ uri: images.url }}
-        style={{ width: 400, height: 300, marginVertical: 10, }} />
-      <InterTitle>{images.explanation}</InterTitle>
-
+        style={{ width: 300, height: 300, marginVertical: 5, }} />
+      <Title>{images.date}</Title>
     </Container>
   )
 }
