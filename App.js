@@ -10,16 +10,16 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-  margin-bottom: 24px;  
+  margin-bottom: 28px;  
   font-size: 32px;
   font-weight: bold;
-  color: black;
+  color: #182C61;
 `
 
 const App = () => {
   return (
     <Container>
-      <Title>Let's go for a walk!</Title>
+      <Title>🏃‍♀️Let's go for a walk! 🏃‍♂</Title>
       <StepCounter />
     </Container>
   )

@@ -5,7 +5,14 @@ import { Pedometer } from "expo-sensors"
 const Title = styled.Text`
   font-size: 18px;
   margin: 8px;
-  color: black;
+  color: #182C61;
+`
+
+const Text = styled.Text`
+  font-size: 18px;
+  margin: 28px;
+  font-weight: bold;
+  color: #182C61;
 `
 const Container = styled.View`
 background-color: #F8EFBA;
@@ -43,8 +50,8 @@ const StepCounter = () => {
   return (
     <Container>
       <Title>Steps taken the last week: {weekStepCount}</Title>
-      <Title>Steps taken in the last 24 hours: {pastStepCount}</Title>
-      <Title>Walk and watch this go up: {currentStepCount}</Title>
+      <Title>Steps taken the last 24 hours: {pastStepCount}</Title>
+      <Text>Walk and watch this go up: {currentStepCount}</Text>
     </Container>
   )
 }
