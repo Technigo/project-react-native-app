@@ -2,19 +2,20 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { Image } from 'react-native'
 import { Detail } from './Detail'
-import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
 
-function Separator() {
-  return <View style={Platform.OS === "android" ? styles.separator : null} />;
-}
 
 const Container = styled.View`
-  background-color: papayawhip;
+  background-color: #ffe8ea;
   justify-content: center;
   align-items: center;
 `
+const Img = styled.View`
+ flex-wrap: wrap;
+`
 
 const Title = styled.Text`
+  flex: 2;
+  flex-wrap: wrap;
   font-size: 12px;
   color: palevioletred;
   font-weight: bold;
@@ -22,8 +23,13 @@ const Title = styled.Text`
   paddingVertical: 50;
 `
 
+const Date = styled.Text`
+  flex: 1;
+  font-size: 12px;
+  color: violet;
+`
+
 export const Nasa = () => {
-  const ONE_SECOND_IN_MS = 1000;
   const [images, setImages] = useState([])
 
   useEffect(() => {
@@ -37,15 +43,14 @@ export const Nasa = () => {
 
     <Container>
       <Title>{images.title}</Title>
+      <Img>
       <Image
         source={{ uri: images.url }}
-        style={{ width: 300, height: 300, marginVertical: 5, }} />
-      <Title>{images.date}</Title>
+        style={{ width: 200, height: 300, marginVertical: 5, }} />
+      </Img>
+      <Date>{images.date}</Date>
       <Detail></Detail>
       <Title>{images.explanation}</Title>
-      <View>
-        <Button title="Test" onPress={() => Vibration.vibrate()} />
-      </View>
     </Container>
   )
 }
