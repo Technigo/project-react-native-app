@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { View, Vibration } from 'react-native';
-
+import { View, Vibration, Image } from 'react-native';
 
 
 export default function App() {
-  const [question, setQuestion] = useState('begin');
+  const [question, setQuestion] = useState('startQuiz');
   const [score, setScore] = useState(0);
   const [hide, setHide] = useState(false);
   const [right, setRight] = useState(false);
@@ -19,22 +18,22 @@ export default function App() {
   };
 
   const nextQuestion = () => {
-    if (question === 'begin') {
-      setQuestion('one');
-    } else if (question === 'one') {
-      setQuestion('two');
+    if (question === 'startQuiz') {
+      setQuestion('firstQ');
+    } else if (question === 'firstQ') {
+      setQuestion('secondQ');
       afterAnswering();
-    } else if (question === 'two') {
-      setQuestion('three');
+    } else if (question === 'secondQ') {
+      setQuestion('thirdQ');
       afterAnswering();
-    } else if (question === 'three') {
-      setQuestion('four');
+    } else if (question === 'thirdQ') {
+      setQuestion('fourthQ');
       afterAnswering();
-    } else if (question === 'four') {
-      setQuestion('five');
+    } else if (question === 'fourthQ') {
+      setQuestion('fifthQ');
       afterAnswering();
-    } else if (question === 'five') {
-      setQuestion('summary');
+    } else if (question === 'fifthQ') {
+      setQuestion('sumAnswer');
       afterAnswering();
     }
   };
@@ -53,18 +52,19 @@ export default function App() {
 
   const restartQuiz = () => {
     setScore(0);
-    setQuestion('begin');
+    setQuestion('startQuiz');
   };
 
   return (
     <Container>
-      {question === 'begin' && (
+      {question === 'startQuiz' && (
         <View>
           <Container>
+            <Img source={require('./components/happy.jpg')} />
             <Title>Quiz:</Title>
             <Text>The Office</Text>
             <Button>
-              <ButtonText onPress={() => setQuestion('one')}>
+              <ButtonText onPress={() => setQuestion('firstQ')}>
                 Start the quiz
               </ButtonText>
             </Button>
@@ -72,7 +72,7 @@ export default function App() {
         </View>
       )}
 
-      {question === 'one' && (
+      {question === 'firstQ' && (
         <View>
           <Container>
             <Title>1/5</Title>
@@ -93,7 +93,7 @@ export default function App() {
                   </AnswerText>
                 </Button>
                 <Button>
-                  <AnswerText onPress={wrongAnswer}>He would never!</AnswerText>
+                  <AnswerText onPress={wrongAnswer}>A Fireplace</AnswerText>
                 </Button>
               </View>
             )}
@@ -104,7 +104,7 @@ export default function App() {
         </View>
       )}
 
-      {question === 'two' && (
+      {question === 'secondQ' && (
         <View>
           <Container>
             <Title>2/5</Title>
@@ -132,7 +132,7 @@ export default function App() {
         </View>
       )}
 
-      {question === 'three' && (
+      {question === 'thirdQ' && (
         <View>
           <Container>
             <Title>3/5</Title>
@@ -152,7 +152,7 @@ export default function App() {
                 </Button>
                 <Button>
                   <AnswerText onPress={rightAnswer}>
-                    Worlds Greatest Boss
+                    Worlds Best Boss
                   </AnswerText>
                 </Button>
               </View>
@@ -164,7 +164,7 @@ export default function App() {
         </View>
       )}
 
-      {question === 'four' && (
+      {question === 'fourthQ' && (
         <View>
           <Container>
             <Title>4/5</Title>
@@ -195,7 +195,7 @@ export default function App() {
         </View>
       )}
 
-      {question === 'five' && (
+      {question === 'fifthQ' && (
         <View>
           <Container>
             <Title>5/5</Title>
@@ -203,7 +203,7 @@ export default function App() {
             {!hide && (
               <View>
                 <Button>
-                  <AnswerText onPress={rightAnswer}>Wearhouse</AnswerText>
+                  <AnswerText onPress={rightAnswer}>Warehouse</AnswerText>
                 </Button>
                 <Button>
                   <AnswerText onPress={wrongAnswer}>Sales</AnswerText>
@@ -212,7 +212,7 @@ export default function App() {
                   <AnswerText onPress={wrongAnswer}>Manager</AnswerText>
                 </Button>
                 <Button>
-                  <AnswerText onPress={wrongAnswer}>Service Desk</AnswerText>
+                  <AnswerText onPress={wrongAnswer}>Reception</AnswerText>
                 </Button>
               </View>
             )}
@@ -225,13 +225,13 @@ export default function App() {
         </View>
       )}
 
-      {question !== 'begin' && (
+      {question !== 'startQuiz' && (
         <NextButton>
           <ButtonText onPress={nextQuestion}>Next</ButtonText>
         </NextButton>
       )}
 
-      {question === 'summary' && (
+      {question === 'sumAnswer' && (
         <View>
           <Container>
             {score >= 4 && <EndTitle>Michael Scott would be oh so proud!</EndTitle>}
@@ -254,6 +254,13 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
 `;
+
+const Img = styled.Image`
+  top: 0;
+  width: 500px;
+  height: 300px;
+  margin-bottom: 20px;
+`
 
 const Title = styled.Text`
   color: darkorange;
@@ -287,16 +294,12 @@ const AnswerText = styled.Text`
 `
 
 const TitleRight = styled(Title)`
-  border-top: 2px dotted teal;
-  border-bottom: 2px dotted teal;
   padding: 20px 10px;
   font-size: 18px;
   color: plum;
 `;
 
 const TitleWrong = styled(Title)`
-  border-top: 2px dotted teal;
-  border-bottom: 2px dotted teal;
   padding: 20px 10px;
   font-size: 18px;
   color: rosybrown;
