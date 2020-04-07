@@ -33,7 +33,7 @@ export default App
 const styles = StyleSheet.create({
 
   children: {
-    height: 1000,
+    height: 1200,
     width: 400,
     flexGrow: 1,
     justifyContent: 'center',

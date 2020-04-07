@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image } from 'react-native';
-import moment from "./node_modules/moment";
 
 import styled from 'styled-components/native'
 import {Card} from './Card'
@@ -18,7 +17,7 @@ const TopBox = styled.View`
 width: 350px;
 height: 120px;
 margin: 16px auto;
-`
+`;
 
 
 export const Weather =() => {
@@ -42,8 +41,7 @@ export const Weather =() => {
                 alert(error)
                 console.error('Error:', error);
               });
-    },[weatherapi])
-
+    },[weatherapi, setForecast, setToday])
 
 
     return (
@@ -55,7 +53,7 @@ export const Weather =() => {
         {done && forecast.map((time)=>{
             if ((time.dt_txt).split(' ').includes("12:00:00")){
                 return(
-                    <Card info={time} />
+                    <Card info={time} key={time.dt} />
                 )}
         })}
     

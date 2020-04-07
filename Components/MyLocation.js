@@ -1,53 +1,63 @@
-import React, { useState, useEffect } from 'react';
-import { Platform, Text, View, StyleSheet, Button } from 'react-native';
+import React, { Component } from 'react';
+import { Platform, Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import Location from 'expo-location';
-import Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
 
+//{"coords":{"latitude":59.342165300000005,"longitude":18.0621661,"altitude":null,"accuracy":34,"altitudeAccuracy":null,"heading":null,"speed":null},"timestamp":1585901296536}
 
-const MyLocation = () => {
-  const [state, setState] = useState({
+export default class City extends Component {
+  state = {
     location: null,
     errorMessage: null,
-  })
+  };
 
-  useEffect(() => {
+  constructor(props) {
+    super(props);
     if (Platform.OS === 'android' && !Constants.isDevice) {
-      setState({
+      this.setState({
         errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
       });
     } else {
-      _getLocationAsync();
+      this._getLocationAsync();
     }
-  }, [])
+  }
 
-  const _getLocationAsync = async () => {
+  _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
-      setState({
+      this.setState({
         errorMessage: 'Permission to access location was denied',
       });
     }
 
-    let geocode = await Location.getCurrentPositionAsync({});
-    let location = await Location.reverseGeocodeAsync(geocode.coords);
-    setState({ location });
+    let location = await Location.getCurrentPositionAsync({});
+    this.setState({ location });
   };
 
-  let text = 'Waiting..';
-  if (state.errorMessage) {
-    text = state.errorMessage;
-  } else if (state.location) {
-    // text = JSON.stringify(state.location);
-    text = `You are at ${state.location[0].street} ${state.location[0].name}!`
-  }
+  render() {
+    let text = 'Waiting..';
+    let city 
+    let myCity = ''
+    if (this.state.errorMessage) {
+      text = this.state.errorMessage;
+    } else if (this.state.location) {
+      text = JSON.stringify(this.state.location);
+      city = Location.reverseGeocodeAsync( {latitude: this.state.location.coords.latitude, longitude:this.state.location.coords.longitude})
+      let myCity = JSON.stringify(city)
+    }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.paragraph}>{text}</Text>
-      <Button title='update address' onPress={() => _getLocationAsync()} color='gray' />
-    </View>
-  );
+    return (
+      <View style={styles.container}>
+        <Text style={styles.paragraph}>
+        
+        
+        {text}</Text>
+           <Text style={styles.paragraph}>
+        {myCity}</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -64,5 +74,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-export default MyLocation;
