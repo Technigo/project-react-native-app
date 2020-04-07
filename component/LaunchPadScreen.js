@@ -7,22 +7,26 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const Container = styled.View`
   flex: 1;
-  background-color: #FFF;
+  background-color: powderblue;
   justify-content: center;
   align-items: center;
 `
+
+const Card = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`
+
 const Title = styled.Text`
-  font-size: 24px;
-  color: red;
-  padding: 10px;
-  background-color: purple;
+  color: #000;
 `
 
 function LoadingScreen () {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Container style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <ActivityIndicator color={"#000"} />
-    </View>  
+    </Container>  
   )
 }
 
@@ -38,25 +42,20 @@ export const LaunchPadScreen = ({ navigation }) => {
   }, [])
 
   return (
-    <ScrollView>
-      <Container>
 
-        {/* Loading anitmation if fetch response takes time */}
-        {isLoading && <LoadingScreen />}
-
-        {launches.map((launch) => (
+<Container>
+  {launches.map((launch) => (
           // Creates a button that will navigate to Detail page and pass all data on that launch into Detail to be used.
           // Style this touchableOpacity or better element to be my display card for each launch
-          <TouchableOpacity
-          key={launch.mission_name}
-          onPress={() => navigation.navigate('Detail', { launch })} // navigating to details screen with the clicked house info passed along
-          >
-            <Title key={launch.mission_name}>{launch.mission_name}</Title>
-          </TouchableOpacity>
-
+          <Card key={launch.mission_name}>
+            <TouchableOpacity
+            key={launch.mission_name}
+            onPress={() => navigation.navigate('Detail', { launch })} // navigating to details screen with the clicked house info passed along
+            >
+              <Title key={launch.mission_name}>{launch.mission_name}</Title>
+            </TouchableOpacity>
+          </Card>
         ))}
-
-      </Container>
-    </ScrollView>
+</Container>
   )
 }

@@ -19,8 +19,8 @@ export const DetailScreen = ({ route, navigation }) => {
       <Text>Type: {launch.rocket.second_stage.payloads[0].payload_type}</Text>
 
       <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
+        title="Go to Launchpad"
+        onPress={() => navigation.navigate('Launchpad')}
       />
     </View>
   );
