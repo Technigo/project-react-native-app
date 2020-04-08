@@ -1,13 +1,19 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+Project week 13 @ Technigo Bootcamp we were supposed to build our first mobile application with React Native! I went for a step counter app, mainly because I thought it would be fun to use one the functionalities in the phone, in this case the Pedometer.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Learning objectives
 
-## The problem
+- How to use React Native to create a mobile app
+- Practice using Styled Components
+- More practice in useState and form inputs
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Technologies
+
+- JavaScript ES6
+- React Native
+- Styled Components
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+You can try out my app here (Chrome is recommended for sneakpeak in web, scan QR Code to open in iOS/Android device): https://snack.expo.io/@annatakman/f04fc9 
