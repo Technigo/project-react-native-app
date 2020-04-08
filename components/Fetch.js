@@ -13,6 +13,3 @@ export const Fetch = ({ setBeer }) => {
 
   return <View />;
 };
-//.catch((error) => {
-// 	console.error(error);
-// });

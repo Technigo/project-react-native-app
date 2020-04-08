@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { Alert, Linking } from "react-native";
 import styled from "styled-components";
+import * as Haptics from "expo-haptics";
 
 const StyledButtonURL = styled.TouchableOpacity`
   background: #fffced;
@@ -32,8 +33,11 @@ const ButtonTextURL = styled.Text`
 
 export const OpenURLButton = ({ url, buttonText }) => {
   const handlePress = useCallback(async () => {
+    //For some strange reason the Haptics only works when I have on two places?
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     // Checking if the link is supported for links with custom URL scheme.
     const supported = await Linking.canOpenURL(url);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     if (supported) {
       // Opening the link with some app, if the URL scheme is "http" the web link should be opened
       // by some browser in the mobile

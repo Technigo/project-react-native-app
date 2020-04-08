@@ -56,7 +56,7 @@ export const RandomBeer = ({ beer, press, setPress }) => {
           <Span>STYLE:</Span>{" "}
           {beer.style.shortName !== undefined
             ? beer.style.shortName
-            : "Name not avilable"}
+            : "Style not avilable"}
         </StyledText>
         <StyledEmoji>🍻🍻🍻</StyledEmoji>
         <StyledText>
@@ -66,10 +66,12 @@ export const RandomBeer = ({ beer, press, setPress }) => {
             : "Style not avilable"}
         </StyledText>
       </ScrollView>
-      <OpenURLButton
-        url={`https://www.systembolaget.se/sok-dryck/?searchquery=${beer.style.shortName}`}
-        buttonText={`Click for more`}
-      />
+      {beer.style.shortName !== undefined && (
+        <OpenURLButton
+          url={`http://www.systembolaget.se/sok-dryck/?searchquery=${beer.style.shortName}`}
+          buttonText={`Click for more`}
+        />
+      )}
       {setPress(false)}
     </StyledView>
   );
