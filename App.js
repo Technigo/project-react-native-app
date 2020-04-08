@@ -5,7 +5,7 @@ import Animation from "./components/Animation"
 
 const Container = styled.View`
   flex: 1;
-  background-color: #fff;
+  background-color: #F8EFBA;
   justify-content: flex-end;
   align-items: center;
 `
