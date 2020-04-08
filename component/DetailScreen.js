@@ -11,7 +11,6 @@ export const DetailScreen = ({ route, navigation }) => {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Details Screen</Text>
       <Text>Misison Name: {launch.mission_name}</Text>
-      {/* <Text>Launch date: {launch.launch_date_unix}</Text> */}
       <Text>Launch Date: 
         <Moment unix format="YYYY/MM/DD" element={Text}>{launch.launch_date_unix}</Moment>
       </Text>
