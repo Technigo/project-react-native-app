@@ -1,12 +1,11 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { View } from 'react-native';
 
 const StyledPicker = styled.Picker`
-  padding: 8px;
+  padding: 12px;
   color: #9839f7;
-  height: 60px;
+  height: 200px;
+  font-size:36px;
 `
 
 export const GiphyChoice = ({ selectedValue, setSelectedValue }) => {
@@ -19,8 +18,7 @@ export const GiphyChoice = ({ selectedValue, setSelectedValue }) => {
       <StyledPicker.Item label='Unicorn Giphy 🦄' value='unicorn' />
       <StyledPicker.Item label='Party Giphy 🍾' value='party' />
     </StyledPicker>
+
   );
 }
-
-
 
