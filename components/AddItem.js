@@ -22,9 +22,15 @@ const ButtonText = styled.Text`
 
 
 export const AddItem = ({ setTodos }) => {
+
   const [text, setText] = useState('')
 
-  // Add item
+  // Set text to be equal to input value
+  const changeHandler = (val) => {
+    setText(val)
+  }
+
+  // Add todo item
   const submitHandler = (text) => {
     setTodos((prevTodos) => {
       return [
@@ -34,12 +40,10 @@ export const AddItem = ({ setTodos }) => {
     })
   }
 
-  const changeHandler = (val) => {
-    setText(val)
-  }
 
   return (
     <Container>
+
       <InputText
         placeholder="New todo"
         onChangeText={changeHandler} />
@@ -47,6 +51,7 @@ export const AddItem = ({ setTodos }) => {
       <Button onPress={() => { submitHandler(text) }}>
         <ButtonText>Add</ButtonText>
       </Button>
+
     </Container>
   )
 }
