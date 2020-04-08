@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import { Platform, Vibration, View} from "react-native";
+import { Platform, Vibration, View, TouchableOpacity, } from "react-native";
 import styled from 'styled-components/native'
 
 export const Tap = () => {
-    const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0)
 
-    return (
-     <Container>
-        <Title>Nothing to do?</Title>
-            <Info>Tap the alien</Info>
-        <Info title="tap tap" onPress={() => Vibration.vibrate()}>👽</Info>
-     </Container>
-    )
+
+  return (
+    <Container>
+      <Title>Nothing to do?</Title>
+      <Info>Tap the alien</Info>
+      <Info title="tap tap" onPress={() => Vibration.vibrate()}>👽</Info>
+    </Container>
+  )
 }
 
 const Container = styled.View`

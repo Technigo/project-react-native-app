@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { Button, Platform, Vibration, View} from "react-native";
-import { ButtonAlien } from './ButtonAlien'
+
 
 
 export const Detail = () => {
@@ -9,8 +9,8 @@ export const Detail = () => {
   return (
     <Container>
 
-      <Button title="Click" onPress={
-        () => Vibration.vibrate()}>Click here</Button>
+      <Info title="Click" onPress={
+        () => Vibration.vibrate()}>Click here</Info>
 
     </Container>
   )
