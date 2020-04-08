@@ -1,80 +1,78 @@
-import React, { Component } from 'react';
-import { Platform, Text, View, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Platform, Text, View, StyleSheet, Button } from 'react-native';
+import styled from 'styled-components/native';
 import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 
-//{"coords":{"latitude":59.342165300000005,"longitude":18.0621661,"altitude":null,"accuracy":34,"altitudeAccuracy":null,"heading":null,"speed":null},"timestamp":1585901296536}
-// latitude: this.state.location.coords.latitude,
-//longitude: this.state.location.coords.longitude
-export default class City extends Component {
-  state = {
-    location: null,
-    errorMessage: null,
-  };
+//api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={your api key}
+const Container = styled.View`
+flex: 1;
+background-color: black;
+opacity: 0.6;
+align-items: center;
+justify-content: space-around;
+max-height: 75px;
+width: 350px;
+margin: 16px auto;
+`
 
-  constructor(props) {
-    super(props);
-    if (Platform.OS === 'android' && !Constants.isDevice) {
-      this.setState({
-        errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
-      });
-    } else {
-      this._getLocationAsync();
-    }
-  }
+const CardText = styled.Text`
+font-size: 20px;
+color: white;
+opacity: 0.6;
+`
 
-  _getLocationAsync = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permission to access location was denied',
-      });
-    }
 
-    let location = await Location.getCurrentPositionAsync({});
-    this.setState({ location });
-  };
+const MyLocation = ({ myCord, setMyCord }) => {
+	const [ state, setState ] = useState({
+		location: null,
+		errorMessage: null
+	});
+	const [ long, setLong ] = useState(0);
+	const [ lat, setLat ] = useState(0);
 
-  render() {
-    let text = 'Waiting..';
-    let city 
-    let myCity = ''
-    let long = ''
-    let lat = ''
-    if (this.state.errorMessage) {
-      text = this.state.errorMessage;
-    } else if (this.state.location) {
-      text = JSON.stringify(this.state.location);
-      city = Location.reverseGeocodeAsync( {latitude: this.state.location.coords.latitude, longitude:this.state.location.coords.longitude})
-      lat = this.state.location.coords.latitude
-      long = this.state.location.coords.longitude
-    }
+	useEffect(() => {
+		if (Platform.OS === 'android' && !Constants.isDevice) {
+			setState({
+				errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
+			});
+		} else {
+			_getLocationAsync();
+		}
+	}, []);
 
-    return (
-      <View style={styles.container}>
-        <Text style={styles.paragraph}>
-        {text}</Text>
-        <Text style={styles.paragraph}>
-        {`long: ${long} + lat: ${lat}`}</Text>
-           <Text style={styles.paragraph}>
-        {myCity}</Text>
-      </View>
-    );
-  }
-}
+	const _getLocationAsync = async () => {
+		let { status } = await Permissions.askAsync(Permissions.LOCATION);
+		if (status !== 'granted') {
+			setState({
+				errorMessage: 'Permission to access location was denied'
+			});
+		}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    textAlign: 'center',
-  },
-});
+		let geocode = await Location.getCurrentPositionAsync({});
+		let location = await Location.reverseGeocodeAsync(geocode.coords);
+		setState({ location });
+		setLong(geocode.coords.longitude);
+		setLat(geocode.coords.latitude);
+		setMyCord({ latitude: Math.round(geocode.coords.latitude), longitude: Math.round(geocode.coords.longitude) });
+	};
+
+	let text = 'Waiting..';
+	if (state.errorMessage) {
+		text = state.errorMessage;
+	} else if (state.location) {
+		// text = JSON.stringify(state.location);
+		text = `You are at ${state.location[0].region}!`;
+		console.log('state', state.location);
+	}
+
+	return (
+		<Container>
+			<CardText>{text}</CardText>
+			<CardText>{`latitude:${myCord.latitude}  longitude:${myCord.longitude}`}</CardText>
+		</Container>
+	);
+};
+
+export default MyLocation;

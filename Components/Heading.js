@@ -22,7 +22,7 @@ opacity: 0.5;
 
 
 
-export const Heading =() => {
+const Heading =() => {
     return (
     <HeaderBox>
         <Title>Nature App</Title>
@@ -30,3 +30,4 @@ export const Heading =() => {
           
     );
   }
+  export default Heading

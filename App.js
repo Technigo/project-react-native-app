@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView, ImageBackground, Button } from 'react-native';
 import styled from 'styled-components/native';
-import { Weather } from './components/Weather';
-import { Compass } from './components/Compass';
-import { Heading } from './components/Heading';
-import MyNewLocation from './components/MyNewLocation';
+import Weather from './components/Weather';
+import Compass from './components/Compass';
+import Heading from './components/Heading';
 import MyLocation from './components/MyLocation';
 
 const Container = styled.View`
@@ -19,12 +18,12 @@ const App = () => {
 	const [ count, setCount ] = useState(0);
 	return (
 		<Container>
-			<ScrollView contentContainerStyle={styles.children}>
-				<ImageBackground source={require('./assets/ForestBackground.jpg')} style={styles.image}>
+			<ScrollView contentContainerStyle={styles.scroll}>
+				<ImageBackground source={require('./assets/ForestBackground.jpg')} style={styles.imageBackground}>
 					<Heading />
-					<MyNewLocation myCord={myCord} setMyCord={setMyCord} count={count} />
 					<Compass />
 					{(myCord.latitude !== 0 || myCord.longitude !== 0) && <Weather myCord={myCord} />}
+          <MyLocation myCord={myCord} setMyCord={setMyCord} />
 				</ImageBackground>
 			</ScrollView>
 		</Container>
@@ -34,13 +33,13 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
-	children: {
-		height: 1500,
+	scroll: {
+		height: 1200,
 		width: 400,
 		flexGrow: 1,
 		justifyContent: 'center'
 	},
-	image: {
+	imageBackground: {
 		flex: 1,
 		resizeMode: 'cover',
 		justifyContent: 'center'
