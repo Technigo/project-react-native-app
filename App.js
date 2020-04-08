@@ -1,26 +1,12 @@
-import React from 'react'
-import styled from 'styled-components/native'
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Touchable } from './components/Touchable'
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+export default App = () => {
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
-
-const App = () => {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <Touchable />
   )
 }
 
-export default App
+  
