@@ -1,12 +1,10 @@
 import React from "react"
-import { Image } from "react-native"
+import LottieView from "lottie-react-native"
 
 
 const Animation = () => {
   return (
-    <Image
-      style={{ width: 350, height: 350 }}
-      source={require("../assets/walking.gif")} />
+    <LottieView style={{ width: 400, height: 400 }} source={require('../assets/walking.json')} autoPlay loop />
   )
 }
 
