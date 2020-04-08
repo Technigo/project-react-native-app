@@ -4,7 +4,6 @@ import styled from 'styled-components/native'
 import { GiphyChoice } from './components/GiphyChoice.js'
 import { Image, Share } from "react-native";
 
-
 // const api_key = "lByN5BPEwk9MR74phtPh0JpBBBBWyuVH";
 
 export const Title = styled.Text`
@@ -54,12 +53,13 @@ export default function App() {
 
 
   const onShare = async () => {
-
     try {
       const result = await Share.share({
+        subject: 'A gif for you!',
+        title: 'Giphy gif',
         message:
-          'A fun gif from Giphy.com',
-        url: `${giphy.image_url}`
+          'Sending you a funny gif from Giphy.gif. Check it out:',
+        url: `${giphy.image_original_url}`
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
