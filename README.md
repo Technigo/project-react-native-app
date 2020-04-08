@@ -1,14 +1,14 @@
 # Project React Native App 📱
 
-Project week 13 @ Technigo Bootcamp we were supposed to build our first mobile application with React Native! I went for a step counter app, mainly because I thought it would be fun to use one the functionalities in the phone, in this case the Pedometer.
+Project week 13 @ Technigo Bootcamp we were supposed to build our first mobile application with React Native! I went for a step counter app, mainly because I thought it would be fun to use one of the functionalities in the phone, in this case the Pedometer.
 
-## Learning objectives
+## What I learned
 
 - How to use React Native to create a mobile app
-- Practice using Styled Components
-- More practice in useState and form inputs
+- Practicing using Styled Components
+- More practice in useState and useEffect
 
-## Technologies
+## Technologies used
 
 - JavaScript ES6
 - React Native
