@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { View, Vibration, Image } from 'react-native';
+import { View, Vibration } from 'react-native';
 
 
 export default function App() {
