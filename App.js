@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { ActivityIndicator } from 'react-native'
+import { ActivityIndicator, Text, StyleSheet } from 'react-native'
 import axios from 'axios'
 
 const Container = styled.View`
@@ -11,9 +11,9 @@ const Container = styled.View`
   padding: 50px;
 `
 const Button = styled.TouchableOpacity`
-  background: #F272DD;
+  background: #F2916D;
   position: absolute;
-  bottom: 140;
+  bottom: 80;
   padding: 20px 25px;
   border-radius: 8;
 `
@@ -22,12 +22,16 @@ const ButtonText = styled.Text`
   color: white;
   font-size: 20;
   font-weight: bold;
+  text-align: center
 `
 
-const Text = styled.Text`
-  color: white;
-  font-size: 20px;
-`
+const styles = StyleSheet.create({
+  baseText: {
+    color: 'white',
+    fontSize: 20
+  },
+})
+
 
 const App = () => {
   const [loading, setLoading] = useState(true)
@@ -48,10 +52,10 @@ const App = () => {
     <Container>
       {loading
         ? (<ActivityIndicator size="large" color="#ffffff" />)
-        : (<Text>{joke}</Text>)}
+        : (<Text style={styles.baseText}>{joke}</Text>)}
 
       <Button onPress={() => setFetching(!fetching)}>
-        <ButtonText>Make me laugh</ButtonText>
+        <ButtonText>Make me laugh with a Dad's joke</ButtonText>
       </Button>
     </Container>
   )
