@@ -16,4 +16,4 @@ Project week 13 @ Technigo Bootcamp we were supposed to build our first mobile a
 
 ## View it live
 
-You can try out my app here (Chrome is recommended for sneakpeak in web, scan QR Code to open in iOS/Android device): https://snack.expo.io/@annatakman/f04fc9 
+You can try out my app here (Chrome is recommended for sneakpeak in web, scan QR Code to open in iOS/Android device): https://snack.expo.io/@annatakman/step-counter-app

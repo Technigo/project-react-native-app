@@ -11,7 +11,7 @@ const Container = styled.View`
 `
 
 const Section = styled.View`
- margin-bottom: 28px; 
+ margin-bottom: 50px; 
 `
 
 const Title = styled.Text`
