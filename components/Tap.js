@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Platform, Vibration, View} from "react-native";
 import styled from 'styled-components/native'
 
 export const Tap = () => {
@@ -8,7 +9,7 @@ export const Tap = () => {
      <Container>
         <Title>Nothing to do?</Title>
             <Info>Tap the alien</Info>
-        <Info title="tap tap" onPress={() => setCount(count + 1)}>👽{count}</Info>
+        <Info title="tap tap" onPress={() => setCount(count + 1) && Vibration.vibrate()}>👽{count}</Info>
      </Container>
     )
 }

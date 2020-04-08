@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
 import { Platform, Vibration, View} from "react-native";
 import { Button } from './Button'
@@ -22,7 +22,6 @@ export const Detail =  () => {
 }
 
 const Container = styled.View`
-flex: 3;
 background-color: #f600a2;
 justifyContent: space-between;
 paddingHorizontal:50;
