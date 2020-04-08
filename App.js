@@ -21,8 +21,6 @@ import styled from 'styled-components/native'
 
 }
 
-/* lägga till margin-top: 100; på const View = styled.View`?*/
-
 const Container = styled.View`
   flex: 1;
   background-color: #8CFFBA;
