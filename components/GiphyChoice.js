@@ -6,6 +6,7 @@ const StyledPicker = styled.Picker`
   color: #9839f7;
   height: 200px;
   font-size:36px;
+  margin-bottom: 20px;
 `
 
 export const GiphyChoice = ({ selectedValue, setSelectedValue }) => {

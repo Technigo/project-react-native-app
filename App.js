@@ -2,11 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import styled from 'styled-components/native'
 import { GiphyChoice } from './components/GiphyChoice.js'
-import { Image, View } from "react-native";
-import { ShareButton } from './components/ShareButton'
+import { Image, Share } from "react-native";
+
 
 // const api_key = "lByN5BPEwk9MR74phtPh0JpBBBBWyuVH";
-
 
 export const Title = styled.Text`
   font-size: 24px;
@@ -18,12 +17,25 @@ export const Container = styled.View`
   flex: 1;
   background-color: papayawhip;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 50px;
   `
-export const ImageWrap = styled.View`
+const ImageWrap = styled.View`
   width: 100%;
   height: ${({ height }) => (height ? height : "40%")};
   padding: 0 20px;
+  align-items: center;
+  margin-top: 10px;
+`
+const TouchableOpacity = styled.TouchableOpacity`
+  border-radius: 3px;
+  color: #d1b3db;
+  border: 3px solid palevioletred;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px; 
+  margin-bottom: 15px;
+  width: 50%;
+  align-self: center;
 `
 
 export default function App() {
@@ -41,7 +53,27 @@ export default function App() {
   }, [animalURL]);
 
 
+  const onShare = async () => {
 
+    try {
+      const result = await Share.share({
+        message:
+          'A fun gif from Giphy.com',
+        url: `${giphy.image_url}`
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <Container>
@@ -53,17 +85,21 @@ export default function App() {
           style={{
             width: 250,
             height: 250,
+            borderRadius: 5,
           }}
           source={{
             uri: giphy.image_url,
           }}
         />
       </ImageWrap>
-      {/* <ShareButton imageUrl={imageUrl} /> */}
+
+      <TouchableOpacity onPress={onShare} title="Share">
+        <Title>SHARE</Title>
+      </TouchableOpacity>
+      {/* <Footer /> */}
     </Container>
   );
 }
-
 
 
 
