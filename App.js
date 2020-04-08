@@ -30,8 +30,20 @@ const ButtonRow = styled.View`
   justify-content: space-around;
 `;
 
-const StyledButton = styled.Button`
-  margin: 16px;
+const ShakeButton = styled.TouchableOpacity`
+  background-color: lightgrey;
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const NewButton = styled.TouchableOpacity`
+  background-color: #dddddd;
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default function App() {
@@ -79,14 +91,11 @@ export default function App() {
     ]).start();
   };
 
-  // // fadeAnim will be used as the value for opacity. Initial Value: 0
-  // const fadeAnim = useRef(new Animated.Value(0)).current;
-
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 8000,
+      duration: 4000,
     }).start();
   };
 
@@ -123,14 +132,10 @@ export default function App() {
         }}
       />
       {viewBall ? (
-        <ButtonRow>
-          <StyledButton
-            type='Button'
-            title='Shake the Eightball'
-            onPress={(handleAnimation, shakeEightBall)}
-            color='red'
-          />
-        </ButtonRow>
+        <ShakeButton onPress={(handleAnimation, shakeEightBall)}>
+          <Text>Shake your phone</Text>
+          <Text>to shake the Eightball!</Text>
+        </ShakeButton>
       ) : (
         <Animated.View
           style={[
@@ -144,7 +149,9 @@ export default function App() {
             {" "}
             <RandomAnswer />
           </FadingText>
-          <StyledButton type='Button' title='Reset' onPress={reset} />
+          <NewButton onPress={reset}>
+            <Text>Reset</Text>
+          </NewButton>
         </Animated.View>
       )}
     </Container>
