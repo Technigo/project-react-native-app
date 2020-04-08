@@ -3,11 +3,12 @@ import styled from 'styled-components/native'
 
 
 const Section = styled.View`
-  padding: 80px 40px 40px 40px;
+  padding: 80px 30px 30px 30px;
   background-color: #004445;
 `
 const Title = styled.Text`
   font-family: 'Avenir';
+  font-size: 24px;
   font-weight: bold;
   color: #fff;
 `

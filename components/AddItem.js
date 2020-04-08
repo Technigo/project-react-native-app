@@ -5,22 +5,20 @@ import styled from 'styled-components/native'
 const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 `
 const InputText = styled.TextInput`
   flex: 1;
-  padding: 15px;
+  padding: 20px;
   background-color: #fff;
 `
 const Button = styled.TouchableOpacity`
-  padding: 20px 15px;
+  padding: 20px;
   background-color: #2c786c;
 `
 const ButtonText = styled.Text`
   color: #fff;
 `
-
-
 
 
 export const AddItem = ({ setTodos }) => {

@@ -14,10 +14,10 @@ const Wrapper = styled.View`
 `
 const Container = styled.View`
   flex: 1;
-  padding: 40px;
+  padding: 30px;
 `
 
-
+// Set todos with state, examples
 const App = () => {
   const [todos, setTodos] = useState([
     { text: 'Take a walk', key: '1' },
@@ -31,6 +31,11 @@ const App = () => {
     setTodos((prevTodos) => {
       return prevTodos.filter(todo => todo.key != key)
     })
+  }
+
+  // Get index of todo array
+  const todoIndex = (item) => {
+    return todos.indexOf(item)
   }
 
   return (
@@ -52,6 +57,7 @@ const App = () => {
             data={todos}
             renderItem={({ item }) => (
               <TodoItem
+                index={todoIndex}
                 item={item}
                 pressHandler={pressHandler} />
             )} />
