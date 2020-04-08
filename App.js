@@ -1,5 +1,10 @@
 import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { Results } from './Components/Results'
+import { Search } from './Components/Search'
 import styled from 'styled-components/native'
+import { StyleSheet, TextInput, Button, View } from 'react-native'
 
 const Container = styled.View`
   flex: 1;
@@ -9,17 +14,24 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  font-size: 18px;
+  color: #f194ff; 
 `
 
+
+
+const Stack = createStackNavigator ()
+
 const App = () => {
-  return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+  return ( 
+   
+  <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name='Nail Salons' component={Search} />
+      <Stack.Screen name='Results' component={Results} />
+      </Stack.Navigator>
+  </NavigationContainer>
+ 
   )
 }
 
