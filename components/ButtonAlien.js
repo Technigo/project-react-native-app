@@ -1,6 +1,8 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-export const Button = styled.button`
+
+export const ButtonAlien = styled.Button`{
+flex:1;
 background-color: skyblue;
 border-radius: 40px;
 border: none;
@@ -11,4 +13,5 @@ margin: 8px;
 
 &:hover {
     background-color: darkblue;
+}
 }`

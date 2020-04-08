@@ -9,34 +9,33 @@ export const Tap = () => {
      <Container>
         <Title>Nothing to do?</Title>
             <Info>Tap the alien</Info>
-        <Info title="tap tap" onPress={() => setCount(count + 1) && Vibration.vibrate()}>👽{count}</Info>
+        <Info title="tap tap" onPress={() => Vibration.vibrate()}>👽</Info>
      </Container>
     )
 }
 
 const Container = styled.View`
-flex: 3;
+flex:1;
 background-color: #f600a2;
 justifyContent: space-between;
-padding:50px;
-padding:50px;
+padding:60px;
+padding:60px;
 `
 
 const Title = styled.Text`
-  flex: 1;
-  font-size: 24px;
-  color: palevioletred;
-  color: white;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
+font-size: 24px;
+color: palevioletred;
+color: white;
+font-weight: bold;
+justify-content: center;
+align-items: center;
 `
 
 const Info = styled.Text`
-flex: 2;
-background-color: papayawhip;
+flex:1;
 justify-content: center;
 align-items: center;
 color: darkblue;
+font-weight: bold;
 font-size: 45px;
 `

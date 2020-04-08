@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { Image } from 'react-native'
+import { Image, FlatList, SafeAreaView, } from 'react-native'
 import { Detail } from './Detail'
+
+
 
 export const Nasa = () => {
   const [images, setImages] = useState([])
@@ -15,37 +17,39 @@ export const Nasa = () => {
  
     return (
 
-    <Container>
-      <Title>{images.title}</Title>
-      <Image
-        source={{ uri: images.url }}
-        style={{ width: 200, height: 300, marginVertical: 5, }} />
-     
-      <Date>{images.date}</Date>
-      <Detail></Detail>
-      <Title>{images.explanation}</Title>
-    </Container>
-  )
+      <Container>
+        <Title>{images.title}</Title>
+        <Image
+          source={{ uri: images.url }}
+          style={{ width: 500, height: 200, marginVertical: 2}} />
+
+        <Date>{images.date}</Date>
+        <Title>{images.explanation}</Title>
+        <Detail></Detail>
+      </Container>
+    )
 }
 
 const Container = styled.View`
+  flex:1;
   background-color: #ffe8ea;
   justify-content: center;
   align-items: center;
+  paddingHorizontal: 10;
+  paddingVertical: 10;
 `
 
 const Title = styled.Text`
-  flex: 2;
-  flex-wrap: wrap;
-  font-size: 12px;
+  font-size: 20px;
   color: palevioletred;
   font-weight: bold;
-  paddingHorizontal: 50;
-  paddingVertical: 50;
+  paddingHorizontal: 30;
+  paddingVertical: 30;
 `
 
 const Date = styled.Text`
-  flex: 1;
-  font-size: 12px;
+  font-size: 24px;
   color: violet;
+  paddingHorizontal: 0;
+  paddingVertical: 0;
 `
