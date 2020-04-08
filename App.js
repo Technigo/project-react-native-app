@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from './Header';
-//import Bajs from './Bajs';
 import MagicBall from './MagicBall';
 import styled from 'styled-components/native'
 

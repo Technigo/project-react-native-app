@@ -110,8 +110,8 @@ const BigCircel = styled.View`
 `
 
 const SmallCircel = styled.View`
-  height: 180;
-  width: 180;
+  height: 190;
+  width: 190;
   background-color: #fff;
   border-radius: 100;
   justify-content: center;
