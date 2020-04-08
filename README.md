@@ -1,13 +1,18 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+A Quiz app about "The Office" built in React Native 🤓🔥🍻🤳
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Code
+I've used:
+  * **React Native**
+  * **JavaScript**
+  * **Styled Components**
+  * **CSS**
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Started out with the layout of the form to have one question with different answers to chose from per screen. If-statments to show the right question and then functions that will handle the answers. I've had a hard time structuring without losing some info on the way - which means that all of my code is in the App.js file, unfortunately. Overall happy with the result and the the fact that I completley understand the code I've written.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Expo Snack: https://snack.expo.io/@bealun/office-quiz
