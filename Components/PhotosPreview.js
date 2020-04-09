@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Image } from 'react-native'
+import * as Animatable from 'react-native-animatable';
 
 export const PhotosPreview = (props) => {
     const { photos, sizing, shuffled } = props
@@ -9,11 +10,19 @@ export const PhotosPreview = (props) => {
     }, [photos])
     return (
         preview.map((item, index) => {
-            return index % 2 === 0 ? <Image source={{ uri: item }} style={{ width: sizing, height: sizing, margin: 7 }} />
-                : <Image source={{ uri: item }} style={{
-                    width: shuffled ? sizing : 0, height:
-                        shuffled ? sizing : 0
-                }}></Image>
+            return index % 2 === 0 ?
+                <Animatable.View animation="rubberBand">
+                    <Image source={{ uri: item }}
+                        style={{ width: sizing, height: sizing, margin: 7 }} />
+                </Animatable.View>
+                :
+                <Animatable.View animation="rubberBand">
+                    <Image source={{ uri: item }} style={{
+                        width: shuffled ? sizing : 0, height:
+                            shuffled ? sizing : 0
+                    }}>
+                    </Image>
+                </Animatable.View>
         })
     )
 }

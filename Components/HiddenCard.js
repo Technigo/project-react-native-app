@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { TouchableOpacity, Vibration } from 'react-native'
-import { RotationGestureHandler } from 'react-native-gesture-handler'
+import * as Animatable from 'react-native-animatable';
+import { AsyncStorage } from 'react-native';
 
 const Image = styled.Image`
 border-radius: 8px;
@@ -15,12 +16,7 @@ export const HiddenCard = (props) => {
         setSelectedCard, id, solved, setSolved, moves, setMoves } = props
     const [open, setOpen] = useState(true)
     const [checking, setChecking] = useState(false)
-    // const [flipped, setFlipped] = useState(selectedCard.includes(id))
-    // const [turned, setTurned] = useState(solved.includes(id))
-    // useEffect(() => {
-    //     setTurned(solved.includes(id))
-    //     setFlipped(selectedCard.includes(id))
-    // }, [solved, selectedCard])
+
     useEffect(() => {
         setTimeout(() => setOpen(false), 3000)
     }, [])
@@ -58,20 +54,36 @@ export const HiddenCard = (props) => {
         setFirstGuess('')
     }
 
-    const finished = () => {
+    const finished = async () => {
         if (solved.length + 2 === photos.length) {
-            window.alert('Congratulations')
+            const oldMoves = await AsyncStorage.getItem('moves')
+            await AsyncStorage.setItem('moves', `${moves}`)
+            const newMoves = await AsyncStorage.getItem('moves')
+            window.alert(newMoves < oldMoves ? `${newMoves}? You're getting better!` : newMoves === oldMoves ?
+                `${newMoves}? Same as last time!` : `${newMoves}? 
+            Last time it was ${oldMoves}!`)
         }
     }
     return (
+
         <TouchableOpacity disabled={checking || selectedCard.includes(id) || open} onPress={() => { guess(photo, id) }}>
             {!selectedCard.includes(id) && !open &&
-                <Image source={require('./bg.jpg')} />}
+                <Animatable.View animation="flipInY">
+                    <Image source={require('./bg.jpg')} />
+                </Animatable.View>}
+
             {selectedCard.includes(id) &&
-                <Image source={{ uri: photo }} />}
+                <Animatable.View animation={solved.includes(id) ? "tada" : ""}>
+                    <Animatable.View animation="flipInY">
+                        <Image source={{ uri: photo }} />
+                    </Animatable.View>
+                </Animatable.View>}
             {open &&
-                <Image source={{ uri: photo }} />}
+                <Animatable.View animation="flipInY">
+                    <Image source={{ uri: photo }} />
+                </Animatable.View>}
         </TouchableOpacity>
+
 
     )
 }
