@@ -4,7 +4,7 @@ import {Image, TouchableOpacity, Text, View} from "react-native"
 import logo from "./assets/logo.png"
 import * as ImagePicker from "expo-image-picker"
 import * as Permissions from "expo-permissions"
-
+import * as Sharing from "expo-sharing"
 
 const Container = styled.View`
   flex: 1;
@@ -37,14 +37,22 @@ const App = () => {
   }
  setSelectedImage ({ localUri: pickerResult.uri});
 };
+let openSharedDialogAsync = async () =>{
+  if (!(await Sharing.isAvailableAsync())) {
+    alert("ohoh, your platform wont allow this!")
+  }
+  Sharing.shareAsync(selectedImage.localUri)
+}
 
 if (selectedImage !== null) {
   return (
     <View >
-      <SelectedPic
-        source={{ uri: selectedImage.localUri }}
-      />
+      <SelectedPic source={{ uri: selectedImage.localUri }}/>
+      <TouchableOpacity onPress={openSharedDialogAsync}>
+        <Text>Share the pretty picture!</Text>
+      </TouchableOpacity>
     </View>
+
   );
 }
 
