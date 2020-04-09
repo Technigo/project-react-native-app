@@ -12,19 +12,15 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `
-
 const Title = styled.Text`
   font-size: 18px;
   color: #f194ff; 
 `
 
-
-
 const Stack = createStackNavigator ()
 
 const App = () => {
-  return ( 
-   
+  return (  
   <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen name='Nail Salons' component={Search} />
@@ -34,5 +30,4 @@ const App = () => {
  
   )
 }
-
 export default App

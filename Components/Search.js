@@ -47,6 +47,7 @@ const MyTouchableOpacity = styled.TouchableOpacity`
 
 export const Search = ({navigation}) => {
   // const {MyTextInput}=useParams()
+
   const [value, onChangeText] = React.useState('Location 📍')
   return (
     <Container>
@@ -55,16 +56,10 @@ export const Search = ({navigation}) => {
       <MyTextInput 
        onChangeText = {text => onChangeText(text)} 
        value = {value}/>
-       
-      {/* <MyButton 
-      title="S.O.S 💅🏽"
-      color= '#3B2F90'
-      onPress={() => navigation.navigate('Results')} /> */}
       <MyTouchableOpacity
-            onPress={() => navigation.navigate('Results')}>
-            <Title> S.O.S 💅🏽 </Title>
+       onPress={() => navigation.navigate('Results', {location: value})}>
+        <Title> S.O.S 💅🏽 </Title>
       </MyTouchableOpacity>
-      
     </Container>
   )
 }
