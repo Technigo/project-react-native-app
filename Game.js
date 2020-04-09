@@ -1,28 +1,44 @@
-import 'react-native-gesture-handler';
 import * as React from 'react';
-import styled from 'styled-components/native';
-import { View } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import { Animal } from './components/Animal';
-import { Tilt } from './components/Tilt';
+import { Tilt, subscribeToAccelerometer, unSubscribeToAccelerometer } from './components/Tilt';
+import { GoalChecker } from './components/GoalChecker';
+import { useFocusEffect } from '@react-navigation/native';
+import { View } from 'react-native';
+import { GameWon } from './GameWon'
 
-const Container = styled.View`
-  background: green;
-`
+export const Game = ({navigation}) => {
+  const [running, setRunning] = React.useState(true)
 
-export const Game = () => {
-  const entities = {
-    babyBird: { position: [100, 100], text: '🐣', renderer: <Animal /> },
-    mommyBird: { position: [50, 50], text: '🦆', size: 45, renderer: <Animal /> }
+  useFocusEffect(React.useCallback(() => {
+    subscribeToAccelerometer();
+
+    return () => {
+      unSubscribeToAccelerometer();
+    }
+  }))
+
+  const gameWon = () => {
+    unSubscribeToAccelerometer();
+    setRunning(false);
   }
 
+  const entities = {
+    gameWon,
+    mommyBird: { position: [100, 100], text: '🦆', size: 45, renderer: <Animal /> },
+    babyBird: { position: [150, 150], text: '🐥', size: 40, renderer: <Animal /> },
+  }
+  
   return (
-    <Container>
-      <GameEngine
-        systems={[Tilt]}
+    <View>
+      {running && 
+        <GameEngine
+        systems={[Tilt, GoalChecker]}
         entities={entities}
-      >
-      </GameEngine>
-    </Container>
+        >
+        </GameEngine>
+      }
+      {!running && <GameWon navigation={navigation} />}
+    </View>
   )
 }

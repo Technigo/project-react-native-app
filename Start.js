@@ -50,7 +50,7 @@ export const Start = ({navigation}) => {
       colors={['#75ffe0', '#B5FFFC', '#B5FFFC', '#FFDEE9', '#f9aac2']}
       style={{flex: 1, alignItems: 'center'}}
     >
-      <TitleText>Save baby Ducky</TitleText>
+      <TitleText>Help Ducky home</TitleText>
       <StartButton onPress={() => navigation.navigate('Game')}>
         <ButtonText>START</ButtonText>
       </StartButton>

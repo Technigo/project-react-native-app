@@ -2,13 +2,22 @@ import { Dimensions } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
 
 const tilt = {x:0, y:0}
+let subscription;
 
-Accelerometer.setUpdateInterval(400);
+Accelerometer.setUpdateInterval(32);
 
-const subscription = Accelerometer.addListener(data => {
-  tilt.x = data.x;
-  tilt.y = data.y;
-})
+export const subscribeToAccelerometer = () => {
+  subscription = Accelerometer.addListener(data => {
+    tilt.x = data.x;
+    tilt.y = data.y;
+  })
+}
+
+export const unSubscribeToAccelerometer = () => {
+  if (subscription) {
+    subscription.remove();
+  }
+}
 
 const calculatePosition = (currentPosition, tilt, max) => {
   if (currentPosition >= max - 45 && tilt > 0) {
@@ -21,12 +30,12 @@ const calculatePosition = (currentPosition, tilt, max) => {
 }
 
 export const Tilt = state => {
-  const {mommyBird} = state
+  const {babyBird} = state
 
-  const newXPos = calculatePosition(mommyBird.position[0], -tilt.x, Dimensions.get('window').width)
-  const newYPos = calculatePosition(mommyBird.position[1], tilt.y, Dimensions.get('window').height - 75)
+  const newXPos = calculatePosition(babyBird.position[0], -tilt.x, Dimensions.get('window').width)
+  const newYPos = calculatePosition(babyBird.position[1], tilt.y, Dimensions.get('window').height - 75)
   
-  mommyBird.position = [newXPos, newYPos]
+  babyBird.position = [newXPos, newYPos]
 
   return state;
 }
