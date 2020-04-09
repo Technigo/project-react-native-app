@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, Text } from 'react-native'
 
 const Container = styled.View`
   background-color: papayawhip;
   flex: 1; 
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `
 const StyledBox = styled.View`
   margin: 0;
   padding: 0;
+`
+
+const StyledGrid = styled.View`
+  flex: 1;
+  flex-direction: row;
 `
 
 const StyledView = styled.View`
@@ -22,21 +27,23 @@ const StyledView = styled.View`
 `
 const Title = styled.View`
 `
-const H2 = styled.Text`
-  font-size: 20px;
-  margin: 0;
-  padding: 0;
-`
+
 const H1 = styled.Text`
   font-size: 30px;
   margin-bottom: 10px;
 `
 
+const ListItem = styled.View`
+ 
+`
+
+
+
 const Square = (props) => {
   return (
     <TouchableOpacity
       onPress={props.onPress}>
-      <StyledView>{props.value}</StyledView>
+      <StyledView><Text>{props.value}</Text></StyledView>
     </TouchableOpacity>
   )
 }
@@ -55,6 +62,7 @@ const Board = () => {
     squares[index] = xIsNext ? "X" : "O"
 
     setBoardSquares(squares)
+    console.log(handlePress)
 
     setXIsNext(!xIsNext)
   }
@@ -75,21 +83,23 @@ const Board = () => {
   return (
     <StyledBox>
       <H1>{status}</H1>
-      <H2>
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
-      </H2>
-      <H2>
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
-      </H2>
-      <H2>
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
-      </H2>
+      <StyledGrid>
+        <ListItem>
+          {renderSquare(0)}
+          {renderSquare(1)}
+          {renderSquare(2)}
+        </ListItem>
+        <ListItem>
+          {renderSquare(3)}
+          {renderSquare(4)}
+          {renderSquare(5)}
+        </ListItem>
+        <ListItem>
+          {renderSquare(6)}
+          {renderSquare(7)}
+          {renderSquare(8)}
+        </ListItem>
+      </StyledGrid>
     </StyledBox>
   )
 }
