@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import {Image, TouchableOpacity, Text, View} from "react-native"
+import {Image, TouchableOpacity, Text, Status, View} from "react-native"
 import logo from "./assets/logo.png"
 import * as ImagePicker from "expo-image-picker"
 import * as Permissions from "expo-permissions"
@@ -21,9 +21,9 @@ const Title = styled.Text`
 const App = () => {
  
   async function alertIfRemoteNotificationsDisabledAsync() {
-    const { status } = await Permissions.getAsync(Permissions.CAMERA);
+    const { status } = await Permissions.getAsync(Permissions.CAMERA_ROLL);
     if (status !== 'granted') {
-      alert('Hey! Just give this pretty app permission to go through all your pics.');
+      alert('Hey! Please give this innocent app permission to go through all your pics.');
     }
 
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
