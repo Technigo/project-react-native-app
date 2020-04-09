@@ -1,13 +1,13 @@
-# Project React Native App 📱
+# React Native App
 
-Replace this readme with your own information about your project.
+A simple To-Do app created with React Native.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Approach
 
-## The problem
+The app is split up in three components, each of those using Styled Components. Adding a new item is handled with State. Items are added to a FlatList & being removed on click. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## To-Do
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+- Clear input after submit
+- Add specific delete button to each item
+- When item is clicked, different styling should be applied to indicate it's been completed
