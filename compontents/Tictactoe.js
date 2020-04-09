@@ -23,13 +23,14 @@ const StyledGrid = styled.View`
 
 const StyledView = styled.View`
   border: 5px solid palevioletred;
+  border-radius: 50px;
   width: 100px;
   height: 100px;
   margin: 2px;
   padding: 0;
 `
 const Title = styled.Text`
-  font-size: 70px;
+  font-size: 65px;
   flex: 1;
   text-align: center;
   color: palevioletred;
@@ -140,7 +141,7 @@ const calculateWinner = (squares) => {
   return null;
 }
 
-const Tictactoe = ({ navigation }) => {
+const Tictactoe = () => {
   return (
     <Container>
       <Board />
