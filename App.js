@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Workouts } from './Components/workouts'
+import { Workouts } from './Components/Workouts'
 
 const Container = styled.View`
   flex: 1;
@@ -10,19 +10,17 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  font-size: 40px;
+  color: #466687;
+  margin: 20px;
+  text-align: center;
 `
 
 const App = () => {
   return (
     <Container>
-      <Title>Hallå älskling</Title>
-      <Title>Vad ska jag göra för app?</Title>
-      <Title>🥭</Title>
-
+      <Title>What workout should I do today?</Title>
       <Workouts />
-
     </Container>
   )
 }
