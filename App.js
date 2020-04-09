@@ -1,5 +1,38 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { Xcode } from './components/Xcode'
+
+
+const Container = styled.View`
+  flex: 1;
+  background-color: papayawhip;
+  justify-content: center;
+  align-items: center;
+`
+
+const Title = styled.Text`
+  font-size: 24px;
+  color: palevioletred;
+`
+
+const App = () => {
+  return (
+    <Container>
+      <Xcode />
+      
+    </Container>
+  )
+}
+
+export default App
+
+
+
+
+
+/*
+import React from 'react'
+import styled from 'styled-components/native'
 
 const Container = styled.View`
   flex: 1;
@@ -24,3 +57,11 @@ const App = () => {
 }
 
 export default App
+
+
+
+*/
+
+
+
+
