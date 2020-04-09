@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This was my first React native project. I decided to build a classic Tic Tac Toe game with React Hooks and Styled Components. The game has a basic start page with a button that leads to the main game. The game itself calculates turns and who won. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This game needs some improvement such as reloading the game when a Winner is available. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+The game is not yet deployed. 
