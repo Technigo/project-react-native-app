@@ -24,16 +24,16 @@ const ButtonText = styled.Text`
 
 const WorkoutContainer = styled.View`
   padding: 40px;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 160px;
   margin: 20px;
   border-radius: 5px;
+  align-items: center;
+  justify-content: center;
 `
 
 const WorkoutText = styled.Text`
   font-size: 20px;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   color: white;
 `
@@ -109,7 +109,7 @@ export const Workouts = () => {
         </WorkoutText>
       </WorkoutContainer>
       <PickButton onPress={() => { getWorkout(); Vibration.vibrate() }}>
-        <ButtonText>Get random workout</ButtonText>
+        <ButtonText>Get a random workout</ButtonText>
       </PickButton>
     </Container>
   )

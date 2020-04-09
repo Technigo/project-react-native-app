@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { Workouts } from './Components/Workouts'
+import { PeppTalk } from './Components/PeppTalk'
 
 const Container = styled.View`
   flex: 1;
@@ -19,7 +20,8 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>What workout should I do today?</Title>
+      <PeppTalk />
+      <Title>Todays workout</Title>
       <Workouts />
     </Container>
   )
