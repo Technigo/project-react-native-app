@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import {Image, StyleSheet, Text, View} from "react-native"
+import logo from "./assets/logo"
 
 const Container = styled.View`
   flex: 1;
@@ -16,9 +18,11 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <Image source={logo}/>
+      <Title>      
+        <Text>To share a photo from your phone with a friend, just press the button below!
+        </Text>
+      </Title>
     </Container>
   )
 }
