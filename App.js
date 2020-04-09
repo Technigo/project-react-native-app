@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import {Image, TouchableOpacity, StyleSheet, Text, View} from "react-native"
+import {Image, TouchableOpacity, Text, View} from "react-native"
 import logo from "./assets/logo.png"
+import * as ImagePicker from "expo-image-picker"
+import * as Permissions from "expo-permissions"
+
 
 const Container = styled.View`
   flex: 1;
@@ -16,6 +19,18 @@ const Title = styled.Text`
 `
 
 const App = () => {
+ 
+  async function alertIfRemoteNotificationsDisabledAsync() {
+    const { status } = await Permissions.getAsync(Permissions.CAMERA);
+    if (status !== 'granted') {
+      alert('Hey! Just give this pretty app permission to go through all your pics.');
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    console.log(pickerResult);
+  }
+  
+
   return (
     <Container>
       <Image source={logo}/>
@@ -24,7 +39,7 @@ const App = () => {
         </Text>
       </Title>
       <TouchableOpacity
-      onPress={() => alert("Hello, world!")}>
+      onPress={alertIfRemoteNotificationsDisabledAsync}>
         <Text>Pick A Picture!</Text>
       </TouchableOpacity>
     </Container>
@@ -32,3 +47,5 @@ const App = () => {
 }
 
 export default App
+
+
