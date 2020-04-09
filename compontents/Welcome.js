@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { TouchableOpacity } from 'react-native'
-import Animation from './Animation'
+import { Lottie } from './Lottie'
 
 const Container = styled.View`
   background-color: papayawhip;
@@ -10,29 +10,29 @@ const Container = styled.View`
   align-items: center;
 `
 const Title = styled.Text`
-  color: green;
+  color: palevioletred;
+  font-size: 35px;
+`
+const Text = styled.Text`
+  color: white;
   font-size: 30px;
 `
 
-const Click = styled.Text`
-  background-color: green;
-  color: white;
-  font-size: 20px;
-  padding: 10px;
-  border-radius: 50px;
+const Click = styled.TouchableOpacity`
+  background-color: palevioletred;
+  padding: 20px;
+  border-radius: 70px;
   margin-top: 20px;
 `
-
 const Welcome = ({ navigation }) => {
   return (
     <Container>
-      <Animation />
       <Title>Are you ready to play?</Title>
-      <TouchableOpacity onPress={() => navigation.navigate('Tictactoe')}>
-        <Click>Press to start!</Click>
+      <TouchableOpacity>
+        <Click onPress={() => navigation.navigate('Tictactoe')}><Text>Press to start!</Text></Click>
       </TouchableOpacity>
     </Container>
   )
 }
 
-export default Welcome
+export default Welcome;

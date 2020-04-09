@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { TouchableOpacity, Text } from 'react-native'
+import { TouchableOpacity } from 'react-native'
+
 
 const Container = styled.View`
   background-color: papayawhip;
   flex: 1; 
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 `
 const StyledBox = styled.View`
-  margin: 0;
-  padding: 0;
+  margin-top: 30px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `
 
 const StyledGrid = styled.View`
@@ -19,31 +22,42 @@ const StyledGrid = styled.View`
 `
 
 const StyledView = styled.View`
-  border: 3px solid darkslategrey;
+  border: 5px solid palevioletred;
   width: 100px;
   height: 100px;
   margin: 2px;
   padding: 0;
 `
-const Title = styled.View`
+const Title = styled.Text`
+  font-size: 70px;
+  flex: 1;
+  text-align: center;
+  color: palevioletred;
 `
 
 const H1 = styled.Text`
   font-size: 30px;
   margin-bottom: 10px;
+  color: palevioletred;
 `
 
 const ListItem = styled.View`
- 
 `
-
-
+const Text = styled.Text`
+  color: white;
+  font-size: 20px;
+`
+const Click = styled.TouchableOpacity`
+  background-color: palevioletred;
+  padding: 20px;
+  border-radius: 70px;
+`
 
 const Square = (props) => {
   return (
     <TouchableOpacity
       onPress={props.onPress}>
-      <StyledView><Text>{props.value}</Text></StyledView>
+      <StyledView><Title>{props.value}</Title></StyledView>
     </TouchableOpacity>
   )
 }
@@ -59,10 +73,9 @@ const Board = () => {
 
     if (squares[index]) return;
 
-    squares[index] = xIsNext ? "X" : "O"
+    squares[index] = xIsNext ? "💩" : "🐷"
 
     setBoardSquares(squares)
-    console.log(handlePress)
 
     setXIsNext(!xIsNext)
   }
@@ -78,7 +91,10 @@ const Board = () => {
 
   let status;
   const winner = calculateWinner(boardSquares)
-  status = winner ? `Congratz ${winner} 🎉` : `Next player: ${xIsNext ? "X" : "O"}`
+  status = winner ?
+    `The winner is: ${winner} 🎉`
+    : `Next player: ${xIsNext ? "💩" : "🐷"}`
+
 
   return (
     <StyledBox>
@@ -124,7 +140,7 @@ const calculateWinner = (squares) => {
   return null;
 }
 
-const Tictactoe = () => {
+const Tictactoe = ({ navigation }) => {
   return (
     <Container>
       <Board />
@@ -132,5 +148,4 @@ const Tictactoe = () => {
   )
 };
 
-export default Tictactoe
-
+export default Tictactoe;
