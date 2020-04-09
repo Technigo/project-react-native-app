@@ -6,6 +6,8 @@ import * as ImagePicker from "expo-image-picker"
 import * as Permissions from "expo-permissions"
 import * as Sharing from "expo-sharing"
 import uploadToAnonymousFilesAsync from "anonymous-files"
+import { SplashScreen } from 'expo';
+
 
 const Container = styled.View`
   flex: 1;
