@@ -1,18 +1,36 @@
-import React, {useState, useEffect} from 'react'
-import { Text, View } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { TouchableOpacity, View } from 'react-native-gesture-handler'
+import styled from 'styled-components/native'
+import { DogDetails } from './DogDetails'
 
-export const DogsList = () => {
-  const [dogs, setDogs]= useState([])
+
+const DogListText = styled.Text`
+  font-size: 21px;
+  color: palevioletred;
+`
+
+
+export const DogsList = ({navigation}) => {
+  const [dogs, setDogs] = useState([])
 
   useEffect(() => {
     fetch('https://api.thedogapi.com/v1/breeds?limit=10&page=0')
-      .then(res => res.json())
-      .then(json => setDogs(json))
+      .then((res) => res.json())
+      .then((json) => setDogs(json))
+   
   }, [])
 
   return (
-    <View>  
-      {dogs.map(dog => <Text>{dog.name}</Text>)}
+    <View>
+      {dogs.map((breed) => (
+
+        <TouchableOpacity
+          key={breed.name}
+          onPress={() => navigation.navigate('DogDetails', { breed })}
+          >
+          <DogListText >{breed.name}</DogListText>
+        </TouchableOpacity>
+        ))}
     </View>
   )
 }
