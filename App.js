@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import {Image, TouchableOpacity, Text, View} from "react-native"
+import {Image, Platform, TouchableOpacity, Text, View} from "react-native"
 import logo from "./assets/logo.png"
 import * as ImagePicker from "expo-image-picker"
 import * as Permissions from "expo-permissions"
 import * as Sharing from "expo-sharing"
+import uploadToAnonymousFilesAsync from "anonymous-files"
 
 const Container = styled.View`
   flex: 1;
@@ -35,13 +36,22 @@ const App = () => {
   if (pickerResult.cancelled === true) {
     return;
   }
+
+  if (Platform.OS === 'web') {
+    let remoteUri = await uploadToAnonymousFilesAsync(pickerResult.uri);
+    setSelectedImage({ localUri: pickerResult.uri, remoteUri });
+  } else {
+    setSelectedImage({ localUri: pickerResult.uri, remoteUri: null });
+  } 
+
  setSelectedImage ({ localUri: pickerResult.uri});
 };
 let openSharedDialogAsync = async () =>{
   if (!(await Sharing.isAvailableAsync())) {
-    alert("ohoh, your platform wont allow this!")
+    alert(`The image is available for sharing at: ${"www.facebook.com"}`);
+    return;
   }
-  Sharing.shareAsync(selectedImage.localUri)
+  Sharing.shareAsync(selectedImage.remoteUri || selectedImage.localUri)
 }
 
 if (selectedImage !== null) {
