@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import {Image, TouchableOpacity, Text, Status, View} from "react-native"
+import {Image, TouchableOpacity, Text, View} from "react-native"
 import logo from "./assets/logo.png"
 import * as ImagePicker from "expo-image-picker"
 import * as Permissions from "expo-permissions"
@@ -12,6 +12,10 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `
+const SelectedPic = styled.Image`
+width:300px;
+height:300px;
+`
 
 const Title = styled.Text`
   font-size: 24px;
@@ -19,17 +23,30 @@ const Title = styled.Text`
 `
 
 const App = () => {
- 
-  async function alertIfRemoteNotificationsDisabledAsync() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  async function moodyfunctionofpermission() {
     const { status } = await Permissions.getAsync(Permissions.CAMERA_ROLL);
     if (status !== 'granted') {
       alert('Hey! Please give this innocent app permission to go through all your pics.');
     }
 
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    console.log(pickerResult);
+  if (pickerResult.cancelled === true) {
+    return;
   }
-  
+ setSelectedImage ({ localUri: pickerResult.uri});
+};
+
+if (selectedImage !== null) {
+  return (
+    <View >
+      <SelectedPic
+        source={{ uri: selectedImage.localUri }}
+      />
+    </View>
+  );
+}
 
   return (
     <Container>
@@ -39,7 +56,7 @@ const App = () => {
         </Text>
       </Title>
       <TouchableOpacity
-      onPress={alertIfRemoteNotificationsDisabledAsync}>
+      onPress={moodyfunctionofpermission}>
         <Text>Pick A Picture!</Text>
       </TouchableOpacity>
     </Container>
