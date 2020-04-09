@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import {Image, StyleSheet, Text, View} from "react-native"
-import logo from "./assets/logo"
+import {Image, TouchableOpacity, StyleSheet, Text, View} from "react-native"
+import logo from "./assets/logo.png"
 
 const Container = styled.View`
   flex: 1;
@@ -23,6 +23,10 @@ const App = () => {
         <Text>To share a photo from your phone with a friend, just press the button below!
         </Text>
       </Title>
+      <TouchableOpacity
+      onPress={() => alert("Hello, world!")}>
+        <Text>Pick A Picture!</Text>
+      </TouchableOpacity>
     </Container>
   )
 }
