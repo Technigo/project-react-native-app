@@ -18,16 +18,15 @@ const Container = styled.View`
   justify-content: center;
 `;
 
+const Title = styled.Text`
+  font-size: 28px;
+  margin-bottom: 28px;
+`;
+
 const FadingText = styled.Text`
   font-size: 28px;
   text-align: center;
   margin: 10px;
-`;
-
-const ButtonRow = styled.View`
-  flex-direction: column;
-  margin-vertical: 16px;
-  justify-content: space-around;
 `;
 
 const ShakeButton = styled.TouchableOpacity`
@@ -36,9 +35,11 @@ const ShakeButton = styled.TouchableOpacity`
   padding: 16px;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
+  border-radius: 20px;
 `;
 
-const NewButton = styled.TouchableOpacity`
+const ResetButton = styled.TouchableOpacity`
   background-color: #dddddd;
   display: flex;
   padding: 16px;
@@ -62,40 +63,40 @@ export default function App() {
     };
   }, []);
 
-  const handleAnimation = () => {
-    // A loop is needed for continuous animation
-    Animated.loop;
-    // Animation consists of a sequence of steps
-    Animated.sequence([
-      // start rotation in one direction (only half the time is needed)
-      Animated.timing(fadeAnim, {
-        toValue: 1.0,
-        duration: 50,
-        easing: Easing.bounce,
-        useNativeDriver: true,
-      }),
-      // rotate in other direction, to minimum value (= twice the duration of above)
-      Animated.timing(fadeAnim, {
-        toValue: -1.0,
-        duration: 100,
-        easing: Easing.bounce,
-        useNativeDriver: true,
-      }),
-      // return to begin position
-      Animated.timing(fadeAnim, {
-        toValue: 0.0,
-        duration: 50,
-        easing: Easing.bounce,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  };
+  // const handleAnimation = () => {
+  //   // A loop is needed for continuous animation
+
+  //   // Animation consists of a sequence of steps
+  //   Animated.sequence([
+  //     // start rotation in one direction (only half the time is needed)
+  //     Animated.timing(fadeAnim, {
+  //       toValue: 1.0,
+  //       duration: 50,
+  //       easing: Easing.bounce,
+  //       useNativeDriver: true,
+  //     }),
+  //     // rotate in other direction, to minimum value (= twice the duration of above)
+  //     Animated.timing(fadeAnim, {
+  //       toValue: -1.0,
+  //       duration: 100,
+  //       easing: Easing.bounce,
+  //       useNativeDriver: true,
+  //     }),
+  //     // return to begin position
+  //     Animated.timing(fadeAnim, {
+  //       toValue: 0.0,
+  //       duration: 50,
+  //       easing: Easing.bounce,
+  //       useNativeDriver: true,
+  //     }),
+  //   ]).start();
+  // };
 
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 4000,
+      duration: 6000,
     }).start();
   };
 
@@ -111,30 +112,18 @@ export default function App() {
   // };
   const reset = () => {
     if (!viewBall) {
-      setViewBall(!viewBall);
+      setViewBall(true);
     }
   };
 
   return (
     <Container>
-      <Animated.Image
-        source={backgroundImage}
-        resizeMode='contain'
-        style={{
-          transform: [
-            {
-              rotate: fadeAnim.interpolate({
-                inputRange: [-1, 1],
-                outputRange: ["-0.5rad", "0.5rad"],
-              }),
-            },
-          ],
-        }}
-      />
+      <Title>Ask the Eightball anything!</Title>
+      <Animated.Image source={backgroundImage} resizeMode='contain' />
       {viewBall ? (
-        <ShakeButton onPress={(handleAnimation, shakeEightBall)}>
+        <ShakeButton onPress={shakeEightBall}>
           <Text>Shake your phone</Text>
-          <Text>to shake the Eightball!</Text>
+          <Text>reveal the answer!</Text>
         </ShakeButton>
       ) : (
         <Animated.View
@@ -149,9 +138,9 @@ export default function App() {
             {" "}
             <RandomAnswer />
           </FadingText>
-          <NewButton onPress={reset}>
+          <ResetButton onPress={reset}>
             <Text>Reset</Text>
-          </NewButton>
+          </ResetButton>
         </Animated.View>
       )}
     </Container>
@@ -163,5 +152,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     backgroundColor: "powderblue",
+    marginTop: 20,
+    borderRadius: 20,
   },
 });
