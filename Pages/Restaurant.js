@@ -1,5 +1,5 @@
 import React  from 'react'
-import { FlatList, Image } from 'react-native';
+import { Image } from 'react-native';
 import styled from 'styled-components/native' 
 
 
@@ -32,7 +32,7 @@ export const Restaurant = ({ route }) => {
     background-color: white;
     padding-top: 30px;
   `
-  
+
   const SubTitle = styled.Text`
     font-weight: bold;
     margin-left: 15px;
