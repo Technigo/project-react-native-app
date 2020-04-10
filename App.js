@@ -28,24 +28,24 @@ const Title = styled.Text`
   color:#ff0f47;
 `
 const Buttonish = styled.Text`
-font-size: 24px;
-border: solid black 1px
-margin:10px;
-padding:4px;
-border-radius:4px;
-background-color: #e1f4fe;
+  font-size: 24px;
+  border: solid black 1px
+  margin:10px;
+  padding:4px;
+  border-radius:4px;
+  background-color: #e1f4fe;
 `
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   async function moodyfunctionofpermission() {
     const { status } = await Permissions.getAsync(Permissions.CAMERA_ROLL);
-    if (status !== 'granted') {
-      alert('Hey! Please give this innocent app permission to go through all your pics.');
+      if (status !== 'granted') {
+        alert('Hey! Please give this innocent app permission to go through all your pics.');
     }
 
-    let pickerResult = await ImagePicker.launchImageLibraryAsync();
-  if (pickerResult.cancelled === true) {
+  let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    if (pickerResult.cancelled === true) {
     return;
   }
 
@@ -56,14 +56,15 @@ const App = () => {
     setSelectedImage({ localUri: pickerResult.uri, remoteUri: null });
   } 
 
- setSelectedImage ({ localUri: pickerResult.uri});
+setSelectedImage ({ localUri: pickerResult.uri});
 };
+  
 let openSharedDialogAsync = async () =>{
   if (!(await Sharing.isAvailableAsync())) {
     alert(`The image is available for sharing at: ${"www.facebook.com"}`);
     return;
   }
-  Sharing.shareAsync(selectedImage.remoteUri || selectedImage.localUri)
+Sharing.shareAsync(selectedImage.remoteUri || selectedImage.localUri)
 }
 
 if (selectedImage !== null) {
@@ -85,7 +86,7 @@ if (selectedImage !== null) {
         </Text>
       </Title>
       <TouchableOpacity
-      onPress={moodyfunctionofpermission}>
+        onPress={moodyfunctionofpermission}>
         <Buttonish>Pick A Picture!</Buttonish>
       </TouchableOpacity>
     </Container>
