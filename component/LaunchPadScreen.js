@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components/native'
 import {View, Text, ActivityIndicator, ScrollView, Button, Image} from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native-gesture-handler'
+
 
 const Container = styled.View`
   flex: 1;
@@ -43,7 +42,7 @@ const MissionImage = styled.Image`
 function LoadingScreen () {
   return (
     <Loading>
-      <ActivityIndicator color={"#000"} />
+      <ActivityIndicator color={"#888"} />
     </Loading>  
   )
 }
@@ -62,6 +61,7 @@ export const LaunchPadScreen = ({ navigation }) => {
   return (
     <Container>
       {isLoading && <LoadingScreen />}
+
       {!isLoading && <ScrollView>
       {launches.map((launch) => (
               <Card key={launch.mission_name}>
@@ -79,3 +79,5 @@ export const LaunchPadScreen = ({ navigation }) => {
     </Container>
   )
 }
+
+

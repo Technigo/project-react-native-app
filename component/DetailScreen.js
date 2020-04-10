@@ -3,24 +3,76 @@ import styled from 'styled-components/native'
 import Moment from 'react-moment';
 import {View, Text, Button} from 'react-native'
 
+
+const Container = styled.View`
+  flex: 1;
+  background-color: #FFF;
+`
+
+const DefaultContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  background-color: #0074D9;
+`
+
+const CardTitle = styled(DefaultContainer)`
+  height: 50px;
+  border-bottom-width: 1px;
+`
+
+const Card = styled(DefaultContainer)`
+  border-bottom-width: 1px;
+`
+
+const CardDescription = styled(DefaultContainer)`
+  flex: 3;
+`
+
+const CardInfo = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #0074D9;
+  border-bottom-width: 1px;
+`
+
+const TextDescription = styled.Text`
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #FFF;
+`
+
+const TextInfo = styled.Text`
+  color: #FFF;
+  margin: 10px;
+`
+
 export const DetailScreen = ({ route, navigation }) => {
   const { launch } = route.params
 
   // Display here in detail each information about each launch
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-      <Text>Misison Name: {launch.mission_name}</Text>
-      <Text>Launch Date: 
-        <Moment unix format="YYYY/MM/DD" element={Text}>{launch.launch_date_unix}</Moment>
-      </Text>
-      <Text>Rocket Name: {launch.rocket.rocket_name}</Text>
-      <Text>Type: {launch.rocket.second_stage.payloads[0].payload_type}</Text>
-
+    <Container>
+      <CardTitle>
+        <TextInfo>{launch.mission_name}</TextInfo>
+      </CardTitle>
+      <CardInfo>
+        <TextInfo>Launch Date: 
+          <Moment unix format="YYYY/MM/DD" element={TextInfo}>{launch.launch_date_unix}</Moment>
+        </TextInfo>
+        <TextInfo>Rocket: {launch.rocket.rocket_name}</TextInfo>
+      </CardInfo>
+      <Card>
+        <TextInfo>Type: {launch.rocket.second_stage.payloads[0].payload_type}</TextInfo>
+      </Card>
+      <CardDescription>
+        <TextDescription>
+          {launch.details}
+        </TextDescription>
+      </CardDescription>
       <Button
         title="Go to Launchpad"
         onPress={() => navigation.navigate('Launchpad')}
       />
-    </View>
+    </Container>
   );
 }
