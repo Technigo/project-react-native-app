@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Xcode } from './components/Xcode'
+import { Houses } from './components/Houses'
 
 
 const Container = styled.View`
@@ -18,7 +18,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Xcode />
+      <Houses />
       
     </Container>
   )
