@@ -4,6 +4,9 @@ import { TouchableOpacity } from 'react-native'
 import { useFonts } from '@use-expo/font'
 import { AppLoading } from 'expo'
 
+// import { Image } from 'react-native';
+// import logo from '../assets/logo.png'
+
 // STYLE:
 const Container = styled.View`
   flex: 1;
@@ -14,11 +17,13 @@ const Container = styled.View`
 const Title = styled.Text`
   font-size: 20px;
   color: palevioletred;
+  padding: 2px;
 `
 const InterTitle = styled.Text`
   font-size: 24px;
   font-family: 'Inter-Black';
   color: palevioletred;
+  padding-bottom: 10px;
 `
 // LOAD CUSTOM FONTS:
 export const Houses = () => {
@@ -39,6 +44,7 @@ export const Houses = () => {
     return (
       <Container>
         <InterTitle>Houses</InterTitle>
+  
         {houses.map((house) => (
           <TouchableOpacity
             key={house.name}

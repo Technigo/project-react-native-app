@@ -5,13 +5,15 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { Houses } from './components/Houses'
 
-
+import { Image } from 'react-native';
+import logo from './assets/got.png'
 
 const Container = styled.View`
   flex: 1;
   background-color: papayawhip;
   justify-content: center;
   align-items: center;
+  border: 5px solid palevioletred;
 `
 
 const Title = styled.Text`
@@ -19,11 +21,12 @@ const Title = styled.Text`
   color: palevioletred;
 `
 
+
 const App = () => {
   return (
     <Container>
-      <Houses />
-      
+      <Image source={logo} /> 
+      <Houses />  
     </Container>
   )
 }
