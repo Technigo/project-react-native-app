@@ -24,8 +24,7 @@ export const Restaurants = ({navigation}) => {
 
       <Container>
 
-      <PageTitle>Trending this Week in</PageTitle>
-      <SubTitle>New York City</SubTitle>
+      <SubTitle>In New York City</SubTitle>
     
       <FlatList 
 
@@ -36,9 +35,10 @@ export const Restaurants = ({navigation}) => {
        
         <ItemTContainer>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Restaurant', { item })}>
+        <TouchableOpacity onPress={() => navigation.navigate('Best place this week', { item })}>
         <Image source={{ uri: item.restaurant.thumb }}  style={{ margin: 10, width: 330, height: 200}}/>
         <Itemtext>{item.restaurant.name}</Itemtext>
+        <Text>Average price for two: {item.restaurant.currency}{item.restaurant.average_cost_for_two}</Text>
         </TouchableOpacity>
         
         </ItemTContainer>
@@ -59,13 +59,6 @@ const Container = styled.View`
   background-color: white;
   padding-top: 30px;
 `
-const PageTitle = styled.Text`
-  margin-top: 10px;
-  margin-left: 32px;
-  margin-bottom: 10px;
-  font-size: 24px;
-  color: black;
-`
 const SubTitle = styled.Text`
   font-weight: bold;
   margin-left: 35px;
@@ -82,4 +75,12 @@ const Itemtext = styled.Text`
   font-size: 24px;
   color: black;
 `
+const Text = styled.Text`
+  margin: 10px;
+  font-size: 15px;
+  color: black;
+  margin-top: 2px
+  font-weight: bold;
+`
+
 

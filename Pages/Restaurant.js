@@ -1,5 +1,5 @@
 import React  from 'react'
-import { Image } from 'react-native';
+import { FlatList, Image } from 'react-native';
 import styled from 'styled-components/native' 
 
 
@@ -10,8 +10,6 @@ export const Restaurant = ({ route }) => {
     return (
 
         <Container>
-  
-        <PageTitle>Best place this week</PageTitle>
         
         <SubTitle>{item.restaurant.name}</SubTitle>
         <Image source={{ uri: item.restaurant.thumb }}  style={{ marginLeft: 15, width: 380, height: 400}}/>
@@ -20,6 +18,7 @@ export const Restaurant = ({ route }) => {
         <SubText>{item.restaurant.location.address}</SubText>
         <SubText>{item.restaurant.location.locality}</SubText>
         <SubText>{item.restaurant.location.city}</SubText>
+
         <SubText><Text>Rating:</Text> {item.restaurant.user_rating.aggregate_rating} ⭐</SubText>
         
         </Container>
@@ -33,30 +32,24 @@ export const Restaurant = ({ route }) => {
     background-color: white;
     padding-top: 30px;
   `
-  const PageTitle = styled.Text`
-    margin-top: 10px;
-    margin-left: 15px;
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: black;
-  `
+  
   const SubTitle = styled.Text`
     font-weight: bold;
     margin-left: 15px;
-    font-size: 30px;
+    font-size: 25px;
     color: black;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   `
   const SubText = styled.Text`
     margin-left: 20px;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
     margin-top: 10px;
 `
 
   const Text = styled.Text`
     margin-left: 20px;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
     margin-top: 10px
     font-weight: bold;

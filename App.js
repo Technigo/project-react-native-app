@@ -19,8 +19,8 @@ const App = () => {
     <NavigationContainer>
       <Container>
     <Stack.Navigator>
-      <Stack.Screen name="Restaurants" component={Restaurants} />
-      <Stack.Screen name="Restaurant" component={Restaurant} />
+      <Stack.Screen name="Trending this Week" component={Restaurants} />
+      <Stack.Screen name="Best place this week" component={Restaurant} />
     </Stack.Navigator>
     </Container>
   </NavigationContainer>
