@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { FlatList } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native'
 
 
 const apiKey  = "494da9ce0d7d396b3dfc1e2b322b10bd";
 
 
-export const Restaurants = () => {
+export const Restaurants = ({navigation}) => {
 
     const [foodplaces, setFoodplaces] = useState([])
 
@@ -38,8 +38,10 @@ export const Restaurants = () => {
        
         <ItemTContainer>
 
+        <TouchableOpacity onPress={() => navigation.navigate('Restaurant', { item })}>
         <Itemtext>{item.restaurant.name}</Itemtext>
         <Itemtext>{item.restaurant.location.city}</Itemtext>
+        </TouchableOpacity>
         
         </ItemTContainer>
      
