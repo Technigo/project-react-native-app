@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { Image, View, Text, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import logo from './assets/logo.png'
 import * as ImagePicker from 'expo-image-picker'
+import Constants from 'expo-constants'
+import * as Permissions from 'expo-permissions'
 import * as Sharing from 'expo-sharing'
 
 const Container = styled.View`
@@ -22,8 +24,13 @@ const Logo = styled.Image`
   height: 150px;
   margin-bottom: 20px;
 `
-const Button = styled.TouchableOpacity`
+const ButtonPickImage = styled.TouchableOpacity`
   background-color: darkblue;
+  padding: 20px;
+  border-radius: 5px;
+`
+const ButtonShare = styled.TouchableOpacity`
+  background-color: darkgreen;
   padding: 20px;
   border-radius: 5px;
 `
@@ -44,18 +51,21 @@ const PickedImage = styled.Image`
 
 
 const App = () => {
-  let [selectedImage, setSelectedImage] = React.useState(null)
+  const [selectedImage, setSelectedImage] = useState(null)
 
-  let openImagePickerAsync = async () => {
-    let permissionResult = await
-      ImagePicker.requestCameraRollPermissionsAsync()
+  const openImagePickerAsync = async () => {
+    if (Constants.platform.ios) {
+      const { status } = await
+        Permissions.getAsync(Permissions.CAMERA_ROLL)
 
-    if (permissionResult.granted === false) {
-      alert("Permission to access camera roll is required!")
-      return
+      if (status !== "granted") {
+        alert("Hey! Permission to camera roll is required to make this work.")
+        return
+      }
     }
 
-    let pickerResult = await ImagePicker.launchImageLibraryAsync()
+    const pickerResult = await ImagePicker.launchImageLibraryAsync()
+    console.log(pickerResult)
 
     if (pickerResult.cancelled === true) {
       return
@@ -63,9 +73,9 @@ const App = () => {
     setSelectedImage({ localUri: pickerResult.uri })
   }
 
-  let openShareDialogAsync = async () => {
+  const openShareDialogAsync = async () => {
     if (!(await Sharing.isAvailableAsync())) {
-      alert(`Oh no, sharing isn't available on your platform`)
+      alert("Oh no, sharing isn't available on your platform")
       return
     }
 
@@ -78,9 +88,9 @@ const App = () => {
         <PickedImage
           source={{ uri: selectedImage.localUri }}>
         </PickedImage>
-        <Button onPress={openShareDialogAsync}>
+        <ButtonShare onPress={openShareDialogAsync}>
           <ButtonText>Share this image</ButtonText>
-        </Button>
+        </ButtonShare>
       </ImageContainer>
     )
   }
@@ -90,12 +100,12 @@ const App = () => {
       <View>
         <Logo source={logo} />
       </View>
-      <Title>This is my first app!</Title>
+      <Title>Let's share some pics!</Title>
       <Title>📷📷📷</Title>
       <Title>Share a photo with a friend, just press the button below!</Title>
-      <Button onPress={openImagePickerAsync}>
+      <ButtonPickImage onPress={openImagePickerAsync}>
         <ButtonText>Pick a photo</ButtonText>
-      </Button>
+      </ButtonPickImage>
     </Container>
   )
 }
