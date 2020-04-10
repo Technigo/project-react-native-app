@@ -18,14 +18,14 @@ export const Nasa = ( { navigation } ) => {
         <Title>{images.title}</Title>
         <Image
           source={{ uri: images.url }}
-          style={{ width: 500, height: 200, marginVertical: 2 }} />
+          style={{ width: 350, height: 200, marginVertical: 2 }} />
 
         <Date>{images.date}</Date>
-        <TouchableOpacity 
-        key={images.title}
-        onPress={() => navigation.navigate('Detail')}><Title>Read more</Title>
-        </TouchableOpacity>
         
+        {/* <TouchableOpacity 
+        onPress={() => navigation.navigate('Screen')}><Title>Read more >></Title>
+       
+        </TouchableOpacity>  */}
       </Container>
         )
   }

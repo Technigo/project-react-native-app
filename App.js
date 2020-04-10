@@ -19,12 +19,19 @@ const App = () => {
      <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
        <Text style={styles.text}>New picture from NASA everyday!</Text>
-        
+       <Nasa></Nasa>
         <Stack.Navigator>
-         <Stack.Screen name='Detail' component={Detail} />
-         <Stack.Screen name='Nasa' component={Nasa} />
+         <Stack.Screen 
+         name='Home' 
+         component={Nasa}
+         />
+         <Stack.Screen 
+         name='Detail' 
+         component={Detail} 
+         />
         </Stack.Navigator>
        <Tap></Tap>
+       <Detail></Detail>
       </ScrollView>
     </SafeAreaView>
     </NavigationContainer>
@@ -47,9 +54,12 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
   },
   scrollView: {
-    marginHorizontal: 10,
+    paddingHorizontal: 10,
+    backgroundColor:'#222',
   },
   text: {
     fontSize: 42,
+    paddingHorizontal: 10,
+    color: '#fff',
   },
 });

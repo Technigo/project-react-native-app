@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import { Platform, Vibration, View, TouchableOpacity, } from "react-native";
+import React, { useState, useEffect } from 'react'
+import { Vibration } from "react-native";
 import styled from 'styled-components/native'
 
 export const Tap = () => {
-  //const [count, setCount] = useState(0)
-
 
   return (
     <Container>
@@ -18,14 +16,13 @@ export const Tap = () => {
 const Container = styled.View`
 flex:1;
 background-color: #f600a2;
-justifyContent: space-between;
 padding:60px;
 padding:60px;
+justify-content: space-around;
 `
 
 const Title = styled.Text`
 font-size: 24px;
-color: palevioletred;
 color: white;
 font-weight: bold;
 justify-content: center;
@@ -36,7 +33,7 @@ const Info = styled.Text`
 flex:1;
 justify-content: center;
 align-items: center;
-color: darkblue;
+color: white;
 font-weight: bold;
 font-size: 45px;
 `
