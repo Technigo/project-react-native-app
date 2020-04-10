@@ -8,15 +8,24 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.7",
+    "@react-navigation/native": "^5.1.5",
+    "@react-navigation/stack": "^5.2.10",
     "braces": "^3.0.2",
     "expo": "^35.0.0",
+    "link": "^0.1.5",
     "mem": "^6.0.1",
     "minimist": "^1.2.5",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-reanimated": "^1.8.0",
+    "react-native-safe-area-context": "^0.3.6",
+    "react-native-screens": "^1.0.0-alpha.23",
     "react-native-web": "^0.11.7",
-    "react-navigation": "^4.3.7",
+    "react-navigation": "^1.0.0-beta.11",
+    "react-navigation-stack": "^2.3.11",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
