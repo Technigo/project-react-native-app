@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
+import { TouchableOpacity } from 'react-native'
+import { useFonts } from '@use-expo/font'
+import { AppLoading } from 'expo'
 
 // STYLE:
 const Container = styled.View`
@@ -7,13 +10,21 @@ const Container = styled.View`
   background-color: papayawhip;
   justify-content: center;
   align-items: center;
-`;
+`
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 20px;
   color: palevioletred;
-`;
-
+`
+const InterTitle = styled.Text`
+  font-size: 24px;
+  font-family: 'Inter-Black';
+  color: palevioletred;
+`
+// LOAD CUSTOM FONTS:
 export const Houses = () => {
+  let [fontLoaded] = useFonts({
+    'Inter-Black': require('../assets/fonts/Inter-Black.otf'),
+  })
   const [houses, setHouses] = useState([]);
 
   useEffect(() => {
@@ -22,36 +33,34 @@ export const Houses = () => {
       .then((json) => setHouses(json));
   }, []);
 
-  return (
-    <Container>
-      <Title>Houses:</Title>
-      {houses.map((house) => (
-        <Title key={house.name}> {house.name}</Title>
-      ))}
-    </Container>
-  );
+  if (!fontLoaded) {
+    return <AppLoading />;
+  } else { 
+    return (
+      <Container>
+        <InterTitle>Houses</InterTitle>
+        {houses.map((house) => (
+          <TouchableOpacity
+            key={house.name}
+            onPress={() => navigation.navigate('Detail', { house })} 
+          >
+            <Title>{house.name}, in {house.region}</Title>
+          </TouchableOpacity>
+        ))}
+      </Container>
+    );
+  } 
 };
 
 
-/* 
+/*
+      <Container>
+        <InterTitle>Houses:</InterTitle>
+        {houses.map((house) => (
+          <Title key={house.name}> {house.name}</Title>
+        ))}
+      </Container>
 
-export const Xcode = () => {
-  const [houses, setHouses] = useState([]);
 
-  useEffect(() => {
-    fetch("https://www.anapioficeandfire.com/api/houses")
-      .then((res) => res.json())
-      .then((json) => setHouses(json));
-  }, []);
-
-  return (
-    <Container>
-      <Title>Info here:</Title>
-      {houses.map((house) => (
-        <Title key={house.name}> {house.name}</Title>
-      ))}
-    </Container>
-  );
-};
 
 */
