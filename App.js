@@ -11,20 +11,30 @@ import { SplashScreen } from 'expo';
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color:#e1f4fe;
   justify-content: center;
   align-items: center;
+  padding: 25px;
 `
 const SelectedPic = styled.Image`
 width:300px;
 height:300px;
+display: flex;
+align-self:center;
 `
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color:#ff0f47;
 `
-
+const Buttonish = styled.Text`
+font-size: 24px;
+border: solid black 1px
+margin:10px;
+padding:4px;
+border-radius:4px;
+background-color: #e1f4fe;
+`
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -58,13 +68,12 @@ let openSharedDialogAsync = async () =>{
 
 if (selectedImage !== null) {
   return (
-    <View >
+    <Container >
       <SelectedPic source={{ uri: selectedImage.localUri }}/>
-      <TouchableOpacity onPress={openSharedDialogAsync}>
-        <Text>Share the pretty picture!</Text>
-      </TouchableOpacity>
-    </View>
-
+      <Buttonish onPress={openSharedDialogAsync}>
+        Share the pretty picture!
+      </Buttonish>
+    </Container>
   );
 }
 
@@ -77,7 +86,7 @@ if (selectedImage !== null) {
       </Title>
       <TouchableOpacity
       onPress={moodyfunctionofpermission}>
-        <Text>Pick A Picture!</Text>
+        <Buttonish>Pick A Picture!</Buttonish>
       </TouchableOpacity>
     </Container>
   )
