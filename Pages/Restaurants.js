@@ -67,7 +67,7 @@ const SubTitle = styled.Text`
 `
 const ItemTContainer= styled.View`
   margin: 24px;
-  height: 250px;
+  height: 270px;
   width: 360px;
 `
 const Itemtext = styled.Text`
