@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FlatList, TouchableOpacity } from 'react-native';
+import { FlatList, TouchableOpacity, Image } from 'react-native';
 import styled from 'styled-components/native'
 
 
@@ -24,14 +24,12 @@ export const Restaurants = ({navigation}) => {
 
       <Container>
 
-      <PageTitle>Trending this Week</PageTitle>
+      <PageTitle>Trending this Week in</PageTitle>
       <SubTitle>New York City</SubTitle>
-      
-
     
       <FlatList 
 
-      horizontal={true}
+      showsHorizontalScrollIndicator={false}
       data={foodplaces}
       renderItem={({ item }) => (
 
@@ -39,8 +37,8 @@ export const Restaurants = ({navigation}) => {
         <ItemTContainer>
 
         <TouchableOpacity onPress={() => navigation.navigate('Restaurant', { item })}>
+        <Image source={{ uri: item.restaurant.thumb }}  style={{ margin: 10, width: 330, height: 200}}/>
         <Itemtext>{item.restaurant.name}</Itemtext>
-        <Itemtext>{item.restaurant.location.city}</Itemtext>
         </TouchableOpacity>
         
         </ItemTContainer>
@@ -57,30 +55,31 @@ export const Restaurants = ({navigation}) => {
  }
 
 const Container = styled.View`
+  flex: 1;
   background-color: white;
   padding-top: 30px;
 `
 const PageTitle = styled.Text`
-  margin-top: 60px;
-  margin-left: 27px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 32px;
+  margin-bottom: 10px;
   font-size: 24px;
   color: black;
 `
 const SubTitle = styled.Text`
-  margin-left: 30px;
-  font-size: 24px;
+  font-weight: bold;
+  margin-left: 35px;
+  font-size: 30px;
   color: black;
 `
 const ItemTContainer= styled.View`
   margin: 24px;
-  padding: 50px;
-  border: 2px solid black;
-  height: 300px;
+  height: 250px;
+  width: 360px;
 `
 const Itemtext = styled.Text`
-  margin-top: 20px;
+  margin: 10px;
   font-size: 24px;
-  color: palevioletred;
+  color: black;
 `
 
