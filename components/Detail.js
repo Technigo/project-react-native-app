@@ -1,17 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Button, Platform, Vibration, View} from "react-native";
+import { Vibration } from "react-native";
 
-
-
-export const Detail = () => {
-
+export const Detail = ({ route }) => {
+  
   return (
     <Container>
-
       <Info title="Click" onPress={
-        () => Vibration.vibrate()}>Click here</Info>
-
+        () => Vibration.vibrate()}>Click here</Info> 
+            
     </Container>
   )
 }
@@ -22,13 +19,6 @@ background-color: #f600a2;
 justifyContent: space-between;
 paddingHorizontal:50;
 paddingVertical: 50;
-`
-
-const Title = styled.Text`
-font-size: 24px;
-color: palevioletred;
-color: white;
-font-weight: bold;
 `
 
 const Info = styled.Text`

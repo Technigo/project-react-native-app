@@ -1,25 +1,33 @@
 import 'react-native-gesture-handler';
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack'
 import { Nasa } from './components/Nasa'
 import styled from 'styled-components/native'
 import { Tap } from './components/Tap'
+import { Detail } from './components/Detail'
 import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
+
+const Stack = createStackNavigator()
 
 const App = () => {
 
   return (
 
-    <Container>
+    <NavigationContainer>
      <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
        <Text style={styles.text}>New picture from NASA everyday!</Text>
-        <Nasa></Nasa>
+        
+        <Stack.Navigator>
+         <Stack.Screen name='Detail' component={Detail} />
+         <Stack.Screen name='Nasa' component={Nasa} />
+        </Stack.Navigator>
        <Tap></Tap>
       </ScrollView>
     </SafeAreaView>
-    </Container>
+    </NavigationContainer>
 
   )
 }
@@ -39,7 +47,6 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
   },
   scrollView: {
-    backgroundColor: 'pink',
     marginHorizontal: 10,
   },
   text: {
