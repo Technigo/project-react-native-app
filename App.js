@@ -5,27 +5,25 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { Houses } from './components/Houses'
 
-import { Image } from 'react-native';
+// // import { Image } from 'react-native';
 import logo from './assets/got.png'
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: honeydew;
   justify-content: center;
   align-items: center;
-  border: 5px solid palevioletred;
+  border: 0px solid palevioletred;
 `
-
-const Title = styled.Text`
+/* const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
 `
-
+ */
 
 const App = () => {
   return (
     <Container>
-      <Image source={logo} /> 
       <Houses />  
     </Container>
   )
