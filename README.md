@@ -23,7 +23,7 @@ I also have lot's of ideas to be built in the future. 🌻
 
 ## View it live
 
-I didn't know how to deploy or export this. Found some info about publsihing to Netlify and using Amplify but I leave that for now. (Don't want to mess things upp so I will probably make a new project and test things like publishing.) 
+I didn't know how to deploy or export this. Found some info about publishing to Netlify and using Amplify but I leave that for now. (Don't want to mess things upp so I will probably make a new project and test things like publishing.) 
 
 My first idea on Whimsical - the thing I intended to build:
 https://whimsical.com/WatU38PxzZhMqw5LX6gXSP
