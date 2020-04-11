@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components/native'
-import {View, Text, ActivityIndicator, ScrollView, Button, Image} from 'react-native'
+import { ActivityIndicator, ScrollView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
@@ -68,7 +68,7 @@ export const LaunchPadScreen = ({ navigation }) => {
                 <MissionImage source={{uri: `${launch.links.mission_patch_small != null ? launch.links.mission_patch_small : `https://lh3.googleusercontent.com/proxy/E73hCYaKFmDEsnUlrSFA2PGAJGa353-Z1gGySU5yXqLGG_khL-lIOTLJ_21vYmtW9Na3aItsUljzb_om4io13x2p98_sVL0nePnfTRLmmuyIAXB-`}`,}} />
                 <TouchableOpacity
                 key={launch.mission_name}
-                onPress={() => navigation.navigate('Detail', { launch })} // navigating to details screen with the clicked house info passed along
+                onPress={() => navigation.navigate('Detail', { launch })}
                 >
                   <Title key={launch.mission_name}>{launch.mission_name}</Title>
                 </TouchableOpacity>

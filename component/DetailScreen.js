@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import Moment from 'react-moment';
-import {View, Text, Button} from 'react-native'
+import { Button } from 'react-native'
 
 
 const Container = styled.View`
@@ -49,26 +49,30 @@ const TextInfo = styled.Text`
 export const DetailScreen = ({ route, navigation }) => {
   const { launch } = route.params
 
-  // Display here in detail each information about each launch
   return (
     <Container>
+
       <CardTitle>
         <TextInfo>{launch.mission_name}</TextInfo>
       </CardTitle>
+
       <CardContainer>
         <TextInfo>Launch Date: 
           <Moment unix format="YYYY/MM/DD" element={TextInfo}>{launch.launch_date_unix}</Moment>
         </TextInfo>
         <TextInfo>Rocket: {launch.rocket.rocket_name}</TextInfo>
       </CardContainer>
+
       <Card>
         <TextInfo>Type: {launch.rocket.second_stage.payloads[0].payload_type}</TextInfo>
       </Card>
+
       <CardDescription>
         <TextDescription>
           {launch.details}
         </TextDescription>
       </CardDescription>
+      
       <Button
         title="Go to Launchpad"
         onPress={() => navigation.navigate('Launchpad')}
