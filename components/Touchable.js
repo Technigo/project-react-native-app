@@ -1,43 +1,37 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, } from 'react-native';
+import styled from 'styled-components/native'
+
+const StyledView = styled.View`
+  background-color: papayawhip;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: palevioletred;
+`
+
+const BigTitle = styled.Text`
+  font-size: 50px;
+  color: palevioletred;
+`
+
+const Title = styled.Text`
+  font-size: 25px;
+  color: palevioletred;
+`
 
 export const Touchable = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(prevCount => prevCount + 1);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.countContainer}>
-        <Text>Count: {count}</Text>
-      </View>
+    <StyledView>
+        <BigTitle> {count}</BigTitle>
       <TouchableOpacity
-        style={styles.button}
         onPress={onPress}
       >
-        <Text>Press Here</Text>
+        <Title>Press Here</Title>
       </TouchableOpacity>
-    </View>
+    </StyledView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: 'center',
-    paddingHorizontal: 10,
-    backgroundColor: "lightyellow"
-  },
-  button: {
-    alignItems: "center",
-    justifyContent: 'center',
-    backgroundColor: "yellow",
-    padding: 10,
-    height: 100,
-    width: 100
-  },
-  countContainer: {
-    alignItems: "center",
-    padding: 10
-  }
-});
