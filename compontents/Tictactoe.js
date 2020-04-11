@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { TouchableOpacity } from 'react-native'
+import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons';
 
 
 const Container = styled.View`
@@ -52,6 +53,15 @@ const Click = styled.TouchableOpacity`
   background-color: palevioletred;
   padding: 20px;
   border-radius: 70px;
+`
+
+const Restart = styled.TouchableOpacity`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+const RestartText = styled.Text`
+  font-family: Menlo;
 `
 
 const Square = (props) => {
