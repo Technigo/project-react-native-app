@@ -15,13 +15,21 @@ export const Activity = () => {
   }
 
   const ActivityText = styled.Text`
-  font-size: 45px;
+  font-size: 43px;
   color: black;
   font-weight: bold;
+  text-align: center;
   `
 
+  const ViewContainer = styled.View`
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+`
+
+
   return (
-    <View>
+    <ViewContainer>
       <TouchableOpacity title="Click for activity" onPress={() => {
         getActivity(); Vibration.vibrate()
       }}>
@@ -29,7 +37,7 @@ export const Activity = () => {
       </TouchableOpacity>
       <ActivityText>
         {activity}</ActivityText>
-    </View>
+    </ViewContainer>
   )
 }
 

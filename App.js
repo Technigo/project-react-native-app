@@ -7,13 +7,14 @@ import { View } from 'react-native';
 const Container = styled.View`
   flex: 1;
   background-color: white;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  margin-top: 50;
 `
 
 const Title = styled.Text`
   font-size: 16px;
-  color: black;
+  color: red;
   font-weight: bold;
 `
 
@@ -21,9 +22,9 @@ const App = () => {
   return (
     <Container>
       <Title>QUARANTINE ACTIVITY GENERATOR</Title>
-      <Title>What to do now? Click the molecule!
-      </Title>
       <Activity />
+      <Title>
+      </Title>
     </Container>
   )
 }

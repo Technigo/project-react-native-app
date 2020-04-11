@@ -1,6 +1,6 @@
 export const ActivitiesArray = [
   "Clean your wardrobe",
-  "Buy something online",
+  "Shop online",
   "Call a relative",
   "Call a friend",
   "Replant some flowers",
