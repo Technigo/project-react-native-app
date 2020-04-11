@@ -1,13 +1,12 @@
-# Project React Native App 📱
+# React Native / Expo
 
-Replace this readme with your own information about your project.
+Create a React Native App for Android/iOS using Expo and styled component.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## The problem / Solution
 
-## The problem
+Read up on React Native and styled components, learning the basic in one week to create a app that fetches upcoming launches data from [spacexdata.com](https://api.spacexdata.com/v3/launches/upcoming) and shows details on each launch.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Build with 
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+* React Native
+* Styled components

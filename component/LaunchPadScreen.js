@@ -65,7 +65,6 @@ export const LaunchPadScreen = ({ navigation }) => {
       {!isLoading && <ScrollView>
       {launches.map((launch) => (
               <Card key={launch.mission_name}>
-                {/* <MissionImage source={{uri: `${launch.links.mission_patch_small}`,}} /> */}
                 <MissionImage source={{uri: `${launch.links.mission_patch_small != null ? launch.links.mission_patch_small : `https://lh3.googleusercontent.com/proxy/E73hCYaKFmDEsnUlrSFA2PGAJGa353-Z1gGySU5yXqLGG_khL-lIOTLJ_21vYmtW9Na3aItsUljzb_om4io13x2p98_sVL0nePnfTRLmmuyIAXB-`}`,}} />
                 <TouchableOpacity
                 key={launch.mission_name}

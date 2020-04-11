@@ -28,7 +28,7 @@ const CardDescription = styled(DefaultContainer)`
   flex: 3;
 `
 
-const CardInfo = styled.View`
+const CardContainer = styled.View`
   flex-direction: row;
   justify-content: space-around;
   background-color: #0074D9;
@@ -36,8 +36,8 @@ const CardInfo = styled.View`
 `
 
 const TextDescription = styled.Text`
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
   color: #FFF;
 `
 
@@ -55,12 +55,12 @@ export const DetailScreen = ({ route, navigation }) => {
       <CardTitle>
         <TextInfo>{launch.mission_name}</TextInfo>
       </CardTitle>
-      <CardInfo>
+      <CardContainer>
         <TextInfo>Launch Date: 
           <Moment unix format="YYYY/MM/DD" element={TextInfo}>{launch.launch_date_unix}</Moment>
         </TextInfo>
         <TextInfo>Rocket: {launch.rocket.rocket_name}</TextInfo>
-      </CardInfo>
+      </CardContainer>
       <Card>
         <TextInfo>Type: {launch.rocket.second_stage.payloads[0].payload_type}</TextInfo>
       </Card>
