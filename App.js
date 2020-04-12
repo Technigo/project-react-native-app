@@ -6,7 +6,6 @@ import { ActivityPage } from "./ActivityPage";
 
 const Stack = createStackNavigator();
 
-
 const App = () => {
   return (
     <NavigationContainer>

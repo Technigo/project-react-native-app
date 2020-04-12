@@ -18,6 +18,10 @@ font-weight: bold;
 text-align: center;
 margin-bottom: 230;
 font-family: 'Inter-Black';
+color: #8dc1a9;
+letter-spacing: -1;
+margin-left: 25;
+margin-right: 25;
 `
 
 const BackText = styled.Text`
@@ -29,11 +33,15 @@ font-family: 'Inter-Bold';
 const BackView = styled.View`
 background-color: #8dc1a9;
 margin-bottom: 50;
-border-radius: 10;
-padding-top: 10;
-padding-bottom: 10;
-padding-left: 20;
-padding-right: 20;
+border-radius: 2;
+padding-top: 20;
+padding-bottom: 20;
+padding-left: 60;
+padding-right: 60;
+shadow-color: lightgray;
+shadow-radius: 2;
+shadow-opacity: 0.3;
+shadow-offset: 8px 8px;
 `
 
 export const ActivityPage = ({ route, navigation }) => {
@@ -53,7 +61,7 @@ export const ActivityPage = ({ route, navigation }) => {
         <TouchableOpacity
           title="Something else"
           onPress={() => navigation.goBack()}>
-          <BackView><BackText>I wanna do something else!</BackText></BackView>
+          <BackView><BackText>BACK</BackText></BackView>
         </TouchableOpacity>
       </Container>
     )
