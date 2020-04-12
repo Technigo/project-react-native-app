@@ -21,7 +21,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>QUARANTINE ACTIVITY GENERATOR</Title>
+      <Title>QUARANTINE ACTIVITYs GENERATOR</Title>
       <Activity />
       <Title>
       </Title>
