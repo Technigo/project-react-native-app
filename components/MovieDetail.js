@@ -4,6 +4,7 @@ import { Title } from './Text'
 import { ScrollView, ImageBackground, Dimensions } from 'react-native'
 import { RatingText } from './RatingText'
 import { DetailTitle } from './DetailTitle'
+import { ReleaseText } from './ReleaseText'
 import { useFonts } from '@use-expo/font'
 import { AppLoading } from 'expo';
 
@@ -42,14 +43,16 @@ export const MovieDetail = ({ route }) => {
       <ScrollView>
         <Container>
           <ImageBackground
+            key={movie.poster_path}
             resizeMode={'cover'}
             style={{ height: imageHeight, width: imageWidth, backgroundColor: 'white' }}
             imageStyle={{ opacity: 0.4 }}
             source={{ uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}` }}
           >
             <DetailTitle key={movie.title}>{movie.title}</DetailTitle>
-            <RatingText>{movie.vote_average}/10</RatingText>
-            <Title>{movie.overview}</Title>
+            <ReleaseText key={movie.release_date}>{movie.release_date}</ReleaseText>
+            <RatingText key={movie.id}>{movie.vote_average}/10</RatingText>
+            <Title key={movie.overview}>{movie.overview}</Title>
           </ImageBackground>
         </Container>
       </ScrollView>
