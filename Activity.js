@@ -28,31 +28,32 @@ export const Activity = ({ navigation }) => {
   `
 
   const InterTitle = styled.Text`
-  font-size: 35;
-  color: #8dc1a9;
+  font-size: 42;
   font-family: 'Inter-Black';
   text-align: center;
   letter-spacing: -1.5;
   margin-top: 30;
+  color: #8dc1a9;
+  margin-bottom: 5;
   `
 
   const InterText = styled.Text`
   font-size: 15;
   color: black;
   text-align: center;
-  margin-left: 45;
-  margin-right: 45;
+  margin-left: 54;
+  margin-right: 54;
   margin-bottom: 20;
   `
 
   const ActivateTitle = styled.Text`
-  font-size: 22px;
+  font-size: 19px;
   color: #8dc1a9;
-  margin-bottom: 20;
-  margin-top: 60;
+  margin-bottom: 30;
+  margin-top: 40;
   font-family: 'Inter-Black';
   text-align: center;
-  letter-spacing: -1;
+  letter-spacing: -0.5;
   `
 
   if (!fontLoaded) {
@@ -61,14 +62,14 @@ export const Activity = ({ navigation }) => {
 
     return (
       <Container>
-        <InterTitle>STUCK AT HOME?</InterTitle>
+        <InterTitle>Stuck at home?</InterTitle>
         <InterText>Take this time to contemplate. Or do something useful at home. You'll see that the more you do during this quarantine, the more time works for us, the closer we get to the quarantine-free time!</InterText>
         <TouchableOpacity title="Click for activity" onPress={() => {
           getActivity(); Vibration.vibrate(); navigation.navigate('ActivityPage', { activity })
         }}>
           <Lottie />
         </TouchableOpacity>
-        <ActivateTitle>Click to activate me!</ActivateTitle>
+        <ActivateTitle>CLICK TO ACTIVATE ME!</ActivateTitle>
       </Container>
     )
   }
