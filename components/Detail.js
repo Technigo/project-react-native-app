@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { SafeAreaView, ScrollView, StyleSheet } from 'react-native'
-import Constants from 'expo-constants'
 
 export const Detail = () => {
   const [info, setInfo] = useState([])
@@ -21,7 +20,6 @@ export const Detail = () => {
         </Container >
       </ScrollView>
     </SafeAreaView>
-
   )
 }
 
@@ -31,26 +29,19 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
   paddingHorizontal: 10;
-  paddingVertical: 10;
 `
 const Date = styled.Text`
   font-size: 24px;
   color: violet;
-  paddingHorizontal: 0;
-  paddingVertical: 0;
+  paddingHorizontal: 10;
+  paddingVertical: 10;
 `
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
   },
   scrollView: {
     paddingHorizontal: 10,
     backgroundColor: '#222',
-  },
-  text: {
-    fontSize: 42,
-    paddingHorizontal: 10,
-    color: '#fff',
   }
 })

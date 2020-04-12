@@ -18,6 +18,7 @@ export const Nasa = ({ navigation }) => {
     <Container>
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
+          <MainTitle>New picture from NASA everyday!</MainTitle>
           <Title>{images.title}</Title>
           <Image
             source={{ uri: images.url }}
@@ -25,8 +26,7 @@ export const Nasa = ({ navigation }) => {
 
           <TouchableOpacity
             onPress={() => navigation.navigate('Detail')}>
-            <Date>{images.date} More >></Date>
-
+            <Date>{images.date}  Read more >></Date>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => navigation.navigate('Alien')}>
@@ -51,13 +51,19 @@ const Container = styled.View`
 const Title = styled.Text`
   font-size: 20px;
   color: palevioletred;
+  paddingHorizontal: 20;
+  paddingVertical: 20;
+`
+const MainTitle = styled.Text`
+  font-size: 32px;
+  color: palevioletred;
   font-weight: bold;
-  paddingHorizontal: 30;
-  paddingVertical: 30;
+  paddingHorizontal: 20;
+  paddingVertical: 20;
 `
 
 const Date = styled.Text`
-  font-size: 24px;
+  font-size: 16px;
   color: violet;
   paddingHorizontal: 0;
   paddingVertical: 0;
@@ -69,11 +75,6 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     paddingHorizontal: 10,
-    backgroundColor:'#222',
-  },
-  text: {
-    fontSize: 42,
-    paddingHorizontal: 10,
-    color: '#fff',
+    backgroundColor: '#222',
   }
 })
