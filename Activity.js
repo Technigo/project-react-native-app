@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { Text, View, Button, Alert, Vibration } from "react-native";
 import { ActivitiesArray } from "./ActivitiesArray";
 import styled from 'styled-components/native'
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Lottie } from './Lottie';
+import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
 
 
-export const Activity = () => {
+
+export const Activity = ({ navigation }) => {
+  let [fontLoaded] = useFonts({
+    'Inter-Black': require('./assets/fonts/Inter-Black.otf'),
+  })
   const [activity, setActivity] = useState()
 
   const getActivity = () => {
@@ -14,30 +20,46 @@ export const Activity = () => {
     setActivity(theActivity)
   }
 
-  const ActivityText = styled.Text`
-  font-size: 43px;
-  color: black;
+  const Container = styled.View`
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #d0f2dc;
+  `
+  const InterTitle = styled.Text`
+  font-size: 40;
   font-weight: bold;
+  color: #8dc1a9
+  ;
+  font-family: 'Inter-Black';
+  text-align: center;
+  margin-bottom: 70;
+  `
+  const ActivateTitle = styled.Text`
+  font-size: 22px;
+  font-weight: bold;
+  color: #8dc1a9
+  ;
+  margin-bottom: 60;
+  margin-top: 70;
+  font-family: 'Inter-Black';
   text-align: center;
   `
 
-  const ViewContainer = styled.View`
-  flex: 1;
-  justify-content: space-evenly;
-  align-items: center;
-`
+  if (!fontLoaded) {
+    return <AppLoading />
+  } else {
 
-
-  return (
-    <ViewContainer>
-      <TouchableOpacity title="Click for activity" onPress={() => {
-        getActivity(); Vibration.vibrate()
-      }}>
-        <Lottie />
-      </TouchableOpacity>
-      <ActivityText>
-        {activity}</ActivityText>
-    </ViewContainer>
-  )
+    return (
+      <Container>
+        <InterTitle>Stuck at home?</InterTitle>
+        <TouchableOpacity title="Click for activity" onPress={() => {
+          getActivity(); Vibration.vibrate(); navigation.navigate('ActivityPage', { activity })
+        }}>
+          <Lottie />
+        </TouchableOpacity>
+        <ActivateTitle>Click to activate me!</ActivateTitle>
+      </Container>
+    )
+  }
 }
-

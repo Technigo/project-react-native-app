@@ -22,5 +22,6 @@ export const ActivitiesArray = [
   "Play table-tennis",
   "Play cards",
   "Have some coffe",
-  "Read a book"
+  "Read a book",
+  "Have a beer"
 ]

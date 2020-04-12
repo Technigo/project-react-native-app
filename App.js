@@ -1,39 +1,21 @@
 import React from 'react'
-import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { Activity } from "./Activity";
-import { View } from 'react-native';
+import { ActivityPage } from "./ActivityPage";
 
+const Stack = createStackNavigator();
 
-const Container = styled.View`
-  flex: 1;
-  background-color: white;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 50;
-`
-
-const Title = styled.Text`
-  font-size: 16px;
-  color: red;
-  font-weight: bold;
-`
 
 const App = () => {
   return (
-    <Container>
-      <Title>QUARANTINE ACTIVITYs GENERATOR</Title>
-      <Activity />
-      <Title>
-      </Title>
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Quarantine activity generator' component={Activity} />
+        <Stack.Screen name='ActivityPage' component={ActivityPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
 export default App
-
-
-/* <Stack.Navigator>
-    <Stack.Screen name='Lottie' component={Lottie} />
-  </Stack.Navigator> */
-
-

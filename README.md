@@ -1,12 +1,13 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I built a "Quarantine activity generator" using React Native. It generates suggestions on activities from an array that I came up with. It's a multiscreen app using React Navigation.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started making a sketch on how it would look on the screen, how many screens that would be included and which components I would make. Next step was to create the array of activities that the app would generate activities from. 
+
+I used React Navigation, a Lottie animation and I downloaded a font. 
+
 
 ## View it live
 
