@@ -1,34 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { Image } from 'react-native'
+import { Image, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
+import Constants from 'expo-constants'
 
-export const Nasa = ( { navigation } ) => {
+export const Nasa = ({ navigation }) => {
   const [images, setImages] = useState([])
 
   useEffect(() => {
     fetch('https://api.nasa.gov/planetary/apod?api_key=qSlGOjPnCXc7pgWt5QcdsI3nw45FfocwP6EggaOZ')
       .then((res) => res.json())
       .then((json) => setImages(json))
-  }, []) 
-  
-     return (
+  }, [])
 
-      <Container>
-        <Title>{images.title}</Title>
-        <Image
-          source={{ uri: images.url }}
-          style={{ width: 350, height: 200, marginVertical: 2 }} />
+  return (
 
-        <Date>{images.date}</Date>
-        
-        {/* <TouchableOpacity 
-        onPress={() => navigation.navigate('Screen')}><Title>Read more >></Title>
-       
-        </TouchableOpacity>  */}
-      </Container>
-        )
-  }
+    <Container>
+      <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.scrollView}>
+          <Title>{images.title}</Title>
+          <Image
+            source={{ uri: images.url }}
+            style={{ width: 350, height: 200, marginVertical: 2 }} />
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Detail')}>
+            <Date>{images.date} More >></Date>
+
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Alien')}>
+            <Title>Alien >></Title>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
+    </Container>
+  )
+}
 
 
 const Container = styled.View`
@@ -54,3 +62,18 @@ const Date = styled.Text`
   paddingHorizontal: 0;
   paddingVertical: 0;
 `
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  scrollView: {
+    paddingHorizontal: 10,
+    backgroundColor:'#222',
+  },
+  text: {
+    fontSize: 42,
+    paddingHorizontal: 10,
+    color: '#fff',
+  }
+})

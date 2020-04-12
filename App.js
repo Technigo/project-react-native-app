@@ -16,37 +16,25 @@ const App = () => {
   return (
 
     <NavigationContainer>
-     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+     {/* <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>  */}
        <Text style={styles.text}>New picture from NASA everyday!</Text>
-       <Nasa></Nasa>
+       
         <Stack.Navigator>
-         <Stack.Screen 
-         name='Home' 
-         component={Nasa}
-         />
-         <Stack.Screen 
-         name='Detail' 
-         component={Detail} 
-         />
+         <Stack.Screen name='Home' component={Nasa} />
+         <Stack.Screen name='Detail' component={Detail} />
+         <Stack.Screen name='Alien' component={Tap} />
         </Stack.Navigator>
-       <Tap></Tap>
-       <Detail></Detail>
-      </ScrollView>
-    </SafeAreaView>
+      {/* </ScrollView>
+    </SafeAreaView> */}
     </NavigationContainer>
-
+    
   )
 }
 
 export default App
 
-const Container = styled.View`
-flex:1;
-background-color: #ffe8ea;
-justify-content: center;
-align-items: center;
-`
+
 
 const styles = StyleSheet.create({
   container: {
