@@ -7,8 +7,6 @@ import { Lottie } from './Lottie';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 
-
-
 export const Activity = ({ navigation }) => {
   let [fontLoaded] = useFonts({
     'Inter-Black': require('./assets/fonts/Inter-Black.otf'),
