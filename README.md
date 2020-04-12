@@ -8,4 +8,4 @@ I used styled-components for styling and expo.io for debugging. If I had more ti
 
 ## View it live
 
-https://snack.expo.io/@emmie2020/space-project
+https://expo.io/@emmie2020/space-app
