@@ -6,7 +6,7 @@ I built a "Quarantine activity generator" using React Native. It generates sugge
 
 I started making a sketch on how it would look on the screen, how many screens that would be included and which components I would make. Next step was to create the array of activities that the app would generate activities from. 
 
-I used React Navigation, a Lottie animation and I downloaded a font. 
+I used React Navigation and styled components to style the app. I imported a Lottie animation and I downloaded a font. 
 
 
 ## View it live

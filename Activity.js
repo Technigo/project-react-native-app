@@ -29,17 +29,15 @@ export const Activity = ({ navigation }) => {
   const InterTitle = styled.Text`
   font-size: 40;
   font-weight: bold;
-  color: #8dc1a9
-  ;
+  color: #8dc1a9;
   font-family: 'Inter-Black';
   text-align: center;
-  margin-bottom: 70;
+  margin-bottom: 60;
   `
   const ActivateTitle = styled.Text`
   font-size: 22px;
   font-weight: bold;
-  color: #8dc1a9
-  ;
+  color: #8dc1a9;
   margin-bottom: 60;
   margin-top: 70;
   font-family: 'Inter-Black';
