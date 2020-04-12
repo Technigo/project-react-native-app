@@ -62,7 +62,7 @@ export const Activity = ({ navigation }) => {
     return (
       <Container>
         <InterTitle>STUCK AT HOME?</InterTitle>
-        <InterText>Take this time to contemplate. Or do something useful at home. You'll see that the more you do during this quarantine, the more time works for us, the closer we get to the quaranine-free time!</InterText>
+        <InterText>Take this time to contemplate. Or do something useful at home. You'll see that the more you do during this quarantine, the more time works for us, the closer we get to the quarantine-free time!</InterText>
         <TouchableOpacity title="Click for activity" onPress={() => {
           getActivity(); Vibration.vibrate(); navigation.navigate('ActivityPage', { activity })
         }}>
