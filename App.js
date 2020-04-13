@@ -1,26 +1,22 @@
 import React from 'react'
-import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Today from './Today'
+import Week from './Week'
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+const Tab = createBottomTabNavigator();
 
 const App = () => {
+  
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
-  )
+    <NavigationContainer >
+      <Tab.Navigator>
+        <Tab.Screen name="Today" component={Today} />
+        <Tab.Screen name="Week" component={Week} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
 
 export default App
+
