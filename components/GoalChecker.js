@@ -1,18 +1,23 @@
 const checkPositionOverlap = (positionToCheck, min, max) => {
-  return max >= positionToCheck && positionToCheck >= min
+  return max >= positionToCheck && positionToCheck >= min;
+}
+
+const checkCollision = (entity1, entity2) => {
+  const xMinOverlap = checkPositionOverlap(entity1.position[0], entity2.position[0], entity2.position[0] + entity2.size);
+  const xMaxOverlap = checkPositionOverlap(entity1.position[0] + entity1.size, entity2.position[0], entity2.position[0] + entity2.size);
+  const yMinOverlap = checkPositionOverlap(entity1.position[1], entity2.position[1] , entity2.position[1]+ entity2.size);
+  const yMaxOverlap = checkPositionOverlap(entity1.position[1] + entity1.size, entity2.position[1], entity2.position[1] + entity2.size);
+  return (xMinOverlap || xMaxOverlap) && (yMinOverlap || yMaxOverlap);
 }
 
 export const GoalChecker = state => {
-  const {babyBird, mommyBird} = state;
+  const {babyBird, mommyBird, fox1, fox2, fox3} = state;
 
-  const xMinOverlap = checkPositionOverlap(babyBird.position[0], mommyBird.position[0], mommyBird.position[0] + mommyBird.size)
-  const xMaxOverlap = checkPositionOverlap(babyBird.position[0] + babyBird.size, mommyBird.position[0], mommyBird.position[0] + mommyBird.size)
-  const yMinOverlap = checkPositionOverlap(babyBird.position[1], mommyBird.position[1] , mommyBird.position[1]+ mommyBird.size)
-  const yMaxOverlap = checkPositionOverlap(babyBird.position[1] + babyBird.size, mommyBird.position[1], mommyBird.position[1] + mommyBird.size)
-
-  if ((xMinOverlap || xMaxOverlap) && (yMinOverlap || yMaxOverlap)) {
-        state.gameWon();
-  } 
+  if (checkCollision(babyBird, mommyBird)) {
+    state.collisionDetected(true);
+  } else if (checkCollision(babyBird, fox1) || checkCollision(babyBird, fox2) || checkCollision(babyBird, fox3)) {
+    state.collisionDetected(false);
+  }
 
   return state;
 }
