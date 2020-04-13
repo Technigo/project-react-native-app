@@ -1,13 +1,7 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This was the first project I made with React Native.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+The goal was to see how it is to work with React Native and Expo and how it differs from React. I made just a simple Magic Eightball app where you engage the phone's sensors by shaking it. I also learned to use styled components for this project.

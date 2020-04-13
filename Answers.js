@@ -1,6 +1,3 @@
-import React from "react";
-import styled from "styled-components/native";
-
 const answers = [
   "Absolutely",
   "Absolutely not",
@@ -13,8 +10,6 @@ const answers = [
 ];
 
 const RandomAnswer = () => {
-  // console.log("random month =>", RandomAnswer);
-
   return answers[Math.floor(Math.random() * answers.length)];
 };
 
