@@ -7,6 +7,7 @@ let red = 0;
 let green = 0;
 let blue = 0;
 
+
 const AccelComponent = () => {
 
   const styles = StyleSheet.create({
@@ -14,7 +15,9 @@ const AccelComponent = () => {
       width: 100,
       height: 100,
     },
-    bgColor: {
+    containerBgColor: {
+      width: 100,
+      height: 100,
       backgroundColor: `rgb(${red}, ${green}, ${blue})`,
     },
     buttonContainer: {
@@ -88,8 +91,9 @@ const AccelComponent = () => {
   return (
     <><View >
       <LinearGradient style={styles.container} colors={[`rgb(${red}, ${green}, ${blue})`, `rgb(${red}, ${blue}, ${green})`]} />
-      <LinearGradient style={styles.container} colors={[`rgb(${blue}, ${red}, ${green})`, `rgb(${green}, ${blue}, ${red})`]} />
-      {/* </View>
+      {/* <LinearGradient style={styles.container} colors={[`rgb(${blue}, ${red}, ${green})`, `rgb(${green}, ${blue}, ${red})`]} /> */}
+      <View style={styles.containerBgColor}></View>
+    </View>
       <View style={styles.sensor}>
         <Text style={styles.text}>
           x: {round(x)} y: {round(y)} z: {round(z)}
@@ -98,8 +102,8 @@ const AccelComponent = () => {
           <TouchableOpacity onPress={_toggle} style={styles.button}>
             <Text>Toggle</Text>
           </TouchableOpacity>
-        </View> */}
-    </View>
+        </View>
+      </View>
     </>
 
   )
@@ -109,12 +113,10 @@ export default AccelComponent
 
 
 
-
 function round(n) {
   if (!n) {
     return 0;
   }
-
   return Math.floor(n * 100) / 100;
 }
 
