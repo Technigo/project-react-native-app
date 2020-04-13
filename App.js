@@ -1,52 +1,38 @@
+
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 
 const Container = styled.View`
+  background-color: lightblue;  
   flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
   align-items: center;
-`
-
+  justify-content: center;
+  `
 const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  color: blue;
+  font-size: 35px;
 `
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
-  },
-  countContainer: {
-    alignItems: "center",
-    padding: 10
-  }
-});
-
+const Paragraph = styled.Text`
+  color: purple;
+  font-size: 25px;
+  padding-top: 15px;
+`
 
 const App = () => {
   const [count, setCount] = useState(0)
-  const onPress = () => setCount(prevCount => prevCount + 1);
-
+  const onPress = () => setCount(prevCount => prevCount + 1)
 
   return (
     <Container>
+      <Title>Let´s Count Bunnies!</Title>
       <TouchableOpacity
-        style={styles.button}
         onPress={onPress}
       >
-        <Text>Press Here</Text>
+        <Paragraph>Press Me</Paragraph>
       </TouchableOpacity>
       <Title>{count}</Title>
-      <Title>💅💅💅</Title>
+      <Title>🐰🐰🐰</Title>
     </Container>
   )
 }
