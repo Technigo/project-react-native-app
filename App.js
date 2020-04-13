@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 const Container = styled.View`
   flex: 1;
@@ -13,11 +14,38 @@ const Title = styled.Text`
   color: palevioletred;
 `
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
+  countContainer: {
+    alignItems: "center",
+    padding: 10
+  }
+});
+
+
 const App = () => {
+  const [count, setCount] = useState(0)
+  const onPress = () => setCount(prevCount => prevCount + 1);
+
+
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={onPress}
+      >
+        <Text>Press Here</Text>
+      </TouchableOpacity>
+      <Title>{count}</Title>
       <Title>💅💅💅</Title>
     </Container>
   )
