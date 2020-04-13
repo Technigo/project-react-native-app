@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import { PhotosPreview } from './PhotosPreview'
 import * as ImagePicker from 'expo-image-picker'
 import { Accelerometer } from 'expo-sensors';
-import { Vibration } from 'react-native';
+import { Vibration, TouchableOpacity } from 'react-native';
 
 
 const WelcomeWrapper = styled.View`
@@ -17,7 +17,6 @@ flex-direction: row;
 flex-wrap: wrap;
 justify-content: center;
 align-items: center;
-
 `
 const Header = styled.Text`
 font-size: 40px;
@@ -84,9 +83,6 @@ export const Welcome = (props) => {
             <Header>Welcome! Start by picking 7 images from your camera or photo library.</Header>
             <PreviewWrapper>
                 <PhotosPreview photos={photos} sizing={shuffled ? 60 : 95} shuffled={shuffled} />
-                {/* {shuffled &&
-                    // <PhotosPreview photos={photos} sizing={60} secondImage={uri: photo} />
-                } */}
             </PreviewWrapper>
             {photos.length < 14 &&
                 <ButtonsContainer>
@@ -96,13 +92,15 @@ export const Welcome = (props) => {
                     <ButtonShell onPress={handlePress}><ButtonText>🎞</ButtonText></ButtonShell>
                 </ButtonsContainer>}
             {photos.length === 14 && !shuffled &&
-                <ShuffleText>Great! Shake your phone to shuffle and start.</ShuffleText>}
+                <TouchableOpacity onPress={() => shuffleArray(photos)}>
+                    <ShuffleText>Tap this text or shake your phone to shuffle the photos.</ShuffleText>
+                </TouchableOpacity>}
+
             {photos.length === 14 && shuffled &&
                 <ButtonShell onPress={() => setReady(true)}>
                     <ButtonText>Begin</ButtonText>
                 </ButtonShell>
             }
-
         </WelcomeWrapper>
     )
 }

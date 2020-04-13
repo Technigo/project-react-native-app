@@ -12,12 +12,12 @@ export const PhotosPreview = (props) => {
         preview.map((item, index) => {
             return index % 2 === 0 ?
                 <Animatable.View animation="rubberBand">
-                    <Image source={{ uri: item }}
+                    <Image key={index} source={{ uri: item }}
                         style={{ width: sizing, height: sizing, margin: 7 }} />
                 </Animatable.View>
                 :
                 <Animatable.View animation="rubberBand">
-                    <Image source={{ uri: item }} style={{
+                    <Image key={index} source={{ uri: item }} style={{
                         width: shuffled ? sizing : 0, height:
                             shuffled ? sizing : 0
                     }}>

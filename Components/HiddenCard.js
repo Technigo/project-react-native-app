@@ -33,7 +33,6 @@ export const HiddenCard = (props) => {
             setFirstGuess(photoId)
             setCount(count + 1)
         } else if (count === 1) {
-            setChecking(true)
             setSelectedCard([...selectedCard, id])
             setTimeout(() => { check(photoId) }, 1000)
         }
@@ -59,8 +58,9 @@ export const HiddenCard = (props) => {
             const oldMoves = await AsyncStorage.getItem('moves')
             await AsyncStorage.setItem('moves', `${moves}`)
             const newMoves = await AsyncStorage.getItem('moves')
-            window.alert(newMoves < oldMoves ? `${newMoves}? You're getting better!` : newMoves === oldMoves ?
-                `${newMoves}? Same as last time!` : `${newMoves}? 
+            window.alert(oldMoves === null ? `${newmoves}? Not bad for your first time!` : newMoves < oldMoves ?
+                `${newMoves}? You're getting better!` : newMoves === oldMoves ?
+                    `${newMoves}? Same as last time!` : `${newMoves}? 
             Last time it was ${oldMoves}!`)
         }
     }
