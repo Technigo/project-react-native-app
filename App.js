@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { ScrollView } from 'react-native'
 import styled from 'styled-components/native'
 import { DogsList } from './components/DogsList'
 import { NavigationContainer } from '@react-navigation/native'
@@ -23,12 +23,14 @@ const Stack = createStackNavigator();
 const App = () => {
 
   return (
+    
     <NavigationContainer>
       <Stack.Navigator>
-          <Stack.Screen name="breeds" component={DogsList} />
-          <Stack.Screen name="breed" component={DogDetails} />
+        <Stack.Screen name="Doggos" component={DogsList} />
+        <Stack.Screen name='Doggo Details' component={DogDetails} />
       </Stack.Navigator>
     </NavigationContainer>
+    
   )
 }
 
