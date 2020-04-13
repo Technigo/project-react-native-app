@@ -1,13 +1,16 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The task was to create a mobile app in React Native.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by testing how to get access to the user's camera and photo library and then display photos the user had
+taken in the DOM. After accomplishing this I decided to create a 'memory game' using the user's photos.
+The first thing was to set the photos to an empty array and then map them. The shuffle algorithm I found
+online as it is more properly random than the math.random library. The most tricky part was creating the logic
+for the game. I created an array state that each card would be pushed to when pressed, using the
+unique photo URIs as IDs. If they did not match they could both be popped from the array. Since setState is asynchronous I had to use a callback functionto check if the cards matched, and use a setTimeout to prevent too many cards being pushed to the array before the old incorrect ones had been popped. 
 
-## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
+
