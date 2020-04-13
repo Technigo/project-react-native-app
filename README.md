@@ -1,13 +1,17 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+A project created in Technigo frontend development boot camp.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The objective was to get to know React Native and explore the possibilities, and the tools and workflows needed for production and creation. Also a practice in using styled components.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+A lot of new tools, techniques and concepts to grasp in a short period of time, so I focused on the basics and to try out a few things. I choose to follow a tutorial involving using a permission request and the sharing function. I also worked with the styled components to get an understanding of the logic and concept. 
 
-## View it live
+If I had more time I would start over and try to build something of my own with other sensors and also try out navigation. 
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+In this app I would try to add a "Share another image" function.
+
+## Link to repo on GitHub
+
+https://github.com/lisahammarstrand/project-react-native-app

@@ -19,6 +19,11 @@ const Title = styled.Text`
   text-align: center;
   margin-bottom: 20px;
 `
+const TitleCameraIcon = styled.Text`
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+`
 const Logo = styled.Image`
   width: 150px;
   height: 150px;
@@ -30,9 +35,10 @@ const ButtonPickImage = styled.TouchableOpacity`
   border-radius: 5px;
 `
 const ButtonShare = styled.TouchableOpacity`
-  background-color: darkgreen;
+  background-color: darkblue;
   padding: 20px;
   border-radius: 5px;
+  margin-top: 20px;
 `
 const ButtonText = styled.Text`
   font-size: 20px;
@@ -47,8 +53,8 @@ const ImageContainer = styled.View`
 const PickedImage = styled.Image`
   width: 300px;
   height: 300px;
+  border: 2px solid white;
 `
-
 
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null)
@@ -56,7 +62,7 @@ const App = () => {
   const openImagePickerAsync = async () => {
     if (Constants.platform.ios) {
       const { status } = await
-        Permissions.getAsync(Permissions.CAMERA_ROLL)
+        Permissions.askAsync(Permissions.CAMERA_ROLL)
 
       if (status !== "granted") {
         alert("Hey! Permission to camera roll is required to make this work.")
@@ -101,7 +107,7 @@ const App = () => {
         <Logo source={logo} />
       </View>
       <Title>Let's share some pics!</Title>
-      <Title>📷📷📷</Title>
+      <TitleCameraIcon>📷📷📷</TitleCameraIcon>
       <Title>Share a photo with a friend, just press the button below!</Title>
       <ButtonPickImage onPress={openImagePickerAsync}>
         <ButtonText>Pick a photo</ButtonText>
