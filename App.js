@@ -20,7 +20,7 @@ const ClickSurface = styled.TouchableOpacity`
 
 const App = () => {
   const [quoteArray, setQuoteArray] = useState([])
-  const [quote, setQuote] = useState("test")
+  const [quote, setQuote] = useState({})
 
   let [fontLoaded] = useFonts({
     'Introspect-Bk': require('./assets/fonts/Introspect-Bk.otf'),
@@ -46,7 +46,7 @@ const App = () => {
   } else {
     return (
       <Container>
-        <QuoteContainer quote={quote} />
+        <QuoteContainer quote={quote.quote} author={quote.author} />
         <ClickSurface
           onPress={onPress}
         />
@@ -58,9 +58,9 @@ const App = () => {
 export default App
 
 const randomQuote = (array) => {
-  let quote = array[Math.floor(Math.random() * array.length)].quote
-  while (quote.length > 210) {
-    quote = array[Math.floor(Math.random() * array.length)].quote
+  let quote = array[Math.floor(Math.random() * array.length)]
+  while (quote.quote.length > 200) {
+    quote = array[Math.floor(Math.random() * array.length)]
   }
   return quote
 }
