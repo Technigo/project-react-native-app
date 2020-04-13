@@ -8,9 +8,15 @@ let red = 0;
 let green = 0;
 let blue = 0;
 
+let hue = 1
+let saturation = 100
+let luminosity = 50
+
 const QuoteContainer = ({ text, textStyle }) => {
   const [gyroData, setGyroData] = useState({});
+  const [accelData, setAccelData] = useState({});
   Gyroscope.setUpdateInterval(100);
+  Accelerometer.setUpdateInterval(100);
 
 
   const styles = StyleSheet.create({
@@ -21,52 +27,44 @@ const QuoteContainer = ({ text, textStyle }) => {
       justifyContent: "center",
       alignItems: "center",
     },
+    containerBgColor: {
+      width: 100,
+      height: 100,
+      // backgroundColor: `hsl(${hue}, ${saturation}%, ${luminosity}%)`,
+    },
     text: {
       textAlign: 'center',
       fontFamily: 'Introspect-Bk',
-      color: "white",
+      // color: `${HSLToRGB(hue, saturation, luminosity)}`,
+      color: `white`,
       width: "80%",
       fontSize: 40,
     },
   });
 
-
   useEffect(() => {
-    _toggleG();
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      _unsubscribeG();
-    };
-  }, []);
-
-  const _toggleG = () => {
-    if (this._subscriptionG) {
-      _unsubscribeG();
-    } else {
-      _subscribeG();
-    }
-  };
-
-
-
-  const _subscribeG = () => {
-    this._subscriptionG = Gyroscope.addListener(gyroscopeData => {
+    Gyroscope.addListener(gyroscopeData => {
       setGyroData(gyroscopeData);
     });
-  };
+  }, []);
 
-  const _unsubscribeG = () => {
-    this._subscriptionG && this._subscriptionG.remove();
-    this._subscriptionG = null;
-  };
+  useEffect(() => {
+    Accelerometer.addListener(accelerometerData => {
+      setAccelData(accelerometerData);
+    });
+  }, []);
 
-  let { x, y, z } = gyroData;
 
-  red = Math.abs(Math.floor(round(x) * 255))
-  green = Math.abs(Math.floor(round(y) * 255))
-  blue = Math.abs(Math.floor(round(z) * 255))
+  let { x: gyroX, y: gyroY, z: gyroZ } = gyroData;
+  let { x: accelX, y: accelY, z: accelZ } = accelData;
+
+  hue = Math.abs(Math.floor(accelY * 360))
+  saturation = Math.floor(100 - Math.abs(accelX * 100))
+  luminosity = Math.floor(50 + (Math.max(gyroX, gyroY, gyroZ) * 5))
+
+  // red = Math.abs(Math.floor(round(x) * 255))
+  // green = Math.abs(Math.floor(round(y) * 255))
+  // blue = Math.abs(Math.floor(round(z) * 255))
 
   //hsl to rgb function
   //https://css-tricks.com/converting-color-spaces-in-javascript/
@@ -74,10 +72,12 @@ const QuoteContainer = ({ text, textStyle }) => {
 
   return (
     <>
-      <LinearGradient style={styles.container} colors={[`rgb(${red}, ${green}, ${blue})`, `rgb(${red}, ${blue}, ${green})`]}>
+      <LinearGradient style={styles.container} colors={[`${HSLToRGB(hue, saturation, luminosity)}`, `${HSLToRGB(hue + 90, saturation, luminosity)}`]}>
         <Text style={styles.text}>
-          {text}
+          {/* {text} */}
           {/* x: {round(x)} y: {round(y)} z: {round(z)} */}
+          hue: {hue} sat: {saturation} lum: {luminosity}
+          RGB: {HSLToRGB(hue, saturation, luminosity)}
         </Text>
       </LinearGradient>
     </>
@@ -98,6 +98,7 @@ function round(n) {
 
 function HSLToRGB(h, s, l) {
   // Must be fractions of 1
+
   s /= 100;
   l /= 100;
 
