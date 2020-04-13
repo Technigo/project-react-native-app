@@ -90,12 +90,12 @@ const StyledCorrectAnswer = styled.Text`
 `
 
 const StyledButton = styled.Text`
-  height: ${props => props.userAnswer ? "35px" : "0px"}
-  background-color: rgb(137, 225, 106) ;
-  font-size: 25px;
-  font-weight: bold;
-  font-family: monospace;
-  margin-top: 15;
-  padding: 0 20px;
-  border-radius: 20px;
+height: ${props => props.userAnswer ? "auto" : "0px"}
+background-color: #eeba30;
+font-size: 25px;
+font-weight: bold;
+font-family: monospace;
+margin-top: 15;
+padding: ${props => props.userAnswer ? "10px" : "0px"}
+border-radius: 20px;
 `

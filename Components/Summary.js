@@ -62,11 +62,11 @@ const StyledText = styled.Text`
   padding: 0 20px;
 `
 const StyledButton = styled.Text`
-  background-color: rgb(137, 225, 106);
+  background-color: #eeba30;
   font-size: 25px;
   font-weight: bold;
   font-family: monospace;
   margin-top: 15;
-  padding: 0 20px;
+  padding: 10px;
   border-radius: 20px;
 `
