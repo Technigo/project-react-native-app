@@ -1,26 +1,41 @@
-import React from 'react'
-import styled from 'styled-components/native'
+import React, { useState } from 'react'
+import Header from './components/Header'
+import BreakLength from './components/BreakLength'
+import SessionLength from './components/SessionLength'
+import Timer from './components/Timer'
+import { View, ImageBackground, StyleSheet } from "react-native";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+const image = { uri: 'https://images.unsplash.com/photo-1558818498-28c1e002b655?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' }
 
 const App = () => {
+
+  const [breakLength, setBreakLength] = useState(5)
+  const [sessionLength, setSessionLength] = useState(25)
+  const [session, setSession] = useState(true)
+  const [timerMinute, setTimerMinute] = useState(25)
+
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <View style={styles.container}>
+      <ImageBackground source={image} style={styles.image}>
+        <Header title='Pomodoro timer' />
+        <BreakLength breakLength={breakLength} setBreakLength={setBreakLength} />
+        <SessionLength sessionLength={sessionLength} setSessionLength={setSessionLength} setTimerMinute={setTimerMinute} />
+        <Timer session={session} timerMinute={timerMinute} breakTimer={breakLength} />
+      </ImageBackground>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column"
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  }
+})
 
 export default App
