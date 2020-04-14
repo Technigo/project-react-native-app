@@ -4,8 +4,6 @@ import styled from 'styled-components/native'
 import { GiphyChoice } from './components/GiphyChoice.js'
 import { Image, Share } from "react-native";
 
-// const api_key = "lByN5BPEwk9MR74phtPh0JpBBBBWyuVH";
-
 export const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
