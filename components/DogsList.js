@@ -37,7 +37,7 @@ export const DogsList = ({ navigation }) => {
   const [dogs, setDogs] = useState([])
 
   useEffect(() => {
-    fetch('https://api.thedogapi.com/v1/breeds?limit=100&page=0')
+    fetch('https://api.thedogapi.com/v1/breeds?limit=1000&page=0')
       .then((res) => res.json())
       .then((json) => 
       {console.log(json)

@@ -50,15 +50,16 @@ color:#453930;
 export const DogDetails = ({ route }) => {
   const APIkey = `ee52902c-58da-4c17-881c-5ed49ec22dd2`
   const { breed } = route.params
-  const { image } = route.params
+
   const [photo, setPhoto] = useState([])
   // const [detail, setDetail] = useState({
   //   id: '',
   //   url: ''
   // })
+  const doggoDetail = `https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=${breed.id}`
 
   useEffect(() => {
-    fetch(`https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=DESC-&page=0&limit=10`,
+    fetch(doggoDetail,
       { headers: { Authorization: APIkey } })
       .then((res) => res.json())
 
@@ -68,8 +69,10 @@ export const DogDetails = ({ route }) => {
       })
   }, [breed])
 
-  const randomdogs = 'https://api.thedogapi.com/v1/images/search'
-  const dogImage = { uri: `https://cdn2.thedogapi.com/images/${photo.id}_1280.jpg` }
+
+
+  // const randomdogs = 'https://api.thedogapi.com/v1/images/search'
+  // const dogImage = { uri: `https://cdn2.thedogapi.com/images/${photo.id}_1280.jpg` }
 
   return (
 
@@ -79,14 +82,16 @@ export const DogDetails = ({ route }) => {
       <TemperamentContainer>
         <TemperamentHeader>Temperament</TemperamentHeader>
         <TemperamentText>{breed.temperament}</TemperamentText>
-        <Text>{breed.id}</Text>
+
+
       </TemperamentContainer>
 
       {photo.map((image) => (
         <View key={image.id}>
           <Image
+            resizeMode="contain"
             source={{ uri: image.url }}
-            style={{ width: 200, height: 200 }}
+            style={{ width: 300, height: 300 }}
             accessibilityLabel={breed.name} />
         </View>
       ))}
