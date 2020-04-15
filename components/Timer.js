@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { Text } from "react-native"
 
@@ -29,31 +29,61 @@ const Button = styled.TouchableOpacity`
   background-color: yellow;
 `
 
-export default function Timer({ session, timerMinute, breakTimer }) {
+export default function Timer({ session, breakTimer, setTimerSecond, timerSecond }) {
 
-  const [timerSecond, setTimerSecond] = useState(0)
+  const [paused, setPaused] = useState(true)
+
+  useEffect(() => {
+    const int = setInterval(() => {
+      if (!paused) {
+        setTimerSecond(s => s - 1);
+      }
+    }, 1000);
+    return () => {
+      clearInterval(int);
+    };
+  }, [paused]);
+
+  function startTimer() {
+    setPaused(false);
+  }
+  function pauseTimer() {
+    setPaused(true);
+  }
+  function resetTimer() {
+    setPaused(true);
+    setTimerSecond(25 * 60);
+  }
+
+  /*
+  const start = () => {
+    const idForTimer = setInterval(() => {
+      if (timerSecond > 0) {
+        setTimerSecond((prevState) => prevState - 1)
+      } if (timerSecond === 0) {
+        if (timerMinute === 0) {
+          clearInterval(idForTimer)
+        } else {
+          setTimerMinute((prevState) => prevState - 1)
+          setTimerSecond(59)
+        }
+      }
+    }, 1000)
+  }
+  */
 
   return (
     <>
       <Container>
         <Title>Session </Title>
         <ShowSession>{session ? 'Session' : 'Break'}</ShowSession>
-        <ShowLength>{timerMinute}</ShowLength>
-        <ShowLength>:</ShowLength>
-        <ShowLength>{timerSecond === 0
-          ? '00'
-          : timerMinute < 10
-            ? `0${timerSecond}`
-            : timerSecond}</ShowLength>
+        <ShowLength>{`${Math.floor(timerSecond / 60)}`} : {`${("00" + (timerSecond % 60)).slice(-2)}`}</ShowLength>
       </Container>
       <ButtonContainer>
-        <Button>
-          <Text>Start</Text>
+        <Button onPress={paused ? startTimer : pauseTimer}>
+          <Text>{paused ? 'Start' : 'Pause'}</Text>
         </Button>
-        <Button>
-          <Text>Pause</Text>
-        </Button>
-        <Button>
+        <Button onPress={resetTimer}>
           <Text>Refresh</Text>
         </Button>
       </ButtonContainer>

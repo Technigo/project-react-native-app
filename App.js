@@ -9,18 +9,30 @@ const image = { uri: 'https://images.unsplash.com/photo-1558818498-28c1e002b655?
 
 const App = () => {
 
-  const [breakLength, setBreakLength] = useState(5)
+  const [breakLength, setBreakLength] = useState(5 * 60)
   const [sessionLength, setSessionLength] = useState(25)
   const [session, setSession] = useState(true)
-  const [timerMinute, setTimerMinute] = useState(25)
+  const [timerSecond, setTimerSecond] = useState(25 * 60)
+
+  const onSwitch = (isSession) => {
+    if (isSession) {
+      this.setState({
+        timerMinute: this.state.sessionLength
+      })
+    } else {
+      this.setState({
+        timerMinute: this.state.breakLength
+      })
+    }
+  }
 
   return (
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
         <Header title='Pomodoro timer' />
         <BreakLength breakLength={breakLength} setBreakLength={setBreakLength} />
-        <SessionLength sessionLength={sessionLength} setSessionLength={setSessionLength} setTimerMinute={setTimerMinute} />
-        <Timer session={session} timerMinute={timerMinute} breakTimer={breakLength} />
+        <SessionLength sessionLength={sessionLength} setSessionLength={setSessionLength} setTimerSecond={setTimerSecond} />
+        <Timer session={session} timerSecond={timerSecond} setTimerSecond={setTimerSecond} breakTimer={breakLength} />
       </ImageBackground>
     </View>
   )
