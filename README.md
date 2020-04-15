@@ -15,4 +15,4 @@ Started out with the layout of the form to have one question with different answ
 
 ## View it live
 
-Expo Snack: https://snack.expo.io/@bealun/office-quiz
+Expo Snack: https://snack.expo.io/@bealun/cedc7e
