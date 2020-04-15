@@ -32,7 +32,7 @@ const App = () => {
         <Header title='Pomodoro timer' />
         <BreakLength breakLength={breakLength} setBreakLength={setBreakLength} />
         <SessionLength sessionLength={sessionLength} setSessionLength={setSessionLength} setTimerMinute={setTimerMinute} />
-        <Timer session={session} timerMinute={timerMinute} setTimerMinute={setTimerMinute} breakTimer={breakLength} />
+        <Timer session={session} timerMinute={timerMinute} setTimerMinute={setTimerMinute} breakTimer={breakLength} setSessionLength={setSessionLength} setBreakLength={setBreakLength} />
       </ImageBackground>
     </View>
   )

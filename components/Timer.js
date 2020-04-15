@@ -29,9 +29,9 @@ const Button = styled.TouchableOpacity`
   background-color: yellow;
 `
 
-export default function Timer({ session, setTimerMinute, timerMinute }) {
+export default function Timer({ session, setTimerMinute, timerMinute, setSessionLength, setBreakLength }) {
 
-  const [paused, setPaused] = useState(false)
+  const [paused, setPaused] = useState(true)
   const [over, setOver] = useState(false)
   const [timerSecond, setTimerSecond] = useState(0)
 
@@ -57,8 +57,10 @@ export default function Timer({ session, setTimerMinute, timerMinute }) {
   const reset = () => {
     setTimerMinute(25)
     setTimerSecond(0)
-    setPaused(false)
+    setPaused(true)
     setOver(false)
+    setSessionLength(25)
+    setBreakLength(5)
   };
 
   useEffect(() => {
