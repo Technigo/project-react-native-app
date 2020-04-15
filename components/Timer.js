@@ -29,64 +29,59 @@ const Button = styled.TouchableOpacity`
   background-color: yellow;
 `
 
-export default function Timer({ session, breakTimer, setTimerSecond, timerSecond }) {
+export default function Timer({ session, setTimerMinute, timerMinute }) {
 
-  const [paused, setPaused] = useState(true)
+  const [paused, setPaused] = useState(false)
+  const [over, setOver] = useState(false)
+  const [timerSecond, setTimerSecond] = useState(0)
+
+  const tick = () => {
+    // do nothing if paused or over
+    if (paused || over) return;
+
+    // Time up
+    if (timerMinute === 0 && timerSecond === 0) {
+      setOver(true)
+    } else if (timerSecond === 0) {
+      // decrement minute
+      setTimerMinute(m => m - 1)
+      setTimerSecond(59)
+    } else {
+      // decrement seconds
+      setTimerMinute(timerMinute)
+      setTimerSecond(s => s - 1)
+    }
+  }
+
+  // Resets to original state
+  const reset = () => {
+    setTimerMinute(25)
+    setTimerSecond(0)
+    setPaused(false)
+    setOver(false)
+  };
 
   useEffect(() => {
-    const int = setInterval(() => {
-      if (!paused) {
-        setTimerSecond(s => s - 1);
-      }
-    }, 1000);
-    return () => {
-      clearInterval(int);
-    };
-  }, [paused]);
-
-  function startTimer() {
-    setPaused(false);
-  }
-  function pauseTimer() {
-    setPaused(true);
-  }
-  function resetTimer() {
-    setPaused(true);
-    setTimerSecond(25 * 60);
-  }
-
-  /*
-  const start = () => {
-    const idForTimer = setInterval(() => {
-      if (timerSecond > 0) {
-        setTimerSecond((prevState) => prevState - 1)
-      } if (timerSecond === 0) {
-        if (timerMinute === 0) {
-          clearInterval(idForTimer)
-        } else {
-          setTimerMinute((prevState) => prevState - 1)
-          setTimerSecond(59)
-        }
-      }
-    }, 1000)
-  }
-  */
+    let timerID = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerID);
+  })
 
   return (
     <>
       <Container>
         <Title>Session </Title>
-        <ShowSession>{session ? 'Session' : 'Break'}</ShowSession>
-        <ShowLength>{`${Math.floor(timerSecond / 60)}`} : {`${("00" + (timerSecond % 60)).slice(-2)}`}</ShowLength>
+        <ShowSession>{session ? 'Focus' : 'Break'}</ShowSession>
+        <ShowLength>{`${timerMinute.toString().padStart(2, '0')}`}:{`${timerSecond.toString().padStart(2, '0')}`}</ShowLength>
       </Container>
       <ButtonContainer>
-        <Button onPress={paused ? startTimer : pauseTimer}>
+        <Button onPress={() => setPaused(!paused)}>
           <Text>{paused ? 'Start' : 'Pause'}</Text>
         </Button>
-        <Button onPress={resetTimer}>
+        <Button onPress={reset}>
           <Text>Refresh</Text>
         </Button>
       </ButtonContainer>
+      {over ? <Container><Text>Time is up</Text></Container> : null}
     </>
   )
 }

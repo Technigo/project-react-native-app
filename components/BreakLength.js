@@ -44,7 +44,7 @@ export default function BreakLength({ breakLength, setBreakLength }) {
       <Button onPress={downPress}>
         <Text>Down</Text>
       </Button>
-      <ShowLength>{`${Math.floor(breakLength / 60)}`}</ShowLength>
+      <ShowLength>{breakLength}</ShowLength>
       <Button onPress={upPress}>
         <Text>Up</Text>
       </Button>

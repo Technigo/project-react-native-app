@@ -20,14 +20,14 @@ const Button = styled.TouchableOpacity`
   background-color: yellow;
 `
 
-export default function SessionLength({ sessionLength, setSessionLength, setTimerSecond }) {
+export default function SessionLength({ sessionLength, setSessionLength, setTimerMinute }) {
 
   const downPress = () => {
     if (sessionLength === 1) {
       return
     } else {
       setSessionLength(sessionLength => sessionLength - 1)
-      setTimerSecond(sessionLength => sessionLength - 60)
+      setTimerMinute(sessionLength => sessionLength - 1)
     }
   }
 
@@ -36,7 +36,7 @@ export default function SessionLength({ sessionLength, setSessionLength, setTime
       return
     } else {
       setSessionLength(sessionLength => sessionLength + 1)
-      setTimerSecond(sessionLength => sessionLength + 60)
+      setTimerMinute(sessionLength => sessionLength + 1)
     }
   }
 
