@@ -7,39 +7,39 @@ import { Vibration, TouchableOpacity } from 'react-native';
 
 
 const WelcomeWrapper = styled.View`
-padding: 10px;
-justify-content: space-around
-flex: 1;
-align-items: center;
+  padding: 10px;
+  justify-content: space-around
+  flex: 1;
+  align-items: center;
 `
 const PreviewWrapper = styled.View`
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `
 const Header = styled.Text`
-font-size: 40px;
-color: palevioletred;
+  font-size: 40px;
+  color: palevioletred;
 `
 const ButtonShell = styled.TouchableOpacity`
-border: 1px solid palevioletred;
-padding: 20px;
-border-radius: 50;
+  border: 1px solid palevioletred;
+  padding: 20px;
+  border-radius: 50;
 `
 const ButtonText = styled.Text`
-color: palevioletred;
-font-size: 40px;
+  color: palevioletred;
+  font-size: 40px;
 `
 const ButtonsContainer = styled.View`
-flex-direction: row;
-justify-content: space-around;
-width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 `
 
 const ShuffleText = styled.Text`
-color: palevioletred;
-font-size: 24px;
+  color: palevioletred;
+  font-size: 24px;
 `
 
 export const Welcome = (props) => {
@@ -60,7 +60,7 @@ export const Welcome = (props) => {
             setPhotos(photos => [result.uri, ...photos])
         }
     }
-    function shuffleArray(array) {
+    const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
@@ -75,8 +75,7 @@ export const Welcome = (props) => {
             Vibration.vibrate()
             shuffleArray(photos)
         }
-    }
-    )
+    })
 
     return (
         <WelcomeWrapper>

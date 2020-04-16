@@ -11,6 +11,9 @@ online as it is more properly random than the math.random library. The most tric
 for the game. I created an array state that each card would be pushed to when pressed, using the
 unique photo URIs as IDs. If they did not match they could both be popped from the array. Since setState is asynchronous I had to use a callback functionto check if the cards matched, and use a setTimeout to prevent too many cards being pushed to the array before the old incorrect ones had been popped. 
 
+If I'd had more time I would have made the game appear on a seperate page linked from the 'welcome' page. I would also
+have styled it properly. E
+
 
 
 

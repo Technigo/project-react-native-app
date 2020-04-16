@@ -5,7 +5,7 @@ import * as Animatable from 'react-native-animatable';
 import { AsyncStorage } from 'react-native';
 
 const Image = styled.Image`
-border-radius: 8px;
+  border-radius: 8px;
   box-shadow: 2px 2px 10px grey;
   margin: 10px;
   width: 100px;
@@ -44,7 +44,7 @@ export const HiddenCard = (props) => {
             setTimeout(() => { finished() }, 1000)
 
 
-        } else if (firstGuess != photoId) {
+        } else if (firstGuess !== photoId) {
             Vibration.vibrate()
             setSelectedCard([...selectedCard, selectedCard.pop()])
             setSelectedCard([...selectedCard, selectedCard.pop()])
@@ -60,7 +60,7 @@ export const HiddenCard = (props) => {
             const newMoves = await AsyncStorage.getItem('moves')
             window.alert(oldMoves === null ? `${newmoves}? Not bad for your first time!` : newMoves < oldMoves ?
                 `${newMoves}? You're getting better!` : newMoves === oldMoves ?
-                    `${newMoves}? Same as last time!` : `${newMoves}? 
+                    `${newMoves} moves? Same as last time!` : `${newMoves} moves? 
             Last time it was ${oldMoves}!`)
         }
     }

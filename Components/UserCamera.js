@@ -8,11 +8,27 @@ export const UserCamera = (props) => {
     const [cameraRef, setCameraRef] = useState(null);
 
     const CameraButtons = styled.View`
-flex-direction: row;
-justify-content: space-around;
-align-items: center;
-margin-bottom: 20px;
-`
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 20px;`
+
+    const PhotoButtonOuter = styled.View`
+      border: 2px solid white;
+      border-radius: 50;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    `
+    const PhotoButtonInner = styled.View`
+      border: 2px solid red;
+      border-radius: 50;
+      height: 40px;
+      width: 40px;
+      background-color: red;
+    `
 
     return (
         <Camera style={{ flex: 1, justifyContent: 'flex-end' }} type={type} ref={ref => {
@@ -40,26 +56,10 @@ margin-bottom: 20px;
                             }
                         }
                     }}>
-                    <View style={{
-                        borderWidth: 2,
-                        borderRadius: "50%",
-                        borderColor: 'white',
-                        height: 50,
-                        width: 50,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                        <View style={{
-                            borderWidth: 2,
-                            borderRadius: "50%",
-                            borderColor: 'red',
-                            height: 40,
-                            width: 40,
-                            backgroundColor: 'red'
-                        }}>
-                        </View>
-                    </View>
+                    <PhotoButtonOuter>
+                        <PhotoButtonInner >
+                        </PhotoButtonInner>
+                    </PhotoButtonOuter>
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => setShowCamera(false)}>

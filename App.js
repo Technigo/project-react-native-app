@@ -8,24 +8,25 @@ import { Welcome } from './Components/Welcome'
 import { ResetButton } from './ResetButton'
 
 const LargeContainer = styled.View`
-background-color: papayawhip;
-justify-content: center;
+  flex: 1;
+  background-color: papayawhip;
+  justify-content: center;
 
 `
 const CardContainer = styled.View`
-flex-direction: row;
+  flex-direction: row;
   flex-wrap: wrap;
   padding: 20px 5px 0 5px;
 `
 
 const MovesCount = styled.Text`
-font-size: 32px;
-color: palevioletred;
-margin: 10px;
-width: 100;
-height: 100;
-text-align: center;
-justify-content: space-around;
+  font-size: 32px;
+  color: palevioletred;
+  margin: 10px;
+  width: 100;
+  height: 100;
+  text-align: center;
+  justify-content: space-around;
 `
 
 export default function App() {
@@ -42,7 +43,7 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      const { status } = await Permissions.askAsync(Permissions.CAMERA) && await Permissions.askAsync(Permissions.AUDIO_RECORDING)
+      const { status } = await Permissions.askAsync(Permissions.CAMERA)
         && await Permissions.askAsync(Permissions.CAMERA_ROLL)
       setHasPermission(status === 'granted');
       if (hasPermission === null) {
@@ -55,9 +56,8 @@ export default function App() {
   }, []);
 
   return (
-    <LargeContainer style={{ flex: 1 }}>
+    <LargeContainer>
       {!showCamera && !ready &&
-
         <Welcome photos={photos} setPhotos={setPhotos} setShowCamera={setShowCamera} shuffled={shuffled} setShuffled={setShuffled}
           setReady={setReady} />
       }
