@@ -37,8 +37,8 @@ const MyTouchableOpacity = styled.TouchableOpacity`
   `
   const MyTextInput = styled.TextInput`
   margin: 10px;
-  padding: 10px;
-  width: 100; 
+  padding: 20px;
+  width: 150; 
   border-color: gray; 
   border-width: 1;
   background-color: white; 
@@ -46,9 +46,8 @@ const MyTouchableOpacity = styled.TouchableOpacity`
   `
 
 export const Search = ({navigation}) => {
-  // const {MyTextInput}=useParams()
 
-  const [value, onChangeText] = React.useState('Location 📍')
+  const [value, onChangeText] = React.useState('Ur Location 📍')
   return (
     <Container>
     <NailTitle> NEED A MANI OR A PEDI? </NailTitle>

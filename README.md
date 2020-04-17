@@ -7,7 +7,6 @@ The assigment was to to an app on React Native and to use style components, sinc
 
 I think that I'm a bit use of technology lagging and crashing, that React native didn't bother me that much. I think my greatest problem started in the beggining with the whole expo-setup. 
 After that it went pretty smooth. The biggest AHA-moments for me was used <View> then all of my coding worked. I still don't totally understand style components fully, but I'm starting to grasp how to use it. 
-Hopefully by the time somebody is reading this, I was able to fix my textinput to my API and that once entering a city in the <TextInput> the API will read the salons in the city mentioned. ATM the APP is fixed set on Stockholm and my <TextInput> is of no use. 
 If I had more time I would also set up a dropdown to sort the salons, by name or ratings. 
 
 ## View it live

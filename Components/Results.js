@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components/native'
 import { StyleSheet, View, ScrollView  } from 'react-native'
 import {Search} from '../Components/Search'
-// import {Results} from '../Components/Search'
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -51,12 +50,12 @@ export const Results = ({route}) => {
       <Container>
         <ScrollView>
         {nails.map((nail) => (
-      <View key={nail.name}>
-      <Title>{nail.name}</Title>
-      <AdressTitle>{nail.formatted_address}</AdressTitle>
-      <RatingTitle>{nail.rating}/5 ⭐️</RatingTitle>
-      <Title>. . . </Title>
-      </View>
+          <View key={nail.name}>
+            <Title>{nail.name}</Title>
+            <AdressTitle>{nail.formatted_address}</AdressTitle>
+            <RatingTitle>{nail.rating}/5 ⭐️</RatingTitle>
+            <Title>. . . </Title>
+          </View>
         ))}
         </ScrollView>
       </Container>
