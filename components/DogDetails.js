@@ -26,7 +26,7 @@ const DogsDetailH2 = styled.Text`
   font-size: 24px;
   font-family:"CHIBOLD";
   color:#806b59;
-  margin-bottom:20px;
+  
   margin-left:20px;;
 `
 const TemperamentContainer = styled.View`
@@ -45,6 +45,9 @@ const TemperamentHeader = styled.Text`
 font-size: 28px;
 font-family:"CHIBOLD";
 color:#453930;
+`
+const DogImage = styled.Image`
+border-radius:10px;
 `
 
 export const DogDetails = ({ route }) => {
@@ -79,23 +82,19 @@ export const DogDetails = ({ route }) => {
     <Container>
       <DogsDetailH1>Breed Details</DogsDetailH1>
       <DogsDetailH2>{breed.name}</DogsDetailH2>
-      <TemperamentContainer>
-        <TemperamentHeader>Temperament</TemperamentHeader>
-        <TemperamentText>{breed.temperament}</TemperamentText>
-
-
-      </TemperamentContainer>
-
       {photo.map((image) => (
         <View key={image.id}>
-          <Image
+          <DogImage
             resizeMode="contain"
             source={{ uri: image.url }}
             style={{ width: 300, height: 300 }}
             accessibilityLabel={breed.name} />
         </View>
       ))}
-
+      <TemperamentContainer>
+        <TemperamentHeader>Temperament</TemperamentHeader>
+        <TemperamentText>{breed.temperament}</TemperamentText>
+      </TemperamentContainer>
 
     </Container>
 
