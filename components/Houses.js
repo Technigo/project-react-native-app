@@ -48,7 +48,7 @@ const RoundedImage = styled.ImageBackground`
 
 
 // LOAD CUSTOM FONTS:
-export const Houses = () => {
+export const Houses = ({navigation}) => {
   let [fontLoaded] = useFonts({
     'Inter-Black': require('../assets/fonts/Inter-Black.otf'),
   })

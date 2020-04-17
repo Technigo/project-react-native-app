@@ -1,9 +1,10 @@
 import React from 'react'
 // NAVIGATION:
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import styled from 'styled-components/native'
 import { Houses } from './components/Houses'
+import { Detail } from './components/Detail'
 
 // // import { Image } from 'react-native';
 import logo from './assets/got.png'
@@ -20,12 +21,16 @@ const Container = styled.View`
   color: palevioletred;
 `
  */
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <Container>
-      <Houses />  
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name='House' component={Houses} />
+      <Stack.Screen name='Detail' component={Detail} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
@@ -34,7 +39,6 @@ export default App
 
 // NAVIGATION: errors, errors
 /*
-const Stack = createStackNavigator();
 
 const App = () => {
   return (
