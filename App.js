@@ -17,13 +17,37 @@ const Title = styled.Text`
   color: palevioletred;
 `
 
+const InfoText = styled.Text`
+  font-size: 18px;
+`
+
+const HomeScreen = () => {
+  return (
+    <StyledView>
+      <Title>Home Screen</Title>
+    </StyledView>
+    
+  )
+}
+
+const DetailsScreen = () => {
+
+  return (
+    <StyledView>
+      <InfoText>Some info of some sort</InfoText>
+    </StyledView>
+  )
+  
+}
+
 const Stack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Touchable} />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
