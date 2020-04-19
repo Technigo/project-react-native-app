@@ -3,9 +3,28 @@ import styled from 'styled-components/native'
 
 const InfoText = styled.Text`
   font-size: 18px;
+  padding: 8px;
+  background-color: black;
+  color: white;
+`
+const StyledView = styled.View`
+  flex: 1;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+`
+const BtnText = styled.Text`
+  font-size: 25px;
+  color: white;
+  text-align: center
 `
 
-export const Details = () => {
+const Btn = styled.TouchableOpacity`
+  background-color: black;
+  height: 50px;
+`
+
+export const Details = ({navigation}) => {
   const [nasa, setNasa] = useState([])
 
   const nasaApi = 'https://api.nasa.gov/planetary/apod?api_key=08iR4WWfCjNzN30nufKyaR5LGHFjgXgynks7MDcF'
@@ -18,9 +37,12 @@ export const Details = () => {
 
   return (
     <>
-      <InfoText>{nasa.explanation}</InfoText>
+      <StyledView>
+        <InfoText>{nasa.explanation}</InfoText>
+      </StyledView>
+      <Btn title="Back" onPress={() => navigation.navigate('Home')}>
+        <BtnText>Back to Daily Image</BtnText>
+      </Btn>
     </>
-
-
   )
 }
