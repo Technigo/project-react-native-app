@@ -1,6 +1,6 @@
-# Project React Native App
+# Advice App 📱🔮
 
-This is my first app and it is an advice-giving-app using the Advice Slip JSON API https://api.adviceslip.com/ 📱🔮
+This is my first native app and it is an advice-giving-app using the Advice Slip JSON API https://api.adviceslip.com/ 
 
 ## Tech
 
@@ -10,7 +10,7 @@ This is my first app and it is an advice-giving-app using the Advice Slip JSON A
 - CSS
 
 
-## The problem
+## How I did it
 
 The app is done in React Native and using the styled-components library. I looked at some articles on Medium on how to use the shake function on the phone and got to have a peak at Ida Lindström's repo on Github https://github.com/horsefacegirl/project-react-native-app. She used the shake function for her Magic Eightball App.
 
