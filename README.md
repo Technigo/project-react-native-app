@@ -1,13 +1,13 @@
-# Project React Native App 📱
+# Project React Native App
 
-This is my first app and it is an advice-giving-app using the Advice Slip JSON API https://api.adviceslip.com/
+This is my first app and it is an advice-giving-app using the Advice Slip JSON API https://api.adviceslip.com/ 📱🔮
 
 ## Tech
 
-React Native
-JavaScript
-Styled Components
-CSS
+- React Native
+- JavaScript
+- Styled Components
+- CSS
 
 
 ## The problem
