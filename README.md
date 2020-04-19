@@ -2,6 +2,13 @@
 
 This is my first app and it is an advice-giving-app using the Advice Slip JSON API
 
+## Tech
+
+React Native
+JavaScript
+Styled Components
+CSS
+
 
 ## The problem
 
@@ -10,3 +17,7 @@ The app is done in React Native and using the styled-components library. I looke
 It is a simple solution where the app toggles between two screens with a question and an answer. 
 
 ## View it live
+
+It can be viewed here. 
+Note that this is an app that needs to be shook. So please try it out on your phone 🙂🙏🏼📱
+https://snack.expo.io/@ragna/advice-app
