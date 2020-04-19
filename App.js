@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Text, View, Alert, TouchableOpacity } from 'react-native';
 import styled from "styled-components/native"
-// import { Accelerometer } from 'expo-sensors';
-
+import { ShakeEventExpo } from './components/ShakeEventExpo'
 import { Introduction } from './components/Introduction.js'
 import { Button } from './components/Button.js'
+// import { Advice } from './components/Advice.js'
 
 const Container = styled.View`
   flex: 1;
@@ -19,26 +19,33 @@ const AdviceContainer = styled.View`
   background-color: #152266;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 `
 
-const Advice = styled.Text`
+const RandomAdvice = styled.Text`
   color: white;
+  text-align: center;
   font-size: 36px;
 `
 
+const ButtonText = styled.Text`
+  color: white;
+`
+
+
 const App = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+
   const allAdvice = [
     'Yes, of course.',
+    'Yes, absolutely.',
     'Go for it.',
-    'That could work',
+    'That could work.',
     'You should not.',
     'Oh no.',
     'Think again.',
     'Absolutely not.',
     'Perhaps.',
-    'Just do not'
+    'Just do not.',
+    'Never.'
   ]
 
   const myAdvice =
@@ -46,10 +53,24 @@ const App = () => {
     Math.floor(Math.random() * allAdvice.length)
     ]
 
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const shakePhone = () => {
+    setModalVisible(true)
+  }
+
+  useEffect(() => {
+    ShakeEventExpo.addListener(() => {
+      shakePhone()
+    })
+
+    return () => {
+      ShakeEventExpo.removeListener();
+    }
+  }, [])
+
   return (
     <Container>
-      {/* Accelerometer.addListener(listener) */}
-
       <Introduction />
       <Modal
         animationType="slide"
@@ -60,24 +81,17 @@ const App = () => {
         }}>
         <AdviceContainer>
           <View>
-            <Advice>{myAdvice}</Advice>
+            {/* <Advice /> */}
+            <RandomAdvice>{myAdvice}</RandomAdvice>
             <Button
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}>
-              <Text>More troubles?</Text>
+              <ButtonText>✨More troubles?✨</ButtonText>
             </Button>
           </View>
         </AdviceContainer>
       </Modal>
-
-      <Button
-        onPress=
-        {() => {
-          setModalVisible(true)
-        }}>
-        <Text>Click here for advice</Text>
-      </Button>
     </Container >
   );
 }
