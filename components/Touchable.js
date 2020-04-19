@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, } from 'react-native';
+import { TouchableOpacity, } from 'react-native';
 import styled from 'styled-components/native'
 
 const StyledView = styled.View`
