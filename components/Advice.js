@@ -21,7 +21,6 @@ const myAdvice =
   Math.floor(Math.random() * allAdvice.length)
   ]
 
-
 export const Advice = () => {
 
   return (
@@ -29,8 +28,6 @@ export const Advice = () => {
   )
 }
 
-
-// STYLING
 const RandomAdvice = styled.Text`
   color: white;
   font-size: 36px;

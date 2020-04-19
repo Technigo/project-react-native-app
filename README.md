@@ -1,13 +1,13 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is my first React Native App! It is a mystic 8 ball, giving you random advice when you shake your phone. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+When I had decided on what kind of app to make I started by sketching the app and making the randomizer work by pressing a button. The advice is mounted in a modal. Then I wanted a shake event, I googled and found someones code on a shake event. Then I checked some other student's projects on how they had used it tou figure out how to incoporate it in my structure. 
+If I had had more time I would have like to make it looked prettier and structured it into more components. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Take a look! 
+https://snack.expo.io/@emmapre/1f57ee

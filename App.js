@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Text, View, Alert, TouchableOpacity } from 'react-native';
+import { Modal, Text, View, Alert, TouchableOpacity } from 'react-native'
 import styled from "styled-components/native"
 import { ShakeEventExpo } from './components/ShakeEventExpo'
-import { Introduction } from './components/Introduction.js'
-import { Button } from './components/Button.js'
-// import { Advice } from './components/Advice.js'
+import { Introduction } from './components/Introduction'
+import { Button } from './components/Button'
+// import { Advice } from './components/Advice'
 
 const Container = styled.View`
   flex: 1;
@@ -30,7 +30,6 @@ const RandomAdvice = styled.Text`
 const ButtonText = styled.Text`
   color: white;
 `
-
 
 const App = () => {
 
