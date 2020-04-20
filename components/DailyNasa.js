@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
-import { Image, View } from 'react-native'
 
-const InfoText = styled.Text`
-  color: white;
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 30px;
-`
 const StyledView = styled.View`
   flex: 1;
   background-color: black;
   justify-content: center;
   align-items: center;
 `
-
-const BtnText = styled.Text`
-  font-size: 25px;
+const InfoText = styled.Text`
   color: white;
-  text-align: center
-`
-
-const Btn = styled.TouchableOpacity`
-  background-color: black;
-  height: 50px;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
 `
 const DailyImage = styled.Image`
   height: 400px;
   width: 400px;
+`
+const Btn = styled.TouchableOpacity`
+  background-color: black;
+  height: 50px;
+`
+const BtnText = styled.Text`
+  font-size: 25px;
+  color: white;
+  text-align: center
 `
 
 export const DailyNasa = ({ navigation }) => {
@@ -40,7 +37,6 @@ export const DailyNasa = ({ navigation }) => {
       .then((res) => res.json())
       .then((json) => setNasa(json))
   }, [])
-
 
   return (
     <>

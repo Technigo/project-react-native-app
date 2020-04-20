@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components/native'
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { DailyNasa } from './components/DailyNasa'
 import { Details } from './components/Details'
 
-//Nasa API key: 08iR4WWfCjNzN30nufKyaR5LGHFjgXgynks7MDcF
+//Nasa API Key: 08iR4WWfCjNzN30nufKyaR5LGHFjgXgynks7MDcF
 
 const Stack = createStackNavigator();
 

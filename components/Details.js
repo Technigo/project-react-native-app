@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 
-const InfoText = styled.Text`
-  font-size: 18px;
-  padding: 8px;
-  background-color: black;
-  color: white;
-`
 const StyledView = styled.View`
   flex: 1;
   background-color: black;
   justify-content: center;
   align-items: center;
 `
+const InfoText = styled.Text`
+  font-size: 18px;
+  padding: 8px;
+  background-color: black;
+  color: white;
+`
+const Btn = styled.TouchableOpacity`
+  background-color: black;
+  height: 50px;
+`
 const BtnText = styled.Text`
   font-size: 25px;
   color: white;
   text-align: center
-`
-
-const Btn = styled.TouchableOpacity`
-  background-color: black;
-  height: 50px;
 `
 
 export const Details = ({navigation}) => {
@@ -41,7 +40,7 @@ export const Details = ({navigation}) => {
         <InfoText>{nasa.explanation}</InfoText>
       </StyledView>
       <Btn title="Back" onPress={() => navigation.navigate('Home')}>
-        <BtnText>Back to Daily Image</BtnText>
+        <BtnText>Back to Picture</BtnText>
       </Btn>
     </>
   )
