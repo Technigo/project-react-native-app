@@ -8,20 +8,20 @@ import Task from './Task'
   const [todos, setTodos] = useState([])
 
 
-  handleDeleteTodo = (id) => {
+  const handleDeleteTodo = (id) => {
   setTodos( todos.filter((todo) => {
     if (todo.key !== id) return true
   })
 )}
 
-  handleChecked = (id) => {
+ const handleChecked = (id) => {
   setTodos( todos.map((todo) => {
     if(todo.key === id) todo.checked = !todo.checked;
     return todo;
   })
 )}
 
-  handleAddTodo = () => {
+ const handleAddTodo = () => {
   if(value.length > 0) {
     setTodos([...todos, { text: value, key: Date.now(), checked:false
     }])
