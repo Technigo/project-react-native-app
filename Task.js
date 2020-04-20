@@ -6,10 +6,10 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 const Task = (props) => (
  <TaskWrapper>
- <FontAwesome5 name={props.checked ? 'check' : 'square'} onPress={props.setChecked} backgroundColor='transparent' />
+ <FontAwesome5 name={props.checked ? 'check' : 'square'} onPress={props.setChecked} backgroundColor='transparent'  color='white'/>
 
    <InputContainer>
-     {props.checked && <VerticalLine></VerticalLine>}
+     {props.checked}
      <TaskInput>{props.text}</TaskInput>
    </InputContainer>
 
