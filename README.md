@@ -1,13 +1,9 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The aim was to make a functioning app with react-native. I decided to make an app that fetched breeds from an api and displayed information and an image of each particular breed.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I found working with the tools that displayed the app on the phone during the development frutrating and time-consuming.  Other than that this was a fun project. I had problems fetching the images that came from a separate api, but it worked out in the end. If I had more time I would style the app differently and add more information.
 
-## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
