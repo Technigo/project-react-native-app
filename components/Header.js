@@ -3,12 +3,15 @@ import styled from 'styled-components/native'
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
 `
 
 const Container = styled.View`
   height: 50;
-  background-color: white;
+  width: 200;
+  text-align: center;
 `
 
 export default function Header(props) {

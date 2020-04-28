@@ -7,7 +7,9 @@ const Title = styled.Text`
   color: palevioletred;
 `
 const Container = styled.View`
-  background-color: white;
+  background-color: transparent;
+  height: auto;
+  width: 200;
 `
 
 const ShowLength = styled.Text`

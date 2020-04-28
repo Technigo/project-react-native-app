@@ -4,6 +4,7 @@ import BreakLength from './components/BreakLength'
 import SessionLength from './components/SessionLength'
 import Timer from './components/Timer'
 import { View, ImageBackground, StyleSheet } from "react-native";
+import styled from 'styled-components/native'
 
 const image = { uri: 'https://images.unsplash.com/photo-1558818498-28c1e002b655?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' }
 
@@ -26,10 +27,11 @@ const App = () => {
     }
   }
 
+
   return (
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
-        <Header title='Pomodoro timer' />
+        <Header title='Pomodoro' />
         <BreakLength breakLength={breakLength} setBreakLength={setBreakLength} />
         <SessionLength sessionLength={sessionLength} setSessionLength={setSessionLength} setTimerMinute={setTimerMinute} />
         <Timer session={session} timerMinute={timerMinute} setTimerMinute={setTimerMinute} breakTimer={breakLength} setSessionLength={setSessionLength} setBreakLength={setBreakLength} />
@@ -46,7 +48,9 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     resizeMode: "cover",
-    justifyContent: "center"
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 

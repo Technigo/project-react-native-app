@@ -1,32 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { Text } from "react-native"
+import { Text, Vibration } from "react-native"
 
 const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
 `
 const Container = styled.View`
-  background-color: white;
+  height: auto;
+  width: 200;
 `
 
 const ButtonContainer = styled.View`
-  background-color: blue;
+  height: auto;
+  width: 200;
 `
 
 const ShowSession = styled.Text`
   color: black;
-  background-color: red;
 `
 
 const ShowLength = styled.Text`
   color: blue;
-  background-color: red;
 `
 
 const Button = styled.TouchableOpacity`
   color: black;
-  background-color: yellow;
 `
 
 export default function Timer({ session, setTimerMinute, timerMinute, setSessionLength, setBreakLength }) {
@@ -35,6 +34,8 @@ export default function Timer({ session, setTimerMinute, timerMinute, setSession
   const [over, setOver] = useState(false)
   const [timerSecond, setTimerSecond] = useState(0)
 
+  const pattern = [1000, 2000, 3000]
+
   const tick = () => {
     // do nothing if paused or over
     if (paused || over) return;
@@ -42,6 +43,7 @@ export default function Timer({ session, setTimerMinute, timerMinute, setSession
     // Time up
     if (timerMinute === 0 && timerSecond === 0) {
       setOver(true)
+      Vibration.vibrate(pattern)
     } else if (timerSecond === 0) {
       // decrement minute
       setTimerMinute(m => m - 1)
@@ -87,5 +89,3 @@ export default function Timer({ session, setTimerMinute, timerMinute, setSession
     </>
   )
 }
-
-
