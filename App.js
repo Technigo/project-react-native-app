@@ -4,9 +4,8 @@ import BreakLength from './components/BreakLength'
 import SessionLength from './components/SessionLength'
 import Timer from './components/Timer'
 import { View, ImageBackground, StyleSheet } from "react-native";
-import styled from 'styled-components/native'
 
-const image = { uri: 'https://images.unsplash.com/photo-1558818498-28c1e002b655?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' }
+const image = { uri: 'https://images.unsplash.com/photo-1573869522166-0eed5b27f2d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80' }
 
 const App = () => {
 
@@ -27,14 +26,15 @@ const App = () => {
     }
   }
 
-
   return (
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
-        <Header title='Pomodoro' />
-        <BreakLength breakLength={breakLength} setBreakLength={setBreakLength} />
-        <SessionLength sessionLength={sessionLength} setSessionLength={setSessionLength} setTimerMinute={setTimerMinute} />
-        <Timer session={session} timerMinute={timerMinute} setTimerMinute={setTimerMinute} breakTimer={breakLength} setSessionLength={setSessionLength} setBreakLength={setBreakLength} />
+        <View style={styles.content}>
+          <Header />
+          <BreakLength breakLength={breakLength} setBreakLength={setBreakLength} />
+          <SessionLength sessionLength={sessionLength} setSessionLength={setSessionLength} setTimerMinute={setTimerMinute} />
+          <Timer session={session} timerMinute={timerMinute} setTimerMinute={setTimerMinute} breakTimer={breakLength} setSessionLength={setSessionLength} setBreakLength={setBreakLength} />
+        </View>
       </ImageBackground>
     </View>
   )
@@ -43,7 +43,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
   },
   image: {
     flex: 1,
@@ -51,6 +51,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  content: {
+    backgroundColor: 'white',
+    width: 300,
+    height: 'auto',
+    borderRadius: 20,
+    padding: 20,
+    boxShadow: '3px 6px 18px 0px rgba(0,0,0,0.62)'
   }
 })
 

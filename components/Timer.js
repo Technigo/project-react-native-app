@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { Text, Vibration } from "react-native"
+import { useFonts } from '@use-expo/font'
+import { AppLoading } from 'expo'
 
 const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
 `
 const Container = styled.View`
-  height: auto;
-  width: 200;
+   min-height: auto;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 const ButtonContainer = styled.View`
-  height: auto;
-  width: 200;
+  min-height: auto;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 `
 
 const ShowSession = styled.Text`
@@ -25,7 +33,10 @@ const ShowLength = styled.Text`
 `
 
 const Button = styled.TouchableOpacity`
-  color: black;
+  min-width: 100px;
+  text-align: center;
+  border-radius: 5px;
+  background: rgb(242, 67, 59);
 `
 
 export default function Timer({ session, setTimerMinute, timerMinute, setSessionLength, setBreakLength }) {
@@ -70,22 +81,32 @@ export default function Timer({ session, setTimerMinute, timerMinute, setSession
     return () => clearInterval(timerID);
   })
 
-  return (
-    <>
-      <Container>
-        <Title>Session </Title>
-        <ShowSession>{session ? 'Focus' : 'Break'}</ShowSession>
-        <ShowLength>{`${timerMinute.toString().padStart(2, '0')}`}:{`${timerSecond.toString().padStart(2, '0')}`}</ShowLength>
-      </Container>
-      <ButtonContainer>
-        <Button onPress={() => setPaused(!paused)}>
-          <Text>{paused ? 'Start' : 'Pause'}</Text>
-        </Button>
-        <Button onPress={reset}>
-          <Text>Refresh</Text>
-        </Button>
-      </ButtonContainer>
-      {over ? <Container><Text>Time is up</Text></Container> : null}
-    </>
-  )
+  let [fontsLoaded] = useFonts({
+    'Baloo-Paaji-ExtraBold': require('../assets/fonts/BalooPaaji2-ExtraBold.ttf'),
+    'Baloo-Paaji-Bold': require('../assets/fonts/BalooPaaji2-Bold.ttf'),
+    'Manrope-Light': require('../assets/fonts/Manrope-Light.ttf'),
+  })
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <>
+        <Container>
+          <Title style={{ fontFamily: 'Baloo-Paaji-ExtraBold' }}>Session </Title>
+          <ShowSession>{session ? 'Focus' : 'Break'}</ShowSession>
+          <ShowLength style={{ fontFamily: 'Baloo-Paaji-ExtraBold' }}>{`${timerMinute.toString().padStart(2, '0')}`}:{`${timerSecond.toString().padStart(2, '0')}`}</ShowLength>
+        </Container>
+        <ButtonContainer>
+          <Button onPress={() => setPaused(!paused)}>
+            <Text style={{ fontFamily: 'Manrope-Light', color: 'white' }}>{paused ? 'start' : 'pause'}</Text>
+          </Button>
+          <Button onPress={reset}>
+            <Text style={{ fontFamily: 'Manrope-Light', color: 'white' }}>refresh</Text>
+          </Button>
+        </ButtonContainer>
+        {over ? <Container><Text>Time is up</Text></Container> : null}
+      </>
+    )
+  }
 }
