@@ -8,6 +8,7 @@ const Title = styled.Text`
   font-size: 24px;
   color: rgb(242, 67, 59);
   text-transform: lowercase;
+  margin-bottom: -10px;
 `
 const Container = styled.View`
   min-height: auto;

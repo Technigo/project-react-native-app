@@ -4,12 +4,9 @@ import { Text, Vibration } from "react-native"
 import { useFonts } from '@use-expo/font'
 import { AppLoading } from 'expo'
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+
 const Container = styled.View`
-   min-height: auto;
+  min-height: 120px;
   flex: 1;
   flex-direction: column;
   align-items: center;
@@ -26,10 +23,16 @@ const ButtonContainer = styled.View`
 
 const ShowSession = styled.Text`
   color: black;
+  font-size: 28px;
+  color: rgb(114, 200, 158);
+  text-transform: lowercase;
+  font-weight: bold;
+  margin-bottom: -10px;
 `
 
 const ShowLength = styled.Text`
-  color: blue;
+  color: rgb(114, 200, 158);
+  font-size: 24px;
 `
 
 const Button = styled.TouchableOpacity`
@@ -37,6 +40,7 @@ const Button = styled.TouchableOpacity`
   text-align: center;
   border-radius: 5px;
   background: rgb(242, 67, 59);
+  text-transform: uppercase;
 `
 
 export default function Timer({ session, setTimerMinute, timerMinute, setSessionLength, setBreakLength }) {
@@ -85,6 +89,7 @@ export default function Timer({ session, setTimerMinute, timerMinute, setSession
     'Baloo-Paaji-ExtraBold': require('../assets/fonts/BalooPaaji2-ExtraBold.ttf'),
     'Baloo-Paaji-Bold': require('../assets/fonts/BalooPaaji2-Bold.ttf'),
     'Manrope-Light': require('../assets/fonts/Manrope-Light.ttf'),
+    'Manrope-Medium': require('../assets/fonts/Manrope-Medium.ttf'),
   })
 
   if (!fontsLoaded) {
@@ -93,16 +98,15 @@ export default function Timer({ session, setTimerMinute, timerMinute, setSession
     return (
       <>
         <Container>
-          <Title style={{ fontFamily: 'Baloo-Paaji-ExtraBold' }}>Session </Title>
-          <ShowSession>{session ? 'Focus' : 'Break'}</ShowSession>
+          <ShowSession style={{ fontFamily: 'Baloo-Paaji-ExtraBold' }}>{session ? 'focus' : 'break'} length</ShowSession>
           <ShowLength style={{ fontFamily: 'Baloo-Paaji-ExtraBold' }}>{`${timerMinute.toString().padStart(2, '0')}`}:{`${timerSecond.toString().padStart(2, '0')}`}</ShowLength>
         </Container>
         <ButtonContainer>
           <Button onPress={() => setPaused(!paused)}>
-            <Text style={{ fontFamily: 'Manrope-Light', color: 'white' }}>{paused ? 'start' : 'pause'}</Text>
+            <Text style={{ fontFamily: 'Manrope-Medium', color: 'white' }}>{paused ? 'start' : 'pause'}</Text>
           </Button>
           <Button onPress={reset}>
-            <Text style={{ fontFamily: 'Manrope-Light', color: 'white' }}>refresh</Text>
+            <Text style={{ fontFamily: 'Manrope-Medium', color: 'white' }}>refresh</Text>
           </Button>
         </ButtonContainer>
         {over ? <Container><Text>Time is up</Text></Container> : null}

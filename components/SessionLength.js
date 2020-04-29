@@ -8,6 +8,7 @@ const Title = styled.Text`
   font-size: 24px;
   color: rgb(242, 67, 59);
   text-transform: lowercase;
+  margin-bottom: -10px;
 `
 const Container = styled.View`
   min-height: auto;
@@ -66,7 +67,7 @@ export default function SessionLength({ sessionLength, setSessionLength, setTime
   } else {
     return (
       <Container>
-        <Title style={{ fontFamily: 'Baloo-Paaji-2' }}>Session Length</Title>
+        <Title style={{ fontFamily: 'Baloo-Paaji-2' }}>focus Length</Title>
         <ButtonContainer>
           <Button onPress={downPress}>
             <Text style={{ fontFamily: 'Manrope-Light' }}>less</Text>
