@@ -5,13 +5,13 @@ import { useFonts } from '@use-expo/font'
 import { AppLoading } from 'expo'
 
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 28px;
   color: rgb(242, 67, 59);
   text-transform: lowercase;
   margin-bottom: -10px;
 `
 const Container = styled.View`
-  min-height: auto;
+  min-height: 50px;
   flex: 1;
   flex-direction: column;
   align-items: center;
@@ -27,7 +27,7 @@ const ButtonContainer = styled.View`
 `
 
 const ShowLength = styled.Text`
-  font-size: 24px;
+  font-size: 28px;
   min-width: 50px;
   color: rgb(242, 67, 59);
   text-align: center;

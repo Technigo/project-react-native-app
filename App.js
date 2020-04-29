@@ -3,7 +3,7 @@ import Header from './components/Header'
 import BreakLength from './components/BreakLength'
 import SessionLength from './components/SessionLength'
 import Timer from './components/Timer'
-import { View, ImageBackground, StyleSheet } from "react-native";
+import { View, ImageBackground, StyleSheet } from 'react-native';
 
 const image = { uri: 'https://images.unsplash.com/photo-1573869522166-0eed5b27f2d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80' }
 
@@ -43,11 +43,11 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    flexDirection: 'column',
   },
   image: {
     flex: 1,
-    resizeMode: "cover",
+    resizeMode: 'cover',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
@@ -55,10 +55,17 @@ const styles = StyleSheet.create({
   content: {
     backgroundColor: 'white',
     width: 300,
-    height: 'auto',
+    minHeight: 600,
     borderRadius: 20,
     padding: 20,
-    boxShadow: '3px 6px 18px 0px rgba(0,0,0,0.62)'
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   }
 })
 

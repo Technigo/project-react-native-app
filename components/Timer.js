@@ -6,7 +6,14 @@ import { AppLoading } from 'expo'
 
 
 const Container = styled.View`
-  min-height: 120px;
+  min-height: 150px;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+const TimeUpContainer = styled.View`
   flex: 1;
   flex-direction: column;
   align-items: center;
@@ -14,7 +21,7 @@ const Container = styled.View`
 `
 
 const ButtonContainer = styled.View`
-  min-height: auto;
+  height: 60px;
   flex: 1;
   flex-direction: row;
   align-items: center;
@@ -27,17 +34,16 @@ const ShowSession = styled.Text`
   color: rgb(114, 200, 158);
   text-transform: lowercase;
   font-weight: bold;
-  margin-bottom: -10px;
 `
 
 const ShowLength = styled.Text`
   color: rgb(114, 200, 158);
-  font-size: 24px;
+  font-size: 32px;
 `
 
 const Button = styled.TouchableOpacity`
   min-width: 100px;
-  text-align: center;
+  padding: 5px;
   border-radius: 5px;
   background: rgb(242, 67, 59);
   text-transform: uppercase;
@@ -100,16 +106,16 @@ export default function Timer({ session, setTimerMinute, timerMinute, setSession
         <Container>
           <ShowSession style={{ fontFamily: 'Baloo-Paaji-ExtraBold' }}>{session ? 'focus' : 'break'} length</ShowSession>
           <ShowLength style={{ fontFamily: 'Baloo-Paaji-ExtraBold' }}>{`${timerMinute.toString().padStart(2, '0')}`}:{`${timerSecond.toString().padStart(2, '0')}`}</ShowLength>
+          {over ? <TimeUpContainer><Text style={{ fontFamily: 'Manrope-Medium', textAlign: 'center' }}>Time is up</Text></TimeUpContainer> : null}
         </Container>
         <ButtonContainer>
           <Button onPress={() => setPaused(!paused)}>
-            <Text style={{ fontFamily: 'Manrope-Medium', color: 'white' }}>{paused ? 'start' : 'pause'}</Text>
+            <Text style={{ fontFamily: 'Manrope-Medium', color: 'white', textAlign: 'center' }}>{paused ? 'start' : 'pause'}</Text>
           </Button>
           <Button onPress={reset}>
-            <Text style={{ fontFamily: 'Manrope-Medium', color: 'white' }}>refresh</Text>
+            <Text style={{ fontFamily: 'Manrope-Medium', color: 'white', textAlign: 'center' }}>refresh</Text>
           </Button>
         </ButtonContainer>
-        {over ? <Container><Text>Time is up</Text></Container> : null}
       </>
     )
   }

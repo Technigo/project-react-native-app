@@ -4,7 +4,7 @@ import { useFonts } from '@use-expo/font'
 import { AppLoading } from 'expo'
 
 const Container = styled.View`
-  min-height: 50px;
+  min-height: 100px;
   flex: 0.1;
   flex-direction: row;
   align-items: center;
@@ -12,15 +12,15 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-  font-size: 32px;
+  font-size: 38px;
   color: rgb(242, 67, 59);
   text-transform: uppercase;
   font-weight: bold;
 `
 
 const Image = styled.Image`
-  height: 32;
-  width: 32;
+  height: 38;
+  width: 38;
 `
 
 export default function Header(props) {
