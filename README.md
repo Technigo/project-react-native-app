@@ -1,13 +1,9 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+First React Native app.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I used Android Studio to create an emulator to see my app. I started by designing two questions and fixing all the issues with the score that arose, for example the user could go back and click the correct answer several times before I added the local state of user answer which prevent that from happening. The problem was that the state reloads if you don't move to the next question, if I had more time I could make the state global and fix that.
 
-## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
