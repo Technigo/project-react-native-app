@@ -1,8 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, Text, View, Vibration, TouchableOpacity } from "react-native";
+import { Vibration, TouchableOpacity } from "react-native";
 import image from "../assets/treddy-chen-PYTqSwUQKsc-unsplash.jpg";
-import {NavigationContainer} from '@react-navigation/native';
 import styled from "styled-components"
 
 export const Question3 = ({setCorrectAnswer, correctAnswer, navigation}) => {

@@ -1,8 +1,7 @@
 import 'react-native-gesture-handler';
-import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, Text, View, Vibration, TouchableOpacity } from "react-native";
+import React from 'react';
+import { TouchableOpacity } from "react-native";
 import image from "../assets/alden-maben-0PxBUTi3HXI-unsplash.jpg";
-import {NavigationContainer} from '@react-navigation/native';
 import styled from "styled-components"
 
 export const Summary = ({setCorrectAnswer, correctAnswer, navigation}) => {
@@ -23,7 +22,6 @@ export const Summary = ({setCorrectAnswer, correctAnswer, navigation}) => {
         ) 
     }  
   }
-
  
   return (
     <StyledImageBackground source={image}> 

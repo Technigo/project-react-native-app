@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, Modal, Image } from "react-native";
 import image from "../assets/roland-losslein-DmDYX_ltI48-unsplash.jpg";
 import styled, { ThemeProvider } from "styled-components"

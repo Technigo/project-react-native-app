@@ -1,8 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, Text, View, Vibration, TouchableOpacity } from "react-native";
+import { Vibration, TouchableOpacity } from "react-native";
 import image from "../assets/darshan-patel-jAThVtHa34A-unsplash.jpg";
-import {NavigationContainer} from '@react-navigation/native';
 import styled from "styled-components"
 
 export const Question1 = ({setCorrectAnswer, correctAnswer, navigation}) => {
@@ -24,8 +23,6 @@ export const Question1 = ({setCorrectAnswer, correctAnswer, navigation}) => {
         if (userAnswer) {return} 
         else {setCorrectAnswer(correctAnswer +1); setUserAnswer(true)}}}
       >
-
-        {/* om user answer är falskt ska man kunna få ett poäng. Om user answer är sant innebär det att personen tryck på fel svar innan. Knapptryckningen ska även efteråt sätta useranswer till sant för att hindra att personen kan få fler än 1 rätt svar på samma fråga. */}
 
         <StyledTextButton>Scotland</StyledTextButton>
         <StyledCorrectAnswer userAnswer={userAnswer}>In the magical world of Harry Potter, Hogwarts is located somewhere in Scotland. </StyledCorrectAnswer>
