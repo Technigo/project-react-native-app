@@ -4,7 +4,7 @@ This space-app shows a picture from NASA Open API ( https://api.nasa.gov/) and e
 
 ## The problem
 
-I used styled-components for styling and expo.io for debugging.
+I used styled-components for styling and expo.io
 
 ## View it live
 
