@@ -13,11 +13,11 @@ I decided to create a todo app as it is something I use myself regularly. I had 
 
 ## Tech
 
-* JavaScript ES6
 * React Native
 * React Hooks
+* JavaScript ES6
 * Styled Components
 
 ## View it live
 
-The app can be viewed as a Expo snack https://snack.expo.io/@fridamaria/8df044
+The app can be viewed as an Expo snack https://snack.expo.io/@fridamaria/8df044
