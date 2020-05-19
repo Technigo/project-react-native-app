@@ -20,4 +20,4 @@ It is a simple solution where the app toggles between two screens with a questio
 
 It can be viewed here. 
 Note that this is an app that needs to be shook. So please try it out on your phone 🙂🙏🏼📱
-https://snack.expo.io/@ragna/advice-app
+hhttps://snack.expo.io/@ragna/--advice-app--
