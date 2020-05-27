@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import 'react-native-gesture-handler'
 import { Movies } from './components/Movies'
+import { Details } from './components/Details'
 
 
 const Stack = createStackNavigator();
@@ -15,7 +16,10 @@ const App = () => {
         <Stack.Screen
           name="Movies"
           component={Movies}
-          options={{ title: 'Movies' }}
+        />
+         <Stack.Screen
+          name="Details"
+          component={Details}
         />
       </Stack.Navigator>
     </NavigationContainer>
