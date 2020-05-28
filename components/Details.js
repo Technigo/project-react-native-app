@@ -29,6 +29,11 @@ const MovieDesc = styled.Text`
   color: darkgrey;
   margin: .5em 1em;
 `
+const MovieImage = styled.Image`
+  width: 100%;
+  margin: auto;
+  height: 40em;
+`
 
 const MovieRate = styled.Text`
   font-size: 18px;
@@ -58,7 +63,11 @@ export const Details = ({ route }) => {
       <MovieDetails>
         <Label>{movie.title}</Label>
           <InfoDiv>
-            <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
+            <MovieImage
+              source={{
+              uri: `https://image.tmdb.org/t/p/w342${movie.poster_path}`,
+              }}
+            />
             <TextDiv>
               <MovieRelease>Released {movie.release_date}</MovieRelease>
               <MovieRate>Rating: {movie.vote_average}</MovieRate>
