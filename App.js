@@ -39,12 +39,13 @@ const App = () => {
   };
 
   const submitHandler = (text) => {
-    setTodo = ((pastTodo) => {
+    setTodo ((pastTodo) => {
       return [
         { text: text, key: Math.random().toString() },
         ...pastTodo
       ]
     });
+    
   };
   
   return (

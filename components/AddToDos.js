@@ -32,13 +32,18 @@ const Title = styled.Text `
 export const AddToDos = ({ submitHandler }) => {
   const [ text, setText ] = useState('');
 
+  const changeText = (value) => {
+    setText(value)  
+  };
+
+
   return (
     <Container>
       <Input 
         placeholder='What to do...'
         type="text"
-        onChange={ e => setText(e.target.value)}
-        value={text}></Input>
+        onChangeText={changeText}
+        value={text} />
       
       <AddButton
         onPress={() => submitHandler(text)} >
