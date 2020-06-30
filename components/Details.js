@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import React, { useState, useEffect } from 'react'
-import { View, Image, TouchableOpacity } from 'react-native'
+import { View, ScrollView, Image, TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 
 
@@ -8,44 +8,56 @@ import styled from 'styled-components/native'
 
 const MovieDetails = styled.View`
   color: white;
-  background-color: white;
-  padding: 1.5em;
-  margin: 1em auto 1em;
-  border-radius: 6px 6px;
+  backgroundColor: white;
+  padding: 15px;
+  marginTop: 15px;
+  marginRight: auto;
+  marginLeft: auto;
+  marginBottom: 15px;
+  borderRadius: 6px;
 `
 
 const Label = styled.Text`
-  font-size: 24px;
+  fontSize: 24px;
   color: palevioletred;
-  margin-bottom: 1em;
+  marginBottom: 15px;
 `
 const MovieTitle = styled.Text`
-  font-size: 24px;
+  fontSize: 24px;
   color: darkgrey;
-  margin: .5em 1em;
+  marginTop: 5px;
+  marginRight: 15px;
+  marginLeft: 15px;
+  marginBottom: 5px;
 `
 const MovieDesc = styled.Text`
-  font-size: 18px;
+  fontSize: 18px;
   color: darkgrey;
-  margin: .5em 1em;
+  marginTop: 5px;
+  marginRight: 15px;
+  marginLeft: 15px;
+  marginBottom: 5px;
 `
 const MovieImage = styled.Image`
   width: 100%;
   margin: auto;
-  height: 40em;
+  height: 500px;
 `
 
 const MovieRate = styled.Text`
-  font-size: 18px;
+  fontSize: 18px;
   color: palevioletred;
-  margin: 0 1em 1em 1em;
-  font-weight: bold;
+  marginTop: 0;
+  marginRight: 5px;
+  marginLeft: 5px;
+  marginBottom: 5px;
+  fontWeight: bold;
 `
 
 const MovieRelease = styled.Text`
-  font-size: 18px;
+  fontSize: 18px;
   color: palevioletred;
-  margin: 1em;
+  margin: 15px;
 `
 const InfoDiv = styled.View`
   display: flex;
@@ -60,22 +72,24 @@ const TextDiv = styled.View`
 export const Details = ({ route }) => {
   const { movie } = route.params
     return (
-      <MovieDetails>
-        <Label>{movie.title}</Label>
-          <InfoDiv>
-            <MovieImage
-              source={{
-              uri: `https://image.tmdb.org/t/p/w342${movie.poster_path}`,
-              }}
-            />
-            <TextDiv>
-              <MovieRelease>Released {movie.release_date}</MovieRelease>
-              <MovieRate>Rating: {movie.vote_average}</MovieRate>
-              <MovieDesc>{movie.overview}</MovieDesc>
-            </TextDiv>
-          </InfoDiv>  
-      </MovieDetails>
-   );
-  }
+      <ScrollView>
+        <MovieDetails>
+          <Label>{movie.title}</Label>
+            <InfoDiv>
+              <MovieImage
+                source={{
+                uri: `https://image.tmdb.org/t/p/w342${movie.poster_path}`,
+                }}
+              />
+              <TextDiv>
+                <MovieRelease>Released {movie.release_date}</MovieRelease>
+                <MovieRate>Rating: {movie.vote_average}</MovieRate>
+                <MovieDesc>{movie.overview}</MovieDesc>
+              </TextDiv>
+            </InfoDiv>  
+        </MovieDetails>
+      </ScrollView>
+    )
+}
 
 

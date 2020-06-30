@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import React, { useState, useEffect } from 'react'
-import { View, Image, TouchableOpacity } from 'react-native'
+import { View, ScrollView, Image, TouchableOpacity } from 'react-native'
 import 'react-native-gesture-handler'
 import styled from 'styled-components/native'
 
@@ -12,32 +12,41 @@ const Main = styled.View`
 `
 
 const MovieDetails = styled.View`
-  padding: .5em;
-  background-color: white;
-  border-radius: 6px 6px;
+  padding: 5px;
+  backgroundColor: white;
+  borderRadius: 6px;
 `
 
 const MovieImage = styled.Image`
   width: 100%;
   margin: auto;
-  height: 40em;
+  height: 500px;
 `
 
 const MovieTitle = styled.Text`
-  font-size: 24px;
+  fontSize: 24px;
   color: darkgrey;
-  margin: .5em 1em .5em 1em;
+  marginTop: 5px;
+  marginRight: 15px;
+  marginLeft: 15px;
+  marginBottom: 15px;
 `
 const MovieRelease = styled.Text`
-  font-size: 18px;
+  fontSize: 18px;
   color: palevioletred;
-  margin: 0 1em 1em 1em;
+  marginTop: 0;
+  marginRight: 15px;
+  marginLeft: 15px;
+  marginBottom: 15px;
 `
 
 const Label = styled.Text`
-  font-size: 24px;
-  margin: 1em auto;
-  text-transform: uppercase;
+  fontSize: 24px;
+  marginTop: 15px;
+  marginRight: auto;
+  marginLeft: auto;
+  marginBottom: 15px;
+  textTransform: uppercase;
   color: palevioletred;
 `
 
@@ -54,10 +63,10 @@ export const Movies = ({ navigation }) => {
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=8fe2cb625158d587f8b0296620d5d249&language=en-US&page=1')
           .then(res => res.json())
           .then(json => setMovies(json.results))          
-      }, [])
+    }, [])
     
     return (
-      <>
+      <ScrollView>
         <Label>Popular movies</Label>
         <Main>
           {movies.map((movie) => (
@@ -75,8 +84,8 @@ export const Movies = ({ navigation }) => {
             </Button> 
           ))} 
         </Main>
-       </>
-   );
+       </ScrollView>
+   )
   }
 
 

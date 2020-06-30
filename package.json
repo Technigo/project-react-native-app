@@ -12,6 +12,8 @@
     "@react-navigation/native": "^5.1.4",
     "@react-navigation/stack": "^5.2.9",
     "@use-expo/font": "^2.0.0",
+    "@babel/core": "^7.9.0",
+    "@babel/runtime": "^7.9.0",
     "braces": "^3.0.2",
     "expo": "^35.0.0",
     "lottie-react-native": "~2.6.1",
