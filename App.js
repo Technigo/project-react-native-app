@@ -1,12 +1,12 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 
 export default function App() {
   return (
     <Container>
       <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding Test </Title>
+      <Title>Go to App.js and start coding</Title>
       <Title>💅💅💅</Title>
     </Container>
   );
