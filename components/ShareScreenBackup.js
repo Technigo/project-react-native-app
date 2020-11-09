@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Share, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Share, Text, TextInput, StyleSheet, Button } from 'react-native';
 import styled from 'styled-components/native';
 
 export const ShareScreen = () => {
@@ -24,59 +24,21 @@ export const ShareScreen = () => {
       alert(error.message);
     }
   };
-
   return (
-    <MainScreenContainer>
-      <RowImageContainer>
-        <SingleImageContainer>
-          <MoodImage source={require('../assets/crafty.png')} />
-        </SingleImageContainer>
-
-        <SingleImageContainer>
-          <MoodImage source={require('../assets/sunny.png')} />
-        </SingleImageContainer>
-      </RowImageContainer>
-
-
-
+    <View style={{ marginTop: 50}}>
+      <Button title="Set a new mood" onPress={() => setMood('Dancing')}></Button>
       <Text>Enter your message here:</Text>
       <TextInput style={styles.inputField} placeholder="Enter some text here" multiline={true} onChangeText={text => setMessage(text)} value={message}/>
       <ShareButton onPress={onShare} mood={mood}>
-        <ButtonText>SHARE</ButtonText>
+        <ButtonText>SHARE BUTTON TEST</ButtonText>
       </ShareButton>
-    </MainScreenContainer>
+    </View>
   );
 };
 
-//main View container must have marginTop minimum 50 so it does not hide behind top tab bar
-
 /*STYLED COMPONENTS AND STYLESHEETS*/
-const MainScreenContainer = styled.View`
-  flex: 1;
-  padding-top: 10px;
-  background-color: white;
-`;
-
-const RowImageContainer = styled.View`
-  flex-direction: row;
-  width: 100%;
-`;
-
-const SingleImageContainer = styled.View`
-  width: 180px;
-  height: 180px;
-  margin: auto;
-`;
-
-const MoodImage = styled.Image`
-  width: 80%;
-  height: 80%;
-  margin: auto;
-`;
-
 const ShareButton = styled.TouchableOpacity`
-  background: white;
-  border: 2px solid #99dddd;
+  background: ${props => (props.mood === 'Dancing' ? "yellow" : "lightblue")};
   width: 90px;
   padding: 10px;
   margin: auto;
@@ -84,9 +46,7 @@ const ShareButton = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  color: #99dddd;
-  text-align: center;
-  font-weight: bold;
+  color: white;
 `;
 
 const styles = StyleSheet.create({
