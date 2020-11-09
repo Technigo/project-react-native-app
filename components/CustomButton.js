@@ -9,11 +9,12 @@ border-radius: 3px;
 display:flex;
 align-items: center;
 justify-content: center;
+border: 2px solid #00106b;
 `;
 
 const ButtonText = styled.Text `
   font-weight: bold;
-  color: white;
+  color: #00106b;
   font-size: 18px;
 `;
 
@@ -21,7 +22,7 @@ export const CustomButton = ({onClick,text}) => {
   return (
     <Button 
       onPress={onClick}
-      backgroundColor="teal">
+      backgroundColor="#fbd466">
       <ButtonText>{text}</ButtonText>
     </Button>
   )

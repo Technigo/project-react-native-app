@@ -10,29 +10,21 @@ const QuestionContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-`;
+  background-color: pink;`;
 
 const Title = styled.Text`
-  font-size: 24px;
-  color: black;
+  font-size: 40px;
+  color: #00106b;
+  padding: 20px;
+  font-weight: bold;
 `;
 
 const SmallText = styled(Title)`
 font-size: 18px;
 font-weight: bold`;
 
-const InfoText = styled.Text`
-font-size: 14px;
-color: orange;
-`;
-
-
-
 const App = () => {
-  const[userQuestion, setUserQuestion] = useState('');
-  const[questionIsValid, setQuestionIsValid] = useState(false);
-  const [questionValidated, setQuestionValidated] = useState(false);
-  const [showAnswers, setShowAnswers] = useState(false);
+ const [showAnswers, setShowAnswers] = useState(false);
 
   const shakePhone = () => {
     setShowAnswers(true);
@@ -59,18 +51,23 @@ const App = () => {
     setShowAnswers(true);
   }
 
+  const resetApp = () =>{
+    setShowAnswers(false);
+  }
+
   return (<>
   {!showAnswers && 
   <QuestionContainer>
-     <Title>Random advice of the day 💡</Title>
+     <Title>Advice of the day 💡</Title>
        
-    <CustomButton onClick={handleButtonClick} text="Let's go"/>
-    <SmallText>👋 Or simply shake your device to get what you need! 👋</SmallText> 
-        <Title></Title>
+    <CustomButton onClick={handleButtonClick} text="Press for advice"/>
+    <SmallText>👋 Or simply shake your device to get what you need!</SmallText> 
+       
     </QuestionContainer>
+    
   }
    {showAnswers && 
-   <AnswerWindow />
+   <AnswerWindow onReset={resetApp}/>
    }
     </>
   )

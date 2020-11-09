@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { Image } from 'react-native'
+import { CustomButton } from './CustomButton'
 //import { animations } from 'react-animation'
 
 const EightBallContainer = styled.View`
 justify-content: center;
 align-items: center;
-background-color: white;
+background-color: transparent;
+padding: 50px;
 `;
 
 const EightBallText = styled.Text`
-  color: black;
-  font-size: 24px;
+  color: #00106b;
+  font-size: 28px;
+  font-weight: bold;
 `;
+
 
 
 export const EightBall = ({advice}) =>{
@@ -20,7 +24,6 @@ export const EightBall = ({advice}) =>{
   return (
   <EightBallContainer>
       <EightBallText>💡 {advice}</EightBallText>
-      <EightBallText></EightBallText>
-    </EightBallContainer>
+     </EightBallContainer>
   )
 }
