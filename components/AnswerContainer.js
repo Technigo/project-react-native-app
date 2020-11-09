@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from 'react-native';
+import { Button, Vibration } from 'react-native';
 import styled from 'styled-components/native'
 import { CustomButton } from './CustomButton';
 import { EightBall } from './EightBall';
@@ -26,6 +26,7 @@ const Spinner = styled.ActivityIndicator`
 export const AnswerWindow = ({question}) => {
   const[magicAnswer, setMagicAnswer] = useState('');
   const[isLoading, setIsLoading] = useState(true);
+  const oneSecond = 1000;
 
   const handleButtonClick = () =>{
     window.location.reload();
@@ -42,8 +43,14 @@ export const AnswerWindow = ({question}) => {
       console.log(json.magic.answer);
       setMagicAnswer(json.magic.answer);
       setIsLoading(false);
+      vibrateDevice();
     });
   },[question]);
+
+  
+const vibrateDevice = () => {
+  Vibration.vibrate();
+}
 
   return(
       <AnswerContainer style={{backgroundColor: "purple"}}>
