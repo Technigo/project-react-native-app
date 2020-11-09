@@ -8,6 +8,7 @@ export const Footer = () => {
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin: 0;
     `
 
     const FooterText = styled.Text`
