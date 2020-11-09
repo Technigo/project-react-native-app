@@ -18,7 +18,8 @@ const Title = styled.Text`
 `;
 
 const SmallText = styled(Title)`
-font-size: 14px`;
+font-size: 18px;
+font-weight: bold`;
 
 const InfoText = styled.Text`
 font-size: 14px;
@@ -61,11 +62,11 @@ const App = () => {
   return (<>
   {!showAnswers && 
   <QuestionContainer>
-     <Title>Random advice of the day</Title>
+     <Title>Random advice of the day 💡</Title>
        
     <CustomButton onClick={handleButtonClick} text="Let's go"/>
-    <SmallText>Or shake your device to get what you need</SmallText> 
-        <Title>💡💡💡</Title>
+    <SmallText>👋 Or simply shake your device to get what you need! 👋</SmallText> 
+        <Title></Title>
     </QuestionContainer>
   }
    {showAnswers && 
