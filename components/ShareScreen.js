@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Share, Text, TextInput, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
-import Constants from 'expo-constants';
 
 export const ShareScreen = () => {
   const [message, setMessage] = useState('');
@@ -23,6 +22,20 @@ export const ShareScreen = () => {
       }
     } catch (error) {
       alert(error.message);
+    }
+  };
+
+  const phrase = () => {
+    if(mood === 'Crafty') {
+      return 'Getting creative and making something with your hands can help set the positive vibes!';
+    } else if(mood === 'Sunny') {
+      return 'Going outdoors and enjoying some fresh air is an instant mood boost!';
+    } else if(mood === 'Active') {
+      return 'Move throughout the day! Breaking a sweat helps you handle stress hormones.';
+    } else if(mood === 'Smiley') {
+      return 'Chin up and smile! Our facial expressions influence our thoughts and emotions.';
+    } else {
+      return 'What is the mood for today...?';
     }
   };
 
@@ -61,6 +74,10 @@ export const ShareScreen = () => {
               </MoodButton>
             </SingleImageContainer>
           </RowImageContainer>
+
+          <MoodPhraseSection>
+            <MoodPhraseText>{phrase()}</MoodPhraseText>
+          </MoodPhraseSection>
 
           <Text>Enter your message here:</Text>
           <TextInput style={styles.inputField} placeholder="Enter some text here" multiline={true} onChangeText={text => setMessage(text)} value={message}/>
@@ -111,6 +128,21 @@ const MoodButtonText = styled.Text`
   color: black;
   text-align: center;
   font-weight: bold;
+`;
+
+const MoodPhraseSection = styled.View`
+  background-color: #99dddd;
+  width: 80%;
+  margin: 30px auto;
+  box-shadow: 5px 5px;
+`;
+
+const MoodPhraseText = styled.Text`
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 25px;
+  text-align: center;
 `;
 
 const ShareButton = styled.TouchableOpacity`
