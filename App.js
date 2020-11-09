@@ -13,8 +13,11 @@ const QuestionContainer = styled.View`
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: black;
 `;
+
+const SmallText = styled(Title)`
+font-size: 14px`;
 
 const InfoText = styled.Text`
 font-size: 14px;
@@ -41,17 +44,19 @@ const App = () => {
 
   return (<>
   {!showAnswers && 
-  <QuestionContainer style={{backgroundColor: "#fff"}}>
-     <Title>Heyo!</Title>
-        <Title>Ask me a question</Title>
-        <UserInput onChange={handleInputChange}/>
-        {!questionIsValid && questionValidated && <InfoText>Check your input, enter only letters and at least 4.</InfoText>}
-        {questionIsValid && <CustomButton onClick={handleButtonClick} text="Let's go"/> }
+  <QuestionContainer>
+     <Title>In need of advice?</Title>
+       
+       {/*  <Title>Ask me a question</Title><UserInput onChange={handleInputChange}/>
+        {!questionIsValid && questionValidated && <InfoText>Check your input, enter only letters and at least 4.</InfoText>}*/}
+       
+    <CustomButton onClick={handleButtonClick} text="Get some advice"/>
+    <SmallText>Or shake your device to awaken the advice-gnomes</SmallText> 
         <Title>🎱🎱🎱</Title>
     </QuestionContainer>
   }
    {showAnswers && 
-   <AnswerWindow question={userQuestion} />
+   <AnswerWindow />
    }
     </>
   )

@@ -4,7 +4,6 @@ import styled from 'styled-components/native'
 const Button = styled.TouchableOpacity`
 height: 50px;
 width: 250px;
-background-color: 'darkcyan';
 background-color: ${props => props.backgroundColor};
 border-radius: 3px;
 display:flex;

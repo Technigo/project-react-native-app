@@ -3,9 +3,7 @@ import styled from 'styled-components/native'
 
 const InputField = styled.TextInput`
     font-size: 18px;
-    border: 1px solid palevioletred;
-    background-color: ${props => props.backgroundColor};
-    color: 'black';
+    border: 1px solid black;
     height: 50px;
     width: 250px;
     margin: 10px;
@@ -25,7 +23,7 @@ export const UserInput = ({onChange}) =>{
 
 const validateInput = (value) => {
   const pattern = (/^[A-Za-z? ]+$/)
-  if (value.length >= 4 && value !== '' && pattern.test(value)) {
+  if (value !== '' && pattern.test(value)) {
     setIsValidated(true);
     setIsValid(true);
   } else {
