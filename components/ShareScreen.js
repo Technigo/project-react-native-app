@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Share, Text, TextInput, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { Share, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 
 export const ShareScreen = () => {
@@ -9,7 +9,7 @@ export const ShareScreen = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `${message} Today's mood is: ${mood}`,
+        message: `You've received a ${mood} mood booster! ${phrase()} Friend's personal message: ${message}`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -43,6 +43,8 @@ export const ShareScreen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <MainScreenContainer>
+          <TitleText>Tap on a Mood Button</TitleText>
+
           <RowImageContainer>
             <SingleImageContainer>
               <MoodImage source={require('../assets/crafty.png')} />
@@ -99,6 +101,13 @@ const MainScreenContainer = styled.View`
   flex: 1;
   padding-top: 20px
   background-color: white;
+`;
+
+const TitleText = styled.Text`
+  font-size: 18px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 5px;
 `;
 
 const RowImageContainer = styled.View`
