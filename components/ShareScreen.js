@@ -79,8 +79,10 @@ export const ShareScreen = () => {
             <MoodPhraseText>{phrase()}</MoodPhraseText>
           </MoodPhraseSection>
 
-          <Text>Enter your message here:</Text>
-          <TextInput style={styles.inputField} placeholder="Enter some text here" multiline={true} onChangeText={text => setMessage(text)} value={message}/>
+          <PersonalMessageText>Add a personal message and share this mood booster with a friend:</PersonalMessageText>
+
+          <TextInputField placeholder="Enter some text here" multiline style={{minHeight: 80}} onChangeText={text => setMessage(text)} value={message}/>
+
           <ShareButton onPress={onShare}>
             <ShareButtonText>SHARE</ShareButtonText>
           </ShareButton>
@@ -145,13 +147,28 @@ const MoodPhraseText = styled.Text`
   text-align: center;
 `;
 
+const PersonalMessageText = styled.Text`
+  font-size: 14px;
+  font-style: italic;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+`;
+
+const TextInputField = styled.TextInput`
+  width: 80%;
+  border-color: black;
+  border-width: 3px;
+  margin: auto;
+`;
+
 const ShareButton = styled.TouchableOpacity`
   background: white;
   border: 2px solid #99dddd;
   width: 90px;
   padding: 10px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 35px;
   margin-bottom: 70px;
 `;
 
@@ -162,13 +179,6 @@ const ShareButtonText = styled.Text`
 `;
 
 const styles = StyleSheet.create({
-  inputField: {
-    height: 150,
-    width: "70%",
-    borderColor: "tomato",
-    borderWidth: 2,
-    margin: "auto"
-  },
   /*Styling for ScrollView*/
   container: {
     flex: 1,
