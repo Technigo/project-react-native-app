@@ -81,7 +81,7 @@ export const ShareScreen = () => {
             <MoodPhraseText>{phrase()}</MoodPhraseText>
           </MoodPhraseSection>
 
-          <PersonalMessageText>Add a personal message and share this mood booster with a friend:</PersonalMessageText>
+          <PersonalMessageText>Add a personal message and share this mood booster with a friend via text, Twitter, email...:</PersonalMessageText>
 
           <TextInputField placeholder="Enter some text here" multiline style={{minHeight: 80}} onChangeText={text => setMessage(text)} value={message}/>
 
@@ -174,8 +174,8 @@ const TextInputField = styled.TextInput`
 const ShareButton = styled.TouchableOpacity`
   background: white;
   border: 2px solid #99dddd;
-  width: 90px;
-  padding: 10px;
+  width: 100px;
+  padding: 14px;
   margin: auto;
   margin-top: 35px;
   margin-bottom: 70px;
@@ -185,6 +185,7 @@ const ShareButtonText = styled.Text`
   color: #99dddd;
   text-align: center;
   font-weight: bold;
+  font-size: 20px;
 `;
 
 const styles = StyleSheet.create({
