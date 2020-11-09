@@ -1,26 +1,28 @@
 import React from 'react'
+
+
+//import { Platform, Text, View, StyleSheet } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import MyLocation from './Components/MyLocation'
+//import { View } from 'react-native';
 import styled from 'styled-components/native'
+import HomePage from './Components/HomePage';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <NavigationContainer> 
+        <Stack.Navigator>
+          <Stack.Screen name='Home page' component={HomePage}/>
+          <Stack.Screen name='Your location' component={MyLocation}/>
+        </Stack.Navigator>
+    </NavigationContainer>
   )
 }
-
 export default App
