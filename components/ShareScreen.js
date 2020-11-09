@@ -94,7 +94,6 @@ export const ShareScreen = () => {
   );
 };
 
-//Delete ShareScreen backup at the end
 
 /*STYLED COMPONENTS AND STYLESHEETS*/
 const MainScreenContainer = styled.View`
