@@ -22,7 +22,6 @@ export const StartScreen = () => {
       <OracleImage
         source={require('../assets/magic-ball.png')}
       />
-
     </View>
   )
 };
