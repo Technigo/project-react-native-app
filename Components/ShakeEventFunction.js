@@ -2,7 +2,7 @@ import { Accelerometer } from 'expo-sensors';
 
 const Threshold = 150;
 //This variable stores the accelerometer sensitivity 
-// lowering this value will increase that sensitivity and increasing it will decrease sensitivity
+// lowering this value will increase that sensitivity and increasing it will decrease it
 
 export class ShakeEventFunction {
   static addListener(handler) {

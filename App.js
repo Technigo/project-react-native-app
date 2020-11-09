@@ -6,18 +6,19 @@ import { StartScreen } from './Components/StartScreen'
 
 const Container = styled.View`
   flex: 1;
+  width:100%;
   background-color: #01044d;
   justify-content: center;
   align-items: center;
 `
 
 const App = () => {
-
   const [initialScreen, setInitialScreen] = useState(true)
 
   const shake = () => {
     setInitialScreen(false);
   }
+
   useEffect(() => {
     ShakeEventFunction.addListener(() => {
       shake();
@@ -31,8 +32,8 @@ const App = () => {
     <Container>
       {initialScreen ? (
         <StartScreen/> 
-      ):(
-        <OracleMessage/>
+      ) : (
+        <OracleMessage onRestartOracle={() => setInitialScreen(true)} />
       )}
     </Container>
   );
