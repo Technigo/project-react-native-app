@@ -22,30 +22,25 @@ const Spinner = styled.ActivityIndicator`
 `;
 
 export const AnswerWindow = ({}) => {
-  const[magicAnswer, setMagicAnswer] = useState('');
+  const[magicAnswer, setMagicAnswer] = useState();
   const[isLoading, setIsLoading] = useState(true);
-  const oneSecond = 1000;
 
   const handleButtonClick = () =>{
     window.location.reload();
   }
 
   useEffect(() => {
-  /*const questionForBall = encodeURIComponent(question);
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  const uri = "https://8ball.delegator.com/magic/JSON/" + questionForBall;
-  const proxyMessage = proxyUrl + uri;*/
 
   fetch("https://api.adviceslip.com/advice")
     .then(response => response.json())
     .then(json => {
       console.log(json);
-      setMagicAnswer(json.slip.advice);
+      setMagicAnswer(json.slip);
       setIsLoading(false);
       vibrateDevice();
     })
     .catch(error => console.log(error))
-    return () => { unmounted = true };
+  //  return () => { unmounted = true };
   },[]);
 
 
@@ -54,19 +49,15 @@ const vibrateDevice = () => {
 }
 
   return(
-      <AnswerContainer style={{backgroundColor: "purple"}}>{/*  <Container>
-        <QuestionText>Here is the advice for today</QuestionText>
-      </Container>
-      */}
+      <AnswerContainer style={{backgroundColor: "purple"}}>
       
-       
         {magicAnswer === '' && isLoading && 
         <Spinner size="large" />}
        
         {magicAnswer !== '' && !isLoading && 
         <>
           <Container>
-           <EightBall answer={magicAnswer}/>
+           <EightBall advice={magicAnswer.advice}/>
           </Container>
         </>
        }

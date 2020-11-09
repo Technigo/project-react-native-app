@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import styled from 'styled-components/native'
 
 import { UserInput } from './components/UserInput';
 import { ConfirmButton, CustomButton } from './components/CustomButton';
 import { AnswerWindow } from './components/AnswerContainer'
+import { ShakeEvent} from './components/ShakeEvent';
 
 const QuestionContainer = styled.View`
   flex: 1;
@@ -32,6 +33,21 @@ const App = () => {
   const [questionValidated, setQuestionValidated] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
 
+  const shakePhone = () => {
+    setShowAnswers(true);
+  }
+
+  useEffect(() => {
+    ShakeEvent.addListener(() => {
+      shakePhone();
+    })
+
+    return () => {
+      ShakeEvent.removeListener();
+    }
+  }, []);
+
+
   const handleInputChange = (valueFromInput, isValid, isValidated) =>{
     setUserQuestion(valueFromInput);
     setQuestionIsValid(isValid);
@@ -45,14 +61,11 @@ const App = () => {
   return (<>
   {!showAnswers && 
   <QuestionContainer>
-     <Title>In need of advice?</Title>
+     <Title>Random advice of the day</Title>
        
-       {/*  <Title>Ask me a question</Title><UserInput onChange={handleInputChange}/>
-        {!questionIsValid && questionValidated && <InfoText>Check your input, enter only letters and at least 4.</InfoText>}*/}
-       
-    <CustomButton onClick={handleButtonClick} text="Get some advice"/>
-    <SmallText>Or shake your device to awaken the advice-gnomes</SmallText> 
-        <Title>🎱🎱🎱</Title>
+    <CustomButton onClick={handleButtonClick} text="Let's go"/>
+    <SmallText>Or shake your device to get what you need</SmallText> 
+        <Title>💡💡💡</Title>
     </QuestionContainer>
   }
    {showAnswers && 
