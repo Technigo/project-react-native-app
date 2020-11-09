@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Share, Text, TextInput, StyleSheet } from 'react-native';
+import { Share, Text, TextInput, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
+import Constants from 'expo-constants';
 
 export const ShareScreen = () => {
   const [message, setMessage] = useState('');
-  const [mood, setMood] = useState('Happy');
+  const [mood, setMood] = useState('');
 
   const onShare = async () => {
     try {
@@ -26,34 +27,58 @@ export const ShareScreen = () => {
   };
 
   return (
-    <MainScreenContainer>
-      <RowImageContainer>
-        <SingleImageContainer>
-          <MoodImage source={require('../assets/crafty.png')} />
-        </SingleImageContainer>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <MainScreenContainer>
+          <RowImageContainer>
+            <SingleImageContainer>
+              <MoodImage source={require('../assets/crafty.png')} />
+              <MoodButton onPress={() => setMood('Crafty')} style={{backgroundColor: mood === 'Crafty' ? "#99dddd" : "white"}}>
+                <MoodButtonText>Crafty</MoodButtonText>
+              </MoodButton>
+            </SingleImageContainer>
 
-        <SingleImageContainer>
-          <MoodImage source={require('../assets/sunny.png')} />
-        </SingleImageContainer>
-      </RowImageContainer>
+            <SingleImageContainer>
+              <MoodImage source={require('../assets/sunny.png')} />
+              <MoodButton onPress={() => setMood('Sunny')} style={{backgroundColor: mood === 'Sunny' ? "#99dddd" : "white"}}>
+                <MoodButtonText>Sunny</MoodButtonText>
+              </MoodButton>
+            </SingleImageContainer>
+          </RowImageContainer>
 
+          <RowImageContainer>
+            <SingleImageContainer>
+              <MoodImage source={require('../assets/active.png')} />
+              <MoodButton onPress={() => setMood('Active')} style={{backgroundColor: mood === 'Active' ? "#99dddd" : "white"}}>
+                <MoodButtonText>Active</MoodButtonText>
+              </MoodButton>
+            </SingleImageContainer>
 
+            <SingleImageContainer>
+              <MoodImage source={require('../assets/smiley.png')} />
+              <MoodButton onPress={() => setMood('Smiley')} style={{backgroundColor: mood === 'Smiley' ? "#99dddd" : "white"}}>
+                <MoodButtonText>Smiley</MoodButtonText>
+              </MoodButton>
+            </SingleImageContainer>
+          </RowImageContainer>
 
-      <Text>Enter your message here:</Text>
-      <TextInput style={styles.inputField} placeholder="Enter some text here" multiline={true} onChangeText={text => setMessage(text)} value={message}/>
-      <ShareButton onPress={onShare} mood={mood}>
-        <ButtonText>SHARE</ButtonText>
-      </ShareButton>
-    </MainScreenContainer>
+          <Text>Enter your message here:</Text>
+          <TextInput style={styles.inputField} placeholder="Enter some text here" multiline={true} onChangeText={text => setMessage(text)} value={message}/>
+          <ShareButton onPress={onShare}>
+            <ShareButtonText>SHARE</ShareButtonText>
+          </ShareButton>
+        </MainScreenContainer>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
-//main View container must have marginTop minimum 50 so it does not hide behind top tab bar
+//Delete ShareScreen backup at the end
 
 /*STYLED COMPONENTS AND STYLESHEETS*/
 const MainScreenContainer = styled.View`
   flex: 1;
-  padding-top: 10px;
+  padding-top: 20px
   background-color: white;
 `;
 
@@ -74,6 +99,20 @@ const MoodImage = styled.Image`
   margin: auto;
 `;
 
+const MoodButton = styled.TouchableOpacity`
+  background: white;
+  border: 2px solid black;
+  width: 70px;
+  padding: 4px;
+  margin: auto;
+`;
+
+const MoodButtonText = styled.Text`
+  color: black;
+  text-align: center;
+  font-weight: bold;
+`;
+
 const ShareButton = styled.TouchableOpacity`
   background: white;
   border: 2px solid #99dddd;
@@ -81,9 +120,10 @@ const ShareButton = styled.TouchableOpacity`
   padding: 10px;
   margin: auto;
   margin-top: 50px;
+  margin-bottom: 70px;
 `;
 
-const ButtonText = styled.Text`
+const ShareButtonText = styled.Text`
   color: #99dddd;
   text-align: center;
   font-weight: bold;
@@ -96,8 +136,13 @@ const styles = StyleSheet.create({
     borderColor: "tomato",
     borderWidth: 2,
     margin: "auto"
-  }
+  },
+  /*Styling for ScrollView*/
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    backgroundColor: 'white',
+    marginHorizontal: 0,
+  },
 });
-
-
-// <img src="" style={{ border: mood === 'Dancing' ? "2px solid red" : "none" }}
