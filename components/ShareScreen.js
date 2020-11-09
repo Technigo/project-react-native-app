@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { View, Share, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Share, Text, TextInput, StyleSheet, Button } from 'react-native';
 import styled from 'styled-components/native';
 
 export const ShareScreen = () => {
   const [message, setMessage] = useState('');
+  const [mood, setMood] = useState('Happy');
 
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `${message}`,
+        message: `${message} Today's mood is: ${mood}`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -25,9 +26,10 @@ export const ShareScreen = () => {
   };
   return (
     <View style={{ marginTop: 50}}>
+      <Button title="Set a new mood" onPress={() => setMood('Dancing')}></Button>
       <Text>Enter your message here:</Text>
       <TextInput style={styles.inputField} placeholder="Enter some text here" multiline={true} onChangeText={text => setMessage(text)} value={message}/>
-      <ShareButton onPress={onShare}>
+      <ShareButton onPress={onShare} mood={mood}>
         <ButtonText>SHARE BUTTON TEST</ButtonText>
       </ShareButton>
     </View>
@@ -36,7 +38,7 @@ export const ShareScreen = () => {
 
 /*STYLED COMPONENTS AND STYLESHEETS*/
 const ShareButton = styled.TouchableOpacity`
-  background: lightblue;
+  background: ${props => (props.mood === 'Dancing' ? "yellow" : "lightblue")};
   width: 90px;
   padding: 10px;
   margin: auto;
@@ -56,3 +58,6 @@ const styles = StyleSheet.create({
     margin: "auto"
   }
 });
+
+
+// <img src="" style={{ border: mood === 'Dancing' ? "2px solid red" : "none" }}

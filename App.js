@@ -1,33 +1,9 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import { ShareScreen } from './components/ShareScreen';
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
-function ExtraScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Extra!</Text>
-    </View>
-  );
-}
+import { HomeScreen } from './components/HomeScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -39,21 +15,23 @@ export default function App() {
         inactiveTintColor: '#F8F8F8',
         style: {
           paddingTop: 20,
-          backgroundColor: '#633689',
+          backgroundColor: '#99dddd',
         },
         labelStyle: {
           textAlign: 'center',
+          fontWeight: 'bold',
+          fontSize: 15,
         },
         indicatorStyle: {
-          borderBottomColor: '#87B56A',
-          borderBottomWidth: 2,
+          borderBottomColor: 'black',
+          borderBottomWidth: 3,
         },
       }}>
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-        <Tab.Screen name="Extra" component={ExtraScreen} />
         <Tab.Screen name="Share" component={ShareScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+//Light blue tone: #99dddd
