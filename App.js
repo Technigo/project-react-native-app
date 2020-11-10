@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 import { Text, Image } from 'react-native'
 
 import { Header } from './components/Header'
+import { ShuffledQuotes } from './data/Quotes'
 import { Footer } from './components/Footer'
 // import { LeiaIcon } from './components/LeiaIcon'
 
@@ -22,7 +23,7 @@ const MidContainer = styled(Container)`
 `
 
 const Speachbubble = styled(Container)`
-  width: 50%
+  width: 80%
   background-color: #70706e
 `
 // word-break: break-word or similar?
@@ -38,13 +39,15 @@ const Img = styled.Image`
 `
 
 const App = () => {
+  // implement shuffled quotes function
+  const quotes = ShuffledQuotes()
   return (
     <Container>
       <Header />
       <MidContainer>
         <Speachbubble>
-        <LeaQuote>
-          here the Q will go
+          <LeaQuote>
+          {quotes[10]}
         </LeaQuote>
         </Speachbubble>
         {/* <LeiaIcon /> */}
