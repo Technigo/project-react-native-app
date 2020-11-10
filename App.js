@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components/native'
-import { OracleMessage } from './Components/OracleMessage'
-import { ShakeEventFunction } from './Components/ShakeEventFunction'
-import { StartScreen } from './Components/StartScreen'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components/native';
+import { OracleMessage } from './Components/OracleMessage';
+import { ShakeEventFunction } from './Components/ShakeEventFunction';
+import { StartScreen } from './Components/StartScreen';
 
 const Container = styled.View`
   flex: 1;
@@ -17,7 +17,7 @@ const App = () => {
 
   const shake = () => {
     setInitialScreen(false);
-  }
+  };
 
   useEffect(() => {
     ShakeEventFunction.addListener(() => {
@@ -26,7 +26,7 @@ const App = () => {
     return () => {
       ShakeEventFunction.removeListener();
     }
-  }, [])
+  }, []);
 
   return (
     <Container>

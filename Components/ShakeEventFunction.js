@@ -22,7 +22,7 @@ export class ShakeEventFunction {
         last_y = y;
         last_z = z;
       }
-    });
+    })
   }
   static removeListener() {
     Accelerometer.removeAllListeners()
