@@ -1,21 +1,25 @@
 import React from 'react'
 
-import { TouchableOpacity } from 'react-native-gesture-handler'
+//import { TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native'
+import { Text } from 'react-native';
 
-//import styled from 'styled-components/native'
-import { Text, View} from 'react-native';
 
-const HomePage = ({ navigation }) => {
-return (
-  <View>
-    <TouchableOpacity
-        onPress={() => navigation.navigate('Your location')}
-      >
-        <Text>Press Here</Text>
-      </TouchableOpacity>
+const HomePage = ({navigation}) => {
+  return (
+    <Button
+    onPress= {() => navigation.navigate('Movie list')}
+    >
+      <Text>Now Playing</Text>
 
-  </View>
-)
 
+    </Button>
+  )
 }
 export default HomePage
+
+const Button = styled.TouchableOpacity `
+    align-items: center;
+    background-color: #DDDDDD;
+    padding: 10px;
+`
