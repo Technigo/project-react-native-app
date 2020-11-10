@@ -1,7 +1,20 @@
+import 'react-native-gesture-handler'
 import React, { useState } from 'react'
+import { NavigationContainer, TabActions } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native'
-import { Button } from 'react-native'
-import { View, Text, TouchableOpacity } from 'react-native'
+
+import { View, Text, TouchableOpacity, Button } from 'react-native'
+
+import { StartScreen } from './Components/StartScreen'
+import { Challenges } from './Components/Challenges'
+import { ChallengeButton } from './Components/Button'
+
+
+import { ShareScreen } from './components/ShareScreen';
+import { HomeScreen } from './components/HomeScreen';
+
+import challenges from'./Components/Data/challenges.json'
 
 
 const Container = styled.View`
@@ -11,73 +24,62 @@ const Container = styled.View`
   align-items: center;
 `
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+
+const ResultText = styled.Text`
+  padding:20px;
+  font-size:20px;
 `
-
-const IntroText = styled.Text`
-max-width: 500px;
-text-align: center;
-padding-top:30px;
-`
-
-
-
-
-const TopContainer = styled.View`
-  flex:1; 
-  width: 100%;
-  background-color: papayawhip;
-`
-
-
-const BottomContainer = styled.View`
-  flex: 1;
-  width: 100%;
-  background-color: #ffffff;
-  justify-content: center;
-  align-items: center;
-`
-
-const MainContainer = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-
-`
+const Tab = createMaterialTopTabNavigator();
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const onIncrement = () => {
-    setCount(count +1 )
-    console.log("incremented");
-  } 
+  const [challenge, setChallenge] = useState('');
+  const onClick = (event) => {
+    event.preventDefault()
+      setChallenge(challengeArray)
+      console.log(challenge)
+  }
+  
+  let challengeArray = 
+  [
+   'Do not apologize today!',
+   'Be bold! take place in meeting!', 
+   'Do not offer to do meaningless shores!',
+   'Practice saying NO!', 
+  ]
 
+
+  const random = Math.floor(Math.random() * challengeArray.length);
+  console.log(random, challengeArray[random]);
 
 
   return (
+   
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Share" component={StartScreen} />
+      </Tab.Navigator>
+   
+      
+
     <Container>
-      <TopContainer>
-      </TopContainer>
-      <Title>DAILY EMPOWERMENT CHALLENGES</Title>
-      <IntroText>
-        Inspired by the book: 
-        "Nice girls don't get the corner office" 
-      </IntroText>       
-    <MainContainer>
-    <TouchableOpacity onPress={onIncrement}>
-          <Text>Add +1</Text>
-        </TouchableOpacity>
-        <Text>Total: {count}</Text>
-    </MainContainer>
+    
+    <StartScreen/>   
 
+    <Button
+      onPress={onClick}
+      title="Change Challenge"
+      color="blue">
+    </Button>
+    <ResultText>{random, challengeArray[random]}</ResultText>
 
-      <BottomContainer>
+    <Challenges />
+    <ChallengeButton />
      
-      </BottomContainer>
     </Container>
+
+    </NavigationContainer>
+  
   )
 }
 
