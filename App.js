@@ -1,26 +1,33 @@
-import React from 'react'
-import styled from 'styled-components/native'
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+// Components
+import HomeScreen from './components/HomeScreen';
+import Recept from './components/Recept';
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+const Stack = createStackNavigator();
 
-const App = () => {
+// ------------------------------------------------------------------------------------------------
+
+function App() {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
-  )
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ReceptNamn"
+          component={Recept}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
-export default App
+export default App;

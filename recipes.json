@@ -1,0 +1,38 @@
+[
+    {
+        "id" : "001",
+        "receptNamn" : "Pasta med rostad tomat- och ricottasås",
+        "ingredienser" : [
+            "400g pasta, torkad eller färsk",
+            "500g tomater av valfri sort",
+            "4 vitlöksklyftor",
+            "en nypa chilliflakes",
+            "125g ricotta",
+            "1 kruka basilika, plockad",
+            "ca 2 mask olivolja",
+            "salt och nymalen svartpeppar"
+        ],
+        "tillServering" : [
+            "olivolja",
+            "riven parmesanost"
+        ]
+    },
+    {
+        "id" : "002",
+        "receptNamn" : "Test-2",
+        "ingredienser" : [
+            "400g pasta, torkad eller färsk",
+            "500g tomater av valfri sort",
+            "4 vitlöksklyftor",
+            "en nypa chilliflakes",
+            "125g ricotta",
+            "1 kruka basilika, plockad",
+            "ca 2 mask olivolja",
+            "salt och nymalen svartpeppar"
+        ],
+        "tillServering" : [
+            "olivolja",
+            "riven parmesanost"
+        ]
+    }
+]     
