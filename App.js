@@ -1,5 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { StyleSheet, Text, View, Image } from 'react-native'
+
+const Img = styled.Image`
+  width: 450px;
+  height: 1000px;
+`;
 
 const Container = styled.View`
   flex: 1;
@@ -10,17 +16,29 @@ const Container = styled.View`
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  backgroundColor: #f8f7f7;
+  position:absolute;
+  padding:20px;
+  text-align:center;
+  top:200px;
+  color:#352727;
 `
 
-const App = () => {
+// const Txt = styled.Text`
+// font-size:20;
+// position:absolute;
+// `
+
+export default function App() {
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <View>
+        <Container>
+          <Img source={require('./assets/background.jpg')} />
+          <Title>Cozy Fall reads</Title>
+        </Container>
+      </View>
     </Container>
   )
 }
 
-export default App
