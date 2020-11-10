@@ -8,6 +8,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.8.9",
+    "@react-navigation/stack": "^5.12.6",
     "braces": "^3.0.2",
     "expo": "^39.0.0",
     "expo-asset": "~8.2.0",
@@ -17,10 +20,18 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
+    "react-native-chart-kit": "^6.6.1",
+    "react-native-gesture-handler": "^1.8.0",
+    "react-native-reanimated": "^1.13.1",
+    "react-native-safe-area-context": "^3.1.8",
+    "react-native-screens": "^2.14.0",
+    "react-native-svg": "^12.1.0",
     "react-native-tab-view": "^2.15.2",
+    "react-native-video": "^5.1.0-alpha8",
     "react-native-web": "~0.13.7",
     "react-navigation": "^4.4.3",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "babel-preset-expo": "^8.3.0"
