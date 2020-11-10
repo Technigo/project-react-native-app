@@ -1,26 +1,28 @@
-import React from 'react'
-import styled from 'styled-components/native'
+import React from 'react';
+import styled from 'styled-components/native';
+import { WorkoutType } from './components/WorkoutType';
+
+const App = () => {
+
+  return (
+    <Container>
+      <Title>JUST DO IT!</Title>
+      <WorkoutType />
+    </Container>
+  );
+};
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #b83549;
   justify-content: center;
   align-items: center;
 `
-
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: #ed72b6;
+  margin-top: 50;
+  font-weight: bold;
+  text-align: center;
 `
-
-const App = () => {
-  return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
-  )
-}
-
-export default App
+export default App;
