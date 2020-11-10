@@ -6,7 +6,6 @@ import { Text, Image } from 'react-native'
 import { Header } from './components/Header'
 import { ShuffledQuotes } from './data/Quotes'
 import { Footer } from './components/Footer'
-// import { LeiaIcon } from './components/LeiaIcon'
 
 
 
@@ -50,7 +49,6 @@ const App = () => {
           {quotes[10]}
         </LeaQuote>
         </Speachbubble>
-        {/* <LeiaIcon /> */}
         {/* <Img source={require('./assets/Leia.png')} /> */}
         <Img source={require('./assets/PL.png')} />
       </MidContainer>
