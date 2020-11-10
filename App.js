@@ -2,21 +2,27 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 import { StyleSheet, Button } from 'react-native'
 
-import { CatList } from './components/CatList.js'
+import { Header } from './components/Header'
+import { CatList } from './components/CatList'
+import { Footer } from './components/Footer'
 
 const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 `
 
+const Section = styled.View`
+  flex: 1;
+  background-color: papayawhip;
+`
+
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;nj
+  color: palevioletred;
+  background-color: yellow;
 `
 
 const App = () => {
@@ -41,18 +47,25 @@ const App = () => {
   console.log(cats)
 
   return (
-    <Container>
-      <Title>For cat lovers only!</Title>
-      {cats.map(cat => {
-        return(
-          <CatList
-            key = {cat.id}
-            url = {cat.url}
-            id = {cat.id}
-          />
-        )
-      })}
-    </Container>
+    <Section>
+      <Header
+        title = 'For cat lovers only!'
+      />
+      <Container>
+        {cats.map(cat => {
+          return(
+            <CatList
+              key = {cat.id}
+              url = {cat.url}
+              id = {cat.id}
+            />
+          )
+        })}
+      </Container>
+      <Footer
+        title = 'Project by Linda Hintze'
+      />
+    </Section>
   )
 }
 

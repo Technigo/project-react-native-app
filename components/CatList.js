@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+
 import styled from 'styled-components/native'
+
 import { StyleSheet, Button, Text } from 'react-native'
-import { ServerStyleSheet } from 'styled-components';
 
 const Container = styled.View`
   flex: 1;
@@ -24,15 +25,17 @@ const styles = StyleSheet.create({
 
 
 export const CatList = ({url, id}) => {
+
+  console.log(url)
   return(
-    <Container>
-      <Text>{id}</Text>
-      <Picture
-        style={styles.img}
-        source={{
-          uri: 'https://cdn2.thecatapi.com/images/zqtEGxNbq.jpg'
-        }}
-      />
-    </Container>
+      <Container>
+        <Text>{id}</Text>
+        <Picture
+          style={styles.img}
+          source={{
+            uri: 'https://cdn2.thecatapi.com/images/zqtEGxNbq.jpg'
+          }}
+        />
+      </Container>
   )
 }
