@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
+// import Balloon from "react-native-balloon";
 // import {TouchableOpacity } from 'react-native'
 import { Text, Image } from 'react-native'
 
@@ -17,12 +18,11 @@ const Container = styled.View`
 `
 const StepsContainer = styled.View`
   width: 100%
-  background-color: #fcba03
   justify-content: center;
   align-items: center;
   flex-direction: row;
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 `
 
 const Info = styled.Text`
@@ -32,19 +32,24 @@ const Info = styled.Text`
   `
 
 const MidContainer = styled(Container)`
-  flex: 3
-  width: 100%
-  background-color: #fff
+  flex: 3;
+  width: 100%;
+  background-color: #fff;
 `
 
 const Speachbubble = styled(Container)`
-  width: 80%
-  background-color: #70706e
+  flex-wrap: wrap;
+  width: 95%;
+  background-color: #1B1B1C;
+  border-radius: 50;
+  padding: 17px;
+  text-align: center;
 `
-// word-break: break-word or similar?
+
 const LeaQuote = styled.Text`
-font-size: 20px
-color: #fff
+font-size: 17px;
+color: #DCDCDC
+text-align: center;
 `
 
 const Img = styled.Image`

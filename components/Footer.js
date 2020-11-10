@@ -4,14 +4,15 @@ import styled from 'styled-components/native'
 const Container = styled.View`
 flex: 0.5
 width: 100%
-background-color: #fcba03
+background-color: #180137
 justify-content: center;
 align-items: center;
 `
 
 const FooterText = styled.Text`
 font-size: 15px
-color: #1f1f1f
+color: #DCDCDC
+text-align: center;
 `
 
 export const Footer = () => {
