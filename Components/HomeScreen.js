@@ -1,6 +1,9 @@
-import React from 'react';
+import React from 'react'
+import LottieView from 'lottie-react-native'
 import { Text  } from 'react-native'
 import styled from 'styled-components/native'
+
+
 
 
 export const HomeScreen = () => {
@@ -12,7 +15,9 @@ export const HomeScreen = () => {
                 comes this app where you can shuffle through daily challenges that will 
                 help improve your carrer!
             </InfoText>
-        </Container>    
+            <LottieView source={require('./Animation/6220-women-with-phone.json')} autoPlay/>
+        </Container>  
+  
     )
 }
 
@@ -26,10 +31,15 @@ const Container = styled.View`
  const Title = styled.Text`
   font-size: 30px;
   color: palevioletred; 
+  text-align:center;
 `
 
 const InfoText = styled.Text`
 font-size: 18px;
 color: black; 
-padding-top: 20px;
+padding-top: 5px;
+text-align:center;
+margin-bottom: 30px;
 `
+
+
