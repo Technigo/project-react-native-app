@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Image } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import styled, { css } from 'styled-components/native';
 
 
@@ -22,7 +22,7 @@ export const HomeScreen= () => {
           Pick a mood that reflects how you feel today and get some facts about why it is a instant boost!
         </ContentText>
 
-        <ContentText>
+        <ContentText bold>
           Share this fact with friends and add your personal touch with a text! Swipe and get started!
         </ContentText>
 
@@ -36,7 +36,7 @@ export const HomeScreen= () => {
 
 /*STYLED COMPONENTS*/
 const MainScreenContainer = styled.View`
-  padding-top: 20px;
+  padding-top: 12px;
   background-color: white;
 `;
 
@@ -75,6 +75,10 @@ const ContentText = styled.Text`
   width: 80%;
   margin: auto;
   margin-top: 10px;
+
+  ${props => props.bold && css`
+    font-weight: bold;
+  `}
 `;
 
 const ArrowImageContainer = styled.View`
