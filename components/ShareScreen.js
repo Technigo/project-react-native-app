@@ -6,10 +6,13 @@ export const ShareScreen = () => {
   const [message, setMessage] = useState('');
   const [mood, setMood] = useState('');
 
+  //Function to implement the Share on phone button, the text content that will be share is what
+  //appears in the message property. I am generating a combination of the set Mood, the phrase
+  //explaining that Mood and also the personal message that the user has entered in the TextInput field.
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `You've received a ${mood} mood booster! ${phrase()} Friend's personal message: ${message}`,
+        message: `You've received a ${mood} mood booster! ${phrase()} A special message just for you: ${message}`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -25,27 +28,31 @@ export const ShareScreen = () => {
     }
   };
 
+  //Function to generate the phrase that will be showing on screen and shared at the end. The shown
+  //phrase will depend on the mood that has been chosen and set via the mood state
   const phrase = () => {
     if(mood === 'Crafty') {
-      return 'Getting creative and making something with your hands can help set the positive vibes!';
+      return 'Getting creative and making something with your hands can help set the positive vibes 🧶!';
     } else if(mood === 'Sunny') {
-      return 'Going outdoors and enjoying some fresh air is an instant mood boost!';
+      return 'Going outdoors and enjoying some fresh air is an instant mood boost ☀!';
     } else if(mood === 'Active') {
-      return 'Move throughout the day! Breaking a sweat helps you handle stress hormones.';
+      return 'Move throughout the day! Breaking a sweat helps you handle stress hormones 🏃‍♀️.';
     } else if(mood === 'Smiley') {
-      return 'Chin up and smile! Our facial expressions influence our thoughts and emotions.';
+      return 'Chin up and smile! Our facial expressions influence our thoughts and emotions 😁.';
     } else {
-      return 'What is the mood for today...?';
+      return 'Set a mood booster for today!';
     }
   };
 
   return (
+    //KeyboardAvoidingView: Component so that the phone's keyboard doesn't cover the TextInput field when the user is typing
     <KeyboardAvoidingView
       style={{flex: 1}}
       behavior="padding"
       enabled={true}
     >
       <SafeAreaView style={styles.container}>
+        {/* Scrollview so that it's possible to scroll since my content is longer than the phone's screen height*/}
         <ScrollView style={styles.scrollView}>
           <MainScreenContainer>
             <TitleText>Tap on a Mood Button</TitleText>
@@ -53,6 +60,9 @@ export const ShareScreen = () => {
             <RowImageContainer>
               <SingleImageContainer>
                 <MoodImage source={require('../assets/crafty.png')} />
+                {/* There are 4 mood buttons to choose from: when tapped they will set a new mood via a state, then depending
+                on the state, the button will change color to show it has been chosen, this is done with inline styling on
+                each button */}
                 <MoodButton onPress={() => setMood('Crafty')} style={{backgroundColor: mood === 'Crafty' ? "#99dddd" : "white"}}>
                   <MoodButtonText>Crafty</MoodButtonText>
                 </MoodButton>
@@ -83,13 +93,18 @@ export const ShareScreen = () => {
             </RowImageContainer>
 
             <MoodPhraseSection>
+              {/* Phrase shown is determined by calling the phrase() function which will generate a phrase depending on the mood chosen*/}
               <MoodPhraseText>{phrase()}</MoodPhraseText>
             </MoodPhraseSection>
 
             <PersonalMessageText>Add a personal message and share this mood booster with a friend via text, Twitter, email...:</PersonalMessageText>
 
+            {/* Users have the option to personalize their message by adding their own text in this input field. The text they enter is stored via
+            the message state*/}
             <TextInputField placeholder="Enter some text here" multiline style={{minHeight: 80}} onChangeText={text => setMessage(text)} value={message}/>
 
+            {/* Share button calls the onShare() function which will bring up the phone's sharing functionality in which you can share the final message
+            as a text message to your contacts, via email or social medias like Twitter*/}
             <ShareButton onPress={onShare}>
               <ShareButtonText>SHARE</ShareButtonText>
             </ShareButton>
