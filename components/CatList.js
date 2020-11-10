@@ -2,34 +2,32 @@ import React, { useEffect, useState } from 'react'
 
 import styled from 'styled-components/native'
 
-import { StyleSheet, Button, Text } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 
 const Container = styled.View`
-  flex: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50%;
+  padding: 10px;
 `
 
 const Picture = styled.Image`
-  width: 100%;
-  height: 100%;
+  border: solid 2px #ff8264;
 `
-
 const styles = StyleSheet.create({
   img: {
-    width: 100,
-    height: 100
+    width: 200,
+    height: 200
   },
 });
-
 
 export const CatList = ({url, id}) => {
 
   console.log(url)
   return(
       <Container>
-        <Text>{id}</Text>
+        <Text>{url}</Text>
         <Picture
           style={styles.img}
           source={{

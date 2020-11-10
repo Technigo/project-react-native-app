@@ -6,12 +6,12 @@ const Container = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: yellow;
+  background-color: #ff6464;
   padding: 50px;
 `
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: #fff5a5;
 `
 
 export const Footer = ({title}) => {

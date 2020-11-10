@@ -7,6 +7,7 @@ import { CatList } from './components/CatList'
 import { Footer } from './components/Footer'
 
 const Container = styled.View`
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -15,14 +16,9 @@ const Container = styled.View`
 `
 
 const Section = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-  background-color: yellow;
+  display: flex;
+  background-color: #fff5a5;
+  justify-content: space-between;
 `
 
 const App = () => {
@@ -49,7 +45,7 @@ const App = () => {
   return (
     <Section>
       <Header
-        title = 'For cat lovers only!'
+        title = 'Everyday is caturday'
       />
       <Container>
         {cats.map(cat => {
