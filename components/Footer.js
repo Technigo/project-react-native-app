@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 
 export const Footer = () => {
     const Container = styled.View`
-    flex: 1;
+    flex: 0.5;
     background: #F0CDB7;
     width: 100%;
     justify-content: center;

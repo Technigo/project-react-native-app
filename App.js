@@ -9,7 +9,7 @@ const App = () => {
     <>
     <Header/>
       <Recipe/>
-    <Footer/>
+{/*     <Footer/> */}
     </>
   )
 }

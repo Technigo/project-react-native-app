@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 export const Header = () => {
 
 const Container = styled.View`
-flex: 1;
+flex: 0.2;
 width: 100%;
 justify-content: center;
 align-items: center;
