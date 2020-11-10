@@ -14,7 +14,7 @@ My planning was based a lot on what I wanted to build, I knew I wanted to use an
 The app consists on 3 main components:
 - App.js where I use the React useState hook in order to store the state of my start screen depending on my "Shake" function, which has event listeners to detect the the phone's movement and render the correct screen. 
 - The Start Screen that has instructions to the user and conditionally renders dependening on the state of my shake event function. 
-- The Oracle Message component where I fetch() the data from the Advice Slip JSON API and a Restart and displays it, depending on the conditional rendering on the App.js, also there's button to restart the app ✨
+- The Oracle Message component where I fetch() the data from the Advice Slip JSON API and displays it, depending on the conditional rendering on the App.js, also there's button to restart the app ✨
 
 I've learned a new way of writing CSS, as well as, how to use style components which was a real challenge. Also, how to work with hardware components on the mobile phone and the dependencies from expo, how to use expo.io and how to add animations with Lottie. 
 
