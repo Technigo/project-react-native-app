@@ -22,7 +22,6 @@ const App = () => {
       <Firstpage/>
       <Button/>
       </Background>
-
     </>
   )
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { Image } from 'react-native'
+import { useFonts } from '@use-expo/font'
+import { AppLoading } from 'expo'
 
 const Container = styled.View`
   flex: 1;
@@ -22,6 +24,14 @@ const Title = styled.Text`
   `
 
 export const Firstpage = () => {
+  const [fontsLoaded] = useFonts({
+    'Ubuntu-Regular': require('../assets/fonts/Ubuntu-Regular.ttf'),
+  }) 
+
+  if (!fontsLoaded) {
+    return <AppLoading />
+  } else {
+
   return (
     <Container>
       <Title> It is time for sorting </Title>
@@ -30,6 +40,5 @@ export const Firstpage = () => {
       <Image style={styled.Img} source={require('../assets/sortinghat.png')} />
     </Container>
   )
+  }
 }
-
-

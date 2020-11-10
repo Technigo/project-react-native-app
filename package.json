@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
+    "@use-expo/font": "^2.0.0",
     "braces": "^3.0.2",
     "expo": "^39.0.0",
+    "expo-font": "~8.3.0",
     "mem": "^6.0.1",
     "minimist": "^1.2.5",
     "react": "16.13.1",
