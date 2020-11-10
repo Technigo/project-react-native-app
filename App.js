@@ -1,25 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
+import { Firstpage } from './components/Firstpage'
+import { Houses } from './components/Houses'
+import { Button } from './components/Button'
 
-const Container = styled.View`
+const Background = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #c4b6b6 ;
   justify-content: center;
   align-items: center;
 `
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
 
 const App = () => {
+  const [firstView, setFirstView] = useState(true)
+
+
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <>
+      <Background>
+      <Firstpage/>
+      <Button/>
+      </Background>
+
+    </>
   )
 }
 
