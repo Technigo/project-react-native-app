@@ -3,7 +3,11 @@ import { View, Text, } from 'react-native'
 import styled from 'styled-components/native'
 
 export const Quote = () => {
-    const [quotes, setQuotes] = useState({})
+    const [quotes, setQuotes] = useState([])
+
+    const getRandomQuote = () => {
+        return quotes[Math.floor(Math.random() * (quotes.length - 1))].text
+    }
 
     useEffect(() => {
         fetch("https://type.fit/api/quotes")
@@ -17,11 +21,16 @@ export const Quote = () => {
 
                 setQuotes(filteredData)
             })
+    }, [])
+    
+    if (quotes.length > 0) {
+        return (
+            <Text> {` ${getRandomQuote()}`} </Text>
+        )
+    } else {
+        return (
+            <Text>Loading...</Text>
+        )
+    }
 
-    }, {})
-
-    return (
-        <Text> {` ${quotes[0]}`} </Text>
-        
-    )
 }
