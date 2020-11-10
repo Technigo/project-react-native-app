@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Share, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { Share, StyleSheet, SafeAreaView, ScrollView, KeyboardAvoidingView } from 'react-native';
 import styled from 'styled-components/native';
 
 export const ShareScreen = () => {
@@ -40,60 +40,65 @@ export const ShareScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        <MainScreenContainer>
-          <TitleText>Tap on a Mood Button</TitleText>
+    <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior="padding"
+      enabled={true}
+    >
+      <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.scrollView}>
+          <MainScreenContainer>
+            <TitleText>Tap on a Mood Button</TitleText>
 
-          <RowImageContainer>
-            <SingleImageContainer>
-              <MoodImage source={require('../assets/crafty.png')} />
-              <MoodButton onPress={() => setMood('Crafty')} style={{backgroundColor: mood === 'Crafty' ? "#99dddd" : "white"}}>
-                <MoodButtonText>Crafty</MoodButtonText>
-              </MoodButton>
-            </SingleImageContainer>
+            <RowImageContainer>
+              <SingleImageContainer>
+                <MoodImage source={require('../assets/crafty.png')} />
+                <MoodButton onPress={() => setMood('Crafty')} style={{backgroundColor: mood === 'Crafty' ? "#99dddd" : "white"}}>
+                  <MoodButtonText>Crafty</MoodButtonText>
+                </MoodButton>
+              </SingleImageContainer>
 
-            <SingleImageContainer>
-              <MoodImage source={require('../assets/sunny.png')} />
-              <MoodButton onPress={() => setMood('Sunny')} style={{backgroundColor: mood === 'Sunny' ? "#99dddd" : "white"}}>
-                <MoodButtonText>Sunny</MoodButtonText>
-              </MoodButton>
-            </SingleImageContainer>
-          </RowImageContainer>
+              <SingleImageContainer>
+                <MoodImage source={require('../assets/sunny.png')} />
+                <MoodButton onPress={() => setMood('Sunny')} style={{backgroundColor: mood === 'Sunny' ? "#99dddd" : "white"}}>
+                  <MoodButtonText>Sunny</MoodButtonText>
+                </MoodButton>
+              </SingleImageContainer>
+            </RowImageContainer>
 
-          <RowImageContainer>
-            <SingleImageContainer>
-              <MoodImage source={require('../assets/active.png')} />
-              <MoodButton onPress={() => setMood('Active')} style={{backgroundColor: mood === 'Active' ? "#99dddd" : "white"}}>
-                <MoodButtonText>Active</MoodButtonText>
-              </MoodButton>
-            </SingleImageContainer>
+            <RowImageContainer>
+              <SingleImageContainer>
+                <MoodImage source={require('../assets/active.png')} />
+                <MoodButton onPress={() => setMood('Active')} style={{backgroundColor: mood === 'Active' ? "#99dddd" : "white"}}>
+                  <MoodButtonText>Active</MoodButtonText>
+                </MoodButton>
+              </SingleImageContainer>
 
-            <SingleImageContainer>
-              <MoodImage source={require('../assets/smiley.png')} />
-              <MoodButton onPress={() => setMood('Smiley')} style={{backgroundColor: mood === 'Smiley' ? "#99dddd" : "white"}}>
-                <MoodButtonText>Smiley</MoodButtonText>
-              </MoodButton>
-            </SingleImageContainer>
-          </RowImageContainer>
+              <SingleImageContainer>
+                <MoodImage source={require('../assets/smiley.png')} />
+                <MoodButton onPress={() => setMood('Smiley')} style={{backgroundColor: mood === 'Smiley' ? "#99dddd" : "white"}}>
+                  <MoodButtonText>Smiley</MoodButtonText>
+                </MoodButton>
+              </SingleImageContainer>
+            </RowImageContainer>
 
-          <MoodPhraseSection>
-            <MoodPhraseText>{phrase()}</MoodPhraseText>
-          </MoodPhraseSection>
+            <MoodPhraseSection>
+              <MoodPhraseText>{phrase()}</MoodPhraseText>
+            </MoodPhraseSection>
 
-          <PersonalMessageText>Add a personal message and share this mood booster with a friend via text, Twitter, email...:</PersonalMessageText>
+            <PersonalMessageText>Add a personal message and share this mood booster with a friend via text, Twitter, email...:</PersonalMessageText>
 
-          <TextInputField placeholder="Enter some text here" multiline style={{minHeight: 80}} onChangeText={text => setMessage(text)} value={message}/>
+            <TextInputField placeholder="Enter some text here" multiline style={{minHeight: 80}} onChangeText={text => setMessage(text)} value={message}/>
 
-          <ShareButton onPress={onShare}>
-            <ShareButtonText>SHARE</ShareButtonText>
-          </ShareButton>
-        </MainScreenContainer>
-      </ScrollView>
-    </SafeAreaView>
+            <ShareButton onPress={onShare}>
+              <ShareButtonText>SHARE</ShareButtonText>
+            </ShareButton>
+          </MainScreenContainer>
+        </ScrollView>
+      </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
-
 
 /*STYLED COMPONENTS AND STYLESHEETS*/
 const MainScreenContainer = styled.View`
