@@ -10,9 +10,11 @@ align-items: center
 margin-bottom: 30px
 `
 const HeaderText = styled.Text`
-font-size: 40px
+font-size: 35px
+margin-top: 35px
 color: #fff
 text-align: center
+
 `
 
 
@@ -20,7 +22,7 @@ export const Header = () => {
   return (
     <Container>
       <HeaderText>
-        XX to render a Carrie Fisher quote
+        Walk to render Carrie Fisher quotes!
         </HeaderText>
     </Container>
   )

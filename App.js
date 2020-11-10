@@ -15,6 +15,21 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `
+const StepsContainer = styled.View`
+  width: 100%
+  background-color: #fcba03
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 18px;
+  margin-bottom: 20px;
+`
+
+const Info = styled.Text`
+  font-size: 18px;
+  margin: 8px;
+  color: #000;
+  `
 
 const MidContainer = styled(Container)`
   flex: 3
@@ -29,6 +44,7 @@ const Speachbubble = styled(Container)`
 // word-break: break-word or similar?
 const LeaQuote = styled.Text`
 font-size: 20px
+color: #fff
 `
 
 const Img = styled.Image`
@@ -41,10 +57,20 @@ const Img = styled.Image`
 const App = () => {
   // implement shuffled quotes function
   const quotes = ShuffledQuotes()
+
+  const steps = StepCounter()
+
+  if (steps === 10) (
+    quotes[3]
+  )
+
   return (
     <Container>
       <Header />
-      <StepCounter />
+      <StepsContainer>
+        <Info> You have walked:</Info>
+        <StepCounter />
+      </StepsContainer>
       <MidContainer>
         <Speachbubble>
           <LeaQuote>
@@ -60,4 +86,3 @@ const App = () => {
 }
 
 export default App
-
