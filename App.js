@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 import { Text, Image } from 'react-native'
 
 import { Header } from './components/Header'
+import { StepCounter } from './components/StepCounter'
 import { ShuffledQuotes } from './data/Quotes'
 import { Footer } from './components/Footer'
 
@@ -43,6 +44,7 @@ const App = () => {
   return (
     <Container>
       <Header />
+      <StepCounter />
       <MidContainer>
         <Speachbubble>
           <LeaQuote>
