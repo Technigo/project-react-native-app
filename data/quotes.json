@@ -1,0 +1,32 @@
+    [
+        {
+            "id": "Heart",
+            "quote": "The secret of attraction is to love yourself",
+            "author": "DEEPAK CHOPRA"
+        },
+        {
+            "id": "Sun",
+            "quote": "Nothing can dim the light that shines from within",
+            "author": "MAYA ANGELOU"
+        },
+        {
+            "id": "Hand",
+            "quote": "The only courage you ever need is the courage to fulfill the dreams of your own life",
+            "author": "OPRAH"
+        },
+        {
+            "id": "Flower",
+            "quote": "Am I good enough? Yes I am.",
+            "author": "MICHELLE OBAMA"
+        },
+        {
+            "id": "Bird",
+            "quote": "Your life is already a miralce of chance waiting for you to shape it's destiny.",
+            "author": "TONI MORRISON"
+        },
+        {
+            "id": "Leaf",
+            "quote": "Embrace the glorious mess you are",
+            "author": "Elizabeth Gilbert"
+        }
+    ]
