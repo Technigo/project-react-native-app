@@ -171,6 +171,7 @@ const MoodPhraseText = styled.Text`
   color: black;
   font-size: 18px;
   font-weight: bold;
+  font-family: Verdana;
   padding: 25px;
   text-align: center;
 `;
