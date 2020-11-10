@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, Button, Text } from 'react-native';
 import {Title, IntroText, Screen, ResultText } from './StartScreenStyling';
+import styled from 'styled-components/native'
 
 
 export const StartScreen = () => { 
@@ -23,17 +24,22 @@ export const StartScreen = () => {
   console.log(random, challengeArray[random]);
 
   return (
-    <View> 
-      <Screen>
+    <Container>
         <Title>DAILY EMPOWERMENT CHALLENGES</Title>
-        <IntroText> Inspired by the book:"Nice girls don't get the corner office" </IntroText>
+        <IntroText> Click on the button to get a challenge that you will focus on today!</IntroText>
           <Button
             onPress={onClick}
             title="Change Challenge"
             color="blue">
            </Button>
           <ResultText>{random, challengeArray[random]}</ResultText>
-      </Screen>
-    </View>
+    </Container>
   )
 };
+
+const Container = styled.View`
+  padding-top: 12px;
+  background-color: papayawhip;
+  height:100%;
+  text-align:center;
+`;

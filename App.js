@@ -5,23 +5,17 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import styled from 'styled-components/native'
 
 import { StartScreen } from './Components/StartScreen'
-import { HomeScreen } from './components/HomeScreen';
+import { HomeScreen } from './Components/HomeScreen';
 
 //import challenges from'./Components/Data/challenges.json'
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+
 
 const Tab = createMaterialTopTabNavigator();
 
 const App = () => {
 
 return (
-   
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />

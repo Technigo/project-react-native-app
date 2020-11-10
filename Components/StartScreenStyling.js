@@ -1,8 +1,5 @@
 import styled from 'styled-components/native';
 
-export const Screen = styled.View`
-  background-color: papayawhip;
-`
 
 export const Title = styled.Text`
   font-size: 24px;
@@ -18,4 +15,5 @@ export const IntroText = styled.Text`
 export const ResultText = styled.Text`
   padding:20px;
   font-size:20px;
+  text-align: center;
 `
