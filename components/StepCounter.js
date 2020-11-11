@@ -17,6 +17,7 @@ export const StepCounter = () => {
   const [weeklySteps, setWeeklySteps] = useState(0)
   const [todaysSteps, setTodaysSteps] = useState(0)
   const [evaluateSteps, setEvaluateSteps] = useState(false)
+
   const stepsLeft = 10000-todaysSteps
 
   const endWeek = new Date()
@@ -37,7 +38,10 @@ export const StepCounter = () => {
     })
     Pedometer.getStepCountAsync(startToday, endToday)
       .then(result => {
-        setTodaysSteps(result.steps)     
+        setTodaysSteps(result.steps)
+        if(todaysSteps > 10000) {
+          return setEvaluateSteps(true)
+        }
     })
   }, [steps])
   /* should I have more dependencies here or is this enough? every time steps updates the useEffect updates the states */
@@ -47,7 +51,7 @@ export const StepCounter = () => {
       <TopContainer>
         <Title1>Steps last 24 hours: {todaysSteps}</Title1>
         <LottieView 
-          source={evaluateSteps ? require('../assets/walkingMan.json') : require('../assets/cup.json')}
+          source={evaluateSteps ? require('../assets/cup.json') : require('../assets/walkingMan.json')}
           autoPlay
           style={{ width: 300, height: 300}}
         />
@@ -55,7 +59,10 @@ export const StepCounter = () => {
       <BottomContainer>
         <Title2>Steps this week: {weeklySteps}</Title2>
         <Title3>Current steps: {steps}</Title3>
-        <Title1>Steps left to 10 000: {stepsLeft}</Title1>
+        {evaluateSteps ? 
+        <Title1>Yay! You made it!</Title1> : 
+        <Title1>Steps left to 10 000: {stepsLeft} </Title1>
+        }
       </BottomContainer>
     </Container>
   )
