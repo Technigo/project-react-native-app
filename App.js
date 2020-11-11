@@ -1,28 +1,22 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator} from '@react-navigation/stack';
+import { Header } from './components/Header';
 import { WorkoutType } from './components/WorkoutType';
+import { WorkoutDetail } from './components/WorkoutDetail';
 
 const App = () => {
+  const Stack = createStackNavigator();
 
   return (
-    <Container>
-      <Title>JUST DO IT!</Title>
-      <WorkoutType />
-    </Container>
+    <NavigationContainer>
+      <Header />
+      <Stack.Navigator>
+        <Stack.Screen name='Start page' component={WorkoutType} />
+        <Stack.Screen name='Workout' component={WorkoutDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
-const Container = styled.View`
-  flex: 1;
-  background-color: #b83549;
-  justify-content: center;
-  align-items: center;
-`
-const Title = styled.Text`
-  font-size: 24px;
-  color: #ed72b6;
-  margin-top: 50;
-  font-weight: bold;
-  text-align: center;
-`
 export default App;

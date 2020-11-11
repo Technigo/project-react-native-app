@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
-import { Vibration } from 'react-native';
 
-export const WorkoutType = () => {
+export const WorkoutType = ({navigation}) => {
+
+  useEffect(()=> {
+    navigation.setOptions({headerShown:false});
+  });
 
   const WorkoutTypesArray = [
       { 
         workout: 'Yoga', 
-        color: 'pink'
+        color: '#588B8B',
+        image: './assets/yoga.png'
       },
       { 
         workout: 'Run', 
-        color: 'green'
+        color: '#597799',
+        image: './assets/yoga.png'
       },
       { 
         workout: 'Lift', 
-        color: 'black'
+        color: '#5F91A3',
+        image: './assets/yoga.png'
+      },
+      {
+        workout: 'Walk', 
+        color: '#5FA390',
+        image: './assets/yoga.png'
+      },
+      {
+        workout: 'Rest Day', 
+        color: '#599975',
+        image: './assets/yoga.png'
       },
   ]
 
@@ -24,16 +40,19 @@ export const WorkoutType = () => {
   const getWorkout = () => {
     const theWorkout = WorkoutTypesArray[Math.floor(Math.random() * WorkoutTypesArray.length)]
     setWorkout(theWorkout)
-  }
+  };
 
   return (
     <Container>
       <WorkoutContainer style={{ backgroundColor: workout.color }}>
-        <WorkoutText>
-          {workout.workout}
-        </WorkoutText>
+        <WorkoutButton 
+          key={workout.workout}
+          onPress={() => navigation.navigate('Workout', {workout})}>
+          <WorkoutText>{workout.workout}</WorkoutText>
+          <WorkoutImage source={{ uri: workout.image}}/>
+        </WorkoutButton>
       </WorkoutContainer>
-      <PickButton onPress={() => { getWorkout(); Vibration.vibrate() }}>
+      <PickButton onPress={() => { getWorkout(); }}>
         <ButtonText>Get today's workout</ButtonText>
       </PickButton>
     </Container>
@@ -41,16 +60,17 @@ export const WorkoutType = () => {
 };
 
 const Container = styled.View`
-  justify-content: center;
   align-items: center;
+  flex: 1;
+  background-color: #FFD5C2;
 `
 
 const PickButton = styled.TouchableOpacity`
-  background-color: blue;
+  background-color: #fff;
   padding: 10px;
-  border: 2px solid #fff;
-  margin: 10px;
-  width: 200px;
+  border: 2px solid #C8553D;
+  margin: 15px;
+  width: 240px;
   border-radius: 8px;
 `
 
@@ -58,21 +78,37 @@ const ButtonText = styled.Text`
   text-align: center;
   justify-content: center;
   align-items: center;
-  color: #efefef;
+  color: #C8553D;
+  font-family: 'Inter-Regular';  
+  font-size: 18px;
+  letter-spacing: 1px;
 `
 
 const WorkoutContainer = styled.View`
   padding: 40px;
   width: 300px;
-  height: 160px;
+  height: 250px;
   margin: 10px;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
 `
 
-const WorkoutText = styled.Text`
-  font-size: 20px;
+const WorkoutButton = styled.TouchableOpacity`
   text-align: center;
-  color: #fff;
+  text-shadow: 0.5px 0.5px 1px #fff;
+  text-transform: uppercase;
+`
+
+const WorkoutText = styled.Text`
+  font-family: 'Inter-Regular';    
+  font-size: 26px;
+  color: #C8553D;
+  text-shadow: 0.5px 0.5px 1px #fff;
+  text-transform: uppercase;
+`
+
+const WorkoutImage = styled.Image`
+  height: 50px;
+  width: 50px;
 `
