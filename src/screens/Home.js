@@ -71,15 +71,69 @@ export default class Home extends Component {
                 <ImageBackground
                     source={require("../images/background.jpg")}
                     style={styles.map}>
+                    {/* <ImageBackground
+          source={require('../images/background.jpg')}
+          style={{ width: '100%' }}
+        ></ImageBackground> */}
 
                     <View style={styles.col}>
                         <View style={{ width: "50%" }}>
                             <Icon name="md-remove" color="#FFF" size={26} />
                             <Icon name="md-remove" color="#FFF" size={26} style={styles.minusIcon} />
                         </View>
+                        <View style={styles.avatarContainer}>
+                            <Image
+                                source={require('../images/bookshelf.png')}
+                                style={styles.avatar} />
+                        </View>
+                    </View>
+                    <Text style={styles.textDash}>Corona dashboard</Text>
+
+                    <View style={styles.colContainer}>
+                        <Text style={styles.textGlobal}>GLOBAL</Text>
+                        <Text style={styles.textSweden}>SWEDEN</Text>
+                        <View style={styles.reloadContainer}>
+                            <Icon name="md-refresh" size={24} color="green" />
+                        </View>
                     </View>
                 </ImageBackground>
-                <Text>Home</Text>
+                <Deck
+                    data={DATA}
+                    renderCard={this.renderCard}
+                    renderNoMoreCards={this.renderNoMoreCards} />
+                <ScrollView
+                    style={{ marginTop: 170 }}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal>
+
+                    <Cards
+                        icon="md-pulse"
+                        title="TOTAL CASES"
+                        bg="red"
+                        number="112 329" />
+
+                    <Cards
+                        icon="ios-git-network"
+                        title="RECOVERED"
+                        bg="blue"
+                        number="442 329" />
+
+                    <Cards
+                        icon="ios-heart-dislike"
+                        title="DEATH CASES"
+                        bg="red"
+                        number="113 329" />
+                </ScrollView>
+                <View style={{ marginBottom: 34 }}>
+                    <Buttons
+                        name="ASYMPTOPMATIC"
+                        number="1 778" />
+                    <Buttons
+                        name="SYMPTOMATIC"
+                        number="1 578" />
+
+
+                </View>
             </View>
         )
     }
