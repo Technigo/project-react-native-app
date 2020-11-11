@@ -70,7 +70,7 @@ export default class Home extends Component {
         return (
             <View style={styles.container}>
                 <ImageBackground
-                    source={require("../images/background.jpg")}
+                    source={require("../images/bg.jpg")}
                     style={styles.map}
                 >
                     <View style={styles.col}>
@@ -85,7 +85,7 @@ export default class Home extends Component {
                         </View>
                         <View style={styles.avatarContainer}>
                             <Image
-                                source={require('../images/bookshelf.png')}
+                                source={require('../images/girl.jpg')}
                                 style={styles.avatar}
                             />
                         </View>
