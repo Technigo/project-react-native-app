@@ -1,36 +1,39 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
+import background from './assets/background.jpg'
 
 
-const Container = styled.View`
+const Container = styled.ImageBackground`
   flex: 1;
-  background-color: papayawhip;
   justify-content: center;
   align-items: center;
 `
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: black;
   margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
 `
 
-const TouchableOpacity = styled.Button`
-    background-color: pink;
-    font-size: 24px;
-    border-radius: 50px;
-    padding: 10px; 
+const RandomDogButton = styled.TouchableOpacity`
+  background-color: pink;
+  border-radius: 50px;
+  padding: 10px; 
+`
+const ButtonText = styled.Text`
+  font-size: 20px;
 `
 
 const App = () => {
-  const [dogs, setDogs] = useState();
   
   return (
-    <Container>
+    <Container source={background}>
       <Title>Click the button to get a picture of a cute dog to share with a friend</Title>
-      <TouchableOpacity
-       title="Cute dogs" 
-       onPress=''></TouchableOpacity>
+      <RandomDogButton onPress=''>
+        <ButtonText>Get a cute dog</ButtonText>
+      </RandomDogButton>
     </Container>
   )
 }
