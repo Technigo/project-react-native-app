@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
-import { ScrollView } from 'react-native'
 
 import { Header } from './components/Header'
+import { Intro } from './components/Intro'
 import { CatList } from './components/CatList'
 import { Footer } from './components/Footer'
+
+const ScrollView = styled.ScrollView`
+  background-color: #fff5a5;
+`
+
+const Section = styled.View`
+  background-color: #fff5a5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const Container = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-`
-
-const Section = styled.View`
-  display: flex;
-  background-color: #fff5a5;
-  justify-content: space-between;
+  width: 300px;
 `
 
 const App = () => {
@@ -43,12 +48,16 @@ const App = () => {
   console.log(cats)
 
   return (
-    <Section>
-      <ScrollView>
+    <ScrollView>
+      <Section>
         <Header
-          title = 'Everyday is caturday.'
+          title = "Everyday is caturday."
         />
         <Container>
+          <Intro
+            title = "Can't get enough of cats?"
+            paragraph = "In this app you can share your favorite cat pictures with all of your friends. Press share and give a friend a smile on their face."
+          />
           {cats.map(cat => {
             return(
               <CatList
@@ -62,8 +71,8 @@ const App = () => {
         <Footer
           title = 'Project by Linda Hintze'
         />
-      </ScrollView>
-    </Section>
+      </Section>
+    </ScrollView>
   )
 }
 

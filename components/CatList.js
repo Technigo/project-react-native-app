@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import styled from 'styled-components/native'
 
-import { Button, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 import { ShareButton } from './ShareButton'
 
@@ -11,23 +11,14 @@ const Container = styled.View`
   justify-content: center;
   align-items: flex-start;
   position: relative;
+  margin: 0;
 `
 const Picture = styled.Image`
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
 `
+//box-shadow: 10px 10px 19px -8px rgba(0,0,0,0.71);
 
-const HappyLogo = styled.Image`
-  margin: 10px;
-`
-
-const SadLogo = styled.Image`
-  margin: 10px;
-`
-
-const ShareLogo = styled.Image`
-  margin: 10px;
-`
 const LogoWrapper = styled.View`
   display: flex;
   flex-direction: row;
@@ -53,18 +44,6 @@ export const CatList = ({url, id}) => {
           }}
         />
         <LogoWrapper>
-          <HappyLogo
-            style={styles.logo}
-            source={require('./assets/happy.svg')}
-          />
-          <SadLogo
-            style={styles.logo}
-            source={require('./assets/sad.svg')}
-          />
-           <ShareLogo
-            style={styles.logo}
-            source={require('./assets/share.svg')}
-          />
           <ShareButton 
             url = {url}
           />
