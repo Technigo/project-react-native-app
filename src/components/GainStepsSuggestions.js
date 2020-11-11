@@ -5,30 +5,30 @@ import { Text, View, Vibration, TouchableOpacity } from "react-native";
 const Container = styled.View`
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 const PickButton = styled.TouchableOpacity`
-  background: #ffe3c4;
   padding: 10px;
-  border: 2px solid #0025ff;
-  margin: 10px;
+  margin: 0px;
   width: 200px;
-  border-radius: 5px;
-`;
+  border-radius: 25px;
+  border: 2px solid #94ED8A; 
+`; 
 
 const ButtonText = styled.Text`
   text-align: center;
   justify-content: center;
   align-items: center;
-  color: #0025ff;
+  color: #94ED8A;
 `;
 
 const SuggestionContainer = styled.View`
-  padding: 40px;
+  padding: 10px;
   width: 300px;
-  height: 160px;
-  margin: 50px 20px 40px 20px;
-  border-radius: 5px;
+  height: 100px;
+  margin: 80px 20px 10px 20px;
+  border-radius: 25px;
   align-items: center;
   justify-content: center;
 `;
@@ -36,50 +36,40 @@ const SuggestionContainer = styled.View`
 const SuggestionText = styled.Text`
   font-size: 20px;
   text-align: center;
-  color: white;
+  color: #94ED8A;
 `;
 
 export const GainStepsSuggestions = () => {
   const SuggestionArray = [
     {
-      suggestion: "Go for a walk until you see a red car.",
-      color: "blue",
+      suggestion: "Go for a walk until you see a red car."
     },
     {
-      suggestion: "Go to the store and buy a fruit.",
-      color: "blue",
+      suggestion: "Go to the store and buy a fruit."
     },
     {
-      suggestion: "Collect some steps by throughing the garbage.",
-      color: "blue",
+      suggestion: "Collect some steps by throughing the garbage."
     },
     {
-      suggestion: "Go for a walk until you see a kitten.",
-      color: "blue",
+      suggestion: "Go for a walk until you see a kitten."
     },
     {
-      suggestion: "Walk back and forth between the bed and bathroom.",
-      color: "blue",
+      suggestion: "Walk back and forth between the bed and bathroom."
     },
     {
-      suggestion: "Run as fast as you can for 30 sec.",
-      color: "blue",
+      suggestion: "Run as fast as you can for 30 sec."
     },
     {
-      suggestion: "Jump on the spot for 1 minute.",
-      color: "blue",
+      suggestion: "Jump on the spot for 1 minute."
     },
     {
-      suggestion: "Climp the stairs for 3 minutes.",
-      color: "blue",
+      suggestion: "Climp the stairs for 3 minutes."
     },
     {
-      suggestion: "Walk backwards 50 steps",
-      color: "blue",
+      suggestion: "Walk backwards 50 steps."
     },
     {
-      suggestion: "Walk until you say hi to a stranger.",
-      color: "blue",
+      suggestion: "Walk until you say hi to a stranger."
     },
   ];
 
@@ -93,7 +83,7 @@ export const GainStepsSuggestions = () => {
 
   return (
     <Container>
-      <SuggestionContainer style={{ backgroundColor: stepSuggestions.color }}>
+      <SuggestionContainer>
         <SuggestionText>{stepSuggestions.suggestion}</SuggestionText>
       </SuggestionContainer>
       <PickButton

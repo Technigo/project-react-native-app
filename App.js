@@ -6,7 +6,7 @@ import { GainStepsSuggestions } from "./src/components/GainStepsSuggestions.js"
 
 const Container = styled.View`
   flex: 1;
-  background-color: #FFE3C4;
+  background-color: #29472F;
   justify-content: center;
   align-items: center;
 `;
@@ -18,12 +18,13 @@ const Container = styled.View`
 //`;
 
 const DateContainer = styled.View`
-  padding-bottom: 80px;
+  margin-top: 0px;
+  padding-bottom: 60px;
 `
 
 const DateText = styled.Text`
   font-size: 28px;
-  color: #0025ff;
+  color: #94ED8A;
   text-transform: uppercase;
 `;
 
