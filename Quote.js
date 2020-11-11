@@ -8,6 +8,8 @@ export const Quote = (quote) => {
         font.size: 15px;
         color: #F8CCC4;
         text-align: center;
+        width: auto;
+        height: 0px;
         `
     return (
         <Text> {` ${quote.quote}`} </Text>
