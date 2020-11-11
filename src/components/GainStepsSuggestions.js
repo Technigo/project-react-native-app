@@ -8,7 +8,7 @@ const Container = styled.View`
 `;
 
 const PickButton = styled.TouchableOpacity`
-  background-color: papayawhip;
+  background: #ffe3c4;
   padding: 10px;
   border: 2px solid #0025ff;
   margin: 10px;
@@ -27,7 +27,7 @@ const SuggestionContainer = styled.View`
   padding: 40px;
   width: 300px;
   height: 160px;
-  margin: 20px;
+  margin: 50px 20px 40px 20px;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
@@ -43,35 +43,43 @@ export const GainStepsSuggestions = () => {
   const SuggestionArray = [
     {
       suggestion: "Go for a walk until you see a red car.",
-      color: "blue"
+      color: "blue",
     },
     {
       suggestion: "Go to the store and buy a fruit.",
-      color: "blue"
+      color: "blue",
     },
     {
       suggestion: "Collect some steps by throughing the garbage.",
-      color: "blue"
+      color: "blue",
     },
     {
-      suggestion: "Go for a walk until you see a kitten",
-      color: "blue", 
+      suggestion: "Go for a walk until you see a kitten.",
+      color: "blue",
     },
     {
       suggestion: "Walk back and forth between the bed and bathroom.",
-      color: "blue"
+      color: "blue",
     },
     {
       suggestion: "Run as fast as you can for 30 sec.",
-      color: "blue"
+      color: "blue",
     },
     {
       suggestion: "Jump on the spot for 1 minute.",
-      color: "blue"
+      color: "blue",
     },
     {
       suggestion: "Climp the stairs for 3 minutes.",
-      color: "blue"
+      color: "blue",
+    },
+    {
+      suggestion: "Walk backwards 50 steps",
+      color: "blue",
+    },
+    {
+      suggestion: "Walk until you say hi to a stranger.",
+      color: "blue",
     },
   ];
 
@@ -94,7 +102,7 @@ export const GainStepsSuggestions = () => {
           Vibration.vibrate();
         }}
       >
-        <ButtonText>Get suggestion</ButtonText>
+        <ButtonText>Get help gaining steps</ButtonText>
       </PickButton>
     </Container>
   );

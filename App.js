@@ -6,43 +6,39 @@ import { GainStepsSuggestions } from "./src/components/GainStepsSuggestions.js"
 
 const Container = styled.View`
   flex: 1;
-  background-color: #0025ff;
+  background-color: #FFE3C4;
   justify-content: center;
   align-items: center;
 `;
 
-const Title = styled.Text`
-  font-size: 60px;
+//const Title = styled.Text`
+  //font-size: 60px;
+  //color: #0025ff;
+  //font-weight: bold;
+//`;
+
+const DateContainer = styled.View`
+  padding-bottom: 80px;
+`
+
+const DateText = styled.Text`
+  font-size: 28px;
   color: #0025ff;
-  font-weight: bold;
+  text-transform: uppercase;
 `;
 
 const App = () => {
+
+
   return (
-    <View style={styles.container}>
-      <Title>MOVES</Title>
-      <Text style={styles.text}> {new Date().toLocaleDateString("en-En", {
-        weekday: "long"
-        })}
-      </Text>
+    <Container>
+      <DateContainer>
+        <DateText> {new Date().toLocaleDateString("en-En", { weekday: "long"})}</DateText>
+      </DateContainer>
       < StepCounter />
       < GainStepsSuggestions />
-    </View>
+    </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFE3C4',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 28,
-    color: '#0025ff',
-    textTransform: 'uppercase'
-  },
-});
 
 export default App;

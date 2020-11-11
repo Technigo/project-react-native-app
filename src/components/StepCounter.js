@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import { Pedometer } from "expo-sensors";
 
 const Text = styled.Text`
-  font-size: 40px;
+  font-size: 150px;
   color: blue;
 `;
 
