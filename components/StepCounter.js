@@ -10,7 +10,7 @@ import { Pedometer } from "expo-sensors"
 const Text = styled.Text`
   font-size: 18px;
   margin: 8px;
-  color: #000;
+  color: #F4F4F4;
   `
 
 export const StepCounter = () => {

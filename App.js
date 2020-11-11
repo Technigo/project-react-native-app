@@ -1,10 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
-// import Balloon from "react-native-balloon";
-// import {TouchableOpacity } from 'react-native'
-import { Text, Image } from 'react-native'
 
-// import { Header } from './components/Header'
 import { StepCounter } from './components/StepCounter'
 import { ShuffledQuotes } from './data/Quotes'
 import { Footer } from './components/Footer'
@@ -13,11 +9,26 @@ import { Footer } from './components/Footer'
 
 const Container = styled.View`
   flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #000;
   justify-content: center;
   align-items: center;
+  text-align: center;
 `
+
+const HeaderContainer = styled(Container)`
+flex: 1;
+`
+
+const StarWarsImg  = styled.Image`
+flex: 1;
+width: 100%;
+margin-bottom: 30px;
+`
+
 const StepsContainer = styled.View`
-  width: 100%
+  width: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -28,13 +39,12 @@ const StepsContainer = styled.View`
 const Info = styled.Text`
   font-size: 18px;
   margin: 8px;
-  color: #000;
+  color: #F4F4F4;
   `
 
 const MidContainer = styled(Container)`
   flex: 3;
   width: 100%;
-  background-color: #fff;
 `
 
 const Speachbubble = styled(Container)`
@@ -43,53 +53,36 @@ const Speachbubble = styled(Container)`
   background-color: #1B1B1C;
   border-radius: 50;
   padding: 17px;
-  text-align: center;
+  background-color: #F4F4F4
 `
 
 const LeaQuote = styled.Text`
 font-size: 17px;
-color: #DCDCDC
-text-align: center;
+color: #000;
 `
 
 const Img = styled.Image`
   width: 300px;
   height: 170px;
-  margin-top: 30px
-  margin-bottom: 30px
-`
-const TestContainer = styled.View`
-flex: 1
-width: 100%
-justify-content: center
-align-items: center
-margin-top: 0
-background-color: #fff
-`
-
-const Test = styled.Image`
-flex: 1
-width: 100%
-padding: 50px
-margin-bottom: 30px
+  margin-top: 30px;
+  margin-bottom: 30px;
+  tintColor: #F4F4F4;
 `
 
 const App = () => {
-  // implement shuffled quotes function
+  // implement shuffled quotes function by steps
   const quotes = ShuffledQuotes()
-
   const steps = StepCounter()
 
-  if (steps === 10) (
-    quotes[3]
+  if (steps === 20) (
+    quotes[1]
   )
 
   return (
     <Container>
-      <TestContainer>
-      <Test source={require('./assets/CFQ.png')}/>
-      </TestContainer>
-      {/* <Header /> */}
+      <HeaderContainer>
+      <StarWarsImg source={require('./assets/CFQ.png')}/>
+      </HeaderContainer>
       <StepsContainer>
         <Info> You have walked:</Info>
         <StepCounter />
@@ -100,7 +93,6 @@ const App = () => {
           {quotes[10]}
         </LeaQuote>
         </Speachbubble>
-        {/* <Img source={require('./assets/Leia.png')} /> */}
         <Img source={require('./assets/PL.png')} />
       </MidContainer>
       <Footer />
