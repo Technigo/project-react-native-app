@@ -27,6 +27,6 @@ export const StepCounter = () => {
   });
 
   return (
-  <Text>{countSteps}</Text>
+  <Text>{countSteps} steps</Text>
   )
 };

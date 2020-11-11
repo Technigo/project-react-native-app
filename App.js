@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { Text, View, StyleSheet } from "react-native";
 import { StepCounter } from "./src/components/StepCounter.js"
+import { GainStepsSuggestions } from "./src/components/GainStepsSuggestions.js"
 
 const Container = styled.View`
   flex: 1;
@@ -25,6 +26,7 @@ const App = () => {
         })}
       </Text>
       < StepCounter />
+      < GainStepsSuggestions />
     </View>
   );
 };
