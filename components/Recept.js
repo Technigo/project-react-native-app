@@ -8,6 +8,8 @@ import {
   ActiveRoundedButton,
   ButtonText,
   ActiveButtonText,
+  Card,
+  Text_C32,
 } from '../styling-components/Global';
 import Loading from './Loading';
 
@@ -16,18 +18,6 @@ const TipsWrapper = styled.View`
   align-items: center;
   justify-content: center;
   background: #fff;
-`;
-
-const TipsCard = styled.View`
-  background: #fff;
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  border-radius: 20px;
-`;
-const TipsText = styled.Text`
-  font-size: 32px;
-  text-align: center;
-  margin: 50px;
 `;
 
 // ----------------------------------------------------------------
@@ -52,10 +42,10 @@ const Recept = ({ navigation }) => {
 
   return (
     <TipsWrapper>
-      <TipsCard>
+      <Card>
         {loading && <Loading />}
-        {!loading && <TipsText>"{tips}"</TipsText>}
-      </TipsCard>
+        {!loading && <Text_C32>"{tips}"</Text_C32>}
+      </Card>
       <ActiveRoundedButton
         title="More tips, please"
         onPress={() => fetchTips()}

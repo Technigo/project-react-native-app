@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 
+// Buttons ----------------------------------------------------------------
 export const RoundedButton = styled.TouchableOpacity`
   width: 90%;
   padding: 30px;
@@ -20,4 +21,25 @@ export const ButtonText = styled.Text`
 
 export const ActiveButtonText = styled(ButtonText)`
   color: #fff;
+`;
+
+// Cards/wrappers ----------------------------------------------------------------
+export const Card = styled.View`
+  background: #fff;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  border-radius: 20px;
+  padding: 50px;
+`;
+
+export const FlexWrapper = styled.View`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+`;
+
+// Textboxes ----------------------------------------------------------------
+export const Text_C32 = styled.Text`
+  font-size: 32px;
+  text-align: center;
 `;
