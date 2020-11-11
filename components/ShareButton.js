@@ -2,9 +2,13 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { Share } from 'react-native'
 
-const Button = styled.Button`
-  color: #fff5a5;
-  background-color: red;
+const TouchableOpacity = styled.TouchableOpacity`
+  padding: 10px;
+`
+
+const Logo = styled.Image`
+  width: 35px;
+  height: 35px;
 `
 
 export const ShareButton = ({url}) => {
@@ -17,9 +21,7 @@ export const ShareButton = ({url}) => {
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
           alert('You successfully shared the image!')
-        } else {
-          alert('You successfully shared the image!')
-        }
+        } 
       } else if (result.action === Share.dismissedAction) {
         alert('Image was not shared. Please try again.')
       }
@@ -28,9 +30,10 @@ export const ShareButton = ({url}) => {
     }
   }
   return (
-    <Button 
-      onPress={onShare} 
-      title="Share" 
-    />
+    <TouchableOpacity onPress={onShare}>
+      <Logo
+        source={require('./assets/share.png')}
+      />
+    </TouchableOpacity> 
   )
 }

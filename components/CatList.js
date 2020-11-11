@@ -1,7 +1,5 @@
 import React from 'react'
-
 import styled from 'styled-components/native'
-
 import { StyleSheet } from 'react-native'
 
 import { ShareButton } from './ShareButton'
@@ -11,7 +9,6 @@ const Container = styled.View`
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  margin: 0;
 `
 const Picture = styled.Image`
   width: 150px;

@@ -56,7 +56,7 @@ const App = () => {
         <Container>
           <Intro
             title = "Can't get enough of cats?"
-            paragraph = "In this app you can share your favorite cat pictures with all of your friends. Press share and give a friend a smile on their face."
+            paragraph = "In this app you can share your favorite cat pictures with all of your friends. Press the share button in the bottom left corner to send the picture to a friend."
           />
           {cats.map(cat => {
             return(
