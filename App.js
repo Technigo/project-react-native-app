@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
+
+import { DateLine } from './components/DateLine'
+import { Place } from './components/Place'
 
 const Container = styled.View`
   flex: 1;
@@ -14,10 +17,34 @@ const Title = styled.Text`
 `
 
 const App = () => {
+  const [report, setReport] = useState({});
+  const [sol, setSol] = useState('')
+  const API_URL = 'https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0';
+
+  useEffect(() => {
+    getReport()
+  }, [API_URL]);
+  
+  const getReport = () => {
+    fetch(API_URL)
+    .then(res => res.json())
+    .then((json) => {
+      setReport(json)
+      setSol(json.sol_keys[6])
+    })
+  };
+
+  console.log(report)
+  console.log(sol)
+  console.log(report.[sol])
+
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
+      <DateLine 
+        sol={sol}
+        solData={report.[sol]}  
+      />
+      <Place />
       <Title>💅💅💅</Title>
     </Container>
   )
