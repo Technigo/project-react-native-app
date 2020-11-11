@@ -29,7 +29,8 @@ export const Quote = () => {
 
     const Text = styled.Text`
         font.size: 15px;
-        color: #ea2c62;
+        color: #F8CCC4;
+        text-align: center;
         `
 
     if (quotes.length > 0) {

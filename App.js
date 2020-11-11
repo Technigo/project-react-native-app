@@ -9,11 +9,12 @@ import { ButtonComp } from './ButtonComp'
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #C76F7D;
   justify-content: center;
   align-items: center;
   padding: 25px;
 `
+// papayawhip
 
 const App = () => {
   return (
