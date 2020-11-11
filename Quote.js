@@ -1,31 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, } from 'react-native'
+import React from 'react'
+import { Text } from 'react-native'
 import styled from 'styled-components/native'
 
-
-
-
-export const Quote = () => {
-    const [quotes, setQuotes] = useState([])
-
-    const getRandomQuote = () => {
-        return quotes[Math.floor(Math.random() * (quotes.length - 1))].text
-    }
-
-    useEffect(() => {
-        fetch("https://type.fit/api/quotes")
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                const filteredData = data.filter(quote => {
-                    return quote.author !== null && quote.author !== 'Donald Trump'
-                })
-
-                setQuotes(filteredData)
-            })
-    }, [])
-
+export const Quote = (quote) => {
 
     const Text = styled.Text`
         font.size: 15px;
@@ -33,15 +10,9 @@ export const Quote = () => {
         text-align: center;
         `
 
-    if (quotes.length > 0) {
-        return (
-            <Text> {` ${getRandomQuote()}`} </Text>
-        )
-    } else {
-        return (
-            <Text>Loading...</Text>
-        )
-    }
+    return (
+        <Text> {` ${quote.quote}`} </Text>
+    )
 
 }
 
