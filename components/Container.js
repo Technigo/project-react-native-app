@@ -8,7 +8,7 @@ export const TopContainer = styled.View`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: beige;
+  background-color: whitesmoke;
 `
 export const BottomContainer = styled.View`
   flex: 1;
@@ -17,4 +17,15 @@ export const BottomContainer = styled.View`
   background-color: #d6bea0;
   width: 100%;
   padding-top: 20px;
+`
+export const ColorDiv1 = styled.View`
+  background-color: #e76060;
+  border-radius: 50px;
+  margin: 10px;
+`
+export const ColorDiv2 = styled(ColorDiv1)`
+  background-color: #5aad8e;
+`
+export const ColorDiv3 = styled(ColorDiv1)`
+  background-color: #ffb252;
 `

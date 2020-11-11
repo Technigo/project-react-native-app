@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { Pedometer } from 'expo-sensors'
-import LottieView from 'lottie-react-native';
+import LottieView from 'lottie-react-native'
 
-import { Container } from './Container'
-import { TopContainer } from './Container'
-import { BottomContainer } from './Container'
 
-import { Title1 } from './Title'
-import { Title2 } from './Title'
-import { Title3 } from './Title'
+import { ColorDiv1, ColorDiv2, ColorDiv3, Container, TopContainer, BottomContainer } from './Container'
+import { Title } from './Title'
 
 /* getStepCountAsync - Returns a promise that resolves to an Object with a steps key, which is a Number indicating the number of steps taken between the given dates. */
 
@@ -49,7 +45,9 @@ export const StepCounter = () => {
   return (
     <Container>
       <TopContainer>
-        <Title1>Steps last 24 hours: {todaysSteps}</Title1>
+        <ColorDiv1>
+          <Title>Steps last 24 hours: {todaysSteps}</Title>
+        </ColorDiv1>
         <LottieView 
           source={evaluateSteps ? require('../assets/cup.json') : require('../assets/walkingMan.json')}
           autoPlay
@@ -57,12 +55,18 @@ export const StepCounter = () => {
         />
       </TopContainer>
       <BottomContainer>
-        <Title2>Steps this week: {weeklySteps}</Title2>
-        <Title3>Current steps: {steps}</Title3>
-        {evaluateSteps ? 
-        <Title1>Yay! You made it!</Title1> : 
-        <Title1>Steps left to 10 000: {stepsLeft} </Title1>
-        }
+        <ColorDiv2>
+          <Title> Steps live: {steps}</Title>
+        </ColorDiv2>
+        <ColorDiv3>
+          <Title>Steps this week: {weeklySteps}</Title>
+        </ColorDiv3>
+        <ColorDiv1>
+          {evaluateSteps ? 
+          <Title>Yay! You made it!</Title> : 
+          <Title>Steps left to 10 000: {stepsLeft} </Title>
+          }
+        </ColorDiv1>
       </BottomContainer>
     </Container>
   )
