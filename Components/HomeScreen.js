@@ -3,6 +3,8 @@ import LottieView from 'lottie-react-native'
 import styled from 'styled-components/native'
 
 
+import { Button, } from 'react-native';
+
 export const HomeScreen = () => {
     return (
         <Container>
@@ -11,12 +13,13 @@ export const HomeScreen = () => {
                 Inspired by the book:"Nice girls don't get the corner office"
                 comes this app where you can shuffle through daily challenges that will 
                 help improve your carrer!
-            </InfoText>
-            <LottieView source={require('./Animation/hand.json')} autoPlay/>
+            </InfoText>           
         </Container> 
   
     )
 }
+
+//<LottieView source={require('./Animation/hand.json')} autoPlay/>
 
 const Container = styled.View`
   padding-top: 20px;

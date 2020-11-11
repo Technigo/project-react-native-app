@@ -1,13 +1,17 @@
 import styled from 'styled-components/native';
 
 
+
+
 export const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred; 
+  color: palevioletred;
+  padding:20px; 
 `
 
 export const IntroText = styled.Text`
   text-align: center;
+  padding:20px;
 `
 //max-width: 500px;
 

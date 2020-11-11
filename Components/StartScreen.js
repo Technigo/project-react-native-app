@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Button, Text } from 'react-native';
+import { StyleSheet, View, Button, Text, TouchableOpacity, } from 'react-native';
 import {Title, IntroText, Screen, ResultText } from './StartScreenStyling';
 import styled from 'styled-components/native'
 import { animation } from './Animation/6220-women-with-phone.json'
@@ -37,27 +37,24 @@ export const StartScreen = () => {
 
   return (
     <Container>
-        <Title>DAILY EMPOWERMENT CHALLENGES</Title>
-        <IntroText> Click on the button to get a challenge that you will focus on today!</IntroText>
-          <Button
-            onPress={onClick}
-            title="Change Challenge"
-            >
-           </Button>
-          <ResultText>{random, challengeArray[random]}</ResultText>
+      <Title>DAILY EMPOWERMENT CHALLENGES</Title>
+        <Button
+          onPress={onClick}
+          title="Change Challenge">
+        </Button>
+          <ResultText>{random, challengeArray[random]}</ResultText>  
     </Container>
   )
-};
+}
 
 const Container = styled.View`
- 
-  padding-top: 12px;
-  background-color: papayawhip;
-  height:100%;
   text-align:center;
-  justify-content: center;
-`;
+  align-items: center; 
+  align-content:center; 
+  justify-content:center; 
+  height:100%;
+  background-color: papayawhip;
+`
 
-//display:1;
 
 //expo install react-native-reanimated
