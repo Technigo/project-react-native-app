@@ -1,23 +1,35 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { StyleSheet, Button, Text } from 'react-native'
 
 const Container = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #ff6464;
-  padding: 50px;
 `
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
   color: #fff5a5;
+  padding: 100px 0;
+`
+
+const ImageBackground = styled.ImageBackground`
+  display: flex;
+  width: 100%;
 `
 
 export const Header = ({title}) => {
   return (
     <Container>
-      <Title>{title}</Title>
+      <ImageBackground
+        source={require('./assets/header.jpg')}
+      >
+        <Title>{title}</Title>
+      </ImageBackground>
     </Container>
   )
 }
