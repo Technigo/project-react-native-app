@@ -59,7 +59,7 @@ export default class Home extends Component {
 
     renderNoMoreCards() {
         return (
-            <View title="All Domne!">
+            <View title="All Done!">
                 <Text style={styles.noCard}>NO MORE CARDS HERE</Text>
                 <Button backgroundColor="#03A9F4" title="Get more!" />
             </View>
@@ -94,7 +94,7 @@ export default class Home extends Component {
 
                     <View style={styles.colContainer}>
                         <Text style={styles.textGlobal}>GLOBAL</Text>
-                        <Text style={styles.textSweden}>SWEDEN</Text>
+                        <Text style={styles.textSweden}>Sweden</Text>
                         <View style={styles.reloadContainer}>
                             <Icon name="md-refresh" size={24} color="red" />
                         </View>

@@ -1,18 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
     View,
-    Text,
     UIManager,
     Animated,
     PanResponder,
     Dimensions,
-    LayoutAnimation
+    LayoutAnimation,
 } from 'react-native'
-import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 250;
+
 export default class Deck extends Component {
     static defaultProps = {
         onSwipeRight: () => { },
@@ -42,6 +41,7 @@ export default class Deck extends Component {
         });
         this.state = { panResponder, position, index: 0 };
     }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.data !== this.props.data) {
             this.setState({ index: 0 })
