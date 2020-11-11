@@ -9,7 +9,6 @@ export const Quote = (quote) => {
         color: #F8CCC4;
         text-align: center;
         `
-
     return (
         <Text> {` ${quote.quote}`} </Text>
     )

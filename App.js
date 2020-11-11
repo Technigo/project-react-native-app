@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, Animated, StyleSheet } from 'react-native'
 import styled from 'styled-components/native'
 
 import { Quote } from './Quote'
@@ -16,6 +16,7 @@ const Container = styled.View`
 // papayawhip
 
 const App = () => {
+  const [fade, setFade] = useState(new Animated.Value(0))
   const [quotes, setQuotes] = useState([])
   const [activeQuote, setActiveQuote] = useState('Loading...')
 
@@ -24,6 +25,11 @@ const App = () => {
   }
 
   const updateQuote = () => {
+    Animated.timing(fade, {
+      toValue: 1,
+      duration: 2000
+    }).start()
+
     const randomQuote = getRandomQuote(quotes)
     setActiveQuote(randomQuote)
 
@@ -46,17 +52,31 @@ const App = () => {
 
   return (
     <Container>
-      <View>
+
+      <Animated.View
+        style={[
+          {
+            opacity: fade
+          }
+        ]}>
         <Quote quote={activeQuote} />
-        < Button
-          title="today's mantra"
-          color="#C76F7D"
-          onPress={updateQuote} >
-        </Button >
-      </View>
+      </Animated.View>
+      < Button
+        title="today's mantra"
+        color="#C76F7D"
+        onPress={updateQuote} >
+      </Button >
+
     </Container>
 
   )
 }
+
+const styles = StyleSheet.create({
+  mantra: {
+
+  }
+})
+
 
 export default App
