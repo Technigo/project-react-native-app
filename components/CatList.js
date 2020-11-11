@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 
 import { Button, StyleSheet, Text } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome';
+
+import { ShareButton } from './ShareButton'
 
 const Container = styled.View`
   display: flex;
@@ -68,6 +69,9 @@ export const CatList = ({url, id}) => {
            <ShareLogo
             style={styles.logo}
             source={require('./assets/share.svg')}
+          />
+          <ShareButton 
+            url = {url}
           />
         </Wrapper>
       </Container>

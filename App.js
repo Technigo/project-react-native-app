@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
-import { StyleSheet, Button } from 'react-native'
+import { ScrollView } from 'react-native'
 
 import { Header } from './components/Header'
 import { CatList } from './components/CatList'
@@ -44,23 +44,25 @@ const App = () => {
 
   return (
     <Section>
-      <Header
-        title = 'Everyday is caturday.'
-      />
-      <Container>
-        {cats.map(cat => {
-          return(
-            <CatList
-              key = {cat.id}
-              url = {cat.url}
-              id = {cat.id}
-            />
-          )
-        })}
-      </Container>
-      <Footer
-        title = 'Project by Linda Hintze'
-      />
+      <ScrollView>
+        <Header
+          title = 'Everyday is caturday.'
+        />
+        <Container>
+          {cats.map(cat => {
+            return(
+              <CatList
+                key = {cat.id}
+                url = {cat.url}
+                id = {cat.id}
+              />
+            )
+          })}
+        </Container>
+        <Footer
+          title = 'Project by Linda Hintze'
+        />
+      </ScrollView>
     </Section>
   )
 }
