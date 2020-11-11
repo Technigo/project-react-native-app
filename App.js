@@ -6,17 +6,12 @@ import { Place } from './components/Place'
 import { Temperature } from './components/Temperature'
 import { WindSpeed } from './components/WindSpeed'
 import { Pressure } from './components/Pressure'
+import mars from './assets/mars.jpg'
 
-const Container = styled.View`
+const Container = styled.ImageBackground`
   flex: 1;
-  background-color: papayawhip;
   justify-content: center;
   align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
 `
 
 const App = () => {
@@ -42,7 +37,7 @@ const App = () => {
   console.log(report.[sol])
 
   return (
-    <Container>
+    <Container source={mars} >
       <DateLine 
         sol={sol}
         solData={report.[sol]}  
@@ -57,7 +52,6 @@ const App = () => {
       <Pressure 
         solData={report.[sol]}
       />
-      <Title>💅💅💅</Title>
     </Container>
   )
 }
