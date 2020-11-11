@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components/native'
 
 import { StepCounter } from './components/StepCounter'
+import { Animation } from './components/Animation'
 import { ShuffledQuotes } from './data/Quotes'
 import { Footer } from './components/Footer'
-
 
 
 const Container = styled.View`
@@ -21,7 +21,7 @@ const HeaderContainer = styled(Container)`
 flex: 1;
 `
 
-const StarWarsImg  = styled.Image`
+const StarWarsImg = styled.Image`
 flex: 1;
 width: 100%;
 margin-bottom: 30px;
@@ -81,17 +81,18 @@ const App = () => {
   return (
     <Container>
       <HeaderContainer>
-      <StarWarsImg source={require('./assets/CFQ.png')}/>
+        <StarWarsImg source={require('./assets/CFQ.png')} />
       </HeaderContainer>
       <StepsContainer>
         <Info> You have walked:</Info>
         <StepCounter />
+        <Animation />
       </StepsContainer>
       <MidContainer>
         <Speachbubble>
           <LeaQuote>
-          {quotes[10]}
-        </LeaQuote>
+            {quotes[10]}
+          </LeaQuote>
         </Speachbubble>
         <Img source={require('./assets/PL.png')} />
       </MidContainer>
