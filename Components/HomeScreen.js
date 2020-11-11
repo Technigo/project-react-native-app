@@ -1,9 +1,6 @@
 import React from 'react'
 import LottieView from 'lottie-react-native'
-import { Text  } from 'react-native'
 import styled from 'styled-components/native'
-
-
 
 
 export const HomeScreen = () => {
@@ -15,14 +12,14 @@ export const HomeScreen = () => {
                 comes this app where you can shuffle through daily challenges that will 
                 help improve your carrer!
             </InfoText>
-            <LottieView source={require('./Animation/6220-women-with-phone.json')} autoPlay/>
-        </Container>  
+            <LottieView source={require('./Animation/hand.json')} autoPlay/>
+        </Container> 
   
     )
 }
 
 const Container = styled.View`
-  padding-top: 12px;
+  padding-top: 20px;
   background-color: papayawhip;
   height:100%;
   text-align:center;
@@ -35,11 +32,11 @@ const Container = styled.View`
 `
 
 const InfoText = styled.Text`
-font-size: 18px;
-color: black; 
-padding-top: 5px;
-text-align:center;
-margin-bottom: 30px;
+  font-size: 18px;
+  color: black; 
+  padding-top: 5px;
+  text-align:center;
+  margin-bottom: 30px;
 `
 
 
