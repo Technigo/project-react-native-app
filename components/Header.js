@@ -3,8 +3,8 @@ import styled from 'styled-components/native'
 import headerImage from '../assets/mountain.jpg';
 
 const HeaderContainer = styled.ImageBackground`
-height:150px;
-padding:48px;
+height:180px;
+padding:58px;
 align-items:center;
 
 `
@@ -12,14 +12,14 @@ align-items:center;
 const HeaderText = styled.Text`
 color: white;
 font-weight: bold;
-font-size: 29px;
+font-size: 40px;
 text-shadow: 2px 2px 2px coral;
 `
 const HeaderUnderText = styled.Text`
 color: white;
 font-weight: bold;
 margin-top:20px;
-font-size: 11px;
+font-size: 15px;
 text-shadow: 2px 2px 2px coral;
 `
 

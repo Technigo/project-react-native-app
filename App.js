@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { FlatList, Alert } from 'react-native'
+import { FlatList, Alert, StyleSheet } from 'react-native'
 import styled from 'styled-components/native';
 import Header from './components/Header'
 import ToDoItem from './components/ToDoItem';
 import Add from './components/Add'
+
 
 
 const Container = styled.View`
@@ -23,6 +24,7 @@ export default function App() {
     { text: 'think of 5 things you are grateful for', key: ' 1 ' },
     { text: 'breath deep, 10 times', key: ' 2 ' },
     { text: 'laugh', key: ' 3 ' },
+    
 
   ])
 
@@ -49,9 +51,10 @@ export default function App() {
     ])
   }
 }
+
   return (
     <Container>
-      <Header />
+      <Header /> 
       <Content>
         <Add submitHandler={submitHandler}/>
         <List>
@@ -63,6 +66,9 @@ export default function App() {
           />
         </List>
       </Content>
+      
     </Container>
   );
 }
+
+
