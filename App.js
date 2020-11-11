@@ -1,25 +1,28 @@
+import 'react-native-gesture-handler';
+
 import React from 'react'
 import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+import ButtonSection from './components/ButtonSection'
+import MealList from './components/MealList'
+import RecipePage from './components/RecipePage'
 
 const App = () => {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <ButtonSection />
+        <Stack.Screen
+          name="Meals"
+          component={MealList}
+        />
+        <Stack.Screen 
+        name="Recipe" 
+        component={RecipePage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
