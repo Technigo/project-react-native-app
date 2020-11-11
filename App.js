@@ -10,7 +10,7 @@ const Container = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
 `
@@ -26,7 +26,7 @@ const App = () => {
   const [cats, setCats] = useState([])
   const [isLoading, setLoading] = useState(true)
 
-  const url = 'https://api.thecatapi.com/v1/images/search?limit=10&page=9&order=Desc'
+  const url = 'https://api.thecatapi.com/v1/images/search?limit=10&page=8&order=Desc'
 
   useEffect (() => {
     fetch(url, {
@@ -45,7 +45,7 @@ const App = () => {
   return (
     <Section>
       <Header
-        title = 'Everyday is caturday'
+        title = 'Everyday is caturday.'
       />
       <Container>
         {cats.map(cat => {
