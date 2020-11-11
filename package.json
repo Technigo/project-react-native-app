@@ -8,8 +8,6 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@chartiful/react-native-chart-builder": "^0.1.8",
-    "@chartiful/react-native-vertical-bar-graph": "^0.1.2",
     "braces": "^3.0.2",
     "expo": "^39.0.0",
     "expo-sensors": "~9.1.0",
@@ -19,8 +17,6 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
-    "react-native-svg": "^7.0.3",
-    "react-native-svg-charts": "^5.4.0",
     "react-native-web": "~0.13.7",
     "styled-components": "^4.4.1"
   },
