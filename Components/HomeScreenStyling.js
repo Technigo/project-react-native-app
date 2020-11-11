@@ -16,7 +16,7 @@ export const Title = styled.Text`
 export const InfoText = styled.Text`
   font-size: 18px;
   color: black; 
-  padding-top: 5px;
+  padding-top: 20px;
   text-align:center;
   margin-bottom: 30px;
 `
