@@ -26,6 +26,7 @@ const HomeScreen = ({navigation}) => {
     console.log('Info button pressed');
     navigation.navigate('Info', {date: "Some string sent from HomeScreen"});
   }
+  //How do I change the button into a Touchable opacity?
   return (
     <HomeContainer source={backgroundPicture}>
       <HomeText>Take me to space!</HomeText>
@@ -33,5 +34,4 @@ const HomeScreen = ({navigation}) => {
     </HomeContainer>
   );
 };
-
 export default HomeScreen;

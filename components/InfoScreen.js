@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react"
 
 //import {Text} from 'react-native'
 import styled from "styled-components/native"
-import backgroundPicture from '../assets/hearts-background.jpg'
+//import backgroundPicture from '../assets/hearts-background.jpg'
 
 const API_KEY = 'UYfZ5JyvB0BI3EU5mxgcfbPWp4YrpQ3yFhsQKkRX'
 const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
 console.log(API_URL)
 
-const InfoText = styled.Text`
+const TitleText = styled.Text`
   font-size: 24px; 
 `;
 
@@ -17,6 +17,7 @@ const InfoContainer = styled.ImageBackground`
   align-items: center;
   justify-content: center;
   padding: 18px;
+  width: 100vw;
 `;
 
 const InfoScreen = () => {
@@ -34,12 +35,12 @@ const InfoScreen = () => {
     })
   }, [])
 
-
-  //Cannot get data to show beneath. Why?
+  //The image don't show on the phone. 
+  //Says 'Failed prop type: Invalid prop `source` supplied to `Image`.
+  //
   return (
-    <InfoContainer source={backgroundPicture}>
-      <InfoText>Welcome to space</InfoText>
-      {/* <InfoText>{data.title}</InfoText> */}
+    <InfoContainer source={spaceInfo.hdurl}>
+      <TitleText>{spaceInfo.title}</TitleText>
     </InfoContainer>
   );
 }
