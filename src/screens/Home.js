@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Icon from '@expo/vector-icons/Ionicons';
 import { ScrollView }
-    from 'react-native-gesture-handler'
+    from 'react-native'
 import Deck from '../components/Deck';
 import Cards from '../components/Cards';
 import Buttons from '../components/Buttons';
