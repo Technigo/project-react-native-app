@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Button } from 'react-native';
-import {Title, ResultText } from './StartScreenStyling';
+
 import styled from 'styled-components/native'
+import { Container, Title, ResultText, ChallengeButton, ButtonText } from './StartScreenStyling';
+
 
 // try to use useEffect on the button 
   //useEffect(() => {
@@ -24,10 +25,10 @@ export const StartScreen = () => {
    'Practice saying NO!', 
    'Do not say - I am sorry!',
    'Do not work overtime!',
-   'Ask a colleuge out for lunch!', 
+   'Ask a colleague out for lunch!', 
    'Do not take the blame for someone elses mistake!',
    'You do not need everybody to like you!', 
-   'Take more breaks then you usually do and mingle with colleuges!', 
+   'Take more breaks then you usually do and mingle with colleagues!', 
   ]
 
   const random = Math.floor(Math.random() * challengeArray.length);
@@ -35,24 +36,13 @@ export const StartScreen = () => {
 
   return (
     <Container>
-      <Title>DAILY EMPOWERMENT CHALLENGES</Title>
-        <Button
-          onPress={onClick}
-          title="Change Challenge">
-        </Button>
+      <Title>DAILY EMPOWERMENT CHALLENGES</Title> 
+        <ChallengeButton onPress={onClick}>
+          <ButtonText>CHANGE CHALLENGE</ButtonText>
+        </ChallengeButton>
           <ResultText>{random, challengeArray[random]}</ResultText>  
     </Container>
   )
 }
-
-const Container = styled.View`
-  text-align:center;
-  align-items: center; 
-  align-content:center; 
-  justify-content:center; 
-  height:100%;
-  background-color: papayawhip;
-`
-
 
 //expo install react-native-reanimated
