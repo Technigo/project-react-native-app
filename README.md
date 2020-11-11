@@ -1,13 +1,27 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+This project was made during Technigo Bootcamp. 
+It's my first React Native App and i've decided to create a multiscreen app
+where you can shuffle challenges!
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
-## The problem
+## The Project
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I got inspired by a book i am reading that is called "nice girls don't get the corner office", author - Lois P.Frankel. 
+Because in the book you get a lot of tips on how you can boost your career by practicing
+different tasks which i decided to create as challenges. 
+
+I started with creating a skiss for my project and during that process i decided to go for multipage app using React Navigation. 
+The home page has a small intro text and animation from Lottie. And the second screen called Challenges is a page where you can shuffle through different challenges by pressing a button!
+
+Currently the challenges are a simple array that i have created and the next step would be to create my own API and fetch the challenges. 
+
+
+## TECH
+- React Native
+- React Navigation
+- Javascript
+
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Here you can check out the final project using snack: 
