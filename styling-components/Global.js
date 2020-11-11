@@ -30,6 +30,7 @@ export const Card = styled.View`
   width: 90%;
   border-radius: 20px;
   padding: 50px;
+  margin-bottom: 30px;
 `;
 
 export const FlexWrapper = styled.View`
@@ -39,6 +40,7 @@ export const FlexWrapper = styled.View`
 `;
 
 // Textboxes ----------------------------------------------------------------
+// 32px, centered
 export const Text_C32 = styled.Text`
   font-size: 32px;
   text-align: center;

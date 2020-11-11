@@ -3,6 +3,8 @@ import { Button, View, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import 'react-native-gesture-handler';
 
+import backgroundImage from '../assets/sharon-mccutcheon-62vi3TG5EDg-unsplash.jpg';
+
 // Styling-components
 import {
   ActiveRoundedButton,
@@ -11,7 +13,7 @@ import {
   Text_C32,
 } from '../styling-components/Global';
 
-const Wrapper = styled.View`
+const Wrapper = styled.ImageBackground`
   background: #fff;
   flex: 1;
 `;
@@ -26,16 +28,13 @@ const InnerWrapper = styled.View`
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <Wrapper>
+    <Wrapper source={backgroundImage}>
       <InnerWrapper>
-        <Card>
-          <Text_C32>HEJ!</Text_C32>
-        </Card>
         <ActiveRoundedButton
-          title="Go to Recept"
-          onPress={() => navigation.navigate('ReceptNamn')}
+          title="Go to Tips Screen"
+          onPress={() => navigation.navigate('TipsScreen')}
         >
-          <ActiveButtonText>Get some tips</ActiveButtonText>
+          <ActiveButtonText>Get some brilliant tips now</ActiveButtonText>
         </ActiveRoundedButton>
       </InnerWrapper>
     </Wrapper>
