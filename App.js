@@ -1,5 +1,11 @@
 import React from 'react'
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
+import { Fontisto } from '@expo/vector-icons';
+
+import { View } from 'react-native';
+
+
+import { StyledButton } from './components/Button';
 
 const Container = styled.View`
   flex: 1;
@@ -13,12 +19,14 @@ const Title = styled.Text`
   color: palevioletred;
 `
 
+
 const App = () => {
   return (
+    //like a section
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <Title>Electrified Map</Title>
+      <Fontisto name="car" size={50} color="black" />
+      <Button>Enter</Button>
     </Container>
   )
 }
