@@ -21,6 +21,6 @@ const HeaderContainer = styled.View`
   `
 const HeaderText = styled.Text`
 font-weight: bold
-font-size: 20px
+font-size: 25px
 `
 
