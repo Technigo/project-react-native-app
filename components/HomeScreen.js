@@ -2,32 +2,36 @@ import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import styled, { css } from 'styled-components/native';
 
+import titleImage from '../assets/home-title-img.png';
+import homeMainImage from '../assets/home-main-img.png';
+import arrow from '../assets/arrow.png';
+
 
 export const HomeScreen= () => {
   return (
     <SafeAreaView style={styles.container}>
       <MainScreenContainer>
         <TitleImageContainer>
-          <TitleImage source={require('../assets/home-title-img.png')} />
+          <TitleImage source={titleImage} />
         </TitleImageContainer>
 
         <TitleImageContainer heightSetter>
-          <TitleImage widthSetter style={styles.homeImage} source={require('../assets/home-main-img.png')} />
+          <TitleImage widthSetter style={styles.homeImage} source={homeMainImage} />
         </TitleImageContainer>
 
         <TitleText>MOOD BOOSTER</TitleText>
 
         <ContentText>
-          Now when everything's remote and WFH rules, staying connected and motivated is key! 
-          Pick a mood that reflects how you feel today and get some facts about why it is a instant boost!
+          Now when everything's remote and WFH rules, staying connected and motivated is key. 
+          Pick a mood that reflects how you feel today and get some facts about why it's a instant booster!
         </ContentText>
 
         <ContentText bold>
-          Share this fact with friends and add your personal touch with a text! Swipe and get started!
+          Share this fact with friends and add your personal touch with a text. Swipe and get started!
         </ContentText>
 
         <ArrowImageContainer>
-          <ArrowImage source={require('../assets/arrow.png')} />
+          <ArrowImage source={arrow} />
         </ArrowImageContainer>
       </MainScreenContainer>
     </SafeAreaView>

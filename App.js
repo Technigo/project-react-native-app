@@ -9,6 +9,8 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function App() {
   return (
+    //NavigationContainer: Creates a Navigation system for a multi-screen App.
+    //The tabBarOptions object determines the styling for the top tab bar.
     <NavigationContainer>
       <Tab.Navigator tabBarOptions={{
         activeTintColor: '#FFFFFF',
@@ -27,11 +29,11 @@ export default function App() {
           borderBottomWidth: 3,
         },
       }}>
+        {/* Tab.Screen elements determine the different screens available for this app
+        and the component attribute states which component to generate for each tab*/}
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Share" component={ShareScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 };
-
-//Light blue tone: #99dddd

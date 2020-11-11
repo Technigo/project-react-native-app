@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import { Share, StyleSheet, SafeAreaView, ScrollView, KeyboardAvoidingView } from 'react-native';
 import styled from 'styled-components/native';
 
+import crafty from '../assets/crafty.png';
+import sunny from '../assets/sunny.png';
+import active from '../assets/active.png';
+import smiley from '../assets/smiley.png';
+
 export const ShareScreen = () => {
   const [message, setMessage] = useState('');
   const [mood, setMood] = useState('');
 
-  //Function to implement the Share on phone button, the text content that will be share is what
-  //appears in the message property. I am generating a combination of the set Mood, the phrase
+  //Function to implement the Share on phone button, the text content that will be shared is what
+  //appears in the message property on line 20. I am generating a combination of the set Mood, the phrase
   //explaining that Mood and also the personal message that the user has entered in the TextInput field.
   const onShare = async () => {
     try {
@@ -59,7 +64,7 @@ export const ShareScreen = () => {
 
             <RowImageContainer>
               <SingleImageContainer>
-                <MoodImage source={require('../assets/crafty.png')} />
+                <MoodImage source={crafty} />
                 {/* There are 4 mood buttons to choose from: when tapped they will set a new mood via a state, then depending
                 on the state, the button will change color to show it has been chosen, this is done with inline styling on
                 each button */}
@@ -69,7 +74,7 @@ export const ShareScreen = () => {
               </SingleImageContainer>
 
               <SingleImageContainer>
-                <MoodImage source={require('../assets/sunny.png')} />
+                <MoodImage source={sunny} />
                 <MoodButton onPress={() => setMood('Sunny')} style={{backgroundColor: mood === 'Sunny' ? "#99dddd" : "white"}}>
                   <MoodButtonText>Sunny</MoodButtonText>
                 </MoodButton>
@@ -78,14 +83,14 @@ export const ShareScreen = () => {
 
             <RowImageContainer>
               <SingleImageContainer>
-                <MoodImage source={require('../assets/active.png')} />
+                <MoodImage source={active} />
                 <MoodButton onPress={() => setMood('Active')} style={{backgroundColor: mood === 'Active' ? "#99dddd" : "white"}}>
                   <MoodButtonText>Active</MoodButtonText>
                 </MoodButton>
               </SingleImageContainer>
 
               <SingleImageContainer>
-                <MoodImage source={require('../assets/smiley.png')} />
+                <MoodImage source={smiley} />
                 <MoodButton onPress={() => setMood('Smiley')} style={{backgroundColor: mood === 'Smiley' ? "#99dddd" : "white"}}>
                   <MoodButtonText>Smiley</MoodButtonText>
                 </MoodButton>
@@ -101,7 +106,7 @@ export const ShareScreen = () => {
 
             {/* Users have the option to personalize their message by adding their own text in this input field. The text they enter is stored via
             the message state*/}
-            <TextInputField placeholder="Enter some text here" multiline style={{minHeight: 80}} onChangeText={text => setMessage(text)} value={message}/>
+            <TextInputField placeholder="Write something here..." multiline style={{minHeight: 80}} onChangeText={text => setMessage(text)} value={message}/>
 
             {/* Share button calls the onShare() function which will bring up the phone's sharing functionality in which you can share the final message
             as a text message to your contacts, via email or social medias like Twitter*/}
