@@ -36,6 +36,7 @@ export const Recipe = () => {
     align-items: center;
     background: #FDE3D1;
     margin: 10px;
+    width: 100%;
     `
     const RecipeImage = styled.Image`
     flex: 2;
@@ -53,44 +54,15 @@ export const Recipe = () => {
     font-size: 25px;
     font-weight: 600;
     `
-/* 
-    const RecipeArray = [
-        {
-            name: 'Tacos',
-            type: 'Easy to fail',
-            image: require('../assets/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg')
-        },
-        {
-            name: 'Pancakes',
-            type: 'Crowdpleaser',
-            image: require('../assets/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg')
-        },
-        {
-            name: 'Pizza',
-            type: 'Crowdpleaser',
-            image: require('../assets/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg')
-        },
-        {
-            name: 'Oysters',
-            type: 'Not for picky eaters',
-            image: require('../assets/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg')
-        },
-        {
-            name: 'Pasta',
-            type: 'Piece of cake!',
-            image: require('../assets/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg')
-        }
-    ] */
 
     return (
         recipes.map((recipe) => (
-            <>
                 <Container key={recipe.id}>
-                    <RecipeImage source={recipe.image} />
+                    {console.log(recipe.image)}
+                    <RecipeImage source={{ uri: recipe.image }} />
                     <Headline>This is a recipe: {recipe.title}</Headline>
                     <Text>Tag: {recipe.instructions}</Text>
                 </Container>
-            </>
         ))
     )
 }
