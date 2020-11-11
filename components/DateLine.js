@@ -1,8 +1,10 @@
 import React from 'react'; 
-import {Text} from 'react-native'
-import styled from 'styled-components'
+import {Text, View} from 'react-native'
+import styled from 'styled-components/native'
 
-import {DateBox} from './styled/DateBox'
+const DateBox = styled.View`
+  background-color: blue;
+`
 
  export const DateLine = ({sol, solData}) => {
   if (!solData) {

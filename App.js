@@ -3,6 +3,9 @@ import styled from 'styled-components/native'
 
 import { DateLine } from './components/DateLine'
 import { Place } from './components/Place'
+import { Temperature } from './components/Temperature'
+import { WindSpeed } from './components/WindSpeed'
+import { Pressure } from './components/Pressure'
 
 const Container = styled.View`
   flex: 1;
@@ -45,6 +48,15 @@ const App = () => {
         solData={report.[sol]}  
       />
       <Place />
+      <Temperature 
+        solData={report.[sol]}
+      />
+      <WindSpeed 
+        solData={report.[sol]}
+      />
+      <Pressure 
+        solData={report.[sol]}
+      />
       <Title>💅💅💅</Title>
     </Container>
   )
