@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Button, Text, TouchableOpacity, } from 'react-native';
-import {Title, IntroText, Screen, ResultText } from './StartScreenStyling';
+import { Button } from 'react-native';
+import {Title, ResultText } from './StartScreenStyling';
 import styled from 'styled-components/native'
-import { animation } from './Animation/6220-women-with-phone.json'
-
 
 // try to use useEffect on the button 
   //useEffect(() => {
@@ -24,12 +22,12 @@ export const StartScreen = () => {
    'Be bold! take extra place in a meeting!', 
    'Do not offer to do meaningless shores!',
    'Practice saying NO!', 
-   'Do not say - I am sorry',
-   'Do not work overtime',
-   'Ask a colleuge out for lunch', 
-   'Do not take the blame for someone elses mistake',
-   'You do not need everybody to like you', 
-   'Take more breaks then you usually do and mingle with colleuges', 
+   'Do not say - I am sorry!',
+   'Do not work overtime!',
+   'Ask a colleuge out for lunch!', 
+   'Do not take the blame for someone elses mistake!',
+   'You do not need everybody to like you!', 
+   'Take more breaks then you usually do and mingle with colleuges!', 
   ]
 
   const random = Math.floor(Math.random() * challengeArray.length);
