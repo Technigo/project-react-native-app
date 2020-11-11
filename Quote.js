@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, } from 'react-native'
 import styled from 'styled-components/native'
 
+
+
+
 export const Quote = () => {
     const [quotes, setQuotes] = useState([])
 
@@ -22,7 +25,13 @@ export const Quote = () => {
                 setQuotes(filteredData)
             })
     }, [])
-    
+
+
+    const Text = styled.Text`
+        font.size: 15px;
+        color: #ea2c62;
+        `
+
     if (quotes.length > 0) {
         return (
             <Text> {` ${getRandomQuote()}`} </Text>
@@ -34,3 +43,5 @@ export const Quote = () => {
     }
 
 }
+
+
