@@ -6,6 +6,7 @@ import { ConfirmButton, CustomButton } from './components/CustomButton';
 import { AnswerWindow } from './components/AnswerContainer'
 import { ShakeEvent} from './components/ShakeEvent';
 
+
 const QuestionContainer = styled.View`
   flex: 1;
   justify-content: center;

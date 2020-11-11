@@ -18,6 +18,7 @@
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-notification-sounds": "^0.5.2",
     "react-native-web": "~0.13.7",
     "styled-components": "^4.4.1"
   },
