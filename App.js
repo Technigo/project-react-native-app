@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 // import {TouchableOpacity } from 'react-native'
 import { Text, Image } from 'react-native'
 
-import { Header } from './components/Header'
+// import { Header } from './components/Header'
 import { StepCounter } from './components/StepCounter'
 import { ShuffledQuotes } from './data/Quotes'
 import { Footer } from './components/Footer'
@@ -58,6 +58,21 @@ const Img = styled.Image`
   margin-top: 30px
   margin-bottom: 30px
 `
+const TestContainer = styled.View`
+flex: 1
+width: 100%
+justify-content: center
+align-items: center
+margin-top: 0
+background-color: #fff
+`
+
+const Test = styled.Image`
+flex: 1
+width: 100%
+padding: 50px
+margin-bottom: 30px
+`
 
 const App = () => {
   // implement shuffled quotes function
@@ -71,7 +86,10 @@ const App = () => {
 
   return (
     <Container>
-      <Header />
+      <TestContainer>
+      <Test source={require('./assets/CFQ.png')}/>
+      </TestContainer>
+      {/* <Header /> */}
       <StepsContainer>
         <Info> You have walked:</Info>
         <StepCounter />
