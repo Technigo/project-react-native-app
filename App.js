@@ -1,21 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View, StatusBar } from 'react-native'
-import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native'
 
-export default function App() {
+import HomeStackNavigator from './src/navigations/Navigator'
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Some kinda text here</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <HomeStackNavigator />
+    </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0000',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
+export default App
