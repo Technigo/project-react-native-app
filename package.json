@@ -13,6 +13,7 @@
     "@react-navigation/stack": "^5.12.5",
     "braces": "^3.0.2",
     "expo": "^39.0.0",
+    "lottie-react-native": "~2.6.1",
     "mem": "^6.0.1",
     "minimist": "^1.2.5",
     "react": "16.13.1",
@@ -23,6 +24,7 @@
     "react-native-maps": "0.27.1",
     "react-native-screens": "^2.14.0",
     "react-native-web": "~0.13.7",
+    "react-native-web-lottie": "^1.4.4",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {

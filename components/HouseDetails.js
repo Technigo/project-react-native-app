@@ -12,7 +12,7 @@ align-items: center;
 const Title = styled.Text`
   font-size: 50px;
   ${props => `color: ${props.color}`};
-  //color: gold;
+  color: ${props => (props.color === 'scarlet' ? 'red' : props.color)};
 `;
 
 const API_KEY = '$2a$10$Z0lX96ZJ6P.Op9TcuriFReO68gPYx.pJ2YoxazzTHRFFHP/nwblpa';
@@ -26,7 +26,6 @@ const HouseDetails = ({ route, navigation }) => {
   const BASE_URL = `https://www.potterapi.com/v1/houses/${itemId}?key=${API_KEY}`;
 
   useEffect(() => {
-    navigation.setOptions({ headerShown: false });
     fetch(BASE_URL)
       .then(result => result.json())
       .then(json => setHouses(json));
