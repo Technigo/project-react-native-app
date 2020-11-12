@@ -1,26 +1,31 @@
 import React from 'react'
-import styled from 'styled-components/native'
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+// Components
+import StartScreen from './components/StartScreen';
+import TipScreen from './components/TipScreen';
+//import DisplayImage from './components/DisplayImage';
+//import Footer from './components/Footer';
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+// Navigation
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import 'react-native-gesture-handler';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
-  )
-}
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='Start'
+          component={StartScreen}
+          options={{ title: 'Christmas countdown' }}
+        />
+        <Stack.Screen name='Christmas tips' component={TipScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App
