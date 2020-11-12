@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "todays-workout-picker",
+    "slug": "todays-workout-picker",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -9,12 +9,7 @@
       "web"
     ],
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+    "orientation": "portrait"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,6 +19,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "An app helping you choose today's workout - or maybe it tells you to have a rest day. ;)",
+    "githubUrl": "https://github.com/Gabbi-89/project-react-native-app"
   }
-}
