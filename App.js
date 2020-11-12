@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { TextInput } from 'react-native';
 
@@ -20,7 +20,7 @@ const Button = styled.Button`
 const App = () => {
 
   const [fetched, setFetched] = useState(false)
-  const [value, onChangeText] = useState('Enter card name!');
+  const [value, onChangeText] = useState('Fireball');
   const [data, getData] = useState([])
 
   const fetchCard = () => {
@@ -37,7 +37,6 @@ const App = () => {
       getData(response)
       setFetched(true)
       console.log(response)
-      console.log(response[0].img)
     })
     .catch(err => {
       console.error(err);
@@ -52,12 +51,14 @@ const App = () => {
       onChangeText={text => onChangeText(text)}
       value={value}
       />
-      <Button onPress={fetchCard} title="Learn More" /> 
+      <Button onPress={fetchCard} title="Fetch card" /> 
 
       { fetched === true ? (
-      <Card source={{uri:`${data[0].img}`,}} />  
+      data.map( (card) => {
+        return <Card source={{uri:`${card.img}`,}} />
+      })
+          
       )  : null}
-
     </Container>
   )
 }
