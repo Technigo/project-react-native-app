@@ -11,4 +11,5 @@ As a next step I would break out the components to separate files, have a Toucha
 ## View it live
 
 To view it live, download Expo and scan the QR code:
+
 https://expo.io/@ankimelin/projects/project-react-native-app
