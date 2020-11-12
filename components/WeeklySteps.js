@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Pedometer } from 'expo-sensors'
-import { Button } from 'react-native'
+import { Button, Text } from 'react-native'
+import LottieView from 'lottie-react-native'
 
-import { ColorDiv3 } from './Container'
+import { BottomContainer, ColorDiv3, Container, TopContainer } from './Container'
 import { Title } from './Title'
 
 export const WeeklySteps = ({navigation}) => {
@@ -27,10 +28,22 @@ export const WeeklySteps = ({navigation}) => {
   }, [])
 
   return (
-    <ColorDiv3>
-      <Title>Steps this week: {weeklySteps}</Title>
-      <Button title='Steps Today' onPress={navigateToToday}></Button>
-    </ColorDiv3>
-
+    <Container>
+      <TopContainer>
+        <ColorDiv3>
+          <Title>Steps this week: {weeklySteps}</Title>
+        </ColorDiv3>
+        <LottieView 
+          source={require('../assets/walkingMan.json')}
+          autoPlay
+          style={{ width: 300, height: 300}}
+        />
+      </TopContainer>
+      <BottomContainer>
+        <Text>"Everywhere is walking distance if you have the time!"</Text>
+        <Button title='Steps Today' onPress={navigateToToday}>
+        </Button>
+      </BottomContainer>
+    </Container>
   )
 }

@@ -24,7 +24,6 @@ export const ColorDiv1 = styled.View`
   border-radius: 50px;
   margin: 10px;
   width: 80%;
-  text-align: center;
 `
 export const ColorDiv2 = styled(ColorDiv1)`
   background-color: #5aad8e;
