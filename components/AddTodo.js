@@ -33,9 +33,10 @@ width: 120px;
 padding: 7px
 border-width: 1px
 margin-right: 10px
+color: #000
 `
 const AddButton = styled.TouchableOpacity`
-background-color: #708090
+background-color: #e6e6e6
 padding: 5px;
 border-radius: 50%
 height: 40px

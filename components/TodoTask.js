@@ -14,7 +14,7 @@ export const TodoTask = ({ item, pressHandler }) => {
 const TouchableText = styled.TouchableOpacity`
 margin-top: 20px;
 padding: 10px;
-background-color: #20B2AA
+background-color: #e6e6e6
 border-width: 1
 border-radius: 5px
 width: auto

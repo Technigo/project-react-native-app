@@ -7,13 +7,14 @@ export const Header = () => {
 
     return (
         <HeaderContainer>
-            <HeaderText>TODOS</HeaderText>
+            <HeaderText>TODOS</HeaderText> 
         </HeaderContainer>
     )
 }
 const HeaderContainer = styled.View`
   height: 80px
-  background-color: #48D1CC
+  background-color: #f1f1f1	
+  opacity: 0.5
   padding: 10px
   width: 100%
   align-items: center
@@ -21,6 +22,8 @@ const HeaderContainer = styled.View`
   `
 const HeaderText = styled.Text`
 font-weight: bold
-font-size: 25px
+font-size: 30px
+opacity: 0.8
 `
+
 

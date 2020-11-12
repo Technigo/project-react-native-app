@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, Alert } from 'react-native'
 
 import { Header } from './components/Header'
 import { TodoTask } from './components/ToDoTask'
 import { AddTodo } from './components/AddTodo'
+import backgroundImage from "./assets/background.jpg";
 
 const App = () => {
-  const [toDos, setTodos] = useState ([
-    {task: 'Work on my project', key: 1},
-    {task: 'Workout', key: 2},
-    {task: 'Have a coffee', key: 3},
-    {task: 'Go for a walk', key: 4}
+  const [toDos, setTodos] = useState([
+    { task: 'Work on my project', key: 1 },
+    { task: 'Workout', key: 2 },
+    { task: 'Have a coffee', key: 3 },
+    { task: 'Go for a walk', key: 4 }
   ])
 
   //Deletes a task when pressing it.
@@ -23,55 +24,44 @@ const App = () => {
 
   //Update the task with user input
   const submitHandler = (task) => {
-    setTodos((todo) => {
-      return [
-        { task: task, key: Math.random().toString() },
-        ...todo
-      ]
-    })
+
+    if (task.length > 3) {
+      setTodos((todo) => {
+        return [
+          { task: task, key: Math.random().toString() },
+          ...todo
+        ]
+      })
+    } 
   }
-  
+
   return (
-    <Wrapper>
-       <Header />
-       <AddTodo submitHandler={submitHandler}/>
-      <TodoContainer>
-       <TodoList>
-        <FlatList
-           data={toDos}
-           renderItem={({ item }) =>(
-              <TodoTask item={item} pressHandler={pressHandler}/>
-           )}
-        />
-       </TodoList>
-      </TodoContainer> 
+    <Wrapper source={backgroundImage}>
+      <Header />
+      <AddTodo submitHandler={submitHandler} />
+      <TodoContainer >
+        <TodoList>
+          <FlatList
+            data={toDos}
+            renderItem={({ item }) => (
+              <TodoTask item={item} pressHandler={pressHandler} />
+            )}
+          />
+        </TodoList>
+      </TodoContainer>
     </Wrapper>
   )
-}   
+}
 
-const Wrapper = styled.View`
+const Wrapper = styled.ImageBackground`
 flex: 1
 align-items: center
+
 `
 const TodoContainer = styled.View`
-padding 40px
+width: auto
 `
 const TodoList = styled.View`
 margin-top: 30px
 `
-
-
-
-// const UppdateButton = styled.TouchableOpacity`
-// margin-top: 10px
-// background: blue
-// padding: 5px
-// border-radius: 5px
-// `
-// const ButtonText = styled.Text`
-// font-weight: bold
-// `
-
-
-
 export default App
