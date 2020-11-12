@@ -23,7 +23,7 @@ export default function App() {
   const [todos, setTodos] = useState([
     { text: 'think of 5 things you are grateful for', key: ' 1 ' },
     { text: 'breath deep, 10 times', key: ' 2 ' },
-    { text: 'laugh', key: ' 3 ' },
+    { text: 'write in your diary', key: ' 3 ' },
     
 
   ])

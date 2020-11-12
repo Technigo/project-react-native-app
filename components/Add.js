@@ -10,14 +10,29 @@ margin-bottom: 70px;
 `
 
 const Input = styled.TextInput`
+padding:10px;
+`
+const InputBox = styled.View`
 border: solid grey 1px;
+border-radius:10px;
 margin-bottom: 10px;
-padding: 10px;
-border-radius: 10px;
-
 `
 
+const ButtonBox = styled.View`
+border-radius: 10px;
+background-color: coral;
+width:200px;
+padding: 10px;
+margin-left:50px;
+margin-bottom:20px;
+text-align: center;
+font-weight:bold;
+`
+const ButtonText = styled.Text`
+color: white;
+font-weight:bold;
 
+`
 
 export default function Add({submitHandler}) {
     const [text, setText] = useState()
@@ -27,13 +42,16 @@ export default function Add({submitHandler}) {
     }
     return(
         <Main>
+            <InputBox>
             <Input
                 placeholder='add to the list ...'
                 onChangeText={(val) => changeHandler(val)}
-            />
-            <TouchableOpacity onPress={() => submitHandler(text)}  style={styles.addButton}>
-            <Text style={styles.appButtonText}>ADD</Text>
+            /></InputBox>
+            <ButtonBox>
+            <TouchableOpacity onPress={() => submitHandler(text)} >
+            <ButtonText>ADD</ButtonText>
             </TouchableOpacity>
+            </ButtonBox>
         </Main>
 
 
@@ -42,17 +60,3 @@ export default function Add({submitHandler}) {
 }
 
 
-const styles = StyleSheet.create({
-    addButton: {
-        backgroundColor: "#009688",
-        width:100,
-        padding: 10,
-        marginLeft:100,
-        marginBottom:20,
-        textAlign: 'center',
-    },
-    appButtonText: {
-        color:'white',
-
-    }
-})
