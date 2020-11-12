@@ -4,7 +4,7 @@ import { Alfabet } from './components/Alfabet.js'
 import styled from 'styled-components/native'
 
 
-const Container = styled.View`
+const Container = styled.ImageBackground`
   flex: 1;
   background-color: #411271;
   justifyContent: center;
@@ -19,6 +19,7 @@ return (
   <Container>
     <Alfabet 
     letterArray={data.alfabet}
+    letterEmoji={data.alfabet}
     />
   </Container>
 )

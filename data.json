@@ -1,88 +1,117 @@
 {
 	"alfabet": [
 		{
-			"letter": "A"
+      "letter": "A",
+      "emoji": "🐒"
 		},
 		{
-			"letter": "B"
+      "letter": "B",
+      "emoji": "🐻"
 		},
 		{
-			"letter": "C"
+      "letter": "C",
+      "emoji": "🚴‍♀️"
     },
     {
-			"letter": "D"
+      "letter": "D",
+      "emoji": "🦖"
 		},
 		{
-			"letter": "E"
+      "letter": "E",
+      "emoji": "🔥"
 		},
 		{
-			"letter": "F"
+      "letter": "F",
+      "emoji": "🦜"
     },
     {
-			"letter": "G"
+      "letter": "G",
+      "emoji": "🦒"
 		},
 		{
-			"letter": "H"
+      "letter": "H",
+      "emoji": "🐴"
 		},
 		{
-			"letter": "I"
+      "letter": "I",
+      "emoji": "🧊"
     },
     {
-			"letter": "J"
+      "letter": "J",
+      "emoji": "🇯🇵"
 		},
 		{
-			"letter": "K"
+      "letter": "K",
+      "emoji": "🐄"
 		},
 		{
-			"letter": "L"
+      "letter": "L",
+      "emoji": "🐆"
     },
     {
-			"letter": "M"
+      "letter": "M",
+      "emoji": "🐭"
 		},
 		{
-			"letter": "N"
+      "letter": "N",
+      "emoji": "🦏 "
 		},
 		{
-			"letter": "O"
+      "letter": "O",
+      "emoji": "🐍"
     },
     {
-			"letter": "P"
+      "letter": "P",
+      "emoji": "🍐"
 		},
 		{
-			"letter": "Q"
+      "letter": "Q",
+      "emoji": "🏳️‍🌈"
 		},
 		{
-			"letter": "R"
+      "letter": "R",
+      "emoji": "🌧️"
     },
     {
-			"letter": "S"
+      "letter": "S",
+      "emoji": "🍝 "
 		},
 		{
-			"letter": "T"
+      "letter": "T",
+      "emoji": "🐯"
 		},
 		{
-			"letter": "U"
+      "letter": "U",
+      "emoji": "🦦"
     },
     {
-			"letter": "V"
+      "letter": "V",
+      "emoji": "🐺"
 		},
 		{
-			"letter": "X"
+      "letter": "X",
+      "emoji": "🎹"
 		},
 		{
-			"letter": "Y"
+      "letter": "Y",
+      "emoji": "🪓"
     },
     {
-			"letter": "Z"
+      "letter": "Z",
+      "emoji": "🦓"
     },
     {
-			"letter": "Å"
+      "letter": "Å",
+      "emoji": "🚂"
+
 		},
 		{
-			"letter": "Ä"
+      "letter": "Ä",
+      "emoji": "🍎"
 		},
 		{
-			"letter": "Ö"
+      "letter": "Ö",
+      "emoji": "👂"
 		}
 	]
 }

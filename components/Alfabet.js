@@ -24,20 +24,31 @@ const Letter = styled.Text`
   justifyContent: center;
   alignItems: center;
 `;
+const Emoji = styled.Text`
+  fontSize: 84px;
+  textAlign: center;
+  justifyContent: center;
+  alignItems: center;
+`;
 
-export const Alfabet = ({ letterArray }) => {
+export const Alfabet = ({ letterArray, letterEmoji }) => {
 
   const [letter, setLetter] = useState([])
+  const [emoji, setEmoji] = useState([])
   
   const getLetter = () => {
     const theLetter = letterArray[Math.floor(Math.random() * letterArray.length)]
     setLetter(theLetter.letter)
+    setEmoji(theLetter.emoji)
   }
   return (
     <View>
+        <Emoji>
+          {emoji}
+        </Emoji>
         <Letter>
           {letter}
-        </Letter>
+        </Letter>  
         <TouchButton onPress={() => { 
         getLetter(); Vibration.vibrate()}}>
           <ButtonText>Herthas ABC</ButtonText>
