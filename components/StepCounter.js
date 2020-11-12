@@ -3,14 +3,14 @@ import { Pedometer } from 'expo-sensors'
 import LottieView from 'lottie-react-native'
 
 import { 
-  ColorDiv1,
-  ColorDiv2, 
-  ColorDiv3, 
-  Container, 
+  ColorContainer1,
+  ColorContainer2, 
+  ColorContainer3, 
+  MainContainer, 
   TopContainer, 
   BottomContainer 
 } from './Containers'
-import { Title } from './Title'
+import { Title } from './Texts'
 import { Button, ButtonText } from './Button'
 
 /* getStepCountAsync - Returns a promise that resolves to an Object with a steps key, which is a Number indicating the number of steps taken between the given dates. */
@@ -28,7 +28,7 @@ export const StepCounter = ({navigation}) => {
   const startToday = new Date()
   startToday.setDate(endToday.getDate() - 1)
 
-  useEffect(()=>{
+  useEffect(() => {
     Pedometer.watchStepCount(result => {
       setSteps(result.steps)
     })
@@ -44,37 +44,41 @@ export const StepCounter = ({navigation}) => {
   const navigateToWeek = () => {
     navigation.navigate('Week')
   }
-
-  useEffect(()=>{
+  
+  /* Removes header nav */
+  useEffect(() => {
     navigation.setOptions({headerShown:false})
   }, [])
 
   return (
-    <Container>
+    <MainContainer>
+
       <TopContainer>
-        <ColorDiv1>
+        <ColorContainer1>
           <Title>Steps last 24 hours: {todaysSteps}</Title>
-        </ColorDiv1>
+        </ColorContainer1>
         <LottieView 
           source={evaluateSteps ? require('../assets/cup.json') : require('../assets/walkingMan.json')}
           autoPlay
           style={{ width: 300, height: 300}}
         />
       </TopContainer>
+
       <BottomContainer>
-        <ColorDiv2>
+        <ColorContainer2>
           <Title>Steps live: {steps}</Title>
-        </ColorDiv2>
-        <ColorDiv3>
+        </ColorContainer2>
+        <ColorContainer3>
           {evaluateSteps ? 
           <Title>Yay! You made it!</Title> : 
           <Title>Steps left to 10 000: {stepsLeft} </Title>
           }
-        </ColorDiv3>
-          <Button onPress={navigateToWeek}>
+        </ColorContainer3>
+          <Button accessibilityRole='button' onPress={navigateToWeek}>
             <ButtonText>Weekly Info</ButtonText>
           </Button>
       </BottomContainer>
-    </Container>
+
+    </MainContainer>
   )
 }
