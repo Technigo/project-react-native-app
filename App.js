@@ -10,7 +10,8 @@ const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
+    // Allows us to create multiple sites. Each new screen is placed in a stack. 
+    <NavigationContainer> 
       <Stack.Navigator>
         <Stack.Screen
           name='Start'

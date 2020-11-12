@@ -29,12 +29,12 @@ const ContainerButton = styled.Button`
   background: red;
   color: black;
 `;
-
+ // We can set props to screens using options.
 const StartPage = ({ navigation }) => {
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
 });
-
+ // .navigate is one method to link to another site.
 const navigateToQuotes = () => {
   navigation.navigate('Quotes');
 };
