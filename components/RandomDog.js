@@ -20,13 +20,6 @@ const RandomDogButton = styled.TouchableOpacity`
 
 const ButtonText = styled.Text`
     font-size: 20px;
-`
-
-const DogImage = styled.Image`
-    width: 270px;
-    height: 270px;
-    border: 10px solid #ddd;
-    object-fit: cover;
 ` 
 
 export const RandomDog = () => {
@@ -49,7 +42,7 @@ export const RandomDog = () => {
         return (
             <>
                 <DogView>
-                    <DogImage source={dogs.message}/>
+                    <Image source={{uri: dogs.message}} style= {{width: 270, height: 270}}/>
                 </DogView>
                 <ButtonView>
                     <RandomDogButton onPress={fetchDogs}>
