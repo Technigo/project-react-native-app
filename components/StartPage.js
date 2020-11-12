@@ -36,7 +36,7 @@ const StartPage = ({ navigation }) => {
 });
 
 const navigateToQuotes = () => {
-  navigation.navigate('Quotes', { name: 'Jane' });
+  navigation.navigate('Quotes');
 };
 
 return (
