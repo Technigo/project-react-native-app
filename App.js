@@ -1,5 +1,6 @@
 import React from 'react'
 import data from './data.json'
+
 import { Alfabet } from './components/Alfabet.js'
 import styled from 'styled-components/native'
 

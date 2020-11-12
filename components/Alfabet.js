@@ -1,31 +1,34 @@
 import React from 'react'
 import { useState } from 'react'
 import { Text, View, TouchableOpacity, Vibration } from 'react-native'
+
 import styled from 'styled-components/native'
 
 const TouchButton = styled.TouchableOpacity`
-  padding: 10px;
+  padding: 25px;
   margin: 0px;
-  width: 200px;
+  width: 250px;
   borderRadius: 25px;
-  border: 4px solid #01AA31; 
+  backgroundColor: #411271;
+  border: 4px #01AA31; 
 `; 
 const ButtonText = styled.Text`
   textAlign: center;
-  fontSize: 16px;
+  fontSize: 20px;
   justify-content: center;
   alignItems: center;
-  color: #01AA31;
+  color: #F5C603;
 `;
 const Letter = styled.Text`
-  fontSize: 154px;
+  fontSize: 204px;
+  marginBottom: 50px;
   color: #F5C603;
   textAlign: center;
   justifyContent: center;
   alignItems: center;
 `;
 const Emoji = styled.Text`
-  fontSize: 84px;
+  fontSize: 104px;
   textAlign: center;
   justifyContent: center;
   alignItems: center;
