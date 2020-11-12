@@ -1,26 +1,25 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Image } from 'react-native'
 import { useFonts } from '@use-expo/font'
 import { AppLoading } from 'expo'
 
 const Container = styled.View`
-  flex: 1;
-  background-color: #c4b6b6 ;
+  flex: 0.5;
   justify-content: center;
   align-items: center;
 `
 
 const Title = styled.Text`
-  font-size: 24px;
-  color: #000000;
+  font-size: 27px;
+  color: #fff3e2;
   text-align: center;
   margin: 5px;
 `
 
-  const Img = styled.Image`
-  width: 100;
-  height: 100;
+  const HatImage = styled.Image`
+  width: 250px;
+  height: 200px;
+  margin: 50px 0;
   `
 
 export const Firstpage = () => {
@@ -34,10 +33,9 @@ export const Firstpage = () => {
 
   return (
     <Container>
-      <Title> It is time for sorting </Title>
-      <Title> Lets find out which house you belong to </Title>
-      <Title> Shake me to find out! </Title>
-      <Image style={styled.Img} source={require('../assets/sortinghat.png')} />
+      <Title> It is time for the sorting ceremony</Title>
+      <Title> Shake me to find out which house you belong to </Title>
+      <HatImage style={styled.Img} source={require('../assets/sortinghat.png')} />
     </Container>
   )
   }
