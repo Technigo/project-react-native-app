@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Pedometer } from 'expo-sensors'
 import LottieView from 'lottie-react-native'
 
-import { BottomContainer, ColorDiv2, ColorDiv3, Container, TopContainer } from './Container'
+import { 
+  BottomContainer, 
+  ColorDiv2, 
+  ColorDiv3, 
+  Container, 
+  TopContainer 
+} from './Containers'
 import { Title, Quote } from './Title'
 import { Button, ButtonText } from './Button'
 
@@ -44,9 +50,7 @@ export const WeeklySteps = ({navigation}) => {
           <Quote>"Everywhere is walking distance if you have the time!"</Quote>
         </ColorDiv3>
         <Button onPress={navigateToToday}>
-          <ButtonText>
-            Today's Info
-          </ButtonText>
+          <ButtonText>Today's Info</ButtonText>
         </Button>
       </BottomContainer>
     </Container>

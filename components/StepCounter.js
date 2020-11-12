@@ -9,7 +9,7 @@ import {
   Container, 
   TopContainer, 
   BottomContainer 
-} from './Container'
+} from './Containers'
 import { Title } from './Title'
 import { Button, ButtonText } from './Button'
 
