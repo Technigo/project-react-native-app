@@ -44,12 +44,12 @@ export const ThingsToDo = () => {
   const ThingsToDoArray = [
     {
       thingtodo: "Baka kanelbullar",
-      color: "#e7c1b6", //rosa
+      color: "#e7c1b6", //pink
       emoji: "",
     },
     {
       thingtodo: "Ut och cykla",
-      color: "#b9cab4", //grön
+      color: "#b9cab4", //green
       emoji: "",
     },
     {
@@ -59,12 +59,12 @@ export const ThingsToDo = () => {
     },
     {
         thingtodo: "Spela Minecraft",
-        color: "#1197d5", //blå
+        color: "#1197d5", //blue
         emoji: "",
      },
       {
         thingtodo: "Ha på pyamas hela dagen!",
-        color: "#9eff9a", //pigelingrön
+        color: "#e2dcd4", //grey
         emoji: "",
       },
   ];

@@ -10,18 +10,17 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  font-size: 30px;
+  color: black;
+  margin: 20px;
+  text-align: center;
 `
 
 const App = () => {
   return (
     <Container>
-      {/* <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title> */}
       <Title>Vad ska vi göra idag Nathaniel?</Title>
       <ThingsToDo />
-
     </Container>
   )
 }
