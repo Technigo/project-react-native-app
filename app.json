@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Magic Oracle",
+    "description": "Magic Oracle App 🔮 that gives your oracle (don't trust it though, the oracle is very cranky sometimes!) when you shake your phone using the Advice Slip JSON API. Icon by Flaticon",
     "slug": "magic-oracle",
     "privacy": "public",
     "platforms": [

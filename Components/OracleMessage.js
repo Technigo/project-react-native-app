@@ -21,13 +21,8 @@ export const OracleMessage = ({onRestartOracle}) => {
     <>
       <View>
         <OracleText>{message.advice}</OracleText>
-        <MagicImage
-         source={require('../assets/magic.png')}
-         />
-         <LottieView 
-          source={require('../assets/confetti.json')}
-          autoPlay
-          />
+        <MagicImage source={require('../assets/magic.png')}/>
+        <LottieView source={require('../assets/confetti.json')} autoPlay/>
       </View>
       <RestartButton onPress={onRestartOracle}>
         <ButtonText>Restart Oracle</ButtonText>
@@ -35,3 +30,5 @@ export const OracleMessage = ({onRestartOracle}) => {
     </>
   );
 };
+/* Use the following line to be able to run the project as a web version */
+//import LottieView from 'react-native-web-lottie'
