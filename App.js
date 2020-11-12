@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Button, Animated, StyleSheet, TouchableWithoutFeedback, Vibration } from 'react-native'
+import { View, Text, Animated, StyleSheet, TouchableWithoutFeedback, Vibration } from 'react-native'
 import styled from 'styled-components/native'
 
 import { Quote } from './Quote'
-
 
 
 const Container = styled.View`
@@ -17,9 +16,8 @@ const Container = styled.View`
 const ButtonText = styled.Text`
   color: #F8CCC4;
   font-size: 30px;
+  text-align: center;
 `
-
-// papayawhip
 
 const App = () => {
   const [mantraFade, setMantraFade] = useState(new Animated.Value(0))
@@ -90,7 +88,7 @@ const App = () => {
         <TouchableWithoutFeedback
           onPress={updateQuote}
         >
-          <ButtonText>Today's Mantra</ButtonText>
+          <ButtonText>Take a Deep Breath Then Tap Here for Today's Mantra</ButtonText>
         </TouchableWithoutFeedback >
       </Animated.View>
 
@@ -98,12 +96,5 @@ const App = () => {
 
   )
 }
-
-const styles = StyleSheet.create({
-  mantra: {
-
-  }
-})
-
 
 export default App
