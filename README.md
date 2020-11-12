@@ -1,8 +1,6 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A mobile app created with React Native and using styled components. The phone vibrates when you pushed the button and a random thing to do showes up.
 
 ## The problem
 
@@ -10,4 +8,3 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
