@@ -9,8 +9,8 @@ export const Quote = (quote) => {
         color: #F8CCC4;
         text-align: center;
         width: auto;
-        height: 0px;
         `
+
     return (
         <Text> {` ${quote.quote}`} </Text>
     )

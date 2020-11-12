@@ -25,7 +25,7 @@ const App = () => {
   const [mantraFade, setMantraFade] = useState(new Animated.Value(0))
   const [buttonFade, setButtonFade] = useState(new Animated.Value(1))
   const [quotes, setQuotes] = useState([])
-  const [activeQuote, setActiveQuote] = useState('Loading...')
+  const [activeQuote, setActiveQuote] = useState()
 
   const getRandomQuote = (array) => {
     return array[Math.floor(Math.random() * (array.length - 1))].text
@@ -34,7 +34,8 @@ const App = () => {
   const updateQuote = () => {
     Animated.timing(buttonFade, {
       toValue: 0,
-      duration: 1000
+      duration: 1000,
+      useNativeDriver: true
     }).start(() => {
 
       const randomQuote = getRandomQuote(quotes)
@@ -42,7 +43,8 @@ const App = () => {
 
       Animated.timing(mantraFade, {
         toValue: 1,
-        duration: 2000
+        duration: 2000,
+        useNativeDriver: true
       }).start()
     })
   }
