@@ -1,13 +1,12 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+An app build with React Native wich shows a mantra a day. The mantras are fetched from an API. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## The problem/ Approach
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I've had this app in mind for a quite some time, so I kinda had the plan already made in my mind. A hard part was to find a good API and that took some time (still not very satisfied) 
+Another thing that was super hard was to grasp React Native... The thousands of different components and all the new ways of writing code. Its so similiar and at the same time totally different. Hard!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+?
