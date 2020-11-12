@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A React Native mobile application fetching and displaying dad jokes from an API, where you can generate new random jokes, search for jokes and share jokes with your friends.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started looking up fun free API's and found a straight-forward API to work with. The main idea was to randomly display something from an API, and then have a button to generate a new random whatever, which ended up to be a joke in this case. After elaborating around what I could do with the data and API endpoints, I implemented some interaction to the application - a search field and share function.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Not deployed, might deploy later on Expo.
