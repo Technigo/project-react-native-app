@@ -13,16 +13,14 @@ const Container = styled.ImageBackground`
 const Title = styled.Text`
   font-size: 24px;
   color: black;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 10px;
+  margin: 20px;
 `
 
 const App = () => {
   
   return (
     <Container source={background}>
-      <Title>Click the button to get a picture of a cute dog to share with a friend.</Title>  
+      <Title>Infinite dog randomizer</Title>  
     <RandomDog />
     </Container>
   )
