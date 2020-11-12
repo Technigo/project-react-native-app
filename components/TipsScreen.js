@@ -69,11 +69,6 @@ const Recept = ({ navigation }) => {
       <RoundedButton title="Go back" onPress={() => navigation.goBack()}>
         <ButtonText>Go back</ButtonText>
       </RoundedButton>
-
-      {/* <Button
-        title="Go back to first screen in stack"
-        onPress={() => navigation.popToTop()}
-      /> */}
     </TipsWrapper>
   );
 };

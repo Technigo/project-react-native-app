@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Button, View, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
 import styled from 'styled-components/native';
 import 'react-native-gesture-handler';
 
@@ -9,8 +8,6 @@ import backgroundImage from '../assets/sharon-mccutcheon-62vi3TG5EDg-unsplash.jp
 import {
   ActiveRoundedButton,
   ActiveButtonText,
-  Card,
-  Text_C32,
 } from '../styling-components/Global';
 
 const Wrapper = styled.ImageBackground`
