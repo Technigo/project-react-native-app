@@ -3,7 +3,7 @@ import LottieView from 'react-native-web-lottie';
 //import styled from 'styled-components';
 import { View } from 'react-native';
 
-import SortingHatAnimation from '../assets/animations/sorting-hat.json';
+import SortingHatAnimation from '../assets/animations/wingardium-leviosa.json';
 
 const Lottie = () => {
   return (
