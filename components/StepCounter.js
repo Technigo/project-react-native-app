@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Pedometer } from 'expo-sensors'
 import LottieView from 'lottie-react-native'
-
+import { Button } from 'react-native'
 
 import { ColorDiv1, ColorDiv2, ColorDiv3, Container, TopContainer, BottomContainer } from './Container'
 import { Title } from './Title'
 
 /* getStepCountAsync - Returns a promise that resolves to an Object with a steps key, which is a Number indicating the number of steps taken between the given dates. */
 
-export const StepCounter = () => {
+export const StepCounter = ({navigation}) => {
   const [steps, setSteps] = useState(0)
   const [weeklySteps, setWeeklySteps] = useState(0)
   const [todaysSteps, setTodaysSteps] = useState(0)
@@ -16,13 +16,23 @@ export const StepCounter = () => {
 
   const stepsLeft = 10000-todaysSteps
 
-  const endWeek = new Date()
+  /*new Date- creates an object with current date and time*/
+  /*set Date- sets the day of the month to the date object */
+  const endWeek = new Date() 
   const startWeek = new Date()
   startWeek.setDate(endWeek.getDate() - 7)
 
   const endToday = new Date()
   const startToday = new Date()
   startToday.setDate(endToday.getDate() - 1)
+
+  const navigateToWeek = () => {
+    navigation.navigate('Week')
+  }
+
+  useEffect(()=>{
+    navigation.setOptions({headerShown:false})
+  }, [])
 
   useEffect(()=>{
     Pedometer.watchStepCount(result => {
@@ -39,8 +49,7 @@ export const StepCounter = () => {
           return setEvaluateSteps(true)
         }
     })
-  }, [steps])
-  /* should I have more dependencies here or is this enough? every time steps updates the useEffect updates the states */
+  })
 
   return (
     <Container>
@@ -56,7 +65,7 @@ export const StepCounter = () => {
       </TopContainer>
       <BottomContainer>
         <ColorDiv2>
-          <Title> Steps live: {steps}</Title>
+          <Title>Steps live: {steps}</Title>
         </ColorDiv2>
         <ColorDiv3>
           <Title>Steps this week: {weeklySteps}</Title>
@@ -67,6 +76,7 @@ export const StepCounter = () => {
           <Title>Steps left to 10 000: {stepsLeft} </Title>
           }
         </ColorDiv1>
+        <Button title='Week' onPress={navigateToWeek}></Button>
       </BottomContainer>
     </Container>
   )
