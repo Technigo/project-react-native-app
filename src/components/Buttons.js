@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         flexDirection: "row",
         alignItems: "center",
-        marginTop: 5,
-        marginBottom: 5
+        marginTop: 10,
+        marginBottom: 15
     },
     circle: {
         alignItems: 'center',

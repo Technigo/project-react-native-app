@@ -42,9 +42,9 @@ export default class Home extends Component {
                         <Text style={styles.title}>{item.title}</Text>
                         <Icon
                             name="ios-remove"
-                            size={40}
+                            size={60}
                             color="red"
-                            style={{ marginTop: 25 }}
+                            style={{ marginTop: 20 }}
                         />
                         <Text style={styles.number}>{item.number}</Text>
                     </View>
@@ -106,7 +106,7 @@ export default class Home extends Component {
                     renderNoMoreCards={this.renderNoMoreCards}
                 />
                 <ScrollView
-                    style={{ marginTop: 170 }}
+                    style={{ marginTop: 200 }}
                     showsHorizontalScrollIndicator={false}
                     horizontal
                 >
@@ -151,14 +151,14 @@ const styles = StyleSheet.create({
         backgroundColor: "#1c2732"
     },
     cardContainer: {
-        height: 150,
+        height: 170,
         width: 320,
         alignSelf: "center",
         backgroundColor: "#6A706E",
         borderRadius: 30
     },
     card: {
-        height: 150,
+        height: 170,
         width: 260,
         paddingTop: 20,
         paddingHorizontal: 30,
@@ -175,18 +175,19 @@ const styles = StyleSheet.create({
     number: {
         color: "#FFF",
         width: 100,
-        fontSize: 22,
+        fontSize: 18,
         fontWeight: "bold",
-        marginTop: -10,
+        marginTop: -20,
+        flex: 1
     },
     textCovid: {
         transform: [{ rotate: "-90deg" }],
         color: "#3a4b4f",
-        fontSize: 14,
-        width: 90,
-        marginLeft: -35,
+        fontSize: 12,
+        width: 80,
+        marginLeft: -30,
         fontWeight: 'bold',
-        marginTop: 20
+        marginTop: 50
     },
     noCard: {
         marginBottom: 10,
@@ -220,7 +221,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         alignSelf: 'center',
         marginTop: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     colContainer: {
         flexDirection: "row",

@@ -39,23 +39,26 @@ export default class Cards extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 200,
+        height: 210,
         width: 130,
         borderRadius: 30,
         padding: 15,
-        marginLeft: 20
+        marginLeft: 20,
+
     },
     col: {
-        flexDirection: "row"
+        flexDirection: "row",
+        flex: 1
     },
     title: {
-        marginTop: 90,
+        marginTop: 40,
         color: "#b8b8aa",
         fontWeight: "bold",
         fontSize: 12
     },
     number: {
         fontWeight: 'bold',
-        fontSize: 22
+        fontSize: 22,
+
     }
 })

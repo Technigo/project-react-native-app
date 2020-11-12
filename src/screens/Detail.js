@@ -34,7 +34,7 @@ export default class Detail extends Component {
                 </View>
                 <View style={styles.locationContainer}>
                     <Text style={styles.textGlobal}>GLOBAL</Text>
-                    <Text style={styles.textRussia}>RUSSIA</Text>
+                    <Text style={styles.textSweden}>SWEDEN</Text>
                     <View style={styles.reloadContainer}>
                         <Icon
                             name="md-refresh"
@@ -104,19 +104,21 @@ const styles = StyleSheet.create({
     textLinear: {
         color: "#FFF",
         fontSize: 12,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        marginTop: 200
     },
     textLogarthimic: {
         color: "#b8b8aa",
         fontWeight: "bold",
         fontSize: 12,
-        marginLeft: 15
+        marginLeft: 15,
+        marginTop: 200
     },
     locationContainer: {
         alignSelf: "center",
         flexDirection: "row",
         paddingHorizontal: 30,
-        marginTop: 40,
+        marginTop: 70,
         alignItems: "center"
     },
     textGlobal: {
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "red"
     },
-    textRussia: {
+    textSweden: {
         fontWeight: "bold",
         fontSize: 16,
         color: "#6a706e",
