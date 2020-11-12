@@ -4,8 +4,8 @@ import { Text, Button } from "react-native";
 
 const ButtonContainer = styled.View`
   background-color: white;
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
   align-items: center;
   justify-content: center;
   border-radius: 100px;

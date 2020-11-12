@@ -13,6 +13,7 @@ const Container = styled.View`
   align-items: center;
 `;
 
+const spaceThings = ["saturn", "nebula", "galaxy"];
 const random = (max) => Math.floor(Math.random() * max);
 
 const App = () => {
@@ -22,30 +23,17 @@ const App = () => {
   return (
     <Container>
       <Header title="Hello" />
-      <ChangeImage
-        text="sun"
-        setImgNumber={setImgNumber}
-        setQuery={setQuery}
-        query={query}
-        newQuery="sun"
-        random={random}
-      />
-      <ChangeImage
-        text="nebula"
-        setImgNumber={setImgNumber}
-        setQuery={setQuery}
-        query={query}
-        newQuery="nebula"
-        random={random}
-      />
-      <ChangeImage
-        text="galaxy"
-        setImgNumber={setImgNumber}
-        setQuery={setQuery}
-        query={query}
-        newQuery="galaxy"
-        random={random}
-      />
+      {spaceThings.map((spaceThing) => (
+        <ChangeImage
+          text={spaceThing}
+          setImgNumber={setImgNumber}
+          setQuery={setQuery}
+          query={query}
+          newQuery={spaceThing}
+          random={random}
+        />
+      ))}
+
       <HomeScreen imgNumber={imgNumber} query={query} />
     </Container>
   );
