@@ -6,6 +6,7 @@ import { AvarageWindSpeed } from './AvarageWindSpeed';
 import { ExtraInfoMinMaxContainer } from './styled/ExtraInfoMinMaxContainer';
 import { MinWindSpeed } from './MinWindSpeed';
 import { MaxWindSpeed } from './MaxWindSpeed';
+import { HeadingTwo } from './styled/HeadingTwo'
 
 export const WindSpeed = ({solData}) => {
   if (!solData) {
@@ -13,7 +14,7 @@ export const WindSpeed = ({solData}) => {
   }
   return (
     <ExtraInfoContainer>
-      <Text>Wind speed</Text>
+      <HeadingTwo>Wind speed</HeadingTwo>
         <AvarageWindSpeed 
           solData={solData}
         />

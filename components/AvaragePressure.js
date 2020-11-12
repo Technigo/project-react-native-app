@@ -9,5 +9,5 @@ export const AvaragePressure = ({solData}) => {
   else if (!solData.PRE.av) {
     return <ExtraInfoAvarage>data coming soon</ExtraInfoAvarage>
   }
-  return <ExtraInfoAvarage>{solData.PRE.av}</ExtraInfoAvarage>
+  return <ExtraInfoAvarage>{(solData.PRE.av).toFixed(1)} pa</ExtraInfoAvarage>
 }

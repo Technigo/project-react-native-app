@@ -4,10 +4,10 @@ import { ExtraInfoMinMax } from './styled/ExtraInfoMinMax'
 
 export const MinPressure = ({solData}) => {
   if (!solData.PRE) {
-    return <ExtraInfoMinMax>data coming soon</ExtraInfoMinMax>
+    return <ExtraInfoMinMax>incoming...</ExtraInfoMinMax>
   }
   else if (!solData.PRE.mn) {
-    return <ExtraInfoMinMax>data coming soon</ExtraInfoMinMax>
+    return <ExtraInfoMinMax>incoming...</ExtraInfoMinMax>
   }
-  return <ExtraInfoMinMax>{solData.PRE.mn}</ExtraInfoMinMax>
+  return <ExtraInfoMinMax> min {(solData.PRE.mn).toFixed(1)} pa</ExtraInfoMinMax>
 }

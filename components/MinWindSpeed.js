@@ -4,10 +4,10 @@ import { ExtraInfoMinMax } from './styled/ExtraInfoMinMax'
 
 export const MinWindSpeed = ({solData}) => {
   if (!solData.HWS) {
-    return <ExtraInfoMinMax>data coming soon</ExtraInfoMinMax>
+    return <ExtraInfoMinMax>incoming... 📡</ExtraInfoMinMax>
   }
   else if (!solData.HWS.mn) {
-    return <ExtraInfoMinMax>data coming soon</ExtraInfoMinMax>
+    return <ExtraInfoMinMax>incoming... 📡</ExtraInfoMinMax>
   }
-  return <ExtraInfoMinMax>{solData.HWS.mn}</ExtraInfoMinMax>
+  return <ExtraInfoMinMax>min {(solData.HWS.mn).toFixed(1)} m/s</ExtraInfoMinMax>
 }

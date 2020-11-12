@@ -4,10 +4,11 @@ import styled from 'styled-components/native'
 
 const DateBox = styled.View`
   width: 100%;
-  flex: 1;
+  flex: 0.3;
   flex-direction: row;
   justify-content: space-between;
-  padding: 50px;
+  padding: 20px;
+  margin-top: 20px;
 `
 
 const Info = styled.Text`

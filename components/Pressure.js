@@ -6,6 +6,7 @@ import { ExtraInfoMinMaxContainer } from './styled/ExtraInfoMinMaxContainer';
 import { AvaragePressure } from './AvaragePressure';
 import { MinPressure } from './MinPressure';
 import { MaxPressure } from './MaxPressure';
+import { HeadingTwo } from './styled/HeadingTwo'
 
 
 export const Pressure = ({solData}) => {
@@ -14,7 +15,7 @@ export const Pressure = ({solData}) => {
   }
   return (
     <ExtraInfoContainer>
-      <Text>Air Pressure</Text>
+      <HeadingTwo>Air Pressure</HeadingTwo>
         <AvaragePressure 
           solData={solData}
         />
