@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { Pedometer } from 'expo-sensors'
 import LottieView from 'lottie-react-native'
-import { TouchableOpacity, Text } from 'react-native'
 
-import { ColorDiv1, ColorDiv2, ColorDiv3, Container, TopContainer, BottomContainer } from './Container'
+import { 
+  ColorDiv1,
+  ColorDiv2, 
+  ColorDiv3, 
+  Container, 
+  TopContainer, 
+  BottomContainer 
+} from './Container'
 import { Title } from './Title'
+import { Button, ButtonText } from './Button'
 
 /* getStepCountAsync - Returns a promise that resolves to an Object with a steps key, which is a Number indicating the number of steps taken between the given dates. */
 
@@ -64,7 +71,9 @@ export const StepCounter = ({navigation}) => {
           <Title>Steps left to 10 000: {stepsLeft} </Title>
           }
         </ColorDiv3>
-        <TouchableOpacity title='Week' onPress={navigateToWeek}><Text>Weekly info</Text></TouchableOpacity>
+          <Button onPress={navigateToWeek}>
+            <ButtonText>Weekly Info</ButtonText>
+          </Button>
       </BottomContainer>
     </Container>
   )

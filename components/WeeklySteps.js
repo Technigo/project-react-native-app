@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Pedometer } from 'expo-sensors'
-import { Button, Text } from 'react-native'
 import LottieView from 'lottie-react-native'
 
-import { BottomContainer, ColorDiv3, Container, TopContainer } from './Container'
-import { Title } from './Title'
+import { BottomContainer, ColorDiv2, ColorDiv3, Container, TopContainer } from './Container'
+import { Title, Quote } from './Title'
+import { Button, ButtonText } from './Button'
 
 export const WeeklySteps = ({navigation}) => {
   const [weeklySteps, setWeeklySteps] = useState(0)
@@ -30,9 +30,9 @@ export const WeeklySteps = ({navigation}) => {
   return (
     <Container>
       <TopContainer>
-        <ColorDiv3>
+        <ColorDiv2>
           <Title>Steps this week: {weeklySteps}</Title>
-        </ColorDiv3>
+        </ColorDiv2>
         <LottieView 
           source={require('../assets/walkingMan.json')}
           autoPlay
@@ -40,8 +40,13 @@ export const WeeklySteps = ({navigation}) => {
         />
       </TopContainer>
       <BottomContainer>
-        <Text>"Everywhere is walking distance if you have the time!"</Text>
-        <Button title='Steps Today' onPress={navigateToToday}>
+        <ColorDiv3>
+          <Quote>"Everywhere is walking distance if you have the time!"</Quote>
+        </ColorDiv3>
+        <Button onPress={navigateToToday}>
+          <ButtonText>
+            Today's Info
+          </ButtonText>
         </Button>
       </BottomContainer>
     </Container>

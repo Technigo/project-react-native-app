@@ -8,3 +8,10 @@ export const Title = styled.Text`
   width: 100%;
   text-align: center;
 `
+export const Quote = styled.Text`
+  font-size: 24px;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  font-weight: bold;
+`
