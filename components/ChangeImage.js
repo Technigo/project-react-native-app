@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components/native";
-import { StyleSheet, Text, Button } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
-const Buttons = styled.View`
-  flex-direction: row;
-`;
-
-const ButtonContainer = styled.View`
-  background-color: rgba(0, 0, 0, 0.4);
+const ButtonContainer = styled.TouchableOpacity`
   width: 80px;
   height: 80px;
-  color: red;
   justify-content: center;
+  align-items: center;
   border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+`;
+
+const ButtonText = styled.Text`
+  color: #fff;
+  font-size: 16px;
 `;
 
 const ChangeImage = ({
@@ -24,24 +25,18 @@ const ChangeImage = ({
   random,
 }) => {
   const handleOnPress = () => {
-    setImgNumber(random(100));
-    setQuery(newQuery);
+    if (query === newQuery) {
+      setImgNumber(random(100));
+    } else {
+      setQuery(newQuery);
+    }
   };
 
   return (
-    <Buttons>
-      <ButtonContainer>
-        <Button style={styles.button} title={text} onPress={handleOnPress} />
-      </ButtonContainer>
-    </Buttons>
+    <ButtonContainer onPress={handleOnPress}>
+      <ButtonText>{text}</ButtonText>
+    </ButtonContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "pink",
-    color: "green",
-  },
-});
 
 export default ChangeImage;

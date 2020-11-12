@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import Header from "./components/Header";
 import ChangeImage from "./components/ChangeImage";
 import HomeScreen from "./screens/HomeScreen";
 
-const API_KEY = "YWwm9H2VlQrVz9g0eOpGZdBRCzgYHoifUPhfqUWn";
-
 const Container = styled.View`
   flex: 1;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+`;
 
-  align-items: center;
+const Buttons = styled.View`
+  position: absolute;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 30px;
 `;
 
 const spaceThings = ["saturn", "nebula", "galaxy", "sun"];
@@ -19,21 +24,26 @@ const random = (max) => Math.floor(Math.random() * max);
 const App = () => {
   const [imgNumber, setImgNumber] = useState(random(100));
   const [query, setQuery] = useState("nebula");
-  console.log(imgNumber);
   return (
     <Container>
-      <Header title="Hello" />
-      <HomeScreen imgNumber={imgNumber} query={query} />
-      {spaceThings.map((spaceThing) => (
-        <ChangeImage
-          text={spaceThing}
-          setImgNumber={setImgNumber}
-          setQuery={setQuery}
-          query={query}
-          newQuery={spaceThing}
-          random={random}
-        />
-      ))}
+      <HomeScreen
+        imgNumber={imgNumber}
+        query={query}
+        setImgNumber={setImgNumber}
+        random={random}
+      />
+      <Buttons>
+        {spaceThings.map((spaceThing) => (
+          <ChangeImage
+            text={spaceThing}
+            setImgNumber={setImgNumber}
+            setQuery={setQuery}
+            query={query}
+            newQuery={spaceThing}
+            random={random}
+          />
+        ))}
+      </Buttons>
     </Container>
   );
 };
