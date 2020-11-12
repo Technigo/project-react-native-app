@@ -132,7 +132,7 @@ const App = () => {
           onChangeText={text => setSearch(text)}
           value={search}
         />
-        <Button title="Search" onPress={searchJoke} color="#032A34"></Button>
+        <Button title="Search" onPress={searchJoke} color="#032A34" />
       </SearchContainer>
 
       <JokeContainer>
@@ -140,8 +140,8 @@ const App = () => {
       </JokeContainer>
 
       <ButtonContainer>
-        <Button title="Generate" onPress={getJoke} color="#032A34"></Button>
-        <Button title="Share" onPress={shareJoke} color="#032A34"></Button>
+        <Button title="Generate" onPress={getJoke} color="#032A34" />
+        <Button title="Share" onPress={shareJoke} color="#DC4730" />
       </ButtonContainer>
 
     </Container >
