@@ -3,8 +3,8 @@ import styled from 'styled-components/native';
 // Buttons ----------------------------------------------------------------
 export const RoundedButton = styled.TouchableOpacity`
   width: 90%;
-  padding: 30px;
-  margin-top: 20px;
+  padding: 20px;
+  margin-top: 10px;
   border-radius: 20px;
   background: #fafafa;
   box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
@@ -15,7 +15,7 @@ export const ActiveRoundedButton = styled(RoundedButton)`
 `;
 
 export const ButtonText = styled.Text`
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
 `;
 
@@ -41,7 +41,7 @@ export const FlexWrapper = styled.View`
 
 // Textboxes ----------------------------------------------------------------
 // 32px, centered
-export const Text_C32 = styled.Text`
-  font-size: 32px;
+export const TipsText = styled.Text`
+  font-size: 28px;
   text-align: center;
 `;

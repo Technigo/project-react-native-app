@@ -10,7 +10,7 @@ import {
   ButtonText,
   ActiveButtonText,
   Card,
-  Text_C32,
+  TipsText,
 } from '../styling-components/Global';
 import Loading from './Loading';
 import ShareButton from './ShareButton';
@@ -25,7 +25,7 @@ const TipsWrapper = styled.ImageBackground`
 const Separator = styled.Text`
   text-align: center;
   font-size: 20px;
-  margin: 40px;
+  margin: 20px;
 `;
 
 // ----------------------------------------------------------------
@@ -52,14 +52,14 @@ const Recept = ({ navigation }) => {
     <TipsWrapper source={backgroundImage}>
       <Card>
         {loading && <Loading />}
-        {!loading && <Text_C32>"{tips}"</Text_C32>}
+        {!loading && <TipsText>"{tips}"</TipsText>}
       </Card>
 
       <ActiveRoundedButton
         title="More tips, please"
         onPress={() => fetchTips()}
       >
-        <ActiveButtonText>More tips, please</ActiveButtonText>
+        <ActiveButtonText>More advice, please</ActiveButtonText>
       </ActiveRoundedButton>
 
       <ShareButton SharableMessage={tips} />

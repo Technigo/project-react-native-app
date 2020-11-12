@@ -13,7 +13,7 @@ const ShareExample = ({ navigation, SharableMessage }) => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `I want to share the BEST tip: ${SharableMessage}`,
+        message: `I want to share a nice advice from Karins Advice-app to you: "${SharableMessage}"`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -30,7 +30,7 @@ const ShareExample = ({ navigation, SharableMessage }) => {
   };
   return (
     <ActiveRoundedButton onPress={onShare} title="Share">
-      <ActiveButtonText>Share this tip</ActiveButtonText>
+      <ActiveButtonText>Share this advice</ActiveButtonText>
     </ActiveRoundedButton>
   );
 };

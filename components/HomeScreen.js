@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import 'react-native-gesture-handler';
 
 import backgroundImage from '../assets/sharon-mccutcheon-62vi3TG5EDg-unsplash.jpg';
+import logoImage from '../assets/logo.png';
 
 // Styling-components
 import {
@@ -21,17 +22,24 @@ const InnerWrapper = styled.View`
   justify-content: center;
 `;
 
+const Logo = styled.Image`
+  width: 150px;
+  height: 150px;
+  margin-bottom: 50px;
+`;
+
 // ----------------------------------------------------------------
 
 const HomeScreen = ({ navigation }) => {
   return (
     <Wrapper source={backgroundImage}>
       <InnerWrapper>
+        <Logo source={logoImage}></Logo>
         <ActiveRoundedButton
           title="Go to Tips Screen"
           onPress={() => navigation.navigate('TipsScreen')}
         >
-          <ActiveButtonText>Get some brilliant tips now</ActiveButtonText>
+          <ActiveButtonText>Press for Advice</ActiveButtonText>
         </ActiveRoundedButton>
       </InnerWrapper>
     </Wrapper>

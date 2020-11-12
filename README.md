@@ -21,6 +21,8 @@ However, I enjoyed trying this out, and I can appreciate that this basic knowled
 
 ## End result
 
+Wiev it in Expo here: https://expo.io/@karinnordkvist/projects/random-advice-app
+
 1. Home Screen
 2. Tips Screen
 3. Loading Screen
