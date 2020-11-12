@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react'
-import styled from 'styled-components/native'
+import React  from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -11,19 +10,21 @@ const  Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+    <NavigationContainer>      
+      <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen
-          name="Quote List"
+          name='Positive quotes'
           component={QuoteList}
+          options={{headerShown:false}}
         />
         <Stack.Screen
-          name="Detail"
-          component={QuoteDetail}          
+          name='Detail'
+          component={QuoteDetail}
+          options={{headerShown:false}}          
         />
       </Stack.Navigator>
     </NavigationContainer>
-  )
-}
+  );
+};
 
 export default App
