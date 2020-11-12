@@ -1,32 +1,38 @@
     [
         {
             "id": "Heart",
-            "quote": "The secret of attraction is to love yourself",
-            "author": "DEEPAK CHOPRA"
+            "quote": "'The secret of attraction is to love yourself'",
+            "author": "- DEEPAK CHOPRA -",
+            "image": "./icons/Heart.png"
         },
         {
             "id": "Sun",
-            "quote": "Nothing can dim the light that shines from within",
-            "author": "MAYA ANGELOU"
+            "quote": "'Nothing can dim the light that shines from within'",
+            "author": "- MAYA ANGELOU -",
+            "image": "./icons/Sun.png"
         },
         {
             "id": "Hand",
-            "quote": "The only courage you ever need is the courage to fulfill the dreams of your own life",
-            "author": "OPRAH"
+            "quote": "'The only courage you ever need is the courage to fulfill the dreams of your own life'",
+            "author": "- OPRAH -",
+            "image": "./icons/Hand.png"
         },
         {
             "id": "Flower",
-            "quote": "Am I good enough? Yes I am.",
-            "author": "MICHELLE OBAMA"
+            "quote": "'Am I good enough? Yes I am.'",
+            "author": "- MICHELLE OBAMA -",
+            "image": "./icons/Flower.png"
         },
         {
             "id": "Bird",
-            "quote": "Your life is already a miralce of chance waiting for you to shape it's destiny.",
-            "author": "TONI MORRISON"
+            "quote": "'Your life is already a miralce of chance waiting for you to shape it's destiny.'",
+            "author": "- TONI MORRISON -",
+            "image": "./icons/Bird.png"
         },
         {
-            "id": "Leaf",
-            "quote": "Embrace the glorious mess you are",
-            "author": "Elizabeth Gilbert"
+            "id": "BlueFlower",
+            "quote": "'Embrace the glorious mess you are.'",
+            "author": "- Elizabeth Gilbert -",
+            "image": "./icons/Blue-flower.png"
         }
     ]
