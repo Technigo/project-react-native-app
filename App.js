@@ -2,7 +2,6 @@ import 'react-native-gesture-handler'
 import React  from 'react'
 
 import { NavigationContainer } from '@react-navigation/native';
-//import { EasingNode } from 'react-native-reanimated'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import { StartScreen } from './Components/StartScreen'
@@ -11,7 +10,7 @@ import { HomeScreen } from './Components/HomeScreen';
 const Tab = createMaterialTopTabNavigator();
 
 const App = () => {
-
+  
 return (
   <NavigationContainer>
     <Tab.Navigator>
@@ -23,3 +22,5 @@ return (
 }
 
 export default App
+
+

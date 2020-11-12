@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 
-import styled from 'styled-components/native'
-import { Container, Title, ResultText, ChallengeButton, ButtonText } from './StartScreenStyling';
+import { Container, Title, ResultText, ChallengeButton, ButtonText } from './StartScreenStyling'
 
-
-// try to use useEffect on the button 
-  //useEffect(() => {
-   // onClick or the random? 
 
 export const StartScreen = () => { 
-  const [challenge, setChallenge] = useState('');
+  const [challenge, setChallenge] = useState('')
 
   const onClick = (event) => {
     event.preventDefault()
@@ -30,11 +25,10 @@ export const StartScreen = () => {
    'You do not need everybody to like you!', 
    'Take more breaks then you usually do and mingle with colleagues!', 
    'Tell a colleuge something you have done well latley!', 
-   'Brag about yourself today', 
+   'Brag about yourself today!', 
   ]
 
-  const random = Math.floor(Math.random() * challengeArray.length);
-  console.log(random, challengeArray[random]);
+  const random = Math.floor(Math.random() * challengeArray.length)
 
   return (
     <Container>
@@ -42,9 +36,7 @@ export const StartScreen = () => {
         <ChallengeButton onPress={onClick}>
           <ButtonText>CHANGE CHALLENGE</ButtonText>
         </ChallengeButton>
-          <ResultText>{random, challengeArray[random]}</ResultText>  
+        <ResultText>{random, challengeArray[random]}</ResultText>  
     </Container>
   )
 }
-
-//expo install react-native-reanimated
