@@ -24,4 +24,5 @@ After that I added another page to make it a multiscreen App with React Navigati
 
 ## View it live
 
-See the app live via expo: 
+See the app live via expo: https://expo.io/@gabbi-89/projects/todays-workout-picker
+
