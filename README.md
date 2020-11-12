@@ -6,7 +6,7 @@ Start by briefly describing the assignment in a sentence or two. Keep it short a
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started with reading the brief closely to make sure I understood what the goal and requirements were for this project. I then did some research on react native and basic apps to build. After that I sketched a design and user flow. Then did some more research into how to work with api:s in react native. 
 
 ## View it live
 
