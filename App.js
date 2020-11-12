@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Button, Animated, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, Button, Animated, StyleSheet, TouchableWithoutFeedback, Vibration } from 'react-native'
 import styled from 'styled-components/native'
 
 import { Quote } from './Quote'
@@ -38,7 +38,8 @@ const App = () => {
     }
 
     setButtonDisabled(true)
-    
+    Vibration.vibrate()
+
     Animated.timing(buttonFade, {
       toValue: 0,
       duration: 1000,
