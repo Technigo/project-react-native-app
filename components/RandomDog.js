@@ -17,11 +17,12 @@ const RandomDogButton = styled.TouchableOpacity`
     background-color: pink;
     border-radius: 50px;
     padding: 10px;
-`
+    margin-top: 30px
+    `
 
 const ButtonText = styled.Text`
     font-size: 20px;
-` 
+    ` 
 
 export const RandomDog = () => {
     const [dogs, setDogs] = useState({})      
@@ -47,7 +48,7 @@ export const RandomDog = () => {
                 </DogView>
                 <ButtonView>
                     <RandomDogButton onPress={fetchDogs}>
-                        <ButtonText>Get a cute dog</ButtonText>
+                        <ButtonText>Another cute dog, please!</ButtonText>
                     </RandomDogButton>
                 </ButtonView>
                 <ShareDog />

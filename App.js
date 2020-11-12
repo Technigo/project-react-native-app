@@ -11,16 +11,17 @@ const Container = styled.ImageBackground`
 `
 
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: bold;
   color: black;
-  margin: 20px;
+  margin: 30px;
 `
 
 const App = () => {
   
   return (
     <Container source={background}>
-      <Title>Infinite dog randomizer</Title>  
+      <Title>Dog Randomizer</Title>  
     <RandomDog />
     </Container>
   )
