@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
+
 import { Header } from './components/Header';
 import { WorkoutType } from './components/WorkoutType';
 import { WorkoutDetail } from './components/WorkoutDetail';

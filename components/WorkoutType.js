@@ -11,27 +11,27 @@ export const WorkoutType = ({navigation}) => {
       { 
         workout: 'Yoga', 
         color: '#588B8B',
-        image: './assets/yoga.png'
+        image: require('../assets/yoga.png')
       },
       { 
         workout: 'Run', 
         color: '#597799',
-        image: './assets/yoga.png'
+        image: require('../assets/workout.png')
       },
       { 
         workout: 'Lift', 
         color: '#5F91A3',
-        image: './assets/yoga.png'
+        image: require('../assets/weightlift.png')
       },
       {
         workout: 'Walk', 
         color: '#5FA390',
-        image: './assets/yoga.png'
+        image: require('../assets/walking.png')
       },
       {
         workout: 'Rest Day', 
         color: '#599975',
-        image: './assets/yoga.png'
+        image: require('../assets/sleep.png')
       },
   ]
 
@@ -49,7 +49,7 @@ export const WorkoutType = ({navigation}) => {
           key={workout.workout}
           onPress={() => navigation.navigate('Workout', {workout})}>
           <WorkoutText>{workout.workout}</WorkoutText>
-          <WorkoutImage source={{ uri: workout.image}}/>
+          <WorkoutImage source={workout.image}/>
         </WorkoutButton>
       </WorkoutContainer>
       <PickButton onPress={() => { getWorkout(); }}>
@@ -72,6 +72,7 @@ const PickButton = styled.TouchableOpacity`
   margin: 15px;
   width: 240px;
   border-radius: 8px;
+  box-shadow: 2px 2px 6px #959695;
 `
 
 const ButtonText = styled.Text`
@@ -96,6 +97,8 @@ const WorkoutContainer = styled.View`
 
 const WorkoutButton = styled.TouchableOpacity`
   text-align: center;
+  justify-content: center;
+  align-items: center;
   text-shadow: 0.5px 0.5px 1px #fff;
   text-transform: uppercase;
 `
@@ -109,6 +112,7 @@ const WorkoutText = styled.Text`
 `
 
 const WorkoutImage = styled.Image`
-  height: 50px;
-  width: 50px;
+  height: 90px;
+  width: 90px;
+  margin: 15px;
 `
