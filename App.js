@@ -1,24 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
+import {  ScrollView, View, Text } from 'react-native';
 
-const Container = styled.View`
+import BookList from './BookList.js';
+
+const Container = styled.ScrollView`
   flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  margin-top: 50;
 `
 
 const App = () => {
+
+
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <BookList category={'hardcover-fiction'} />
+      <BookList category={'paperback-nonfiction'} />
+      <BookList category={'young-adult-hardcover'} />
+      <BookList category={'trade-fiction-paperback'} />
     </Container>
   )
 }
