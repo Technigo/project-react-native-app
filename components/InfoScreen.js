@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import backgroundImage from "../assets/background2.jpg";
 import { Text } from "react-native";
 import { Accelerometer } from "expo-sensors";
+import { back } from "react-native/Libraries/Animated/src/Easing";
 
 const InfoContainer = styled.ImageBackground`
   flex: 1;
@@ -10,7 +11,7 @@ const InfoContainer = styled.ImageBackground`
   justify-content: center;
   padding: 18px;
 `;
-
+  // background-color: ${randomColor()}
   // ${(props) => `background-color: ${randomColor}`};
 
 const InfoText = styled.Text`
@@ -20,50 +21,52 @@ const InfoText = styled.Text`
 const InfoScreen = ({ navigation, route }) => {
   const [data, setData] = useState({});
   const[hasShaked, setHasShaked] = useState(false);
-  
-  //array of background colors
-  const colors = ["orange", "yellow", "red"];
-  //pick one backgroundColor randomly
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-//array of words 
-  const words = ["hello", "exciting", "great"];
-   //pick one word randomly
+  const [backgroundColor, setBackgroundColor] = useState("red");
+
+  const changeBackground = () => {
+    const colors = ["orange", "yellow", "red","green", "pink", "purple"];
+    setBackgroundColor( colors[Math.floor(Math.random() * colors.length)]);
+  };
+
+  //array of words 
+  const words = ["happy", "exciting", "great", "positive", "joy"];
+  //pick one word randomly
   const randomWords = words[Math.floor(Math.random() * words.length)];
-  
+  // const randomWords = words.map(item[]);
+          
   useEffect(() => {
-    Accelerometer.setUpdateInterval(200);
+    Accelerometer.setUpdateInterval(500);
     const listener = Accelerometer.addListener((accelerometerData) => {
       setData(accelerometerData);
+      changeBackground();
+      console.log(accelerometerData);
     });
 
     return () => {
       listener && listener.remove();
     };
   }, []);
+  
 
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
 // why do we need !hasShaked
-  if (!hasShaked && totalForce > 2)  {
+
+  if (!hasShaked && totalForce > 3)  {
   setHasShaked(true);
   //trigger the fetch
 }
 
-
-// const hue = 220 + totalForce * 170;
-
-console.log(setHasShaked);
-
   return (
     <>
-    { setHasShaked ? (
-    <InfoContainer>
+    { hasShaked ? (
+    <InfoContainer style={{backgroundColor: backgroundColor}}>
     <InfoText> {randomWords}
     </InfoText>
     </InfoContainer>
     ) : (
     <InfoContainer source={backgroundImage}>
       <InfoText>
-        Info Screen
+        Shake it! Shake it!
       </InfoText>
       {/* what is this for? */}
       <Text>{route.params.data}</Text>
