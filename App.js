@@ -26,12 +26,19 @@ const App = () => {
   const [buttonFade, setButtonFade] = useState(new Animated.Value(1))
   const [quotes, setQuotes] = useState([])
   const [activeQuote, setActiveQuote] = useState()
+  const [buttonDisabled, setButtonDisabled] = useState(false)
 
   const getRandomQuote = (array) => {
     return array[Math.floor(Math.random() * (array.length - 1))].text
   }
 
   const updateQuote = () => {
+    if (buttonDisabled) {
+      return
+    }
+
+    setButtonDisabled(true)
+    
     Animated.timing(buttonFade, {
       toValue: 0,
       duration: 1000,
@@ -79,8 +86,7 @@ const App = () => {
             opacity: buttonFade
           }
         ]}>
-        < TouchableWithoutFeedback
-
+        <TouchableWithoutFeedback
           onPress={updateQuote}
         >
           <ButtonText>Today's Mantra</ButtonText>
