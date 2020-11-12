@@ -1,31 +1,40 @@
 import React, { useState, useEffect } from 'react'
-import { Text } from 'react-native';
 
-//import { View, Text, ImageBackground } from 'react-native';
 import styled from 'styled-components/native' 
+import Lottie from './Lottie';
 
 const MovieDetail = ({ route }) => {
   const [movieDetail, setMovieDetail] = useState({});
+  const [loading, setLoading] = useState(true);
   const { itemId } = route.params;
-  //console.log(itemId)
 
   const API_KEY = '175ffd5710eba9b52b1d7f46de42a152'
   const Detail_URL = `https://api.themoviedb.org/3/movie/${itemId}?api_key=${API_KEY}&language=en-US`
 
-  useEffect(() => {
-    fetch(Detail_URL)
-      .then(res => res.json())
-      .then(json => setMovieDetail(json))
+    useEffect(() => {
+      fetch(Detail_URL)
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error('404')
+        }
+      })
+      .then(json => {
+        setMovieDetail(json)
+        setLoading(false)
+      })
+      .catch(() => {
+        console.log('error')
+      })
     }, [])
-  
-    console.log(movieDetail)
-
-    //const image = { uri: `https://image.tmdb.org/t/p/w300/${movieDetail.poster_path}` };
+    //console.log(movieDetail)  
     
     return (
       <>
-      <Container>
-        {/* <Image source={image}> */}
+      {loading && <Lottie />}
+      {!loading && (
+        <Container>
         <Image source={{uri: `https://image.tmdb.org/t/p/w300/${movieDetail.poster_path}`}}>
           <Wrapper>
             <Title>{movieDetail.original_title}</Title>
@@ -34,14 +43,12 @@ const MovieDetail = ({ route }) => {
             <Paragraph>{movieDetail.overview}</Paragraph>
           </Wrapper>
         </Image>
-      </Container>
-    
-    </>
+        </Container>  
+      )}
+      </>
     )
 }
 export default MovieDetail
-
-
 
 const Container = styled.View `
 flex: 1;

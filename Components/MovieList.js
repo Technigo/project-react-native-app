@@ -1,23 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
-import styled from 'styled-components/native' 
-import { Text, ScrollView} from 'react-native';
-//import Constants from "expo-constants";
-//import { render } from 'react-dom';
+import styled from 'styled-components/native';
+import Lottie from './Lottie';
 
 const MovieList = ({ navigation }) => {
-  const [movieList, setMovieList] = useState([])
-  //const [loading, setLoading] = useState(true)
+  const [movieList, setMovieList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const API_KEY = '175ffd5710eba9b52b1d7f46de42a152';
-  const API_URL = `https://api.themoviedb.org	/3/movie/now_playing?api_key=${API_KEY}&language=en-US`;
-
-    // useEffect(() => {
-    // fetch(API_URL)
-    //   .then(res => res.json())
-    //   .then(json => setMovieList(json.results))
-    //   console.log(movieList) //problem att jag får tillbaka en tom array, vilket gör att mobilappen visar tom sida på "now playing"
-    // }, [API_URL])
+  const API_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US`;
 
   useEffect(() => {
     fetch(API_URL)
@@ -29,31 +20,39 @@ const MovieList = ({ navigation }) => {
       }
     })
     .then(json => {
-      setMovieList(json)
-      //setLoading(false)
+      setMovieList(json.results)
+      setLoading(false)
     })
     .catch(() => {
       console.log('error')
     })
-  }, [API_URL])
-
+  }, [])
+  //console.log(movieList)
 
   return (
-    <ScrollView>
-      {movieList.map((movie) => (
-        <Button
-        key={movie.id}
-        onPress={() => navigation.navigate('Movie detail', {itemId: movie.id,})}
-        //onPress={() => navigation.navigate('Movie detail', { movie })}
-        >
-        <Text>{movie.original_title}</Text>
-        </Button>
-      ))}
-    </ScrollView>
+    <ListContainer>
+      {loading && <Lottie />}
+      {!loading && 
+        <>
+          {movieList.map(movie => (
+            <Button
+              key={movie.id}
+              onPress={() => navigation.navigate('Movie detail', {itemId: movie.id,})}
+              >
+              <Title>{movie.original_title}</Title>
+            </Button> 
+          ))}
+        </>
+      }
+    </ListContainer>
   )
 }
 export default MovieList
 
+const ListContainer = styled.ScrollView `
+background-color: #000;
+flex: 1;
+`
 const Button = styled.TouchableOpacity `
   padding: 10px;
   margin-bottom: 10px;
@@ -61,5 +60,10 @@ const Button = styled.TouchableOpacity `
   border-radius: 10px;
   align-self: center; 
   align-items: center; 
-  border: 1px solid #000;
+  border: 1px solid #571E59;
+`
+const Title = styled.Text `
+color: #F8F2E7;
+font-size: 16px;
+font-weight: bold;
 `
