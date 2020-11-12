@@ -10,18 +10,22 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
     "description": "An app helping you choose today's workout - or maybe it tells you to have a rest day. ;)",
     "githubUrl": "https://github.com/Gabbi-89/project-react-native-app"
-  },
-  "updates": {
-    "fallbackToCacheTimeout": 0
-  },
-  "assetBundlePatterns": [
-    "**/*"
-  ],
-  "ios": {
-    "supportsTablet": true
-  },
-  "description": "An app helping you choose today's workout - or maybe it tells you to have a rest day. ;)",
-  "githubUrl": "https://github.com/Gabbi-89/project-react-native-app"
+  }
 }
