@@ -19,6 +19,10 @@ However, I enjoyed trying this out, and I can appreciate that this basic knowled
 - Lottie Animations
 - API Requests
 
-## View it live
+## End result
+
+1. Home Screen
+2. Tips Screen
+3. Loading Screen
 
 ![Image of my app](http://karinnordkvist.se/developer/images/karin-nordkvist-frontend-developer-react-native-app.jpg 'React Native App')
