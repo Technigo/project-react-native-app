@@ -11,3 +11,12 @@ Then I stared to code - I had an idea on what was needed to achieve my goal. I c
 
 Main learning this week: it was tricky to take my knowledge of js, css, and html and put it to use in react native. I had lots of warnings and errors along the way. Also building for different devices was hard. But I also really enjoyed it. There is something very satisfying in viewing and interacting with your results on a mobile. I can definitely see myself learning more about react native - and having fun doing it.
 
+How to build mobile apps with React Native.
+How to use styled components.
+using an external API to fetch something to your app and then interact with it.
+be a mobile app created with React Native and using styled components. 
+React Native documentation and see what components there are and what else you can do in React Native
+After that, think about how the logic should be divided up. Are you using an API? What component should handle the fetch.
+When starting to write your code, try to work on the project in small chunks rather than taking on too much at once.
+When starting to write your code, try to work on the project in small chunks rather than taking on too much at once.
+
