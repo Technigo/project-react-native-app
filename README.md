@@ -1,13 +1,24 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was all about getting familiar with React Native and Expo, and to implement styling with Styled Components.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Starting out I had big plans for this app, but the deeper into the code I got, the more I had to lower my ambitions. I started out by simply following the documentation to create a multi-page app, then implementing a fetch with randomized tips generated each time it's fired. I did some basic styling to this, added a button to generate more tips, and in the end also included a share-button.
+
+The most positive part of this week was that I got to play around a lot with Styled Components, which I enjoyed.
+
+To put it nicely- if I would decide to work with React Native in the future I would need more time to get the surrounding software to work, but most of all more time to learn. React Native is very nitpicky in it's way to process code, and without a basic understanding of the concept and somewhat unstable Expo-software, it quickly becomes a bit of a mess.
+
+However, I enjoyed trying this out, and I can appreciate that this basic knowledge I now have is valuable.
+
+## Tech
+
+- React Native
+- Styled Components
+- Lottie Animations
+- API Requests
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+![Image of my app](http://karinnordkvist.se/developer/images/karin-nordkvist-frontend-developer-react-native-app.jpg 'React Native App')
