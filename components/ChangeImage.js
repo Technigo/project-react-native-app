@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { Text, Button } from "react-native";
+import { StyleSheet, Text, Button } from "react-native";
+
+const Buttons = styled.View`
+  flex-direction: row;
+`;
 
 const ButtonContainer = styled.View`
-  background-color: white;
-  width: 100px;
-  height: 100px;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 80px;
+  height: 80px;
+  color: red;
   justify-content: center;
-  border-radius: 100px;
+  border-radius: 50px;
 `;
 
 const ChangeImage = ({
@@ -25,12 +29,19 @@ const ChangeImage = ({
   };
 
   return (
-    <>
+    <Buttons>
       <ButtonContainer>
-        <Button title={text} onPress={handleOnPress} />
+        <Button style={styles.button} title={text} onPress={handleOnPress} />
       </ButtonContainer>
-    </>
+    </Buttons>
   );
 };
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: "pink",
+    color: "green",
+  },
+});
 
 export default ChangeImage;

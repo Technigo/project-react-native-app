@@ -9,11 +9,11 @@ const API_KEY = "YWwm9H2VlQrVz9g0eOpGZdBRCzgYHoifUPhfqUWn";
 const Container = styled.View`
   flex: 1;
   justify-content: center;
-  background-color: lawngreen;
+
   align-items: center;
 `;
 
-const spaceThings = ["saturn", "nebula", "galaxy"];
+const spaceThings = ["saturn", "nebula", "galaxy", "sun"];
 const random = (max) => Math.floor(Math.random() * max);
 
 const App = () => {
@@ -23,6 +23,7 @@ const App = () => {
   return (
     <Container>
       <Header title="Hello" />
+      <HomeScreen imgNumber={imgNumber} query={query} />
       {spaceThings.map((spaceThing) => (
         <ChangeImage
           text={spaceThing}
@@ -33,8 +34,6 @@ const App = () => {
           random={random}
         />
       ))}
-
-      <HomeScreen imgNumber={imgNumber} query={query} />
     </Container>
   );
 };

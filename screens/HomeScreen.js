@@ -4,14 +4,11 @@ import { Text, View, Image } from "react-native";
 
 const Container = styled.View`
   flex: 1;
-  justify-content: center;
-  background-color: pink;
-  align-items: center;
 `;
 
 const SpaceImage = styled.Image`
-  height: 300px;
-  width: 300px;
+  width: 450px;
+  height: 900px;
 `;
 
 const page = 2;
@@ -27,6 +24,10 @@ const StartPage = ({ imgNumber, query }) => {
       .then((json) => {
         setGalaxies(json.collection.items);
         console.log("json.collection.items", json.collection.items);
+        console.log(
+          "json.collection.items[imgNumber].data[0].title",
+          json.collection.items[imgNumber].data[0].title
+        );
         console.log("json", json);
       });
   }, [GALAXY_URL]);
