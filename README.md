@@ -6,7 +6,7 @@ A React Native mobile application fetching and displaying dad jokes from an API,
 
 I started looking up fun free API's and found a straight-forward API to work with. The main idea was to randomly display something from an API, and then have a button to generate a new random whatever, which ended up to be a joke in this case. After elaborating around what I could do with the data and API endpoints, I implemented some interaction to the application - a search field and share function.
 
-As a next step I would break out the components to separate files, have a TouchableOpacity component instead of a Button component and use the Alert component to customize the alert messages.
+As a next step I would break out the components to separate files, have a TouchableOpacity component instead of a Button component and use props to style them differenly, and use the Alert component to customize the alert messages.
 
 ## View it live
 
