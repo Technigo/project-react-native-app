@@ -15,6 +15,7 @@ padding:10px;
 const InputBox = styled.View`
 border: solid grey 1px;
 border-radius:10px;
+height:40px;
 margin-bottom: 10px;
 `
 
@@ -27,6 +28,8 @@ margin-left:50px;
 margin-bottom:20px;
 text-align: center;
 font-weight:bold;
+height:40px;
+align-items:center;
 `
 const ButtonText = styled.Text`
 color: white;
@@ -44,7 +47,7 @@ export default function Add({submitHandler}) {
         <Main>
             <InputBox>
             <Input
-                placeholder='add to the list ...'
+                placeholder='add at least 4 characters...'
                 onChangeText={(val) => changeHandler(val)}
             /></InputBox>
             <ButtonBox>
