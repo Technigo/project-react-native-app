@@ -9,8 +9,8 @@ const Container = styled.View`
 `
 
 const Card = styled.Image`
-  width: 400px;
-  height: 600px;
+  width: 200px;
+  height: 300px;
 `
 
 const Button = styled.Button`
