@@ -1,12 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is Weather App for mobile.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+In this project I used Styled components, JS, React Native, React, NPM and Expo. This is my first multi-page site using React Native. I used npm and expo to instal some libraries that were needed for my project like lottie, moment and expo-sensors. When I had problems I used google and stackoverflow. 
+
 
 ## View it live
 
