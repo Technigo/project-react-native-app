@@ -1,6 +1,6 @@
 import React from 'react'; 
-import {Text, View} from 'react-native'
-import styled from 'styled-components/native'
+import {Text, View} from 'react-native';
+import styled from 'styled-components/native';
 
 const DateBox = styled.View`
   width: 100%;
@@ -35,4 +35,3 @@ const Info = styled.Text`
     </DateBox>
   )
 };
-

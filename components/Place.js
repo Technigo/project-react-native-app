@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View } from 'react-native'
-import styled from 'styled-components/native'
+import { View } from 'react-native';
+import styled from 'styled-components/native';
 
-import { HeadingOne } from './styled/HeadingOne'
+import { HeadingOne } from './styled/HeadingOne';
 
 const PlaceContainer = styled.View`
   flex: 0.5;
@@ -14,4 +14,4 @@ export const Place = () => {
       <HeadingOne>Elysium Planitia</HeadingOne>
     </PlaceContainer>
   )
-}
+};

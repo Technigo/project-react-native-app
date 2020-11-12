@@ -28,6 +28,7 @@ const MinMaxTemperature = styled.Text`
 `
 
 export const Temperature = ({solData}) => {
+  /*Preventing errors with undefined when the app loads for the first time*/
   if (!solData) {
     return <Text>Loading...</Text>
   }
@@ -49,4 +50,4 @@ export const Temperature = ({solData}) => {
       </MinMaxContainer>
     </TemperatureContainer>
   )
-}
+};

@@ -6,9 +6,10 @@ import { AvarageWindSpeed } from './AvarageWindSpeed';
 import { ExtraInfoMinMaxContainer } from './styled/ExtraInfoMinMaxContainer';
 import { MinWindSpeed } from './MinWindSpeed';
 import { MaxWindSpeed } from './MaxWindSpeed';
-import { HeadingTwo } from './styled/HeadingTwo'
+import { HeadingTwo } from './styled/HeadingTwo';
 
 export const WindSpeed = ({solData}) => {
+  /*Preventing errors with undefined when the app loads for the first time*/
   if (!solData) {
     return <Text>Loading...</Text>
   }
@@ -28,4 +29,4 @@ export const WindSpeed = ({solData}) => {
         </ExtraInfoMinMaxContainer>
     </ExtraInfoContainer>
   )
-}
+};
