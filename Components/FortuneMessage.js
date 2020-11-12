@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+/* import React, {useState, useEffect } from 'react'
 import { Text } from 'react-native'
 
 
@@ -18,3 +18,4 @@ export const FortuneMessage = () => {
         <Text> {fortune}</Text>
     )
 }
+ */
