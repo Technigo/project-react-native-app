@@ -13,7 +13,6 @@ const Header = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-
   padding-top: 20px;
   width: 100%;
   background-color: #DC4730;
@@ -24,6 +23,26 @@ const Title = styled.Text`
   font-weight: 900;
   font-style: italic;
   color: white;
+`
+
+const SearchContainer = styled.View`
+  flex: 1;  
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  width: 100%;
+  background-color: #E7DFCD;  
+`
+
+const Input = styled.TextInput`
+  padding: 5px;
+  height: 40px;
+  width: 70%;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: #032A34; 
+  background-color: #E7DFCD;
 `
 
 const JokeContainer = styled.View`
@@ -47,25 +66,6 @@ const ButtonContainer = styled.View`
   padding: 20px 40px;
   width: 100%;
   background-color: #E7DFCD;
-`
-
-const SearchContainer = styled.View`
-  flex: 1;  
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  width: 100%;
-  background-color: #E7DFCD;  
-`
-
-const Input = styled.TextInput`
-  padding: 5px;
-  height: 40px;
-  width: 70%;
-  border-width: 1px;
-  border-radius: 8px;
-  border-color: #032A34; 
 `
 
 const App = () => {
