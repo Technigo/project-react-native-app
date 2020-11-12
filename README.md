@@ -4,6 +4,10 @@ Replace this readme with your own information about your project.
 
 Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
+React Native
+Styled components
+expo & expo snacks
+
 ## The problem 🧠
 I started with reading the brief closely to make sure I understood what the goal and requirements were for this project. I then did some research on react native and basic apps to build. After that I sketched a design and user flow. Then I did some more research into how to work with api:s in react native. 
 
