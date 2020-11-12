@@ -141,7 +141,7 @@ const App = () => {
 
       <ButtonContainer>
         <Button title="Generate" onPress={getJoke} color="#032A34" />
-        <Button title="Share" onPress={shareJoke} color="#DC4730" />
+        <Button title="Share" onPress={shareJoke} color="#032A34" />
       </ButtonContainer>
 
     </Container >
