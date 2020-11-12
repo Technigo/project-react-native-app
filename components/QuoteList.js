@@ -1,94 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 import { ScrollView, RefreshControl, SafeAreaView, Alert } from 'react-native';
-import kanye from '../assets/icon.png';
 
+import kanye from '../assets/icon.png';
 
 const TopContainer = styled.View`
   flex: 1;
-  background-color: #A13430;
+  background-color: #8F221C;
   justify-content: space-between;
   align-items: center;
   padding: 70px;
 `
 
-const BottomContainer = styled.View`
-  flex: 1;
-  background-color: #FEFF00;
-  justify-content: space-between;
-  align-items: center;
-  `
-
 const Title = styled.Text`
   font-size: 20px;
-  color: #309DA1;
+  color: white;
 `
 
 const Image = styled.Image`
   width: 150px;
   height: 150px;
   margin-top: 20px;
-`
-// Executes code after delay. This function allows us to set a timeout on the spinner 
-// when site is refreshed/pulled down. It is invoked in the onRefresh function. The wait-function
-// tells the onRefresh function to run spinner for 1 second. After that the refresh is completed. 
-const wait = (timeout) => {
-    return new Promise(resolve => {
-      setTimeout(resolve, timeout);
-    });
-  }
-
+`    
 export default function QuoteList() {
-  const [newQuote, setNewQuote] = useState('');
+  const [newQuote, setNewQuote] = useState('Ready?');
   const [refreshing, setRefreshing] = React.useState(false);
-  // We want to start with no quote, so we initatie with false.
-  
+
+  // Function to fetch the quote
+  const fetchQuote = () => {
+    fetch('https://api.kanye.rest')
+      .then((res) => res.json())
+      .then((res) => {
+        // Stop the refresh animation
+        setRefreshing(false);
+
+        // Set the new quote to be Alerted later
+        setNewQuote(res.quote);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  // When the pulldown is used, we:
+  //  - show the refresh animation
+  //  - fetch the new quote
   const onRefresh = React.useCallback(() => {
-        setRefreshing(true); // but when true go ahead and refresh (and generate new quote).
-        wait(1000).then(() => setRefreshing(false)); // Page is refreshing, spinner spins for 1 second.
-        // Then set to false after refreshed. Ready to be refreshed again.
-        setNewQuote(''); // A new quote is set. 
+    setRefreshing(true); // but when true go ahead and refresh (and generate new quote).
+    fetchQuote();
   });
-  
+
+  // When newQuote changes, we want to do this, hence the dependency
   useEffect(() => {
-    function fetchQuote() {
-      fetch("https://api.kanye.rest")
-        .then(res => res.json())
-        .then(res => setNewQuote(res.quote)) // A new quote is stored in setNewQuote.
-        .catch(error => console.error(error));
-    }
-    
-      fetchQuote(); 
-      //We call the function and fetch a new quote. Since wrapped in useEffect, the function 
-      // is only run when called.
-    });
+      Alert.alert(JSON.stringify(newQuote));
+  }, [newQuote]);
 
-
-
-  const quoteAlert = () => {
-    setTimeout(() => {
-    Alert.alert(JSON.stringify(newQuote))
-    }, 1000) 
-    // The time matches the wait-time in the onRefresh function. If longer, then box pops
-    // up before spinner has ended. And vice versa.
-    onRefresh() 
-    //If I delete this one, the spinner never stops. Now it stops after 1 second as set 
-    // as an argument in the wait function above.
-  }
-    
   return (
-    <SafeAreaView> 
-     <ScrollView>
-      <TopContainer> 
-        <RefreshControl refreshing={refreshing} onRefresh={quoteAlert} />
-         <Title>Kanye West quotes</Title>
-         <Title>Pull me down!</Title>
-         <Image source={kanye} />
-         </TopContainer>
-    </ScrollView>
-    <BottomContainer>
-      <Title>Hello</Title>
-      </BottomContainer>
-  </SafeAreaView>
+    <SafeAreaView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        <TopContainer>
+          <Title>Kanye West quotes</Title>
+          <Title>Pull me down!</Title>
+          <Image source={kanye} />
+        </TopContainer>
+      </ScrollView>
+    </SafeAreaView>
   )
 };

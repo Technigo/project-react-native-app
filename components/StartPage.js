@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components/native';
-import { Button } from 'react-native';
+
 import backgroundImage from '../assets/KanyeStanding.jpg';
 
 const StartContainer = styled.ImageBackground`
@@ -28,29 +28,24 @@ const ButtonContainer = styled.View`
 const ContainerButton = styled.Button`
   background: red;
   color: black;
-  `;
-
+`;
 
 const StartPage = ({ navigation }) => {
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
-  });
+});
 
-  const navigateToQuotes = () => {
-    navigation.navigate('Quotes', { name: 'Jane' });
-  };
-
+const navigateToQuotes = () => {
+  navigation.navigate('Quotes', { name: 'Jane' });
+};
 
 return (
-  
   <StartContainer source={backgroundImage}>
     <StartText>Are you ready for some Kanye wisdom?{"\n"}</StartText>
     <ButtonContainer>
-        <ContainerButton title="Tap me!" onPress={navigateToQuotes}></ContainerButton>
-      </ButtonContainer>
-
-  </StartContainer>
-  
+      <ContainerButton title="Tap me!" onPress={navigateToQuotes}></ContainerButton>
+    </ButtonContainer>
+  </StartContainer> 
 )
 };
 
