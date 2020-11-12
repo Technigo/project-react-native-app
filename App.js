@@ -16,7 +16,7 @@ const Container = styled.View`
 
 const ButtonText = styled.Text`
   color: #F8CCC4;
-  font-size: 20px;
+  font-size: 30px;
 `
 
 // papayawhip
