@@ -4,6 +4,7 @@ import { View, Text, FlatList } from 'react-native'
 
 import { Header } from './components/Header'
 import { TodoTask } from './components/ToDoTask'
+import { AddTodo } from './components/AddTodo'
 
 const App = () => {
   const [toDos, setTodos] = useState ([
@@ -19,10 +20,21 @@ const App = () => {
       return todo.filter(todo => todo.key != key)
     })
   }
+
+  //Update the task with user input
+  const submitHandler = (task) => {
+    setTodos((todo) => {
+      return [
+        { task: task, key: Math.random().toString() },
+        ...todo
+      ]
+    })
+  }
   
   return (
     <Wrapper>
        <Header />
+       <AddTodo submitHandler={submitHandler}/>
       <TodoContainer>
        <TodoList>
         <FlatList

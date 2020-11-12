@@ -12,20 +12,15 @@ export const TodoTask = ({ item, pressHandler }) => {
 }
 
 const TouchableText = styled.TouchableOpacity`
+margin-top: 20px;
+padding: 10px;
+background-color: #20B2AA
+border-width: 1
+border-radius: 5px
+width: auto
 `
 const TodoText = styled.Text`
 font-size: 20px
 font-weight: bold
-margin-top: 20px
-padding: 15px;
-background-color: #20B2AA
-border-width: 1
-border-radius: 5px
+
 `
-// const TextField = styled.Text`
-// border-width: 1
-// color: #777
-// padding: 8px
-// margin: 10px
-// width: 200px
-// `
