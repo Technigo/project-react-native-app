@@ -27,4 +27,4 @@ Wiev it in Expo here: https://expo.io/@karinnordkvist/projects/random-advice-app
 2. Tips Screen
 3. Loading Screen
 
-![Image of my app](http://karinnordkvist.se/developer/images/karin-nordkvist-frontend-developer-react-native-app.jpg 'Advice - React Native App')
+![Image of my app](http://karinnordkvist.se/developer/images/karin-nordkvist-frontend-developer-react-native-app-v2.jpg 'Advice - React Native App')
