@@ -22,8 +22,28 @@ export const Recipe = () => {
             })
             .then(data => {
                 console.log(data.recipes)
+                cleanHtml(data)
                 setRecipes(data.recipes)
             })
+    }
+
+    const cleanHtml = (data) => {
+        const datainstructions = data.recipes[0].instructions.replace('<ol>', '')
+        let x = removeStringElements(datainstructions, '<ol>')
+        x = removeStringElements(x, '</ol>')
+        x = removeStringElements(x, '<li>')
+        x = removeStringElements(x, '</li>')
+        x = removeStringElements(x, '<ul>')
+        x = removeStringElements(x, '</ul>')
+        console.log(x)
+        return x
+    }
+
+    const removeStringElements = (fullString, subString) => {
+        let newString = fullString
+        while (newString.includes(subString)) {
+            newString = newString.replace(subString, '')
+        } return newString
     }
 
     useEffect(() => {
@@ -57,12 +77,12 @@ export const Recipe = () => {
 
     return (
         recipes.map((recipe) => (
-                <Container key={recipe.id}>
-                    {console.log(recipe.image)}
-                    <RecipeImage source={{ uri: recipe.image }} />
-                    <Headline>This is a recipe: {recipe.title}</Headline>
-                    <Text>Tag: {recipe.instructions}</Text>
-                </Container>
+            <Container key={recipe.id}>
+                {console.log(recipe.image)}
+                <RecipeImage source={{ uri: recipe.image }} />
+                <Headline>This is a recipe: {recipe.title}</Headline>
+                {recipe.instructions && <Text>Instructions: {recipe.instructions}</Text>}
+            </Container>
         ))
     )
 }
