@@ -24,4 +24,5 @@ Currently the challenges are a simple array that i have created and the next ste
 
 
 ## View it live
-Here you can check out the final project using snack: 
+Check out the project on my expo :
+https://expo.io/@mhammarback/projects/project-react-native-app

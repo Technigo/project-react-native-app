@@ -1,8 +1,7 @@
 import React from 'react'
 
 import { Container, Title, InfoText } from './HomeScreenStyling'
-import LottieView from 'react-native-web-lottie'
-//import LottieView from 'lottie-react-native'
+import LottieView from 'lottie-react-native'
 
 export const HomeScreen = () => {
   return (
@@ -13,11 +12,13 @@ export const HomeScreen = () => {
             comes this app where you can shuffle through daily challenges that could
             help improve your carrer!
           </InfoText>  
-          <LottieView source={require('./Animation/hand.json')} autoPlay loop/>          
+          <LottieView source={require('./Animation/hand.json')} autoPlay />          
     </Container> 
   )
 }
 
+/* Use this line to check out the project from computer */
+//import LottieView from 'react-native-web-lottie'
 
 
 
