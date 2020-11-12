@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 import { Image } from 'react-native'
+import { ShareDog } from './ShareDog'
 
 const DogView = styled.View`
     flex: 1;
@@ -49,6 +50,7 @@ export const RandomDog = () => {
                         <ButtonText>Get a cute dog</ButtonText>
                     </RandomDogButton>
                 </ButtonView>
+                <ShareDog />
             </>
         )
 }
