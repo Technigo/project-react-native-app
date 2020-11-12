@@ -11,17 +11,25 @@ const InfoContainer = styled.ImageBackground`
   padding: 18px;
 `;
 
+  // ${(props) => `background-color: ${randomColor}`};
+
 const InfoText = styled.Text`
   font-size: 48px;
-  ${(props) => color: hsl '(140, 100%, 50%)'};
 `;
- // ${(props) => `color: hsl (${props.hue}, 100%, 50%)`};
-// ${(props) => `transform: translate(${props.xOffset}px, ${props.yOffset}px) `};
 
 const InfoScreen = ({ navigation, route }) => {
   const [data, setData] = useState({});
   const[hasShaked, setHasShaked] = useState(false);
-
+  
+  //array of background colors
+  const colors = ["orange", "yellow", "red"];
+  //pick one backgroundColor randomly
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+//array of words 
+  const words = ["hello", "exciting", "great"];
+   //pick one word randomly
+  const randomWords = words[Math.floor(Math.random() * words.length)];
+  
   useEffect(() => {
     Accelerometer.setUpdateInterval(200);
     const listener = Accelerometer.addListener((accelerometerData) => {
@@ -40,13 +48,19 @@ const InfoScreen = ({ navigation, route }) => {
   //trigger the fetch
 }
 
-const hue = 220 + totalForce * 170;
+
+// const hue = 220 + totalForce * 170;
 
 console.log(setHasShaked);
-  // let { x, y, z } = data;
-  // let xOffset = x * -60 || 0;
-  // let yOffset = z * -120 || 0;
+
   return (
+    <>
+    { setHasShaked ? (
+    <InfoContainer>
+    <InfoText> {randomWords}
+    </InfoText>
+    </InfoContainer>
+    ) : (
     <InfoContainer source={backgroundImage}>
       <InfoText>
         Info Screen
@@ -57,6 +71,9 @@ console.log(setHasShaked);
         Total Force: {totalForce}
       </Text>
     </InfoContainer>
+      )
+    }
+    </>
   );
 };
 
