@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "Magic Oracle",
+    "slug": "magic-oracle",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -10,7 +10,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/fortune-teller.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
