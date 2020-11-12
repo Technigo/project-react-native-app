@@ -1,13 +1,16 @@
-# Project React Native App 📱
+# May The Force Be With You: A React Native App 📱
 
-Replace this readme with your own information about your project.
+#### This project was made during Technigo's Front-end developer bootcamp 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A step counter app which rewards your effort with amazing Carrie Fisher quotes during your struggles!  
 
-## The problem
+## Tech used
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+* Pedometer
+* React Native
+* Styled Components
+* JavaScript ES6
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+You can try out my app here (scan the QR Code to open in iOS/Android device):

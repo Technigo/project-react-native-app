@@ -18,13 +18,13 @@ const Container = styled.View`
 `
 
 const HeaderContainer = styled(Container)`
-flex: 1;
+  flex: 1;
 `
 
 const StarWarsImg = styled.Image`
-flex: 1;
-width: 100%;
-margin-bottom: 30px;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 30px;
 `
 
 const StepsContainer = styled.View`
@@ -57,8 +57,8 @@ const Speachbubble = styled(Container)`
 `
 
 const LeaQuote = styled.Text`
-font-size: 17px;
-color: #000;
+  font-size: 17px;
+  color: #000;
 `
 
 const Img = styled.Image`

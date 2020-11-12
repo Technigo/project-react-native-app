@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react"
-import styled from "styled-components/native"
 import { Pedometer } from "expo-sensors"
-
-// const Container = styled.View`
-// justify-content: center;
-// align-items: center;`
+import styled from "styled-components/native"
 
 
 const Text = styled.Text`
