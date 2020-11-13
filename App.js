@@ -20,7 +20,7 @@ const App = () => {
         <Stack.Screen
         name="Timer"
         component={Timer}
-        initialParams={{ routeTime: 42 }}
+        initialParams={{ routeTime: 30 }}
         />
       </Stack.Navigator>
     </NavigationContainer>
