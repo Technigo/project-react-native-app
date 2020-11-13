@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Dimensions } from 'react-native'
+import { View, Dimensions } from 'react-native'
 import { LineChart } from 'react-native-chart-kit'
 
 export default class Chart extends Component {
@@ -9,9 +9,27 @@ export default class Chart extends Component {
                 marginHorizontal: 20,
                 marginTop: 20
             }}>
-                <Text>
-                    Chart
-                </Text>
+                <LineChart
+                    data={{
+                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov"],
+                        datasets: [
+                            {
+                                data: [
+                                    Math.random() * 100,
+                                    Math.random() * 100,
+                                    Math.random() * 100,
+                                    Math.random() * 100,
+                                    Math.random() * 100,
+                                    Math.random() * 100,
+                                    Math.random() * 100,
+                                    Math.random() * 100
+                                ],
+                            }
+                        ]
+                    }}>
+
+                </LineChart>
+
             </View>
         )
     }
