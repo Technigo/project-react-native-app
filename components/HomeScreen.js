@@ -1,9 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Button, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-
-import Joke from "./Joke";
 
 const HomeScreen = ({ navigation }) => {
   const [categories, setCategories] = useState([]);
@@ -14,7 +11,6 @@ const HomeScreen = ({ navigation }) => {
       .then(response => response.json())
       .then(json => setCategories(json.categories));
   }, []);
-  console.log(categories);
 
   return (
     <Container>
@@ -34,7 +30,7 @@ export default HomeScreen;
 
 const Container = styled.View`
   flex: 1;
-  background-color: #f2f2f2;
+  background-color: #000;
   justify-content: center;
   align-items: center;
   padding: 20px 0 10px 0;
@@ -46,10 +42,9 @@ const JokeButton = styled.TouchableOpacity`
   justify-content: center;
   border: 2px solid #fff;
   width: 85%;
-  height: 20px;
   margin-bottom: 10px;
   border-radius: 10px;
-  background colour: rgba(0,0,0, 0.8);
+  background: rgba(59, 59, 59, 0.4);
 `;
 
 const ButtonText = styled.Text`
