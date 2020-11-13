@@ -22,8 +22,9 @@ const Image = styled.Image`
   height: 150px;
   margin-top: 20px;
 `    
+
 export default function QuoteList() {
-  const [newQuote, setNewQuote] = useState('Ready?');
+  const [newQuote, setNewQuote] = useState('');
   const [refreshing, setRefreshing] = React.useState(false);
 
   // Function to fetch the quote
@@ -47,12 +48,14 @@ export default function QuoteList() {
     setRefreshing(true); // but when true go ahead and refresh (and generate new quote).
     fetchQuote();
   });
-
   // When newQuote changes, we want to do this, hence the dependency
-  useEffect(() => {
-      Alert.alert(JSON.stringify(newQuote));
-  }, [newQuote]);
 
+  useEffect(() => {
+    if(newQuote !=('')){
+      Alert.alert(JSON.stringify(newQuote));
+    }
+  }, [newQuote]);
+  
   return (
     <SafeAreaView>
       <ScrollView
