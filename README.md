@@ -2,7 +2,7 @@
 
 An app that randomly generets space images by tapping buttons.
 
-Fetching images and titles with useEffect using the NASA API. Styled with styled components.
+Fetching images and titles with useEffect using NASA API. Styled with styled components.
 
 ## Core Tech
 
