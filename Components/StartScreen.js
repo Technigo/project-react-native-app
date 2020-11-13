@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import { Container, Title, ResultText, ChallengeButton, ButtonText } from './StartScreenStyling'
 
-
 export const StartScreen = () => { 
   const [challenge, setChallenge] = useState('')
 

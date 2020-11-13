@@ -3,6 +3,7 @@ import React from 'react'
 import { Container, Title, InfoText } from './HomeScreenStyling'
 import LottieView from 'lottie-react-native'
 
+
 export const HomeScreen = () => {
   return (
     <Container>
