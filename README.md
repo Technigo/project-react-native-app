@@ -13,4 +13,4 @@ A step counter iOS app which rewards your effort with amazing Carrie Fisher quot
 
 ## View it live
 
-You can try out my app <a href="https://snack.expo.io/@idsintehittapa/may-the-force-be-with-you">here.</a> (scan the QR Code to open in iOS via Expo)
+You can try out my app <a href="https://snack.expo.io/@idsintehittapa/may-the-steps-be-with-you">here.</a> (scan the QR Code to open in iOS via Expo)
