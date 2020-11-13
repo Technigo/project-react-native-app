@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "todays-mantra",
+    "slug": "todays-mantra",
     "privacy": "public",
     "platforms": [
       "ios",
