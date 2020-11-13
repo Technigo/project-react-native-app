@@ -9,27 +9,27 @@ export const WorkoutType = ({navigation}) => {
 
   const WorkoutTypesArray = [
       { 
-        workout: 'Yoga', 
+        type: 'Yoga', 
         color: '#588B8B',
         image: require('../assets/yoga.png')
       },
       { 
-        workout: 'Run', 
+        type: 'Run', 
         color: '#597799',
         image: require('../assets/workout.png')
       },
       { 
-        workout: 'Lift', 
+        type: 'Lift', 
         color: '#5F91A3',
         image: require('../assets/weightlift.png')
       },
       {
-        workout: 'Walk', 
+        type: 'Walk', 
         color: '#5FA390',
         image: require('../assets/walking.png')
       },
       {
-        workout: 'Rest Day', 
+        type: 'Rest Day', 
         color: '#599975',
         image: require('../assets/sleep.png')
       },
@@ -48,7 +48,7 @@ export const WorkoutType = ({navigation}) => {
         <WorkoutButton 
           key={workout.workout}
           onPress={() => navigation.navigate('Workout', {workout})}>
-          <WorkoutText>{workout.workout}</WorkoutText>
+          <WorkoutText>{workout.type}</WorkoutText>
           <WorkoutImage source={workout.image}/>
         </WorkoutButton>
       </WorkoutContainer>

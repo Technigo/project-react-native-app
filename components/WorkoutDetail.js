@@ -12,7 +12,7 @@ export const WorkoutDetail = ({route, navigation}) => {
     <Container>
       <GifImage source={{uri: 'https://media4.giphy.com/media/tn8zWeNYA73G0/200.webp?cid=ecf05e47x13nr03fqr4i6gvj673lsj1w6nim7jgp9ayiopsi&rid=200.webp'}} />
       <DoTraining>What are you waiting for?</DoTraining>
-      <DoTraining>Just go away {workout.workout}!</DoTraining>
+      <DoTraining>Just go away {workout.type}!</DoTraining>
       <BackButton onPress={() => navigation.goBack()}>
         <TextButton>Go Back!</TextButton>
       </BackButton>
