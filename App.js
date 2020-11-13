@@ -4,7 +4,7 @@ import { ThingsToDo } from './components/ThingsToDo'
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #c0d6e4;
   justify-content: center;
   align-items: center;
 `
@@ -19,7 +19,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>Vad ska vi göra idag Nathaniel?</Title>
+      <Title>Det regnar Nathaniel, vad ska vi göra då ☔️ ?</Title>
       <ThingsToDo />
     </Container>
   )

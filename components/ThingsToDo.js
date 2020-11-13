@@ -8,18 +8,19 @@ const Container = styled.View`
 `;
 
 const PickButton = styled.TouchableOpacity`
-  background-color: #e7c1b6;
+  background-color: #f0f8ff;
   padding: 20px;
-  border: 4px solid #466687;
+  border: 5px solid #466687;
   margin: 10px;
   width: 300px;
-  border-radius: 5px;
+  border-radius: 10px;
 `;
 const ButtonText = styled.Text`
   text-align: center;
   justify-content: center;
   align-items: center;
-  color: #466687;
+  font-size: 20px;
+  color: #080814;
 `;
 
 const ThingsToDoContainer = styled.View`
@@ -33,9 +34,9 @@ const ThingsToDoContainer = styled.View`
 `;
 
 const ThingsToDoText = styled.Text`
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
-  color: white;
+  color: black;;
 `;
 
 export const ThingsToDo = () => {
@@ -43,33 +44,33 @@ export const ThingsToDo = () => {
 
   const ThingsToDoArray = [
     {
-      thingtodo: "Baka kanelbullar",
+      thingtodo: "Baka kakor och fika",
       color: "#e7c1b6", //pink
-      emoji: "",
+      emoji: " 🍪  + ☕️ ",
     },
     {
       thingtodo: "Ut och cykla",
       color: "#b9cab4", //green
-      emoji: "",
+      emoji: "🚴🏽‍♀️",
     },
     {
       thingtodo: "Se på film",
       color: "#f68b64", //orange
-      emoji: "",
+      emoji: " 🎬 ",
     },
     {
-        thingtodo: "Spela Minecraft",
+        thingtodo: "Spela tv-spel",
         color: "#1197d5", //blue
-        emoji: "",
+        emoji: " 🎮",
      },
       {
         thingtodo: "Ha på pyamas hela dagen!",
         color: "#e2dcd4", //grey
-        emoji: "",
+        emoji: "🛌",
       },
   ];
 
-  // An randommaking function that gets invoked when button gets push.
+  // This function gets invoked when button gets push, random thing show up.
 
     const [thingtodo, setThingToDo] = useState({});
 
@@ -86,12 +87,12 @@ export const ThingsToDo = () => {
         <ThingsToDoText>{thingtodo.emoji}</ThingsToDoText>
       </ThingsToDoContainer>
       <PickButton
-        onPress={() => {
+          onPress={() => {
           getThingsToDo();
           Vibration.vibrate();
         }}
       >
-        <ButtonText>Välj något här</ButtonText>
+        <ButtonText>Klicka för förslag</ButtonText>
       </PickButton>
     </Container>
   );
