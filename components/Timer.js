@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import {Text, View, Button, TextInput, TouchableOpacity, Modal, Alert} from 'react-native'
 import styled from 'styled-components/native'
 
+import {NewButton, ButtonText, Container} from './StyledAppComponents'
+
+
 export const Timer = () => {
     const [time, setTime] = useState(30)
     const [count, setCount] = useState(time);
@@ -56,35 +59,12 @@ export const Timer = () => {
 
     console.log('run every second', count)
 
-
-    const Container = styled.View`
-    flex:1;
-    justify-content: center;
-    align-items: center;
-    `;
-
     const Paragraph = styled.Text`
     font-size: 25px;
     `
 
     const Number = styled.Text`
     font-size: 80px;
-    `
-
-    const NewButton = styled.TouchableOpacity`
-    height: 60px;
-    width: 200px;
-    background-color: grey;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-  `
-    const ButtonText = styled(Paragraph)`
-    color: white;
-    font-weight: bold;
-    width: 100%;
-    text-align: center;
     `
 
     const Input = styled.TextInput`
