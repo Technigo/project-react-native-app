@@ -10,3 +10,11 @@ position: relative;
 height: 100%;
 width: 100%;
 `
+
+export const Wrapper = styled.SafeAreaView`
+flex: 1;
+padding-top: 20px;
+justify-content: center;
+align-items: center;
+background: #FDE3D1;
+`
