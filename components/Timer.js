@@ -11,12 +11,13 @@ export const Timer = ({route, navigation}) => {
     const [time, setTime] = useState(routeTime)
     const [count, setCount] = useState(time);
     const [counter, setCounter] = useState(false)
+    const [seconds, setSeconds] = useState(0)
 
     const [isPressed, setIsPressed] = useState(false)
 
     const countDown = () =>{
         setCounter(true)
-        setCount(count-1)
+        setSeconds(59)
     }
 
     const resetCount = () =>{
@@ -32,12 +33,20 @@ export const Timer = ({route, navigation}) => {
     useEffect(() => {
         if(counter) {
             if (count > 0){
-            const interval = setInterval(()=> {
-                setCount(count - 1)
-            }, 1000);
-            return () => clearInterval(interval)}
+                seconds === 59 ? setCount(count - 1) : ''
+                const secondsInterval = setInterval(()=> {
+                        seconds > 0 ? setSeconds(seconds - 1) : setSeconds(59)
+                }, 1000);
+                
+                return () => {clearInterval(secondsInterval)}}
+            else if (count === 0){
+            const lastSecondsInterval = setInterval(()=> {
+                seconds > 0 ? setSeconds(seconds - 1) : setSeconds(0)
+        }, 1000);
+        
+        return () => {clearInterval(lastSecondsInterval)}}
         }
-        },[count]);
+        },[seconds]);
         
 
     console.log('run every second', count)
@@ -48,7 +57,7 @@ export const Timer = ({route, navigation}) => {
         <Container>
 
             
-            <Number>00:{count < 10 ? "0" :""}{count}</Number>
+    <Number>{count < 10 ? "0" :""}{count}:{seconds < 10 ? "0" :""}{seconds}</Number>
             <ButtonContainer>
             <NewButton onPress={() => {
                 isPressed ? stopCount() : countDown(), 

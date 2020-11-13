@@ -33,7 +33,7 @@ export const HomeScreen = ({navigation}) => {
 
     return (
         <Container>
-            <Paragraph>Meditation time: {userTime} sec</Paragraph>
+            <Paragraph>Meditation time: {userTime} min</Paragraph>
             <ButtonContainer>
                 <NewButton onPress={()=>navigation.navigate('Timer', {routeTime: userTime})}>
                 <ButtonText>Meditate</ButtonText>
