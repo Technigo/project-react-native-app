@@ -15,7 +15,7 @@ import { Button, ButtonText } from './Button'
 
 /* getStepCountAsync - Returns a promise that resolves to an Object with a steps key, which is a Number indicating the number of steps taken between the given dates. */
 
-export const StepCounter = ({navigation}) => {
+export const TodaysSteps = ({navigation}) => {
   const [steps, setSteps] = useState(0)
   const [todaysSteps, setTodaysSteps] = useState(0)
   const [evaluateSteps, setEvaluateSteps] = useState(false)
@@ -74,7 +74,7 @@ export const StepCounter = ({navigation}) => {
           <Title>Steps left to 10 000: {stepsLeft} </Title>
           }
         </ColorContainer3>
-          <Button accessibilityRole='button' onPress={navigateToWeek}>
+          <Button onPress={navigateToWeek}>
             <ButtonText>Weekly Info</ButtonText>
           </Button>
       </BottomContainer>

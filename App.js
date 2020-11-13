@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 
-import { StepCounter } from './components/StepCounter'
+import { TodaysSteps } from './components/TodaysSteps'
 import { WeeklySteps } from './components/WeeklySteps'
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Today' component={StepCounter} />
+        <Stack.Screen name='Today' component={TodaysSteps} />
         <Stack.Screen name='Week' component={WeeklySteps} />
       </Stack.Navigator>
     </NavigationContainer>

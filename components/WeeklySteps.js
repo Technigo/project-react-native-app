@@ -49,9 +49,10 @@ export const WeeklySteps = ({navigation}) => {
 
       <BottomContainer>
         <ColorContainer3>
-          <Quote>"Everywhere is walking distance if you have the time!"</Quote>
+          <Quote>"Everywhere is walking distance if you have the time!"
+          </Quote>
         </ColorContainer3>
-        <Button accessibilityRole='button' onPress={navigateToToday}>
+        <Button onPress={navigateToToday}>
           <ButtonText>Today's Info</ButtonText>
         </Button>
       </BottomContainer>
