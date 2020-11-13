@@ -45,7 +45,7 @@ const HomeScreen = ({navigation}) => {
   
   //what does navigation.navigate('Info') do? What is 'Info' referring to here?
   const navigateToInfo = () => {
-    console.log('Info button pressed');
+    console.log('Go! button pressed');
     navigation.navigate('Back'); //What is 'Info'? Why can't I change it?
   }
   //How do I change the button into a Touchable opacity?

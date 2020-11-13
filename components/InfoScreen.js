@@ -36,9 +36,10 @@ const InfoTextTitle = styled.Text`
 `;
 
 const InfoText = styled.Text`
-  font-size: 16px;
-  margin: 10px;
+  font-size: 18px;
+  margin: 10px 15px;
   color: #000000;
+  line-height: 24px;
 `;
 
 const CopyText = styled.Text`
