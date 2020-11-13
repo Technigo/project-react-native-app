@@ -1,4 +1,4 @@
-# Hogwarts sorting ceremonywith React Native ⚡️⚡️
+# Hogwarts sorting ceremony with React Native ⚡️⚡️
 
 The sorting ceremony takes place at Hogwarts every year the sort the new students into the 4 houses of the founders.
 Do you want to know which house you belong to?
