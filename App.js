@@ -1,74 +1,81 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, View, Navigator, TouchableHighlight, StyleSheet  } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 
+const appName = 'Step counter';
 
-
-const MainText = styled.Text`
-  font-size: 24px;
-`;
-
-const OrangeMainText = styled(MainText)`
-  color: #ff2255;
-`;
-
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
-
-const TopContainer = styled.View`
-  flex: 1;
-  width: 100%;
-  background-color: #222222;
-  justify-content: center;
-  align-items: center;
-`;
-
-const TopHeader = styled.Text`
-  font-size: 48px;
-  color: #efefef;
-`;
-
-const BottomContainer = styled.View`
-  flex: 3;
-  width: 100%;
-  background-color: #ffffff;
-  justify-content: center;
-  align-items: center;
-`;
-
-const BottomText = styled.Text`
-  font-size: 32px;
-  color: #1f1f1f;
-`;
-
-const App = () => {
-  const [count, setCount] = useState(0);
-  const onIncrement = () => {
-    setCount(count + 1);
-    console.log('incremented');
+class HomeScreen extends React.Component {
+  state= {
+    counter: 0,
   }
 
-  return (
-    <Container>
-      <TopContainer>
-        <TopHeader>
-          Counter
-        </TopHeader>
-      </TopContainer>
-      <BottomContainer>
-        <TouchableOpacity onPress={onIncrement}>
-          <Text>Add +1</Text>
+  render() {
+    const counter = this.state.counter;
+
+    return (
+      <View style={styles.container}>
+        <Text style={styles.counter}>Counter: {counter}</Text>
+        <TouchableOpacity
+          style={styles.floatingButton}
+        >
+          <Icon name='plus' size={20} color='#000' />
         </TouchableOpacity>
-        <BottomText>
-          Total: {count}
-        </BottomText>
-      </BottomContainer>
-    </Container>
-  )
+      </View>
+    );
+  }
+
+  onIncrement = () => {
+    this.setState({
+      counter: this.state.counter + 1,
+    })
+  }
 }
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: () => ({
+      title: appName,
+    }),
+  }
+});
+
+const AppContainer = createAppContainer(AppNavigator);
+
+const App = () => {
+  return (
+    <AppContainer />
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center', 
+  },
+  floatingButton: {
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 3)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute', 
+    bottom: 15,
+    right: 15,
+    width: 60,
+    height: 60,
+    backgroundColor: '#fff',
+    borderRadius: 100,
+  },
+  counter: {
+    fontSize: 25,
+  }
+})
+
 
 export default App
