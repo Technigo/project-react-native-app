@@ -9,11 +9,11 @@ export class ShakeEvent {
 
     Accelerometer.addListener(accelerometerData => {
       let { x, y, z } = accelerometerData;
-      let currTime = Date.now();
+      let currentTime = Date.now();
 
-      if ((currTime - lastUpdate) > 100) {
-        let diffTime = (currTime - lastUpdate);
-        lastUpdate = currTime;
+      if ((currentTime - lastUpdate) > 100) {
+        let diffTime = (currentTime - lastUpdate);
+        lastUpdate = currentTime;
         let speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
         if (speed > THRESHOLD) {
           handler();

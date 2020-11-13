@@ -39,13 +39,6 @@ const App = () => {
     }
   }, []);
 
-/*
-  const handleInputChange = (valueFromInput, isValid, isValidated) =>{
-    setUserQuestion(valueFromInput);
-    setQuestionIsValid(isValid);
-    setQuestionValidated(true);
-  }
-*/
   const handleButtonClick = () =>{
     setShowAnswers(true);
   }
@@ -57,17 +50,14 @@ const App = () => {
   return (<>
   {!showAnswers && 
   <QuestionContainer>
-     <Title>Advice of the day 💡</Title>
-       
+    <Title>Advice of the day 💡</Title>
     <CustomButton onClick={handleButtonClick} text="Press for advice"/>
-    <SmallText>👋 Or simply shake your device to get what you need!</SmallText> 
-       
-    </QuestionContainer>
-    
+    <SmallText>👋 Or simply shake your device to get what you need!</SmallText>  
+  </QuestionContainer>
   }
-   {showAnswers && 
+  {showAnswers && 
    <AnswerWindow onReset={resetApp}/>
-   }
+  }
     </>
   )
 }

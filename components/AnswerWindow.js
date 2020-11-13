@@ -5,7 +5,6 @@ import styled from 'styled-components/native'
 import { Advice } from './Advice';
 import { CustomButton } from './CustomButton';
 
-
 const Container = styled.View`
 flex: 1;
 justify-content: center;
@@ -34,7 +33,6 @@ export const AnswerWindow = ({onReset}) => {
     })
     .catch(error => console.log(error))
   },[]);
-
 
 const vibrateDevice = () => {
   Vibration.vibrate();

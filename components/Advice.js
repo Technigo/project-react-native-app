@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-//import { animations } from 'react-animation'
-
 const AdviceContainer = styled.View`
 justify-content: center;
 align-items: center;
