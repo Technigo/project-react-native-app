@@ -5,7 +5,7 @@ import data from "./data.json";
 import { StepCounter } from "./components/StepCounter.js";
 import { GainStepsSuggestions } from "./components/GainStepsSuggestions.js";
 
-const Container = styled.View`
+const WrappingContentContainer = styled.View`
   flex: 1;
   background-color: #29472f;
   justify-content: center;
@@ -25,7 +25,7 @@ const DateText = styled.Text`
 
 const App = () => {
   return (
-    <Container>
+    <WrappingContentContainer>
       <DateContainer>
         <DateText>
           {" "}
@@ -34,7 +34,7 @@ const App = () => {
       </DateContainer>
       <StepCounter />
       <GainStepsSuggestions SuggestionArray={data.SuggestionArray} />
-    </Container>
+    </WrappingContentContainer>
   );
 };
 

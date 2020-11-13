@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components/native";
 import { Vibration } from "react-native";
 
-const Container = styled.View`
+const ContentWrapperContainer = styled.View`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
@@ -49,7 +49,7 @@ export const GainStepsSuggestions = ({ SuggestionArray }) => {
   };
 
   return (
-    <Container>
+    <ContentWrapperContainer>
       <SuggestionContainer>
         <SuggestionText>{stepSuggestions}</SuggestionText>
       </SuggestionContainer>
@@ -61,6 +61,6 @@ export const GainStepsSuggestions = ({ SuggestionArray }) => {
       >
         <ButtonText>Get help gaining steps</ButtonText>
       </PickButton>
-    </Container>
+    </ContentWrapperContainer>
   );
 };
