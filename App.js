@@ -20,7 +20,6 @@ return (
   <Container>
     <Alfabet 
     letterArray={data.alfabet}
-    letterEmoji={data.alfabet}
     />
   </Container>
 )

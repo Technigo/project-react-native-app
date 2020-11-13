@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Text, View, TouchableOpacity, Vibration } from 'react-native'
+import { View, Vibration } from 'react-native'
 
 import styled from 'styled-components/native'
 
@@ -34,10 +34,10 @@ const Emoji = styled.Text`
   alignItems: center;
 `;
 
-export const Alfabet = ({ letterArray, letterEmoji }) => {
+export const Alfabet = ({ letterArray }) => {
 
-  const [letter, setLetter] = useState([])
-  const [emoji, setEmoji] = useState([])
+  const [letter, setLetter] = useState("")
+  const [emoji, setEmoji] = useState("🤹‍♀️")
   
   const getLetter = () => {
     const theLetter = letterArray[Math.floor(Math.random() * letterArray.length)]
