@@ -43,7 +43,6 @@ const App = () => {
   }
 
   const updateQuote = () => {
-    console.log('hejhej')
     if (buttonDisabled) {
       return
     }
