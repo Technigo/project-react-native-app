@@ -54,10 +54,6 @@ const InfoScreen = () => {
     .then(response => response.json())
     .then(data => {
       setSpaceInfo(data)
-      console.log(data)
-      console.log(data.title)
-      console.log(data.hdurl)
-      console.log(data.explanation)
     })
   }, [])
 
@@ -66,7 +62,7 @@ const InfoScreen = () => {
     <ScrollContainer> 
       <InfoContainer source={{uri: spaceInfo.hdurl}}>
         <TitleText>{spaceInfo.title}</TitleText>
-        <CopyText>Copyright: {spaceInfo.copyright}</CopyText>
+        <CopyText>{'\u00A9' } {spaceInfo.copyright}</CopyText>
       </InfoContainer>
       <TextContainer> 
         <InfoTextTitle>Learn more</InfoTextTitle>

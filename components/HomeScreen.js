@@ -20,6 +20,24 @@ const HomeText = styled.Text`
   margin-bottom: 15px; 
 `;
 
+const GoButton = styled.TouchableOpacity`
+  margin-top: 25px;
+  background: #000000;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 2px solid #fff;
+  width: 200px;
+  height: 80px;
+`;
+
+const ButtonText = styled.Text`
+  font-size: 32px;
+  color: #fff;
+  font-weight: bold;
+`;
+
 const HomeScreen = ({navigation}) => {
   useEffect (() => {
     navigation.setOptions({ headerShown:false }); //This hides the default(?) header on home screen
@@ -35,9 +53,11 @@ const HomeScreen = ({navigation}) => {
     <HomeContainer source={backgroundPicture}>
       <HomeText>Discover the Cosmos!</HomeText>
       <AnimationEarth />
-      <Button 
-        title="Go!" 
-        onPress={navigateToInfo}></Button>
+      <GoButton 
+        
+        onPress={navigateToInfo}>
+          <ButtonText>Go!</ButtonText>
+        </GoButton>
     </HomeContainer>
   );
 };
