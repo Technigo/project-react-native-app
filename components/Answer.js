@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import Animation from './Animation';
 import Button from './Button';
 import answers from '../data/answers.json';
 
@@ -12,7 +13,7 @@ const Container = styled.View`
 `;
 
 const AnswerContainer = styled(Container)`
-  flex: 2;
+  flex: 1;
   width: 90%;
   background-color: #d4682e;
   border-radius: 50px;
@@ -37,6 +38,7 @@ const Answer = ({ onStartAgain }) => {
       <AnswerContainer>
         <AnswerText>{randomSelector(answers)}</AnswerText>
       </AnswerContainer>
+      <Animation />
       <Button onPress={onStartAgain} text="One more time!" />
     </Container>
   );
