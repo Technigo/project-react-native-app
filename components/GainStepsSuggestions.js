@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { Text, View, Vibration, TouchableOpacity } from "react-native";
+import { Vibration } from "react-native";
 
 const Container = styled.View`
   justify-content: center;
@@ -13,14 +13,14 @@ const PickButton = styled.TouchableOpacity`
   margin: 0px;
   width: 200px;
   border-radius: 25px;
-  border: 2px solid #94ED8A; 
-`; 
+  border: 2px solid #94ed8a;
+`;
 
 const ButtonText = styled.Text`
   text-align: center;
   justify-content: center;
   align-items: center;
-  color: #94ED8A;
+  color: #94ed8a;
 `;
 
 const SuggestionContainer = styled.View`
@@ -36,40 +36,40 @@ const SuggestionContainer = styled.View`
 const SuggestionText = styled.Text`
   font-size: 20px;
   text-align: center;
-  color: #94ED8A;
+  color: #94ed8a;
 `;
 
 export const GainStepsSuggestions = () => {
   const SuggestionArray = [
     {
-      suggestion: "Go for a walk until you see a red car."
+      suggestion: "Go for a walk until you see a red car.",
     },
     {
-      suggestion: "Go to the store and buy a fruit."
+      suggestion: "Go to the store and buy a fruit.",
     },
     {
-      suggestion: "Collect some steps by throughing the garbage."
+      suggestion: "Collect some steps by throughing out the garbage.",
     },
     {
-      suggestion: "Go for a walk until you see a kitten."
+      suggestion: "Go for a walk until you see a kitten.",
     },
     {
-      suggestion: "Walk back and forth between the bed and bathroom."
+      suggestion: "Walk back and forth between the bed and bathroom.",
     },
     {
-      suggestion: "Run as fast as you can for 30 sec."
+      suggestion: "Run as fast as you can for 30 sec.",
     },
     {
-      suggestion: "Jump on the spot for 1 minute."
+      suggestion: "Jump on the spot for 1 minute.",
     },
     {
-      suggestion: "Climp the stairs for 3 minutes."
+      suggestion: "Climb some stairs for 3 minutes.",
     },
     {
-      suggestion: "Walk backwards 50 steps."
+      suggestion: "Walk backwards 50 steps.",
     },
     {
-      suggestion: "Walk until you say hi to a stranger."
+      suggestion: "Walk until you say hi to a stranger.",
     },
   ];
 
