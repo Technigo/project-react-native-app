@@ -22,8 +22,8 @@ If I had more time:
 - Right now the data from the pedometer is for the last 24 hours and not for a single day..I would like the data to be submitted when a weekday comes to an end and then be cleared for the coming day so that it starts at 0 in the morning.
 
 ## TECH
-React Native
-Javascript
-JSX
-Styled Components
-Expo
+- React Native
+- Javascript
+- JSX
+- Styled Components
+- Expo
