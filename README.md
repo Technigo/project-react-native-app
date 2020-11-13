@@ -2,7 +2,7 @@
 
 #### This project was made during Technigo's Front-end developer bootcamp 
 
-A step counter app which rewards your effort with amazing Carrie Fisher quotes during your struggles!  
+A step counter iOS app which rewards your effort with amazing Carrie Fisher quotes during your struggles!  
 
 ## Tech used
 
@@ -13,4 +13,4 @@ A step counter app which rewards your effort with amazing Carrie Fisher quotes d
 
 ## View it live
 
-You can try out my app here (scan the QR Code to open in iOS/Android device):
+You can try out my app <a href="https://snack.expo.io/@idsintehittapa/may-the-force-be-with-you">here.</a> (scan the QR Code to open in iOS via Expo)
