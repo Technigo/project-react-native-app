@@ -39,52 +39,19 @@ const SuggestionText = styled.Text`
   color: #94ed8a;
 `;
 
-export const GainStepsSuggestions = () => {
-  const SuggestionArray = [
-    {
-      suggestion: "Go for a walk until you see a red car.",
-    },
-    {
-      suggestion: "Go to the store and buy a fruit.",
-    },
-    {
-      suggestion: "Collect some steps by throughing out the garbage.",
-    },
-    {
-      suggestion: "Go for a walk until you see a kitten.",
-    },
-    {
-      suggestion: "Walk back and forth between the bed and bathroom.",
-    },
-    {
-      suggestion: "Run as fast as you can for 30 sec.",
-    },
-    {
-      suggestion: "Jump on the spot for 1 minute.",
-    },
-    {
-      suggestion: "Climb some stairs for 3 minutes.",
-    },
-    {
-      suggestion: "Walk backwards 50 steps.",
-    },
-    {
-      suggestion: "Walk until you say hi to a stranger.",
-    },
-  ];
-
-  const [stepSuggestions, setStepSuggestions] = useState({});
+export const GainStepsSuggestions = ({ SuggestionArray }) => {
+  const [stepSuggestions, setStepSuggestions] = useState([]);
 
   const getSuggestion = () => {
     const theSuggestion =
       SuggestionArray[Math.floor(Math.random() * SuggestionArray.length)];
-    setStepSuggestions(theSuggestion);
+    setStepSuggestions(theSuggestion.suggestion);
   };
 
   return (
     <Container>
       <SuggestionContainer>
-        <SuggestionText>{stepSuggestions.suggestion}</SuggestionText>
+        <SuggestionText>{stepSuggestions}</SuggestionText>
       </SuggestionContainer>
       <PickButton
         onPress={() => {
