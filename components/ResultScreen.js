@@ -6,6 +6,8 @@ const InfoText = styled.Text`
   font-size: 48px;
 `;
 
+// Måste ha height och width på bilderna
+
 const InfoContainer = styled.ImageBackground`
   flex: 1;
   align-items: center;
@@ -24,10 +26,7 @@ const ResultScreen = ({navigation, route}) => {
       <Text>{route.params.compChoice}</Text>
       <Text>{route.params.userChoice}</Text>
     </InfoContainer>
-
   )
-    
-  
 }
 
 export default ResultScreen;

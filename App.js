@@ -31,14 +31,17 @@ const App = () => {
         <Stack.Screen
           name="Start"
           component={StartScreen}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="UserPick"
           component={UserPickScreen}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Result"
           component={ResultScreen}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
 
