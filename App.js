@@ -1,11 +1,9 @@
 import React, { useState , useEffect} from 'react'
 import styled from 'styled-components/native'
 
-import { UserInput } from './components/UserInput';
-import { ConfirmButton, CustomButton } from './components/CustomButton';
-import { AnswerWindow } from './components/AnswerContainer'
+import { CustomButton } from './components/CustomButton';
+import { AnswerWindow } from './components/AnswerWindow'
 import { ShakeEvent} from './components/ShakeEvent';
-
 
 const QuestionContainer = styled.View`
   flex: 1;
@@ -41,13 +39,13 @@ const App = () => {
     }
   }, []);
 
-
+/*
   const handleInputChange = (valueFromInput, isValid, isValidated) =>{
     setUserQuestion(valueFromInput);
     setQuestionIsValid(isValid);
     setQuestionValidated(true);
   }
-
+*/
   const handleButtonClick = () =>{
     setShowAnswers(true);
   }
