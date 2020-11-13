@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
+import { ScrollView } from 'react-native'
 
 const App = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -50,7 +51,7 @@ const App = () => {
       num: laps.length + 1,
       time: formattedTime
     };
-    setLaps((laps) => [...laps, lap]);
+    setLaps((laps) => [lap, ...laps]);
   };
 
   const handleReset = () => {
@@ -62,39 +63,43 @@ const App = () => {
 
   return (
     <Container>
-      <TimerText>{formattedTime}</TimerText>
-      <ButtonContainer>
-        <StartStopContainer>
-          {!isRunning ?
-            <StartButton onPress={() => handleStart()}>
-              <ButtonText>Start</ButtonText>
-            </StartButton>
-          :
-            <StopButton onPress={() => handleStop()}>
-              <ButtonText>Stop</ButtonText>
-            </StopButton>
-          }
-        </StartStopContainer>
-        <LapResetContainer>
-          {!isRunning ?
-            <ResetButton onPress={() => handleReset()}>
-              <ButtonText>Reset</ButtonText>
-            </ResetButton>
-          :
-            <LapButton onPress={() => handleLap()}>
-              <ButtonText>Lap</ButtonText>
-            </LapButton>
-          }
-        </LapResetContainer>
-      </ButtonContainer>
-      <LapContainer>
-        {laps.map((item) => (
-          <LapListItem 
-            key={item.time}>
-            <Span>Lap {item.num}</Span><Span>{item.time}</Span>
-          </LapListItem>
-        ))}
-      </LapContainer>
+      <FixedSection>
+        <TimerText>{formattedTime}</TimerText>
+        <ButtonContainer>
+          <StartStopContainer>
+            {!isRunning ?
+              <StartButton onPress={() => handleStart()}>
+                <ButtonText>Start</ButtonText>
+              </StartButton>
+            :
+              <StopButton onPress={() => handleStop()}>
+                <ButtonText>Stop</ButtonText>
+              </StopButton>
+            }
+          </StartStopContainer>
+          <LapResetContainer>
+            {!isRunning ?
+              <ResetButton onPress={() => handleReset()}>
+                <ButtonText>Reset</ButtonText>
+              </ResetButton>
+            :
+              <LapButton onPress={() => handleLap()}>
+                <ButtonText>Lap</ButtonText>
+              </LapButton>
+            }
+          </LapResetContainer>
+        </ButtonContainer>
+      </FixedSection>
+      <ScrollView>
+        <LapContainer>
+          {laps.map((item) => (
+            <LapListItem 
+              key={item.num}>
+              <Span>Lap {item.num}</Span><Span>{item.time}</Span>
+            </LapListItem>
+          ))}
+        </LapContainer>
+      </ScrollView>
     </Container>
   );
 };
@@ -109,11 +114,17 @@ const Container = styled.View`
   width: 100%;
 `
 
+const FixedSection = styled.View`
+  align-items: stretch;
+  display: flex;
+  justify-content: space-evenly;
+  height: 55vh;
+`
+
 const ButtonContainer = styled.View`
   justify-content: space-around;
   display: flex;
   flex-direction: row-reverse;
-  margin-top: 100px;
 `
 
 const StyledButton = styled.TouchableHighlight`
@@ -126,23 +137,23 @@ const StyledButton = styled.TouchableHighlight`
 `
 
 const StartButton = styled(StyledButton)`
-  background-color: green;
+  background-color: #008000;
 `
 
 const StopButton = styled(StyledButton)`
-  background-color: red;
+  background-color: #ef0000;
 `
 
 const ResetButton = styled(StyledButton)`
-  background-color: grey;
+  background-color: #808080;
 `
 
 const LapButton = styled(StyledButton)`
-  background-color: black;
+  background-color: #000000;
 `
 
 const ButtonText = styled.Text`
-  font-size: 34px;
+  font-size: 28px;
   color: #ffffff;
 `
 
@@ -172,7 +183,6 @@ const Span = styled.Text`
   font-family: Courier New;
   font-size: 20px;
 `
-
    
 const LapContainer = styled.View`
   margin-top: 30px;
