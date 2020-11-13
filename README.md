@@ -18,7 +18,7 @@ I also installed react-navigation to create the navigation between the two scree
 The big struggle for this week was to get started with the project, figuring out how to set it up in expo and and finding a new (react-native friendly) way of structuring the code.
 
 If I had more time:
-- I would have loved to create a chart for the weeks's steps. I installed react-native-chart and some other dependencies to the package.json but sadly I couldn't get it to work :(
+- I would have loved to create a chart for the weekly steps. I installed react-native-chart and some other dependencies to the package.json but sadly I couldn't get it to work :(
 - Right now the data from the pedometer is for the last 24 hours and not for a single day..I would like the data to be submitted when a weekday comes to an end and then be cleared for the coming day so that it starts at 0 in the morning.
 
 ## TECH
