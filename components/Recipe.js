@@ -2,20 +2,21 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 
 import { Container, Wrapper } from './Container'
+import { RecipeDetails } from './RecipeDetails'
 import { Headline } from './Text'
 
-export const Recipe = ({navigation}) => {
+export const Recipe = ({ navigation }) => {
     const [recipes, setRecipes] = useState([]);
     const [instructions, setInstructions] = useState('');
 
     const API__KEY = '2879ac1c5ce2405aa25090a67795070c'
     const URL = `https://api.spoonacular.com/recipes/random/?apiKey=${API__KEY}&number=3`
-/* 
-    useEffect(() => {
-        navigation.setOptions({headerShown:false})
-    }, []) */
+    /* 
+        useEffect(() => {
+            navigation.setOptions({headerShown:false})
+        }, []) */
 
-    const cleanHtml = (data) => {
+    /* const cleanHtml = (data) => {
         const datainstructions = data.recipes[0].instructions.replace('<ol>', '')
         let x = removeStringElements(datainstructions, '<ol>')
         x = removeStringElements(x, '</ol>')
@@ -33,7 +34,7 @@ export const Recipe = ({navigation}) => {
         while (newString.includes(subString)) {
             newString = newString.replace(subString, '')
         } return newString
-    }
+    } */
 
     const getRandomRecipes = () => {
         fetch(URL)
@@ -42,7 +43,7 @@ export const Recipe = ({navigation}) => {
             })
             .then(data => {
                 setRecipes(data.recipes)
-                setInstructions(cleanHtml(data))
+                //setInstructions(cleanHtml(data))
             })
     }
 
@@ -66,20 +67,45 @@ export const Recipe = ({navigation}) => {
     /* How can I send in info from Recipe-fetch to be rendered in RecipeDetails 
     using props? Do I mount my RecipeDetails here?*/
 
+    const array = [
+        {
+            heading: 'Hejkon',
+            instructions: 'gör så här',
+            image: '../assets/banana.jpg'
+        },
+        {
+            heading: 'Bejkon',
+            instructions: 'gör så här',
+            image: '../assets/banana.jpg'
+        },
+        {
+            heading: 'Fejkon',
+            instructions: 'gör så här',
+            image: '../assets/banana.jpg'
+        },
+        {
+            heading: 'Tjejkon',
+            instructions: 'gör så här',
+            image: '../assets/banana.jpg'
+        },
+    ]
+
     return (
         <Wrapper>
-            {recipes.map((recipe) => (
+            {array.map((recipe) => (
                 <Button
-                key={recipe.id}
-                onPress={() => navigation.navigate('Recipe-details')}>
-                <Container source={{ uri: recipe.image }}>
-                    <TextContainer>
-                        <Headline>{recipe.title}</Headline>
-                    </TextContainer>
-                </Container>
+                    key={recipe.heading}
+                    onPress={() => navigation.navigate('Recipe-details', {
+                        heading: recipe.heading,
+                        instructions: recipe.instructions
+                    })}>
+                    <Container source={{ uri: recipe.image }}>
+                        <TextContainer>
+                            <Headline>{recipe.heading}</Headline>
+                        </TextContainer>
+                    </Container>
                 </Button>
             ))}
         </Wrapper>
-
     )
 }

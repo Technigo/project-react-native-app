@@ -12,10 +12,11 @@ background: #000;
 export const RecipeDetails = ({ heading, instructions }) => {
     return (
         <Wrapper>
-        <Container>
-            <Headline>{heading}</Headline>
-            <Text>{instructions}</Text>
-        </Container>
+            <Container>
+                <Headline>{heading}</Headline>
+                {console.log('this is',heading)}
+                <Text>{instructions}</Text>
+            </Container>
         </Wrapper>
     )
 }

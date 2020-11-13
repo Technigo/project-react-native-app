@@ -10,16 +10,13 @@ import { RecipeDetails } from './components/RecipeDetails'
 
 const Stack = createStackNavigator()
 
-/*<HomeScreen />
-      <Recipe /> */
-
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Home' component={HomeScreen}/>
         <Stack.Screen name='Recipes' component={Recipe}/>
-        <Stack.Screen name='Recipe-details' component={RecipeDetails}/>
+        <Stack.Screen name='Recipe-details' component={RecipeDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   )
