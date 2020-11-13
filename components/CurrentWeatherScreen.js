@@ -27,15 +27,28 @@ export const CurrentWeatherScreen = ({ navigation }) => {
   useEffect(() => {
     getReport()
   }, [API_URL]);
+
+  // The API provides data with the weather report for the last seven sols (= mars days). Sometimes the latest available sol hasn't received all pieces of data yet. 
+  // The goal is to show the weather report for the last day that has data for the avarage temperature.
   
   const getReport = () => {
     fetch(API_URL)
     .then(res => res.json())
     .then((json) => {
+      // Send the whole data report into the report variable.
       setReport(json)
-      setSol(json.sol_keys[5])
+      // Create an array of seven objects. Each object contains data for one of the past seven sols. Reverse the order to start the array with the latest data.
+      const solDataArray = json.sol_keys.map(key => json[key]).reverse();
+      // Find the latest sol that has data for the avarage temperature (AT). Store the index of that sol.
+      const solIndex = solDataArray.findIndex(soldata => soldata.AT);
+      // Reverse the order of the sol keys array to start with the latest and match the order of the solDataArray.
+      (json.sol_keys).reverse();
+      // Set the sol variable to be the index of the latest sol with data for the avarage temperature.
+      setSol(json.sol_keys[solIndex])
     })
   };
+
+  console.log(sol)
 
   return (
     <Container source={mars}>
