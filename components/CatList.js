@@ -5,14 +5,17 @@ import { StyleSheet } from 'react-native'
 import { ShareButton } from './ShareButton'
 
 const Container = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   position: relative;
+  width: 50%;
+  padding-top: 50%;
 `
 const Picture = styled.Image`
-  width: 150px;
-  height: 150px;
+  flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 `
 //box-shadow: 10px 10px 19px -8px rgba(0,0,0,0.71);
 
@@ -23,28 +26,21 @@ const LogoWrapper = styled.View`
   bottom: 0;
 `
 
-const styles = StyleSheet.create({
-  logo: {
-    width: 50,
-    height: 50
-  }
-});
-
 export const CatList = ({url, id}) => {
 
   console.log(url)
   return(
-      <Container>
-        <Picture
-          source={{
-            uri: url
-          }}
+    <Container>
+      <Picture
+        source={{
+          uri: url
+        }}
+      />
+      <LogoWrapper>
+        <ShareButton 
+          url = {url}
         />
-        <LogoWrapper>
-          <ShareButton 
-            url = {url}
-          />
-        </LogoWrapper>
-      </Container>
+      </LogoWrapper>
+    </Container>
   )
 }
