@@ -1,8 +1,8 @@
 import React from 'react'
-import { Text } from 'react-native'
+import {TouchableWithoutFeedback} from 'react-native'
 import styled from 'styled-components/native'
 
-export const Quote = ({quote}) => {
+export const Quote = ({ quote, updateQuote }) => {
 
     const Text = styled.Text`
         font.size: 30px;
@@ -18,7 +18,10 @@ export const Quote = ({quote}) => {
         )
     } else {
         return (
-            <Text>{`${quote}`}</Text>
+            <TouchableWithoutFeedback onPress={updateQuote}>
+                <Text>{`${quote}`}</Text>
+            </TouchableWithoutFeedback >
+
         )
     }
 }

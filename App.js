@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Animated, StyleSheet, TouchableWithoutFeedback, Vibration } from 'react-native'
+import { Animated, TouchableWithoutFeedback, Vibration } from 'react-native'
 import styled from 'styled-components/native'
 
 import { Quote } from './Quote'
@@ -27,7 +27,6 @@ const DateText = styled.Text`
   color: #ad5766;
   z-index: 1;
   margin-top: 10%;
-
 `
 
 
@@ -44,16 +43,10 @@ const App = () => {
   }
 
   const updateQuote = () => {
+    console.log('hejhej')
     if (buttonDisabled) {
       return
     }
-
-    // const showDate = () => {
-    //   let date = new Date().getDate()
-    //   let month = new Date().getMonth() + 1
-    // }
-
-    // showDate(date + '/' + month)
 
     setButtonDisabled(true)
     Vibration.vibrate()
@@ -73,7 +66,9 @@ const App = () => {
         toValue: 1,
         duration: 2000,
         useNativeDriver: true
-      }).start()
+      }).start(() => {
+        setButtonDisabled(false) 
+      })
     })
   }
 
@@ -92,12 +87,12 @@ const App = () => {
 
   return (
     <Main>
-      <DateText>{new Date().toLocaleDateString("en-US", { day: "numeric", month: "short", weekday: "long" })} </DateText>
+      <DateText>{new Date().toLocaleDateString("en-US", { day: "numeric", month: "short", weekday: "long" })}</DateText>
 
       <Container>
 
         <Animated.View style={[{ opacity: mantraFade }]}>
-          <Quote quote={activeQuote} />
+            <Quote quote={activeQuote} updateQuote={updateQuote} />
         </Animated.View>
 
         <Animated.View style={[{ opacity: buttonFade }]}>
