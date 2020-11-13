@@ -3,11 +3,16 @@
 Replace this readme with your own information about your project.
 
 Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I am building a simple Stop Watch App using React Native and Styled components.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The logics seems to be more complex than i thought. I learned the way nested If statements work inside UseEffect hook. Also, the ScrollView and Styled components are new things to me.
+I did not have much time working on this project so I surely can improve a lot in the styling, structuring the App into different components instead of having all codes in only one big App like now.
 
+I copied some parts of the codes from google and it works. Not really sure, I can repeate them myself.
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@trangtara/projects/tarastopwatch
+
+
