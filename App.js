@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import { ThingsToDo } from './components/ThingsToDo'
 
 const Container = styled.View`
-  flex: 1;
+  flex: 2;
   background-color: #c0d6e4;
   justify-content: center;
   align-items: center;

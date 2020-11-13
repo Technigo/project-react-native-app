@@ -8,18 +8,18 @@ const Container = styled.View`
 `;
 
 const PickButton = styled.TouchableOpacity`
-  background-color: #f0f8ff;
+  background-color: #61ccc7;
   padding: 20px;
   border: 5px solid #466687;
   margin: 10px;
   width: 300px;
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 const ButtonText = styled.Text`
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 25px;
   color: #080814;
 `;
 
@@ -39,34 +39,35 @@ const ThingsToDoText = styled.Text`
   color: black;;
 `;
 
+ // array of objects of things to do
 export const ThingsToDo = () => {
-  // array of objects of things to do
+ 
 
   const ThingsToDoArray = [
     {
       thingtodo: "Baka kakor och fika",
       color: "#e7c1b6", //pink
-      emoji: " 🍪  + ☕️ ",
+      emoji: " 🍪  +  ☕️ ",
     },
     {
       thingtodo: "Ut och cykla",
       color: "#b9cab4", //green
-      emoji: "🚴🏽‍♀️",
+      emoji: "🚴🏽‍♀️ ",
     },
     {
       thingtodo: "Se på film",
       color: "#f68b64", //orange
-      emoji: " 🎬 ",
+      emoji: " 🎬  ",
     },
     {
         thingtodo: "Spela tv-spel",
         color: "#1197d5", //blue
-        emoji: " 🎮",
+        emoji: " 🎮 ",
      },
       {
         thingtodo: "Ha på pyamas hela dagen!",
         color: "#e2dcd4", //grey
-        emoji: "🛌",
+        emoji: " 🛌 ",
       },
   ];
 
