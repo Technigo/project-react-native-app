@@ -33,7 +33,7 @@ const App = () => {
     <>
       <Background>
         {firstView ? (
-          <Houses />
+          <Firstpage />
         ) : (
           <Houses onRestart={() => setFirstView(true)} />
         )}
