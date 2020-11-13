@@ -1,9 +1,10 @@
 import React from 'react';
-import { Share, View, Button } from 'react-native';
-import styled from 'styled-components/native';
+import { Share } from 'react-native';
 
-const ShareButton = () => {
-  const onShare = async ({ navigation, sharedMovie }) => {
+import { ButtonShare, ButtonShareText } from '../styled-components/styles';
+
+const ShareButton = ({ sharedMovie }) => {
+  const onShare = async () => {
     try {
       const result = await Share.share({
         message: `Let's watch a movie! ${sharedMovie}`,
@@ -23,32 +24,9 @@ const ShareButton = () => {
   };
   return (
     <ButtonShare onPress={onShare} title="Share">
-      <ActiveButtonText>Share this movie</ActiveButtonText>
+      <ButtonShareText>Share this movie</ButtonShareText>
     </ButtonShare>
   );
 };
 
 export default ShareButton;
-
-const ButtonShare = styled.TouchableOpacity`
-  width: 50%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
-  background: #fff;
-  align-self: flex-end;
-`;
-
-// const ActiveRoundedButton = styled(RoundedButton)`
-//   background: #454cd8;
-//   align-self: flex-start;
-// `;
-
-const ButtonText = styled.Text`
-  font-size: 20px;
-  text-align: center;
-`;
-
-const ActiveButtonText = styled(ButtonText)`
-  color: #000;
-`;

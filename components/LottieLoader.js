@@ -1,23 +1,18 @@
 import React from 'react';
+// to make Lottie work on web
 import LottieView from 'react-native-web-lottie';
-import { View } from 'react-native';
-import styled from 'styled-components/native';
+// to make Lottie work on mobile
+//import LottieView from 'lottie-react-native';
 
+import { LottieContainer } from '../styled-components/styles';
 import LoadingAnimation from '../assets/animations/loader.json';
 
 const Lottie = () => {
   return (
-    <Container>
+    <LottieContainer>
       <LottieView source={LoadingAnimation} autoPlay loop />
-    </Container>
+    </LottieContainer>
   );
 };
 
 export default Lottie;
-
-const Container = styled.View`
-  flex: 1;
-  background-color: darkred;
-  justify-content: center;
-  align-items: center;
-`;
