@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project was about creating our first mobileapp using React Native.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started with creating two pages, Homescreen and FrogScreen and used styled components to style text, background etc. Then with the help of navigatorContainer I created multiple screens and to be able to navigate between the screens. I used accelerometer and react-native-gesture-handler in order to create the accelorometer and to be able to shake the phone in order to move image.  Tools used were React Native, Expo, Navigator,react-native-gesture-handler and styled components. If I had more time I would have done some animations and styled the app better or done a completely different app like a game.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
