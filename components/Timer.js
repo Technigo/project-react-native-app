@@ -5,12 +5,14 @@ import styled from 'styled-components/native'
 import {NewButton, ButtonText, Container} from './StyledAppComponents'
 
 
-export const Timer = () => {
-    const [time, setTime] = useState(30)
+export const Timer = ({route, navigation}) => {
+    const {routeTime} = route.params;
+
+    const [time, setTime] = useState(routeTime)
     const [count, setCount] = useState(time);
     const [counter, setCounter] = useState(false)
-    const [modalVisible, setModalVisible] = useState(false)
-    const [userTime, setUserTime] = useState()
+    
+    // const [userTime, setUserTime] = useState()
     const [isChanged, setIsChanged] = useState(false)
 
     const countDown = () =>{
@@ -20,9 +22,7 @@ export const Timer = () => {
 
     const resetCount = () =>{
         setCounter(false)
-        setCount(userTime)
-        setModalVisible(false)
-        console.log(userTime)
+        setCount(time)
     }
 
     const stopCount = () =>{
@@ -30,9 +30,7 @@ export const Timer = () => {
         // setCount(count-1)
     }
 
-    const setMeditationTime = () => {
-        setModalVisible(true)
-    }
+    
 
 
     useEffect(() => {
@@ -67,46 +65,18 @@ export const Timer = () => {
     font-size: 80px;
     `
 
-    const Input = styled.TextInput`
-    width: 200px;
-    flex: 0.5;
-    border-radius: 10px;
-    font-size: 40px;
-    text-align: center;
-    `
-
-    const ModalView = styled.View`
-    background-color: white;
-    padding: 35px;
-    border-radius: 20px;
-    `
+   
 
     return (
         <Container>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={()=>{Alert.alert("Closed")}}
-            >
-                <Container>
-                    <ModalView>
-                        <Paragraph>Set the time of the timer</Paragraph>
-                        <Input
-                            style={{height: 40, borderColor:'gray', borderWidth: 2}}
-                            keyboardType="number-pad"
-                            onSubmitEditing={text => {setUserTime(text.nativeEvent.text), setIsChanged(true), setModalVisible(false)}}
-                        ></Input>
-                    </ModalView>
-                </Container>
-            </Modal>
-
+            
+            <Paragraph>Route Time:{routeTime}</Paragraph>
             <Paragraph>Meditation time:</Paragraph>
             <Number>00:{count < 10 ? "0" :""}{count}</Number>
             <NewButton onPress={countDown} title="Start"><ButtonText>Start</ButtonText></NewButton>
             <NewButton onPress={stopCount} title="Pause"><ButtonText>Pause</ButtonText></NewButton>
             <NewButton onPress={resetCount} title="Reset"><ButtonText>Start over</ButtonText></NewButton>
-            <NewButton onPress={setMeditationTime} title="Reset"><ButtonText>Set Time</ButtonText></NewButton>
+            
 
 
         </Container>

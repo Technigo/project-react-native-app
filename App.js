@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
 import React from 'react'
-import styled from 'styled-components/native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -9,12 +8,6 @@ import {HomeScreen} from './components/HomeScreen'
 
 const Stack = createStackNavigator();
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
 
 const App = () => {
   return (
@@ -27,6 +20,7 @@ const App = () => {
         <Stack.Screen
         name="Timer"
         component={Timer}
+        initialParams={{ routeTime: 42 }}
         />
       </Stack.Navigator>
     </NavigationContainer>
