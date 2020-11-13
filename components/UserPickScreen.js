@@ -21,13 +21,12 @@ const UserPickScreen = ({ navigation}) => {
   const setChoices = (value) => {
     setUserPick(value);
     setCompPick(choices[Math.floor(Math.random() * choices.length)]);
-
   }
 
   const navigateToResult = () => {
     navigation.navigate("Result", { compChoice: compPick, userChoice: userPick });
-        console.log('userPick: ' + userPick);
-    console.log('compPick: ' + compPick);
+      console.log('userPick: ' + userPick);
+      console.log('compPick: ' + compPick);
   }
 
   return (
@@ -43,14 +42,9 @@ const UserPickScreen = ({ navigation}) => {
         <Text>Scissors</Text>
       </TouchableOpacity>
       <Text>You picked: {userPick}</Text>
-
-
       <Button title="Play" onPress={navigateToResult} ></Button>
     </InfoContainer>
-
   )
-    
-  
 }
 
 export default UserPickScreen;

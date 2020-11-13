@@ -20,7 +20,7 @@ const ResultScreen = ({navigation, route}) => {
   return (
     <InfoContainer>
       <InfoText>Show result!</InfoText>
-      <Button title="Go back" onPress={navigateToStart} ></Button>
+      <Button title="Play again!" onPress={navigateToStart} ></Button>
       <Text>{route.params.compChoice}</Text>
       <Text>{route.params.userChoice}</Text>
     </InfoContainer>

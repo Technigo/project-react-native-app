@@ -22,7 +22,7 @@ const StartScreen = ({navigation}) => {
   return (
     <HomeContainer source={background}>
       <HomeText>Lets play!</HomeText>
-      <Button title="UserPick" onPress={navigateToUserPick} ></Button>
+      <Button title="Start" onPress={navigateToUserPick} ></Button>
     </HomeContainer>
 
   )

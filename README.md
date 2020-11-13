@@ -8,7 +8,9 @@ Start by briefly describing the assignment in a sentence or two. Keep it short a
 
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
-I started creating the three different screens of my app, Start, UserPick and Result. Then I added navigation and made sure I could navigate through the pages and back to the start page.
+I started creating the three different screens of my app, Start, UserPick and Result. Then I added navigation and buttons on every screen and made sure I could navigate through the pages and back to the start page.
+I used two states in the UserPickScreen component to set what the user picks and what the computer picks (randomized).
+Using route to pass the state values as props to the ResultScreen. 
 
 ## View it live
 
