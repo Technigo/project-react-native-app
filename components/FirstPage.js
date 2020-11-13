@@ -18,6 +18,8 @@ const HatImage = styled.Image`
   margin: 50px 0;
 `;
 export const Firstpage = () => {
+
+
   return (
     <Container>
       <Title> It is time for the sorting ceremony!</Title>

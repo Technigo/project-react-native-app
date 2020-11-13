@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { View } from "react-native";
-import styled from "styled-components/native";
-import images from "../assets/images";
+import React, { useState, useEffect } from 'react';
+import { View, Vibration } from 'react-native';
+import styled from 'styled-components/native';
+import images from '../assets/images';
 
 const HouseImg = styled.Image`
   width: 260px;
@@ -18,7 +18,7 @@ const HouseText = styled.Text`
 `;
 
 const RestartButton = styled.TouchableOpacity`
-  background-color: #393b6a;
+  background-color: #393B6A;
   border-radius: 10px;
   padding: 10px;
   margin-top: 60px;
@@ -35,14 +35,19 @@ export const Houses = ({ onRestart }) => {
   const [image, setImage] = useState();
 
   useEffect(() => {
-    fetch("https://www.potterapi.com/v1/sortinghat")
+    fetch('https://www.potterapi.com/v1/sortinghat')
       .then((result) => result.json())
       .then((data) => {
         setHouse(data);
         setImage(data.toLowerCase());
-        console.log(data);
+        vibrateDevice();
       });
   }, []);
+
+
+  const vibrateDevice = () => {
+    Vibration.vibrate();
+  }
 
   return (
     <View>
