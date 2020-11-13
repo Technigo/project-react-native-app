@@ -6,6 +6,11 @@ const HeaderContainer = styled.View`
   background-color: white;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  width: 450px;
+  margin: 10px;
+  margin-top: 100px;
+  height: 50px;
 `;
 
 const HeaderTitle = styled.Text`
@@ -17,7 +22,7 @@ const HeaderTitle = styled.Text`
 const Header = () => {
   return (
     <HeaderContainer>
-      <HeaderTitle>Daily planner</HeaderTitle>
+      <HeaderTitle>My daily planner</HeaderTitle>
     </HeaderContainer>
   );
 };

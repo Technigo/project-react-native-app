@@ -1,24 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ScrollView, Dimensions } from "react-native";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import FormInput from "./components/FormInput";
 import Time from "./components/Time";
+import Weather from "./components/Weather";
+// import { Weather } from "./components/Weather";
 
 const Container = styled.View`
   flex: 1;
   background-color: papayawhip;
   justify-content: center;
   align-items: center;
+  padding: 100px;
 `;
 
+const Scroll = styled.ScrollView`
+  width: 100%;
+  height: 100%;
+  display: flex;
+`;
+
+const ScrollScreen = Dimensions.get("window").width;
+
 const App = () => {
-  const [todos, setTodos] = useState([
-    { text: "buy coffee", key: "1" },
-    { text: "buy milk", key: "2" },
-    { text: "drink coffee", key: "3" },
-  ]);
+  const [todos, setTodos] = useState([{ text: "Click me to undo" }]);
 
   const pressHandler = (key) => {
     setTodos((prevTodos) => {
@@ -34,13 +41,13 @@ const App = () => {
 
   return (
     <Container>
-      {/* <Time /> */}
       <Header />
+      <Weather />
+      <Scroll />
+
       <View>
         <FormInput submitHandler={submitHandler} />
         <View>
-          {" "}
-          {/* style={styles.list} */}
           <FlatList
             data={todos}
             renderItem={({ item }) => (
@@ -54,17 +61,3 @@ const App = () => {
 };
 
 export default App;
-
-// const TopContainer = styled.View`
-//   background-color: "black";
-// `;
-
-// const BottomContainer = styled.View`
-//   background-color: "red;
-//   color: "white";
-// `;
-
-// const Title = styled.Text`
-//   font-size: 24px;
-//   color: palevioletred;
-// `;

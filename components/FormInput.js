@@ -4,7 +4,7 @@ import { Button, Text, TextInput, View } from "react-native";
 
 const FormText = styled.TextInput`
   margin-bottom: 10;
-  border-bottom-width: 1;
+  border-bottom-width: 2;
   border-bottom-color: black;
 `;
 
@@ -20,11 +20,12 @@ const FormInput = ({ submitHandler }) => {
       <FormText
         placeholder="New todo..."
         onChangeText={(value) => changeHandler(value)}
+        value={text}
       />
       <Button
         onPress={() => submitHandler(text)}
         title="add todo"
-        color="green"
+        color="black"
       />
     </View>
   );

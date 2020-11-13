@@ -3,11 +3,12 @@ import styled from "styled-components/native";
 import { View, Text, TouchableOpacity } from "react-native";
 
 const Touch = styled.TouchableOpacity`
-  padding: 0.5em;
-  margin-top: 16;
-  border-color: blue;
-  border-width: 1;
-  border-radius: 10;
+  padding: 10px;
+  margin-top: 15px;
+  border-color: black;
+  border-width: 5;
+  border-radius: 25px;
+  width: 100%;
 `;
 
 const TodoList = ({ item, pressHandler }) => {
