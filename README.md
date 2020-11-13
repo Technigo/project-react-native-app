@@ -15,5 +15,3 @@ The restrictions for this week was to create a mobile app with React Native, by 
 ## The problem
 
 I choosed to create an app that uses the accelerometer sensor from the mobile phone and created a minimalistic step counter, which also contains suggestions of how to gain more steps. I learned how to use React Native to create a mobile app, how to install and import packages like expo-sensors for the Pedometer which I used, and how to use styled components. 
-
-## View it live
