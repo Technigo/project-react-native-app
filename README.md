@@ -18,3 +18,5 @@ I had some issues with vs code and found it easier to work and troubleshoot in e
 - Fetching API
 
 ## View it live
+
+If you want to get sorted into a Hogwarts house: https://snack.expo.io/@andrea.osmar/086b10
