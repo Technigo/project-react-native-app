@@ -1,23 +1,49 @@
 import React, { useState, useEffect } from "react"
 
-//import {Text} from 'react-native'
+//import { ScrollView } from 'react-native'
 import styled from "styled-components/native"
-//import backgroundPicture from '../assets/hearts-background.jpg'
 
 const API_KEY = 'UYfZ5JyvB0BI3EU5mxgcfbPWp4YrpQ3yFhsQKkRX'
 const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
 console.log(API_URL)
 
-const TitleText = styled.Text`
-  font-size: 24px; 
-`;
+const ScrollContainer = styled.ScrollView`
+  flex: 1;
+  `;
 
 const InfoContainer = styled.ImageBackground`
-  flex: 1;
+  
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 18px;
+  height: 450px;
+  width: 100%;
+`;
+
+const TitleText = styled.Text`
+  font-size: 24px;
+  color: #ffffff;
+  margin-top: 30px;
+`;
+const TextContainer = styled.View`
   align-items: center;
   justify-content: center;
-  padding: 18px;
-  width: 100vw;
+`;
+
+const InfoTextTitle = styled.Text`
+  font-size: 28px;
+  margin: 10px;
+`;
+
+const InfoText = styled.Text`
+  font-size: 16px;
+  margin: 10px;
+  color: #000000;
+`;
+
+const CopyText = styled.Text`
+  font-size: 10px
+  color: lightgrey;
 `;
 
 const InfoScreen = () => {
@@ -35,13 +61,18 @@ const InfoScreen = () => {
     })
   }, [])
 
-  //The image don't show on the phone. 
-  //Says 'Failed prop type: Invalid prop `source` supplied to `Image`.
-  //
+  //If I want the user to be able to touch a button that would trigger downward scroll
   return (
-    <InfoContainer source={spaceInfo.hdurl}>
-      <TitleText>{spaceInfo.title}</TitleText>
-    </InfoContainer>
+    <ScrollContainer> 
+      <InfoContainer source={{uri: spaceInfo.hdurl}}>
+        <TitleText>{spaceInfo.title}</TitleText>
+        <CopyText>Copyright: {spaceInfo.copyright}</CopyText>
+      </InfoContainer>
+      <TextContainer> 
+        <InfoTextTitle>Learn more</InfoTextTitle>
+        <InfoText>{spaceInfo.explanation}</InfoText>
+      </TextContainer>
+    </ScrollContainer>
   );
 }
 export default InfoScreen;

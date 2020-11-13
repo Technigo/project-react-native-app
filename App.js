@@ -17,7 +17,7 @@ const App = () => {
         <Stack.Screen 
           name="Home" component={HomeScreen}/>
         <Stack.Screen 
-          name="Info" component={InfoScreen}/>
+          name="Back" component={InfoScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
