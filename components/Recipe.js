@@ -31,6 +31,7 @@ export const Recipe = () => {
         const datainstructions = data.recipes[0].instructions.replace('<ol>', '')
         let x = removeStringElements(datainstructions, '<ol>')
         x = removeStringElements(x, '</ol>')
+        console.log(x)
         x = removeStringElements(x, '<li>')
         x = removeStringElements(x, '</li>')
         x = removeStringElements(x, '<ul>')
@@ -58,15 +59,16 @@ export const Recipe = () => {
     margin: 10px;
     width: 100%;
     `
+    const TextContainer = styled.View`
+    flex: 1;
+    `
     const RecipeImage = styled.Image`
-    flex: 2;
-    height: 200px;
-    width: 200px;
-    margin: 10px;
+    width: 100%;
+    height: 100%;
     `
     const Text = styled.Text`
-    color: #000;
-    font-size: 20px;
+    color: #fff;
+    font-size: 16px;
     padding: 10px;
     `
     const Headline = styled.Text`
@@ -74,14 +76,18 @@ export const Recipe = () => {
     font-size: 25px;
     font-weight: 600;
     `
+    /* Only return a recipe if it has instruction (not empty string)
+    So something like {!recipe.instructions==='' &&} */
 
     return (
-        recipes.map((recipe) => (
+        recipes.map((recipe) => ( 
             <Container key={recipe.id}>
                 {console.log(recipe.image)}
                 <RecipeImage source={{ uri: recipe.image }} />
-                <Headline>This is a recipe: {recipe.title}</Headline>
-                {recipe.instructions && <Text>Instructions: {recipe.instructions}</Text>}
+                <TextContainer>
+                    <Headline>This is a recipe: {recipe.title}</Headline>
+                    <Text>Instructions: {recipe.instructions}</Text>
+                </TextContainer>
             </Container>
         ))
     )
