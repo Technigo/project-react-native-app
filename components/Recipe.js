@@ -69,24 +69,28 @@ export const Recipe = ({ navigation }) => {
 
     const array = [
         {
-            heading: 'Hejkon',
+            title: 'Hejkon',
             instructions: 'gör så här',
-            image: '../assets/banana.jpg'
+            image: '../assets/banana.jpg',
+            id: '1'
         },
         {
-            heading: 'Bejkon',
+            title: 'Bejkon',
             instructions: 'gör så här',
-            image: '../assets/banana.jpg'
+            image: '../assets/banana.jpg',
+            id: '2'
         },
         {
-            heading: 'Fejkon',
+            title: 'Fejkon',
             instructions: 'gör så här',
-            image: '../assets/banana.jpg'
+            image: '../assets/banana.jpg',
+            id: '3'
         },
         {
-            heading: 'Tjejkon',
+            title: 'Tjejkon',
             instructions: 'gör så här',
-            image: '../assets/banana.jpg'
+            image: '../assets/banana.jpg',
+            id: '4'
         },
     ]
 
@@ -94,14 +98,15 @@ export const Recipe = ({ navigation }) => {
         <Wrapper>
             {array.map((recipe) => (
                 <Button
-                    key={recipe.heading}
+                    key={recipe.id}
                     onPress={() => navigation.navigate('Recipe-details', {
-                        heading: recipe.heading,
-                        instructions: recipe.instructions
+                        heading: recipe.title,
+                        instructions: recipe.instructions,
+                        image: recipe.image
                     })}>
                     <Container source={{ uri: recipe.image }}>
                         <TextContainer>
-                            <Headline>{recipe.heading}</Headline>
+                            <Headline>{recipe.title}</Headline>
                         </TextContainer>
                     </Container>
                 </Button>

@@ -9,13 +9,13 @@ flex: 1;
 background: #000;
 `
 
-export const RecipeDetails = ({ heading, instructions }) => {
+export const RecipeDetails = (props) => {
     return (
         <Wrapper>
-            <Container>
-                <Headline>{heading}</Headline>
-                {console.log('this is',heading)}
-                <Text>{instructions}</Text>
+            <Container source={props.route.params.image}>
+                {console.log(props.route.params.image)}
+                <Headline>{props.route.params.heading}</Headline>
+                <Text>{props.route.params.instructions}</Text>
             </Container>
         </Wrapper>
     )
