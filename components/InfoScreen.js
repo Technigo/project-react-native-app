@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
-import backgroundImage from "../assets/background2.jpg";
+import backgroundImage from "../assets/background6.jpg";
 import { Text } from "react-native";
 import { Accelerometer } from "expo-sensors";
-import { back } from "react-native/Libraries/Animated/src/Easing";
+// import { back } from "react-native/Libraries/Animated/src/Easing";
 
 const InfoContainer = styled.ImageBackground`
   flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
+  padding:18px;
 `;
   // background-color: ${randomColor()}
   // ${(props) => `background-color: ${randomColor}`};
 
 const InfoText = styled.Text`
-  font-size: 48px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #B250A1;
+  padding-top:50px;
+  padding-left:20px;
 `;
 
 const InfoScreen = ({ navigation, route }) => {
   const [data, setData] = useState({});
   const[hasShaked, setHasShaked] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState("red");
+  
+// const [currentIndex, setCurrentIndex] = useState("");
 
   const changeBackground = () => {
     const colors = ["orange", "yellow", "red","green", "pink", "purple"];
@@ -29,10 +33,16 @@ const InfoScreen = ({ navigation, route }) => {
   };
 
   //array of words 
-  const words = ["happy", "exciting", "great", "positive", "joy"];
+  const words = ["be happy", "get inspired", "be kind", " stay positive", "keep calm"];
   //pick one word randomly
   const randomWords = words[Math.floor(Math.random() * words.length)];
+  
   // const randomWords = words.map(item[]);
+  // const randomWords = () => {
+  // const words =["red", "green", "blue"];
+  // setCurrentIndex(currentIndex + 1);
+  // return words[currentIndex];
+  // }
           
   useEffect(() => {
     Accelerometer.setUpdateInterval(500);
@@ -52,21 +62,22 @@ const InfoScreen = ({ navigation, route }) => {
 // why do we need !hasShaked
 
   if (!hasShaked && totalForce > 3)  {
-  setHasShaked(true);
+    setHasShaked(true);
   //trigger the fetch
 }
 
   return (
     <>
     { hasShaked ? (
-    <InfoContainer style={{backgroundColor: backgroundColor}}>
-    <InfoText> {randomWords}
+    <InfoContainer style={{backgroundColor: backgroundColor,justifyContent:"center"}}>
+    <InfoText style={{fontSize: 50, color: "white"}}> {randomWords}
     </InfoText>
     </InfoContainer>
     ) : (
     <InfoContainer source={backgroundImage}>
       <InfoText>
-        Shake it! Shake it!
+        Shake me! Shake me!
+        Shake me! Shake me!
       </InfoText>
       {/* what is this for? */}
       <Text>{route.params.data}</Text>
