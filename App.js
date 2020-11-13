@@ -148,7 +148,7 @@ const ButtonText = styled.Text`
 
 const TimerText = styled.Text`
   color: #ffffff;  
-  font-family: monospace;
+  font-family: Courier New;
   font-size: 65px;
   text-align: center;
 `
@@ -169,7 +169,7 @@ const LapListItem = styled.View`
 
 const Span = styled.Text`
   color: #ffffff;
-  font-family: monospace;
+  font-family: Courier New;
   font-size: 20px;
 `
 
