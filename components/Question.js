@@ -42,6 +42,10 @@ const Info = styled.Text`
   padding: 10px;
 `;
 
+const SmallInfo = styled(Info)`
+  font-size: 16px;
+`;
+
 const Question = () => {
   return (
     <Container>
@@ -50,6 +54,10 @@ const Question = () => {
       </TitleContainer>
       <InfoContainer>
         <Info>Got questions? All you have to do is ask...</Info>
+        <SmallInfo>
+          Questions should be phrased closed-end, e.g., "Should I relax and have
+          some wine tonight?" or "Should I do some training this weekend?
+        </SmallInfo>
         <Info>shake your phone and get an answer!</Info>
       </InfoContainer>
     </Container>

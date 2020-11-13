@@ -10,7 +10,7 @@ const Container = styled.View`
 
 const TouchableOpacity = styled.TouchableOpacity`
   background-color: #fff;
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 10px;
 `;
 
