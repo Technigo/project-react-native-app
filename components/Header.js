@@ -12,13 +12,13 @@ const Header = () => {
 export default Header;
 
 const HeaderContainer = styled.View`
-  padding: 10px;
   align-items: center;
 `;
 
 const HeaderText = styled.Text`
   font-size: 25px;
   font-weight: bold;
+  padding: 15px 0;
 `;
 
 const SubHeaderText = styled.Text`

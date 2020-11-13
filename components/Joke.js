@@ -36,10 +36,8 @@ const Joke = ({ route }) => {
         )}
         {joke.type === "single" && <SetupText>{joke.joke}</SetupText>}
       </JokeContainer>
-      <RefreshButton>
-        <RefreshButtonText onPress={() => reFetchData()}>
-          New Joke
-        </RefreshButtonText>
+      <RefreshButton onPress={() => reFetchData()}>
+        <RefreshButtonText>New Joke</RefreshButtonText>
       </RefreshButton>
     </MainContainer>
   );
@@ -92,5 +90,5 @@ const RefreshButton = styled.TouchableOpacity`
 const RefreshButtonText = styled.Text`
   font-size: 18px;
   color: #fff;
-  display-content: center;
+  align-items: center;
 `;
