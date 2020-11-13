@@ -1,81 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
+import StepCounter from './Components/StepCounter';
+
+// for future use rember this; npm install --save styled-components, frickin awesome. Important to rember to use /native or else errormessages will appear. //
 import styled from 'styled-components/native';
-import { TouchableOpacity, Text, View, Navigator, TouchableHighlight, StyleSheet  } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
 
 
-const appName = 'Step counter';
+const Container = styled.View`
+  flex: 1;
+  background-color: 'rgb(255, 255, 255)';
+  justify-content: flex-end;
+  align-items: center;
+  `
 
-class HomeScreen extends React.Component {
-  state= {
-    counter: 0,
-  }
+const Section = styled.View`
+  margin-bottom: 30px;
+`
 
-  render() {
-    const counter = this.state.counter;
-
-    return (
-      <View style={styles.container}>
-        <Text style={styles.counter}>Counter: {counter}</Text>
-        <TouchableOpacity
-          style={styles.floatingButton}
-        >
-          <Icon name='plus' size={20} color='#000' />
-        </TouchableOpacity>
-      </View>
-    );
-  }
-
-  onIncrement = () => {
-    this.setState({
-      counter: this.state.counter + 1,
-    })
-  }
-}
-
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: HomeScreen,
-    navigationOptions: () => ({
-      title: appName,
-    }),
-  }
-});
-
-const AppContainer = createAppContainer(AppNavigator);
+const Title = styled.Text`
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #0000;
+`
 
 const App = () => {
   return (
-    <AppContainer />
-  );
-};
+    <Container>
+      <Section>
+        <Title>
+          Stepcounter time !!!
+        </Title>
+        <StepCounter />
+      </Section>
+    </Container>
+  )
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center', 
-  },
-  floatingButton: {
-    borderWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 3)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute', 
-    bottom: 15,
-    right: 15,
-    width: 60,
-    height: 60,
-    backgroundColor: '#fff',
-    borderRadius: 100,
-  },
-  counter: {
-    fontSize: 25,
-  }
-})
-
-
-export default App
+export default App;
