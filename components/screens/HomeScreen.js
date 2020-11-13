@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ImageBackground, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
-import mars from '../assets/mars.jpg';
+import mars from '../../assets/mars.jpg';
 
 const HomeContainer = styled.ImageBackground`
   flex: 1;

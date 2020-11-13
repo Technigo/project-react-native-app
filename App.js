@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { CurrentWeatherScreen } from './components/CurrentWeatherScreen';
-import { HomeScreen } from './components/HomeScreen';
+import { CurrentWeatherScreen } from './components/screens/CurrentWeatherScreen';
+import { HomeScreen } from './components/screens/HomeScreen';
 
 const Stack = createStackNavigator();
 

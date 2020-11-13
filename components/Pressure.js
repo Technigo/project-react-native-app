@@ -7,12 +7,13 @@ import { AvaragePressure } from './AvaragePressure';
 import { MinPressure } from './MinPressure';
 import { MaxPressure } from './MaxPressure';
 import { HeadingTwo } from './styled/HeadingTwo';
+import { LoaderText } from './styled/LoaderText';
 
 
 export const Pressure = ({solData}) => {
   /*Preventing errors with undefined when the app loads for the first time*/
   if (!solData) {
-    return <Text>Loading...</Text>
+    return <LoaderText>Still waiting for data from Mars 🚀</LoaderText>
   }
   return (
     <ExtraInfoContainer>

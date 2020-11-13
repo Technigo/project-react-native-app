@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 
-import { DateLine } from './DateLine';
-import { Place } from './Place';
-import { Temperature } from './Temperature';
-import { WindSpeed } from './WindSpeed';
-import { Pressure } from './Pressure';
-import mars from '../assets/mars.jpg';
+import { DateLine } from '../DateLine';
+import { Place } from '../Place';
+import { Temperature } from '../Temperature';
+import { WindSpeed } from '../WindSpeed';
+import { Pressure } from '../Pressure';
+import mars from '../../assets/mars.jpg';
 
 const Container = styled.ImageBackground`
   flex: 1;
@@ -43,28 +43,31 @@ export const CurrentWeatherScreen = ({ navigation }) => {
       const solIndex = solDataArray.findIndex(soldata => soldata.AT);
       // Reverse the order of the sol keys array to start with the latest and match the order of the solDataArray.
       (json.sol_keys).reverse();
-      // Set the sol variable to be the index of the latest sol with data for the avarage temperature.
+      // Set the sol variable to be the index of the latest sol with data for the avarage temperature. In case no sol has data for the avarage temperature, take the latest one.
+      if (solIndex === -1){
+        setSol(json.sol_keys[0])
+      }
+      else {
       setSol(json.sol_keys[solIndex])
+      }
     })
   };
-
-  console.log(sol)
 
   return (
     <Container source={mars}>
       <DateLine 
         sol={sol}
-        solData={report.[sol]}  
+        solData={report[sol]}  
       />
       <Place />
       <Temperature 
-        solData={report.[sol]}
+        solData={report[sol]}
       />
       <WindSpeed 
-        solData={report.[sol]}
+        solData={report[sol]}
       />
       <Pressure 
-        solData={report.[sol]}
+        solData={report[sol]}
       />
     </Container>
   )
