@@ -44,11 +44,13 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         padding: 15,
         marginLeft: 20,
-
+        justifyContent: 'center',
+        alignSelf: 'center'
     },
     col: {
         flexDirection: "row",
-        flex: 1
+        flex: 1,
+        justifyContent: 'center'
     },
     title: {
         marginTop: 40,

@@ -20,14 +20,16 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 15,
         borderColor: "#6a706e",
-        borderWidth: 0.3,
+        backgroundColor: "#16202d",
+        borderWidth: 2,
         marginHorizontal: 30,
         paddingHorizontal: 20,
         paddingVertical: 15,
         flexDirection: "row",
         alignItems: "center",
+        justifyContent: "center",
         marginTop: 10,
-        marginBottom: 15
+        marginBottom: 5
     },
     circle: {
         alignItems: 'center',
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "#FFF",
         fontSize: 12,
-        marginLeft: 20
+        marginLeft: 10
     },
     number: {
         fontWeight: 'bold',

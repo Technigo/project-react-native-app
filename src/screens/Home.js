@@ -39,16 +39,16 @@ export default class Home extends Component {
             <View key={item.id} style={styles.cardContainer}>
                 <View style={styles.card}>
                     <View>
-                        <Text style={styles.title}>{item.title}</Text>
+                        <Text style={styles.title}>{item.title} </Text>
                         <Icon
                             name="ios-remove"
                             size={60}
                             color="red"
-                            style={{ marginTop: 20 }}
+                            style={{ marginTop: 15 }}
                         />
                         <Text style={styles.number}>{item.number}</Text>
                     </View>
-                    <View style={{ marginLeft: 150 }}>
+                    <View style={{ marginLeft: 145 }}>
                         <Icon name="md-options" size={24} color="#FFF" />
                         <Text style={styles.textCovid}>COVID-19</Text>
                     </View>
@@ -75,7 +75,7 @@ export default class Home extends Component {
                 >
                     <View style={styles.col}>
                         <View style={{ width: "50%" }}>
-                            <Icon name="md-remove" color="#FFF" size={26} />
+                            <Icon name="md-remove" color="#FFF" size={26} style={styles.minusIcon} />
                             <Icon
                                 name="md-remove"
                                 color="#FFF"
@@ -96,7 +96,7 @@ export default class Home extends Component {
                         <Text style={styles.textGlobal}>GLOBAL</Text>
                         <Text style={styles.textSweden}>Sweden</Text>
                         <View style={styles.reloadContainer}>
-                            <Icon name="md-refresh" size={24} color="red" />
+                            <Icon name="md-refresh" size={24} color="red" justifyContent="center" />
                         </View>
                     </View>
                 </ImageBackground>
@@ -109,6 +109,7 @@ export default class Home extends Component {
                     style={{ marginTop: 200 }}
                     showsHorizontalScrollIndicator={false}
                     horizontal
+                    justifyContent="center"
                 >
                     <Cards
                         onPress={() => this.props.navigation.navigate('Detail')}
@@ -152,29 +153,33 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
         height: 170,
-        width: 320,
+        width: 330,
         alignSelf: "center",
         backgroundColor: "#6A706E",
-        borderRadius: 30
+        borderRadius: 30,
+        flex: 1
     },
     card: {
         height: 170,
-        width: 260,
-        paddingTop: 20,
+        width: 270,
+        paddingTop: 25,
         paddingHorizontal: 30,
         backgroundColor: '#2b3240',
         borderRadius: 30,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flex: 1
+
     },
     title: {
         color: "#6A706E",
-        width: 100,
+        width: 120,
         fontSize: 12,
+        textAlign: 'left',
+        justifyContent: 'center',
         fontWeight: "bold"
     },
     number: {
         color: "#FFF",
-        width: 100,
         fontSize: 18,
         fontWeight: "bold",
         marginTop: -20,
@@ -201,15 +206,17 @@ const styles = StyleSheet.create({
         marginBottom: 15
     },
     col: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginTop: 25
     },
     minusIcon: {
-        marginTop: -20,
+        marginTop: -10,
         marginLeft: 5
     },
     avatarContainer: {
         width: "50%",
         alignItems: 'flex-end',
+        marginTop: -10
     },
     avatar: {
         width: 40,
@@ -220,14 +227,16 @@ const styles = StyleSheet.create({
         color: "#FFF",
         fontSize: 20,
         alignSelf: 'center',
-        marginTop: 15,
-        fontWeight: 'bold',
+        marginTop: 25,
+        marginBottom: 12,
+        fontWeight: 'bold'
     },
     colContainer: {
         flexDirection: "row",
         paddingHorizontal: 30,
-        marginTop: 40,
-        alignItems: 'center',
+        marginTop: 5,
+        alignItems: 'flex-end',
+
     },
     textGlobal: {
         fontWeight: "bold",
@@ -248,7 +257,8 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: "center",
-        marginLeft: 50
+        marginLeft: 50,
+        marginTop: -2
     }
 
 
