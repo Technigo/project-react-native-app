@@ -25,6 +25,7 @@ const App = () => {
   const [quotes, setQuotes] = useState([])
   const [activeQuote, setActiveQuote] = useState()
   const [buttonDisabled, setButtonDisabled] = useState(false)
+  const [buttonText, setButtonText] = useState("Take a Deep Breath Then Tap Here for Today's Mantra")
 
   const getRandomQuote = (array) => {
     return array[Math.floor(Math.random() * (array.length - 1))].text
@@ -35,6 +36,13 @@ const App = () => {
       return
     }
 
+    // const showDate = () => {
+    //   let date = new Date().getDate()
+    //   let month = new Date().getMonth() + 1
+    // }
+
+    // showDate(date + '/' + month)
+
     setButtonDisabled(true)
     Vibration.vibrate()
 
@@ -43,6 +51,8 @@ const App = () => {
       duration: 1000,
       useNativeDriver: true
     }).start(() => {
+
+      setButtonText('')
 
       const randomQuote = getRandomQuote(quotes)
       setActiveQuote(randomQuote)
@@ -79,6 +89,7 @@ const App = () => {
         ]}>
         <Quote quote={activeQuote} />
       </Animated.View>
+
       <Animated.View
         style={[
           {
@@ -88,7 +99,7 @@ const App = () => {
         <TouchableWithoutFeedback
           onPress={updateQuote}
         >
-          <ButtonText>Take a Deep Breath Then Tap Here for Today's Mantra</ButtonText>
+          <ButtonText>{buttonText}</ButtonText>
         </TouchableWithoutFeedback >
       </Animated.View>
 
