@@ -4,12 +4,15 @@ import styled from 'styled-components/native'
 
 import { Quote } from './Quote'
 
+const Main = styled.View`
+  height: 100%;
+  align-items: center;
+  background-color: #C76F7D;
+`
 
 const Container = styled.View`
   flex: 1;
-  background-color: #C76F7D;
   justify-content: center;
-  align-items: center;
   padding: 25px;
 `
 
@@ -18,6 +21,15 @@ const ButtonText = styled.Text`
   font-size: 30px;
   text-align: center;
 `
+const DateText = styled.Text`
+  position: absolute;
+  font-size: 40px;
+  color: #ad5766;
+  z-index: 1;
+  margin-top: 10%;
+
+`
+
 
 const App = () => {
   const [mantraFade, setMantraFade] = useState(new Animated.Value(0))
@@ -79,32 +91,25 @@ const App = () => {
   }, [])
 
   return (
-    <Container>
+    <Main>
+      <DateText>{new Date().toLocaleDateString("en-US", { day: "numeric", month: "short", weekday: "long" })} </DateText>
 
-      <Animated.View
-        style={[
-          {
-            opacity: mantraFade
-          }
-        ]}>
-        <Quote quote={activeQuote} />
-      </Animated.View>
+      <Container>
 
-      <Animated.View
-        style={[
-          {
-            opacity: buttonFade
-          }
-        ]}>
-        <TouchableWithoutFeedback
-          onPress={updateQuote}
-        >
-          <ButtonText>{buttonText}</ButtonText>
-        </TouchableWithoutFeedback >
-      </Animated.View>
+        <Animated.View style={[{ opacity: mantraFade }]}>
+          <Quote quote={activeQuote} />
+        </Animated.View>
 
-    </Container>
+        <Animated.View style={[{ opacity: buttonFade }]}>
 
+          <TouchableWithoutFeedback onPress={updateQuote}>
+            <ButtonText>{buttonText}</ButtonText>
+          </TouchableWithoutFeedback >
+
+        </Animated.View>
+
+      </Container>
+    </Main>
   )
 }
 
