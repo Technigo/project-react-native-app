@@ -1,13 +1,17 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+The restrictions for this week was to create a mobile app with React Native, by using styled components and either use:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+One the sensors from the mobile phone (such as the camera, accelerometer or voice assistance)
+
+An external API to fetch something to the app and interact with it.
+
+A multiscreen app by using React Navigation.
+
+A useful app. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I created a minimalistic step counter, which also contains suggestions of how to gain more steps. I learned how to use React Native to create a mobile app, how to install and import packages like expo-sensors for the Pedometer which I used, and how to use styled components. 
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
