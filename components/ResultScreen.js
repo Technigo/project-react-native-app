@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Button } from "react-native";
+import { Text, Button } from "react-native";
 
 const InfoText = styled.Text`
   font-size: 48px;
@@ -13,7 +13,7 @@ const InfoContainer = styled.ImageBackground`
   padding: 18px;
 `;
 
-const ResultScreen = ({navigation}) => {
+const ResultScreen = ({navigation, route}) => {
   const navigateToStart = () => {
     navigation.navigate("Start")
   }
@@ -21,6 +21,8 @@ const ResultScreen = ({navigation}) => {
     <InfoContainer>
       <InfoText>Show result!</InfoText>
       <Button title="Go back" onPress={navigateToStart} ></Button>
+      <Text>{route.params.compChoice}</Text>
+      <Text>{route.params.userChoice}</Text>
     </InfoContainer>
 
   )

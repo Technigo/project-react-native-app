@@ -13,21 +13,39 @@ const InfoContainer = styled.ImageBackground`
   padding: 18px;
 `;
 
-const UserPickScreen = ({ navigation }) => {
+const UserPickScreen = ({ navigation}) => {
   const [userPick, setUserPick] = useState('');
-  const navigateToResult = () => {
-    navigation.navigate("Result")
+  const [compPick, setCompPick] = useState('');
+  const choices = ['Rock', 'Paper', 'Scissors'];
+
+  const setChoices = (value) => {
+    setUserPick(value);
+    setCompPick(choices[Math.floor(Math.random() * choices.length)]);
+
   }
-  console.log(userPick)
+
+  const navigateToResult = () => {
+    navigation.navigate("Result", { compChoice: compPick, userChoice: userPick });
+        console.log('userPick: ' + userPick);
+    console.log('compPick: ' + compPick);
+  }
+
   return (
     <InfoContainer>
-      <InfoText> Infooo!</InfoText>
-      <TouchableOpacity onPress={() => setUserPick('rock')}>
-        <Text>Press here</Text>
+      <InfoText>Make your choice</InfoText>
+      <TouchableOpacity onPress={() => setChoices('Rock')}>
+        <Text>Rock</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => setChoices('Paper')}>
+        <Text>Paper</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => setChoices('Scissors')}>
+        <Text>Scissors</Text>
+      </TouchableOpacity>
+      <Text>You picked: {userPick}</Text>
 
 
-      <Button title="Result" onPress={navigateToResult} ></Button>
+      <Button title="Play" onPress={navigateToResult} ></Button>
     </InfoContainer>
 
   )

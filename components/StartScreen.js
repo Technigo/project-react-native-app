@@ -21,8 +21,8 @@ const StartScreen = ({navigation}) => {
   }
   return (
     <HomeContainer source={background}>
-      <HomeText> Welcome to startscreen!</HomeText>
-      <Button title="USerPick" onPress={navigateToUserPick} ></Button>
+      <HomeText>Lets play!</HomeText>
+      <Button title="UserPick" onPress={navigateToUserPick} ></Button>
     </HomeContainer>
 
   )
