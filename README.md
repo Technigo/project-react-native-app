@@ -28,4 +28,4 @@ For the shake function I took inspiration from Ragna Úlfars repo on Github [htt
   
 ## View it live
 
-You can try it out from Expo snack [https://snack.expo.io/@ylvan/291188](https://snack.expo.io/@ylvan/291188)
+You can try it out from Expo snack [https://snack.expo.io/@ylvan/--the-app-of-answers--](https://snack.expo.io/@ylvan/--the-app-of-answers--)
