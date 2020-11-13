@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import {SafeAreaView, ScrollView, Button } from 'react-native'
+import {SafeAreaView, ScrollView,} from 'react-native'
+// import LottieView from 'lottie-react-native'
 
 import { LatestNews } from './components/LatestNews'
 
@@ -13,17 +14,27 @@ const Banner = styled.Text`
   textAlign: center
   marginBottom: 20px
 `
+const BannerImage = styled.Image`
+  alignItems: center
+`
+const HeaderContainer = styled.View`
+alignItems: center
+background: rgb(219,228,238)
+`
 const App = () => {
   return (
     <SafeAreaView>
-      <BannerImage 
+      <HeaderContainer> 
+        <BannerImage 
           style={{
             resizeMode: "contain",
-            height: 100,
-            width: 100
+            height: 50,
+            width: 50
           }}  
           source={logo}/>
-      <Banner>// BREAKING NEWS //</Banner>
+        {/* <LottieView source={require('./assets/diwali.json')} autoPlay loop /> */}
+        <Banner>// BREAKING NEWS //</Banner>
+      </HeaderContainer>
       <ScrollView>
         <LatestNews/>
       </ScrollView>
@@ -33,6 +44,4 @@ const App = () => {
 
 export default App
 
-const BannerImage = styled.Image`
 
-`

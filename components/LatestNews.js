@@ -1,39 +1,56 @@
 import React, {useEffect, useState }from 'react'
-import {View, Image, Button} from 'react-native'
+import {Linking} from 'react-native'
 import styled from 'styled-components/native'
 import moment from 'moment'
 
 import clock from '../assets/clock.png'
 
 const Container = styled.View`
-  padding: 20px
-  background: grey
+  backgroundColor: 'rgba(128,128,128, 0.5)'
+
 `
+
+const ClockImage = styled.Image`
+`
+
 const Card = styled.View`
-  padding : 20px
-  border: 2px solid grey
-  marginTop: 20px
-  borderRadius: 20px
+  margin: 10px
   background: rgb(219,228,238)
-  fontFamily: courier
+  borderRadius: 10px
+  padding: 20px
+  boxShadow: 3px 3px
+  shadowColor: grey
 `
 
+const ArticleImage = styled.Image `
+  margin: 10px
+  borderRadius: 20px
+`
+
+const ImageContainer = styled.View `
+  alignItems: center
+  paddingTop: 10px
+`
 const TitleText = styled.Text `
-  paddingTop: 20px
-  textAlign: justify
+  marginTop:10px
   fontSize: 20px
-`
-
-const TimedText = styled.Text `
-  marginTop: 10px
-  fontSize: 12px
-  textAlign: right
-  color: red
+  textAlign: justify
 `
 
 const AuthorName = styled.Text `
+  marginTop: 10px
   letterSpacing: 2px
-  marginTop: 20px
+`
+const TimedText = styled.Text `
+  marginTop: 10px
+  color: red
+  fontSize: 15px
+  textAlign: right
+  marginBottom: 20px
+`
+const ReadMore = styled.Button`
+  fontSize : 20px
+  paddingTop: 15px
 `
 
 export const LatestNews = () => {
@@ -47,23 +64,25 @@ export const LatestNews = () => {
     },[])
 
     return (
-      <Container>
+      <Container >
         {latestNews.map((news) => (
           <Card>
-            <Image source={clock}/>
-            <Image source={{url: news.urlToImage}}/>  
-            {/* CANT SEEM TO GET THE IMAGE TO SHOW */}
+            <ClockImage style={{height: 30, width: 30}} source={clock}/>
+            <ImageContainer>
+              <ArticleImage source={{url: `${news.urlToImage}`}} style={{height: 200, width: 330}}/>  
+            </ImageContainer>
             <TitleText key={news.source.id}>
               {news.title}
             </TitleText>
             <AuthorName>{news.author}</AuthorName>
-            {/* <Button onPress={() =>  window.open({news.url}, "_blank")} 
-                    title="Learn More"
-                    color="#841584"
-            /> */}
             <TimedText>
               {moment(news.publishedAt).startOf('hour').fromNow()}
             </TimedText>
+            <ReadMore 
+              title='Read More'
+              onPress={() => {
+              Linking.openURL(news.url)
+            }} />
           </Card>
         ))}
       </Container>
