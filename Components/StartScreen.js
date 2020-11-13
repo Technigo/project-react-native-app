@@ -1,20 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
 import LottieView from 'lottie-react-native';
+import { Platform } from 'react-native';
 
-import { OracleImage, StartText } from './StartScreenStyling';
-import {AnimationContainer} from './AnimationContainer';
+import { Container, AnimationContainer,OracleImage, StartText } from '../StyledComponents/StartScreenStyling';
 
 export const StartScreen = () => { 
   return (
-      <View> 
+      <Container>
         <AnimationContainer>
-          <LottieView source={require('../assets/star.json')} autoPlay/>
+          {Platform.OS !== 'web' && <LottieView source={require('../assets/star.json')} autoPlay/>}
         </AnimationContainer>
         <OracleImage source={require('../assets/fortune-teller.png')}/>
         <StartText>Shake me to get your Magic Oracle!✨</StartText>
-      </View>
+      </Container>
   );
 };
-/* Use the following line to be able to run the project as a web version */
-//import LottieView from 'react-native-web-lottie'
+
+//Platform dependency prevents lottie animations from crashing the web version.

@@ -1,5 +1,13 @@
 import styled from 'styled-components/native';
 
+export const Container = styled.View`
+  flex:1;
+  width:100%;
+  background-color: #01044d;
+  justify-content: center;
+  align-items: center;
+`
+
 export const OracleText = styled.Text`
   padding: 30px;
   justify-content: center;
@@ -10,7 +18,6 @@ export const OracleText = styled.Text`
 export const MagicImage = styled.Image`
   width: 200px;
   height: 200px;
-  margin-left: 75px;
 `
 export const ButtonText = styled.Text`
   font-size: 30px;

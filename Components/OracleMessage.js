@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import LottieView from 'lottie-react-native';
-import { View } from 'react-native';
+import { Platform } from 'react-native';
 
-import { OracleText, MagicImage, ButtonText, RestartButton } from './OracleMessageStyling';
-
+import { Container, OracleText, MagicImage, ButtonText, RestartButton } from '../StyledComponents/OracleMessageStyling';
 
 export const OracleMessage = ({onRestartOracle}) => { 
-
   const [message, setMessage] = useState({});
 
   useEffect (()=> { 
@@ -19,16 +17,15 @@ export const OracleMessage = ({onRestartOracle}) => {
 
   return (
     <>
-      <View>
+      <Container>
         <OracleText>{message.advice}</OracleText>
         <MagicImage source={require('../assets/magic.png')}/>
-        <LottieView source={require('../assets/confetti.json')} autoPlay/>
-      </View>
-      <RestartButton onPress={onRestartOracle}>
-        <ButtonText>Restart Oracle</ButtonText>
-      </RestartButton>
+        {Platform.OS !== 'web' && <LottieView source={require('../assets/confetti.json')} autoPlay/>}
+        <RestartButton onPress={onRestartOracle}>
+          <ButtonText>Restart Oracle 🔮</ButtonText>
+        </RestartButton>
+      </Container>
     </>
   );
 };
-/* Use the following line to be able to run the project as a web version */
-//import LottieView from 'react-native-web-lottie'
+//Platform dependency prevents lottie animations from crashing the web version.
