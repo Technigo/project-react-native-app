@@ -10,12 +10,12 @@ This app does not work in web browsers and is only tested on an ios device.
 ## The project
 
 The app is divided in to two parts - One for todays information and one for the weekly information. 
-I have worked with styled components and chose to seperate them in to containers, texts and button instead of one for the different screen types. In this way I could reuse the same styling components in both of the screens.
+I have worked with styled components and chose to seperate them in to containers, texts and button instead of having one styling component for the different screen types. In this way I could reuse the same styling components in both of the screens.
 
 I used the react native pedometer - expo sensors. I used the expo documentation which was really detailed and together with a bit of googeling I managed to implement it and to update the syntax. 
 I also installed react-navigation to create the navigation between the two screens.
 
-The big struggle for this week was to get started with the project, figuring out how to set it up in expo and and finding a new (react-native friendly) way of structuring the code.
+The big struggle for this week was to get started with the project, figuring out how to set it up in expo and and finding a new (react-native friendly) way of structuring the code. 
 
 If I had more time:
 - I would have loved to create a chart for the weekly steps. I installed react-native-chart and some other dependencies to the package.json but sadly I couldn't get it to work :(
