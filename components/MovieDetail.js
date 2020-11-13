@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
+//import { LinearGradient } from 'expo-linear-gradient';
 
 import LottieLoader from './LottieLoader';
-import Lottie from './LottieLoader';
+import ShareButton from './ShareButton';
+// Styling-components
+import {
+  DetailMainContainer,
+  DetailBackgroundImage,
+  DetailContainer,
+  MovieTitle,
+  MovieTagline,
+  MovieText,
+} from '../styled-components/styles';
 
 const MovieDetail = ({ route }) => {
   const [movieDetail, setMovieDetail] = useState([]);
@@ -41,20 +51,25 @@ const MovieDetail = ({ route }) => {
       {isLoading ? (
         <LottieLoader />
       ) : (
-        <MainContainer>
-          <BackgroundImage
+        <DetailMainContainer>
+          <DetailBackgroundImage
             source={{
               uri: `https://image.tmdb.org/t/p/w300/${movieDetail.poster_path}`,
             }}
           >
             <DetailContainer>
-              <MovieTitle>{movieDetail.original_title}</MovieTitle>
-              <MovieText>{movieDetail.tagline}</MovieText>
-              <MovieText> ⭐️ {movieDetail.vote_average} / 10 </MovieText>
-              <MovieText>{movieDetail.overview}</MovieText>
+              <ShareButton
+                sharedMovie={`https://www.imdb.com/title/${movieDetail.imdb_id}/`}
+              />
+              <View>
+                <MovieTitle>{movieDetail.original_title}</MovieTitle>
+                <MovieTagline>{movieDetail.tagline}</MovieTagline>
+                <MovieText> ⭐️ {movieDetail.vote_average} / 10 </MovieText>
+                <MovieText>{movieDetail.overview}</MovieText>
+              </View>
             </DetailContainer>
-          </BackgroundImage>
-        </MainContainer>
+          </DetailBackgroundImage>
+        </DetailMainContainer>
       )}
     </>
   );
@@ -68,29 +83,43 @@ const MainContainer = styled.View`
   align-items: center;
 `;
 
-const BackgroundImage = styled.ImageBackground`
-  flex: 1;
-  object-fit: cover;
-  width: 100%;
-  justify-content: center;
-`;
+// const DetailBackgroundImage = styled.ImageBackground`
+//   flex: 1;
+//   object-fit: cover;
+//   width: 100%;
+//   justify-content: center;
+// `;
 
-const DetailContainer = styled.View`
-  background-color: rgba(0, 0, 0, 0.8);
-  flex: 1;
-  justify-content: flex-end;
+// const DetailContainer = styled.View`
+//   flex: 1;
+//   justify-content: space-between;
+//   padding: 20px;
+//   background-color: rgba(0, 0, 0, 0.7);
+// `;
+
+const RoundedButton = styled.TouchableOpacity`
+  width: 90%;
   padding: 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background: #fafafa;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+  align-self: flex-start;
 `;
 
-const MovieTitle = styled.Text`
-  font-size: 28px;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 10px;
+const ActiveRoundedButton = styled(RoundedButton)`
+  background: #454cd8;
 `;
 
-const MovieText = styled.Text`
-  color: #fff;
-  margin-bottom: 10px;
-  font-size: 16px;
-`;
+// const MovieTitle = styled.Text`
+//   font-size: 28px;
+//   font-weight: bold;
+//   color: #fff;
+//   margin-bottom: 10px;
+// `;
+
+// const MovieText = styled.Text`
+//   color: #fff;
+//   margin-bottom: 10px;
+//   font-size: 16px;
+// `;

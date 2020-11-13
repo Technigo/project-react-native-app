@@ -4,6 +4,12 @@ import styled from 'styled-components/native';
 
 import LottieLoader from './LottieLoader';
 import Cinema from '../assets/cinema.jpg';
+// Styling-components
+import {
+  HomeMainContainer,
+  MovieButton,
+  MovieButtonText,
+} from '../styled-components/styles';
 
 const API_KEY = '29ee910f5072fe7c4bc00a08633532c0';
 const BASE_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
@@ -12,9 +18,9 @@ const HomeScreen = ({ navigation }) => {
   const [randomMovie, setRandomMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, []);
+  // useEffect(() => {
+  //   navigation.setOptions({ headerShown: false });
+  // }, []);
 
   useEffect(() => {
     fetch(BASE_URL)
@@ -49,7 +55,7 @@ const HomeScreen = ({ navigation }) => {
       {isLoading ? (
         <LottieLoader />
       ) : (
-        <HomeContainer source={Cinema}>
+        <HomeMainContainer source={Cinema}>
           <MovieButton
             onPress={() => {
               navigation.navigate('Movie Detail', {
@@ -57,29 +63,15 @@ const HomeScreen = ({ navigation }) => {
               });
             }}
           >
-            <Title>Shake to find random movie</Title>
+            <MovieButtonText>Shake to find random movie</MovieButtonText>
           </MovieButton>
-          {/* <Button onPress={() => navigation.navigate('Spells')}>
-        <Title>Accio spells!</Title>
-      </Button>
-      <Button onPress={() => navigation.navigate('Lottie')}>
-        <Title>Lottie!</Title>
-      </Button> */}
-        </HomeContainer>
+        </HomeMainContainer>
       )}
-      ;
     </>
   );
 };
 
 export default HomeScreen;
-
-const Container = styled.View`
-flex = 1;
-background-color = burgundy;
-justify-content: flex-end;
-align-items: center;
-`;
 
 const Title = styled.Text`
   font-size: 20px;
@@ -87,19 +79,11 @@ const Title = styled.Text`
   font-weight: bold;
 `;
 
-const HomeContainer = styled.ImageBackground`
-  flex: 1;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 100px;
-  text-align: center;
-`;
-
-const MovieButton = styled.TouchableOpacity`
-  padding: 20px
-  width: 90%;
-  border-radius: 10px;
-  border: 2px solid darkred;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-`;
+// const MovieButton = styled.TouchableOpacity`
+//   padding: 20px
+//   width: 90%;
+//   border-radius: 10px;
+//   border: 2px solid darkred;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   text-align: center;
+// `;

@@ -25,7 +25,8 @@
     "react-native-screens": "^2.14.0",
     "react-native-web": "~0.13.7",
     "react-native-web-lottie": "^1.4.4",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "expo-linear-gradient": "~8.3.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^8.3.0"
