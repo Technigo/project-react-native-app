@@ -1,4 +1,4 @@
-# May The Force Be With You: A React Native App 📱
+# May The Steps Be With You: A React Native App 📱
 
 #### This project was made during Technigo's Front-end developer bootcamp 
 
