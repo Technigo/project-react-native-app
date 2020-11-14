@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
+import CustomTouchable from "./CustomTouchable";
+
+import { API_URL, ENDPOINT_URL } from "../urls.js";
+import { API_KEY, uid } from "../API_KEY.js";
 
 const HomeContainer = styled.View`
   background-color: #098fcf;
@@ -17,16 +21,6 @@ const HomeText = styled.Text`
   text-align: center;
 `;
 
-const TouchableText = styled.Text`
-  background-color: #f3ff03;
-  font-size: 32px;
-  display: flex;
-  flex: 2;
-  width: 60%;
-  text-align: center;
-  padding: 20px;
-  border-radius: 50%;
-`;
 
 const HomeScreen = ({ navigation }) => {
   const [quoteList, setQuoteList] = useState([]);
@@ -37,9 +31,7 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   const fetchQuoteList = () => {
-    fetch(
-      "https://www.abbreviations.com/services/v2/quotes.php?uid=8251&tokenid=xo3ggiSGR4Gjr0CO&searchtype=AUTHOR&query=Oscar+Wilde&format=json"
-    )
+    fetch(`${API_URL}${uid}&${API_KEY}${ENDPOINT_URL}`)
       .then((res) => res.json())
       .then((quotes) => {
         console.log(quotes.result);
@@ -57,9 +49,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <HomeContainer>
       <HomeText>What would Oscar say?</HomeText>
-      <TouchableOpacity onPress={navigateToQuote}>
-        <TouchableText>Press to find out</TouchableText>
-      </TouchableOpacity>
+      <CustomTouchable onPress={navigateToQuote} text="Press to find out" />
     </HomeContainer>
   );
 };

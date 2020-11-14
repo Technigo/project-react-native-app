@@ -1,31 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-
+import CustomTouchable from "./CustomTouchable";
 
 const QuoteContainer = styled.View`
-   background-color: #0096C9;
-   display: flex;
-   flex: 1;
-   justify-content: center;
-   align-items: center;
+  background-color: #0096c9;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
 
 const QuoteText = styled.Text`
-    color: white;
-    font-size: 32px;
-`
+  color: white;
+  font-size: 32px;
+`;
 
+const QuoteScreen = ({ navigation, route }) => {
+  const [currentQuote, setCurrentQuote] = useState({quote:"Hello!"});
 
-export const QuoteScreen = ({navigation, route}) => {
-    console.log(route.params.data.quoteList);
-
-    const randomSelector = array => array[Math.floor(Math.random() * array.length)];
-    const quote = randomSelector(route.params.data.quoteList);
-    
-    console.log(quote)
+  
+  const getQuote = () => {
+      const quote = route.params.data.quoteList[Math.floor(Math.random() * route.params.data.quoteList.length)];
+      setCurrentQuote(quote);
+      console.log(currentQuote);
+    }
+  
     return (
     <QuoteContainer>
-        <QuoteText>{quote.quote}</QuoteText>
-    </QuoteContainer>)
-}
+      <QuoteText>{currentQuote.quote}</QuoteText>
+      <CustomTouchable onPress={getQuote} text="Want some more?" />
+    </QuoteContainer>
+  );
+};
+
+export default QuoteScreen;
