@@ -14,7 +14,7 @@ export default class Cards extends Component {
                     <Icon
                         name={this.props.icon}
                         size={30}
-                        color={this.props.bg == "red" ? "#FFF" : "red"}
+                        color={this.props.bg == "#D84727" ? "#FFF" : "#D84727"}
                     />
                     <TouchableOpacity onPress={this.props.onPress}>
                         <Icon2
@@ -28,7 +28,7 @@ export default class Cards extends Component {
                 <Text style={styles.title}>{this.props.title}</Text>
                 <Text style={{
                     ...styles.number,
-                    color: this.props.bg == "red" ? "#FFF" : "#000",
+                    color: this.props.bg == "#EF7B45" ? "#FFF" : "#000",
                 }}>
                     {this.props.number}
                 </Text>

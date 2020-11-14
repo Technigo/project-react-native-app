@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 15,
         borderColor: "#6a706e",
-        backgroundColor: "#16202d",
+        backgroundColor: "#042A2B",
         borderWidth: 2,
         marginHorizontal: 30,
         paddingHorizontal: 20,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
     number: {
         fontWeight: 'bold',
-        color: 'red',
+        color: '#D84727',
         fontSize: 14,
         marginLeft: 90
     }

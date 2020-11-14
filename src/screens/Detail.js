@@ -11,7 +11,7 @@ export default class Detail extends Component {
                     <View style={styles.humContainer}>
                         <AntDesign
                             onPress={() => this.props.navigation.navigate('Home')}
-                            name="arrowleft" size={24} color="black"
+                            name="arrowleft" size={24} color="#042A2B"
                         />
                     </View>
                     <View style={styles.profileContainer}>
@@ -58,7 +58,8 @@ export default class Detail extends Component {
 const styles = StyleSheet.create({
     page: {
         backgroundColor: "#FFF",
-        flex: 1
+        flex: 1,
+        height: 200
     },
     headContainer: {
         marginHorizontal: 20,
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     textLogarthimic: {
-        color: "#b8b8aa",
+        color: "#042A2B",
         fontWeight: "bold",
         fontSize: 12,
         marginLeft: 15,
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     textGlobal: {
         fontWeight: "bold",
         fontSize: 16,
-        color: "red"
+        color: "#D84727"
     },
     textSweden: {
         fontWeight: "bold",
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
         elevation: 3
     },
     bottomCard: {
-        backgroundColor: "#1c2732",
+        backgroundColor: "#042A2B",
         height: 220,
         marginTop: 170,
         borderTopLeftRadius: 30,
@@ -155,14 +156,14 @@ const styles = StyleSheet.create({
         width: 20,
         height: 20,
         borderRadius: 10,
-        backgroundColor: "red",
+        backgroundColor: "#D84727",
         alignItems: "center",
         justifyContent: 'center',
         marginLeft: 10,
     },
     button: {
         borderRadius: 15,
-        borderColor: 'red',
+        borderColor: '#D84727',
         borderWidth: 1,
         marginHorizontal: 30,
         paddingHorizontal: 20,
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
         marginBottom: 5
     },
     btnText: {
-        color: "red",
+        color: "#D84727",
         fontSize: 16,
         fontWeight: 'bold'
     }

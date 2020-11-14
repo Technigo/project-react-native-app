@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import {
     View,
     Text,
@@ -8,7 +8,6 @@ import {
     ImageBackground
 } from 'react-native';
 import Icon from '@expo/vector-icons/Ionicons';
-import RNShake from 'react-native-shake';
 import { ScrollView }
     from 'react-native'
 import Deck from '../components/Deck';
@@ -20,19 +19,20 @@ const DATA = [
     {
         id: 1,
         title: "CORONAVIRUS CASES",
-        number: "1 838 456"
-    },
-    {
-        id: 2,
-        title: "TOTAL DEATHS",
-        number: "1 29 863"
+        number: "53.4M"
     },
     {
         id: 3,
         title: "RECOVERED",
-        number: "838 456"
+        number: "34.5M"
+    },
+    {
+        id: 2,
+        title: "TOTAL DEATHS",
+        number: "1.3M"
     }
 ]
+
 export default class Home extends Component {
 
     renderCard(item) {
@@ -44,13 +44,13 @@ export default class Home extends Component {
                         <Icon
                             name="ios-remove"
                             size={60}
-                            color="red"
+                            color="#D84727"
                             style={{ marginTop: 15 }}
                         />
                         <Text style={styles.number}>{item.number}</Text>
                     </View>
                     <View style={{ marginLeft: 145 }}>
-                        <Icon name="md-options" size={24} color="#FFF" />
+                        <Icon name="md-options" size={24} color="#EF7B45" />
                         <Text style={styles.textCovid}>COVID-19</Text>
                     </View>
                 </View>
@@ -72,7 +72,7 @@ export default class Home extends Component {
         return (
             <View style={styles.container}>
                 <ImageBackground
-                    source={require("../images/bg.jpg")}
+                    source={require("../images/map1.jpg")}
                     style={styles.map}
                 >
                     <View style={styles.col}>
@@ -98,15 +98,17 @@ export default class Home extends Component {
                         <Text style={styles.textGlobal}>GLOBAL</Text>
                         <Text style={styles.textSweden}>Sweden</Text>
                         <View style={styles.reloadContainer}>
-                            <Icon name="md-refresh" size={24} color="red" justifyContent="center" />
+                            <Icon name="md-refresh" size={24} color="#D84727" justifyContent="center" />
                         </View>
                     </View>
                 </ImageBackground>
+
                 <Deck
                     data={DATA}
                     renderCard={this.renderCard}
                     renderNoMoreCards={this.renderNoMoreCards}
                 />
+
                 <ScrollView
                     style={{ marginTop: 200 }}
                     showsHorizontalScrollIndicator={false}
@@ -117,20 +119,22 @@ export default class Home extends Component {
                         onPress={() => this.props.navigation.navigate('Detail')}
                         icon="md-pulse"
                         title="TOTAL CASES"
-                        bg="red"
-                        number="113 329"
+                        bg="#EF7B45"
+                        number="177 355"
                     />
                     <Cards
+                        onPress={() => this.props.navigation.navigate('Detail')}
                         icon="ios-git-network"
                         title="RECOVERED"
-                        bg="#FFF"
-                        number="442 329"
+                        bg="#CDEDF6"
+                        number="N / A"
                     />
                     <Cards
+                        onPress={() => this.props.navigation.navigate('Detail')}
                         icon="ios-heart-dislike"
                         title="DEATH CASES"
-                        bg="#FFF"
-                        number="113 329"
+                        bg="#CDEDF6"
+                        number="6 164"
                     />
                 </ScrollView>
 
@@ -152,13 +156,13 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#1c2732"
+        backgroundColor: "#042A2B",
     },
     cardContainer: {
         height: 170,
         width: 330,
         alignSelf: "center",
-        backgroundColor: "#6A706E",
+        backgroundColor: "#CDEDF6",
         borderRadius: 30,
         flex: 1
     },
@@ -167,14 +171,14 @@ const styles = StyleSheet.create({
         width: 270,
         paddingTop: 25,
         paddingHorizontal: 30,
-        backgroundColor: '#2b3240',
+        backgroundColor: '#5EB1BF',
         borderRadius: 30,
         flexDirection: 'row',
         flex: 1
 
     },
     title: {
-        color: "#6A706E",
+        color: "#042A2B",
         width: 120,
         fontSize: 12,
         textAlign: 'left',
@@ -182,7 +186,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     number: {
-        color: "#FFF",
+        color: "#042A2B",
         fontSize: 18,
         fontWeight: "bold",
         marginTop: -20,
@@ -206,7 +210,7 @@ const styles = StyleSheet.create({
         height: 200,
         paddingTop: 25,
         paddingHorizontal: 20,
-        marginBottom: 15
+        marginBottom: 40
     },
     col: {
         flexDirection: 'row',
@@ -227,12 +231,17 @@ const styles = StyleSheet.create({
         borderRadius: 20
     },
     textDash: {
-        color: "#FFF",
+        color: "#CDEDF6",
         fontSize: 20,
         alignSelf: 'center',
         marginTop: 25,
         marginBottom: 12,
         fontWeight: 'bold'
+    },
+    titleSweden: {
+        color: "#CDEDF6",
+        fontSize: 20,
+        alignSelf: 'center',
     },
     colContainer: {
         flexDirection: "row",
@@ -244,7 +253,7 @@ const styles = StyleSheet.create({
     textGlobal: {
         fontWeight: "bold",
         fontSize: 16,
-        color: "red"
+        color: "#D84727",
     },
     textSweden: {
         fontWeight: "bold",
@@ -253,7 +262,7 @@ const styles = StyleSheet.create({
         color: "#6a706e"
     },
     reloadContainer: {
-        backgroundColor: "#FFF",
+        backgroundColor: "#CDEDF6",
         elevation: 2,
         width: 40,
         height: 40,

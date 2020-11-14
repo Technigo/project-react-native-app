@@ -32,8 +32,8 @@ export default class Chart extends Component {
                     yAxisSuffix='k'
                     yAxisInterval={1}
                     chartConfig={{
-                        backgroundColor: '#fff',
-                        backgroundGradientFrom: '#fff',
+                        backgroundColor: '#CDEDF6',
+                        backgroundGradientFrom: '#CDEDF6',
                         backgroundGradientTo: '#fff',
                         decimalPlaces: 2,
                         color: (opacity = 0) => `rgba(255,0,0, ${opacity})`,
@@ -44,7 +44,7 @@ export default class Chart extends Component {
                         propsForDots: {
                             r: '6',
                             strokeWidth: "2",
-                            stroke: "red"
+                            stroke: "#D84727"
                         },
                     }}
                     bezier
