@@ -1,6 +1,4 @@
-import React from 'react'
-import styled from 'styled-components/native';
-import { View, Text, Image } from 'react-native';
+import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -8,20 +6,7 @@ import StartScreen from "./components/StartScreen";
 import UserPickScreen from "./components/UserPickScreen";
 import ResultScreen from "./components/ResultScreen";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
 
-const Title = styled.Text`
-  flex: 1;
-  font-size: 24px;
-  color: palevioletred;
-  justify-content: center;
-  align-items: center;
-`
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -44,7 +29,6 @@ const App = () => {
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
-
     </NavigationContainer>
   )
 }

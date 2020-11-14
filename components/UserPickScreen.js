@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { Button, TouchableOpacity, Text, Image, View } from "react-native";
+import { Text } from 'react-native';
 
 import rock from '../assets/rock.png';
 import paper from '../assets/paper.png';
@@ -8,13 +8,7 @@ import scissors from '../assets/scissors.png';
 import lizard from '../assets/lizard.png';
 import spock from '../assets/spock.png';
 
-const InfoText = styled.Text`
-  font-size: 48px;
-  color: white;
-  text-shadow: 2px 2px black;
-  text-align: center;
-  margin-top: 20px;
-`;
+// STYLED COMPONENTS
 
 const InfoContainer = styled.View`
   flex: 1;
@@ -22,6 +16,14 @@ const InfoContainer = styled.View`
   justify-content: center;
   padding: 20px;
   background: #bbe5ed;
+`;
+
+const InfoText = styled.Text`
+  font-size: 48px;
+  color: white;
+  text-shadow: 2px 2px black;
+  text-align: center;
+  margin-top: 20px;
 `;
 
 const ImagesContainer = styled.View`
@@ -33,9 +35,9 @@ const ImagesContainer = styled.View`
   margin-top: 40px;
 `;
 
-const LowerContainer = styled.View`
-  flex: 1;
-  width: 100%;
+const LinkImage = styled.TouchableOpacity`
+  height: 120px;
+  width: 100px;
   justify-content: center;
   align-items: center;
 `;
@@ -45,9 +47,9 @@ const ChoiceImage = styled.Image`
   width: 50px;
 `;
 
-const LinkImage = styled.TouchableOpacity`
-  height: 120px;
-  width: 100px;
+const LowerContainer = styled.View`
+  flex: 1;
+  width: 100%;
   justify-content: center;
   align-items: center;
 `;
@@ -67,7 +69,7 @@ const ButtonText = styled.Text`
   color: white;
 `;
 
-const UserPickScreen = ({ navigation}) => {
+const UserPickScreen = ({ navigation }) => {
   const [userPick, setUserPick] = useState('');
   const [userImage, setUserImage] = useState();
   const [compPick, setCompPick] = useState({});
@@ -94,12 +96,15 @@ const UserPickScreen = ({ navigation}) => {
     }
   ];
 
+  // Function to set all the states with picked choices
   const setChoices = (choice, path) => {
     setUserPick(choice);
     setUserImage(path);
+    // Randomizes a choice for the computer from the choices array
     setCompPick(choices[Math.floor(Math.random() * choices.length)]);
   }
 
+  // Navigates to the next page and sends props
   const navigateToResult = () => {
     navigation.navigate("Result", {
       compChoice: compPick,
@@ -149,7 +154,6 @@ const UserPickScreen = ({ navigation}) => {
           <ButtonText>Play</ButtonText>
         </NextButton>
       </LowerContainer>
-
     </InfoContainer>
   )
 }

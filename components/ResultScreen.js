@@ -1,14 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Text, Button, View, Image } from "react-native";
+import { Text } from "react-native";
 
-const InfoText = styled.Text`
-  font-size: 48px;
-  color: white;
-  text-shadow: 2px 2px black;
-  text-align: center;
-  margin-top: 20px;
-`;
+// STYLED COMPONENTS
 
 const InfoContainer = styled.ImageBackground`
   flex: 1;
@@ -18,9 +12,12 @@ const InfoContainer = styled.ImageBackground`
   background: #bbe5ed;
 `;
 
-const ResultImage = styled.Image`
-  width: 100px;
-  height: 100px;
+const InfoText = styled.Text`
+  font-size: 48px;
+  color: white;
+  text-shadow: 2px 2px black;
+  text-align: center;
+  margin-top: 20px;
 `;
 
 const ResultContainer = styled.View`
@@ -34,10 +31,16 @@ const ChoiceContainer = styled.View`
   margin: 0 20px;
 `;
 
+const ResultImage = styled.Image`
+  width: 100px;
+  height: 100px;
+`;
+
 const WinnerText = styled.Text`
   color: black;
   font-size: 28px;
 `;
+
 const NextButton = styled.TouchableOpacity`
   height: 70px;
   width: 90%;
@@ -53,12 +56,13 @@ const ButtonText = styled.Text`
   color: white;
 `;
 
-
-const ResultScreen = ({navigation, route}) => {
+const ResultScreen = ({ navigation, route }) => {
+  // Navigates back to start screen
   const navigateToStart = () => {
     navigation.navigate("Start")
   }
 
+  // Determines who wins and returns a winner message
   const winnerMessage = () => {
     if (route.params.userChoice === route.params.compChoice.choice) {
       return "It's a tie, try again!"
@@ -95,8 +99,8 @@ const ResultScreen = ({navigation, route}) => {
     } else {
       return 'You forgot to make a choice, try again!'
     }
-
   }
+  
   return (
     <InfoContainer>
       <InfoText>Result</InfoText>

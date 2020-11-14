@@ -1,8 +1,16 @@
 import React from 'react';
 import styled from 'styled-components/native';
+
 import background from '../assets/RPSLS.png';
 
-import { Button, Image, View, TouchableOpacity, Text } from "react-native";
+// STYLED COMPONENTS
+const HomeContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: #bbe5ed;
+`;
 
 const HomeTitleText = styled.Text`
   font-size: 48px;
@@ -13,14 +21,6 @@ const HomeTitleText = styled.Text`
 const HomeText = styled.Text`
   font-style: italic;
   margin-top: 10px;
-`;
-
-const HomeContainer = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  background: #bbe5ed;
 `;
 
 const StartImage = styled.Image`
@@ -48,6 +48,7 @@ const StartScreen = ({navigation}) => {
   const navigateToUserPick = () => {
     navigation.navigate("UserPick")
   }
+  
   return (
     <HomeContainer>
       <HomeTitleText>Let's play!</HomeTitleText>
