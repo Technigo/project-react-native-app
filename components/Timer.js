@@ -6,74 +6,74 @@ import {NewButton, ButtonText, Container, Number, ButtonContainer} from './Style
 
 
 export const Timer = ({route, navigation}) => {
-    const {routeTime} = route.params;
+    const {routeTime} = route.params; //Gets the time that is set in the HomeScreen
 
-    const [time, setTime] = useState(routeTime)
-    const [count, setCount] = useState(time);
-    const [counter, setCounter] = useState(false)
+    const [minutes, setMinutes] = useState(routeTime);
     const [seconds, setSeconds] = useState(0)
-
+    const [counter, setCounter] = useState(false)
+    const [timerDone, setTimerDone] = useState(false)
     const [isPressed, setIsPressed] = useState(false)
 
-    const countDown = () =>{
+    const startCount = () => {
         setCounter(true)
-        setSeconds(59)
+        setSeconds(seconds === 0 ? 59 : seconds - 1)
     }
 
-    const resetCount = () =>{
+    const stopCount = () => {
         setCounter(false)
-        setCount(time)
     }
 
-    const stopCount = () =>{
+    const resetCount = () => {
         setCounter(false)
+        setMinutes(routeTime)
+        setSeconds(0)
+        setTimerDone(false)
     }
 
 
     useEffect(() => {
         if(counter) {
-            if (count > 0){
-                seconds === 59 ? setCount(count - 1) : ''
+            if (minutes > 0){
+                seconds === 59 ? setMinutes(minutes - 1) : ''
                 const secondsInterval = setInterval(()=> {
                         seconds > 0 ? setSeconds(seconds - 1) : setSeconds(59)
                 }, 1000);
                 
-                return () => {clearInterval(secondsInterval)}}
-            else if (count === 0){
-            const lastSecondsInterval = setInterval(()=> {
-                seconds > 0 ? setSeconds(seconds - 1) : setSeconds(0)
-        }, 1000);
-        
-        return () => {clearInterval(lastSecondsInterval)}}
+                return () => {clearInterval(secondsInterval)}
+
+            } else if (minutes === 0){
+                const lastSecondsInterval = setInterval(()=> {
+                    seconds > 0 ? setSeconds(seconds - 1) : setSeconds(0)
+                }, 1000);
+                
+                (minutes === 0 && seconds === 0) ? setTimerDone(true) : setTimerDone(false)
+
+                return () => {clearInterval(lastSecondsInterval)}
+            }
         }
+
         },[seconds]);
         
 
-    console.log('run every second', count)
-
-   
-
     return (
         <Container>
-
-            
-    <Number>{count < 10 ? "0" :""}{count}:{seconds < 10 ? "0" :""}{seconds}</Number>
+            <Number>{minutes < 10 ? "0" :""}{minutes}:{seconds < 10 ? "0" :""}{seconds}</Number>
             <ButtonContainer>
-            <NewButton onPress={() => {
-                isPressed ? stopCount() : countDown(), 
-                setIsPressed(!isPressed) 
-                }} title="Start">
-                <ButtonText>{isPressed ? "Pause" : "Start"}</ButtonText>
-            </NewButton>
-
-            <NewButton onPress={() => { 
-                resetCount(), 
-                setIsPressed(false)
-                }} title="Reset">
-                <ButtonText>Start over</ButtonText>
-            </NewButton>
+                {!timerDone &&
+                    <NewButton onPress={() => {
+                        isPressed ? stopCount() : startCount(), setIsPressed(!isPressed) 
+                        }} title="Start">
+                        <ButtonText>{isPressed ? "Pause" : "Start"}</ButtonText>
+                    </NewButton>
+                }
+                <NewButton onPress={() => { 
+                    resetCount(), 
+                    setIsPressed(false)
+                    }} title="Reset">
+                    <ButtonText>Start over</ButtonText>
+                </NewButton>
             </ButtonContainer>
-
+            {timerDone && <Text>Well done!</Text>}
         </Container>
     )
 }

@@ -8,7 +8,7 @@ import {NewButton, ButtonText, Container, Paragraph, Number,ButtonContainer} fro
 export const HomeScreen = ({navigation}) => {
     
     const [modalVisible, setModalVisible] = useState(false)
-    const [userTime, setUserTime] = useState(30)
+    const [userTime, setUserTime] = useState(10)
 
     const setMeditationTime = () => {
         setModalVisible(true)
