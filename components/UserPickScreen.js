@@ -13,7 +13,6 @@ const InfoText = styled.Text`
   font-size: 48px;
   text-align: center;
   padding-top: 20px;
-  background: blue;
 `;
 
 const InfoContainer = styled.View`
@@ -21,24 +20,23 @@ const InfoContainer = styled.View`
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: grey;
+  background: lightblue;
 `;
 
 const ImagesContainer = styled.View`
-  flex: 2;
+  flex: 1.5;
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background: pink;
 `;
 
 const LowerContainer = styled.View`
   flex: 1;
+  width: 100%;
   justify-content: center;
-  align-items: flex-start;
-  background: yellow;
+  align-items: center;
 `;
 
 const ChoiceImage = styled.Image`
@@ -47,27 +45,25 @@ const ChoiceImage = styled.Image`
 `;
 
 const LinkImage = styled.TouchableOpacity`
-  height: 120px;'
+  height: 120px;
   width: 100px;
-  border: 2px solid black;
-  background: green;
   justify-content: center;
   align-items: center;
 `;
 
 const NextButton = styled.TouchableOpacity`
-  height: 100px;
-  width: 150px;
+  height: 70px;
+  width: 90%;
   background: white;
   color: black;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
-  margin: 10px;
+  border-radius: 5px;
+  margin-top: 40px;
 `;
 
 const ButtonText = styled.Text`
-  font-size: 40px;
+  font-size: 30px;
 `;
 
 const UserPickScreen = ({ navigation}) => {

@@ -13,26 +13,28 @@ const HomeContainer = styled.View`
   align-items: center;
   justify-content: center;
   padding: 18px;
+  background: lightblue;
 `;
 
 const StartImage = styled.Image`
   height: 250px;
   width: 250px;
+  margin-top: 50px;
 `;
 
 const NextButton = styled.TouchableOpacity`
-  height: 100px;
-  width: 150px;
+  height: 70px;
+  width: 90%;
   background: white;
   color: black;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
-  margin: 10px;
+  border-radius: 5px;
+  margin-top: 50px;
 `;
 
 const ButtonText = styled.Text`
-  font-size: 40px;
+  font-size: 30px;
 `;
 
 const StartScreen = ({navigation}) => {
@@ -41,11 +43,11 @@ const StartScreen = ({navigation}) => {
   }
   return (
     <HomeContainer>
-      <HomeText>Lets play!</HomeText>
+      <HomeText>Let's play!</HomeText>
       <Text>Rock, Paper, Scissors, Lizard, Spock</Text>
       <StartImage source={background}></StartImage>
       <NextButton onPress={navigateToUserPick} >
-        <ButtonText>Start</ButtonText>
+        <ButtonText>START</ButtonText>
       </NextButton>
     </HomeContainer>
   )
