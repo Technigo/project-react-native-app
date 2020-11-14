@@ -103,7 +103,7 @@ const SunButton = styled.TouchableOpacity`
     padding: 5px;
     position: absolute;
     top: 5px; 
-    left: 110px;     
+    left: 140px;     
 `;
 
 const FlowerButton = styled.TouchableOpacity`
@@ -111,7 +111,7 @@ const FlowerButton = styled.TouchableOpacity`
     height: 40%;   
     padding: 5px;
     position: absolute;
-    top: 130px; 
+    top: 150px; 
     left: 5px;     
 `;
 
@@ -120,7 +120,7 @@ const BirdButton = styled.TouchableOpacity`
     height: 40%;   
     padding: 5px;
     position: absolute;
-    top: 110px; 
+    top: 140px; 
     left: 110px;     
 `;
 
@@ -129,7 +129,7 @@ const HandButton = styled.TouchableOpacity`
     height: 45%;   
     padding: 5px;
     position: absolute;
-    top: 350px; 
+    top: 370px;     
     left: 15px;     
 `;
 
@@ -138,8 +138,8 @@ const LeafButton = styled.TouchableOpacity`
     height: 30%;   
     padding: 5px;
     position: absolute;
-    top: 300px; 
-    left: 130px;     
+    top: 350px; 
+    left: 160px;     
 `;
 
 const BlueFlowerButton = styled.TouchableOpacity`
@@ -147,7 +147,7 @@ const BlueFlowerButton = styled.TouchableOpacity`
     height: 30%;   
     padding: 5px;
     position: absolute;
-    top: 450px; 
+    top: 480px; 
     left: 125px;     
 `;
 
