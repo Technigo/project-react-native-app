@@ -9,10 +9,11 @@ import lizard from '../assets/lizard.png';
 import spock from '../assets/spock.png';
 
 const InfoText = styled.Text`
-  flex: 1;
   font-size: 48px;
+  color: white;
+  text-shadow: 2px 2px black;
   text-align: center;
-  padding-top: 20px;
+  margin-top: 20px;
 `;
 
 const InfoContainer = styled.View`
@@ -24,12 +25,12 @@ const InfoContainer = styled.View`
 `;
 
 const ImagesContainer = styled.View`
-  flex: 1.5;
+  flex: 1;
   width: 100%;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
 `;
 
 const LowerContainer = styled.View`
@@ -54,8 +55,7 @@ const LinkImage = styled.TouchableOpacity`
 const NextButton = styled.TouchableOpacity`
   height: 70px;
   width: 90%;
-  background: white;
-  color: black;
+  background: #3e92cc;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
@@ -63,7 +63,8 @@ const NextButton = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  font-size: 30px;
+  font-size: 25px;
+  color: white;
 `;
 
 const UserPickScreen = ({ navigation}) => {
@@ -105,10 +106,6 @@ const UserPickScreen = ({ navigation}) => {
       userChoice: userPick, 
       userImage: userImage
     });
-      console.log('userPick: ' + userPick);
-    console.log('compPick: ' + compPick);
-    console.log('userImage' + userImage)
-
   }
 
   return (
