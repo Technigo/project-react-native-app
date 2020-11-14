@@ -18,7 +18,7 @@ const HeaderContainer = styled.View`
 const HeaderText = styled.Text`
   font-size: 25px;
   font-weight: bold;
-  padding: 15px 0;
+  padding: 25px 0 15px 0;
 `;
 
 const SubHeaderText = styled.Text`

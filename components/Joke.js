@@ -17,7 +17,7 @@ const Joke = ({ route }) => {
     fetch(JOKE_URL)
       .then(response => response.json())
       .then(json => {
-        if (json.flags.racist || json.flags.religious) {
+        if (json.flags.racist || json.flags.religious || json.flags.nsfw) {
           reFetchData();
         } else {
           setJoke(json);
