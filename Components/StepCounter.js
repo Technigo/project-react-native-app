@@ -1,61 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components/native';
 import { Pedometer } from 'expo-sensors';
 
-// for future use rember this; npm install --save styled-components, frickin awesome //
-import styled from 'styled-components/native';
-
 const Container = styled.View`
-  align-items: center;
-  justify-content: center;
+justify-content: center;
+align-items: center;
+top: 50px;
 `
 
-const Title = styled.Text `
-  color: red;
-  margin: 8px;
+const Title = styled.Text`
   font-size: 15px;
+  margin: 10px;
+  color: 'rgb(rgb(0, 0, 0)';
 `
 
-const StepCounter = () => {
-  const [currentSteps, setCurrentSteps] = useState(0);
-  const [previousSteps, setPreviousSteps] = useState(0);
-  const [weeklySteps, setWeeklySteps ] = useState(0);
+  const StepCounter = () => {
+    const [currentSteps, setCurrentSteps] = useState(0);
+    const [previousSteps, setPreviousSteps] = useState(0);
+    const [weeklySteps, setWeeklySteps ] = useState(0);
 
-  const start = new Date();
-  const end = new Date();
-  start.setDate(end.getDate() - 1);
+    const end = new Date();
+    const start = new Date();
+    start.setDate(end.getDate() - 1);
 
-  const weeklyStart = new Date();
-  const weeklyEnd = new Date();
-  weeklyStart.setDate(weeklyEnd.getDate() - 7);
+    const weekEnd = new Date();
+    const weekStart = new Date();
+    weekStart.setDate(weekEnd.getDate() - 7);
 
-
-  useEffect(() => {
-    Pedometer.updateStepCount(result => {
-      setCurrentSteps(result.steps);
-    })
-    Pedometer.getSteps(start, end)
-     .then(result => {
-       setPreviousSteps(result.step);
-     })
-     Pedometer.getSteps(weeklyStart, weeklyEnd)
-      .then(result => {
-        setWeeklySteps(result.steps);
+    useEffect(() => {
+      Pedometer.watchStepCount(result => {
+        setCurrentSteps(result.steps)
       })
-  }) 
+      Pedometer.getStepCountAsync(start, end)
+        .then(result => {
+          setPreviousSteps(result.steps);
+        })
+      Pedometer.getStepCountAsync(weekStart, weekEnd)
+        .then(result => {
+          setWeeklySteps(result.steps);
+        })
+    });
 
-  return (
-    <Container>
-      <Title>
-        Live stepometer: {currentSteps}
-      </Title>
-      <Title>
-        Number of steps taken today: {previousSteps}
-      </Title>
-      <Title>
-        Number of steps taken last seven days: {weeklySteps}
-      </Title>
-    </Container>
-  )
-}
+    return (
+      <Container>
+        <Title>
+          Live stepometer: {currentSteps}
+        </Title>
+        <Title>
+          Number of steps taken today: {previousSteps}
+        </Title>
+        <Title>
+          Number of steps taken last seven days: {weeklySteps}
+        </Title>
+      </Container>
+    );
+};
 
-export default StepCounter 
+export default StepCounter
