@@ -103,7 +103,7 @@ const SunButton = styled.TouchableOpacity`
     padding: 5px;
     position: absolute;
     top: 5px; 
-    left: 140px;     
+    left: 130px;     
 `;
 
 const FlowerButton = styled.TouchableOpacity`

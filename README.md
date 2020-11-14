@@ -29,5 +29,5 @@ I decided to go with creating a multiscreen app using react navigation.
 5. Stack Overflow. 
 
 ## View it live
-Link to my expo snack where I published my github repo
+Link to my expo snack where I published my github repo 
 
