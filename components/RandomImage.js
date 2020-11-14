@@ -14,9 +14,9 @@ const FoxImage = styled.Image`
 
 const RandomImage = ({ image }) => {
   return (
-    <ImageFrame>
-      <FoxImage resizeMode='cover' source={{ uri: image }}></FoxImage>
-    </ImageFrame>
+    // <ImageFrame>
+    <FoxImage resizeMode='cover' source={{ uri: image }}></FoxImage>
+    // </ImageFrame>
   );
 };
 

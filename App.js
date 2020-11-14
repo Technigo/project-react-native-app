@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { Text } from 'react-native';
 
 import Header from './components/Header';
+import Loading from './components/Loading';
 import RandomImage from './components/RandomImage';
 
 const Container = styled.SafeAreaView`
@@ -28,25 +28,28 @@ const ButtonText = styled.Text`
 
 const App = () => {
   const [image, setImage] = useState();
-
-  useEffect(() => {
-    fetch('https://randomfox.ca/floof/')
-      .then(res => res.json())
-      .then(json => setImage(json.image))
-      .catch(err => console.error(err));
-  }, []);
+  const [loading, setLoading] = useState();
 
   const generateNewImage = () => {
+    setLoading(true);
     fetch('https://randomfox.ca/floof/')
       .then(res => res.json())
       .then(json => setImage(json.image))
-      .catch(err => console.error(err));
-  }
+      .catch(err => console.error(err))
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    setLoading(true);
+  }, []);
 
   return (
     <Container>
       <Header />
-      <RandomImage image={image} />
+      {loading
+        ? <Loading />
+        : <RandomImage image={image} />
+      }
       <StyledButton
         onPress={generateNewImage}
       >
