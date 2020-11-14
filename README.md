@@ -22,4 +22,5 @@ If I had more time I would have made the button disabled or hidden it if the use
 
 ## View it live
 
--
+https://expo.io/@annahellqvist/projects/rock-paper-scissors-lizard-spock
+
