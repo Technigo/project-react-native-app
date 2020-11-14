@@ -2,7 +2,7 @@ import React from 'react';
 import StepCounter from './Components/StepCounter';
 import { Icon } from 'react-native-elements';
 
-// for future use rember this; npm install --save styled-components, frickin awesome. Important to rember to use /native or else errormessages will appear. //
+// frickin awesome. Important to rember to use /native or else errormessages will appear. //
 import styled from 'styled-components/native';
 
 
