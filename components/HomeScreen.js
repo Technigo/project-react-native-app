@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Text, Modal} from 'react-native'
 import styled from 'styled-components/native'
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 
 import {NewButton, ButtonText, Container, Paragraph, Number,ButtonContainer} from './StyledAppComponents'
@@ -16,7 +18,10 @@ export const HomeScreen = ({navigation}) => {
 
     const Input = styled.TextInput`
     width: 200px;
+    height: 100px;
     border-radius: 10px;
+    border-color: rgb(58, 15, 76)
+    border-width: 2px;
     font-size: 40px;
     text-align: center;
 
@@ -25,15 +30,36 @@ export const HomeScreen = ({navigation}) => {
     const ModalView = styled.View`
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgb(235, 196, 218);
     padding: 20px;
     border-radius: 20px;
-    margin: 0;
+    margin: 0; 
+
+    `
+
+    const Header = styled.View`
+    background-color: rgb(58, 15, 76);
+    align-items: center;
+    text-align: center;
+    padding-top: 40px;
+    `
+
+    const HeaderText = styled.Text `
+    width: 100%;
+    font-size: 20px;
+    color: rgb(235, 196, 218);
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
     `
 
     return (
+        <LinearGradient colors={['rgba(58, 15, 76, 1)','rgba(97, 14, 159, 1)','rgba(135, 30, 170, 1)']}
+        style={{flex: 1}}>
+        <Header><HeaderText>Elephant Meditation</HeaderText></Header>
         <Container>
-            <Paragraph>Meditation time: {userTime} min</Paragraph>
+            
+            <Number>{userTime} min</Number>
             <ButtonContainer>
                 <NewButton onPress={()=>navigation.navigate('Timer', {routeTime: userTime})}>
                 <ButtonText>Meditate</ButtonText>
@@ -48,20 +74,21 @@ export const HomeScreen = ({navigation}) => {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={()=>{setModalVisible(false)}}
-                
             >
                 <Container>
                     <ModalView>
-                        <Paragraph>Set meditation time</Paragraph>
+                        <Paragraph style={{color: "rgb(58, 15, 76)"}}>Set meditation time</Paragraph>
                         <Input
-                            style={{height: 100, borderColor:'gray', borderWidth: 2}}
+                            style={{}}
                             keyboardType="number-pad"
                             onSubmitEditing={text => {setUserTime(text.nativeEvent.text), setModalVisible(false)}}
                         ></Input>
                     </ModalView>
                 </Container>
             </Modal>
+            
         </Container>
+        </LinearGradient>
     )
 }
 

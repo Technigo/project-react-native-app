@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {Text, View, Button, TextInput, TouchableOpacity, Modal, Alert} from 'react-native'
 import styled from 'styled-components/native'
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 import {NewButton, ButtonText, Container, Number, ButtonContainer} from './StyledAppComponents'
 
@@ -10,9 +12,9 @@ export const Timer = ({route, navigation}) => {
 
     const [minutes, setMinutes] = useState(routeTime);
     const [seconds, setSeconds] = useState(0)
-    const [counter, setCounter] = useState(false)
+    const [counter, setCounter] = useState(true)
     const [timerDone, setTimerDone] = useState(false)
-    const [isPressed, setIsPressed] = useState(false)
+    const [isPressed, setIsPressed] = useState(true)
 
     const startCount = () => {
         setCounter(true)
@@ -56,6 +58,8 @@ export const Timer = ({route, navigation}) => {
         
 
     return (
+        <LinearGradient colors={['rgba(58, 15, 76, 1)','rgba(97, 14, 159, 1)','rgba(135, 30, 170, 1)']}
+        style={{flex: 1}}>
         <Container>
             <Number>{minutes < 10 ? "0" :""}{minutes}:{seconds < 10 ? "0" :""}{seconds}</Number>
             <ButtonContainer>
@@ -75,6 +79,7 @@ export const Timer = ({route, navigation}) => {
             </ButtonContainer>
             {timerDone && <Text>Well done!</Text>}
         </Container>
+        </LinearGradient>
     )
 }
 
