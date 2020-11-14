@@ -17,19 +17,20 @@ const WelcomeText = styled.Text`
   margin: 30px;
 `
 
-const LatesReportButton = styled.TouchableOpacity`
+const HomeScreenButton = styled.TouchableOpacity`
   background-color: white;
   border: 2px solid white;
   border-radius: 8px;
   padding: 10px;
   color: black;
-  width: 50%;
+  width: 60%;
   text-align: center;
   margin: 30px;
 `
 
 const ButtonText = styled.Text` 
   font-size: 18px;
+  text-align: center;
 `
 
 
@@ -42,16 +43,25 @@ export const HomeScreen = ({ navigation }) => {
     navigation.navigate("LatestReport");
   };
 
+  const toAbout = () => {
+    navigation.navigate("About");
+  }
+
   return (
     <HomeContainer source={mars}>
       <WelcomeText>
         Wonder how the weather looks like on Mars?
       </WelcomeText>
-      <LatesReportButton
+      <HomeScreenButton
         onPress={toLatestReport}
       >
-        <ButtonText>Get the latest report from Elysium Planitia</ButtonText>
-      </LatesReportButton>
+        <ButtonText>See latest report</ButtonText>
+      </HomeScreenButton>
+      <HomeScreenButton
+        onPress={toAbout}
+      >
+        <ButtonText>Learn more</ButtonText>
+      </HomeScreenButton>
     </HomeContainer>
   )
 };
