@@ -29,10 +29,12 @@ I decided to go with creating a multiscreen app using react navigation.
 5. Stack Overflow. 
 
 ## View it live
-Link to my expo snack where I published my github repo
-https://snack.expo.io/@git/github.com/ClaireCaudwell/project-react-native-app
+Link to my snack on expo.io:
+https://snack.expo.io/@clairecaudwell/github.com-clairecaudwell-project-react-native-app
 
-When viewing the proportions are a but different to how I viewed it in the chrome browser with the iphone X view on in the devtools. The best way to view it from the expo snack is: 
+If you get red dependancy errors at the bottom of the screen just click on "add dependancy" and then the snack should load. You might need to do this a few times.
+
+When viewing my project in the snack some of the proportions are different to how I saw them when I was styling both the home and quote page. When I was working on it I viewed it in chrome with the iphone X view on in the devtools. The best way to view it from the expo snack is: 
 
 📱 On a iphone X if you scan the VR code.
-💻 In the web option and be sure to click on the open in new browser icon and make the screen slightly bigger dragging the bottom left corner.
+💻 In the web option and be sure to click on the open in new browser icon and make the screen slightly bigger dragging the bottom right corner.
