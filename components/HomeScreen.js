@@ -9,7 +9,7 @@ import {
   ButtonMovieText,
 } from '../styled-components/styles';
 
-const MOVIE_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
+const MOVIE_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
 
 const HomeScreen = ({ navigation }) => {
   const [randomMovie, setRandomMovie] = useState([]);
@@ -17,29 +17,27 @@ const HomeScreen = ({ navigation }) => {
 
   const fetchRandomMovie = () => {
     fetch(MOVIE_URL)
-      .then(result => result.json())
+      .then(result => {
+        if (result.ok) {
+          return result.json();
+        } else {
+          throw new Error('404');
+        }
+      })
       .then(json => {
         setRandomMovie(
           json.results[Math.floor(Math.random() * json.results.length)]
         );
         setIsLoading(false);
+      })
+      .catch(() => {
+        console.log('error');
       });
   };
 
   useEffect(() => {
     fetchRandomMovie();
   }, []);
-
-  // useEffect(() => {
-  //   fetch(MOVIE_URL)
-  //     .then(result => result.json())
-  //     .then(json => {
-  //       setRandomMovie(
-  //         json.results[Math.floor(Math.random() * json.results.length)]
-  //       );
-  //       setIsLoading(false);
-  //     });
-  // }, []);
 
   return (
     <>
@@ -55,7 +53,7 @@ const HomeScreen = ({ navigation }) => {
               });
             }}
           >
-            <ButtonMovieText>Shake to find random movie</ButtonMovieText>
+            <ButtonMovieText>Find a random movie</ButtonMovieText>
           </ButtonMovie>
         </HomeMainContainer>
       )}
