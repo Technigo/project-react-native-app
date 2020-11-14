@@ -121,7 +121,7 @@ const BirdButton = styled.TouchableOpacity`
     padding: 5px;
     position: absolute;
     top: 110px; 
-    left: 130px;     
+    left: 110px;     
 `;
 
 const HandButton = styled.TouchableOpacity`
@@ -138,7 +138,7 @@ const LeafButton = styled.TouchableOpacity`
     height: 30%;   
     padding: 5px;
     position: absolute;
-    top: 350px; 
+    top: 300px; 
     left: 130px;     
 `;
 
@@ -147,7 +147,7 @@ const BlueFlowerButton = styled.TouchableOpacity`
     height: 30%;   
     padding: 5px;
     position: absolute;
-    top: 480px; 
+    top: 450px; 
     left: 125px;     
 `;
 

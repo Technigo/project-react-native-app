@@ -56,7 +56,7 @@ const BackgroundImageContainer = styled.ImageBackground`
     width: 98%; 
     height: 100%;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: center; 
 `;
 
 const QuoteContainer = styled.View`
