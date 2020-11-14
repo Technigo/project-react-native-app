@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components/native";
+import { Vibration } from "react-native";
 
 const Joke = ({ route }) => {
   const [joke, setJoke] = useState({});
@@ -24,6 +25,11 @@ const Joke = ({ route }) => {
       });
   };
 
+  const vibrateDevice = () => {
+    Vibration.vibrate();
+    reFetchData();
+  };
+
   return (
     <MainContainer>
       <JokeContainer>
@@ -36,7 +42,7 @@ const Joke = ({ route }) => {
         )}
         {joke.type === "single" && <SetupText>{joke.joke}</SetupText>}
       </JokeContainer>
-      <RefreshButton onPress={() => reFetchData()}>
+      <RefreshButton onPress={() => vibrateDevice()}>
         <RefreshButtonText>New Joke</RefreshButtonText>
       </RefreshButton>
     </MainContainer>
