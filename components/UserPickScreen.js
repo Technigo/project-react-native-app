@@ -21,7 +21,7 @@ const InfoContainer = styled.View`
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: lightblue;
+  background: #bbe5ed;
 `;
 
 const ImagesContainer = styled.View`
