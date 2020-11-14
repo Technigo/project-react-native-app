@@ -4,8 +4,15 @@ import background from '../assets/RPSLS.png';
 
 import { Button, Image, View, TouchableOpacity, Text } from "react-native";
 
-const HomeText = styled.Text`
+const HomeTitleText = styled.Text`
   font-size: 48px;
+  color: white;
+  text-shadow: 2px 2px black;
+`;
+
+const HomeText = styled.Text`
+  font-style: italic;
+  margin-top: 10px;
 `;
 
 const HomeContainer = styled.View`
@@ -13,20 +20,19 @@ const HomeContainer = styled.View`
   align-items: center;
   justify-content: center;
   padding: 18px;
-  background: lightblue;
+  background: #bbe5ed;
 `;
 
 const StartImage = styled.Image`
-  height: 250px;
-  width: 250px;
-  margin-top: 50px;
+  height: 275px;
+  width: 275px;
+  margin-top: 30px;
 `;
 
 const NextButton = styled.TouchableOpacity`
   height: 70px;
   width: 90%;
-  background: white;
-  color: black;
+  background: #3e92cc;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
@@ -34,7 +40,8 @@ const NextButton = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  font-size: 30px;
+  font-size: 25px;
+  color: white;
 `;
 
 const StartScreen = ({navigation}) => {
@@ -43,11 +50,11 @@ const StartScreen = ({navigation}) => {
   }
   return (
     <HomeContainer>
-      <HomeText>Let's play!</HomeText>
-      <Text>Rock, Paper, Scissors, Lizard, Spock</Text>
+      <HomeTitleText>Let's play!</HomeTitleText>
+      <HomeText>Rock, Paper, Scissors, Lizard, Spock</HomeText>
       <StartImage source={background}></StartImage>
       <NextButton onPress={navigateToUserPick} >
-        <ButtonText>START</ButtonText>
+        <ButtonText>Start game</ButtonText>
       </NextButton>
     </HomeContainer>
   )
