@@ -29,5 +29,10 @@ I decided to go with creating a multiscreen app using react navigation.
 5. Stack Overflow. 
 
 ## View it live
-Link to my expo snack where I published my github repo 
+Link to my expo snack where I published my github repo
+https://snack.expo.io/@git/github.com/ClaireCaudwell/project-react-native-app
 
+When viewing the proportions are a but different to how I viewed it in the chrome browser with the iphone X view on in the devtools. The best way to view it from the expo snack is: 
+
+📱 On a iphone X if you scan the VR code.
+💻 In the web option and be sure to click on the open in new browser icon and make the screen slightly bigger dragging the bottom left corner.
