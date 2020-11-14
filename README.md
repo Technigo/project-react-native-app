@@ -1,6 +1,6 @@
 # Project React Native App 📱
 
-This project is a mobile app built with React Native, making use of styled components. The app is a multi-site Kanye West Quote-Generator, and it fetches an api with Kanye West quote for the user to interact with. There is a homepage that takes the user to a second page with a button, and a second page where quotes are generated on refresh by pulling down the screen. The app is tested on an iPhone X.
+This project is a mobile app built with React Native, making use of styled components. The app is a multi-site Kanye West Quote-Generator, and it fetches an api with Kanye West quote for the user to interact with. There is a homepage that, with a button, takes the user to a second page where quotes are generated on refresh by pulling down the screen. The app is tested on an iPhone X.
 
 For this project I have explored:
 
