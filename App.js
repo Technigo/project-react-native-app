@@ -26,7 +26,6 @@ const Title = styled.Text`
   color: 'rgb(0, 0, 0)';
 `
 
-
 const App = () => {
   return (
     <Container>
