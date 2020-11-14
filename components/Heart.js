@@ -47,9 +47,7 @@ const ButtonText = styled.Text`
 `;
 
 const ViewContainer = styled.View`
-    height: 700px;
-    align-items: center;
-    justify-content: flex-start; 
+    height: 700px;    
 `;
 
 const BackgroundImageContainer = styled.ImageBackground`

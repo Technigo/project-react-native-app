@@ -111,7 +111,7 @@ const FlowerButton = styled.TouchableOpacity`
     height: 40%;   
     padding: 5px;
     position: absolute;
-    top: 150px; 
+    top: 130px; 
     left: 5px;     
 `;
 
@@ -129,7 +129,7 @@ const HandButton = styled.TouchableOpacity`
     height: 45%;   
     padding: 5px;
     position: absolute;
-    top: 370px; 
+    top: 350px; 
     left: 15px;     
 `;
 
