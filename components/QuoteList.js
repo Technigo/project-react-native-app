@@ -49,7 +49,10 @@ const QuoteList = ({navigation}) => {
                     <BlueFlowerButton onPress={()=> navigation.navigate('Blue Flower')}>
                         <IconImage source={StaticImages.BlueFlower} resizeMode={'contain'}/> 
                     </BlueFlowerButton>
-                </ButtonContainer>                 
+                </ButtonContainer>
+                <TextContainer>
+                    <FooterText>Uplifting quotes created by Claire Caudwell 202 for the Technigo Bootcamp</FooterText>
+                </TextContainer>                
             </ViewContainer>
         </SafeAreaView>      
     );
@@ -154,6 +157,15 @@ const BlueFlowerButton = styled.TouchableOpacity`
 const IconImage = styled.Image`
     width: 100%;
     height: 100%;     
+`;
+
+const FooterText = styled.Text`
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: rgb(236, 222, 95);
+    padding: 10px;
+    font-weight: 600;
 `;
 
 const styles = StyleSheet.create({
