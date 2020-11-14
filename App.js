@@ -13,7 +13,7 @@ const App = () => {
   return (
     <NavigationContainer> 
         <Stack.Navigator>
-          <Stack.Screen name='Home' component={HomePage}/>
+          <Stack.Screen name='Home' component={HomePage} options={{ headerShown: false }}/>
           <Stack.Screen name='Now playing' component={MovieList} />
           <Stack.Screen name='Movie detail' component={MovieDetail}/>  
         </Stack.Navigator>
@@ -21,4 +21,3 @@ const App = () => {
   );
 };
 export default App;
-

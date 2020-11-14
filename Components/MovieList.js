@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import styled from 'styled-components/native';
+import { LinearGradient } from 'expo-linear-gradient';
 import Lottie from './Lottie';
+import { ListContainer, ListView, Button, Title } from '../styled-components/styles';
 
 const MovieList = ({ navigation }) => {
   const [movieList, setMovieList] = useState([]);
@@ -16,23 +17,33 @@ const MovieList = ({ navigation }) => {
       if (res.ok) {
         return res.json();
       } else {
-        throw new Error('404')
+        throw new Error('404');
       }
     })
     .then(json => {
-      setMovieList(json.results)
-      setIsLoading(false)
+      setMovieList(json.results);
+      setIsLoading(false);
     })
     .catch(() => {
-      console.log('error')
+      console.log('error');
     });
   }, []);
-  //console.log(movieList)
 
   return (
     <>
-      {isLoading ? <Lottie /> : (
+     {isLoading ? <Lottie /> : (
       <ListContainer>
+        <LinearGradient 
+          colors={['rgba(0,0,0,0.8)', 'transparent']}
+          style={{ 
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height: 500,
+          }}  
+        />
+        <ListView>
         {movieList.map(movie => (
           <Button
             key={movie.id}
@@ -41,30 +52,10 @@ const MovieList = ({ navigation }) => {
             <Title>{movie.original_title}</Title>
           </Button> 
         ))}
+        </ListView>
       </ListContainer>
-      )} 
+      )}  
     </>
   );
 };
 export default MovieList;
-
-const ListContainer = styled.ScrollView `
-  background-color: #000;
-  flex: 1;
-  padding-top: 20px;
-  
-`
-const Button = styled.TouchableOpacity `
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 90%;
-  border-radius: 10px;
-  align-self: center; 
-  align-items: center; 
-  border: 1px solid #571E59;
-`
-const Title = styled.Text `
-  color: #F8F2E7;
-  font-size: 16px;
-  font-weight: bold;
-`
