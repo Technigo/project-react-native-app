@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-import { Container } from './Container'
+import { Container, TextContainer } from './Container'
 import { Text, Headline } from './Text'
 
 const Wrapper = styled.View`
@@ -12,10 +12,11 @@ background: #000;
 export const RecipeDetails = (props) => {
     return (
         <Wrapper>
-            <Container source={props.route.params.image}>
-                {console.log(props.route.params.image)}
-                <Headline>{props.route.params.heading}</Headline>
-                <Text>{props.route.params.instructions}</Text>
+            <Container source={{ uri: props.route.params.image }}>
+                <TextContainer>
+                    <Headline>{props.route.params.heading}</Headline>
+                    <Text>{props.route.params.instructions}</Text>
+                </TextContainer>
             </Container>
         </Wrapper>
     )

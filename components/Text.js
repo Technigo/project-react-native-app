@@ -7,7 +7,7 @@ export const Text = styled.Text`
     padding: 10px;
     `
 export const Headline = styled.Text`
-color: #fff;
-font-size: 25px;
-font-weight: 600;
-`
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    `

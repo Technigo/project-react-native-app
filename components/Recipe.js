@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components/native'
 
-import { Container, Wrapper } from './Container'
-import { RecipeDetails } from './RecipeDetails'
+import { Container, Wrapper, TextContainer, Button } from './Container'
 import { Headline } from './Text'
 
 export const Recipe = ({ navigation }) => {
@@ -11,12 +9,12 @@ export const Recipe = ({ navigation }) => {
 
     const API__KEY = '2879ac1c5ce2405aa25090a67795070c'
     const URL = `https://api.spoonacular.com/recipes/random/?apiKey=${API__KEY}&number=3`
-    /* 
-        useEffect(() => {
-            navigation.setOptions({headerShown:false})
-        }, []) */
 
-    /* const cleanHtml = (data) => {
+    useEffect(() => {
+        navigation.setOptions({ headerShown: false })
+    }, [])
+
+    const cleanHtml = (data) => {
         const datainstructions = data.recipes[0].instructions.replace('<ol>', '')
         let x = removeStringElements(datainstructions, '<ol>')
         x = removeStringElements(x, '</ol>')
@@ -34,7 +32,7 @@ export const Recipe = ({ navigation }) => {
         while (newString.includes(subString)) {
             newString = newString.replace(subString, '')
         } return newString
-    } */
+    }
 
     const getRandomRecipes = () => {
         fetch(URL)
@@ -43,7 +41,7 @@ export const Recipe = ({ navigation }) => {
             })
             .then(data => {
                 setRecipes(data.recipes)
-                //setInstructions(cleanHtml(data))
+                setInstructions(cleanHtml(data))
             })
     }
 
@@ -51,57 +49,14 @@ export const Recipe = ({ navigation }) => {
         getRandomRecipes()
     }, [])
 
-    const TextContainer = styled.View`
-    flex: 1;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.3);
-    `
-
-    const Button = styled.TouchableOpacity`
-    flex: 1;
-    align-items: center;
-    width: 85%;
-    height: 20px;
-    `
-
-    /* How can I send in info from Recipe-fetch to be rendered in RecipeDetails 
-    using props? Do I mount my RecipeDetails here?*/
-
-    const array = [
-        {
-            title: 'Hejkon',
-            instructions: 'gör så här',
-            image: '../assets/banana.jpg',
-            id: '1'
-        },
-        {
-            title: 'Bejkon',
-            instructions: 'gör så här',
-            image: '../assets/banana.jpg',
-            id: '2'
-        },
-        {
-            title: 'Fejkon',
-            instructions: 'gör så här',
-            image: '../assets/banana.jpg',
-            id: '3'
-        },
-        {
-            title: 'Tjejkon',
-            instructions: 'gör så här',
-            image: '../assets/banana.jpg',
-            id: '4'
-        },
-    ]
-
     return (
         <Wrapper>
-            {array.map((recipe) => (
+            {recipes.map((recipe) => (
                 <Button
                     key={recipe.id}
                     onPress={() => navigation.navigate('Recipe-details', {
                         heading: recipe.title,
-                        instructions: recipe.instructions,
+                        instructions: instructions,
                         image: recipe.image
                     })}>
                     <Container source={{ uri: recipe.image }}>
