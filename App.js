@@ -2,10 +2,23 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 import HomeScreen from './components/HomeScreen';
+import {QuoteScreen} from './components/QuoteScreen';
 
+import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 const App = () => {
-  return <HomeScreen></HomeScreen>;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="Quote" component={QuoteScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  
+  )
 }
 
 export default App;
