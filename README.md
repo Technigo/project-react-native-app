@@ -36,5 +36,4 @@ If you get red dependancy errors at the bottom of the screen just click on "add 
 
 When viewing my project in the snack some of the proportions are different to how I saw them when I was styling both the home and quote page. When I was working on it I viewed it in chrome with the iphone X view on in the devtools. The best way to view it from the expo snack is: 
 
-📱 On a iphone X if you scan the VR code.
-💻 In the web option and be sure to click on the open in new browser icon and make the screen slightly bigger dragging the bottom right corner.
+📱 On a iphone X if you scan the VR code OR 💻 In the web option and be sure to click on the open in new browser icon and make the screen slightly bigger dragging the bottom right corner.
