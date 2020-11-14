@@ -4,6 +4,9 @@ This project features a COVID-19 tracker app that for now does not fetch any dat
 
 The numbers presented on the home screen have been collected from Google, and the Linear graph generates randomized numbers. 
 
+## Tech used:
+
+⭕️ React Native
 
 ## View it live
 
