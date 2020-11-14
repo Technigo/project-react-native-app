@@ -1,13 +1,10 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+This project features a COVID-19 tracker app that for now does not fetch any data from an API, but it does include some cool features such as the 'Tinder-like' swipe on the Deck component, and when the user clicks on the 3 grey dots on the 'Total Cases' card, they are presented with a graph featuring randomized data.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The numbers presented on the home screen have been collected from Google, and the Linear graph generates randomized numbers. 
 
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Here is the live project via Expo: https://expo.io/@katsiez/projects/project-react-native-app 
