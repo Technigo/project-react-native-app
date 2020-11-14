@@ -103,7 +103,7 @@ const SunButton = styled.TouchableOpacity`
     padding: 5px;
     position: absolute;
     top: 5px; 
-    left: 130px;     
+    left: 110px;     
 `;
 
 const FlowerButton = styled.TouchableOpacity`
@@ -120,7 +120,7 @@ const BirdButton = styled.TouchableOpacity`
     height: 40%;   
     padding: 5px;
     position: absolute;
-    top: 140px; 
+    top: 110px; 
     left: 130px;     
 `;
 
@@ -139,7 +139,7 @@ const LeafButton = styled.TouchableOpacity`
     padding: 5px;
     position: absolute;
     top: 350px; 
-    left: 160px;     
+    left: 130px;     
 `;
 
 const BlueFlowerButton = styled.TouchableOpacity`
