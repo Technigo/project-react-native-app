@@ -18,6 +18,7 @@ const InfoText = styled.Text`
   color: white;
   font-size: 15px;
   margin-bottom: 20px;
+  line-height: 18px;
 `
 const FooterBox = styled.View`
   width: 80%;

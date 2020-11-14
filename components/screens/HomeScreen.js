@@ -50,7 +50,7 @@ export const HomeScreen = ({ navigation }) => {
   return (
     <HomeContainer source={mars}>
       <WelcomeText>
-        Wonder how the weather looks like on Mars?
+        Do you wonder what the weather is like on Mars?
       </WelcomeText>
       <HomeScreenButton
         onPress={toLatestReport}
