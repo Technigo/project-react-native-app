@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
+import LottieView from 'lottie-react-native';
+import { Platform } from 'react-native';
 
 import Header from './components/Header';
 import Loading from './components/Loading';
 import RandomImage from './components/RandomImage';
+import TouchButton from './components/TouchButton';
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -12,19 +15,6 @@ const Container = styled.SafeAreaView`
   align-items: center;
   padding: 10px;
 `
-
-const StyledButton = styled.TouchableOpacity`
-  padding: 10px;
-  min-width: 100px;
-  border-radius: 5px;
-  background-color: brown;
-  `
-
-const ButtonText = styled.Text`
-    color: papayawhip;
-    font-size: 24px;
-    text-align: center;
-`;
 
 const App = () => {
   const [image, setImage] = useState();
@@ -46,15 +36,16 @@ const App = () => {
   return (
     <Container>
       <Header />
-      {loading
-        ? <Loading />
-        : <RandomImage image={image} />
+      {Platform.OS !== 'web' && loading && <LottieView
+        style={{ width: 250, height: 250 }}
+        autoPlay
+        loop
+        source={require('./assets/24969-sleepy-fox.json')}
+      />
       }
-      <StyledButton
-        onPress={generateNewImage}
-      >
-        <ButtonText>Shuffle</ButtonText>
-      </StyledButton>
+      {Platform.OS === 'web' && loading && <Loading />}
+      {!loading && <RandomImage image={image} />}
+      <TouchButton generateNewImage={generateNewImage} />
     </Container>
   );
 };
