@@ -28,7 +28,7 @@ export default class Chart extends Component {
                         ],
                     }}
                     width={Dimensions.get('window').width}
-                    height={320}
+                    height={220}
                     yAxisSuffix='k'
                     yAxisInterval={1}
                     chartConfig={{

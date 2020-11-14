@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
-import Icon from '@expo/vector-icons/Ionicons';
+import { AntDesign } from '@expo/vector-icons';
 import Chart from '../components/Chart';
 
 export default class Detail extends Component {
@@ -9,19 +9,15 @@ export default class Detail extends Component {
             <View style={styles.page}>
                 <View style={styles.headContainer}>
                     <View style={styles.humContainer}>
-                        <Icon
-                            name="md-remove"
-                            size={26}
-                        />
-                        <Icon
-                            name="md-remove"
-                            size={26}
-                            style={styles.hum}
+                        <AntDesign
+                            onPress={() => this.props.navigation.navigate('Home')}
+                            name="arrowleft" size={24} color="black"
                         />
                     </View>
                     <View style={styles.profileContainer}>
                         <Image
-                            source={require('../images/bg.jpg')}
+                            onPress={() => this.props.navigation.navigate('Home')}
+                            source={require('../images/girl.jpg')}
                             style={styles.profile}
                         />
                     </View>
@@ -36,11 +32,6 @@ export default class Detail extends Component {
                     <Text style={styles.textGlobal}>GLOBAL</Text>
                     <Text style={styles.textSweden}>SWEDEN</Text>
                     <View style={styles.reloadContainer}>
-                        <Icon
-                            name="md-refresh"
-                            size={24}
-                            color="red"
-                        />
                     </View>
                 </View>
 
@@ -72,7 +63,7 @@ const styles = StyleSheet.create({
     headContainer: {
         marginHorizontal: 20,
         flexDirection: 'row',
-        marginTop: 40
+        marginTop: 70
     },
     humContainer: {
         width: "50%"
@@ -105,20 +96,20 @@ const styles = StyleSheet.create({
         color: "#FFF",
         fontSize: 12,
         fontWeight: "bold",
-        marginTop: 200
+        marginTop: 20
     },
     textLogarthimic: {
         color: "#b8b8aa",
         fontWeight: "bold",
         fontSize: 12,
         marginLeft: 15,
-        marginTop: 200
+        marginTop: 20
     },
     locationContainer: {
         alignSelf: "center",
         flexDirection: "row",
         paddingHorizontal: 30,
-        marginTop: 70,
+        marginTop: 90,
         alignItems: "center"
     },
     textGlobal: {
@@ -145,7 +136,7 @@ const styles = StyleSheet.create({
     bottomCard: {
         backgroundColor: "#1c2732",
         height: 220,
-        marginTop: 20,
+        marginTop: 170,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
     },

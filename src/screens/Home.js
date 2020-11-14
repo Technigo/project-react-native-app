@@ -8,6 +8,7 @@ import {
     ImageBackground
 } from 'react-native';
 import Icon from '@expo/vector-icons/Ionicons';
+import RNShake from 'react-native-shake';
 import { ScrollView }
     from 'react-native'
 import Deck from '../components/Deck';
@@ -61,7 +62,8 @@ export default class Home extends Component {
         return (
             <View title="All Done!">
                 <Text style={styles.noCard}>NO MORE CARDS HERE</Text>
-                <Button backgroundColor="#03A9F4" title="Get more!" />
+                <Button backgroundColor="#03A9F4" title="Shake to reload"
+                />
             </View>
         );
     }
@@ -90,7 +92,7 @@ export default class Home extends Component {
                             />
                         </View>
                     </View>
-                    <Text style={styles.textDash}>CORONA DASH</Text>
+                    <Text style={styles.textDash}>#STAYHOME DASH</Text>
 
                     <View style={styles.colContainer}>
                         <Text style={styles.textGlobal}>GLOBAL</Text>
@@ -131,6 +133,7 @@ export default class Home extends Component {
                         number="113 329"
                     />
                 </ScrollView>
+
                 <View style={{ marginBottom: 34 }}>
                     <Buttons
                         name="ASYMPTOMATIC"
