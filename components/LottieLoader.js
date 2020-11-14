@@ -1,8 +1,8 @@
 import React from 'react';
 // to make Lottie work on web
-import LottieView from 'react-native-web-lottie';
+//import LottieView from 'react-native-web-lottie';
 // to make Lottie work on mobile
-//import LottieView from 'lottie-react-native';
+import LottieView from 'lottie-react-native';
 
 import { LottieContainer } from '../styled-components/styles';
 import LoadingAnimation from '../assets/animations/loader.json';

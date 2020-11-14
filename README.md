@@ -17,4 +17,4 @@ This is a mobile application built with React Native and Expo, using styled comp
 
 ## View it live
 
-View it in Expo here: https://expo.io/@sarahejhej/project-react-native-app
+View it in Expo here: https://expo.io/@sarahejhej/random-movie-app
