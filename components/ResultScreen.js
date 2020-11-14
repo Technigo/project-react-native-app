@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Text, Button } from "react-native";
+import { Text, Button, View, Image } from "react-native";
 
 const InfoText = styled.Text`
   font-size: 48px;
 `;
-
-// Måste ha height och width på bilderna
 
 const InfoContainer = styled.ImageBackground`
   flex: 1;
@@ -15,6 +13,10 @@ const InfoContainer = styled.ImageBackground`
   padding: 18px;
 `;
 
+const ResultImage = styled.Image`
+  width: 100px;
+  height: 100px;
+`;
 const ResultScreen = ({navigation, route}) => {
   const navigateToStart = () => {
     navigation.navigate("Start")
@@ -22,8 +24,13 @@ const ResultScreen = ({navigation, route}) => {
   return (
     <InfoContainer>
       <InfoText>Show result!</InfoText>
+      <View>
+        <ResultImage source={route.params.compChoice.imagePath}></ResultImage>
+        <ResultImage source={route.params.userImage}></ResultImage>
+
+      </View>
       <Button title="Play again!" onPress={navigateToStart} ></Button>
-      <Text>{route.params.compChoice}</Text>
+      <Text>{route.params.compChoice.choice}</Text>
       <Text>{route.params.userChoice}</Text>
     </InfoContainer>
   )
