@@ -27,7 +27,7 @@ const ButtonText = styled.Text`
 export const RandomDog = () => {
     const [dogs, setDogs] = useState({})      
     
-     const fetchDogs = () => {
+    const fetchDogs = () => {
         fetch('https://dog.ceo/api/breeds/image/random')
         .then((response) => response.json())
         .then((json) => { 

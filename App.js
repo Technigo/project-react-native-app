@@ -3,7 +3,6 @@ import styled from 'styled-components/native'
 import background from './assets/background.jpg'
 import { RandomDog } from './components/RandomDog'
 
-
 const Container = styled.ImageBackground`
   flex: 1;
   justify-content: center;
