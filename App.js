@@ -3,8 +3,6 @@ import React from 'react'
 // Components
 import StartScreen from './components/StartScreen';
 import TipScreen from './components/TipScreen';
-//import DisplayImage from './components/DisplayImage';
-//import Footer from './components/Footer';
 
 // Navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -22,7 +20,7 @@ const App = () => {
           component={StartScreen}
           options={{ title: 'Christmas countdown' }}
         />
-        <Stack.Screen name='Christmas tips' component={TipScreen} />
+        <Stack.Screen name='Christmas-tip' component={TipScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

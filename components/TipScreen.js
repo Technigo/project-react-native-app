@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { Text } from 'react-native';
+
 import { Accelerometer } from 'expo-sensors';
+
 import snowGlobeImage from "../assets/snowglobe.png"; 
 
 //Styling
 const TipContainer = styled.View `
     flex: 1;
     align-items: center;
-    justify-content:center;
     padding: 18px;
-    background: #8BD6D0;
+    background: #136278;
     `;
 
 const TipText = styled.Text`
@@ -18,29 +18,48 @@ const TipText = styled.Text`
     font-weight: bold;
     color: #ffffff;
     text-align: center;
+    margin-top: 150px;
     `;
 
-    const TipMessage = styled.Text`
-    font-size: 18px;
+const TipMessage = styled.Text`
+    font-size: 22px;
     color: #ffffff;
+    padding-top: 5px;
+    text-align: center;
     `;
 
 const ImageContainer = styled.ImageBackground`
-    width: 250;
-    height: 250;
-    padding-top: 30px;
+    width: 300;
+    height: 300;
     `;
 
-/*const SnowGlobe = styled.View`
-  width: 150,
-  height: 150,
-`; */
- 
+const Button = styled.TouchableOpacity`
+    background-color: #78B2BF;
+    padding: 20px;
+    border-radius: 50px;
+    text-align: center;
+    margin-top: 70px;
+    `;
+
+const ButtonText = styled.Text`
+    color: #136278;
+    font-size: 20px;
+    text-align: center;
+    `;
+
 //TipScreen 
-const TipScreen = () => {
+const TipScreen = ({ navigation }) => {
     const [data, setData] = useState({});
     const [hasShaked, setHasShaked] = useState(false);
     const [message, setMessage] = useState({})
+
+    useEffect(() => {
+        navigation.setOptions({ headerShown: false });
+      },[]);
+    
+      const navigateToStart = () => {
+        navigation.navigate("Start", { name: "Start" });
+      };
 
     // Array and function for randoom christmas messages.
     //Adding useEffect with an empty array at the end to prevent an infinite loop.
@@ -52,31 +71,34 @@ const TipScreen = () => {
         )}
         setMessage(randomChristmasTips(tips))
     },[]); 
-   
+
     useEffect(() => {
-        Accelerometer.setUpdateInterval(500);
+        //Accelerometer.setUpdateInterval(500); //do i need thins..?
         const listener = Accelerometer.addListener((accelerometerData) => {
-        setData(accelerometerData);
-    },[]);
+            setData(accelerometerData);
+        },[]);
     
-    return () => {
-        listener && listener.remove();
-     };
-}, []);
+        return () => {
+            listener && listener.remove();
+        };
+    }, []);
    
-// Takes the accelerometerData (data) and calculates the totalForce of the movement
- const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
- //If the phone is shaked and the totalForce is over 2, the message is triggered
-    if (!hasShaked && totalForce > 2) {
-    setHasShaked(true);
-}
-    
+    // Takes the accelerometerData (data) and calculates the totalForce of the movement
+    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
+    //If the phone is shaked and the totalForce is over 2, the message is triggered
+    if (!hasShaked && totalForce > 3) {
+        setHasShaked(true);
+    }
+
   return (
-        <TipContainer>
-            <TipText> Shake me for a cosy Christmas tip ☃️ </TipText>
+    <TipContainer>
+        <TipText>Shake me for a cosy Christmas tip!</TipText>
             <ImageContainer source={snowGlobeImage}></ImageContainer>
             {hasShaked && <TipMessage>{message}</TipMessage>}
-        </TipContainer>
+            <Button onPress={navigateToStart}>
+                <ButtonText>Back to countdown ⏰</ButtonText>
+            </Button>
+    </TipContainer>
     );
 };
 
