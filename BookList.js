@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import {  ScrollView, View, Text } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Book from './Book.js';
 
@@ -53,7 +57,10 @@ const BookList = (category) => {
                                     title={book.title}
                                     author={book.author}
                                     image={book.book_image}
-                                
+                                    navigation={category.navigation}
+                                    description={book.description}
+                                    buyLink={book.buy_links[0].url}
+                                    
                                 />
                             )
                         })}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import {  Image, StyleSheet} from 'react-native';
+import {  Image, StyleSheet, TouchableHighlight} from 'react-native';
 
 
 
@@ -43,7 +43,7 @@ border-radius: 10;
 `
 
 
-const Book = ({ title, author, image}) => {
+const Book = ({navigation, title, author, image, description, buyLink}) => {
     let [fontsLoaded] = useFonts({
         Montserrat_400Regular,
         Montserrat_400Regular_Italic,
@@ -55,19 +55,26 @@ const Book = ({ title, author, image}) => {
       }
 
     return (
-        <Container >
-            
-            <Bookcover
-                source={{ uri: `${image}` }}
-                style={{
-                    width: 144,
-                    height: 227,
-                }}
-            />
-            <Title>{title}</Title>
-            <Author>{author}</Author>
 
-        </Container>
+        <TouchableHighlight
+            activeOpacity={0.6}
+            underlayColor="#DDDDDD"
+            onPress={() => navigation.navigate('Details', { title, author, image, description, buyLink})}
+        >
+
+            <Container >
+                <Bookcover
+                    source={{ uri: `${image}` }}
+                    style={{
+                        width: 144,
+                        height: 227,
+                    }}
+                />
+                <Title>{title}</Title>
+                <Author>{author}</Author>
+            </Container>
+        </TouchableHighlight>
+        
     
     )
 }
