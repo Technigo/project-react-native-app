@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "project-react-native-app",
+    "name": "project-react-native-app-shake-it",
     "slug": "project-react-native-app",
     "privacy": "public",
+    "description":"Shake the phone and the background colors will change and it will display some fun words",
     "platforms": [
       "ios",
       "android",

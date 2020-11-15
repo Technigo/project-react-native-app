@@ -40,7 +40,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <HomeContainer source={backgroundImage}>
-      <HomeText>Hey, do you want to learn a secret of life?</HomeText>
+      <HomeText>Hey, do you want to learn the secret of life?</HomeText>
       <View>
         <TouchableOpacity onPress={navigateToInfo}>
         <Text style={{color:'white', fontWeight:'700', fontSize:25}}>Ok</Text>

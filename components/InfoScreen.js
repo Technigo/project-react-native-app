@@ -3,14 +3,11 @@ import styled from "styled-components/native";
 import backgroundImage from "../assets/background6.jpg";
 import { Text } from "react-native";
 import { Accelerometer } from "expo-sensors";
-// import { back } from "react-native/Libraries/Animated/src/Easing";
 
 const InfoContainer = styled.ImageBackground`
   flex: 1;
   padding:18px;
 `;
-  // background-color: ${randomColor()}
-  // ${(props) => `background-color: ${randomColor}`};
 
 const InfoText = styled.Text`
   font-size: 30px;
@@ -22,54 +19,50 @@ const InfoText = styled.Text`
 
 const InfoScreen = ({ navigation, route }) => {
   const [data, setData] = useState({});
-  const[hasShaked, setHasShaked] = useState(false);
+  const [hasShaked, setHasShaked] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState("red");
-  
-// const [currentIndex, setCurrentIndex] = useState("");
+  const [randomWords, setRandomWords] = useState("");
+  const [hasShakedInitially, setHasShakedInitially] = useState(false);
 
   const changeBackground = () => {
     const colors = ["orange", "yellow", "red","green", "pink", "purple"];
+    //pick one color randomly
     setBackgroundColor( colors[Math.floor(Math.random() * colors.length)]);
-  };
+    };
+  const changeWords = () => {
+    const words = ["be happy", "love", "be gratefull", "get inspired", "be kind", " stay positive", "keep calm", "dance", "smile", "drink coffee"];
+    //pick one word randomly
+    setRandomWords(words[Math.floor(Math.random() * words.length)]); 
+    }        
 
-  //array of words 
-  const words = ["be happy", "get inspired", "be kind", " stay positive", "keep calm"];
-  //pick one word randomly
-  const randomWords = words[Math.floor(Math.random() * words.length)];
-  
-  // const randomWords = words.map(item[]);
-  // const randomWords = () => {
-  // const words =["red", "green", "blue"];
-  // setCurrentIndex(currentIndex + 1);
-  // return words[currentIndex];
-  // }
-          
   useEffect(() => {
     Accelerometer.setUpdateInterval(500);
     const listener = Accelerometer.addListener((accelerometerData) => {
-      setData(accelerometerData);
-      changeBackground();
-      console.log(accelerometerData);
-    });
+    setData(accelerometerData);
+    setHasShaked(false);
+  },[]);
 
     return () => {
       listener && listener.remove();
     };
   }, []);
   
-
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-// why do we need !hasShaked
+
 
   if (!hasShaked && totalForce > 3)  {
+    setHasShakedInitially(true);
     setHasShaked(true);
-  //trigger the fetch
-}
+    changeBackground();
+    changeWords();
+  }
 
   return (
     <>
-    { hasShaked ? (
-    <InfoContainer style={{backgroundColor: backgroundColor,justifyContent:"center"}}>
+    { hasShakedInitially ? (
+    <InfoContainer style={{backgroundColor: backgroundColor,
+                          justifyContent:"center",
+                          alignItems:"center"}}>
     <InfoText style={{fontSize: 50, color: "white"}}> {randomWords}
     </InfoText>
     </InfoContainer>
@@ -79,7 +72,6 @@ const InfoScreen = ({ navigation, route }) => {
         Shake me! Shake me!
         Shake me! Shake me!
       </InfoText>
-      {/* what is this for? */}
       <Text>{route.params.data}</Text>
         <Text>
         Total Force: {totalForce}
