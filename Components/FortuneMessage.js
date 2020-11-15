@@ -16,6 +16,7 @@ export const FortuneMessage = () => {
 
     return (
         <Text> {fortune}</Text>
+        
     )
 }
  */
