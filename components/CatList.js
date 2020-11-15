@@ -25,7 +25,7 @@ const LogoWrapper = styled.View`
   bottom: 0;
 `
 
-export const CatList = ({url, id}) => {
+export const CatList = ({url}) => {
 
   console.log(url)
   return(
