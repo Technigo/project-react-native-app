@@ -17,5 +17,5 @@ If I had more time, I would improve the loading process (see https://stackoverfl
 ## View it live
 
 You can take a look at the result on https://expo.io/@mindstorming/fox-news-mindstorming.
-You are welcome to visit my pull request  and leave some comments about my code.
+You are welcome to visit my pull request https://github.com/Technigo/project-react-native-app/pull/114 and leave some comments about my code.
 Enjoy!
