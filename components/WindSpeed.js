@@ -10,7 +10,7 @@ import { HeadingTwo } from './styled/HeadingTwo';
 import { LoaderText } from './styled/LoaderText';
 
 export const WindSpeed = ({solData}) => {
-  /*Preventing errors with undefined when the app loads for the first time*/
+  // Preventing errors with undefined when the app loads for the first time
   if (!solData) {
     return <LoaderText>Still waiting for data from Mars 🚀</LoaderText>
   }

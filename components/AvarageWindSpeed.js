@@ -3,7 +3,7 @@ import React from 'react';
 import { ExtraInfoAvarage } from './styled/ExtraInfoAvarage';
 
 export const AvarageWindSpeed = ({solData}) => {
-  /*Preventing errors with undefined when the app loads for the first time*/
+  // Preventing errors with undefined when the app loads for the first time
   if (!solData.HWS) {
     return <ExtraInfoAvarage>data coming soon 🚀</ExtraInfoAvarage>
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
-import { LoaderText } from './styled/LoaderText'
+import { LoaderText } from './styled/LoaderText';
 
 const TemperatureContainer = styled.View`
   padding: 20px;
@@ -30,7 +30,7 @@ const MinMaxTemperature = styled.Text`
 `
 
 export const Temperature = ({solData}) => {
-  /*Preventing errors with undefined when the app loads for the first time*/
+  // Preventing errors with undefined when the app loads for the first time
   if (!solData) {
     return <LoaderText>Still waiting for data from Mars 🚀</LoaderText>
   }

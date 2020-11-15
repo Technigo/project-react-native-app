@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components/native';
 
 import mars from '../../assets/mars.jpg'; 
@@ -9,22 +9,26 @@ const Container = styled.ImageBackground`
   align-items: center;
   position: relative;
 `
+
 const InfoBox = styled.View`
   width: 90%
   margin-top: 60px;
   padding: 10px;
 `
+
 const InfoText = styled.Text`
   color: white;
   font-size: 15px;
   margin-bottom: 20px;
   line-height: 18px;
 `
+
 const FooterBox = styled.View`
   width: 80%;
   position: absolute;
   bottom: 20px;
 `
+
 const FooterText = styled.Text`
   color: white;
   font-size: 12px;
@@ -60,8 +64,6 @@ export const AboutScreen = ({ navigation }) => {
           Source of data and image: NASA.
         </FooterText>
       </FooterBox>
-
     </Container>
   )
-
-}
+};

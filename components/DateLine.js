@@ -19,7 +19,7 @@ const Info = styled.Text`
  export const DateLine = ({sol, solData}) => {
   if (!solData) {
     return <Text>Loading...</Text>
-  }
+  };
 
   const date = solData.First_UTC;
   const dateShort = date.slice(0,10)

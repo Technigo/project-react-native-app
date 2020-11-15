@@ -43,7 +43,8 @@ export const CurrentWeatherScreen = ({ navigation }) => {
       const solIndex = solDataArray.findIndex(soldata => soldata.AT);
       // Reverse the order of the sol keys array to start with the latest and match the order of the solDataArray.
       (json.sol_keys).reverse();
-      // Set the sol variable to be the index of the latest sol with data for the avarage temperature. In case no sol has data for the avarage temperature, take the latest one.
+      // Set the sol variable to be the index of the latest sol with data for the avarage temperature. In case no sol has data for the avarage temperature, findIndex returns -1. 
+      // In that case, take the latest sol.
       if (solIndex === -1){
         setSol(json.sol_keys[0])
       }

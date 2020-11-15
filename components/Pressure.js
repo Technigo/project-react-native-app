@@ -11,7 +11,7 @@ import { LoaderText } from './styled/LoaderText';
 
 
 export const Pressure = ({solData}) => {
-  /*Preventing errors with undefined when the app loads for the first time*/
+  // Preventing errors with undefined when the app loads for the first time
   if (!solData) {
     return <LoaderText>Still waiting for data from Mars 🚀</LoaderText>
   }
