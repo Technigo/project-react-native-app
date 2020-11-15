@@ -1,13 +1,18 @@
 # Project React Native App 📱
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project was about building aan app in React Native, using styled components. I chose to build a todo-app, where you can delete and add todos.
 
 ## The problem
+I started by adding som static todos and styled them , to see what they look like on the screen. Then I added an input field where The user can add new todos. After that I also added a function that deletes a chosen task whenpressing a button next to it.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## Learning objectives
+
+* How to build mobile apps with React Native
+* How to use styled components
+
+##Tech used
+* React Native
+* Styled components 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+It's coming....Had som issues publishing it.
