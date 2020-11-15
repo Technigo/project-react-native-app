@@ -3,6 +3,8 @@ import styled from 'styled-components/native';
 import LottieView from 'lottie-react-native';
 import { Platform } from 'react-native';
 
+import bigFox from '../assets/big-fox.png'
+
 const LoadingContainer = styled.View`
   width: 250px;
   height: 250px;
@@ -10,25 +12,25 @@ const LoadingContainer = styled.View`
   justify-content: center;
 `;
 
-const LoadingText = styled.Text`
-  font-size: 24px;
-  color: brown;
-  padding: 0 5px;
+const StandardImage = styled.Image`
+  width: 240px;
+  height: 240px;
+  border-radius: 25px;
 `
 
-const Loading = () => {
+const StartAnimation = () => {
   return (
     <LoadingContainer>
       {Platform.OS !== 'web' && <LottieView
         style={{ width: 250, height: 250 }}
         autoPlay
         loop
-        source={require('../assets/lf30_editor_1v7ngk0e.json')}
+        source={require('../assets/24969-sleepy-fox.json')}
       />
       }
-      {Platform.OS === 'web' && <LoadingText>Loading...</LoadingText>}
+      {Platform.OS === 'web' && <StandardImage resizeMode='cover' source={bigFox}></StandardImage>}
     </LoadingContainer>
   );
 };
 
-export default Loading;
+export default StartAnimation;

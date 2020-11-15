@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Icon source={fox} />
-      <Title>Fox generator</Title>
+      <Title>FOX NEWS</Title>
       <Icon source={fox} />
     </HeaderContainer>
   );

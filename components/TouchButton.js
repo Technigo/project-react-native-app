@@ -10,15 +10,15 @@ const StyledButton = styled.TouchableOpacity`
   `
 
 const ButtonText = styled.Text`
-    color: wheat;
-    font-size: 24px;
-    text-align: center;
+  color: wheat;
+  font-size: 24px;
+  text-align: center;
 `;
 
-const TouchButton = ({ generateNewImage }) => {
+const TouchButton = ({ text, onPress }) => {
   return (
-    <StyledButton onPress={generateNewImage} >
-      <ButtonText>Show me a Fox!</ButtonText>
+    <StyledButton onPress={onPress} >
+      <ButtonText>{text}</ButtonText>
     </StyledButton>
   );
 };
