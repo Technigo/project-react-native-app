@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
-import {  ScrollView, View, Text, SafeAreaView, StatusBar, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import BookList from './BookList.js';
 import Details from './Details.js';
-import Book from './Book.js';
 
+//Style
 const Container = styled.ScrollView`
   flex: 1;
-  
   background-color: #fff;
 `
 
@@ -20,79 +18,71 @@ const Body = styled.SafeAreaView`
   margin-top: 0;
 `
 
-
+//Home stack with fition and nonfiction books.
 const HomeStack = createStackNavigator();
-function HomeStackScreen() {
+const HomeStackScreen = () => {
  return (
-   <HomeStack.Navigator>
-    <HomeStack.Screen name="Home" component={HomeScreen} />             
+  <HomeStack.Navigator>
+    <HomeStack.Screen name="Fiction and Nonfiction" component={HomeScreen} />             
     <HomeStack.Screen name="Details" component={Details} />      
-   </HomeStack.Navigator>
+  </HomeStack.Navigator>
   );
 }
 
-
-const SettingsStack = createStackNavigator();
-function SettingsStackScreen() {
+//Children's books stack.
+const ChildrensStack = createStackNavigator();
+const ChildrensStackScreen = () => {
   return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Settings" component={SettingsScreen} />
-      <SettingsStack.Screen name="Details" component={Details} />
-    </SettingsStack.Navigator>
+    <ChildrensStack.Navigator>
+      <ChildrensStack.Screen name="Children's books" component={ChildrensScreen} />
+      <ChildrensStack.Screen name="Details" component={Details} />
+    </ChildrensStack.Navigator>
   );
 }
 
-
-
-function HomeScreen({ navigation }) {
+//Show Fiction and nonfiction best seller books, start page.
+const HomeScreen = ({ navigation }) => {
   return (
     <Container>
       <BookList category={'hardcover-fiction'} navigation={navigation}/>
-      <BookList category={'paperback-nonfiction'} navigation={navigation} />
-      <BookList category={'young-adult-hardcover'} navigation={navigation} />
       <BookList category={'trade-fiction-paperback'} navigation={navigation} />
+      <BookList category={'paperback-nonfiction'} navigation={navigation} />
+      <BookList category={'hardcover-nonfiction'} navigation={navigation} />
     </Container>
   );
 }
 
-function SettingsScreen({ navigation }) {
+//Show Children's best seller books.
+const ChildrensScreen = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
+    <Container>
+      <BookList category={'young-adult-hardcover'} navigation={navigation} />
+      <BookList category={'childrens-middle-grade-hardcover'} navigation={navigation}/>
+      <BookList category={'picture-books'} navigation={navigation} />
+      <BookList category={'series-books'} navigation={navigation} />
+    </Container>
   );
 }
 
+//Bottom tabs
 const Tab = createBottomTabNavigator();
-
-function MyTabs() {
+const Tabs = () => {
   return (
-    
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeStackScreen} />
-      <Tab.Screen name="Settings" component={SettingsStackScreen} />
+      <Tab.Screen name="Fiction and Nonfiction" component={HomeStackScreen} />
+      <Tab.Screen name="Children's books" component={ChildrensStackScreen} />
     </Tab.Navigator>
   );
 }
 
-
 const App = () => {
-
-
   return (
   <Body>
     <NavigationContainer>
-      <MyTabs />
+      <Tabs />
     </NavigationContainer>
-  </Body>
-   
-    
-  )
+  </Body>  
+  );
 }
-
 
 export default App

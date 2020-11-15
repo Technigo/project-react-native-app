@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
-import {  ScrollView, View, Text, SafeAreaView, StatusBar, Button, Linking, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Linking } from 'react-native';
 
+//Style
 const Container = styled.View`
     flex: 1;
     justify-content: center;
@@ -15,7 +13,6 @@ const Container = styled.View`
 const Title = styled.Text`
     font-size: 22;
     color: #161616;
-    font-family: Montserrat;
     font-weight: 700;
     padding-top: 5;
     letter-spacing: 0.5;
@@ -37,7 +34,6 @@ const BookDescription = styled.Text`
     margin-left: 30;
     margin-right: 30;
     margin-top: 20;
-    font-family: Montserrat;
 `
 
 const Bookcover = styled.Image`
@@ -48,7 +44,8 @@ const BuyButton = styled.Button`
     margin-top: 50;
 `
 
-const Details = ({ route, navigation }) => {
+//Show book details and buy link.
+const Details = ({ route }) => {
     const { title, author, image, description, buyLink } = route.params;
     return (
         <Container>
@@ -64,9 +61,10 @@ const Details = ({ route, navigation }) => {
             <BookDescription>{description}</BookDescription>
             <BuyButton 
                 title="Buy" 
-                onPress={ ()=>{ Linking.openURL(buyLink).catch((err) => console.error('An error occurred', err));}} />
+                onPress={()=>{ Linking.openURL(buyLink).catch((err) => console.error('An error occurred', err));}}
+            />
         </Container>
-    )
+    );
 }
 
 export default Details;
