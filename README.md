@@ -18,5 +18,5 @@ The biggest challenges this week were to get Expo to work properly and to unders
 ## View it live
 
 https://expo.io/@aagneshansson/project-react-native-app
-or
+
 https://snack.expo.io/@aagneshansson/%C3%B6vningsbank-f%C3%B6r-dig-och-din-h%C3%A4st
