@@ -1,6 +1,8 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import styled from 'styled-components/native'
+
+import Footer from "./Footer";
 
 const QuoteList = ({navigation}) => {
 
@@ -16,66 +18,65 @@ const QuoteList = ({navigation}) => {
 
     return ( 
         <SafeAreaView style={styles.container}>
-            <ViewContainer>
-                <TextContainer>
-                    <TitleText>UPLIFTING QUOTES</TitleText>
-                    <SubtitleText>Click on a symbol to read a quote</SubtitleText>
-                </TextContainer>
-                <ButtonContainer>
-                    <HeartButton onPress={()=> navigation.navigate('Heart')}>
-                        <IconImage source={StaticImages.Heart} resizeMode={'contain'}/> 
-                    </HeartButton> 
+            <ScrollView>
+                <ViewContainer>
+                    <TextContainer>
+                        <TitleText>UPLIFTING QUOTES</TitleText>
+                        <SubtitleText>Click on a symbol to read a quote</SubtitleText>
+                    </TextContainer>
+                    <ButtonContainer>
+                        <HeartButton onPress={()=> navigation.navigate('Heart')}>
+                            <IconImage source={StaticImages.Heart} resizeMode={'contain'}/> 
+                        </HeartButton> 
 
-                    <SunButton onPress={()=> navigation.navigate('Sun')}>
-                        <IconImage source={StaticImages.Sun} resizeMode={'contain'}/> 
-                    </SunButton>
+                        <SunButton onPress={()=> navigation.navigate('Sun')}>
+                            <IconImage source={StaticImages.Sun} resizeMode={'contain'}/> 
+                        </SunButton>
 
-                    <FlowerButton onPress={()=> navigation.navigate('Flower')}>
-                        <IconImage source={StaticImages.Flower} resizeMode={'contain'}/> 
-                    </FlowerButton>
-                    
-                    <BirdButton onPress={()=> navigation.navigate('Bird')}>
-                        <IconImage source={StaticImages.Bird} resizeMode={'contain'}/> 
-                    </BirdButton>
+                        <FlowerButton onPress={()=> navigation.navigate('Flower')}>
+                            <IconImage source={StaticImages.Flower} resizeMode={'contain'}/> 
+                        </FlowerButton>
+                        
+                        <BirdButton onPress={()=> navigation.navigate('Bird')}>
+                            <IconImage source={StaticImages.Bird} resizeMode={'contain'}/> 
+                        </BirdButton>
 
-                    <HandButton onPress={()=> navigation.navigate('Hand')}>
-                        <IconImage source={StaticImages.Hand} resizeMode={'contain'}/> 
-                    </HandButton>
+                        <HandButton onPress={()=> navigation.navigate('Hand')}>
+                            <IconImage source={StaticImages.Hand} resizeMode={'contain'}/> 
+                        </HandButton>
 
-                    <LeafButton onPress={()=> navigation.navigate('Leaf')}>
-                        <IconImage source={StaticImages.Leaf} resizeMode={'contain'}/> 
-                    </LeafButton>
+                        <LeafButton onPress={()=> navigation.navigate('Leaf')}>
+                            <IconImage source={StaticImages.Leaf} resizeMode={'contain'}/> 
+                        </LeafButton>
 
-                    <BlueFlowerButton onPress={()=> navigation.navigate('Blue Flower')}>
-                        <IconImage source={StaticImages.BlueFlower} resizeMode={'contain'}/> 
-                    </BlueFlowerButton>
-                </ButtonContainer>
-                <TextContainer>
-                    <FooterText>Uplifting quotes created by Claire Caudwell 202 for the Technigo Bootcamp</FooterText>
-                </TextContainer>                
-            </ViewContainer>
+                        <BlueFlowerButton onPress={()=> navigation.navigate('Blue Flower')}>
+                            <IconImage source={StaticImages.BlueFlower} resizeMode={'contain'}/> 
+                        </BlueFlowerButton>
+                    </ButtonContainer>
+                    <Footer />               
+                </ViewContainer>
+            </ScrollView>
         </SafeAreaView>      
     );
 };
 
 const ViewContainer = styled.View`
     background-color: white; 
-    height: 100%;  
-    align-items: center; 
+    height: 100%;   
 `;
 
 const TextContainer = styled.View`
-    align-items: center;
     flex-direction: row;
 `;
 
 const TitleText = styled.Text`
-    font-size: 20px;
+    font-size: 25px;
     color: #fff;
     text-align: center;
     background-color: rgb(236, 222, 95);
-    padding: 10px;
+    padding: 20px;
     font-weight: 600;
+    width: 50%;   
 `;
 
 const SubtitleText = styled.Text`
@@ -84,7 +85,9 @@ const SubtitleText = styled.Text`
     color: #fff;
     font-weight: 400;
     background-color: rgb(255, 192, 203);
-    padding: 10px;
+    padding: 20px;
+    width: 50%;
+    
 `;
 
 const ButtonContainer = styled.View`    
@@ -124,7 +127,7 @@ const BirdButton = styled.TouchableOpacity`
     padding: 5px;
     position: absolute;
     top: 140px; 
-    left: 110px;     
+    left: 130px;     
 `;
 
 const HandButton = styled.TouchableOpacity`
@@ -157,15 +160,6 @@ const BlueFlowerButton = styled.TouchableOpacity`
 const IconImage = styled.Image`
     width: 100%;
     height: 100%;     
-`;
-
-const FooterText = styled.Text`
-    font-size: 20px;
-    color: #fff;
-    text-align: center;
-    background-color: rgb(236, 222, 95);
-    padding: 10px;
-    font-weight: 600;
 `;
 
 const styles = StyleSheet.create({

@@ -1,26 +1,30 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import styled from 'styled-components/native'
+import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
+import styled from 'styled-components/native';
 
-import BackgroundImage from './icons/Background.png'
+import BackgroundImage from './icons/Background.png';
+import Footer from './Footer';
 
 const Hand = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ButtonContainer>
-                <BackButton title="Back" onPress={() => navigation.navigate('Positive quotes')}>
-                    <ButtonText><ArrowText>◀</ArrowText>Back</ButtonText>
-                </BackButton>
-            </ButtonContainer>
-            <ViewContainer>
-                <BackgroundImageContainer source={BackgroundImage} resizeMode={"contain"}>
-                    <QuoteContainer>
-                        <QuoteText>"The only courage you ever need is the courage to fulfill the dreams of your own life"</QuoteText>
-                        <AuthorText>- OPRAH -</AuthorText>
-                    </QuoteContainer>
-                </BackgroundImageContainer>
-            </ViewContainer>
+            <ScrollView>
+                <ButtonContainer>
+                    <BackButton title="Back" onPress={() => navigation.navigate('Positive quotes')}>
+                        <ButtonText><ArrowText>◀</ArrowText>Back</ButtonText>
+                    </BackButton>
+                </ButtonContainer>
+                <ViewContainer>
+                    <BackgroundImageContainer source={BackgroundImage} resizeMode={"contain"}>
+                        <QuoteContainer>
+                            <QuoteText>"The only courage you ever need is the courage to fulfill the dreams of your own life"</QuoteText>
+                            <AuthorText>- OPRAH -</AuthorText>
+                        </QuoteContainer>
+                    </BackgroundImageContainer>
+                </ViewContainer>
+                <Footer />
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -47,7 +51,7 @@ const ButtonText = styled.Text`
 `;
 
 const ViewContainer = styled.View`
-    height: 700px;
+    height: 750px;
     align-items: center;
     justify-content: center; 
 `;
