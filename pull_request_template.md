@@ -1,3 +1,3 @@
-My reflections on how this week's project turned out:
+My reflections on how this week's project turned out: That was a very challenging week, in all ways: a new language that shaked up our limited React knowledge, many errors when installing different dependencies, tons of documentation, hassle with Expo and Metro Bundler... But it was so rewarding to see the app growing after every backslash, absolutely addictive!
 
-Things I'd like to have clarified or explained in more detail:
+Things I'd like to have clarified or explained in more detail: I'd like to improve the image loading as describe in https://stackoverflow.com/c/technigo/questions/1817.

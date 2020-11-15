@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "Fox News by Mindstorming",
+    "slug": "fox-news-mindstorming",
     "privacy": "public",
+    "sdkVersion": "39.0.0",
     "platforms": [
       "ios",
       "android",
@@ -10,9 +11,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon-upd.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash-upd.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
