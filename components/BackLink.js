@@ -7,7 +7,7 @@ const StyledLink = styled.TouchableOpacity`
 
 const LinkText = styled.Text`
   color: brown;
-  font-size: 15px;
+  font-size: 12px;
   font-style: italic;
   text-align: center;
 `;

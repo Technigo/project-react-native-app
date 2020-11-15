@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const BottomText = styled.Text`
-  font-size: 20px;
+  font-size: 18px;
   color: brown;
   padding: 0 20px;
   text-align: center;
