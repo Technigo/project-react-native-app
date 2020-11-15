@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { Share } from 'react-native'
 
+import ShareIcon from './assets/share.png'
+
 const TouchableOpacity = styled.TouchableOpacity`
   padding: 10px;
 `
 
-const Logo = styled.Image`
+const Icon = styled.Image`
   width: 35px;
   height: 35px;
 `
@@ -31,8 +33,8 @@ export const ShareButton = ({url}) => {
   }
   return (
     <TouchableOpacity onPress={onShare}>
-      <Logo
-        source={require('./assets/share.png')}
+      <Icon
+        source={ShareIcon}
       />
     </TouchableOpacity> 
   )

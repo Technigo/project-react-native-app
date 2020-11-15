@@ -63,7 +63,6 @@ const App = () => {
               <CatList
                 key = {cat.id}
                 url = {cat.url}
-                id = {cat.id}
               />
             )
           })}

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
+import HeaderImage from './assets/header.jpg'
+
 const Container = styled.View`
   flex-direction: row;
   justify-content: center;
@@ -27,7 +29,7 @@ export const Header = ({title}) => {
   return (
     <Container>
       <ImageBackground
-        source={require('./assets/header.jpg')}
+        source={HeaderImage}
       >
         <Title>{title}</Title>
       </ImageBackground>
