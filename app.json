@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Fox News by Mindstorming",
+    "description": "Fed up with unpleasant news? Use Fox News by Mindstorming and get your smile back. No fake news, only cute foxes!",
     "slug": "fox-news-mindstorming",
     "privacy": "public",
     "sdkVersion": "39.0.0",
