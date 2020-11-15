@@ -1,13 +1,15 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+I here made a News headline using the free News API and fetched the data and displayed it on the screen.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In addition to Reactive Native I have also used Moment for the time view and Lottie for the splash animation.
+
+The site works both in IOS and Webview.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I have had problem with showing the Lottie animation on the web view but was able to solve it using the Platform dependency.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@karanmann/projects/project-react-native-app
