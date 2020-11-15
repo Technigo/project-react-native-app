@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-// import LottieView from 'lottie-react-native';
-// import { Platform } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
 
 import Header from '../components/Header';
@@ -9,6 +7,7 @@ import Loading from '../components/Loading';
 import RandomImage from '../components/RandomImage';
 import DescriptionText from '../components/DescriptionText';
 import TouchButton from '../components/TouchButton';
+import BackLink from '../components/BackLink';
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -23,10 +22,6 @@ const GeneratorPage = ({ navigation }) => {
   const [loading, setLoading] = useState();
   const [accData, setAccData] = useState({});
 
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, []);
-
   const generateNewImage = () => {
     setLoading(true);
     fetch('https://randomfox.ca/floof/')
@@ -35,6 +30,14 @@ const GeneratorPage = ({ navigation }) => {
       .catch(err => console.error(err))
       .finally(() => setLoading(false));
   };
+
+  const navigateToStart = () => {
+    navigation.navigate('Start');
+  };
+
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, []);
 
   useEffect(() => {
     generateNewImage();
@@ -58,8 +61,9 @@ const GeneratorPage = ({ navigation }) => {
       <Header />
       {loading && <Loading />}
       {!loading && <RandomImage image={image} />}
-      <DescriptionText variable={'Tap the button or shake your phone for next image'} />
-      <TouchButton text='Display a new fox!' onPress={generateNewImage} />
+      <DescriptionText variable={'Shake your phone or tap the button for next picture'} />
+      <TouchButton text='Next picture!' onPress={generateNewImage} />
+      <BackLink text='Swipe or click here to go back to the start page' onPress={navigateToStart} />
     </Container>
   );
 };

@@ -16,13 +16,13 @@ const Container = styled.SafeAreaView`
 
 const StartPage = ({ navigation }) => {
 
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  }, []);
-
   const navigateToGenerator = () => {
     navigation.navigate('Generator');
   };
+
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, []);
 
   return (
     <Container>
