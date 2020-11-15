@@ -4,7 +4,9 @@ Assignment was to creact a native mobile app with the use of React Native. I cho
 
 ## The problem
 
-Used the pre-made barcodescanner component from expo together with the openfoodfacts (www.openfoodfacts.com) API. 
+Used the pre-made barcodescanner component from expo together with the openfoodfacts (www.openfoodfacts.com) API.
+
+Tried and tested products are "Bregott smör" & "Arla Mellanmjölk" :)
 
 ## View it live
 
