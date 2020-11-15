@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Text, Modal} from 'react-native'
+import {Text, Modal, Image} from 'react-native'
 import styled from 'styled-components/native'
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -34,14 +34,14 @@ export const HomeScreen = ({navigation}) => {
     padding: 20px;
     border-radius: 20px;
     margin: 0; 
-
     `
 
     const Header = styled.View`
     background-color: rgb(58, 15, 76);
-    align-items: center;
+    justify-content:center;
     text-align: center;
     padding-top: 40px;
+    flex-direction: row;
     `
 
     const HeaderText = styled.Text `
@@ -50,13 +50,19 @@ export const HomeScreen = ({navigation}) => {
     color: rgb(235, 196, 218);
     font-weight: bold;
     padding: 10px;
-    text-align: center;
+    `
+
+    const IconImage = styled.Image`
+    width: 50px;
+    height: 32px;
+    margin: 50px;
     `
 
     return (
         <LinearGradient colors={['rgba(58, 15, 76, 1)','rgba(97, 14, 159, 1)','rgba(135, 30, 170, 1)']}
         style={{flex: 1}}>
-        <Header><HeaderText>Elephant Meditation</HeaderText></Header>
+        <Header><HeaderText><IconImage style={{
+          }} source={require('./assets/Elephant_Icon.png')} />   Elephant Meditation</HeaderText></Header>
         <Container>
             
             <Number>{userTime} min</Number>

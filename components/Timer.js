@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Text, View, Button, TextInput, TouchableOpacity, Modal, Alert} from 'react-native'
+import {Text, Image} from 'react-native'
 import styled from 'styled-components/native'
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -61,6 +61,10 @@ export const Timer = ({route, navigation}) => {
         <LinearGradient colors={['rgba(58, 15, 76, 1)','rgba(97, 14, 159, 1)','rgba(135, 30, 170, 1)']}
         style={{flex: 1}}>
         <Container>
+        <Image style={{
+            width: 400,
+            height: 400,
+          }} source={require('./assets/Elephant_PNG.png')} />
             <Number>{minutes < 10 ? "0" :""}{minutes}:{seconds < 10 ? "0" :""}{seconds}</Number>
             <ButtonContainer>
                 {!timerDone &&
