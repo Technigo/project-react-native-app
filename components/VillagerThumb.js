@@ -8,40 +8,27 @@ import { Footer } from './Footer'
 import img from '../assets/placeholder.png'
 
 
-const List = ({ navigation }) => {
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false })
-  })
-
+const VillagerThumb = ({ 
+  id,
+  name,
+  icon_uri,
+ }) => {
+  
   const toVillagerInfo = () => {
     navigation.navigate("VillagerInfo", {thingtopass: "Peggy go to sleep"})
   }
 
-  const [villagers, setVillagers] = useState({})
-  const acApi = 'http://acnhapi.com/v1/villagers/'  
   
-  useEffect(() => {    
-    fetch(acApi)
-      .then((res) => res.json())
-      .then((json) => setVillagers(json))
-  }, [])
-
   return (
-    <TealContainer>
-      <Title>Please pardon the dust!</Title>
-      <BodyTextStyle>The randomizer isn't ready yet. In the meantime, here's a list of all villagers in New Horizons.</BodyTextStyle>
-      <Image source={img} />
-        {villagers.map((villager) => (
+    <View>
           <TouchableOpacity onPress={toVillagerInfo}>
-          <BodyTextStyle key={villager.id}>
-            {villager.id}
-          </BodyTextStyle>
+            <BodyTextStyle key={villager.id}>
+              {villager.id}
+            </BodyTextStyle>
           </TouchableOpacity>
         ))}
-    
-      <Footer />
-    </TealContainer>
+    </View>
   )
 }
 
-export default List
+export default VillagerThumb

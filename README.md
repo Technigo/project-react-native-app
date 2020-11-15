@@ -23,7 +23,7 @@ Learning Objectives:
 🔵  Blue Level
 - You should use Styled Components.
 - The app should either be:
-    - using one of the sensors of your mobile phone such as the camera, accelerometer or voice assistance etc.
+    <!-- - using one of the sensors of your mobile phone such as the camera, accelerometer or voice assistance etc. -->
     - using an external API to fetch something to your app and then interact with it.
     <!-- - a multiscreen app by using React Navigation. -->
     <!-- - a useful app such as a calculator, a stopwatch or a compass. -->
