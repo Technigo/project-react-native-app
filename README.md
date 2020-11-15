@@ -9,3 +9,6 @@ If I had more time I would like to improve the styling and add some more functio
 - Styled components
 - API:s
 
+## Link to my project on Snack
+https://snack.expo.io/@hannaskeppe/github.com-hanna-skeppe-project-react-native-app
+
