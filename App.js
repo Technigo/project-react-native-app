@@ -68,10 +68,8 @@ const App = () => {
       { fetched === true ? (
       data.map( (card) => {
         return <Card source={{uri:`${card.img}`,}} key={card.cardId} />
-      })
-          
+      })      
       )  : null}
-
       <TextField
       onChangeText={text => onChangeText(text)}
       value={value}
