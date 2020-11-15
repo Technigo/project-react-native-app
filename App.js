@@ -21,22 +21,12 @@ const Body = styled.SafeAreaView`
 `
 
 
-
-function DetailsScreen() {
-  
-  return (
-    <Details />
-  );
-}
-
-
 const HomeStack = createStackNavigator();
 function HomeStackScreen() {
  return (
    <HomeStack.Navigator>
     <HomeStack.Screen name="Home" component={HomeScreen} />             
-    <HomeStack.Screen name="Details" component={Details} />
-    <HomeStack.Screen name="Book" component={Book} />         
+    <HomeStack.Screen name="Details" component={Details} />      
    </HomeStack.Navigator>
   );
 }
@@ -51,8 +41,6 @@ function SettingsStackScreen() {
     </SettingsStack.Navigator>
   );
 }
-
-
 
 
 
@@ -97,17 +85,6 @@ const App = () => {
 
   return (
   <Body>
-    {/* <Container>
-      <BookList category={'hardcover-fiction'} />
-      <BookList category={'paperback-nonfiction'} />
-      <BookList category={'young-adult-hardcover'} />
-      <BookList category={'trade-fiction-paperback'} />
-    </Container> */}
-
-
-    {/* <StatusBar
-      barStyle="dark-content"
-    /> */}
     <NavigationContainer>
       <MyTabs />
     </NavigationContainer>
