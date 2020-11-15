@@ -56,28 +56,28 @@ const InfoScreen = () => {
 
   useEffect(() => {
     fetch(API_URL)
-    .then(response => response.json())
-    .then(data => {
-      setSpaceInfo(data)
-    })
+      .then(response => response.json())
+      .then(data => {
+        setSpaceInfo(data)
+      })
   }, [])
 
   return (
-    <ScrollContainer> 
-      <InfoContainer source={{uri: spaceInfo.hdurl}}>
+    <ScrollContainer>
+      <InfoContainer source={{ uri: spaceInfo.hdurl }}>
         <TitleText>{spaceInfo.title}</TitleText>
         {
-          spaceInfo.copyright 
-          ? <CopyText>{'\u00A9' } {spaceInfo.copyright}</CopyText> 
-          : <CopyText>{}</CopyText> //Don't show if the API has no info on copyright.
-        } 
+          spaceInfo.copyright
+            ? <CopyText>{'\u00A9'} {spaceInfo.copyright}</CopyText>
+            : <CopyText>{ }</CopyText> //Don't show if the API has no info on copyright.
+        }
       </InfoContainer>
-      <TextContainer> 
+      <TextContainer>
         <InfoTextTitle>Learn more</InfoTextTitle>
         <SpaceInfoText>{spaceInfo.explanation}</SpaceInfoText>
         <FooterText>
-          Each day a different image or photograph of our fascinating 
-          universe is featured from the Nasa APOD API, along with a brief explanation written 
+          Each day a different image or photograph of our fascinating
+          universe is featured from the Nasa APOD API, along with a brief explanation written
           by a professional astronomer.
         </FooterText>
       </TextContainer>

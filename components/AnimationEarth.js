@@ -1,4 +1,4 @@
-import React from 'react' 
+import React from 'react'
 import styled from "styled-components/native"
 
 const Earth = styled.Image`
@@ -7,8 +7,8 @@ const Earth = styled.Image`
   margin: 25px;
  `;
 
- export const AnimationEarth = () => {
-   return (
-     <Earth source={require('../assets/spinning-earth.gif')}/>
-   )
- }
+export const AnimationEarth = () => {
+  return (
+    <Earth source={require('../assets/spinning-earth.gif')} />
+  )
+}

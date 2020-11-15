@@ -36,25 +36,25 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
-const HomeScreen = ({navigation}) => {
-  useEffect (() => {
-    navigation.setOptions({ headerShown:false }); //Hides the header on home screen
+const HomeScreen = ({ navigation }) => {
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false }); //Hides the header on home screen
   }, []);
-  
+
   const navigateToInfo = () => {
     console.log('Go! button pressed');
-    navigation.navigate('Back'); 
+    navigation.navigate('Back');
   }
-  
+
   return (
     <HomeContainer source={backgroundPicture}>
       <HomeText>Discover the Cosmos!</HomeText>
       <AnimationEarth />
       <GoButton
         onPress={navigateToInfo}>
-          <ButtonText>
-            Go!
-          </ButtonText>
+        <ButtonText>
+          Go!
+        </ButtonText>
       </GoButton>
     </HomeContainer>
   );
