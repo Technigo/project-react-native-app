@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { LatestNews } from './components/LatestNews'
 import { Home } from './components/Home'
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 

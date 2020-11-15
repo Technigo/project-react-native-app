@@ -7,9 +7,14 @@ export const Banner = styled.Text`
   text-align: center
   margin-bottom: 20px
 `
+
 export const BannerImage = styled.Image`
   align-items: center
+  resize-mode: contain
+  height: 50px
+  width: 50px
 `
+
 export const HeaderContainer = styled.View`
 align-items: center
 background: rgb(219,228,238)

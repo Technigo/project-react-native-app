@@ -16,6 +16,13 @@ export const Card = styled.View`
 export const ArticleImage = styled.Image `
   margin: 10px
   border-radius: 20px
+  height: 200px
+  width: 350px
+`
+
+export const ClockImage = styled.Image `
+  height: 30px
+  width: 30px
 `
 
 export const ImageContainer = styled.View `
@@ -32,6 +39,7 @@ export const AuthorName = styled.Text `
   margin-top: 10px
   letter-spacing: 2px
 `
+
 export const TimedText = styled.Text `
   margin-top: 10px
   color: red
@@ -39,6 +47,7 @@ export const TimedText = styled.Text `
   text-align: right
   margin-bottom: 20px
 `
+
 export const ReadMore = styled.Button`
   font-size : 20px
   padding-top: 15px

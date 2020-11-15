@@ -10,7 +10,8 @@ import {
   TitleText, 
   AuthorName, 
   TimedText, 
-  ReadMore} 
+  ReadMore,
+  ClockImage} 
   from './Style/StyleLatestNews'
 
 import clock from '../assets/clock.png'
@@ -31,13 +32,11 @@ export const LatestNews = () => {
       <Container >
         {latestNews.map((news) => (
           <Card key={news.title}>
-            <Image style={{height: 30, width: 30}} source={clock}/>
+            <ClockImage source={clock}/>
             <ImageContainer>
-              <ArticleImage source={{uri: news.urlToImage}} style={{height: 200, width: 330}}/>  
+              <ArticleImage source={{uri: news.urlToImage}}/>  
             </ImageContainer>
-            <TitleText>
-              {news.title}
-            </TitleText>
+            <TitleText>{news.title}</TitleText>
             <AuthorName>{news.author}</AuthorName>
             <TimedText>
               {moment(news.publishedAt).startOf('hour').fromNow()}
