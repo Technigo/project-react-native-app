@@ -1,13 +1,8 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The goal was to try out react native for the first time. We had a very open brief and I created a basic meditation app with a timer and navigation between screens. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I found it hard to grasp what it takes to do certain features, what seems simple can be super tricky and was seems complicated could be a bit easier than expected. This made me spend a lot of time on google and just coming up with an idea that I could finish with the few days we had. I would have loved to add a lottie animation and push notifications for the app too. I will try to add the animaiton at least when I have the time.
 
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
