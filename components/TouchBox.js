@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import styled from 'styled-components/native'
-import { Button, View, Text } from 'react-native'
+import { View } from 'react-native'
 
 let red = "#EE0056"
 let blue = "#006DEE"
@@ -75,7 +75,7 @@ export const TouchBoxContainer = () => {
   }
 
   const waitToPressnow = () => {
-    // Start reaction timer by setting reactionTime0 to Date.now().
+    // Start reaction timer by setting reactionTime0 to Date.now(). Reaction time will be calculated by reactionTime1-reactionTime0.
     reactionTime0 = Date.now()
 
     boxColor = green

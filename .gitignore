@@ -9,6 +9,7 @@ npm-debug.*
 *.orig.*
 web-build/
 web-report/
+/project-react-native-app-MON-LECTURE
 
 # macOS
 .DS_Store

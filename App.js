@@ -8,8 +8,8 @@ const Container = styled.View`
   flex: 1;
   background-color: white;
   align-items: center;
-  border: 1px dashed green;
   padding-top: 80px;
+  padding-bottom: 80px;
   justify-content: space-between;
 `
 const Title = styled.Text`
