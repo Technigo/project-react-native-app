@@ -1,13 +1,22 @@
 # Project React Native App 📱
 
 Replace this readme with your own information about your project.
+I created my own multipage exercise-app for horseback-riders. In the app the user could, depending on what type of training they would like, randomize different exercises within dressage or jumping. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The app was built in React Native and was published in Expo. The learning objectives were to learn how to use React Native to create a mobile App and to practice using Styled Components for styling in JavaScript.
 
-## The problem
+## The problem 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The biggest challenges facing this week were to get Expo to work properly.
+
+## Tech 
+
+  - React Native
+  - Styled Components
+  - Arrays
+  - Multipage
+  - Expo
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@aagneshansson/project-react-native-app
