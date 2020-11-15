@@ -18,7 +18,7 @@ const TipText = styled.Text`
     font-weight: bold;
     color: #ffffff;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 170px;
     `;
 
 const TipMessage = styled.Text`
@@ -73,7 +73,6 @@ const TipScreen = ({ navigation }) => {
     },[]); 
 
     useEffect(() => {
-        //Accelerometer.setUpdateInterval(500); //do i need thins..?
         const listener = Accelerometer.addListener((accelerometerData) => {
             setData(accelerometerData);
         },[]);
@@ -93,7 +92,7 @@ const TipScreen = ({ navigation }) => {
   return (
     <TipContainer>
         <TipText>Shake me for a cosy Christmas tip!</TipText>
-            <ImageContainer source={snowGlobeImage}></ImageContainer>
+        <ImageContainer source={snowGlobeImage}></ImageContainer>
             {hasShaked && <TipMessage>{message}</TipMessage>}
             <Button onPress={navigateToStart}>
                 <ButtonText>Back to countdown ⏰</ButtonText>
