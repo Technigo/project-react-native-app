@@ -1,0 +1,44 @@
+{
+  "pasta": [
+    {
+      "name": "Pasta Alla Vodka",
+      "url": "https://www.delish.com/cooking/recipe-ideas/a26556220/penne-alla-vodka-recipe/"
+    },
+    {
+      "name": "Spaghetti Bolognese",
+      "url": "https://www.bbcgoodfood.com/recipes/best-spaghetti-bolognese-recipe"
+    },
+    {
+      "name": "Pesto Pasta",
+      "url": "https://www.recipetineats.com/pesto-pasta/"
+    },
+    {
+      "name": "Spaghetti Carbonara",
+      "url": "https://cooking.nytimes.com/recipes/12965-spaghetti-carbonara"
+    },
+    {
+      "name": "Spaghetti Aglio e Olio",
+      "url": "https://www.allrecipes.com/recipe/222000/spaghetti-aglio-e-olio/"
+    },
+    {
+      "name": "Spaghetti Pomodoro",
+      "url": "https://www.bonappetit.com/recipe/basically-spaghetti-pomodoro"
+    },
+    {
+      "name": "Fettuccine Alfredo",
+      "url": "https://www.delish.com/cooking/recipe-ideas/a55312/best-homemade-fettuccine-alfredo-recipe/"
+    },
+    {
+      "name": "Lasagna",
+      "url": "https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/"
+    },
+    {
+      "name": "Scampi Pasta",
+      "url": "https://www.bonappetit.com/recipe/shrimp-scampi-pasta"
+    },
+    {
+      "name": "Mac and Cheese",
+      "url": "https://www.momontimeout.com/best-homemade-baked-mac-and-cheese-recipe/"
+    }
+  ]
+}
