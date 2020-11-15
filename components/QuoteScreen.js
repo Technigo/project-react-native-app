@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 import CustomTouchable from "./CustomTouchable";
 
-import { Accelerometer } from "expo-sensors";
-
-const QuoteContainer = styled.View`
+const QuoteContainer = styled.ImageBackground`
   background-color: #0096c9;
   display: flex;
   flex: 1;
@@ -13,59 +11,55 @@ const QuoteContainer = styled.View`
 `;
 
 const QuoteText = styled.Text`
+  width: 350px;
+  margin: 75px auto;
+  padding: 25px;
   color: white;
+  background-color: rgba(255, 215, 0, 0.5);
   font-size: 32px;
+  font-style: italic;
 `;
 
 const QuoteScreen = ({ navigation, route }) => {
-  const [currentQuote, setCurrentQuote] = useState({quote:"Hello!"});
-  const [data, setData] = useState({});
-  const [hasShaked, setHasShaked] = useState(false);
-  const [hasShakedInitially, setHasShakedInitially] = useState(false);
-  
+  const [currentQuote, setCurrentQuote] = useState({
+    quote: "We are all in the gutter, but some of us are looking at the stars",
+  });
+
   const getQuote = () => {
-      const quote = route.params.data.quoteList[Math.floor(Math.random() * route.params.data.quoteList.length)];
-      setCurrentQuote(quote);
-      console.log(currentQuote);
-    }
-  
-    useEffect(() => {
-        Accelerometer.setUpdateInterval(500);
-        const listener = Accelerometer.addListener(accelerometerData => {
-            setData(accelerometerData);
-            setHasShakedInitially(false);
-            setHasShaked(false);  
-        }, []);
+    route.params.data.quoteList[
+      Math.floor(Math.random() * route.params.data.quoteList.length)
+    ];
+    setCurrentQuote(quote);
+  };
 
-        return () => {
-            listener && listener.remove();
-        };
-    }, []);
-
-    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-
-    if (!hasShaked && totalForce > 3) {
-        setHasShakedInitially(true);
-        setHasShaked(true);
-        getQuote();
-    }
-    return (
-        <> 
-        {hasShakedInitially ? (
-            <QuoteContainer>
-                <QuoteText>{currentQuote.quote}</QuoteText>
-                <QuoteText>Shake for more!</QuoteText>
-              </QuoteContainer>
-        ) : (
-            <QuoteContainer>
-            <QuoteText>{currentQuote.quote}</QuoteText>
-            <QuoteText>Can't get enough? Shake shake shake.</QuoteText>
-          </QuoteContainer>
-        )
-        } 
-        </>
-        )
-    
+  return (
+    <>
+      {route.params.data.quoteList !== undefined ? (
+        <QuoteContainer
+          source={{
+            uri:
+              "https://images.unsplash.com/photo-1585530416542-cf7058ed5f40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60",
+          }}
+        >
+          <QuoteText>{currentQuote.quote}</QuoteText>
+          <CustomTouchable
+            onPress={getQuote}
+            top="10"
+            text="Not enough? Press for more"
+          ></CustomTouchable>
+        </QuoteContainer>
+      ) : (
+        <QuoteContainer
+          source={{
+            uri:
+              "https://images.unsplash.com/photo-1585530416542-cf7058ed5f40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60",
+          }}
+        >
+          <QuoteText>Out of quotes, try again tomorrow!</QuoteText>
+        </QuoteContainer>
+      )}
+    </>
+  );
 };
 
 export default QuoteScreen;
