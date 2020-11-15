@@ -3,7 +3,8 @@ import styled from "styled-components/native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./components/HomeScreen";
-import InfoScreen from "./components/EightBallScreen";
+import BallScreen from "./components/BallScreen";
+import 'react-native-gesture-handler';
 
 
 const Stack = createStackNavigator();
@@ -17,7 +18,7 @@ const App = () => {
           component={HomeScreen}
           options={{ title: "Back" }}
         />
-        <Stack.Screen name="Info" component={InfoScreen} />
+        <Stack.Screen name="Ball" component={BallScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

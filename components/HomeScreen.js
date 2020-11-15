@@ -1,43 +1,33 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components/native";
+
 import backgroundImage from "../assets/background.jpg";
-import { Button, View } from "react-native";
-import BackgroundVideo from "./VideoScreen";
+import { ScreenContainer, Title, TextDescription, ScreenWrapper, ScreenButton, ScreenButtonText } from '../styledComponents/ScreenStyling';
 
-const HomeContainer = styled.ImageBackground`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
 
-`;
 
-const HomeText = styled.Text`
-  font-size: 48px;
-  color: white;
-  
-`;
-
-const HomeButton =styled.Button`
+    const HomeScreen = ({ navigation }) => {
+      useEffect(() => {
+        navigation.setOptions({ headerShown: false });
+      });
     
-    
-`;
-
-const HomeScreen = ({ navigation }) => {
-  useEffect(() => {
-    navigation.setOptions({ headerShown: false });
-  });
-
-  const navigateToInfo = () => {
-    navigation.navigate("Info", { name: "Jane" });
-  };
+      const navigateToInfo = () => {
+        navigation.navigate("Ball", { name: "Back to first page" });
+      };
  
   return (
-      
-    <HomeContainer source={backgroundImage}>
-      <HomeText>Magic 8 Ball </HomeText>
-        <HomeButton title="Ask the Eight ball" onPress={navigateToInfo}></HomeButton>
-    </HomeContainer>
-
+    <ScreenContainer source={backgroundImage}>
+        <Title>Magic Eight Ball</Title>
+        <TextDescription>
+        Ask a question if you dare ❤️‍🔥. You will always get an answer 
+        </TextDescription>
+        <ScreenWrapper>
+            <ScreenButton onPress={navigateToInfo}>
+                <ScreenButtonText> Ask the Eight Ball </ScreenButtonText>
+            </ScreenButton>
+        </ScreenWrapper>
+    </ScreenContainer>
+    
+  
   );
 };
 
