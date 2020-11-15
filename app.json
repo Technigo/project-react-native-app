@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": " A todo app where you can add and delete tasks.",
+    "githubUrl": "https://github.com/stjernberg/project-react-native-app"
   }
 }

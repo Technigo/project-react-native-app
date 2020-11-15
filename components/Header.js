@@ -4,10 +4,9 @@ import { View, Text } from 'react-native'
 
 export const Header = () => {
 
-
     return (
         <HeaderContainer>
-            <HeaderText>TODOS</HeaderText> 
+            <HeaderText>TODOS</HeaderText>
         </HeaderContainer>
     )
 }

@@ -5,7 +5,7 @@ import { View, Text, FlatList, Alert } from 'react-native'
 import { Header } from './components/Header'
 import { TodoTask } from './components/ToDoTask'
 import { AddTodo } from './components/AddTodo'
-import backgroundImage from "./assets/background.jpg"
+import backgroundImage from './assets/background.jpg'
 
 const App = () => {
   const [toDos, setTodos] = useState([
