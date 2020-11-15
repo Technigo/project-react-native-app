@@ -1,25 +1,28 @@
 import React from 'react'
-import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import 'react-native-gesture-handler'
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+import List from './components/List'
+import VillagerInfo from './components/VillagerInfo'
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+
+const Stack = createStackNavigator()
 
 const App = () => {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+        name="List"
+        component={List}
+        />
+        <Stack.Screen
+          name="VillagerInfo"
+          component={VillagerInfo}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
