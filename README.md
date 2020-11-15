@@ -9,7 +9,7 @@ I started by adding som static todos and styled them , to see what they look lik
 * How to build mobile apps with React Native
 * How to use styled components
 
-##Tech used
+## Tech used
 * React Native
 * Styled components 
 
