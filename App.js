@@ -1,26 +1,26 @@
-import React from 'react'
-import styled from 'styled-components/native'
+import React from "react";
+import { HomeScreen } from "./components/HomeScreen";
+import { ShowBook } from "./components/ShowBook";
+import { ReadMore } from "./components/ReadMore";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import "react-native-gesture-handler";
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+const Stack = createStackNavigator();
 
-const App = () => {
+export default function App() {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
-  )
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="ShowBook" component={ShowBook} options={{ headerShown: false }}/>
+        <Stack.Screen name="ReadMore" component={ReadMore} options={{ headerShown: false }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
-
-export default App
