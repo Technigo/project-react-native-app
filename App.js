@@ -1,20 +1,40 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { TextInput } from 'react-native';
 
 const Container = styled.View`
   flex: 1;
   align-items: center;
-  justify-content: center;
+  background: papayawhip;
 `
 
 const Card = styled.Image`
+  flex: 1;
   width: 200px;
-  height: 300px;
+  height: 200px
+  resizeMode: contain;
+  margin: 5px
 `
-
-const Button = styled.Button`
-  
+const Text = styled.Text`
+  align-items: center;
+  justify-content: center;
+  color: white;
+`
+const FetchButton = styled.TouchableOpacity`
+  background-color: tomato;
+  align-items: center;
+  justify-content: center;
+  fontWeight: bold;
+  color: white;
+  width: 100px;
+  height: 50px;
+`
+const TextField = styled.TextInput`
+height: 40;
+width: 200;
+margin: 5px;
+borderColor: tomato;
+borderWidth: 3;
+textAlign:center;
 `
 
 const App = () => {
@@ -35,30 +55,28 @@ const App = () => {
     .then((response) => response.json())
     .then(response => {
       getData(response)
-      setFetched(true)
       console.log(response)
+      setFetched(true)
     })
     .catch(err => {
       console.error(err);
     })
-    
     }
 
   return (
     <Container>
-      <TextInput
-      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-      onChangeText={text => onChangeText(text)}
-      value={value}
-      />
-      <Button onPress={fetchCard} title="Fetch card" /> 
-
       { fetched === true ? (
       data.map( (card) => {
-        return <Card source={{uri:`${card.img}`,}} />
+        return <Card source={{uri:`${card.img}`,}} key={card.cardId} />
       })
           
       )  : null}
+
+      <TextField
+      onChangeText={text => onChangeText(text)}
+      value={value}
+      />
+      <FetchButton onPress={fetchCard}><Text>FETCH</Text></FetchButton>
     </Container>
   )
 }
