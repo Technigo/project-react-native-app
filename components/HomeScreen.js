@@ -1,6 +1,4 @@
 import React, { useEffect } from "react"
-import { Button } from 'react-native'
-//import { Text } from 'react-native';
 import styled from "styled-components/native"
 
 import backgroundPicture from '../assets/stars-bg-1.jpg'
@@ -40,24 +38,24 @@ const ButtonText = styled.Text`
 
 const HomeScreen = ({navigation}) => {
   useEffect (() => {
-    navigation.setOptions({ headerShown:false }); //This hides the default(?) header on home screen
+    navigation.setOptions({ headerShown:false }); //Hides the header on home screen
   }, []);
   
-  //what does navigation.navigate('Info') do? What is 'Info' referring to here?
   const navigateToInfo = () => {
     console.log('Go! button pressed');
-    navigation.navigate('Back'); //What is 'Info'? Why can't I change it?
+    navigation.navigate('Back'); 
   }
-  //How do I change the button into a Touchable opacity?
+  
   return (
     <HomeContainer source={backgroundPicture}>
       <HomeText>Discover the Cosmos!</HomeText>
       <AnimationEarth />
-      <GoButton 
-        
+      <GoButton
         onPress={navigateToInfo}>
-          <ButtonText>Go!</ButtonText>
-        </GoButton>
+          <ButtonText>
+            Go!
+          </ButtonText>
+      </GoButton>
     </HomeContainer>
   );
 };
