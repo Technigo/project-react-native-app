@@ -12,6 +12,7 @@ const TouchButton = styled.TouchableOpacity`
   backgroundColor: #266150;
   border: none; 
 `;
+
 const ButtonText = styled.Text`
   textAlign: center;
   fontSize: 20px;
@@ -21,12 +22,12 @@ const ButtonText = styled.Text`
 `;
 
 const Text = styled.Text`
-textAlign: center;
-fontSize: 20px;
-justifyContent: center;
-alignItems: center;
-margin: 30px 10px;
-color: #FDF8F5; 
+  textAlign: center;
+  fontSize: 20px;
+  justifyContent: center;
+  alignItems: center;
+  margin: 30px 10px;
+  color: #FDF8F5; 
 `
 
 const Name = styled.Text`
@@ -37,13 +38,12 @@ const Name = styled.Text`
 `
 
 const View = styled.View`
-justifyContent: center;
-alignItems: center;
-backgroundColor: #E8CEBF;
-padding: 35px;
+  justifyContent: center;
+  alignItems: center;
+  backgroundColor: #DDAF94;
+  padding: 35px;
+  flex: 1;
 `
-
-
 
 const Pasta = ({ itemArray }) => {
   const [item, setItem] = useState()
@@ -56,7 +56,7 @@ const Pasta = ({ itemArray }) => {
   return (
     <View>
       {item && <Text>
-        Maybe you're in the mood for <Name onPress={() => Linking.openURL(item.url)}>{item.name}</Name>?
+        Maybe you're in the mood for{"\n"}<Name onPress={() => Linking.openURL(item.url)}>{item.name}</Name>?
       </Text>}
       <TouchButton onPress={() => {
         getPasta(); Vibration.vibrate()

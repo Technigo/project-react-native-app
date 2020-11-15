@@ -3,7 +3,7 @@
     "name": "project-react-native-app",
     "slug": "project-react-native-app",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
+    "sdkVersion": "37.0.0",
     "platforms": [
       "ios",
       "android",
@@ -25,6 +25,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.amandaflodstrom.pasta"
     }
   }
 }
