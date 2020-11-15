@@ -1,6 +1,5 @@
 consider:
-
-//   padding: 18px;
+padding: 18px;
 background-color: papayawhip;
 blue/teal: 8ccac2
 

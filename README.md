@@ -14,6 +14,8 @@ Learning Objectives:
 ## Core Tech
 - API
 - React Native
+- React Hooks
+- Styled Components
 
 
 
