@@ -7,10 +7,9 @@ The app was built in React Native and was published in Expo. The learning object
 
 ## The problem 
 
-The biggest challenges facing this week were to get Expo to work properly.
+The biggest challenges this week were to get Expo to work properly and to understand how to translate things I have already written in React into React Native. Even though this project has been challenging I have enjoyed it a loot and looking forward to develop my app even further in the future. 
 
 ## Tech 
-
   - React Native
   - Styled Components
   - Arrays
@@ -20,3 +19,5 @@ The biggest challenges facing this week were to get Expo to work properly.
 ## View it live
 
 https://expo.io/@aagneshansson/project-react-native-app
+or
+https://snack.expo.io/@aagneshansson/%C3%B6vningsbank-f%C3%B6r-dig-och-din-h%C3%A4st
