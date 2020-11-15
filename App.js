@@ -3,10 +3,7 @@ import styled from "styled-components/native";
 import {
   StyleSheet,
   Button,
-  View,
-  SafeAreaView,
   Text,
-  Alert,
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
@@ -23,13 +20,21 @@ const Title = styled.Text`
 `;
 
 const App = () => {
+  //state for camera permission
   const [hasPermission, setHasPermission] = useState(null);
+  //state for determining if camera has scanned barcode
   const [scanned, setScanned] = useState(false);
+  //storing the barcode information
   const [data, setData] = useState(0);
+  //storing the fetch data
   const [food, setFood] = useState({});
+  //section in app
   const [section, setSection] = useState(0);
+  //storing number of scans made. Workaround for getting the "rescan" to work. When trying this 
+  //with just setting scanned to false after each fetch I got infinite loop
   const [scans, setScans] = useState(0)
 
+  //function that comes with the barcodescanner to get the data from the scanner
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -37,39 +42,29 @@ const App = () => {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }) => {
-    console.log('barcodescanned')
+  //event handler for barcodescanner
+  const handleBarCodeScanned = ({ data }) => {
     setData(0);
     setScanned(true);
     setScans(scans + 1)
     setData(data);
-    //alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
+  //fetching data from openfoodfacts. If no matching data to barcode - ask user to rescan
   useEffect(() => {
     if (data !== 0) {
-      console.log('fetch')
       setFood({})
       fetch(`https://world.openfoodfacts.org/api/v0/product/${data}`)
         .then((res) => res.json())
         .then((nutrient) => {
           if(nutrient.product) setFood(nutrient.product);
-          else {alert('Product Not Found!')
-          //setScanned(false)
-        }
-          //alert(`Food ${food.product_name} has been found!`)
-          // alert(`Food ${nutrient.product.product_name} has been found!`)
-          //setSection(2)
+          else alert('Product Not Found!')
         });
     }
   }, [scans]);
 
   useEffect(() => {
-    if (food.product_name) {
-      //alert(`Food ${food.product_name} has been found!`);
-      console.log('test')
-      setSection(2);
-    }
+    if (food.product_name) setSection(2);
   }, [food]);
 
   if (hasPermission === null) {
@@ -89,7 +84,6 @@ const App = () => {
       )}
       {section === 1 && (
         <Container>
-          {/* <Title>This is your cool app! With a small little update</Title> */}
           <BarCodeScanner
             onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
             style={StyleSheet.absoluteFillObject}
@@ -112,7 +106,6 @@ const App = () => {
               setSection(1);
             }}
           />
-          <Title>💅💅💅</Title>
         </Container>
       )}
     </>
