@@ -3,29 +3,36 @@ import { Image } from 'react-native'
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
 
-import { Container } from './components/Container'
+import { TealContainer } from './components/TealContainer'
 import { Title } from './components/Title'
-import icon from './assets/icon.jpg'
-
-const TealContainer = styled(Container)`
-  width: 100%;
-  padding: 18px;
-  background-color: #8ccac2;
-`
-
-const Instructions = styled.Text`
-  font-size: 18px;
-  color: 4d4d4d;
-`
+import { BodyTextStyle } from './components/BodyTextStyle'
+import img from './assets/placeholder.png'
+import { Footer } from './components/Footer'
 
 const Home = () => {
+  const [data, setData] = useState({})
+  let { x, y, z } = data
+
+  useEffect(() => {
+    Accelerometer.setUpdateInterval(70)
+    const shake = Accelerometer.addListener((accelerometerData) => {
+      setData(accelerometerData)
+    })
+
+    return () => {
+      shake && shake.remove()
+    }
+  }, [])
+
   return (
     <TealContainer>
-      <Title>Herro!</Title>
-      <Image source={icon} />
-      <Instructions>
-      Shake to load a random villager.
-      </Instructions>
+      <Title>Shake to load a random villager.</Title>
+      <Image source={img} />
+      <BodyTextStyle>
+        x: {x} y: {y} z: {z}
+       
+      </BodyTextStyle>
+      <Footer />
     </TealContainer>
   )
 }
@@ -34,9 +41,9 @@ export default Home
 
 
 {/* 
-notes for this page
-needs:
- placeholder image
- instructions to shake in order to get random villager
  this should have the listener and accelerameter to trigger the api call
+
+ <VillagerInfo />
+  on shake, footer also disappears
+
 */}

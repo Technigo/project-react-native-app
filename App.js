@@ -1,15 +1,13 @@
 import React from 'react'
 
-import { Container } from './components/Container'
-import { Title } from './components/Title'
+import { TealContainer } from './components/TealContainer'
 import Home from './Home'
 
 const App = () => {
   return (
-    <Container>
-      <Title>Random Animal Crossing Villager</Title>
+    <TealContainer>
       <Home />
-    </Container>
+    </TealContainer>
   )
 }
 
