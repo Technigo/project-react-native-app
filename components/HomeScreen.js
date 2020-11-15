@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import CustomTouchable from "./CustomTouchable";
 
@@ -26,7 +25,6 @@ const HomeScreen = ({ navigation }) => {
   const [quoteList, setQuoteList] = useState([]);
 
   useEffect(() => {
-    navigation.setOptions({ headerShown: false });
     fetchQuoteList();
   }, []);
 
