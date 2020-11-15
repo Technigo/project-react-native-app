@@ -5,6 +5,7 @@ import { Accelerometer } from 'expo-sensors'
 
 import { Container } from './components/Container'
 import { Title } from './components/Title'
+import icon from './assets/icon.jpg'
 
 const TealContainer = styled(Container)`
   width: 100%;
@@ -21,7 +22,7 @@ const Home = () => {
   return (
     <TealContainer>
       <Title>Herro!</Title>
-      
+      <Image source={icon} />
       <Instructions>
       Shake to load a random villager.
       </Instructions>
