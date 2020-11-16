@@ -6,26 +6,24 @@ import { API_URL, ENDPOINT_URL } from "../urls.js";
 import { API_KEY, uid } from "../API_KEY.js";
 
 const HomeContainer = styled.ImageBackground`
-  display: flex;
-  justify-content: center;
+  flex: 1;
+  justify-content: space-around;
   align-items: center;
 `;
 
 const HomeTitle = styled.Text`
   flex: 2;
-  width: 350px;
-  margin: 75px auto 30px;
-  font-size: 48px;
+  width: 250px;
+  margin-top: 75px;
+  font-size: 42px;
   font-weight: 800;
   text-align: center;
 `;
 
 const HomeText = styled.Text`
-  flex: 1;
-  width: 350px;
+  width: 250px;
   font-size: 36px;
   text-align: center;
-  margin-bottom: 50px;
 `;
 
 const HomeScreen = ({ navigation }) => {
@@ -47,7 +45,7 @@ const HomeScreen = ({ navigation }) => {
   };
 
   const navigateToQuote = () => {
-    navigation.navigate("Quote", { data: { quoteList }, currentQuote: quoteList[0].quote});
+    navigation.navigate("Quote", { data: { quoteList }});
   };
 
   return (
@@ -57,7 +55,7 @@ const HomeScreen = ({ navigation }) => {
           "https://images.unsplash.com/photo-1554838171-7c78fbc3ff01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
       }}
     >
-      <HomeTitle>Oscar Wilde quote-o-rama</HomeTitle>
+      <HomeTitle>Oscar Wilde Quote-O-Rama</HomeTitle>
       <HomeText>What would ol' Oscar say?</HomeText>
       <CustomTouchable
         onPress={navigateToQuote}

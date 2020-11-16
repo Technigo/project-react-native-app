@@ -1,11 +1,24 @@
 import React from "react";
 import styled from "styled-components/native";
 
-const TouchableContainer = styled.View`
-  margin-bottom: 150px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+const CustomTouchableOpacity = styled.TouchableOpacity`
+  flex: none;
+  width: 175px;
+  height: 175px;
+  margin: 50px 0 75px;
+  border-radius: 100;
+  overflow: hidden;
+`;
+
+const TouchableImage = styled.Image`
+  width: 100%;
+  height: 100%;
+`;
+const TouchableOverlay = styled.View`
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,.4)
+  position: absolute;
 `;
 
 const TouchableText = styled.Text`
@@ -19,27 +32,7 @@ const TouchableText = styled.Text`
   top: ${(props) => props.top};
 `;
 
-const TouchableOverlay = styled.View`
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0,0,0,.4)
-  position: absolute;
-`;
-
-const CustomTouchableOpacity = styled.TouchableOpacity`
-  width: 175px;
-  height: 175px;
-  margin: 10px;
-  border-radius: 100;
-  overflow: hidden;
-`;
-
-const TouchableImage = styled.Image`
-  width: 100%;
-  height: 100%;
-`;
 const CustomTouchable = (props) => (
-  <TouchableContainer>
     <CustomTouchableOpacity onPress={props.onPress}>
       <TouchableImage
         source={{
@@ -51,7 +44,6 @@ const CustomTouchable = (props) => (
         <TouchableText top={props.top}>{props.text}</TouchableText>
       </TouchableOverlay>
     </CustomTouchableOpacity>
-  </TouchableContainer>
 );
 
 export default CustomTouchable;

@@ -3,16 +3,14 @@ import styled from "styled-components/native";
 import CustomTouchable from "./CustomTouchable";
 
 const QuoteContainer = styled.ImageBackground`
+  flex: 1;
   background-color: #0096c9;
-  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const QuoteText = styled.Text`
-  flex: 2;
   width: 350px;
-  margin: 60px auto;
   padding: 25px;
   color: white;
   background-color: rgba(255, 215, 0, 0.5);
