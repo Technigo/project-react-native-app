@@ -110,6 +110,8 @@ const Container = styled.View`
   justify-content: center;
   background-color: #222222;
   flex: 1;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 500px;
   width: 100%;
 `
@@ -118,7 +120,7 @@ const FixedSection = styled.View`
   align-items: stretch;
   display: flex;
   justify-content: space-evenly;
-  height: 55vh;
+  height: 55%;
 `
 
 const ButtonContainer = styled.View`
