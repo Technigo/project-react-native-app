@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
 import homeBackground from "../assets/background.jpg";
-import placeholder from "../assets/placeholder1.png"
+import placeholder from "../assets/placeholder1.png";
 
 const Separator = styled.View`
   margin: 16px 0;
@@ -42,6 +42,23 @@ const ImageContainer = styled.Image`
   margin: 15px;
 `;
 
+const StyledButton = styled.TouchableOpacity`
+  height: 40px;
+  width: 49%;
+  padding: 5px 3px;
+  background: #43464b;
+  border-radius: 15px;
+  border: 1px solid white;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ButtonText = styled.Text`
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+`;
+
 export const ShowBook = ({ navigation, route }) => {
   let randomNumber = 0;
   const [book, setBook] = useState([]);
@@ -68,39 +85,41 @@ export const ShowBook = ({ navigation, route }) => {
       .then((respons) => respons.json())
       .then((json) => {
         setLoader(false);
-        {json.totalItems === 0
-          ? null
-          : ( 
-            randomNumber = chooseRandomBook(json.items.length),
-            setBook(json.items[randomNumber].volumeInfo),
-            console.log(json),
-            console.log(json.items[randomNumber].volumeInfo)
-            )
-        }      
+        {
+          json.totalItems === 0
+            ? null
+            : ((randomNumber = chooseRandomBook(json.items.length)),
+              setBook(json.items[randomNumber].volumeInfo));
+        }
       });
   }, []);
 
   return (
-    
     <ResultContainer source={homeBackground}>
       {loader && (
         <>
-          <HeaderText>Wait, I think I have the perfect book for you!</HeaderText>
+          <HeaderText>
+            Wait, I think I have the perfect book for you!
+          </HeaderText>
           <Separator />
           <ActivityIndicator size="large" color="#e4b77d" />
         </>
       )}
 
       {!loader && !book.title && (
-        <><HeaderText>Sorry, I do not have a book that matches "{route.params.data}"</HeaderText>
-        <Separator />
-        <Button
-              color="#43464B"
-              title="Give it another try"
-              onPress={navigateToHomeScreen}
-            ></Button></>
+        <>
+          <HeaderText>
+            Sorry, I do not have a book that matches "{route.params.data}"
+          </HeaderText>
+          <Separator />
+          <Button
+            color="#43464B"
+            title="Give it another try"
+            onPress={navigateToHomeScreen}
+          ></Button>
+        </>
       )}
-      
+
       {!loader && book.title && (
         <>
           <HeaderText>I recommend this book!</HeaderText>
@@ -112,24 +131,20 @@ export const ShowBook = ({ navigation, route }) => {
             <AuthorText>by {book.authors}</AuthorText>
           )}
           {book.imageLinks === undefined ? (
-            <ImageContainer source={ placeholder }/>
+            <ImageContainer source={placeholder} />
           ) : (
             <ImageContainer source={{ uri: `${book.imageLinks.thumbnail}` }} />
           )}
           <Separator />
           <Group>
-            <Button
-              color="#43464B"
-              title="Read more"
-              onPress={navigateToReadMore}
-            ></Button>
-            <Button
-              color="#43464B"
-              title="Give it another try"
-              onPress={navigateToHomeScreen}
-            ></Button>
+            <StyledButton onPress={navigateToReadMore}>
+              <ButtonText>Read more</ButtonText>
+            </StyledButton>
+            <StyledButton onPress={navigateToHomeScreen}>
+              <ButtonText>Give it another try</ButtonText>
+            </StyledButton>
           </Group>
-        </>      
+        </>
       )}
     </ResultContainer>
   );

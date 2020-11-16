@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Keyboard, Picker, ActivityIndicator } from "react-native";
+import { Button, Keyboard } from "react-native";
 import styled from "styled-components/native";
 import homeBackground from "../assets/background.jpg";
 
@@ -64,7 +64,7 @@ export const HomeScreen = ({ navigation }) => {
   const _onSubmit = () => {
     // triggers by submit on phone
     navigateToBook();
-  }
+  };
 
   return (
     <HomeContainer source={homeBackground}>

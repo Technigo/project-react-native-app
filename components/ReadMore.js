@@ -1,19 +1,20 @@
 import React from "react";
 import styled from "styled-components/native";
 import homeBackground from "../assets/background.jpg";
-import { Button, Share } from "react-native";
+import { Share } from "react-native";
 import placeholder from "../assets/placeholder1.png";
 
 import { StarRating } from "./StarRating";
 
 const ResultContainer = styled.ImageBackground`
   flex: 1;
-  padding: 50px 25px 30px 25px;
+  padding: 50px 15px 30px 15px;
 `;
 
 const GroupImageAndText = styled.View`
   flex-direction: row;
   width: 75%;
+  padding: 0 5px;
 `;
 
 const GroupAuthorAndTitle = styled.View`
@@ -31,6 +32,8 @@ const ImageContainer = styled.Image`
   height: 125px;
   width: 83px;
   margin-right: 10px;
+  margin-bottom: 0;
+  justify-content: flex-end;
 `;
 
 const InfoText = styled.Text`
@@ -47,13 +50,30 @@ const TitleText = styled(InfoText)`
 `;
 
 const ScrollViewContainer = styled.ScrollView`
-  padding-top: 20px;
+  padding: 20px 15px 0 15px;
   height: 150px;
 `;
 
 const DescriptionText = styled(InfoText)`
   background: rgba(0, 0, 0, 0.5);
   text-align: justify;
+`;
+
+const StyledButton = styled.TouchableOpacity`
+  height: 40px;
+  width: 46%;
+  padding: 5px 4px;
+  background: #43464b;
+  border-radius: 15px;
+  border: 1px solid white;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ButtonText = styled.Text`
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
 `;
 
 export const ReadMore = ({ navigation, route }) => {
@@ -72,7 +92,7 @@ export const ReadMore = ({ navigation, route }) => {
         if (result.activityType) {
           alert("Successfully shared.");
         } else {
-          // shared
+          alert("Could not share message.");
         }
       } else if (result.action === Share.dismissedAction) {
         alert("Could not share message.");
@@ -95,13 +115,9 @@ export const ReadMore = ({ navigation, route }) => {
           {book.subtitle ? <InfoText>- {book.subtitle}</InfoText> : null}
 
           {book.authors === undefined ? (
-            <>
-              <InfoText>Unknown author</InfoText>
-            </>
+            <InfoText>Unknown author</InfoText>
           ) : (
-            <>
-              <InfoText>by {book.authors}</InfoText>
-            </>
+            <InfoText>by {book.authors}</InfoText>
           )}
 
           {book.categories === undefined ? null : (
@@ -130,16 +146,12 @@ export const ReadMore = ({ navigation, route }) => {
         )}
       </ScrollViewContainer>
       <GroupButtons>
-        <Button
-          color="#43464B"
-          title="Recommend book"
-          onPress={onShare}
-        ></Button>
-        <Button
-          color="#43464B"
-          title="Give it another try"
-          onPress={navigateToHomeScreen}
-        ></Button>
+        <StyledButton onPress={onShare}>
+          <ButtonText>Recommend book</ButtonText>
+        </StyledButton>
+        <StyledButton onPress={navigateToHomeScreen}>
+          <ButtonText>Give it another try</ButtonText>
+        </StyledButton>
       </GroupButtons>
     </ResultContainer>
   );
