@@ -1,32 +1,3 @@
-/* import React from 'react'
-import styled from 'styled-components/native'
-import { Button } from 'react-native'
-
-import { FortuneMessage } from './Components/FortuneMessage'
-
-  export default function App () {
-
-  return (
-    <Container>
-      
-      <Button title='🐸' />  
-      <IconText>Tap me!</IconText>
-    </Container>
-  )
-}
-
-const Container = styled.View`
-  flex: 1;
-  background-color: pink;
-  justify-content: center;
-  align-items: center;
-`
-
-const IconText = styled.Text`
-font-size: 30px;
-color: palevioletred;
-` */
-
 import React, { useState, useEffect } from 'react'
 import { Button, Text } from 'react-native'
 import styled from 'styled-components/native'
@@ -45,29 +16,48 @@ font-size: 30px;
 color: palevioletred;
 `
 
-const App = () => {
+  const App = () => {
   const [fortune, setFortune] = useState("")
+  const [fortuneIndex, setFortuneIndex] = useState(0)
+  const [showFortune, setShowFortune] = useState(false)
 
-    const getFortune = () => {
+  const onPress = () => {
+    setShowFortune(true)
+  }
+
+  const updateIndex = () => {
+    setFortuneIndex(fortuneIndex+1)
+  }
+    const randomizeFortune = () => {
       fetch(fortuneURL)
 
       .then(response => response.json())
-      .then(json => setFortune(json) 
+      .then(json => {
+
+        const formattedArray = json.map(item => item.text) 
+        setFortune(formattedArray)
+      } 
+      
       )
   }
 
-  useEffect (getFortune, [])
+  useEffect (randomizeFortune, [])
+
 
   return (
-    
-    <FortuneContainer>
-      <FortuneText>{fortune}</FortuneText>
-        <Button title="GENERATE FORTUNE" onPress={getFortune} />
-    </FortuneContainer>
-    )
+    <>
+      <FortuneContainer>
+        <Button title="GENERATE FORTUNE" onPress={updateIndex} />
+    </FortuneContainer> 
+
+        {!showFortune && (
+        <FortuneText>{fortune[fortuneIndex]}</FortuneText>
+        
+        )}
+        </>
+  )
   
-}  
+} 
 
 export default App
-
 
