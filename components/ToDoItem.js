@@ -15,7 +15,7 @@ margin-top: 16px;
 `
 
 
-export default function ToDoItem({ item, pressHandler }) {
+ const ToDoItem = ({ item, pressHandler }) => {
 
     return (
         <TouchableOpacity onPress={() => {
@@ -29,3 +29,5 @@ export default function ToDoItem({ item, pressHandler }) {
         </TouchableOpacity>
     )
 }
+
+export default ToDoItem;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, Button, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { TouchableOpacity, StyleSheet } from 'react-native'
 import styled from 'styled-components/native';
 
 
@@ -37,12 +37,14 @@ font-weight:bold;
 
 `
 
-export default function Add({submitHandler}) {
+ const Add = ({submitHandler}) => {
     const [text, setText] = useState()
 
     const changeHandler = (val) => {
         setText(val)
+
     }
+
     return(
         <Main>
             <InputBox>
@@ -62,4 +64,5 @@ export default function Add({submitHandler}) {
     )
 }
 
+export default Add;
 
