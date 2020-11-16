@@ -11,6 +11,11 @@ The project for this week was to build our first mobile app using React Native a
 
 - If I had more time I would've loved to redo the functionality in the TipScreen component to be able to shake the phone more than once to get a new tip (right now you have to return to the StartScreen and then go into the TipScreen again to be able to get a new tip).
 
+## Tech ⚛️
+- React Native
+- Styled Components
+- JavaScript
+- JSX
 
 ## View it live 🎁
 
