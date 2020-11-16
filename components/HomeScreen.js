@@ -39,10 +39,9 @@ const ButtonText = styled.Text`
 const HomeScreen = ({ navigation }) => {
   useEffect(() => {
     navigation.setOptions({ headerShown: false }); //Hides the header on home screen
-  }, []);
+  }, [navigation]);
 
   const navigateToInfo = () => {
-    console.log('Go! button pressed');
     navigation.navigate('Back');
   }
 

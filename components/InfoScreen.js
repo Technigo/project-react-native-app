@@ -12,7 +12,7 @@ const InfoContainer = styled.ImageBackground`
   align-items: flex-start;
   justify-content: flex-end;
   padding: 18px;
-  height: 450px;
+  height: 500px;
   width: 100%;
 `;
 
@@ -30,28 +30,52 @@ const CopyText = styled.Text`
 const TextContainer = styled.View`
   align-items: center;
   justify-content: center;
+  background-color: #2f4156;
 `;
 
 const InfoTextTitle = styled.Text`
   font-size: 28px;
   margin: 10px;
   font-weight: bold;
+  color: #fff;
 `;
 
 const SpaceInfoText = styled.Text`
   font-size: 18px;
   margin: 10px 15px;
-  color: #000000;
+  color: #fff;
   line-height: 24px;
 `;
 
 const FooterText = styled.Text`
   font-size: 12px;
-  color: #000000;
+  color: #fff;
+  padding: 10px;
   margin: 10px 15px;
+  border: 1px solid #fff;
+  border-radius: 12px;
 `;
 
-const InfoScreen = () => {
+const HomeButton = styled.TouchableOpacity`
+  margin-top: 25px;
+  background: #000000;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 2px solid #fff;
+  width: 200px;
+  height: 80px;
+  margin: 15px;
+`;
+
+const ButtonText = styled.Text`
+  font-size: 32px;
+  color: #fff;
+  font-weight: bold;
+`;
+
+const InfoScreen = ({navigation}) => {
   const [spaceInfo, setSpaceInfo] = useState([])
 
   useEffect(() => {
@@ -59,8 +83,13 @@ const InfoScreen = () => {
       .then(response => response.json())
       .then(data => {
         setSpaceInfo(data)
+        navigation.setOptions({ headerShown: false });
       })
   }, [])
+
+  const navigateToHome = () => {
+    navigation.navigate('Home');
+  }
 
   return (
     <ScrollContainer>
@@ -80,6 +109,12 @@ const InfoScreen = () => {
           universe is featured from the Nasa APOD API, along with a brief explanation written
           by a professional astronomer.
         </FooterText>
+        <HomeButton
+        onPress={navigateToHome}>
+        <ButtonText>
+          Back
+        </ButtonText>
+      </HomeButton>
       </TextContainer>
     </ScrollContainer>
   );
