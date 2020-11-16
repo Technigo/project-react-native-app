@@ -4,6 +4,7 @@ import data from "./data.json";
 
 import { StepCounter } from "./components/StepCounter.js";
 import { GainStepsSuggestions } from "./components/GainStepsSuggestions.js";
+import { SiteHeader } from "./components/SiteHeader.js";
 
 const WrappingContentContainer = styled.View`
   flex: 1;
@@ -13,8 +14,8 @@ const WrappingContentContainer = styled.View`
 `;
 
 const DateContainer = styled.View`
-  margin-top: 0px;
-  padding-bottom: 60px;
+  margin-top: 40px;
+  padding-bottom: 40px;
 `;
 
 const DateText = styled.Text`
@@ -26,6 +27,7 @@ const DateText = styled.Text`
 const App = () => {
   return (
     <WrappingContentContainer>
+      <SiteHeader />
       <DateContainer>
         <DateText>
           {" "}

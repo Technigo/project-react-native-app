@@ -3,11 +3,8 @@ import styled from "styled-components/native";
 import { Pedometer } from "expo-sensors";
 
 const Container = styled.View`
-  text-align: center;
-  justify-content: center;
   align-items: center;
-  margin-top: 80px;
-  margin-bottom: 50px;
+  margin: 20px 0 10px 0;
 `;
 
 const CountedStepsText = styled.Text`

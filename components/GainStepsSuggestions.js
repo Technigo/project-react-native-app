@@ -5,7 +5,7 @@ import { Vibration } from "react-native";
 const ContentWrapperContainer = styled.View`
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 `;
 
 const PickButton = styled.TouchableOpacity`
@@ -27,7 +27,7 @@ const SuggestionContainer = styled.View`
   padding: 10px;
   width: 300px;
   height: 100px;
-  margin: 80px 20px 10px 20px;
+  margin: 0px 20px 10px 20px;
   border-radius: 25px;
   align-items: center;
   justify-content: center;
