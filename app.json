@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "Book finder",
+    "slug": "book-finder",
     "privacy": "public",
     "platforms": [
       "ios",

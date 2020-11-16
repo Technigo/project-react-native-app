@@ -8,12 +8,6 @@ const Separator = styled.View`
   margin: 16px 0;
 `;
 
-const Group = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-`;
-
 const ResultContainer = styled.ImageBackground`
   flex: 1;
   align-items: center;
@@ -40,12 +34,21 @@ const ImageContainer = styled.Image`
   height: 250px;
   width: 165px;
   margin: 15px;
+  align-items: flex-end;
+`;
+
+const GroupButtons = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
 `;
 
 const StyledButton = styled.TouchableOpacity`
   height: 40px;
-  width: 49%;
-  padding: 5px 3px;
+  width: 46%;
+  max-width: 250px;
+  padding: 5px;
+  margin: 0 5px;
   background: #43464b;
   border-radius: 15px;
   border: 1px solid white;
@@ -136,14 +139,14 @@ export const ShowBook = ({ navigation, route }) => {
             <ImageContainer source={{ uri: `${book.imageLinks.thumbnail}` }} />
           )}
           <Separator />
-          <Group>
+          <GroupButtons>
             <StyledButton onPress={navigateToReadMore}>
               <ButtonText>Read more</ButtonText>
             </StyledButton>
             <StyledButton onPress={navigateToHomeScreen}>
-              <ButtonText>Give it another try</ButtonText>
+              <ButtonText>Find another book</ButtonText>
             </StyledButton>
-          </Group>
+          </GroupButtons>
         </>
       )}
     </ResultContainer>

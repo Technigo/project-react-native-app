@@ -9,12 +9,16 @@ import { StarRating } from "./StarRating";
 const ResultContainer = styled.ImageBackground`
   flex: 1;
   padding: 50px 15px 30px 15px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const GroupImageAndText = styled.View`
   flex-direction: row;
   width: 75%;
   padding: 0 5px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const GroupAuthorAndTitle = styled.View`
@@ -22,25 +26,17 @@ const GroupAuthorAndTitle = styled.View`
   justify-content: flex-end;
 `;
 
-const GroupButtons = styled.View`
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 20px;
-`;
-
 const ImageContainer = styled.Image`
   height: 125px;
   width: 83px;
   margin-right: 10px;
   margin-bottom: 0;
-  justify-content: flex-end;
 `;
 
 const InfoText = styled.Text`
   background: rgba(0, 0, 0, 0.5);
   font-size: 14px;
   color: #fff;
-  flex-wrap: wrap;
   padding-bottom: 2px;
 `;
 
@@ -52,6 +48,7 @@ const TitleText = styled(InfoText)`
 const ScrollViewContainer = styled.ScrollView`
   padding: 20px 15px 0 15px;
   height: 150px;
+  max-width: 400px;
 `;
 
 const DescriptionText = styled(InfoText)`
@@ -59,10 +56,18 @@ const DescriptionText = styled(InfoText)`
   text-align: justify;
 `;
 
+const GroupButtons = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
 const StyledButton = styled.TouchableOpacity`
   height: 40px;
   width: 46%;
-  padding: 5px 4px;
+  max-width: 250px;
+  padding: 5px;
+  margin: 0 5px;
   background: #43464b;
   border-radius: 15px;
   border: 1px solid white;
@@ -150,7 +155,7 @@ export const ReadMore = ({ navigation, route }) => {
           <ButtonText>Recommend book</ButtonText>
         </StyledButton>
         <StyledButton onPress={navigateToHomeScreen}>
-          <ButtonText>Give it another try</ButtonText>
+          <ButtonText>Find another book</ButtonText>
         </StyledButton>
       </GroupButtons>
     </ResultContainer>
