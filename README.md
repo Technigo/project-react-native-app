@@ -15,7 +15,6 @@ The project for this week was to build our first mobile app using React Native a
 - React Native
 - Styled Components
 - JavaScript
-- JSX
 
 ## View it live 🎁
 
