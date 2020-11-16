@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
-import homeBackground from "../assets/background.jpg";
-import { Share } from "react-native";
 import placeholder from "../assets/placeholder1.png";
-
+import { Share } from "react-native";
 import { StarRating } from "./StarRating";
+
+import homeBackground from "../assets/background.jpg";
 
 const ResultContainer = styled.ImageBackground`
   flex: 1;
@@ -15,22 +15,21 @@ const ResultContainer = styled.ImageBackground`
 
 const GroupImageAndText = styled.View`
   flex-direction: row;
-  width: 75%;
   padding: 0 5px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-`;
-
-const GroupAuthorAndTitle = styled.View`
-  flex-direction: column;
-  justify-content: flex-end;
 `;
 
 const ImageContainer = styled.Image`
   height: 125px;
-  width: 83px;
+  width: 25%;
   margin-right: 10px;
   margin-bottom: 0;
+`;
+
+const GroupAuthorAndTitle = styled.View`
+  width: 75%;
+  flex-direction: column;
 `;
 
 const InfoText = styled.Text`
@@ -96,8 +95,6 @@ export const ReadMore = ({ navigation, route }) => {
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
           alert("Successfully shared.");
-        } else {
-          alert("Could not share message.");
         }
       } else if (result.action === Share.dismissedAction) {
         alert("Could not share message.");

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Button, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
-import homeBackground from "../assets/background.jpg";
 import placeholder from "../assets/placeholder1.png";
+import { Button, ActivityIndicator } from "react-native";
+
+import homeBackground from "../assets/background.jpg";
 
 const Separator = styled.View`
   margin: 16px 0;

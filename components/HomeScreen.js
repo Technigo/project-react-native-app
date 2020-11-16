@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Keyboard } from "react-native";
 import styled from "styled-components/native";
+
 import homeBackground from "../assets/background.jpg";
 
 const Separator = styled.View`
