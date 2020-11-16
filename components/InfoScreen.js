@@ -12,7 +12,7 @@ const InfoContainer = styled.ImageBackground`
   align-items: flex-start;
   justify-content: flex-end;
   padding: 18px;
-  height: 500px;
+  height: 520px;
   width: 100%;
 `;
 
@@ -25,6 +25,7 @@ const TitleText = styled.Text`
 const CopyText = styled.Text`
   font-size: 10px
   color: lightgrey;
+  margin-top: 10px;
 `;
 
 const TextContainer = styled.View`
@@ -42,16 +43,16 @@ const InfoTextTitle = styled.Text`
 
 const SpaceInfoText = styled.Text`
   font-size: 18px;
-  margin: 10px 15px;
+  margin: 10px 20px;
   color: #fff;
-  line-height: 24px;
+  line-height: 28px;
 `;
 
 const FooterText = styled.Text`
   font-size: 12px;
   color: #fff;
   padding: 10px;
-  margin: 10px 15px;
+  margin: 10px 20px;
   border: 1px solid #fff;
   border-radius: 12px;
 `;
