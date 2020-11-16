@@ -10,7 +10,7 @@ const weatherStockholm =
   "https://api.openweathermap.org/data/2.5/weather?q=stockholm&units=metric&appid=e74df95bd073adf9306ac7f46ad51144";
 
 const Weather = () => {
-  const [weatherInfo, setWeatherInfo] = useState([]);
+  const [weatherInfo, setWeatherInfo] = useState({ name: "loading" });
   useEffect(() => {
     fetch(
       "https://api.openweathermap.org/data/2.5/weather?q=stockholm&units=metric&appid=e74df95bd073adf9306ac7f46ad51144"
@@ -18,9 +18,10 @@ const Weather = () => {
       .then((res) => res.json())
       .then((data) => {
         setWeatherInfo(data);
+        console.log(data);
       });
   }, []);
-
+  console.log(weatherInfo);
   return (
     <>
       <View>

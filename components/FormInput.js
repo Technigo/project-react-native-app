@@ -23,9 +23,13 @@ const FormInput = ({ submitHandler }) => {
         value={text}
       />
       <Button
-        onPress={() => submitHandler(text)}
+        onPress={() => {
+          submitHandler(text);
+          setText("");
+        }}
         title="add todo"
         color="black"
+        disabled={text == ""}
       />
     </View>
   );
