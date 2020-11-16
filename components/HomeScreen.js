@@ -39,7 +39,6 @@ const HomeScreen = ({ navigation }) => {
     fetch(`${API_URL}${uid}&${API_KEY}${ENDPOINT_URL}`)
       .then((res) => res.json())
       .then((quotes) => {
-        console.log(quotes.result);
         setQuoteList(quotes.result);
       })
       .catch((error) => {
@@ -48,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
   };
 
   const navigateToQuote = () => {
-    navigation.navigate("Quote", { data: { quoteList } });
+    navigation.navigate("Quote", { data: { quoteList }, currentQuote: quoteList[0].quote});
   };
 
   return (

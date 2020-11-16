@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 
 const TouchableContainer = styled.View`
-  margin-bottom: 100px;
+  margin-bottom: 150px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;

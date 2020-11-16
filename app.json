@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "oscar-wilde-quote-o-rama-react-native-app",
+    "slug": "oscar-wilde-quote-o-rama-react-native-app",
     "privacy": "public",
     "platforms": [
       "ios",
