@@ -3,8 +3,6 @@ padding: 18px;
 background-color: papayawhip;
 blue/teal: 8ccac2
 
-sharing villager to friend with Share feature
-
 Project React Native App
 This week's project is a very free one. Your only restrictions are that it should be a mobile app created with React Native and using styled components. Also, the app it self should either be:
 

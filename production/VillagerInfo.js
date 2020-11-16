@@ -38,3 +38,5 @@ const VillagerInfo = ({ navigation, route }) => {
 }
 
 export default VillagerInfo
+
+// option to SHARE ?
