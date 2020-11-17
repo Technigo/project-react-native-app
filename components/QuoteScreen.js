@@ -19,17 +19,21 @@ const QuoteText = styled.Text`
 `;
 
 const QuoteScreen = ({ navigation, route }) => {
-  const [currentQuote, setCurrentQuote] = useState({
-    quote: "We are all in the gutter, but some of us are looking at the stars"
-  });
-  
-  const getQuote = () => {
-    const quote = route.params.data.quoteList[
+  const [currentQuote, setCurrentQuote] = useState({});
+
+  const randomQuote = () => {
+    return route.params.data.quoteList[
       Math.floor(Math.random() * route.params.data.quoteList.length)
     ];
-    setCurrentQuote(quote);
   };
 
+  useEffect(() => {
+    setCurrentQuote(randomQuote());
+  }, []);
+
+  const getQuote = () => {
+    setCurrentQuote(randomQuote());
+  };
 
   return (
     <>
@@ -40,7 +44,7 @@ const QuoteScreen = ({ navigation, route }) => {
               "https://images.unsplash.com/photo-1585530416542-cf7058ed5f40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60",
           }}
         >
-          <QuoteText> {currentQuote.quote}</QuoteText>
+          <QuoteText>{currentQuote.quote}</QuoteText>
           <CustomTouchable
             onPress={getQuote}
             top="10"
