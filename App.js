@@ -12,7 +12,7 @@ const FortuneContainer = styled.View`
   `
 
 const FortuneText = styled.Text`
-font-size: 120px;
+font-size: 90px;
 color: palevioletred;
 margin-bottom: 20px;
 `
@@ -36,14 +36,14 @@ const App = () => {
         {!hideFirstPage && (
           <FortuneContainer>
             <FortuneText>✨ 🐸 ✨</FortuneText>
-            <Button title="-   TAP HERE TO GET A FORTUNE   -" color="green" onPress={getFortune} />
+            <Button title="TAP HERE TO GET A FORTUNE" color="green" onPress={getFortune} />
           </FortuneContainer>
         )}
 
         {showFortune && (
           <FortuneContainer>
             <FortuneMessage />
-            <Button title="-   GET A NEW FORTUNE   -" color="green" onPress={newFortune} />
+            <Button title="GET A NEW FORTUNE" color="green" onPress={newFortune} />
           </FortuneContainer>
         )}
       </>

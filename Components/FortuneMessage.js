@@ -5,6 +5,7 @@ const FortuneText = styled.Text`
 font-size: 30px;
 color: palevioletred;
 margin-bottom: 20px;
+text-align: center;
 `
 const fortuneURL = "https://type.fit/api/quotes"
 
@@ -32,7 +33,7 @@ export const FortuneMessage = () => {
 
 
     return (
-        <FortuneText>✨{fortune[fortuneIndex]}✨</FortuneText> 
+        <FortuneText>{fortune[fortuneIndex]}</FortuneText> 
 )      
 } 
 
