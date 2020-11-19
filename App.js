@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Text } from 'react-native'
+import React, { useState } from 'react'
+import { Button } from 'react-native'
 import styled from 'styled-components/native'
 
-const fortuneURL = "https://type.fit/api/quotes"
+import { FortuneMessage } from './Components/FortuneMessage'
 
 const FortuneContainer = styled.View`
   flex: 1;
@@ -12,52 +12,44 @@ const FortuneContainer = styled.View`
   `
 
 const FortuneText = styled.Text`
-font-size: 30px;
+font-size: 120px;
 color: palevioletred;
+margin-bottom: 20px;
 `
 
-  const App = () => {
-  const [fortune, setFortune] = useState("")
-  const [fortuneIndex, setFortuneIndex] = useState(0)
-  const [showFortune, setShowFortune] = useState(false)
-
-  const onPress = () => {
-    setShowFortune(true)
-  }
-
-  const updateIndex = () => {
-    setFortuneIndex(fortuneIndex+1)
-  }
-    const randomizeFortune = () => {
-      fetch(fortuneURL)
-
-      .then(response => response.json())
-      .then(json => {
-
-        const formattedArray = json.map(item => item.text) 
-        setFortune(formattedArray)
-      } 
-      
-      )
-  }
-
-  useEffect (randomizeFortune, [])
-
-
-  return (
-    <>
-      <FortuneContainer>
-        <Button title="GENERATE FORTUNE" onPress={updateIndex} />
-    </FortuneContainer> 
-
-        {!showFortune && (
-        <FortuneText>{fortune[fortuneIndex]}</FortuneText>
-        
-        )}
-        </>
-  )
+const App = () => {
+  const [showFortune, setShowFortune] = useState(false);
+  const [hideFirstPage, setHideFirstPage] = useState(false);
   
-} 
+
+    const getFortune = () => {
+      setShowFortune(true);
+      setHideFirstPage(true);
+    };
+    const newFortune = () => {
+      setShowFortune(false);
+      setHideFirstPage(false);
+    };
+
+    return (
+      <>
+        {!hideFirstPage && (
+          <FortuneContainer>
+            <FortuneText>✨ 🐸 ✨</FortuneText>
+            <Button title="-   TAP HERE TO GET A FORTUNE   -" color="green" onPress={getFortune} />
+          </FortuneContainer>
+        )}
+
+        {showFortune && (
+          <FortuneContainer>
+            <FortuneMessage />
+            <Button title="-   GET A NEW FORTUNE   -" color="green" onPress={newFortune} />
+          </FortuneContainer>
+        )}
+      </>
+    )
+}
+
 
 export default App
 
