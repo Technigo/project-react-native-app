@@ -7,6 +7,11 @@ I chose to do a Step Counter. It shows the amount of steps taken during your las
 It counts down to 10 000 steps - which is the goal for everyday - and changes the animation when the goal is completed.
 This app does not work in web browsers and is only tested on an ios device.
 
+## View it live
+link to get Expo QR code:
+
+https://snack.expo.io/@ellenbjo/github.com-ellenbjo-project-react-native-app
+
 ## The project
 
 The app is divided in to two parts - One for todays information and one for the weekly information. 
