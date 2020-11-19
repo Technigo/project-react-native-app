@@ -1,18 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
+import { Accelerometer } from 'expo-sensors'
+import styled from 'styled-components'
+
 import { TealContainer } from './TealContainer'
-import { BodyTextStyle } from './BodyTextStyle'
+import { BodyTextStyle } from '../components/BodyTextStyle'
 import { Title } from './Title'
 import { Footer } from './Footer'
 import img from '../assets/placeholder.png'
-import Home from './Home'
 import { Randomizer } from './Randomizer'
 
+const MovementDetected = styled.Text`
+    ${(props) => `transform: translate(${props.xOffset}px, ${props.yOffset}px) `}
+  `
 const StartState = ({ navigation }) => {
   useEffect(() => {
     navigation.setOptions({ headerShown: false })
   })
 
+  const [data, setData] = useState({})
+  let { x, y, z } = data
+  let xOffset = x * 60 || 0
+  let yOffset = y * -120 || 0
+
+  useEffect(() => {
+    Accelerometer.setUpdateInterval(120)
+    const shake = Accelerometer.addListener((accelerometerData) => {
+      setData(accelerometerData)
+    })
+    return () => {
+      shake && shake.remove()
+    }
+  }, [])
   
 
   return (
@@ -20,7 +39,15 @@ const StartState = ({ navigation }) => {
       <Title>Shake to load a random villager</Title>
       <Image source={img} />
       <Randomizer />
-      <Home />
+
+      <MovementDetected xOffset={xOffset} yOffset={yOffset}>
+        Shake to load a random villager.
+      </MovementDetected>
+      
+      <BodyTextStyle>
+        x: {x} y: {y} z: {z} 
+      </BodyTextStyle>
+
       <Footer />
     </TealContainer>
   )

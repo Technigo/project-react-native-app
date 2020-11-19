@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 
-import styled from 'styled-components/native'
-
 import { TealContainer } from './components/TealContainer'
-import { BodyTextStyle } from './components/BodyTextStyle'
 import { Title } from './components/Title'
 import { Footer } from './components/Footer'
 import { Fetch } from './components/Fetch'
@@ -52,12 +49,3 @@ const App = () => {
 }
 
 export default App
-
-{/* 
- this should have the listener and accelerameter to trigger the api call
-
- <VillagerInfo />
-  on shake, footer also disappears
-    const [villager, setVillager] = useState()
-
-*/}

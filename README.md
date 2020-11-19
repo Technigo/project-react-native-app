@@ -18,7 +18,6 @@ Learning Objectives:
 - Styled Components
 
 
-
 ## Requirements Completed
 🔵  Blue Level
 - You should use Styled Components.

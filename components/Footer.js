@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-const FooterStyle = styled.Text`
-  margin: 130px 18px 0px 18px;
+const FooterStyle = styled.View`
+  ${'' /* margin: 130px 18px 0px 18px; */}
   justify-content: flex-end;
   align-items: flex-end;
   align-content: flex-end;
+  background-color: #bbead5;
 `
 
 const FooterText = styled.Text`

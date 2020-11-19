@@ -1,11 +1,12 @@
 import styled from 'styled-components/native'
 
-export const Title = styled.Text`
+export const Name = styled.Text`
 width: 100%;
-padding: 10px 0;
+padding: 175px 0 0 0;
 margin-bottom: 30px;
 font-size: 50px;
 font-weight: 700;
 color: palevioletred;
 text-align: center;
+background: papayawhip;
 `
