@@ -24,5 +24,12 @@ After that I added another page to make it a multiscreen App with React Navigati
 
 ## View it live
 
-See the app live via expo: https://expo.io/@gabbi-89/projects/todays-workout-picker
+If you have an Android phone, see the app live via scanning the QR code at expo: https://expo.io/@gabbi-89/projects/todays-workout-picker
+
+Else;
+1. Clone the project from GitHub
+2. Open it in VS Code
+3. Write 'npm install' in the terminal
+4. Write 'npm start' in the terminal
+5. In the browser, click on 'Open in Web Browser'
 
