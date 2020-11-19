@@ -6,14 +6,13 @@ import { FortuneMessage } from './Components/FortuneMessage'
 
 const FortuneContainer = styled.View`
   flex: 1;
-  background-color: pink;
+  background-color: violet;
   justify-content: center;
   align-items: center;
   `
 
 const FortuneText = styled.Text`
 font-size: 90px;
-color: palevioletred;
 margin-bottom: 20px;
 `
 
@@ -33,14 +32,14 @@ const App = () => {
 
     return (
       <>
-        {!hideFirstPage && (
+        {!hideFirstPage && ( 
           <FortuneContainer>
             <FortuneText>✨ 🐸 ✨</FortuneText>
             <Button title="TAP HERE TO GET A FORTUNE" color="green" onPress={getFortune} />
           </FortuneContainer>
         )}
 
-        {showFortune && (
+        {showFortune && (  
           <FortuneContainer>
             <FortuneMessage />
             <Button title="GET A NEW FORTUNE" color="green" onPress={newFortune} />
@@ -49,7 +48,6 @@ const App = () => {
       </>
     )
 }
-
 
 export default App
 
