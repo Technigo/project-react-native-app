@@ -1,37 +1,142 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Vibration } from 'react-native'
 import styled from 'styled-components/native'
 
+import backgroundImage from '../assets/background-fruits.png'
+
+const MealsArray = [
+  {
+    meals: 'GREEK SALAD',
+    picture: require('../assets/grekisksallad.jpeg')
+  },
+  {
+    meals: 'CLUB SANDWICH',
+    picture: require('../assets/clubsandwich.jpeg')
+  },
+  {
+    meals: 'CHICKEN STEW',
+    picture: require('../assets/kycklinggryta.jpeg')
+  },
+  {
+    meals: 'CHICKEN PASTA',
+    picture: require('../assets/kycklingpasta.jpeg')
+  },
+  {
+    meals: 'BOLOGNESE',
+    picture: require('../assets/kottfarssas.jpeg')
+  },
+  {
+    meals: 'LASAGNE',
+    picture: require('../assets/lasagne.jpeg')
+  },
+  {
+    meals: 'SALMON SALAD',
+    picture: require('../assets/laxsallad.jpeg')
+  },
+  {
+    meals: 'PASTA PESTO',
+    picture: require('../assets/pastapesto.jpeg')
+  },
+  {
+    meals: 'STEAK STEW',
+    picture: require('../assets/steakstew.jpeg')
+  },
+  {
+    meals: 'PANCAKES',
+    picture: require('../assets/pannkakor.jpeg')
+  },
+  {
+    meals: 'PIZZA',
+    picture: require('../assets/pizza.jpeg')
+  },
+  {
+    meals: 'QUESADILLA',
+    picture: require('../assets/quesadilla.jpeg')
+  },
+  {
+    meals: 'HAMBURGER',
+    picture: require('../assets/hamburgare.jpeg')
+  }
+
+]
+
 const MealList = () => {
-  const API = 'apikey-here'
-  const [meals, SetMeals] = useState();
+  const [meal, setMeals] = useState({})
 
-
-  useEffect(() => {
-    fetch(API)
-      .then((response) => response.json())
-      .then((json) => setMeals(json.results))
-  }, [])
-
+  const setRandomMeals = () => {
+    const allTheMeals =
+      MealsArray[Math.floor(Math.random() * MealsArray.length)];
+    setMeals(allTheMeals);
+  }
 
   return (
-
     <Container>
-      {meals.map((meal) => (
-        <Container>
-          <Title> MON </Title>
-
-
-          <Title> {meal.title} </Title>
-          <Image
-            source={{
-              uri: 'bildadress${meal.bildapi}',
-            }}
-          />
-        </Container>
-  ))
-}
-    </Container >
+      <BackgroundImageContainer
+        source={backgroundImage}>
+        <ButtonContainer
+          onPress={() => {
+            setRandomMeals()
+            Vibration.vibrate()
+          }}
+        >
+          <ButtonText>FIND MEAL</ButtonText>
+        </ButtonContainer>
+        <MealContainer>
+          <MealText>{meal.meals}</MealText>
+          <MealImage
+            source={meal.picture} />
+        </MealContainer>
+      </BackgroundImageContainer>
+    </Container>
   )
 }
+
+const BackgroundImageContainer = styled.ImageBackground`
+  flex: 1;
+  justify-content: center;
+`
+
+const MealContainer = styled.View`
+`
+
+const MealText = styled.Text`
+  margin-top: 10px
+  padding: 50px;
+  text-align: center;
+  font-size: 35px;
+  color: orange;
+  font-weight: bold;
+`
+
+
+const Container = styled.View`
+flex: 1;
+`
+
+const ButtonContainer = styled.TouchableOpacity`
+top:  100px;
+margin: 100px;
+align-items: center;
+justify-content: center;
+background: green;
+width: 200px;
+border-radius: 50px;
+`
+
+const ButtonText = styled.Text`
+padding: 25px;
+text-align: center;
+font-size: 24px;
+color: white;
+font-weight: bold;
+`
+
+const MealImage = styled.Image`
+bottom: 35px;
+width: 300px;
+height: 200px;
+margin-left: 55px;
+justify-content: center;
+`
 
 export default MealList
