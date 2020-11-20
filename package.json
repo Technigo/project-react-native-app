@@ -13,6 +13,7 @@
     "@react-navigation/stack": "^5.12.6",
     "braces": "^3.0.2",
     "expo": "^39.0.0",
+    "expo-av": "^8.6.0",
     "expo-camera": "^9.0.0",
     "expo-constants": "~9.2.0",
     "expo-image-picker": "^9.1.1",
