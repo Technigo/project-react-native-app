@@ -4,4 +4,4 @@ This is a React Native "Find your meal today" app! If your struggling with ideas
 
 ## View it live
 
-
+https://snack.expo.io/@destinyleia/github.com-destinyleia-project-react-native-app
