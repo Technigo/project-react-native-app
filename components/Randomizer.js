@@ -10,7 +10,7 @@ import placeholder from '../assets/placeholder.png'
 export const Randomizer = () => {
   const [villager, setVillager] = useState([])
   const [data, setData] = useState({})
-  let { x, y, z } = data
+  // let { x, y, z } = data
   let villagerIcon = villager.uri
   
   // function to fetch random villager
@@ -41,9 +41,9 @@ export const Randomizer = () => {
       <Name>
         {villager.name !== undefined ? villager.name : "Shake to load a random villager"}
       </Name>
-      {/* <Image source={require('../assets/placeholder.png')} /> */}
+      <Image source={require('../assets/placeholder.png')} />
       <Image 
-        source={{uri: villagerIcon} !== undefined ?  villagerIcon : "../assets.placeholder.png"}
+        source={{uri: villagerIcon !== undefined ? villagerIcon : placeholder }}
         style={{
           width: 120,
           height: 120,

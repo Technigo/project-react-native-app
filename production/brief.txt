@@ -1,4 +1,6 @@
-`"${villager.uri}"`
+conditional image
+
+!== undefined ?  villagerIcon : "../assets.placeholder.png"
 
 
 consider:
