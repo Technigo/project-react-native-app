@@ -1,6 +1,7 @@
 import { Accelerometer } from 'expo-sensors'
 
-const threshold = 150
+// Threshold sets shake sensitivity - A lower number gives higher ensitivity. A higher number gives lower sensitivity.
+const threshold = 190
 
 export class DetectShake {
 

@@ -16,17 +16,15 @@ export const Randomizer = () => {
     setVillager(theVillager)
   }
 
-  // No villager is selected: Instruction text and placeholder image displayed.
+  // Start = No villager is selected: Instruction text and placeholder image displayed.
   const [start, setStart] = useState(true)
   const shake = () => {
     setStart(false)
   }
-
   useEffect(() => {
     DetectShake.addListener(() => {
       shake()
       getVillager()
-      console.log('shake shake shake, shake shake shake, shake yr booty')
     })
       return () => {
         DetectShake.removeListener()

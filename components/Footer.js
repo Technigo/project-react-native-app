@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-const FooterStyle = styled.View`
-  ${'' /* margin: 130px 18px 0px 18px; */}
+const FooterContainer = styled.View`
+  margin: 130px 18px 0px 18px;
+  display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   align-content: flex-end;
@@ -16,10 +17,12 @@ const FooterText = styled.Text`
 
 export const Footer = () => {
   return (
-    <FooterStyle>
+    <FooterContainer>
         <FooterText>
-          Made by Peggy @blipsandclicks during Technigo Bootcamp 2020 for educational purposes. API data from ACNH API (v1). Placeholder image and app icon from Nintendo.
+          Made by Peggy @blipsandclicks during Technigo Bootcamp 2020 for educational purposes. 
+          API data from ACNH API (v1). 
+          Select images from Nintendo.
         </FooterText>
-    </FooterStyle>
+    </FooterContainer>
   )
 }
