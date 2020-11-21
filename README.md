@@ -9,7 +9,7 @@ Learning Objectives:
 - Practice using Styled Components for your styling.
 
 ## Approach
-This React Native App project was one steep learning curve! I had to take my current knowledge of React and then recontextulize it within React Native's constraints. On top of this, I was also playing with some new tools: Expo, the accelerometer on my mobile device, and and API that was new to me-- so lots of new concepts to figure out and implement. 
+This React Native App project was one steep learning curve! I had to take my current knowledge of React and then recontextulize it within React Native's constraints. On top of this, I was also playing with some new tools: Expo, the accelerometer on my mobile device, and an API that was new to me— so lots of new concepts to figure out and implement. 
 
 After deciding on building and Animal Crossing villager randomizer and working out how that might function on paper, I set to work. I quickly realized I had to work backwards in order to test while coding, for example:
     - the API fetch had work before trying to randomize that data.
