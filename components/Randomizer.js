@@ -5,8 +5,6 @@ import VillagerArray from './VillagerArray'
 import { StartState } from './StartState'
 import { DetectShake } from './DetectShake'
 import { Name, Textspan, Container } from './ProfileSyles'
-// import { ButtonStyle } from './ButtonStyle'
-
 
 export const Randomizer = () => {
   const [villager, setVillager] = useState([])
@@ -20,8 +18,6 @@ export const Randomizer = () => {
 
   // No villager is selected: Instruction text and placeholder image displayed.
   const [start, setStart] = useState(true)
-
-
   const shake = () => {
     setStart(false)
   }
@@ -29,6 +25,7 @@ export const Randomizer = () => {
   useEffect(() => {
     DetectShake.addListener(() => {
       shake()
+      getVillager()
       console.log('shake shake shake, shake shake shake, shake yr booty')
     })
       return () => {
@@ -42,10 +39,10 @@ export const Randomizer = () => {
       ) : (
         <Container>
         <Name>
-          {villager.name !== undefined ? villager.name : "Shake to load a random villager"}
+          {villager.name}
         </Name>
         <Image 
-          source={{uri: villagerIcon !== undefined ? villagerIcon : '../assets/placeholder.png'}}
+          source={{uri: villagerIcon}}
           style={{
             width: 120,
             height: 120,
@@ -58,7 +55,6 @@ export const Randomizer = () => {
         <Textspan>Gender: {villager.gender}</Textspan>
         <Textspan>Hobby: {villager.hobby}</Textspan>
         <Textspan>Catch Phrase: {villager.catchPhrase}</Textspan> 
-        {/* <ButtonStyle onPress={() => { getVillager()}} type="button" name="Button" /> */}
       </Container>
       )}
   </>
