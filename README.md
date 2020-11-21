@@ -12,8 +12,8 @@ Learning Objectives:
 This React Native App project was one steep learning curve! I had to take my current knowledge of React and then recontextulize it within React Native's constraints. On top of this, I was also playing with some new tools: Expo, the accelerometer on my mobile device, and an API that was new to me— so lots of new concepts to figure out and implement. 
 
 After deciding on building and Animal Crossing villager randomizer and working out how that might function on paper, I set to work. I quickly realized I had to work backwards in order to test while coding, for example:
-    - the API fetch had work before trying to randomize that data.
-    - The random loading fucntion had to work before working out how to connect it to the sensor.
+- the API fetch had work before trying to randomize that data.
+- The random loading fucntion had to work before working out how to connect it to the sensor.
 I had trouble accesing specific data points in from the API array so I pulled a handful of villagers (and their relevant data points) into a smaller and locally stored array. I also created a button for any development testing that needed to happen before getting to the step of pulling in the accelerometer component. 
 
 This project was not easy, but it was a fun challenge that was made manageable by breaking down my goals into smaller functional chunks. Then I kept building on the chunks that I had to end up with a finished project. Neat!
