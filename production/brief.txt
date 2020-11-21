@@ -1,32 +1,51 @@
-conditional image
+const shake = () => {
+  setStartState(false)
+}     
 
-!== undefined ?  villagerIcon : "../assets.placeholder.png"
+
+  const listener = Accelerometer.addListener((data) => {
+    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
+      if (totalForce > 3.5) {
+        setSensorData(data)
 
 
-consider:
+  
+  // 
+  const [sensorData, setSensorData] = useState([])
+  const [data, setData] = useState({})
+
+
+
+
+
+
+
+  }
+})
+return () => {
+  listener && listener.remove()
+}
+}, [])
+
+useEffect(() => {
+  getVillager()
+}, [sensorData])
+
+useEffect(() => {
+  setStartState(true)
+})  
+
+
+
+
+
+
 padding: 18px;
 background-color: papayawhip;
 blue/teal: 8ccac2
 
-Project React Native App
-This week's project is a very free one. Your only restrictions are that it should be a mobile app created with React Native and using styled components. Also, the app it self should either be:
-
 - using one of the sensors of your mobile phone such as the camera, accelerometer or voice assistance etc.
 - using an external API to fetch something to your app and then interact with it.
----
-
-## Ideas that you could build 💡**
-- Fetch a bunch of cute dog photos from an API and use the [share method](https://facebook.github.io/react-native/docs/share) to share it with your friends.
----
-
-## **Hints and tips to complete the project 🤓**
-Once you have your idea, start by sketching out what your app will look like and how you'd like to use components. Now we're using styled components, but you can still break things into small, manageable components.
-
-After that, think about how the logic should be divided up. Are you using an API? What component should handle the fetch. Are you building a compass, how should you structure you files?
-
-Then you're ready to start working on the project.
-
-When starting to write your code, try to work on the project in small chunks rather than taking on too much at once.
 ---
 
 ## **How to hand in the code 🎯**
@@ -41,3 +60,5 @@ When starting to write your code, try to work on the project in small chunks rat
 - The app should either be:
     - using one of the sensors of your mobile phone such as the camera, accelerometer or voice assistance etc.
     - using an external API to fetch something to your app and then interact with it.
+
+    
