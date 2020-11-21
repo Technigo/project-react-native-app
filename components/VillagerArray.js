@@ -22,6 +22,7 @@ const VillagerArray = [
     saying: "Stay on brand!"
   },
   {
+    name: "Poppy",
     personality: "Normal",
     birthday: "August 5th",
     species: "Squirrel",

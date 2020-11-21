@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { View, Image, Button } from 'react-native'
+import { Image } from 'react-native'
 import { Accelerometer } from 'expo-sensors'
 
 import VillagerArray from './VillagerArray'
-import { Name, VillagerIco, Label, Textspan, Test } from './ProfileSyles'
+import { Name, Textspan, Container, Label } from './ProfileSyles'
+import { ButtonStyle } from './ButtonStyle'
+import placeholder from '../assets/placeholder.png'
 
-export const ShakeRandomizer = () => {
-  // variables to set random villager
+export const Randomizer = () => {
   const [villager, setVillager] = useState([])
   const [data, setData] = useState({})
   let { x, y, z } = data
-  console.log(VillagerArray)
+  let villagerIcon = villager.uri
+  
   // function to fetch random villager
   const getVillager = () => {
     const theVillager = VillagerArray[Math.floor(Math.random() * VillagerArray.length)]
@@ -34,42 +36,32 @@ export const ShakeRandomizer = () => {
     getVillager()
   }, [setData])
 
-  
-
-
   return (
-    <View>
+    <Container>
       <Name>
         {villager.name !== undefined ? villager.name : "Shake to load a random villager"}
       </Name>
-      <Image source={require('../assets/placeholder.png')} />
+      {/* <Image source={require('../assets/placeholder.png')} /> */}
       <Image 
-        source={{uri: 'data:image/png;base64,'}}
+        source={{uri: villagerIcon} !== undefined ?  villagerIcon : "../assets.placeholder.png"}
         style={{
-          width: 200,
-          height: 200,
-          resizeMode: 'contain'
-        }}
-      />
-      
+          width: 120,
+          height: 120,
+          marginBottom: 10
+      }}/>
+
       <Textspan>{villager.saying}</Textspan>
       <Textspan>Personality: {villager.personality}</Textspan>
       <Textspan>Birthdate: {villager.birthday}</Textspan>
       <Textspan>Species: {villager.species}</Textspan>
       <Textspan>Gender: {villager.gender}</Textspan>
       <Textspan>Hobby: {villager.hobby}</Textspan>
-      <Textspan>Catch Phrase: {villager.catchPhrase}
-      </Textspan> 
+      <Textspan>Catch Phrase: {villager.catchPhrase}</Textspan> 
 
-      <Button
-        onPress={() => { getVillager()}}
-        type="button"
-        title="Very Buttony Button"
-      />
-      
-      <Test>
-        x: {x} y: {y} z: {z} 
-      </Test>
-    </View>
+      <ButtonStyle onPress={() => { getVillager()}} type="button">
+        <Label>Button</Label>
+      </ButtonStyle>
+    
+    </Container>
   )
 }

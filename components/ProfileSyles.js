@@ -1,26 +1,21 @@
 import styled from 'styled-components/native'
 
+export const Container = styled.View`
+  width: 98%;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+`
+
 export const Name = styled.Text`
 width: 100%;
-padding: 175px 0 0 0;
+padding: 16px 0 0 0;
 margin-bottom: 30px;
 font-size: 50px;
 font-weight: 700;
 color: palevioletred;
 text-align: center;
-background: papayawhip;
-`
-
-export const VillagerIco = styled.Image`
-  width: 200px;
-  height: 200px;
-`
-
-export const Label = styled.Text`
-  font-size: 17px;
-  font-weight: 500;
-  color: #4d4d4d;
-  margin: 15px 0;
 `
 
 export const Textspan = styled.Text`
@@ -28,9 +23,14 @@ export const Textspan = styled.Text`
   color: #4d4d4d;
   margin: 3px 0;
 `
-
-export const Test = styled.Text`
+export const Label = styled.Text`
+  font-size: 25px;
+  font-weight: 700;
+  color: #4d4d4d;
+`
+export const TextContainer = styled.Text`
+  width: 70%;
   font-size: 17px;
   color: #4d4d4d;
-  margin: 0;
+  margin: 3px 0;
 `

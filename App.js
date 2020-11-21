@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { ShakeRandomizer } from './components/ShakeRandomizer'
+import { Randomizer } from './components/Randomizer'
 import { Footer } from './components/Footer'
 import { AppContainer } from './components/AppContainer'
 
 const App = () => {
   return (
     <AppContainer>
-      <ShakeRandomizer />
+      <Randomizer />
       <Footer />
     </AppContainer>
   )
