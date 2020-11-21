@@ -1,29 +1,15 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import 'react-native-gesture-handler'
+import { setStatusBarHidden } from 'expo-status-bar'
 
-import List from './components/List'
-import VillagerInfo from './components/VillagerInfo'
-
-
-const Stack = createStackNavigator()
+import { Randomizer } from './components/Randomizer'
+import { AppContainer } from './components/AppContainer'
 
 const App = () => {
+  setStatusBarHidden(true)
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-        name="List"
-        component={List}
-        />
-        <Stack.Screen
-          name="VillagerInfo"
-          component={VillagerInfo}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AppContainer>
+      <Randomizer />
+    </AppContainer>
   )
 }
-
 export default App

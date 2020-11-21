@@ -1,24 +1,27 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-const FooterStyle = styled.Text`
-  margin: 130px 18px 0px 18px;
-  justify-content: flex-end;
-  align-items: flex-end;
-  align-content: flex-end;
+const FooterContainer = styled.View`
+  margin: 30px 0px 0px 0px;
+  height: 150px;
+  flex-Direction: column-reverse;
+  background-color: #bbead5;
 `
 
-const FooterText = styled.Text`
+const TextSpan = styled.Text`
   font-size: 14px;
-  text-align: center;
 `
 
 export const Footer = () => {
   return (
-    <FooterStyle>
-        <FooterText>
-          Made by Peggy @blipsandclicks during Technigo Bootcamp 2020 for educational purposes. API data from ACNH API (v1). Placeholder image and app icon from Nintendo.
-        </FooterText>
-    </FooterStyle>
+    <FooterContainer>
+        <TextSpan>
+          Made by Peggy @blipsandclicks during Technigo Bootcamp 2020 for educational purposes.
+        </TextSpan>
+        <TextSpan>
+          API data from ACNH API (v1).&nbsp;
+          Select images from Nintendo.
+        </TextSpan>
+    </FooterContainer>
   )
 }
