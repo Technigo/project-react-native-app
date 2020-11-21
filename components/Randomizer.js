@@ -4,7 +4,7 @@ import { Image } from 'react-native'
 import VillagerArray from './VillagerArray'
 import { StartState } from './StartState'
 import { DetectShake } from './DetectShake'
-import { Name, Textspan, Container } from './ProfileSyles'
+import { Container, Name, Quote, TextContainer, Textspan } from './ProfileSyles'
 
 export const Randomizer = () => {
   const [villager, setVillager] = useState([])
@@ -25,6 +25,7 @@ export const Randomizer = () => {
     DetectShake.addListener(() => {
       shake()
       getVillager()
+      console.log('shaken not stirred')
     })
       return () => {
         DetectShake.removeListener()
@@ -36,23 +37,25 @@ export const Randomizer = () => {
         <StartState />
       ) : (
         <Container>
-        <Name>
-          {villager.name}
-        </Name>
         <Image 
           source={{uri: villagerIcon}}
           style={{
             width: 120,
             height: 120,
-            marginBottom: 10
         }}/>
-        <Textspan>{villager.saying}</Textspan>
-        <Textspan>Personality: {villager.personality}</Textspan>
-        <Textspan>Birthdate: {villager.birthday}</Textspan>
-        <Textspan>Species: {villager.species}</Textspan>
-        <Textspan>Gender: {villager.gender}</Textspan>
-        <Textspan>Hobby: {villager.hobby}</Textspan>
-        <Textspan>Catch Phrase: {villager.catchPhrase}</Textspan> 
+         <Name>
+          {villager.name}
+        </Name>
+        <Quote>&ldquo;{villager.saying}&rdquo;</Quote>
+        <TextContainer>
+          
+          <Textspan>Personality: {villager.personality}</Textspan>
+          <Textspan>Birthdate: {villager.birthday}</Textspan>
+          <Textspan>Species: {villager.species}</Textspan>
+          <Textspan>Gender: {villager.gender}</Textspan>
+          <Textspan>Hobby: {villager.hobby}</Textspan>
+          <Textspan>Catch Phrase: {villager.catchPhrase}</Textspan> 
+        </TextContainer>
       </Container>
       )}
   </>
