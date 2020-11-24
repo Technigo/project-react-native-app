@@ -42,7 +42,7 @@ const App = () => {
         {showFortune && (  
           <FortuneContainer>
             <FortuneMessage />
-            <Button title="GET A NEW FORTUNE" color="green" onPress={newFortune} />
+            <Button title="GO BACK" color="green" onPress={newFortune} />
           </FortuneContainer>
         )}
       </>
