@@ -6,7 +6,7 @@ This is my first mobile application using React Native and Styled Components!
 
 Learning Objectives:
 - How to use React Native to create a mobile app
-- Practice using Styled Components for your styling.
+- Practice using Styled Components for styling.
 
 ## Approach
 This React Native App project was one steep learning curve! I had to take my current knowledge of React and then recontextulize it within React Native's constraints. On top of this, I was also playing with some new tools: Expo, the accelerometer on my mobile device, and an API that was new to me— so lots of new concepts to figure out and implement. 
@@ -29,7 +29,7 @@ This project was not easy, but it was a fun challenge that was made manageable b
 
 ## Requirements Completed
 🔵  Blue Level
-- You should use Styled Components.
+- Use Styled Components.
 - The app should either be:
     - using one of the sensors of your mobile phone such as the camera, accelerometer or voice assistance etc.
     - using an external API to fetch something to your app and then interact with it.
@@ -43,4 +43,4 @@ This project was not easy, but it was a fun challenge that was made manageable b
 - Multiple screens → add some kind of navigation in your app, either with bottom tabs or navigation backwards and forwards between screens. -->
 
 <!-- ## View it live -->
-<!-- link goes here -->
+https://snack.expo.io/@pwangy/react-native-app
