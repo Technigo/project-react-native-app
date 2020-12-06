@@ -42,5 +42,5 @@ This project was not easy, but it was a fun challenge that was made manageable b
 <!-- ⚫  Black Level (Advanced Goals)
 - Multiple screens → add some kind of navigation in your app, either with bottom tabs or navigation backwards and forwards between screens. -->
 
-<!-- ## View it live -->
+## View it live
 https://snack.expo.io/@pwangy/react-native-app
