@@ -43,4 +43,5 @@ This project was not easy, but it was a fun challenge that was made manageable b
 - Multiple screens → add some kind of navigation in your app, either with bottom tabs or navigation backwards and forwards between screens. -->
 
 ## View it live
+Works best when viewed on the Expo app using the QR code under "My Device" in the preview area.
 https://snack.expo.io/@pwangy/react-native-app
