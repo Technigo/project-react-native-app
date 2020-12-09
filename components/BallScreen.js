@@ -22,23 +22,23 @@ export const BallScreen = ({ navigation, route }) => {
     };
 
   return ( 
- <ScreenContainer source={backgroundImage}>
-      <BallTitle> What would you like to ask ? </BallTitle>
+    <ScreenContainer source={backgroundImage}>
+        <BallTitle> What would you like to ask ? </BallTitle>
         <BallTextDescription> 
             Enter your question below
         </BallTextDescription>
         <BallTextInput
-            onChangeText={text => setQuestion(text)}
+            onChangeText={setQuestion}
             value={question}
         /> 
         <ScreenWrapper>
             <ScreenButton onPress={handleSubmit}>
-                <ScreenButtonText> Submit question </ScreenButtonText>
+            <ScreenButtonText> Submit question </ScreenButtonText>
             </ScreenButton>
         </ScreenWrapper>
         <TextDescription>{answer} </TextDescription> 
     </ScreenContainer> 
-  );
+    );
 };
 
 export default BallScreen;

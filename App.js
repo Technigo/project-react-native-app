@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
+import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+
 import HomeScreen from "./components/HomeScreen";
 import BallScreen from "./components/BallScreen";
-import 'react-native-gesture-handler';
+
 
 
 const Stack = createStackNavigator();

@@ -9,7 +9,7 @@ export const ScreenContainer = styled.ImageBackground`
 
 export const Title = styled.Text`
   color: #f4f4f4;
-  margin: 10% 0px 20px;
+  margin: 10% 0 20px;
   font-size: 30px;
   text-align: center;
   font-weight: bold;
@@ -39,10 +39,10 @@ export const ScreenWrapper = styled.View`
 
 export const ScreenButton = styled.TouchableOpacity`
   letter-spacing: 3px;
-  alignItems: center;
-  backgroundColor: #f4f4f4;
+  align-items: center;
+  background-color: #f4f4f4;
   padding: 20px;
-  margin: 0px 20px;
+  margin: 0 20px;
   border-radius: 40px;
 `;
 
@@ -58,17 +58,14 @@ export const ScreenButtonText = styled.Text`
 export const BallTextInput = styled.TextInput`
     height: 50px; 
     width: 350px;
-    borderColor: gray;
-    backgroundColor: #f4f4f4; 
-    borderWidth: 1px;
+    border-color: gray;
+    background-color: #f4f4f4; 
+    border-width: 1px;
     flex: 3;
     border-radius: 30px;
     font-size: 18px;
     text-align: center;
     color: grey;
-    
-   
-
 `;
 
 export const BallTitle = styled.Text`
