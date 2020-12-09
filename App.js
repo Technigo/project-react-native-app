@@ -12,7 +12,7 @@ const QuestionContainer = styled.View`
   background-color: pink;`;
 
 const Title = styled.Text`
-  font-size: 40px;
+  font-size: 30px;
   color: #00106b;
   padding: 20px;
   font-weight: bold;
@@ -47,12 +47,13 @@ const App = () => {
     setShowAnswers(false);
   }
 
-  return (<>
+  return (
+  <>
   {!showAnswers && 
   <QuestionContainer>
     <Title>Advice of the day 💡</Title>
     <CustomButton onClick={handleButtonClick} text="Press for advice"/>
-    <SmallText>👋 Or simply shake your device to get what you need!</SmallText>  
+    <SmallText>👋 Or simply shake your device to get it!</SmallText>  
   </QuestionContainer>
   }
   {showAnswers && 

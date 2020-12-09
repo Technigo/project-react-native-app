@@ -6,10 +6,10 @@ import { Advice } from './Advice';
 import { CustomButton } from './CustomButton';
 
 const Container = styled.View`
-flex: 1;
-justify-content: center;
-align-items: center;
-background-color: #dba9ff;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #dba9ff;
 `;
 
 const AnswerContainer = styled(Container)`
@@ -19,28 +19,28 @@ const Spinner = styled.ActivityIndicator`
 `;
 
 export const AnswerWindow = ({onReset}) => {
-  const[magicAnswer, setMagicAnswer] = useState();
-  const[isLoading, setIsLoading] = useState(true);
+  const [magicAnswer, setMagicAnswer] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-  fetch("https://api.adviceslip.com/advice")
-    .then(response => response.json())
-    .then(json => {
-      console.log(json);
-      setMagicAnswer(json.slip);
-      setIsLoading(false);
-      vibrateDevice();
-    })
-    .catch(error => console.log(error))
+    fetch("https://api.adviceslip.com/advice")
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+        setMagicAnswer(json.slip);
+        setIsLoading(false);
+        vibrateDevice();
+      })
+      .catch(error => console.log(error))
   },[]);
 
-const vibrateDevice = () => {
-  Vibration.vibrate();
-}
+  const vibrateDevice = () => {
+    Vibration.vibrate();
+  }
 
-const resetTheApp = () => {
-    onReset();
-}
+  const resetTheApp = () => {
+      onReset();
+  }
 
   return(
       <AnswerContainer>  
