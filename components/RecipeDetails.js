@@ -1,13 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-import { Container, TextContainer } from './Container'
+import { Container, TextContainer } from './Containers'
 import { Text, Headline } from './Text'
-
-const Wrapper = styled.View`
-flex: 1;
-background: #000;
-`
 
 export const RecipeDetails = (props) => {
     return (
@@ -21,3 +16,8 @@ export const RecipeDetails = (props) => {
         </Wrapper>
     )
 }
+
+const Wrapper = styled.View`
+    flex: 1;
+    background: #000;
+    `

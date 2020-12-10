@@ -30,3 +30,12 @@ export const Button = styled.TouchableOpacity`
     width: 85%;
     height: 20px;
     `
+
+    export const FooterContainer = styled.View`
+    flex: 0.5;
+    background: #F0CDB7;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    `

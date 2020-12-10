@@ -2,22 +2,22 @@ import React from 'react'
 import styled from 'styled-components/native'
 
 export const Header = () => {
+    return (
+        <Container>
+            <Heading>This is Header</Heading>
+        </Container>
+    )
+}
 
 const Container = styled.View`
-flex: 0.2;
-width: 100%;
-justify-content: center;
-align-items: center;
-background: #fff;
-`
+    flex: 0.2;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    `
 const Heading = styled.Text`
-font-size: 38px;
-color: #000;
-font-weight: 600;
-`
-return (
-<Container>
-    <Heading>This is Header</Heading>
-</Container>
-)
-}
+    font-size: 38px;
+    color: #000;
+    font-weight: 600;
+    `

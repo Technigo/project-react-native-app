@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { Container, Wrapper, TextContainer, Button } from './Container'
+import { Container, Wrapper, TextContainer, Button } from './Containers'
 import { Headline } from './Text'
 
 export const Recipe = ({ navigation }) => {
@@ -49,16 +49,20 @@ export const Recipe = ({ navigation }) => {
         getRandomRecipes()
     }, [])
 
+    const navigateToPage = (recipe) => {
+        navigation.navigate('Recipe-details', {
+            heading: recipe.title,
+            instructions: instructions,
+            image: recipe.image
+        })
+    }
+
     return (
         <Wrapper>
             {recipes.map((recipe) => (
                 <Button
                     key={recipe.id}
-                    onPress={() => navigation.navigate('Recipe-details', {
-                        heading: recipe.title,
-                        instructions: instructions,
-                        image: recipe.image
-                    })}>
+                    onPress={() => navigateToPage(recipe)}>
                     <Container source={{ uri: recipe.image }}>
                         <TextContainer>
                             <Headline>{recipe.title}</Headline>
