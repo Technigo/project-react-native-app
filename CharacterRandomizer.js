@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
 import styled from 'styled-components/native';
 
-//Note! Some comments are in Swedish, beacuse this app is mainly focused on swedish rpg.
-
 //The Character-randomizer component
 
 const CharacterRandomizer = () => {
@@ -27,7 +25,12 @@ const CharacterRandomizer = () => {
 			});
 	}, []);
 
-	//folkslag
+	//dice function
+	const rollDices = () => {
+		return Math.floor(Math.random() * 18) + 3;
+	};
+
+	//different races in the game
 	const races = [
 		'Human',
 		'Insectoid',
@@ -45,23 +48,23 @@ const CharacterRandomizer = () => {
 	const klass = ['Warrior', 'Magician', 'Thief'];
 
 	const randomKlass = () => randomSelector(klass);
-	//ödesmakt
+	//faith, translated from the swedish word 'ödesmakt'
 	const faith = ['Order', 'Chaos', 'Balance'];
 
 	const randomFaith = () => randomSelector(faith);
-	//styrka
-	const strenght = Math.floor(Math.random() * 18) + 3;
-	//smidighet
-	const dexterity = Math.floor(Math.random() * 18) + 3;
-	//fysik
-	const physics = Math.floor(Math.random() * 18) + 3;
-	//perception
-	const perception = Math.floor(Math.random() * 18) + 3;
-	//viljestyrka
-	const willpower = Math.floor(Math.random() * 18) + 3;
-	//utstrålning
-	const appearance = Math.floor(Math.random() * 18) + 3;
-	//startkapital
+
+	const strenght = rollDices();
+
+	const dexterity = rollDices();
+
+	const physics = rollDices();
+
+	const perception = rollDices();
+
+	const willpower = rollDices();
+
+	const appearance = rollDices();
+
 	const startFunds = [
 		'A handful worthless pinecones and stones',
 		' 3 km',

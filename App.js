@@ -33,17 +33,19 @@ const StyledButton = styled.Button`
 const image = { uri: 'https://picsum.photos/id/1028/200/300' };
 
 const App = () => {
-	const [showRandomCharacter, setShowRandomCharacter] = useState(false);
-	const [hideWelcomeScreen, setHideWelcomeScreen] = useState(false);
+	const [randomCharacterVisibility, setRandomCharacterVisibility] = useState(
+		false
+	);
+	const [welcomeScreenVisibility, setWelcomeScreenVisibility] = useState(false);
 
 	const handlePress = () => {
-		setShowRandomCharacter(true);
-		setHideWelcomeScreen(true);
+		setRandomCharacterVisibility(true);
+		setWelcomeScreenVisibility(true);
 	};
 
 	const handleRefresh = () => {
-		setShowRandomCharacter(false);
-		setHideWelcomeScreen(false);
+		setRandomCharacterVisibility(false);
+		setWelcomeScreenVisibility(false);
 	};
 	return (
 		<Container>
@@ -51,7 +53,7 @@ const App = () => {
 				<Container>
 					<Title>Swedish RPG character-randomizer</Title>
 					<StyledImage source={image} />
-					<StyledButton title={'Start your adventure!'} onPress={handlePress} />
+					<StyledButton title="Start your adventure!" onPress={handlePress} />
 				</Container>
 			)}
 			{showRandomCharacter && (
