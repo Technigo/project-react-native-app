@@ -1,13 +1,12 @@
 import 'react-native-gesture-handler'
 import React  from 'react'
-
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { NavigationContainer } from '@react-navigation/native'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
 import { StartScreen } from './Components/StartScreen'
-import { HomeScreen } from './Components/HomeScreen';
+import { HomeScreen } from './Components/HomeScreen'
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createMaterialTopTabNavigator()
 
 const App = () => {
   

@@ -8,7 +8,6 @@ export const StartScreen = () => {
   const onClick = (event) => {
     event.preventDefault()
       setChallenge(challengeArray)
-      console.log(challenge)
   }
   
   let challengeArray = 

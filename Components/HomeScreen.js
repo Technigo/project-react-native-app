@@ -1,8 +1,7 @@
 import React from 'react'
-
-import { Container, Title, InfoText } from './HomeScreenStyling'
 import LottieView from 'lottie-react-native'
 
+import { Container, Title, InfoText } from './HomeScreenStyling'
 
 export const HomeScreen = () => {
   return (
