@@ -3,13 +3,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components/native'
 import { Entypo } from '@expo/vector-icons';
 
-
 import backgroundImage from './assets/banana.png';
-
 
 import IntentionsItem from './components/IntentionsItem';
 import IntentionInput from './components/IntentionInput';
-
 
 
 const Container = styled.ImageBackground`
@@ -40,20 +37,17 @@ const StyledList = styled.FlatList`
 
 
 const App = () => {
-  // const [enteredIntention, setEnteredIntention] = useState('');
   const [dailyIntentions, setDailyIntentions] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
 
-  const addIntentionHandler = IntentionTitle => {       //getting user input and storing it
-    // console.log(enteredIntention);
+  const addIntentionHandler = IntentionTitle => {      
       setDailyIntentions(currentIntentions => [
         ...currentIntentions,
         { id: Math.random().toString(), value: IntentionTitle }
-      ]);       //takes existing intentions in old array adding intentions in new array
+      ]);   
       setIsAddMode(false);  
     };
 
-    // deletes list item when pressed
   const removeIntentionHandler = intentionId => {
     setDailyIntentions(currentIntentions => {
       return currentIntentions.filter(intention => intention.id !== intentionId);
@@ -67,7 +61,6 @@ const App = () => {
   return (
       <Container source={backgroundImage}>
           <Title>Tiny Daily Intentions App</Title>
-          {/* when button pressed add an entered intention */}
           <ButtonAdd title="Add new Intention" onPress={() =>setIsAddMode(true)}>
             <Entypo name="add-to-list" size={30} color="#383E42" /> 
           </ButtonAdd>  

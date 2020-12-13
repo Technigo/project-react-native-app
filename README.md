@@ -3,11 +3,7 @@
 Create a mobile application in react native. 
 
 ## The problem
-I started out with fun ideas. When I was not limited by my limited knowledge, either the chosen API's were unstable or I was not granted access.
-I changed projects every other day, nothing seemed to work. 
-Installation of the different packages coupled with the many many errors in production were quite difficult to handle. Time was slipping again.
-Beyond messy from following different threads/tutorials thinking I would gain time. 
-Limitations: camera.
+I ended up following an online tutorial as the original app ideas were unachievable and I ran out of time. I did have to simplify the code as well as adopt styled components for the app to meet the course requirements.
 
 
 ## View it live

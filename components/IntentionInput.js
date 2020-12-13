@@ -7,7 +7,7 @@ import { Entypo } from '@expo/vector-icons';
 const ButtonCancel = styled.TouchableOpacity`
   padding: 10px;
   border-radius: 50px;
-  border: red;
+  border-color: red;
   margin-top: 15px;
 `;
 
@@ -37,7 +37,7 @@ const IntentionInput = props => {
   const [enteredIntention, setEnteredIntention] = useState('');
 
   const intentionInputHandler = enteredText  => {  
-    setEnteredIntention(enteredText);                    //value prop bound to entered intention so state updates with every input, and stores it in entered goal
+    setEnteredIntention(enteredText);                  
   };
 
   const addIntentionHandler = () => {
@@ -56,7 +56,6 @@ const IntentionInput = props => {
         <ButtonAdd title="ADD" onPress={addIntentionHandler}>
         <Entypo name="plus" size={24} color="#383E42" />
         </ButtonAdd>  
-        {/* thanks to Modal works like a back button */}
         <ButtonCancel titel="Cancel" onPress={props.onCancel}>   
         <Entypo name="cross" size={24} color="black" />
         </ButtonCancel>

@@ -13,13 +13,6 @@ const ListItem = styled.Text`
   border-radius: 10px;
 `;
 
-// const ButtonDelete = styled.TouchableOpacity`
-//   padding: 10px;
-//   border-radius: 50px;
-//   border: red;
-//   margin-top: 15px;
-// `;
-
 const IntentionsItem = props => {
     return (
         <TouchableOpacity onPress={props.onDelete.bind(this, props.id)} >
