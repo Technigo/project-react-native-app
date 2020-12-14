@@ -18,14 +18,13 @@ const Weather = () => {
       .then((res) => res.json())
       .then((data) => {
         setWeatherInfo(data);
-        console.log(data);
       });
   }, []);
-  console.log(weatherInfo);
+
   return (
     <>
       <View>
-        <WeatherText>{weatherInfo.name}</WeatherText>
+        <WeatherText></WeatherText>
       </View>
       <View>
         <Text></Text>

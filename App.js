@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 import { View, Text, FlatList, ScrollView, Dimensions } from "react-native";
+
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import FormInput from "./components/FormInput";
-import Time from "./components/Time";
 import Weather from "./components/Weather";
-// import { Weather } from "./components/Weather";
 
 const Container = styled.View`
   flex: 1;
