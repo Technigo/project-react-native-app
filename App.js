@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
+
 import background from './assets/background.jpg'
 import { RandomDog } from './components/RandomDog'
 
