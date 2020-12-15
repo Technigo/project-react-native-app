@@ -70,8 +70,8 @@ const App = () => {
       })      
       )  : null}
       <TextField
-      onChangeText={text => setValue(text)}
-      value={value}
+        onChangeText={text => setValue(text)}
+        value={value}
       />
       <FetchButton onPress={fetchCard}><Text>FETCH</Text></FetchButton>
     </Container>
