@@ -47,7 +47,7 @@ export const RandomDog = () => {
                 </DogView>
                 <ButtonView>
                     <RandomDogButton onPress={fetchDogs}>
-                        <ButtonText>Another cute dog, pleases!</ButtonText>
+                        <ButtonText>Another cute dog, please!</ButtonText>
                     </RandomDogButton>
                 </ButtonView>
                 <ShareDog />
