@@ -11,7 +11,7 @@ const Card = styled.Image`
   flex: 1;
   width: 200px;
   height: 200px
-  resizeMode: contain;
+  resize-mode: contain;
   margin: 5px
 `
 const Text = styled.Text`
@@ -23,24 +23,24 @@ const FetchButton = styled.TouchableOpacity`
   background-color: tomato;
   align-items: center;
   justify-content: center;
-  fontWeight: bold;
+  font-weight: bold;
   color: white;
   width: 100px;
   height: 50px;
 `
 const TextField = styled.TextInput`
-height: 40;
-width: 200;
-margin: 5px;
-borderColor: tomato;
-borderWidth: 3;
-textAlign:center;
+  height: 40;
+  width: 200;
+  margin: 5px;
+  border-color: tomato;
+  border-width: 3;
+  text-align:center;
 `
 
 const App = () => {
 
   const [fetched, setFetched] = useState(false)
-  const [value, onChangeText] = useState('Fireball');
+  const [value, setValue] = useState('Fireball');
   const [data, getData] = useState([])
 
   const fetchCard = () => {
@@ -55,7 +55,6 @@ const App = () => {
     .then((response) => response.json())
     .then(response => {
       getData(response)
-      console.log(response)
       setFetched(true)
     })
     .catch(err => {
@@ -71,7 +70,7 @@ const App = () => {
       })      
       )  : null}
       <TextField
-      onChangeText={text => onChangeText(text)}
+      onChangeText={text => setValue(text)}
       value={value}
       />
       <FetchButton onPress={fetchCard}><Text>FETCH</Text></FetchButton>
