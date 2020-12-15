@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
+
 import { Image } from 'react-native'
 import { ShareDog } from './ShareDog'
 
@@ -17,7 +18,7 @@ const RandomDogButton = styled.TouchableOpacity`
     background-color: pink;
     border-radius: 50px;
     padding: 10px;
-    margin-top: 30px
+    margin-top: 30px;
     `
 
 const ButtonText = styled.Text`
@@ -31,7 +32,6 @@ export const RandomDog = () => {
         fetch('https://dog.ceo/api/breeds/image/random')
         .then((response) => response.json())
         .then((json) => { 
-            console.log(json)
             setDogs(json)
         })
      }   
@@ -40,7 +40,6 @@ export const RandomDog = () => {
             fetchDogs()
         }, [] )
     
-         console.log(dogs)   
         return (
             <>
                 <DogView>
@@ -48,7 +47,7 @@ export const RandomDog = () => {
                 </DogView>
                 <ButtonView>
                     <RandomDogButton onPress={fetchDogs}>
-                        <ButtonText>Another cute dog, please!</ButtonText>
+                        <ButtonText>Another cute dog, pleases!</ButtonText>
                     </RandomDogButton>
                 </ButtonView>
                 <ShareDog />
