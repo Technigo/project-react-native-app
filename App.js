@@ -29,7 +29,7 @@ const Container = styled.View`
 const App = () => {
 
   const [cats, setCats] = useState([])
-  const [isLoading, setLoading] = useState(true) //remove id I don't use a loading
+  const [isLoading, setisLoading] = useState(true) //remove id I don't use a loading
 
   const url = 'https://api.thecatapi.com/v1/images/search?limit=10&page=8&order=Desc'
 
@@ -42,10 +42,8 @@ const App = () => {
     .then((response) => response.json())
     .then((json) => setCats(json))
     .catch((error) => console.error(error))
-    .finally(() => setLoading(false)) //remove if I don't use a loading state
+    .finally(() => setisLoading(false)) //remove if I don't use a loading state
   }, [])
-
-  console.log(cats)
 
   return (
     <ScrollView>

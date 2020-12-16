@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-import HeaderImage from './assets/header.jpg'
+import image from './assets/header.jpg'
 
 const Container = styled.View`
   flex-direction: row;
@@ -29,7 +29,7 @@ export const Header = ({title}) => {
   return (
     <Container>
       <ImageBackground
-        source={HeaderImage}
+        source={image}
       >
         <Title>{title}</Title>
       </ImageBackground>
