@@ -14,6 +14,11 @@ const ButtonView = styled.View`
     flex: 1.5;
     `
 
+const DogImage = styled.Image`
+    width: 270px;
+    height: 270px;
+    `
+
 const RandomDogButton = styled.TouchableOpacity`
     background-color: pink;
     border-radius: 50px;
@@ -43,7 +48,7 @@ export const RandomDog = () => {
         return (
             <>
                 <DogView>
-                    <Image source={{uri: dogs.message}} style= {{width: 270, height: 270}}/>
+                    <DogImage source={{uri: dogs.message}} />
                 </DogView>
                 <ButtonView>
                     <RandomDogButton onPress={fetchDogs}>
