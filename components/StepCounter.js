@@ -23,7 +23,7 @@ export const StepCounter = () => {
   const [countSteps, setCountSteps] = useState(0);
 
   useEffect(() => {
-    Pedometer.watchStepCount((result) => {
+    Pedometer.watchStepCount(result => {
       setCountSteps(result.steps);
     });
   });

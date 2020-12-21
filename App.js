@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
-import data from "./data.json";
 
+import data from "./data.json";
 import { StepCounter } from "./components/StepCounter.js";
 import { GainStepsSuggestions } from "./components/GainStepsSuggestions.js";
 import { SiteHeader } from "./components/SiteHeader.js";
