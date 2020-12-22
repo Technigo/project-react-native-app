@@ -1,37 +1,36 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { View, Vibration } from 'react-native'
 import styled from 'styled-components/native'
 
 const TouchButton = styled.TouchableOpacity`
-  alignSelf: center;
-  alignItems: center;
-  justifyContent: center;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
-  marginBottom: 0px;
+  margin-bottom: 0px;
   width: 160px;
-  borderRadius: 15px;
-  backgroundColor: #ff8300;
+  border-radius: 15px;
+  background-color: #ff8300;
   border: 2px #ff8300;
 `
 const ButtonText = styled.Text`
-  textAlign: center;
-  fontSize: 20px;
-  fontWeight: bold;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
   justify-content: center;
-  alignItems: center;
+  align-items: center;
   color: #ffad57;
 `
 const Title = styled.Text`
-  width: 300px;
-  fontSize: 45px;
+  width: 310px;
+  font-size: 45px;
   margin: 25px;
-  marginBottom: 100px;
+  margin-bottom: 100px;
   color: #ff8300;
-  fontWeight: bold;
-  textAlign: center;
-  justifyContent: center;
-  alignItems: center;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Training = ({activitiesArray}) => {
@@ -43,14 +42,17 @@ export const Training = ({activitiesArray}) => {
     setActivity(theActivity.activity)
   }
 
+  const myFunction = () => {
+    getActivity()
+    Vibration.vibrate()
+  }
+
   return (
     <View>
       <Title>
         {activity}
       </Title>
-      <TouchButton onPress={() => {
-      getActivity(); 
-      Vibration.vibrate();}}>
+      <TouchButton onPress={myFunction}>
         <ButtonText>Vad ska jag träna idag?</ButtonText>
       </TouchButton>
     </View>
