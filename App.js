@@ -71,7 +71,7 @@ const ButtonContainer = styled.View`
 const App = () => {
 
   const [joke, setJoke] = useState("")
-  const [search, setSearch] = useState()
+  const [searchWord, setSearchWord] = useState()
 
   const getJoke = () => {
     fetch('https://icanhazdadjoke.com/', {
@@ -84,8 +84,8 @@ const App = () => {
       .then(json => setJoke(json.joke))
   }
 
-  const searchJoke = () => {
-    fetch(`https://icanhazdadjoke.com/search?term=${search}`, {
+  const getSearchedJoke = () => {
+    fetch(`https://icanhazdadjoke.com/search?term=${searchWord}`, {
       method: 'GET',
       headers: {
         "Accept": "application/json"
@@ -100,8 +100,8 @@ const App = () => {
         alert("No such joke")
       })
       .finally(() => {
-        setSearch("")
-        setSearch()
+        setSearchWord("") // empties the textinput, without it tomato stays but also no such joke is displayed
+        setSearchWord() // empties the state, wihtout it you can search new joke on empty string
       })
   }
 
@@ -111,8 +111,8 @@ const App = () => {
         message:
           `${joke}`,
       })
-      result.action === Share.sharedAction ? (alert("Joke shared")) :
-        result.action === Share.dismissedAction ? (alert("Joke not shared")) : null
+      result.action === Share.sharedAction ? alert("Joke shared") :
+        result.action === Share.dismissedAction ? alert("Joke not shared") : null
     } catch (error) {
       alert(error.message)
     }
@@ -129,10 +129,10 @@ const App = () => {
 
       <SearchContainer>
         <Input
-          onChangeText={text => setSearch(text)}
-          value={search}
+          onChangeText={text => setSearchWord(text)}
+          value={searchWord}
         />
-        <Button title="Search" onPress={searchJoke} color="#032A34" />
+        <Button title="Search" onPress={getSearchedJoke} color="#032A34" />
       </SearchContainer>
 
       <JokeContainer>
