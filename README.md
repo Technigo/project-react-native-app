@@ -2,7 +2,7 @@
 
 A React Native mobile application fetching and displaying dad jokes from an API, where you can generate new random jokes, search for jokes and share jokes with your friends.
 
-Built during Technigo Boot Camp fall 2020, project 13 out of 21.
+Built during Technigo Boot Camp fall 2020, week 13 out of 24.
 
 ## The problem
 
