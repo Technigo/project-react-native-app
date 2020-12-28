@@ -100,8 +100,8 @@ const App = () => {
         alert("No such joke")
       })
       .finally(() => {
-        setSearchWord("") // empties the textinput, without it tomato stays but also no such joke is displayed
-        setSearchWord() // empties the state, wihtout it you can search new joke on empty string
+        setSearchWord("") // empties the textinput field 
+        setSearchWord() // empties the state
       })
   }
 
