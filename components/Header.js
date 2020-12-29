@@ -16,7 +16,7 @@ export const Header = () => {
 };
 
 const Title = styled.Text`
-  font-family: 'Inter-Regular';  
+  font-family: 'Inter-Regular, Arial, Helvetica, sans-serif';  
   font-size: 36px;
   color: #C8553D;
   font-weight: bold;
@@ -24,4 +24,4 @@ const Title = styled.Text`
   background-color: #FFD5C2;
   padding: 120px 20px 20px 20px;
   text-shadow: 1px 1px 4px #959695;
-`
+`;
