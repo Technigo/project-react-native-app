@@ -20,7 +20,3 @@ const HeaderText = styled.Text`
   font-weight: bold;
   padding: 25px 0 15px 0;
 `;
-
-const SubHeaderText = styled.Text`
-  font-size: 15px;
-`;

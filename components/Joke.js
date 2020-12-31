@@ -33,7 +33,7 @@ const Joke = ({ route }) => {
   return (
     <MainContainer>
       <JokeContainer>
-        <JokeHeader>({joke.category} Joke)</JokeHeader>
+        <JokeHeader>{joke.category} Joke</JokeHeader>
         {joke.type === "twopart" && (
           <>
             <SetupText>{joke.setup}</SetupText>
@@ -60,7 +60,7 @@ const MainContainer = styled.View`
 
 const JokeContainer = styled.View`
   width: 80%;
-  padding: 20px 20px;
+  padding: 20px;
   border: 2px solid #fff;
   background-color: #f2f2f2;
   border-radius: 10px;
