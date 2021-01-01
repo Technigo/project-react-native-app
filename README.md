@@ -1,13 +1,19 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment was to create a mobile app with React Native and styled components. The app should be multiscreen by using React Navigation and using an external API to fetch something and interact with it.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started with a outlining the navigation views and finding an API to work with. I chose to make a Quote-machine with one of the most quoted authors - Oscar Wilde. To interact with the API I first wanted to use the accelerometer sensor to shake for new quotes. Setting up the software for development took more time than anticipated, so I used a button instead. When reaching the API requests limit for quotes, I implemented a page that tells you to come back tomorrow for more quotes.
 
-## View it live
+## Learning objectives
+- Styled components
+- building a mobile app with React Native
+- multiscreen with React Navigation
+- fetch something from an external API to interact with
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+## Tech
+- Styled components
+- React Native
+- React Navigation
+- Expo
