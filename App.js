@@ -1,8 +1,9 @@
 import React from 'react'
+import styled from 'styled-components/native'
 import data from './data.json'
 
 import { Alfabet } from './components/Alfabet.js'
-import styled from 'styled-components/native'
+
 
 
 const Container = styled.ImageBackground`
@@ -19,7 +20,7 @@ const App = () => {
 return (
   <Container>
     <Alfabet 
-    letterArray={data.alfabet}
+      letterArray={data.alfabet}
     />
   </Container>
 )

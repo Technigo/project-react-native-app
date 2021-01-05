@@ -1,37 +1,39 @@
 import React from 'react'
+import styled from 'styled-components/native'
+
 import { useState } from 'react'
 import { View, Vibration } from 'react-native'
 
-import styled from 'styled-components/native'
+
 
 const TouchButton = styled.TouchableOpacity`
   padding: 25px;
   margin: 0px;
   width: 250px;
-  borderRadius: 25px;
-  backgroundColor: #411271;
+  border-radius: 25px;
+  background-color: #411271;
   border: 4px #01AA31; 
 `; 
 const ButtonText = styled.Text`
-  textAlign: center;
-  fontSize: 20px;
+  text-align: center;
+  font-size: 20px;
   justify-content: center;
-  alignItems: center;
+  align-items: center;
   color: #F5C603;
 `;
 const Letter = styled.Text`
-  fontSize: 204px;
-  marginBottom: 50px;
+  font-size: 204px;
+  margin-bottom: 50px;
   color: #F5C603;
-  textAlign: center;
-  justifyContent: center;
-  alignItems: center;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;
 const Emoji = styled.Text`
-  fontSize: 104px;
-  textAlign: center;
-  justifyContent: center;
-  alignItems: center;
+  font-size: 104px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Alfabet = ({ letterArray }) => {
@@ -44,6 +46,12 @@ export const Alfabet = ({ letterArray }) => {
     setLetter(theLetter.letter)
     setEmoji(theLetter.emoji)
   }
+  
+  const vibrationButton = () => {
+    getLetter();
+    Vibration.vibrate();
+  }
+
   return (
     <View>
         <Emoji>
@@ -52,8 +60,7 @@ export const Alfabet = ({ letterArray }) => {
         <Letter>
           {letter}
         </Letter>  
-        <TouchButton onPress={() => { 
-        getLetter(); Vibration.vibrate()}}>
+        <TouchButton onPress={vibrationButton}>
           <ButtonText>Herthas ABC</ButtonText>
         </TouchButton>
     </View>
