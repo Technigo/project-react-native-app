@@ -15,6 +15,11 @@ const FormInput = ({ submitHandler }) => {
     setText(value);
   };
 
+  const pressHandler = () => {
+    submitHandler(text);
+    setText("");
+  };
+
   return (
     <View>
       <FormText
@@ -23,10 +28,7 @@ const FormInput = ({ submitHandler }) => {
         value={text}
       />
       <Button
-        onPress={() => {
-          submitHandler(text);
-          setText("");
-        }}
+        onPress={pressHandler}
         title="add todo"
         color="black"
         disabled={text == ""}
