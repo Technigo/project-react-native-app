@@ -1,13 +1,7 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This is a React Native "Find your meal today" app! If your struggling with ideas of meals for example dinner, then this is an app for you! When you push the button "FIND MEAL" it will randomly find you a meal to eat. If your not satisfied, you can press the button again to find a new one!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://snack.expo.io/@destinyleia/github.com-destinyleia-project-react-native-app
