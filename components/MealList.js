@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 
 import backgroundImage from '../assets/background-fruits.png'
 
-const MealsArray = [
+const mealsArray = [
   {
     meals: 'GREEK SALAD',
     picture: require('../assets/grekisksallad.jpeg')
@@ -65,8 +65,9 @@ const MealList = () => {
 
   const setRandomMeals = () => {
     const allTheMeals =
-      MealsArray[Math.floor(Math.random() * MealsArray.length)];
-    setMeals(allTheMeals);
+      mealsArray[Math.floor(Math.random() * mealsArray.length)]
+    setMeals(allTheMeals)
+    Vibration.vibrate()
   }
 
   return (
@@ -74,10 +75,8 @@ const MealList = () => {
       <BackgroundImageContainer
         source={backgroundImage}>
         <ButtonContainer
-          onPress={() => {
-            setRandomMeals()
-            Vibration.vibrate()
-          }}
+          onPress={(setRandomMeals()
+          )}
         >
           <ButtonText>FIND MEAL</ButtonText>
         </ButtonContainer>
@@ -96,9 +95,6 @@ const BackgroundImageContainer = styled.ImageBackground`
   justify-content: center;
 `
 
-const MealContainer = styled.View`
-`
-
 const MealText = styled.Text`
   margin-top: 10px
   padding: 50px;
@@ -114,8 +110,8 @@ flex: 1;
 `
 
 const ButtonContainer = styled.TouchableOpacity`
-top:  100px;
 margin: 100px;
+top: 100px;
 align-items: center;
 justify-content: center;
 background: green;
