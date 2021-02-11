@@ -96,15 +96,3 @@ export const thingsToDo = () => {
   );
 };
 
-// Old version **********************
-
-{
-  /* <PickButton
-onPress={() => {
-  getThingsToDo();
-  Vibration.vibrate();
-}}
->
-<ButtonText>Klicka för förslag</ButtonText>
-      </PickButton> */
-}
