@@ -1,13 +1,15 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+A mobile app created with React Native and using styled components. The phone vibrates when you pushed the button and a random thing to do showes up.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## The tools
 
-## The problem
+React Native
+styled components
+Expo.io
+Iphone
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@codekid2020/projects/project-react-native-app 
