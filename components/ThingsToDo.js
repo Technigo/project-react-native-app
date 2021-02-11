@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components/native";
-import { Text, View, Vibration, TouchableOpacity } from 'react-native';
+// import styled from "styled-components/native";
+import { Text, View, Vibration, TouchableOpacity } from "react-native";
 
 const Container = styled.View`
   justify-content: center;
@@ -36,14 +36,12 @@ const ThingsToDoContainer = styled.View`
 const ThingsToDoText = styled.Text`
   font-size: 30px;
   text-align: center;
-  color: black;;
+  color: black; ;
 `;
 
- // array of objects of things to do
-export const ThingsToDo = () => {
- 
-
-  const ThingsToDoArray = [
+// array of objects of things to do
+export const thingsToDo = () => {
+  const thingsToDoArray = [
     {
       thingtodo: "Baka kakor och fika",
       color: "#e7c1b6", //pink
@@ -60,41 +58,53 @@ export const ThingsToDo = () => {
       emoji: " 🎬  ",
     },
     {
-        thingtodo: "Spela tv-spel",
-        color: "#1197d5", //blue
-        emoji: " 🎮 ",
-     },
-      {
-        thingtodo: "Ha på pyamas hela dagen!",
-        color: "#e2dcd4", //grey
-        emoji: " 🛌 ",
-      },
+      thingtodo: "Spela tv-spel",
+      color: "#1197d5", //blue
+      emoji: " 🎮 ",
+    },
+    {
+      thingtodo: "Ha på pyamas hela dagen!",
+      color: "#e2dcd4", //grey
+      emoji: " 🛌 ",
+    },
   ];
 
   // This function gets invoked when button gets push, random thing show up.
-
-    const [thingtodo, setThingToDo] = useState({});
+  const [thingtodo, setThingToDo] = useState({});
 
   const getThingsToDo = () => {
     const theThingToDo =
-      ThingsToDoArray[Math.floor(Math.random() * ThingsToDoArray.length)];
+      thingsToDoArray[Math.floor(Math.random() * thingsToDoArray.length)];
     setThingToDo(theThingToDo);
+  };
+
+  const getThingVibrate = () => {
+    getThingsToDo();
+    Vibration.vibrate();
   };
 
   return (
     <Container>
-      <ThingsToDoContainer style={{ backgroundColor: thingtodo.color }}>
+      <ThingsToDoContainer>
         <ThingsToDoText>{thingtodo.thingtodo}</ThingsToDoText>
         <ThingsToDoText>{thingtodo.emoji}</ThingsToDoText>
       </ThingsToDoContainer>
-      <PickButton
-          onPress={() => {
-          getThingsToDo();
-          Vibration.vibrate();
-        }}
-      >
+      <PickButton onPress={getThingVibrate}>
         <ButtonText>Klicka för förslag</ButtonText>
       </PickButton>
     </Container>
   );
 };
+
+// Old version **********************
+
+{
+  /* <PickButton
+onPress={() => {
+  getThingsToDo();
+  Vibration.vibrate();
+}}
+>
+<ButtonText>Klicka för förslag</ButtonText>
+      </PickButton> */
+}
