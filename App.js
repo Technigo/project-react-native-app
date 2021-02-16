@@ -12,17 +12,15 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-    headerShown: false
-  }}>
+      <Stack.Navigator screenOptions={{headerShown: false }}>
         <Stack.Screen
-        name="Home"
-        component={HomeScreen} 
+          name="Home"
+          component={HomeScreen} 
         />
         <Stack.Screen
-        name="Timer"
-        component={Timer}
-        initialParams={{ routeTime: 30 }}
+          name="Timer"
+          component={Timer}
+          initialParams={{ routeTime: 30 }}
         />
       </Stack.Navigator>
     </NavigationContainer>

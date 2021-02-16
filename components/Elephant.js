@@ -1,14 +1,16 @@
 import React from 'react'
-import {Image, View, Text} from 'react-native'
-import {Elephant_v01} from '../assets/Elephant_v01.svg'
+import {View} from 'react-native'
+import styled from 'styled-components/native'
+
 
 export const Elephant = () => {
     return (
         <View>
-        <Image style={{
-            width: 700,
-            height: 700,
-          }} source={require('./assets/Elephant_v01.svg')} />
-          </View>
+            <ElephantImage source={require('./assets/Elephant_v01.svg')} />
+        </View>
     )
 }
+const ElephantImage = styled.Image`
+    width: 700px;
+    height: 700px;
+`

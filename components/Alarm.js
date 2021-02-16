@@ -5,7 +5,6 @@ import {Text, View, Button, Alert} from 'react-native'
 export const Alarm = () => {
 const setAlarm = () => {
     let date = new Date();
-    // date.setDate(date.getDate() + 1);
     date.setHours(13, 55);
     Alert.alert(date.toString())
 

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Text, Image} from 'react-native'
-import styled from 'styled-components/native'
 import { LinearGradient } from 'expo-linear-gradient';
-
 
 import {NewButton, ButtonText, Container, Number, ButtonContainer} from './StyledAppComponents'
 
@@ -58,31 +56,32 @@ export const Timer = ({route, navigation}) => {
         
 
     return (
-        <LinearGradient colors={['rgba(58, 15, 76, 1)','rgba(97, 14, 159, 1)','rgba(135, 30, 170, 1)']}
-        style={{flex: 1}}>
-        <Container>
-        <Image style={{
-            width: 400,
-            height: 400,
-          }} source={require('./assets/Elephant_PNG.png')} />
-            <Number>{minutes < 10 ? "0" :""}{minutes}:{seconds < 10 ? "0" :""}{seconds}</Number>
-            <ButtonContainer>
-                {!timerDone &&
-                    <NewButton onPress={() => {
-                        isPressed ? stopCount() : startCount(), setIsPressed(!isPressed) 
-                        }} title="Start">
-                        <ButtonText>{isPressed ? "Pause" : "Start"}</ButtonText>
+        <LinearGradient 
+            colors={['rgba(58, 15, 76, 1)','rgba(97, 14, 159, 1)','rgba(135, 30, 170, 1)']}
+            style={{flex: 1}}>
+            <Container>
+                <Image style={{
+                    width: 400,
+                    height: 400,
+                }} source={require('./assets/Elephant_PNG.png')} />
+                <Number>{minutes < 10 ? "0" :""}{minutes}:{seconds < 10 ? "0" :""}{seconds}</Number>
+                <ButtonContainer>
+                    {!timerDone &&
+                        <NewButton onPress={() => {
+                            isPressed ? stopCount() : startCount(), setIsPressed(!isPressed) 
+                            }} title="Start">
+                            <ButtonText>{isPressed ? "Pause" : "Start"}</ButtonText>
+                        </NewButton>
+                    }
+                    <NewButton onPress={() => { 
+                        resetCount(), 
+                        setIsPressed(false)
+                        }} title="Reset">
+                        <ButtonText>Start over</ButtonText>
                     </NewButton>
-                }
-                <NewButton onPress={() => { 
-                    resetCount(), 
-                    setIsPressed(false)
-                    }} title="Reset">
-                    <ButtonText>Start over</ButtonText>
-                </NewButton>
-            </ButtonContainer>
-            {timerDone && <Text>Well done!</Text>}
-        </Container>
+                </ButtonContainer>
+                {timerDone && <Text>Well done!</Text>}
+            </Container>
         </LinearGradient>
     )
 }
