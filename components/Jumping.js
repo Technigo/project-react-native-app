@@ -95,31 +95,31 @@ export const Jumping = ({ navigation }) => {
       exercise: "Studs för ridbarhet",
       category: "Spänst, styrka, lydnad",
       color: "#fff",
-      image: require('../assets/Kvick.gif'),
+      image: require('../assets/kvick.gif'),
     },
     {
       exercise: "Steffis banhoppningsträning",
       category: "Banhoppning, tempo, lydnad ",
       color: "#fff",
-      image: require('../assets/Steffis.gif'),
+      image: require('../assets/steffis.gif'),
     },
     {
       exercise: "Fokus på galopp och vägar",
       category: "Tempo, Banhoppning",
       color: "#fff",
-      image: require('../assets/Brutenlinje.gif'),
+      image: require('../assets/brutenlinje.gif'),
     },
     {
       exercise: "Studs för unghästen",
       category: "Styrka, lydnad",
       color: "#fff",
-      image: require('../assets/Studs.gif'),
+      image: require('../assets/studs.gif'),
     },
     {
       exercise: "Markarbete för precision",
       category: "Lydnad, lösgjordhet",
       color: "#fff",
-      image: require('../assets/Markarbete.gif'),
+      image: require('../assets/markarbete.gif'),
     },
   ]
 
@@ -143,10 +143,10 @@ export const Jumping = ({ navigation }) => {
           {exercise.category}
         </ExerciseCategoryText>
         <ExerciseImage source={exercise.image} />
-        </ExerciseContainer>
-        <BackButton onPress={() => navigation.goBack()}>
-          <TextBackButton>Tillbaka</TextBackButton>
-        </BackButton>
+      </ExerciseContainer>
+      <BackButton onPress={() => navigation.goBack()}>
+        <TextBackButton>Tillbaka</TextBackButton>
+      </BackButton>
     </Container>
   );
 };

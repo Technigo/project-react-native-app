@@ -19,7 +19,8 @@ const HeaderText = styled.Text`
 const SubHeaderText = styled.Text`
     font-size: 15px;
     opacity: 1;
-    font-weight: bold, italic; 
+    font-weight: bold;
+    font-style: italic; 
 `;
 
 const ButtonContainer = styled.View`

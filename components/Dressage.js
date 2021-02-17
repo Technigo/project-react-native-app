@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { Vibration } from 'react-native'
-import styled from 'styled-components/native'
+import React, { useState, useEffect } from 'react';
+import { Vibration } from 'react-native';
+import styled from 'styled-components/native';
 
 const Container = styled.View`
   justify-content: center;
@@ -84,49 +84,49 @@ export const Dressage = ({ navigation }) => {
     navigation.setOptions({ headerShown: false });
   });
 
-  const ExerciseArray = [
+  const exerciseArray = [
     {
       exercise: "Bygg lösgjordhet och styrka med serpentinbågar",
       category: "Lösgjordhet, styrka",
       color: "#fff",
-      image: require('../assets/Serpentin.gif'),
+      image: require('../assets/serpentin.gif'),
     },
     {
       exercise: "Basövning för liksidighet och lösgjordhet",
       category: "Lösgjordhet",
       color: "#fff",
-      image: require('../assets/Basovning.gif'),
+      image: require('../assets/basovning.gif'),
     },
     {
       exercise: "Övergångar med åttvoltsövning",
       category: "Lydnad",
       color: "#fff",
-      image: require('../assets/Attavolt.gif'),
+      image: require('../assets/attavolt.gif'),
     },
     {
       exercise: "Skänkelvikning och bättre galoppfattningar",
       category: "Lösgjordhet, lydnad",
       color: "#fff",
-      image: require('../assets/Skvikning.gif'),
+      image: require('../assets/skvikning.gif'),
     },
     {
       exercise: "Bättre galoppfattningar",
       category: "Styrka, lydnad",
       color: "#fff",
-      image: require('../assets/Galopp.gif'),
+      image: require('../assets/galopp.gif'),
     },
     {
       exercise: "Ulla Håkansons favoritövning",
       category: "Lydnad, lösgjordhet",
       color: "#fff",
-      image: require('../assets/Ullah.gif'),
+      image: require('../assets/ullah.gif'),
     },
   ]
 
   const [exercise, setExercise] = useState({})
 
   const getExercise = () => {
-    const theExercise = ExerciseArray[Math.floor(Math.random() * ExerciseArray.length)]
+    const theExercise = exerciseArray[Math.floor(Math.random() * exerciseArray.length)]
     setExercise(theExercise)
   }
 
@@ -146,7 +146,7 @@ export const Dressage = ({ navigation }) => {
         </ExerciseCategoryText>
         <ExerciseImage source={exercise.image} />
       </ExerciseContainer>
-       
+
       <BackContainer>
         <BackButton onPress={() => navigation.goBack()}>
           <TextBackButton>
