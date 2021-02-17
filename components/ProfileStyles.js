@@ -10,12 +10,12 @@ export const Container = styled.View`
 `
 
 export const Name = styled.Text`
-width: 100%;
-padding: 0;
-font-size: 50px;
-font-weight: 700;
-text-align: center;
-color: palevioletred;
+  width: 100%;
+  padding: 0;
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  color: palevioletred;
 `
 
 export const Quote = styled.Text`
@@ -30,7 +30,8 @@ export const Quote = styled.Text`
 
 export const TextContainer = styled.View`
   width: 60%;
-  margin: 3px 0;`
+  margin: 3px 0;
+`
 
 export const Textspan = styled.Text`
   font-size: 22px;

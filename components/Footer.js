@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 const FooterContainer = styled.View`
   margin: 30px 0px 0px 0px;
   height: 150px;
-  flex-Direction: column-reverse;
+  flex-direction: column-reverse;
   background-color: #bbead5;
 `
 

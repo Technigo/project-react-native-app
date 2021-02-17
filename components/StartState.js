@@ -3,7 +3,7 @@ import { Image } from 'react-native'
 import styled from 'styled-components/native'
 
 import placeholder from '../assets/placeholder.png'
-import { Container } from './ProfileSyles'
+import { Container, Nook } from './ProfileStyles'
 import { Footer } from './Footer'
 
 const Instructions = styled.Text`
