@@ -1,7 +1,34 @@
 import React, { useState } from 'react'
-import { TouchableOpacity, StyleSheet } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native';
 
+ const Add = ({submitHandler}) => {
+    const [text, setText] = useState('')
+
+    const changeHandler = (val) => {
+        setText(val);
+
+    }
+
+    return(
+        <Main>
+            <InputBox>
+            <Input
+                placeholder='add at least 4 characters...'
+                onChangeText={(val) => changeHandler(val)}
+            />
+            </InputBox>
+            <ButtonBox>
+            <TouchableOpacity onPress={() => submitHandler(text)} >
+            <ButtonText>ADD</ButtonText>
+            </TouchableOpacity>
+            </ButtonBox>
+        </Main>
+
+
+
+    )
+}
 
 const Main = styled.View`
 flex:1;
@@ -36,33 +63,5 @@ color: white;
 font-weight:bold;
 
 `
-
- const Add = ({submitHandler}) => {
-    const [text, setText] = useState()
-
-    const changeHandler = (val) => {
-        setText(val)
-
-    }
-
-    return(
-        <Main>
-            <InputBox>
-            <Input
-                placeholder='add at least 4 characters...'
-                onChangeText={(val) => changeHandler(val)}
-            /></InputBox>
-            <ButtonBox>
-            <TouchableOpacity onPress={() => submitHandler(text)} >
-            <ButtonText>ADD</ButtonText>
-            </TouchableOpacity>
-            </ButtonBox>
-        </Main>
-
-
-
-    )
-}
-
 export default Add;
 

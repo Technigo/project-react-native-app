@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import  HomePage from './components/HomePage'
-import  Habits from './Habits'
+import HomePage from './components/HomePage'
+import Habits from './components/Habits'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -14,19 +14,19 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
-        name="Home" 
-        component={HomePage} 
+        <Stack.Screen
+          name="Home"
+          component={HomePage}
         />
 
-        <Stack.Screen 
-        name="Habits" 
-        component={Habits}/>
+        <Stack.Screen
+          name="Habits"
+          component={Habits} />
 
-     
+
       </Stack.Navigator>
     </NavigationContainer>
- 
+
   )
 }
 

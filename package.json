@@ -28,6 +28,6 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^8.3.0"
-  },
+  }, 
   "private": true
 }

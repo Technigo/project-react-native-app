@@ -3,15 +3,43 @@ import styled from 'styled-components/native'
 import headerImage from '../assets/mountain.jpg';
 import { Button } from 'react-native'
 
+const HomePage = ({ navigation, route }) => {
+
+    useEffect(() => {
+        navigation.setOptions({headerShown:false});
+    }, [])
+   
+    const navigateToHabits = () => {
+
+        navigation.navigate("Habits")
+    };
+
+    return (
+        <HomeContainer source={headerImage}>
+
+            <TextContainer>
+        <TextOne>
+            Do you want to make a diffrence 
+            in you life?
+            </TextOne>
+           
+            <TextTwo>
+            With New Habits you can make life
+            as you want it!
+            </TextTwo>
+            </TextContainer>
+            <Footer>
+            <Button title="New Habits >" onPress={navigateToHabits}> </Button>
+            </Footer>
+
+        </HomeContainer>
+    )
+}
 
 const HomeContainer = styled.ImageBackground`
     flex: 1;    
 `
-const Header = styled.View`
-    height:180px;
-    padding:58px;
-    align-items:center;
-`
+
 const TextContainer = styled.View`
     align-items:center;
     justify-content: center;
@@ -36,41 +64,5 @@ const Footer = styled.View`
     padding:58px;
     align-items:center;
 `
-
-
-const HomePage = ({ navigation, route }) => {
-
-    useEffect(() => {
-        navigation.setOptions({headerShown:false});
-    }, [])
-   
-    const navigateToHabits = () => {
-
-        navigation.navigate("Habits")
-    };
-
-    return (
-        <HomeContainer source={headerImage}>
-            <Header>
-
-            </Header>
-            <TextContainer>
-        <TextOne>
-            Do you want to make a diffrence 
-            in you life?
-            </TextOne>
-           
-            <TextTwo>
-            With New Habits you can make life
-            as you want it!
-            </TextTwo>
-            </TextContainer>
-            <Footer>
-            <Button title="New Habits >" onPress={navigateToHabits}> </Button>
-            </Footer>
-
-        </HomeContainer>
-    )
-}
 
 export default HomePage;
