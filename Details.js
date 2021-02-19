@@ -38,33 +38,37 @@ const BookDescription = styled.Text`
 
 const Bookcover = styled.Image`
     border-radius: 10;
+    width: 230;
+    height: 400;
 `
 
 const BuyButton = styled.Button`
     margin-top: 50;
 `
 
+
 //Show book details and buy link.
 const Details = ({ route }) => {
     const { title, author, image, description, buyLink } = route.params;
+    
+    const onBuy = () => {
+        Linking.openURL(buyLink).catch((err) => console.error('An error occurred', err))
+    }
+
     return (
         <Container>
             <Bookcover
                     source={{ uri: `${image}` }}
-                    style={{
-                        width: 230,
-                        height: 400,
-                    }}
                 />
             <Title>{title}</Title>
             <Author>{author}</Author>
             <BookDescription>{description}</BookDescription>
             <BuyButton 
                 title="Buy" 
-                onPress={()=>{ Linking.openURL(buyLink).catch((err) => console.error('An error occurred', err));}}
+                onPress={onBuy}
             />
         </Container>
-    );
+    )
 }
 
-export default Details;
+export default Details

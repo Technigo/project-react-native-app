@@ -9,6 +9,8 @@ const Container = styled.View`
 
 const Bookcover = styled.Image`
     border-radius: 10;
+    width: 144;
+    height: 227;
 `
 
 const Title = styled.Text`
@@ -38,10 +40,6 @@ const Book = ({ navigation, title, author, image, description, buyLink }) => {
             <Container >
                 <Bookcover
                     source={{ uri: `${image}` }}
-                    style={{
-                        width: 144,
-                        height: 227,
-                    }}
                 />
                 <Title>{title}</Title>
                 <Author>{author}</Author>
@@ -50,4 +48,4 @@ const Book = ({ navigation, title, author, image, description, buyLink }) => {
     );
 }
 
-export default Book;
+export default Book

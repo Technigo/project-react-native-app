@@ -32,7 +32,7 @@ const BookList = ({ category, navigation }) => {
       fetch(URL)
           .then(res => res.json())
           .then(data => setBooks(data.results.books))
-          .catch(error => console.error(error));
+          .catch(error => console.error(error))
     }
 
     //Fetch books.
@@ -64,4 +64,4 @@ const BookList = ({ category, navigation }) => {
         </Container>
     )
 }
-export default BookList;
+export default BookList
