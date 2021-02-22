@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components/native'
+import React, { useEffect } from 'react';
+import styled from 'styled-components/native';
 import headerImage from '../assets/mountain.jpg';
-import { Button } from 'react-native'
+import { Button } from 'react-native';
 
 const HomePage = ({ navigation, route }) => {
 
     useEffect(() => {
-        navigation.setOptions({headerShown:false});
-    }, [])
-   
+        navigation.setOptions({ headerShown: false });
+    }, []);
+
     const navigateToHabits = () => {
 
         navigation.navigate("Habits")
@@ -18,28 +18,27 @@ const HomePage = ({ navigation, route }) => {
         <HomeContainer source={headerImage}>
 
             <TextContainer>
-        <TextOne>
-            Do you want to make a diffrence 
-            in you life?
+                <TextOne>
+                    Do you want to make a diffrence
+                    in you life?
             </TextOne>
-           
-            <TextTwo>
-            With New Habits you can make life
-            as you want it!
+
+                <TextTwo>
+                    With New Habits you can make life
+                    as you want it!
             </TextTwo>
             </TextContainer>
             <Footer>
-            <Button title="New Habits >" onPress={navigateToHabits}> </Button>
+                <Button title="New Habits >" onPress={navigateToHabits}> </Button>
             </Footer>
 
         </HomeContainer>
     )
-}
+};
 
 const HomeContainer = styled.ImageBackground`
     flex: 1;    
 `
-
 const TextContainer = styled.View`
     align-items:center;
     justify-content: center;

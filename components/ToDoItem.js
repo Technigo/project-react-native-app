@@ -1,18 +1,6 @@
-import React from 'react'
-import { TouchableOpacity } from 'react-native'
+import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
-
-
-const ToDos = styled.Text`
-color:coral;
-`
-const ToDoBox = styled.View`
-border: dashed 1px black;
-border-radius: 10px;
-padding: 16px;
-margin-top: 16px;
-
-`
 
 
 const ToDoItem = ({ item, pressHandler }) => {
@@ -24,6 +12,17 @@ const ToDoItem = ({ item, pressHandler }) => {
             </ToDoBox>
         </TouchableOpacity>
     )
-}
+};
+
+const ToDos = styled.Text`
+color:coral;
+`
+const ToDoBox = styled.View`
+border: dashed 1px black;
+border-radius: 10px;
+padding: 16px;
+margin-top: 16px;
+`
+
 
 export default ToDoItem;

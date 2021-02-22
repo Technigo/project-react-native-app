@@ -1,22 +1,9 @@
-import React, { useState } from 'react'
-import { FlatList, Alert, Text } from 'react-native'
+import React, { useState } from 'react';
+import { FlatList, Alert, Text } from 'react-native';
 import styled from 'styled-components/native';
-import Header from './Header'
+import Header from './Header';
 import ToDoItem from './ToDoItem';
-import Add from './Add'
-
-
-
-const Container = styled.View`
-flex: 1;
-background-color: white;
-`
-const Content = styled.View`
-padding: 40px;
-`
-const List = styled.View`
-margin-top: 20px;
-`
+import Add from './Add';
 
 const Habits = (navigation, route) => {
   const [todos, setTodos] = useState([])
@@ -43,7 +30,7 @@ const Habits = (navigation, route) => {
         { text: 'Understood', onPress: () => console.log('alert closed') }
       ])
     }
-  }
+  };
 
   return (
     <Container>
@@ -60,8 +47,19 @@ const Habits = (navigation, route) => {
         </List>
       </Content>
     </Container>
-  );
-}
+  )
+};
+
+const Container = styled.View`
+flex: 1;
+background-color: white;
+`
+const Content = styled.View`
+padding: 40px;
+`
+const List = styled.View`
+margin-top: 20px;
+`
 
 
 export default Habits;
