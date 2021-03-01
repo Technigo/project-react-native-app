@@ -15,13 +15,13 @@ const ToDoItem = ({ item, pressHandler }) => {
 };
 
 const ToDos = styled.Text`
-color:coral;
+    color:coral;
 `
 const ToDoBox = styled.View`
-border: dashed 1px black;
-border-radius: 10px;
-padding: 16px;
-margin-top: 16px;
+    border: dashed 1px black;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 16px;
 `
 
 

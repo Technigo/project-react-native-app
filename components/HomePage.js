@@ -16,7 +16,6 @@ const HomePage = ({ navigation, route }) => {
 
     return (
         <HomeContainer source={headerImage}>
-
             <TextContainer>
                 <TextOne>
                     Do you want to make a diffrence
@@ -31,7 +30,6 @@ const HomePage = ({ navigation, route }) => {
             <Footer>
                 <Button title="New Habits >" onPress={navigateToHabits}> </Button>
             </Footer>
-
         </HomeContainer>
     )
 };

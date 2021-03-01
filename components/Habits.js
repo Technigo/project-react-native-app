@@ -51,14 +51,14 @@ const Habits = (navigation, route) => {
 };
 
 const Container = styled.View`
-flex: 1;
-background-color: white;
+  flex: 1;
+  background-color: white;
 `
 const Content = styled.View`
-padding: 40px;
+  padding: 40px;
 `
 const List = styled.View`
-margin-top: 20px;
+  margin-top: 20px;
 `
 
 

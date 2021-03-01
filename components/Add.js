@@ -27,33 +27,33 @@ const Add = ({ submitHandler }) => {
 };
 
 const Main = styled.View`
-flex: 1;
-margin-bottom: 70px;
+    flex: 1;
+    margin-bottom: 70px;
 `
-const Input = styled.TextInput`
-padding: 10px;
+const Input = styled.TextInput` 
+    padding: 10px;
 `
 const InputBox = styled.View`
-border: solid grey 1px;
-border-radius: 10px;
-height: 40px;
-margin-bottom: 10px;
+    border: solid grey 1px;
+    border-radius: 10px;
+    height: 40px;
+    margin-bottom: 10px;
 `
 const ButtonBox = styled.View`
-border-radius: 10px;
-background-color: coral;
-width: 200px;
-padding: 10px;
-margin-left: 50px;
-margin-bottom: 20px;
-text-align: center;
-font-weight: bold;
-height: 40px;
-align-items: center;
+    border-radius: 10px;
+    background-color: coral;
+    width: 200px;
+    padding: 10px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    height: 40px;
+    align-items: center;
 `
 const ButtonText = styled.Text`
-color: white;
-font-weight: bold;
+    color: white;
+    font-weight: bold;
 `
 export default Add;
 
