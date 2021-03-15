@@ -9,12 +9,16 @@
   },
   "dependencies": {
     "braces": "^3.0.2",
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     "expo": "^37.0.0",
 =======
     "expo": "^40.0.1",
     "expo-sensors": "^10.0.0",
 >>>>>>> Stashed changes
+=======
+    "expo": "^37.0.0",
+>>>>>>> Bumped react-native and sdk versions to be compatible with expo go app
     "mem": "^6.1.1",
     "minimist": "^1.2.5",
     "react": "16.8.3",
