@@ -9,13 +9,18 @@
   },
   "dependencies": {
     "braces": "^3.0.2",
-    "expo": "^35.0.0",
-    "mem": "^6.0.1",
+<<<<<<< Updated upstream
+    "expo": "^37.0.0",
+=======
+    "expo": "^40.0.1",
+    "expo-sensors": "^10.0.0",
+>>>>>>> Stashed changes
+    "mem": "^6.1.1",
     "minimist": "^1.2.5",
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
-    "react-native-web": "^0.11.7",
+    "react-native": "^0.61.4",
+    "react-native-web": "^0.15.0",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
