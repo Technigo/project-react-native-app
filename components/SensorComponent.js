@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
+
+const JOKE_URL = "https://official-joke-api.appspot.com/random_joke";
+let newJokeCounter = 0; // counter to trigger fetch of new joke
+
+
+
 // ==========================
 // = Functions
 const isShaking = (data) => {
@@ -25,15 +31,40 @@ const ShakeView = styled.View`
 const ShakeAlert = styled.Text`
   font-size: 36px;
   font-weight: bold;
+  text-align:center;
   color: #aa0000;
 `;
+
 const ShakeDataView = styled.View``;
 const ShakeDataTitle = styled.Text`
   font-weight: bold;
+  text-align:center;
 `;
-const ShakeData = styled.Text``;
+const ShakeData = styled.Text`
+  text-align:center;
+`;
 
 export const SensorComponent = () => {
+
+  const onCounterIncrease = () =>
+  {
+    newJokeCounter++;
+  };
+
+  const [joke, setJoke] = useState([]);
+
+  useEffect(() => {
+      fetch(JOKE_URL)
+      .then(res => res.json())
+      .then(json => {
+          setJoke(json)
+          console.log(json);
+      })
+  }, [newJokeCounter]);
+
+
+
+
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -77,20 +108,15 @@ export const SensorComponent = () => {
 
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      {isShaking(data) && <ShakeAlert>Shaking up a new joke!</ShakeAlert> }
+      {isShaking(data) && onCounterIncrease() }
+
+
+      {!isShaking(data) &&
       <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
+        <ShakeDataTitle>{joke.setup}</ShakeDataTitle>
+        <ShakeData>{joke.punchline}</ShakeData>
+      </ShakeDataView>}
     </ShakeView>
   );
 };
