@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Button, StyleSheet, Text, View } from 'react-native'
 import styled from 'styled-components/native'
 
 const Container = styled.View`
@@ -14,11 +15,22 @@ const Title = styled.Text`
 `
 
 const App = () => {
+  const [counter, setCounter] = useState(0)
+
+  const onButtonPressed = () => {
+    setCounter(counter + 1)
+  }
+
   return (
     <Container>
+      <Title>Hello there</Title>
       <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <Title>{counter}</Title>
+      <Button 
+        title='Press me'
+        color='#841584'
+        onPress={onButtonPressed}
+      />
     </Container>
   )
 }
