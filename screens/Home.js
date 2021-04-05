@@ -15,7 +15,7 @@ const HomeContainer = styled.View`
 export const Home = ({ navigation }) => {
   return (
     <HomeContainer>
-      <Text>Home Screen</Text>
+      <Text>Welcome Home</Text>
       {/* Here is an example of how to open/toggle the drawer via javascript */}
       <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
       <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
