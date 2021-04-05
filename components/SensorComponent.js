@@ -5,8 +5,7 @@ import styled from 'styled-components/native';
 
 const JOKE_URL = "https://official-joke-api.appspot.com/random_joke";
 let newJokeCounter = 0; // counter to trigger fetch of new joke
-
-
+//let lastUpdate = new Date();
 
 // ==========================
 // = Functions
@@ -23,7 +22,7 @@ const isShaking = (data) => {
 
 // ==========================
 // = Styled components
-const ShakeView = styled.View`
+const JokeView = styled.View`
   display: flex;
   flex-direction: column;
 `;
@@ -35,21 +34,34 @@ const ShakeAlert = styled.Text`
   color: #aa0000;
 `;
 
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
+const ShakeDataView = styled.View`
+  margin: 10px;
+`;
+
+const JokeQuestion = styled.Text`
+  font-size: 20px;
   font-weight: bold;
   text-align:center;
 `;
-const ShakeData = styled.Text`
+const JokePunchline = styled.Text`
+  font-size: 20px;
   text-align:center;
+  color: black;
 `;
 
 export const SensorComponent = () => {
 
-  const onCounterIncrease = () =>
-  {
-    newJokeCounter++;
+
+  const timeToUpdateJoke = () =>{
+    //let time = new Date();
+    //if ((time-lastUpdate)>500) // if 500 ms since we last changed the joke
+    {
+      newJokeCounter++;
+      console.log("test:" + newJokeCounter);
+      //lastUpdate = time;
+    }
   };
+
 
   const [joke, setJoke] = useState([]);
 
@@ -107,16 +119,19 @@ export const SensorComponent = () => {
   }, []);
 
   return (
-    <ShakeView>
-      {isShaking(data) && <ShakeAlert>Shaking up a new joke!</ShakeAlert> }
-      {isShaking(data) && onCounterIncrease() }
-
+    <JokeView>
+      {isShaking(data) &&
+        <ShakeAlert>
+          Shaking up a new joke!
+          { timeToUpdateJoke() }
+        </ShakeAlert> }
+      {/*  */}
 
       {!isShaking(data) &&
       <ShakeDataView>
-        <ShakeDataTitle>{joke.setup}</ShakeDataTitle>
-        <ShakeData>{joke.punchline}</ShakeData>
+        <JokeQuestion>{joke.setup}</JokeQuestion>
+        <JokePunchline>{joke.punchline}</JokePunchline>
       </ShakeDataView>}
-    </ShakeView>
+    </JokeView>
   );
 };

@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 
 
 const HeaderTextContainer = styled.View`
-  background-color: pink;
+  background-color: #3596B5;
   flex:0.2;
   justify-content: center;
   align-items: center;

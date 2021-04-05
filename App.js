@@ -6,7 +6,7 @@ import { Footer } from './components/Footer'
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #ADC5CF;
   justify-content: center;
   align-items: center;
 `;
@@ -19,7 +19,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <>
-    <Header> </Header>
+    <Header></Header>
     <Container>
       <SensorComponent></SensorComponent>
     </Container>
