@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Accelerometer } from 'expo-sensors'
 import styled from 'styled-components/native'
 
-import Eightball from './Eightball'
 import EightballAnswer from './EightballAnswer'
 import EightballHidden from './EightballHidden'
 
@@ -21,15 +20,26 @@ const isShaking = (data) => {
 
 // ==========================
 // = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
+const MainView = styled.View`
+  justify-content: center;
+  align-items: center;
+`
+
+const EightContainer = styled.View`
+  width: 140px;
+  height: 140px;
+  background-color: #white;
+  border-radius: 140;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
 `
 
 const ShakeAlert = styled.Text`
   font-size: 36px;
   font-weight: bold;
-  color: #aa0000;
+  // color: #aa0000;
+  color: #FFF;
 `
 const ShakeDataView = styled.View``
 const ShakeDataTitle = styled.Text`
@@ -80,7 +90,7 @@ export const SensorComponent = () => {
   }, [])
 
   return (
-    <ShakeView>
+    <MainView>
       {/* 
       If isShaking returns true:
         - We could render conditionally
@@ -92,29 +102,15 @@ export const SensorComponent = () => {
         <ShakeAlert>
           Shaking
           <Eightball>
-            <EightballAnswer />
+            <EightballHidden />
           </Eightball>
         </ShakeAlert>
       }
 
       {!isShaking(data) && 
-        <ShakeAlert>
-          Not shaking
-          <Eightball>
-            <EightballHidden />
-          </Eightball>
-          <EightballAnswer />
-        </ShakeAlert>
+        <EightballHidden />
+        // <EightballAnswer />
       }
-
-
-      {/* <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-        <Eightball />
-      </ShakeDataView> */}
-    </ShakeView>
+    </MainView>
   )
 }

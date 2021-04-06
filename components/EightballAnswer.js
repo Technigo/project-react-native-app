@@ -1,7 +1,17 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
 
-const AnswerContainer = styled.View `
+const Eightball = styled.View`
+  width: 300px;
+  height: 300px;
+  background-color: #000;
+  border-radius: 300;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+`
+
+const AnswerBackground = styled.View `
   width: 140px;
   height: 140px;
   background-color: papayawhip;
@@ -13,6 +23,7 @@ const AnswerContainer = styled.View `
 const Answer = styled.Text`
   color: purple;
   font-size: 20px;
+  text-align: center;
 `
 
 const EightballAnswer = () => {
@@ -24,11 +35,13 @@ const EightballAnswer = () => {
   const answer = answers[Math.floor(Math.random() * answers.length)]
 
   return (
-    <AnswerContainer>
-      <Answer>
-        {answer}
-      </Answer>
-    </AnswerContainer>
+    <Eightball>
+      <AnswerBackground>
+        <Answer>
+          {answer}
+        </Answer>
+      </AnswerBackground>
+    </Eightball>
   )
 }
 

@@ -1,18 +1,15 @@
 import React from 'react'
 import styled from 'styled-components/native'
-
+import { ImageBackground } from 'react-native'
 import { SensorComponent } from './components/SensorComponent'
+
+import img from './assets/space.jpeg'
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-image: url(${img})
   justify-content: center;
   align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
 `
 
 const App = () => {
