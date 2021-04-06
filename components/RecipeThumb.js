@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 import styled from 'styled-components/native'
 
 const RecipeThumb = ({item}) => {
-  console.log(item)
+  //console.log(item)
   const calories = Math.round((Number(item.recipe.calories)/Number(item.recipe.totalWeight))*100)
   return (
     <Container>
@@ -25,9 +25,7 @@ export default RecipeThumb
 
 const Container = styled.View `
   position: relative;
-  flex-direction: row;
   background-color: gray;
-  border: 1px solid black;
 `
 const ImageContainer = styled.View `
   width: 100%;
@@ -38,8 +36,6 @@ const TextContainer = styled.View `
   bottom: 0;
   left: 0;
   padding: 5px;
-  border: 1px solid green;
-  
 `
 const DetailsContainer = styled.View `
   flex-direction: row;
