@@ -1,14 +1,23 @@
 import React from 'react';
-import { Text, Button } from 'react-native';
+import { Text } from 'react-native';
+import {
+  Headline,
+  Caption,
+  Paragraph,
+  useTheme,
+  Button,
+  Subheading,
+} from 'react-native-paper';
 import styled from 'styled-components/native';
 
 // This is the main container for this screen
 const HomeContainer = styled.View`
-  display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+`;
+const ConditionalSection = styled.View`
+ margin: 10px;
 `;
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
@@ -16,10 +25,18 @@ const HomeContainer = styled.View`
 export const Home = ({ navigation }) => {
   return (
     <HomeContainer>
-      <Text>Home Screen</Text>
-      {/* Here is an example of how to open/toggle the drawer via javascript */}
-      <Button title="Open drawer " onPress={() => navigation.openDrawer()} />
-      <Button title="Edit on Profile " onPress={() => navigation.navigate('Profile')} />
+      <Headline>Welcome!</Headline>
+      <Subheading>Isabella</Subheading>
+      <ConditionalSection>
+        <Caption>It appears you are not logged in</Caption>
+        <Button
+          labelStyle={{ color: 'white' }}
+          mode="contained"
+          onPress={() => navigation.navigate('Profile')}>
+          Edit Profile
+        </Button>
+      </ConditionalSection>
+      <Button onPress={() => navigation.openDrawer()}>open drawer</Button>
     </HomeContainer>
   );
 };
