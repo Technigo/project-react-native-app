@@ -1,26 +1,32 @@
-import React from 'react'
-import styled from 'styled-components/native'
+import React, { useState, useEffect } from "react";
+import styled from "styled-components/native";
+import MoviePoster from "./components/MoviePoster";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+const Container = styled.View``;
 
 const App = () => {
+  const [fetchMovieList, setFetchMovieList] = useState([]);
+
+  const API_URL =
+    "https://api.themoviedb.org/3/movie/popular?api_key=bf14fff1c40836226439b742bbbb7950";
+
+  https: useEffect(() => {
+    fetch(API_URL)
+      .then((res) => res.json())
+      .then((json) => {
+        setFetchMovieList(json.results);
+      });
+  }, []);
+
+  console.log(fetchMovieList);
+
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      {fetchMovieList.map((movie) => (
+        <MoviePoster {...movie} key={movie.id} />
+      ))}
     </Container>
-  )
-}
+  );
+};
 
-export default App
+export default App;
