@@ -6,14 +6,13 @@ import forecastdata from './forecastdata.json'
 
 const MainView = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #DAFFEF;
   justify-content: center;
   align-items: center;
 `
 
 const CurrentWeatherContainer = styled.View`
   flex: 2;
-  background-color: papayawhip;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -21,7 +20,6 @@ const CurrentWeatherContainer = styled.View`
 
 const ForecastContainer = styled.View`
   flex: 2;
-  background-color: papayawhip;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -32,7 +30,6 @@ const ForecastContainer = styled.View`
 const ForecastItem = styled.View`
   flex: 1;
   flex-direction: row;
-  background-color: papayawhip;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -40,16 +37,18 @@ const ForecastItem = styled.View`
 
 const TempHeading = styled.Text`
   font-size: 44px;
-  color: palevioletred;
+  color: #79676D;
   margin-bottom: 20px;
 `
 
 const SubHeading = styled.Text`
   font-sixe: 34px;
+  color: #79676D;
 `
 
 const ForecastText = styled.Text`
   font-sixe: 34px;
+  color: #79676D;
   margin: 10px;
   font-weight: ${props => (props.bold ? '800' : '400')};
 `
