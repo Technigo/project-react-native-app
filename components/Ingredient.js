@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
 
-const Ingredient = ({ ingredient, ingredientQuery }) => {
+const Ingredient = ({ ingredient, ingredientQuery, setIngredientQuery }) => {
   const [isAdded, setIsAdded] = useState(false);
 
-  if (isAdded) {
-    ingredientQuery[ingredient] = true
-    console.log(`${ingredient} added:`, ingredientQuery)
-  } else {
-    ingredientQuery[ingredient] = false
-    console.log(`${ingredient} removed`, ingredientQuery)
-  }
+  useEffect(() => {
+    if (isAdded) {
+      setIngredientQuery({ ...ingredientQuery, [ingredient]: true })
+    } else {
+      setIngredientQuery({ ...ingredientQuery, [ingredient]: false })
+    }
+  }, [isAdded])
+
 
   const toggleSwitch = () => {
     setIsAdded(previousState => !previousState)
@@ -21,7 +22,7 @@ const Ingredient = ({ ingredient, ingredientQuery }) => {
 
   return (
     <TouchableOpacity onPress={toggleSwitch}>
-      <Text>click me to add {ingredient}</Text>
+      <Text>Click to add {ingredient}</Text>
     </TouchableOpacity>
   )
 }

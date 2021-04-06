@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, View, Text } from 'react-native';
 
 
-const Diet = ({ label, dietQuery }) => {
+const Diet = ({ label, dietQuery, setDietQuery }) => {
   const [isEnabled, setIsEnabled] = useState(false);
 
-  if (isEnabled) {
-    dietQuery[label] = true
-    console.log(`${label} added:`, dietQuery)
-  } else {
-    dietQuery[label] = false
-    console.log(`${label} removed`, dietQuery)
-  }
+  useEffect(() => {
+    if (isEnabled) {
+      setDietQuery({ ...dietQuery, [label]: true })
+    } else {
+      setDietQuery({ ...dietQuery, [label]: false })
+    }
+  }, [isEnabled])
 
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState)
