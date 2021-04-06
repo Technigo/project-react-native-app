@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import {
-  DrawerItem,
-  DrawerContentScrollView,
-  DrawerItemList,
-} from '@react-navigation/drawer';
+import styled from 'styled-components/native';
+import { DrawerContentScrollView } from '@react-navigation/drawer';
 import {
   useTheme,
   Avatar,
@@ -17,22 +14,65 @@ import {
   Switch,
 } from 'react-native-paper';
 
+const DrawerTitle = styled(Title)`
+  margin-top: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+  color: white;
+`;
+
+const TitleSection = styled(Drawer.Section)`
+  margin-bottom: 20px;
+  background-color: ${(props) => props.color};
+`;
+const AvatarIcon = styled(Avatar.Icon)`
+  background-color: ${(props) => props.backgroundColor};
+`;
+const Wrapper = styled.View`
+  flex-flow: row wrap;
+  ${(props) => props.title && 'padding: 20px;'}
+`;
+const DrawerItem = styled(Drawer.Item)`
+  width: 100%;
+`;
 
 export const DrawerContent = ({ navigation, ...props }) => {
+  const [active, setActive] = useState('Home');
+  const { colors } = useTheme();
+
+  const onPressNavigation = (route) => {
+    setActive(route);
+    navigation.navigate(route);
+  };
+
   return (
     <DrawerContentScrollView {...props}>
-      <Drawer.Item
-        label="Home"
-        onPress={() => navigation.navigate('Home')}
-      />
-      <Drawer.Item
-        label="Games"
-        onPress={() => navigation.navigate('Games')}
-      />
-      <Drawer.Item
-        label="Profile"
-        onPress={() => navigation.navigate('Profile')}
-      />
+      <TitleSection color={colors.primary}>
+        <Wrapper title>
+          <AvatarIcon color="white" backgroundColor={colors.secondary} icon="gamepad" />
+          <DrawerTitle>Apptitle</DrawerTitle>
+        </Wrapper>
+      </TitleSection>
+      <Wrapper>
+        <DrawerItem
+          icon="home"
+          label="Home"
+          active={active === 'Home'}
+          onPress={() => onPressNavigation('Home')}
+        />
+        <DrawerItem
+          icon="gamepad"
+          label="Games"
+          active={active === 'Games'}
+          onPress={() => onPressNavigation('Games')}
+        />
+        <DrawerItem
+          icon="account"
+          label="Profile"
+          active={active === 'Profile'}
+          onPress={() => onPressNavigation('Profile')}
+        />
+      </Wrapper>
     </DrawerContentScrollView>
   );
 };
