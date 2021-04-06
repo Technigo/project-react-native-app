@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-import Entrance from './pages/EntrancePage'
  
 const fet = [9999, 1000] // Du kan göra en liknande där du passar id på filmen
 const dinc = "testar namn"
