@@ -16,7 +16,8 @@
     "react-dom": "16.8.3",
     "react-native": "^0.63.2",
     "react-native-web": "^0.15.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "expo-updates": "~0.4.1"
   },
   "devDependencies": {
     "babel-preset-expo": "^7.1.0"
