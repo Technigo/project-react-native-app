@@ -1,36 +1,39 @@
-import React, { useState } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Text } from 'react-native'
 import styled from 'styled-components/native'
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
+
+import {SEARCH_URL} from './reusables/urls'
+import  RecipeThumb  from './components/RecipeThumb'
+
+const Container = styled.ScrollView`
+  background-color: white;
+  padding: 8px;
+  padding-top: 30;
 `
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: black;
 `
 
+
 const App = () => {
-  const [counter, setCounter] = useState(0)
+  const [recipes, setRecipes] = useState([])
 
-  const onButtonPressed = () => {
-    setCounter(counter + 1)
-  }
+  useEffect(()=> {
+    fetch(SEARCH_URL)
+      .then(response => response.json())
+      .then(receivedRecipes => setRecipes(receivedRecipes.hits))
+  },[])
 
+  console.log(recipes)
   return (
     <Container>
-      <Title>Hello there</Title>
-      <Title>This is your cool app!</Title>
-      <Title>{counter}</Title>
-      <Button 
-        title='Press me'
-        color='#841584'
-        onPress={onButtonPressed}
-      />
+      <Title>Choose your recipe here!</Title>
+      {recipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}
+      
+
     </Container>
   )
 }
