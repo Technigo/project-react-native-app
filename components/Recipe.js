@@ -29,14 +29,14 @@ const Recipe = ({ ingredientQuery, dietQuery, setIsMixingIngredients }) => {
     let preparedIngredientsString = preparedIngredients.join(",")
     let preparedDietString = preparedDiet.join(",")
     console.log(preparedIngredientsString, preparedDietString)
-    fetch(API_URL(preparedIngredientsString, preparedDietString))
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        console.log(API_URL(preparedIngredientsString, preparedDietString))
-        setRecipes(data.results)
-      })
-      .catch(err => console.err(err))
+    // fetch(API_URL(preparedIngredientsString, preparedDietString))
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data)
+    //     console.log(API_URL(preparedIngredientsString, preparedDietString))
+    //     setRecipes(data.results)
+    //   })
+    //   .catch(err => console.err(err))
 
     // setIsMixingIngredients(false)
   }, [ingredientQuery])
