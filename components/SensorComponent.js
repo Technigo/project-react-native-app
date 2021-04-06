@@ -56,14 +56,21 @@ export const SensorComponent = () => {
     //let time = new Date();
     //if ((time-lastUpdate)>500) // if 500 ms since we last changed the joke
     {
+      //
+      if (joke != null)
+      {
+        joke.punchline = "";
+        joke.setup = "L o a d i n g";
+      }
       newJokeCounter++;
+
       console.log("test:" + newJokeCounter);
       //lastUpdate = time;
     }
   };
 
 
-  const [joke, setJoke] = useState([]);
+  let [joke, setJoke] = useState([]);
 
   useEffect(() => {
       fetch(JOKE_URL)
@@ -125,7 +132,6 @@ export const SensorComponent = () => {
           Shaking up a new joke!
           { timeToUpdateJoke() }
         </ShakeAlert> }
-      {/*  */}
 
       {!isShaking(data) &&
       <ShakeDataView>
