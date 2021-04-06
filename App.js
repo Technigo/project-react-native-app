@@ -6,23 +6,25 @@ import styled from 'styled-components/native'
 import {SEARCH_URL} from './reusables/urls'
 import  RecipeThumb  from './components/RecipeThumb'
 import SearchForm from './components/SearchForm'
-
+import Filters from './components/Filters'
 
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
   const [searchWord, setSearchWord] = useState('')
   const [search, setSearch] = useState('dinner')
+  const [filter, setFilter] = useState(false)
 
   const handleSubmit = () => {
     setSearch(searchWord)
   }
 
   useEffect(()=> {
-    fetch(SEARCH_URL(search))
+    console.log(SEARCH_URL(search, filter))
+    fetch(SEARCH_URL(search, filter))
       .then(response => response.json())
       .then(receivedRecipes => setRecipes(receivedRecipes.hits))
-  },[search])
+  },[search, filter])
 
   console.log(searchWord)
   return (
@@ -33,7 +35,10 @@ const App = () => {
         searchWord={searchWord} 
         setSearchWord={setSearchWord}
       />
-
+      <Filters 
+        filter={filter}
+        setFilter={setFilter}
+      />
       {recipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}      
     </Container>
   )
