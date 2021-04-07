@@ -2,58 +2,45 @@ import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
 
-const answers = [
-  "It is certain",
-  "As I see it, yes",
-  "Without a doubt",
-  "Yes - definitely",
-  "You may rely on it",
-  "Most likely",
-  "Outlook good",
-  "Yes",
-  "Don't count on it",
-  "My reply is no",
-  "Reply hazy, try again",
-  "My sources say no",
-  "Outlook not so good",
-  "It is decidedly so",
-  "Very doubtful",
-  "Ask again later",
-  "Better not tell you now",
-  "Cannot predict now",
-  "Signs point to yes",
-  "Concentrate and ask again",
-];
+import answers from "../data/answers"
 
-// ==========================
-// = Functions
+// FUNCTIONS
+// The total combined force on the device
 const isShaking = (data) => {
-  // x,y,z CAN be negative, force is directional
-  // We take the absolute value and add them together
-  // This gives us the total combined force on the device
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-
   // If this force exceeds some threshold, return true, otherwise false
-  // Increase this threshold if you need your user to shake harder
   return totalForce > 1.78;
 };
 
-// ==========================
-// = Styled components
+// Get random answer
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+// STYLED COMPONENTS
 const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center; 
+`;
+
+const ShakeDataView = styled.View` 
 `;
 
 const ShakeAlert = styled.Text`
   font-size: 36px;
   font-weight: bold;
-  color: #aa0000;
+  color: black;
+  text-align: center;
+  margin: 20px;
+  background-color:lightgray;
+
 `;
 
-const ShakeDataView = styled.View``;
 const ShakeDataTitle = styled.Text`
   font-weight: bold;
+  text-align: center;
+  background-color:lightgray;
 `;
 
 const ShakeData = styled.Text``;
@@ -62,15 +49,10 @@ const ShakeData = styled.Text``;
 // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
 export const SensorComponent = () => {
   Accelerometer.setUpdateInterval(400);
+  // what?????
+  const answerIndex = Math.random(answers.length);
+
   const [answer, setAnswer] = useState(undefined);
-
-  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
-  // const [data, setData] = useState({
-  //   x: 0,
-  //   y: 0,
-  //   z: 0,
-  // });
-
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
 
@@ -80,41 +62,34 @@ export const SensorComponent = () => {
       // This is what actually starts reading the data
       Accelerometer.addListener((accelerometerData) => {
         // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
-
-        // uppdatera komponenten när man skakar
         if (isShaking(accelerometerData)) {
-          const answerIndex = Math.random(answers.length);
+          const answerIndex = getRandomInt(answers.length);
           setAnswer(answers[answerIndex]);
         }
-        // setData(accelerometerData);
       })
     );
   };
 
-  // This will tell the device to stop reading Accelerometer data.
-  // If we don't do this our device will become slow and drain a lot of battery
+  // Tell the device to stop reading Accelerometer data, otherwise our device will become slow and drain battery
   const _unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
   };
 
-  //vad händr här? behöver vi det om vi bara har en sida?
   useEffect(() => {
     // Start listening to the data when this SensorComponent is active
     _subscribe();
-
     // Stop listening to the data when we leave SensorComponent
     return () => _unsubscribe();
   }, []);
 
   return (
     <ShakeView>
-      {answer ? <ShakeAlert>{answer}</ShakeAlert> : null}
       <ShakeDataView>
         <ShakeDataTitle>
-          {answer ? "Shake me again" : "Shake me"}
+          {answer ? "Ask a new question and shake me again" : "Ask a yes/ no question and shake me for an answer"}
         </ShakeDataTitle>
+        {answer ? <ShakeAlert>{answer}</ShakeAlert> : null}
       </ShakeDataView>
     </ShakeView>
   );
