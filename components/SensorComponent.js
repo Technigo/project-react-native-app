@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler'
 import AffirmationMessage from './AffirmationMessage';
-// import AffirmationMessage from './AffirmationMessage'
+
 
 // ==========================
 // = Functions
@@ -17,8 +17,10 @@ const isShaking = (data) => {
 
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.78;
+  return totalForce > 0.1;
 };
+
+// useEffect, navigate to Affirmation Message if phone i shaken
 
 // ==========================
 // = Styled components
@@ -36,12 +38,22 @@ const ShakeDataView = styled.View``;
 const ShakeDataTitle = styled.Text`
   font-weight: bold;
 `;
-const ShakeData = styled.Text``;
+// const ShakeData = styled.Text``;
 
-export const SensorComponent = () => {
+export const SensorComponent = ({navigation}) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
+
+  useEffect(()  => {
+  if(isShaking(data)){
+    navigation.navigate('AffirmationMessage')
+    console.log("hej")
+  }
+}, [data])
+
+
+
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
   const [data, setData] = useState({
@@ -80,33 +92,23 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
-  const Stack = CreateStackNavigator ()
 
   return (
-    
-    <ShakeView>
-      {/* 
-        hej
+      <ShakeView>
+        {/* 
         If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && 
-      <NavigationContainer>
-        {/*  */}
-        <Stack.Navigator>
-          <Stack.Screen name="Affirmation" component={AffirmationMessage} />
-        </Stack.Navigator>
-      </NavigationContainer>}
-
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>x: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
-    </ShakeView>
-  );
-};
+          - We could render conditionally
+          - Maybe we want to dispatch some redux event when device shakes?
+          - Maybe change some styled props? 
+        */}
+        {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+        <ShakeDataView>
+          <ShakeDataTitle>Shake Data</ShakeDataTitle>
+          {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
+          {/* <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
+          <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
+          <ShakeData>Z: {data.z.toFixed(2)}</ShakeData> */}
+        </ShakeDataView>
+      </ShakeView>
+    );
+  };
