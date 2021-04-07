@@ -45,6 +45,7 @@ export const SensorComponent = ({navigation}) => {
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
 
+  //If shaken navigate to new component: Affirmation Message 
   useEffect(()  => {
   if(isShaking(data)){
     navigation.navigate('AffirmationMessage')
