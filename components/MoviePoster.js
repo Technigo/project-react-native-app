@@ -1,20 +1,45 @@
 import React from "react";
 import styled from "styled-components/native";
 
-const Poster = styled.View`
-  background-color: red;
+const CardContainer = styled.View`
+  display: flex;
+  background-color: #3d3834;
+  min-height: 120px;
+  margin-bottom: 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+const MovieImage = styled.Image`
+  width: 100px;
+  height: 150px;
+`;
+const TextContainer = styled.Text`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 200px;
+`;
+const TitleText = styled.Text`
+  color: white;
+  font-size: 18px;
+  padding: 5px;
+`;
+const DateText = styled.Text`
+  color: white;
+  padding: 5px;
 `;
 
-const Text = styled.Text`
-  border: 2px solid black;
-`;
-
-const MoviePoster = ({ title, poster_path }) => {
+const MoviePoster = ({ title, poster_path, release_date }) => {
   return (
-    <Poster>
-      <Text>{title}</Text>
-      {/* <img src={`https://image.tmdb.org/t/p/w342${poster_path}`} /> */}
-    </Poster>
+    <CardContainer>
+      <MovieImage
+        source={{ uri: `https://image.tmdb.org/t/p/w500${poster_path}` }}
+      />
+      <TextContainer>
+        <TitleText>{title}</TitleText>
+        <DateText>Released {release_date}</DateText>
+      </TextContainer>
+    </CardContainer>
   );
 };
 
