@@ -20,9 +20,9 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start cong</Title>
-      <Title>💅💅💅</Title>
+      <Title>Random cats app!</Title>
+      
+      <Title>🐈🐈🐈</Title>
       <RandomCats/>
     </Container>
   )

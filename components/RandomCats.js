@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { View, Image, Text } from 'react-native'
+import { View, Image, Text, StyleSheet } from 'react-native'
+
+
+const styles = StyleSheet.create({
+  image: {
+    width: 166,
+    height: 158,
+}})
 
 
 export const RandomCats = () => {
@@ -11,21 +18,16 @@ export const RandomCats = () => {
       fetch (CAT_API)
         .then(res => res.json())
         .then(json => setRandomCatImages(json))
-        console.log("hej")
-        
-    },[randomCatImages]) 
+      },[]) 
 
 
   return(
     <View>
       {randomCatImages.map(catImage => (
         <View key={catImage.id}>
-        <Image source={{uri: catImage.url}}/>
+          <Image style={styles.image} source={{uri: catImage.url}}/>
         </View>
       ))}
-      
-      
-      <Text>🐈</Text>
     </View>
 
   )
