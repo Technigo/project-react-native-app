@@ -1,25 +1,24 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { View } from "react-native";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+import AlbumList from './components/AlbumList'
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+//  const Viewer = styled.View`
+//    flex: 1;
+//    background-color: papayawhip;
+//   justify-content: center;
+//    align-items: center;
+//  `
+
+
 
 const App = () => {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <View>
+      <AlbumList />
+     
+    </View>
   )
 }
 
