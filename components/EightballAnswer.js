@@ -14,8 +14,9 @@ const Eightball = styled.View`
 const AnswerBackground = styled.View `
   width: 140px;
   height: 140px;
-  background-color: papayawhip;
-  border-radius: 50%;
+  background-color: #efefef;
+  border-radius: 140;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
 `
@@ -26,19 +27,25 @@ const Answer = styled.Text`
   text-align: center;
 `
 
-const EightballAnswer = () => {
+const EightballAnswer = ({newAnswer}) => {
+  // const answers = ['It is certain', 'Without a doubt', 'You may rely on it', 'Yes definitely', 'It is decidedly so', 'As I see it yes', 'Most likely', 'Yes', 'Outlook good', 
+  // 'Signs point to yes', 'Reply hazy try again', 'Better not tell you now', 'Ask again later', 'Cannot predict now', 'Concentrate and ask again', "Don't count on it", 
+  // 'Outlook not so good', 'My sources say no', 'Very doubtful', 'My reply is no']
 
-  const answers = ['It is certain', 'Without a doubt', 'You may rely on it', 'Yes definitely', 'It is decidedly so', 'As I see it yes', 'Most likely', 'Yes', 'Outlook good', 
-  'Signs point to yes', 'Reply hazy try again', 'Better not tell you now', 'Ask again later', 'Cannot predict now', 'Concentrate and ask again', "Don't count on it", 
-  'Outlook not so good', 'My sources say no', 'Very doubtful', 'My reply is no']
+  // const [randomAnswer, setRandomAnswer] = useState('')
 
-  const answer = answers[Math.floor(Math.random() * answers.length)]
+  // const setAnswer = () => {
+  //   answer = answers[Math.floor(Math.random() * answers.length)]
+  //   setRandomAnswer(randomAnswer)
+  // }
+
+  // // const answer = answers[Math.floor(Math.random() * answers.length)]
 
   return (
     <Eightball>
       <AnswerBackground>
         <Answer>
-          {answer}
+          {newAnswer}
         </Answer>
       </AnswerBackground>
     </Eightball>

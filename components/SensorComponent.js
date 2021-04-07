@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 
 import EightballAnswer from './EightballAnswer'
 import EightballHidden from './EightballHidden'
+// import { getStepCountAsync } from 'expo-sensors/build/Pedometer'
 
 // ==========================
 // = Functions
@@ -25,29 +26,8 @@ const MainView = styled.View`
   align-items: center;
 `
 
-const EightContainer = styled.View`
-  width: 140px;
-  height: 140px;
-  background-color: #white;
-  border-radius: 140;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-`
-
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  // color: #aa0000;
-  color: #FFF;
-`
-const ShakeDataView = styled.View``
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`
-const ShakeData = styled.Text``
-
 export const SensorComponent = () => {
+
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400)
@@ -63,7 +43,6 @@ export const SensorComponent = () => {
   const [subscription, setSubscription] = useState(null)
 
   const _subscribe = () => {
-    // Save the subscription so we can stop using the accelerometer later
     setSubscription(
       // This is what actually starts reading the data
       Accelerometer.addListener((accelerometerData) => {
@@ -74,8 +53,6 @@ export const SensorComponent = () => {
     )
   }
 
-  // This will tell the device to stop reading Accelerometer data.
-  // If we don't do this our device will become slow and drain a lot of battery
   const _unsubscribe = () => {
     subscription && subscription.remove()
     setSubscription(null)
@@ -84,32 +61,28 @@ export const SensorComponent = () => {
   useEffect(() => {
     // Start listening to the data when this SensorComponent is active
     _subscribe()
-
     // Stop listening to the data when we leave SensorComponent
     return () => _unsubscribe()
   }, [])
 
+  const AnswersArray = ['It is certain', 'Without a doubt', 'You may rely on it', 'Yes definitely', 'It is decidedly so', 'As I see it yes', 'Most likely', 'Yes', 'Outlook good', 
+  'Signs point to yes', 'Reply hazy try again', 'Better not tell you now', 'Ask again later', 'Cannot predict now', 'Concentrate and ask again', "Don't count on it", 
+  'Outlook not so good', 'My sources say no', 'Very doubtful', 'My reply is no']
+
+  const [answer, setAnswer] = useState('')
+
+  useEffect(() => {
+    !isShaking(data) && setAnswer(AnswersArray[Math.floor(Math.random() * AnswersArray.length)])
+  }, [isShaking(data)])
+
   return (
     <MainView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
 
       {isShaking(data) && 
-        <ShakeAlert>
-          Shaking
-          <Eightball>
-            <EightballHidden />
-          </Eightball>
-        </ShakeAlert>
-      }
-
-      {!isShaking(data) && 
         <EightballHidden />
-        // <EightballAnswer />
+      }
+      {!isShaking(data) && 
+        <EightballAnswer newAnswer={answer}/>
       }
     </MainView>
   )
