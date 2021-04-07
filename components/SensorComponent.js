@@ -1,6 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { Accelerometer } from 'expo-sensors';
-import styled from 'styled-components/native';
+import React, { useState, useEffect } from "react";
+import { Accelerometer } from "expo-sensors";
+import styled from "styled-components/native";
+
+const answers = [
+  "It is certain",
+  "As I see it, yes",
+  "Without a doubt",
+  "Yes - definitely",
+  "You may rely on it",
+  "Most likely",
+  "Outlook good",
+  "Yes",
+  "Don't count on it",
+  "My reply is no",
+  "Reply hazy, try again",
+  "My sources say no",
+  "Outlook not so good",
+  "It is decidedly so",
+  "Very doubtful",
+  "Ask again later",
+  "Better not tell you now",
+  "Cannot predict now",
+  "Signs point to yes",
+  "Concentrate and ask again",
+];
 
 // ==========================
 // = Functions
@@ -27,23 +50,26 @@ const ShakeAlert = styled.Text`
   font-weight: bold;
   color: #aa0000;
 `;
+
 const ShakeDataView = styled.View``;
 const ShakeDataTitle = styled.Text`
   font-weight: bold;
 `;
+
 const ShakeData = styled.Text``;
 
+// This function determines how often our program reads the accelerometer data in milliseconds
+// https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
 export const SensorComponent = () => {
-  // This function determines how often our program reads the accelerometer data in milliseconds
-  // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
+  const [answer, setAnswer] = useState(undefined);
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
-  const [data, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
-  });
+  // const [data, setData] = useState({
+  //   x: 0,
+  //   y: 0,
+  //   z: 0,
+  // });
 
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
@@ -55,7 +81,13 @@ export const SensorComponent = () => {
       Accelerometer.addListener((accelerometerData) => {
         // Whenever this function is called, we have received new data
         // The frequency of this function is controlled by setUpdateInterval
-        setData(accelerometerData);
+
+        // uppdatera komponenten när man skakar
+        if (isShaking(accelerometerData)) {
+          const answerIndex = Math.random(answers.length);
+          setAnswer(answers[answerIndex]);
+        }
+        // setData(accelerometerData);
       })
     );
   };
@@ -67,6 +99,7 @@ export const SensorComponent = () => {
     setSubscription(null);
   };
 
+  //vad händr här? behöver vi det om vi bara har en sida?
   useEffect(() => {
     // Start listening to the data when this SensorComponent is active
     _subscribe();
@@ -77,19 +110,11 @@ export const SensorComponent = () => {
 
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      {answer ? <ShakeAlert>{answer}</ShakeAlert> : null}
       <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
+        <ShakeDataTitle>
+          {answer ? "Shake me again" : "Shake me"}
+        </ShakeDataTitle>
       </ShakeDataView>
     </ShakeView>
   );
