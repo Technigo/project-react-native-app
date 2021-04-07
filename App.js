@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native'
+//import { createStackNavigator } from '@react-navigation/stack';
 
 import { SEARCH_URL } from './reusables/urls'
 import RecipeThumb from './components/RecipeThumb'
 import SearchForm from './components/SearchForm'
 import Filters from './components/Filters'
 
+//const Stack = createStackNavigator();
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
@@ -27,42 +30,42 @@ const App = () => {
   }, [search, ingredientsFilter])
 
   useEffect(() => {
-    setFilteredRecipes(recipes)
+    let newFilteredRecipes = [...recipes]
     if (calloriesFilter) {
-      const newArray = filteredRecipes.filter((item) => {
+      newFilteredRecipes  = newFilteredRecipes.filter((item) => {
         const calories = Math.round((Number(item.recipe.calories) / Number(item.recipe.totalWeight)) * 100)
         if (calories < 150) {
           return item
         }
       })
-      setFilteredRecipes(newArray)
     }
     if (glutenFilter) {
-      const newArray = filteredRecipes.filter((item) => item.recipe.healthLabels.includes('Gluten-Free'))
-      setFilteredRecipes(newArray)
-      console.log(newArray)
-    }  
+      newFilteredRecipes = newFilteredRecipes.filter((item) => item.recipe.healthLabels.includes('Gluten-Free'))
+    }
+    setFilteredRecipes(newFilteredRecipes)
   }, [calloriesFilter, glutenFilter, recipes])
 
   return (
-    <Container>
-      <Title>Choose your recipe here!</Title>
-      <SearchForm
-        onSubmit={handleSubmit}
-        searchWord={searchWord}
-        setSearchWord={setSearchWord}
-      />
-      <Filters
-        ingredientsFilter={ingredientsFilter}
-        setIngredientsFilter={setIngredientsFilter}
-        glutenFilter={glutenFilter}
-        setGluteFilter={setGluteFilter}
-        calloriesFilter={calloriesFilter}
-        setCalloriesFilter={setCalloriesFilter}
-      />
-      {filteredRecipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}
+    <NavigationContainer>
+      <Container>
+        <Title>Choose your recipe here!</Title>
+        <SearchForm
+          onSubmit={handleSubmit}
+          searchWord={searchWord}
+          setSearchWord={setSearchWord}
+        />
+        <Filters
+          ingredientsFilter={ingredientsFilter}
+          setIngredientsFilter={setIngredientsFilter}
+          glutenFilter={glutenFilter}
+          setGluteFilter={setGluteFilter}
+          calloriesFilter={calloriesFilter}
+          setCalloriesFilter={setCalloriesFilter}
+        />
+        {filteredRecipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}
 
-    </Container>
+      </Container>
+    </NavigationContainer>
   )
 }
 
