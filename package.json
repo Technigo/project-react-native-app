@@ -8,10 +8,12 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.2",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.9",
     "@react-navigation/drawer": "^5.12.4",
     "@react-navigation/native": "^5.9.3",
+    "@react-navigation/stack": "^5.14.4",
     "braces": "^3.0.2",
     "expo": "^40.0.0",
     "mem": "^6.1.1",

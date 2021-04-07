@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import styled from 'styled-components/native';
+import React from "react";
+import { View, Text } from "react-native";
+import styled from "styled-components/native";
 
 // This is the main container for this screen
 const ProfileContainer = styled.View`
@@ -8,7 +8,7 @@ const ProfileContainer = styled.View`
   justify-content: center;
   align-items: center;
   height: 100%;
-  backgroundColor: #000;
+  background: #000;
 `;
 
 export const Profile = () => {
