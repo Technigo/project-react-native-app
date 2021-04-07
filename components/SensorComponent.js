@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
-// ==========================
 // = Functions
 const isShaking = (data) => {
-  // x,y,z CAN be negative, force is directional
-  // We take the absolute value and add them together
-  // This gives us the total combined force on the device
+  
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-
-  // If this force exceeds some threshold, return true, otherwise false
-  // Increase this threshold if you need your user to shake harder
   return totalForce > 1.78;
 };
 
-// ==========================
 // = Styled components
 const ShakeView = styled.View`
   display: flex;
@@ -43,19 +36,47 @@ export const SensorComponent = () => {
     z: 0,
   });
 
+  {/*}
   
+  const [choice, setChoice] = useState(false)
  
-  const randomChoice = () => {
+  if (isShaking(data)) {
+    const randomChoice = () => {
     
-    let arr = ['yes', 'no', 'maybe', 'probably']
-    let num = Math.floor(Math.random()* (4-0))
-
-    let choice = arr[num]
-    return choice
-  }
-   
+      let arr = ['yes', 'no', 'maybe', 'probably']
+      let num = Math.floor(Math.random()* (4-0))
   
+      setChoice(arr[num])
+      
+    }
+  }
+  
+*/}
+  const Oracle = () => {
+    const [choice, setChoice] = useState('')
+    const [request, setRequest] = useState(false)
     
+    
+    useEffect(() => {
+      let arr = ['yes', 'no', 'maybe', 'probably']
+      let num = Math.floor(Math.random()* (4-0))
+      setChoice(arr[num])
+      setRequest(isShaking(data))
+      
+      
+
+      
+      
+
+
+    }, [request])
+      
+      return (
+        <View>
+          <Text>The suggestion is {choice} </Text>
+        </View>
+      )
+  }
   
   
   
@@ -89,20 +110,19 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+
+
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking ? randomChoice():'' }
+      
+      
+
+       {Oracle()}
       
       
       {isShaking(data) && <ShakeAlert>Shaking </ShakeAlert>}
       <ShakeDataView>
-        <ShakeDataTitle>New Shake Data {randomChoice()}</ShakeDataTitle>
+        <ShakeDataTitle>New Shake Data </ShakeDataTitle>
         
         <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
         <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
