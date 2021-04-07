@@ -11,6 +11,7 @@ const SearchForm = ({setSearchWord, searchWord, onSubmit}) => {
         value={searchWord}
         onChangeText={text => setSearchWord(text)}
         onEndEditing={onSubmit}
+        onSubmitEditing={onSubmit}
         placeholder="Search here ..."
       />
     </FormWrapper>
