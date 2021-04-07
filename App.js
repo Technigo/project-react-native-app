@@ -6,6 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import TopScreen from './pages/TopRatedPage'
 import PopularScreen from './pages/PopularPage'
 import UpcomingScreen from './pages/UpcomingPage'
+
+import DetailsPage from './pages/DetailsPage'
+
  
 const fet = [9999, 1000] // Du kan göra en liknande där du passar id på filmen
 const dinc = "testar namn"
@@ -47,6 +50,14 @@ export default function App() {
       <Stack.Screen name="TopRated" component={TopScreen} />
       <Stack.Screen name="PopularScreen" component={PopularScreen} />
       <Stack.Screen name="Upcoming" component={UpcomingScreen} />
+
+
+      <Stack.Screen name="Details" component={DetailsPage} />
+
+
+
+
+
     </Stack.Navigator>
   </NavigationContainer>
 );

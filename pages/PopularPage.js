@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import styled from 'styled-components/native'
 
+import DetailsPage from './DetailsPage'
+
 const API_Key = '2e6a7b75ad4d088fae1f52620044bef7'
 const URL = 'https://api.themoviedb.org/3/movie/popular?api_key=2365aea36d60ef1f206bd1bdf23fd999'
 
@@ -28,15 +30,17 @@ align-items: center;
 const TopText = styled.Image`
   height: 250px;
   width: 250px;
-
-
   `
 
+const MovieTitle = styled.Text`
+font-size: 24px;
+`
 
 
 
 
-const Popular = () => {
+
+const Popular = ({navigation}) => {
   const [movies, setMovies] = useState([])
   const [title, setTitle] = useState([])
 
@@ -67,7 +71,15 @@ const Popular = () => {
           source={{ uri:`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}}>
             <TopText
             source={{ uri:`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}}
+            
+            
             />
+            <MovieTitle
+            onPress={() => navigation.navigate("Details", {
+              itemID: `${movie.id}`
+            })}
+            >{movie.title}
+            </MovieTitle>
           </Top>
             </ImageContainer>
           ))}
