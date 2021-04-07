@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
+import { Alert } from 'react-native'
+
+import { MagicAnswer } from './MagicAnswer';
+import { StartPage } from './StartPage';
 
 // ==========================
 // = Functions
@@ -12,8 +16,8 @@ const isShaking = (data) => {
 
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.78;
-};
+  return totalForce > 1.5
+}
 
 // ==========================
 // = Styled components
@@ -33,7 +37,7 @@ const ShakeDataTitle = styled.Text`
 `;
 const ShakeData = styled.Text``;
 
-export const SensorComponent = () => {
+export const ShakeSensor = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -75,6 +79,7 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+  // Was inside of ShakeDataView ALL of it: 
   return (
     <ShakeView>
       {/* 
@@ -86,7 +91,6 @@ export const SensorComponent = () => {
       {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
       <ShakeDataView>
         <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
         <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
         <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
         <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
