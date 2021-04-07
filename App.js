@@ -1,24 +1,31 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { SensorComponent } from './components/SensorComponent'
+
 
 const Container = styled.View`
   flex: 1;
   background-color: papayawhip;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  
 `
 
 const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
+  justify-content: center;
+  align-items: center;
 `
 
 const App = () => {
+
+  
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <Title>JOKE GENERATOR</Title>
+      <SensorComponent />
     </Container>
   )
 }
