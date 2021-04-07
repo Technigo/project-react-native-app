@@ -2,14 +2,14 @@ import React from 'react'
 import { Text } from 'react-native'
 import styled from 'styled-components/native'
 
-const Filters = ({filter, setFilter, glutenFilter, setGluteFilter, calloriesFilter, setCalloriesFilter}) => {
-  const onPress = () => setFilter(!filter)
+const Filters = ({ingredientsFilter, setIngredientsFilter, glutenFilter, setGluteFilter, calloriesFilter, setCalloriesFilter}) => {
+  const onPress = () => setIngredientsFilter(!ingredientsFilter)
   const glutenToggle = () => setGluteFilter(!glutenFilter)
   const calloriesToggle = () => setCalloriesFilter(!calloriesFilter)
   return (
    <FiltersWrapper> 
     <ButtonIngredients 
-      filter={filter}
+      ingredientsFilter={ingredientsFilter}
       onPress={onPress}>
       <Text>5 ingredients</Text>
     </ButtonIngredients>
@@ -49,7 +49,7 @@ const Button = styled.TouchableOpacity`
   align-items:center;
 `
 const ButtonIngredients = styled(Button) `
-  background-color: ${props => (props.filter? "#6e8c6c" : "#ccc")};
+  background-color: ${props => (props.ingredientsFilter? "#6e8c6c" : "#ccc")};
 `
 const ButtonGluten = styled(Button) `
   background-color: ${props => (props.glutenFilter? "#6e8c6c" : "#ccc")}

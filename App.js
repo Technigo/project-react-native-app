@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Text } from 'react-native'
 import styled from 'styled-components/native'
 
-
 import { SEARCH_URL } from './reusables/urls'
 import RecipeThumb from './components/RecipeThumb'
 import SearchForm from './components/SearchForm'
@@ -14,7 +13,7 @@ const App = () => {
   const [searchWord, setSearchWord] = useState('')
   const [filteredRecipes, setFilteredRecipes] = useState([])
   const [search, setSearch] = useState('dinner')
-  const [filter, setFilter] = useState(false)
+  const [ingredientsFilter, setIngredientsFilter] = useState(false)
   const [glutenFilter, setGluteFilter] = useState(false)
   const [calloriesFilter, setCalloriesFilter] = useState(false)
 
@@ -23,10 +22,10 @@ const App = () => {
   }
 
   useEffect(() => {
-    fetch(SEARCH_URL(search, filter))
+    fetch(SEARCH_URL(search, ingredientsFilter))
       .then(response => response.json())
       .then(receivedRecipes => setRecipes(receivedRecipes.hits))
-  }, [search, filter])
+  }, [search, ingredientsFilter])
 
   useEffect(() => {
     setFilteredRecipes(recipes)
@@ -46,7 +45,6 @@ const App = () => {
     }  
   }, [calloriesFilter, glutenFilter, recipes])
 
-
   return (
     <Container>
       <Title>Choose your recipe here!</Title>
@@ -56,8 +54,8 @@ const App = () => {
         setSearchWord={setSearchWord}
       />
       <Filters
-        filter={filter}
-        setFilter={setFilter}
+        ingredientsFilter={ingredientsFilter}
+        setIngredientsFilter={setIngredientsFilter}
         glutenFilter={glutenFilter}
         setGluteFilter={setGluteFilter}
         calloriesFilter={calloriesFilter}
