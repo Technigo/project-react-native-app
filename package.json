@@ -1,4 +1,9 @@
 {
+  "rnpm": {
+    "assets": [
+  "./assets/fonts/"
+    ]
+  },
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -8,8 +13,10 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/codystar": "^0.1.0",
     "braces": "^3.0.2",
     "expo": "^40.0.0",
+    "expo-font": "~8.4.0",
     "expo-sharing": "~8.5.0",
     "mem": "^6.1.1",
     "minimist": "^1.2.5",
@@ -25,3 +32,4 @@
   },
   "private": true
 }
+

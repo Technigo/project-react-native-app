@@ -3,6 +3,7 @@ import styled from 'styled-components/native'
 import { ScrollView } from 'react-native'
 
 import MovieList from './components/MovieList'
+import Header from './components/Header'
 
 const Container = styled.View`
   flex: 1;
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <Container>
+      <Header />
       <ScrollView>
       <MovieList />
       </ScrollView>
