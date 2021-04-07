@@ -3,8 +3,8 @@ import { Text } from 'react-native'
 import styled from 'styled-components/native'
 
 
-import {SEARCH_URL} from './reusables/urls'
-import  RecipeThumb  from './components/RecipeThumb'
+import { SEARCH_URL } from './reusables/urls'
+import RecipeThumb from './components/RecipeThumb'
 import SearchForm from './components/SearchForm'
 import Filters from './components/Filters'
 
@@ -12,47 +12,72 @@ import Filters from './components/Filters'
 const App = () => {
   const [recipes, setRecipes] = useState([])
   const [searchWord, setSearchWord] = useState('')
+  const [filteredRecipes, setFilteredRecipes] = useState([])
   const [search, setSearch] = useState('dinner')
   const [filter, setFilter] = useState(false)
+  const [glutenFilter, setGluteFilter] = useState(false)
+  const [calloriesFilter, setCalloriesFilter] = useState(false)
 
   const handleSubmit = () => {
     setSearch(searchWord)
   }
 
-  useEffect(()=> {
-    console.log(SEARCH_URL(search, filter))
+  useEffect(() => {
     fetch(SEARCH_URL(search, filter))
       .then(response => response.json())
       .then(receivedRecipes => setRecipes(receivedRecipes.hits))
-  },[search, filter])
+  }, [search, filter])
 
-  console.log(searchWord)
+  useEffect(() => {
+    setFilteredRecipes(recipes)
+    if (calloriesFilter) {
+      const newArray = filteredRecipes.filter((item) => {
+        const calories = Math.round((Number(item.recipe.calories) / Number(item.recipe.totalWeight)) * 100)
+        if (calories < 150) {
+          return item
+        }
+      })
+      setFilteredRecipes(newArray)
+    }
+    if (glutenFilter) {
+      const newArray = filteredRecipes.filter((item) => item.recipe.healthLabels.includes('Gluten-Free'))
+      setFilteredRecipes(newArray)
+      console.log(newArray)
+    }  
+  }, [calloriesFilter, glutenFilter, recipes])
+
+
   return (
     <Container>
       <Title>Choose your recipe here!</Title>
       <SearchForm
-        onSubmit={handleSubmit} 
-        searchWord={searchWord} 
+        onSubmit={handleSubmit}
+        searchWord={searchWord}
         setSearchWord={setSearchWord}
       />
-      <Filters 
+      <Filters
         filter={filter}
         setFilter={setFilter}
+        glutenFilter={glutenFilter}
+        setGluteFilter={setGluteFilter}
+        calloriesFilter={calloriesFilter}
+        setCalloriesFilter={setCalloriesFilter}
       />
-      {recipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}      
+      {filteredRecipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}
+
     </Container>
   )
 }
 
 export default App
 
-const Container = styled.ScrollView `
+const Container = styled.ScrollView`
   background-color: white;
   padding: 1px;
   padding-top: 30;
 `
 
-const Title = styled.Text `
+const Title = styled.Text`
   font-size: 24px;
   color: black;
   margin: 20px 0 0 5px;
