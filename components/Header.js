@@ -1,16 +1,13 @@
-import React from 'react'
-import { Text, View } from 'react-native'
-
+import React from 'react';
 import styled from 'styled-components/native';
 
 
 const HeaderTextContainer = styled.View`
-  background-color: #3596B5;
   flex:0.2;
   justify-content: center;
   align-items: center;
+  padding-top:20px;
 `;
-
 
 const HeaderAlert = styled.Text`
   font-size: 48px;
@@ -18,7 +15,7 @@ const HeaderAlert = styled.Text`
   color: black;
 `;
 
-export const Header = () => {
+const Header = () => {
   return (
     <HeaderTextContainer>
       <HeaderAlert>Random jokes</HeaderAlert>
@@ -26,3 +23,4 @@ export const Header = () => {
   )
 }
 
+export default Header;

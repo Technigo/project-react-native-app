@@ -21,37 +21,40 @@ const isShaking = (data) => {
 };
 
 // ==========================
-// = Styled components
+// Styled components
 const JokeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  text-align:center;
-  color: #aa0000;
-`;
-
-const ShakeDataView = styled.View`
+  flex: 1;
+  justify-content:center;
+  align-items: center;
   margin: 10px;
 `;
 
-const JokeQuestion = styled.Text`
+const TheJoke = styled.View`
+  margin: 10px;
+`;
+
+const TextStyling = styled.Text`
   font-size: 20px;
+  text-align:center;
+`;
+
+const WhenShaken = styled(TextStyling)`
+  font-size: 36px;
   font-weight: bold;
-  text-align:center;
+  color: rgba(111,217,220,255);
 `;
-const JokePunchline = styled.Text`
+
+const JokePunchline = styled(TextStyling)`
   font-size: 20px;
   text-align:center;
-  color: black;
 `;
 
-export const SensorComponent = () => {
+const JokeQuestion = styled(TextStyling)`
+  font-weight: bold;
+`;
 
 
+const SensorComponent = () => {
   const timeToUpdateJoke = () =>{
     //let time = new Date();
     //if ((time-lastUpdate)>500) // if 500 ms since we last changed the joke
@@ -80,9 +83,6 @@ export const SensorComponent = () => {
           console.log(json);
       })
   }, [newJokeCounter]);
-
-
-
 
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
@@ -128,16 +128,18 @@ export const SensorComponent = () => {
   return (
     <JokeView>
       {isShaking(data) &&
-        <ShakeAlert>
+        <WhenShaken>
           Shaking up a new joke!
           { timeToUpdateJoke() }
-        </ShakeAlert> }
+        </WhenShaken> }
 
       {!isShaking(data) &&
-      <ShakeDataView>
+      <TheJoke>
         <JokeQuestion>{joke.setup}</JokeQuestion>
         <JokePunchline>{joke.punchline}</JokePunchline>
-      </ShakeDataView>}
+      </TheJoke>}
     </JokeView>
   );
 };
+
+export default SensorComponent;

@@ -1,30 +1,35 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { SensorComponent } from './components/SensorComponent';
-import { Header } from './components/Header'
-import { Footer } from './components/Footer'
+
+import SensorComponent from './components/SensorComponent';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import background from './assets/background.jpg';
 
 const Container = styled.View`
   flex: 1;
-  background-color: #ADC5CF;
   justify-content: center;
   align-items: center;
 `;
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+const BackgroundImage = styled.ImageBackground`
+  height: 100%
+  width: 100%;
+  flex:1;
 `;
 
 const App = () => {
   return (
     <>
-    <Header></Header>
-    <Container>
-      <SensorComponent></SensorComponent>
-    </Container>
-    <Footer></Footer>
-   </>
+    <BackgroundImage
+       source={background}>
+      <Header></Header>
+        <Container>
+          <SensorComponent></SensorComponent>
+        </Container>
+      <Footer></Footer>
+    </BackgroundImage>
+    </>
   );
 };
 
