@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import TopScreen from './pages/TopRatedPage'
 import PopularScreen from './pages/PopularPage'
+import UpcomingScreen from './pages/UpcomingPage'
  
 const fet = [9999, 1000] // Du kan göra en liknande där du passar id på filmen
 const dinc = "testar namn"
@@ -26,6 +27,10 @@ const HomeScreen = ({navigation}) => {
         title="Go to Most Popular Movies"
         onPress={() => navigation.navigate('PopularScreen')}
       />
+      <Button
+        title="Go to Most Upcoming Movies"
+        onPress={() => navigation.navigate('Upcoming')}
+      />
     </View>
   )
 }
@@ -41,6 +46,7 @@ export default function App() {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="TopRated" component={TopScreen} />
       <Stack.Screen name="PopularScreen" component={PopularScreen} />
+      <Stack.Screen name="Upcoming" component={UpcomingScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );

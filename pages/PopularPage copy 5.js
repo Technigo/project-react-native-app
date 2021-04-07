@@ -8,31 +8,27 @@ const API_Key = '2e6a7b75ad4d088fae1f52620044bef7'
 const URL = 'https://api.themoviedb.org/3/movie/popular?api_key=2365aea36d60ef1f206bd1bdf23fd999'
 
 
-const Container = styled.ScrollView`
-flex: 1;
+const Pic = styled.Image`
+
+  height: 100;
+  width: 100;
+ 
+
+ 
+`
+const Container = styled.View `
+  flex: 1; 
+  alignItems: center; 
+  justifyContent: center 
+  
 `
 
-const ImageContainer = styled.View`
-width: 400px;
-height: 100%;
+const PosterBack = styled.ImageBackground`
+resizeMode: cover;
+justifyContent: center;
+
+width:100%
 `
-
-
-const Top = styled.ImageBackground`
-width: 100%;
-height: 100%;
-justify-content: center;
-align-items: center;
-`
-
-const TopText = styled.Image`
-  height: 250px;
-  width: 250px;
-
-
-  `
-
-
 
 
 
@@ -57,22 +53,28 @@ const Popular = () => {
   //const (`https://image.tmdb.org/t/p/w300/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg`)
   
   return (
-        <Container horizontal={true}
-        >
+        <Container>
+          <ScrollView>
+            {movies.map((movie) => (
 
 
-          {movies.map((movie) => (
-            <ImageContainer>
-              <Top
-          source={{ uri:`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}}>
-            <TopText
-            source={{ uri:`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}}
-            />
-          </Top>
-            </ImageContainer>
-          ))}
 
 
+
+              <PosterBack 
+              source={{ uri:`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}}
+              >
+                  <Pic 
+                  source={{ uri:`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}}
+                  />
+              </PosterBack>
+
+
+
+
+
+              ))}
+          </ScrollView>
         </Container>
   )
 }

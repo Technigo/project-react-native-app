@@ -3,15 +3,15 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-const TopRated = () => {
+const Upcoming = () => {
 
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Top Rated Screen</Text>
+      <Text>Upcoming Screen</Text>
     </View>
   )
 }
 
-export default TopRated
+export default Upcoming
 
