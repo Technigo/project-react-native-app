@@ -27,12 +27,12 @@ const App = () => {
           <Stack.Screen 
             name="Card" 
             component={Card}
-            options={{ title: "All the coins" }}
+            options={{ title: "Back to homescreen" }}
           />
           <Stack.Screen 
           name="RandomCoin" 
           component={RandomCoin}
-          options={{ title: "Shake to get random coin" }}
+          options={{ title: "Back to all the coins" }}
         />
         </Stack.Navigator>
       </NavigationContainer>

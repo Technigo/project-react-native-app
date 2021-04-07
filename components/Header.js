@@ -6,14 +6,14 @@ const TopHeader = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 12px;
-    background-color: black;
+    padding: 12px;
+    background-color: #ffac41;
 `;
 
 const TitleText = styled.Text`
     color: #ff1e56;
     font-size: 26px;
-    font-weight: bold;
+    font-weight: 800;
 `;
 
 const Button = styled.TouchableOpacity`
@@ -32,8 +32,8 @@ export const Header = ({ onPress }) => {
   return (
       <>
     <TopHeader>
-      <TitleText>coinme</TitleText>
-      <Button onPress={onPress}><Dice source={require('../assets/dice1.png')} /></Button>
+      <TitleText>CoinMe</TitleText>
+      <Button onPress={onPress}><Dice source={require('../assets/dice4.png')} /></Button>
     </TopHeader>
     </>
   )

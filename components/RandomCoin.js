@@ -39,7 +39,7 @@ const Button = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  font-size: 24px;
+  font-size: 20px;
   color: black;
   font-weight: bold;
   text-align: center;
@@ -68,10 +68,10 @@ export const RandomCoin = () => {
           <CoinTitle>{coin.name}</CoinTitle>
           <CoinSymbol>{coin.symbol}</CoinSymbol>
           <CoinText>Price: {coin.price_usd} $</CoinText>
-          <CoinText>Change in last 24 hours: {coin.percent_change_24h} %</CoinText>
           <CoinText>Change in last hour: {coin.percent_change_1h} %</CoinText>
+          <CoinText>Change in last 24 hours: {coin.percent_change_24h} %</CoinText>
           <CoinText>Change in the last week: {coin.percent_change_7d} %</CoinText>
-          <Button onPress={fetchCoin}><ButtonText>get new coin</ButtonText></Button>
+          <Button onPress={fetchCoin}><ButtonText>SHAKE PHONE OR PRESS BUTTON TO GET NEW COIN</ButtonText></Button>
         </CoinCard>
       </Container>
     </>     

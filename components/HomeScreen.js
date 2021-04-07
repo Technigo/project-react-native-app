@@ -10,7 +10,7 @@ const Container = styled.View`
 
 const Title = styled.Text`
     font-size: 42px;
-    color: #ff1e56;
+    color: #ffac41;
     margin-bottom: 30px;
     font-weight: bold;
 `;
@@ -37,7 +37,7 @@ const Homescreen = ({ navigation }) => {
 
   return (
     <Container>
-        <Title>coinme</Title>
+        <Title>CoinMe</Title>
         <InfoText>Here you can keep track of the most popular cryptocurrencys and buy them with fake money. You can also press the dices in the top right corner and get more information on random currencies.</InfoText>
         <Button onPress={() => navigation.navigate("Card")}><ButtonText>START BUYING</ButtonText></Button>
     </Container>

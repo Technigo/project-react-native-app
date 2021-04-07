@@ -8,7 +8,7 @@ const Wallet = styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: black;
+    background-color: #ffac41;
 `;
 
 const WalletImage = styled.Image`
@@ -19,12 +19,13 @@ const WalletImage = styled.Image`
 
 const WalletText = styled.Text`
     font-size: 16px;
-    color: white;
+    color: black;
+    font-weight: bold;
 `;
 
 const Container = styled.ScrollView`
   flex: 1;
-  background-color: black;
+  background-color: #ffac41;
 `;
 
 const CoinCardBig = styled.View`
@@ -104,10 +105,11 @@ export const Card = ({ navigation }) => {
   const [buy, setBuy] = useState(100000);
   const stateRef = useRef();
   stateRef.current = buy;
+
   const COIN_URL = "https://api.coinlore.net/api/tickers/?start=0&limit=20";
 
   useEffect(() => {
-      setBuy(stateRef.current)
+      setBuy(stateRef.current);
   }, [])
 
   useEffect(() => {
@@ -123,8 +125,8 @@ export const Card = ({ navigation }) => {
       <>
       <Header onPress={() => navigation.navigate("RandomCoin")}></Header>
       
-      <Wallet><WalletImage source={require('../assets/blockchain.png')}/><WalletText>{stateRef.current} $</WalletText></Wallet>
-    <Container>
+      <Wallet><WalletImage source={require('../assets/wallet.png')}/><WalletText>{stateRef.current.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} $</WalletText></Wallet>
+      <Container>
       {coins.map((coin) => (
         <CoinCardBig key={coin.id}>
         <CoinCardTop>
@@ -134,8 +136,8 @@ export const Card = ({ navigation }) => {
         <CoinCard>
           <CoinSymbol> {coin.symbol}</CoinSymbol>
           <ButtonContainer>
-          <Buy disabled={stateRef.current < coin.price_usd} onPress={() => setBuy(prevState => prevState - coin.price_usd)}><CoinInfo>BUY</CoinInfo></Buy>
-          <Sell disabled={stateRef.current === 100000} onPress={() => setBuy(prevState => prevState + coin.price_usd)}><CoinInfo>SELL</CoinInfo></Sell>
+          <Buy disabled={stateRef.current < coin.price_usd} onPress={() => setBuy(stateRef.current - coin.price_usd)}><CoinInfo>BUY</CoinInfo></Buy>
+          <Sell disabled={stateRef.current === 100000} onPress={() => setBuy(stateRef.current)}><CoinInfo>SELL</CoinInfo></Sell>
           </ButtonContainer>
         </CoinCard>
         </CoinCardBig>
