@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import { SensorComponent } from './components/SensorComponent';
 // import { Button } from './components/Button';
-import { Text, StyleSheet } from 'react-native';
+// import Header from './components/Header'
+import { Text, StyleSheet, Button } from 'react-native';
 
 const Container = styled.View`
   flex: 1;
@@ -23,9 +24,14 @@ const App = () => {
 
   return (
     <Container>
+      {/* <Header title='Hello' /> */}
       <SensorComponent></SensorComponent>
-      {/* <Button>Click here</Button> */}
-      <Text style={styles.text}>Count: {count} </Text>
+      <Text style={styles.text}>Coundffddt: {count} </Text>
+      {/* <Button>ORDER</Button> */}
+      <Button
+        title="Press me"
+        onPress={() => setCount(count + 1)}
+      />
     </Container>
   );
 };

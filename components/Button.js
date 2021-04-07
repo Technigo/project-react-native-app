@@ -1,7 +1,9 @@
 // import styled, {css} from 'styled-components'
-import styled from 'styled-components'
+import styled from 'styled-components/native';
 
 export const Button = styled.button`
+    title="Press me"
+    onPress={() => setCount(count + 1)
     background-color: green;
     margin: 10px;
     font-size: 20px;
