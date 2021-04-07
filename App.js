@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Text } from 'react-native'
 import styled from 'styled-components/native'
 
 import { SEARCH_URL } from './reusables/urls'
