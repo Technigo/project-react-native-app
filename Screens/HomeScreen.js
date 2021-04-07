@@ -6,7 +6,7 @@ import Dish from "../components/Dish"
 import Ingredient from '../components/Ingredient';
 import Diet from "../components/Diet"
 
-const HomeScreen = ({ navigation, dishes, dishQuery, setDishQuery, ingredientQuery, setIngredientQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
+const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDishQuery, ingredientQuery, setIngredientQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
 
   const handleClick = () => {
     navigation.navigate("Recipe")
@@ -25,23 +25,27 @@ const HomeScreen = ({ navigation, dishes, dishQuery, setDishQuery, ingredientQue
         ))}
       </View>
 
-      <Ingredient
-        ingredient="tomato"
-        ingredientQuery={ingredientQuery}
-        setIngredientQuery={setIngredientQuery}
-      />
+      <View>
+        {ingredients.map(ingredient => (
+          <Ingredient
+            key={ingredient}
+            ingredient={ingredient}
+            ingredientQuery={ingredientQuery}
+            setIngredientQuery={setIngredientQuery}
+          />
+        ))}
+      </View>
 
-      <Ingredient
-        ingredient="basil"
-        ingredientQuery={ingredientQuery}
-        setIngredientQuery={setIngredientQuery}
-      />
-
-      <Diet
-        label="vegetarian"
-        dietQuery={dietQuery}
-        setDietQuery={setDietQuery}
-      />
+      <View>
+        {diets.map(diet => (
+          <Diet
+            key={diet}
+            label={diet}
+            dietQuery={dietQuery}
+            setDietQuery={setDietQuery}
+          />
+        ))}
+      </View>
 
       <TouchableOpacity onPress={handleClick}>
         <Text>

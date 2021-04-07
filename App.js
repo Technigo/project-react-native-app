@@ -15,6 +15,8 @@ const App = () => {
   const [isMixingIngredients, setIsMixingIngredients] = useState(false)
 
   const dishes = ["soup", "salad", "pasta", "risotto", "pizza", "curry", "stew", "pie", "wrap"]
+  const ingredients = ["tomato", "cheese", "eggs", "beef", "chicken", "corn", "lamb", "pork", "basil", "potato"]
+  const diets = ["vegetarian", "vegan", "pescetarian", "ketogenic", "gluten-free"]
 
   console.log(dishQuery, ingredientQuery, dietQuery)
 
@@ -25,6 +27,8 @@ const App = () => {
         <Stack.Screen name="Home">
           {props => <HomeScreen {...props}
             dishes={dishes}
+            ingredients={ingredients}
+            diets={diets}
             dishQuery={dishQuery}
             setDishQuery={setDishQuery}
             ingredientQuery={ingredientQuery}
