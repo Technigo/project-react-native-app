@@ -3,10 +3,11 @@ import { Text, View } from "react-native"
 
 import Recipe from '../components/Recipe';
 
-const RecipeScreen = ({ navigation, ingredientQuery, dietQuery, isMixingIngredients, setIsMixingIngredients }) => {
+const RecipeScreen = ({ navigation, dishQuery, ingredientQuery, dietQuery, isMixingIngredients, setIsMixingIngredients }) => {
   return (
     <View>
       <Recipe
+        dishQuery={dishQuery}
         ingredientQuery={ingredientQuery}
         dietQuery={dietQuery}
         isMixingIngredients

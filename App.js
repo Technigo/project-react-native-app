@@ -9,9 +9,14 @@ import RecipeScreen from "./Screens/RecipeScreen"
 const Stack = createStackNavigator();
 
 const App = () => {
+  const [dishQuery, setDishQuery] = useState({})
   const [ingredientQuery, setIngredientQuery] = useState({ tomato: false, basil: false })
   const [dietQuery, setDietQuery] = useState({})
   const [isMixingIngredients, setIsMixingIngredients] = useState(false)
+
+  const dishes = ["soup", "salad", "pasta", "risotto", "pizza", "curry", "stew", "pie", "wrap"]
+
+  console.log(dishQuery, ingredientQuery, dietQuery)
 
   return (
     <NavigationContainer>
@@ -19,6 +24,9 @@ const App = () => {
 
         <Stack.Screen name="Home">
           {props => <HomeScreen {...props}
+            dishes={dishes}
+            dishQuery={dishQuery}
+            setDishQuery={setDishQuery}
             ingredientQuery={ingredientQuery}
             setIngredientQuery={setIngredientQuery}
             dietQuery={dietQuery}
@@ -31,6 +39,7 @@ const App = () => {
 
         <Stack.Screen name="Recipe">
           {props => <RecipeScreen {...props}
+            dishQuery={dishQuery}
             ingredientQuery={ingredientQuery}
             dietQuery={dietQuery}
             isMixingIngredients={isMixingIngredients}

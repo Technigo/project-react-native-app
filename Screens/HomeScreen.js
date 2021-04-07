@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { Text, View, TouchableOpacity } from "react-native"
 
 import { SensorComponent } from '../components/SensorComponent';
+import Dish from "../components/Dish"
 import Ingredient from '../components/Ingredient';
 import Diet from "../components/Diet"
 
-const HomeScreen = ({ navigation, ingredientQuery, setIngredientQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
+const HomeScreen = ({ navigation, dishes, dishQuery, setDishQuery, ingredientQuery, setIngredientQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
 
   const handleClick = () => {
     navigation.navigate("Recipe")
@@ -13,6 +14,16 @@ const HomeScreen = ({ navigation, ingredientQuery, setIngredientQuery, dietQuery
 
   return (
     <View>
+      <View>
+        {dishes.map(dish => (
+          <Dish
+            key={dish}
+            dish={dish}
+            dishQuery={dishQuery}
+            setDishQuery={setDishQuery}
+          />
+        ))}
+      </View>
 
       <Ingredient
         ingredient="tomato"
