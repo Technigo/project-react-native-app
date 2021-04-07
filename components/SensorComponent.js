@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import 'react-native-gesture-handler'
+import AffirmationMessage from './AffirmationMessage';
 // import AffirmationMessage from './AffirmationMessage'
 
 // ==========================
@@ -76,7 +80,10 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+  const Stack = CreateStackNavigator ()
+
   return (
+    
     <ShakeView>
       {/* 
         hej
@@ -85,7 +92,14 @@ export const SensorComponent = () => {
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
       */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      {isShaking(data) && 
+      <NavigationContainer>
+        {/*  */}
+        <Stack.Navigator>
+          <Stack.Screen name="Affirmation" component={AffirmationMessage} />
+        </Stack.Navigator>
+      </NavigationContainer>}
+
       <ShakeDataView>
         <ShakeDataTitle>Shake Data</ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
