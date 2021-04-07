@@ -17,7 +17,7 @@ const isShaking = (data) => {
 
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 0.1;
+  return totalForce > 1.78;
 };
 
 // useEffect, navigate to Affirmation Message if phone i shaken
@@ -46,12 +46,7 @@ export const SensorComponent = ({navigation}) => {
   Accelerometer.setUpdateInterval(400);
 
   //If shaken navigate to new component: Affirmation Message 
-  useEffect(()  => {
-  if(isShaking(data)){
-    navigation.navigate('AffirmationMessage')
-    console.log("hej")
-  }
-}, [data])
+  
 
 
 
@@ -92,6 +87,12 @@ export const SensorComponent = ({navigation}) => {
     // Stop listening to the data when we leave SensorComponent
     return () => _unsubscribe();
   }, []);
+
+  useEffect(()  => {
+    if(isShaking(data)){
+      navigation.navigate('AffirmationMessage')
+    }
+  }, [data])
 
 
   return (

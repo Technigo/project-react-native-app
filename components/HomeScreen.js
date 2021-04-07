@@ -20,17 +20,19 @@ const OracleImage = styled.Image`
   height: 400px;
   margin-right: 50px;
   `
-const HomeScreen = () => {
-      return(
+  const HomeScreen = ({navigation}) => {
+    return(
 
-  <Container>
-    <Title>Your daily affirmation card</Title>
-    <OracleImage source={require('../assets/fortune-card.png')} />
-    <Title>Shake me to shuffle the cards</Title>
-    <SensorComponent></SensorComponent>
-  </Container>
+<Container>
+  <Title>Your daily affirmation card</Title>
+  <OracleImage source={require('../assets/fortune-card.png')} />
+  <Title>Shake me to shuffle the cards</Title>
+  <SensorComponent navigation={navigation}/>
+</Container>
 
-  )
-      }
+)
+}
+
+
 
 export default HomeScreen
