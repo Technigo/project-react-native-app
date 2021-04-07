@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
+// import AffirmationMessage from './AffirmationMessage'
 
 // ==========================
 // = Functions
@@ -78,7 +79,8 @@ export const SensorComponent = () => {
   return (
     <ShakeView>
       {/* 
-      If isShaking returns true:
+        hej
+        If isShaking returns true:
         - We could render conditionally
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
@@ -87,7 +89,7 @@ export const SensorComponent = () => {
       <ShakeDataView>
         <ShakeDataTitle>Shake Data</ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
+        <ShakeData>x: {data.x.toFixed(2)}</ShakeData>
         <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
         <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
       </ShakeDataView>
