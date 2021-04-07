@@ -30,7 +30,7 @@ export default MoviesList
 
 const Container = styled.ScrollView`
   flex: 1;
-  background-color: white;
+  background-color: #191817;
  
   
   

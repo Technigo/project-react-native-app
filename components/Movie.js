@@ -10,9 +10,11 @@ const Movie = ({ id, title, poster_path, release_date}) => {
 return (
   <CardContainer> 
     <MovieImage
-      source={{ uri: `https://image.tmdb.org/t/p/w1280${poster_path}`}} />  
-    <TitleText>{title}</TitleText>
-    <DateText>Released {release_date}</DateText>
+      source={{ uri: `https://image.tmdb.org/t/p/w500${poster_path}`}} />  
+    <TextContainer>
+      <TitleText>{title}</TitleText>
+      <DateText>Released {release_date}</DateText>
+    </TextContainer>
 </CardContainer>
 
 )  
@@ -22,17 +24,22 @@ export default Movie
 
 const CardContainer = styled.View`
   display: flex;
-  background-color: black;
-  border: 2px solid black;
+  background-color: #3D3834;
   min-height: 120px;
-  margin: 5px;
-  width:44%;
-  
+  margin-bottom: 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
   
   `
   const MovieImage = styled.Image`
-  width:100%;
-  height:220px;
+  width:100px;
+  height:150px;
+  `
+  const TextContainer = styled.Text`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 200px;
   `
   const TitleText = styled.Text`
   color: white;

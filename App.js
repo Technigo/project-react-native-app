@@ -5,7 +5,7 @@ import MoviesList from './components/MoviesList'
 
 const Container = styled.View`
   flex: 1;
-  background-color: black;
+  background-color: #191817;
   justify-content: center;
   align-items: center;
   padding-top: 30px;
@@ -13,7 +13,7 @@ const Container = styled.View`
 
 const Title = styled.Text`
   font-size: 24px;
-  color: white;
+  color: #FF7B02;
   padding-bottom: 10px;
 `
 
