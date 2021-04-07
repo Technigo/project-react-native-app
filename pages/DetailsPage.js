@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import styled from 'styled-components/native'
 
+import Share from './ShareButton'
+
 //const URL = https://api.themoviedb.org/3/movie/399566?api_key=2365aea36d60ef1f206bd1bdf23fd999&language=en-US
 
 
@@ -17,14 +19,14 @@ flex: 1;
 
 const Poster = styled.ImageBackground`
 flex: 1;
-resize:cover;
+
 `
 const Bottom = styled.View`
 flex:1
-background: rgba(255,255,255, 0.6); 
+background: rgba(0,0,0, 0.6); 
 padding:10px
 `
-
+/*background: rgba(255,255,255, 0.6); ^*/
 const MoviePicture = styled.Image`
 width: 100%;
 flex:1`
@@ -63,6 +65,10 @@ const Details = ({ route }) => {
 
   // Läg till en True eller not true på data ifall det blir successfull, om inte datan laddar på 10 sekunder ska en sida som säger error komma upp
 
+  const ShareURL = `https://api.themoviedb.org/3/movie/${itemID}?api_key=2365aea36d60ef1f206bd1bdf23fd999&language=en-US`
+
+  
+  console.log(ShareURL)
 
   return (
     <Container>
@@ -73,10 +79,10 @@ const Details = ({ route }) => {
           source={{ uri:`https://image.tmdb.org/t/p/w780/${details.backdrop_path}`}}
         ></MoviePicture>
         <Bottom>
-          <MovieTitle>{details.original_title} <span>{details.vote_average}</span></MovieTitle>
+          <MovieTitle>{details.original_title} {details.vote_average}</MovieTitle>
           <MovieOverview>{details.overview}</MovieOverview>
           <MovieReleaseDate>Status Release: {details.status}</MovieReleaseDate>
-
+          <Share MovieHomepage={details.homepage}/>
         </Bottom>
       </Poster>
     </Container>
