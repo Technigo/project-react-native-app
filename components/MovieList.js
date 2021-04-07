@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { View, StyleSheet } from 'react-native'
+import styled from 'styled-components/native'
 
 import MovieCard from './MovieCard'
 
-const styles = StyleSheet.create({
-  container : {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'black',
-  }
-});
+const Container = styled.View`
+justify-content: space-evenly;
+background-color: black;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+`
 
 const MovieList = () => {
   
@@ -24,11 +24,11 @@ const MovieList = () => {
   }, [])
 
   return (
-    <View style={styles.container}>
+    <Container>
       {movies.map((movie) => (
         <MovieCard {...movie} key={movie.id}/>
       ))}
-    </View>
+    </Container>
   )
 }
 

@@ -10,13 +10,16 @@
   "dependencies": {
     "braces": "^3.0.2",
     "expo": "^40.0.0",
+    "expo-sharing": "~8.5.0",
     "mem": "^6.1.1",
     "minimist": "^1.2.5",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "^0.63.2",
     "react-native-web": "^0.15.0",
-    "styled-components": "^4.4.1"
+    "react-navigation": "^4.4.4",
+    "styled-components": "^4.4.1",
+    "sweetalert2": "^10.16.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^7.1.0"
