@@ -10,7 +10,10 @@ svårt med ett nytt sätt att tänka och göra på, men det var en kul utmaning 
 Jag ville först göra project 1, men fick det inte att fungera i mobilen. Expo Go visade bara appen i en sekund och sen stängdes den ner. så jag beslöt mig för att göra detta project istället. 
 problem med att få in urlen på random cats. och problem med att få fram min consol log. för att se om jag hade datan, men kom på att jag kunde displaya catsImage.id från api:et och det fungerade så då vet jag att jag har datan.
 
-JAg hade problem med att kattbilderna fetchades alla på en gång, men kom på att det hade nog med att göra att jag skrivit in randomCatImages i [] i fetchen så jag tog bort det och då fetchade jag bara en katt i taget. Om jag hade haft mer tid hade det varit kul att använda mig av apiet och göra en select och länk för olika cat breeds med info. 
+JAg hade problem med att kattbilderna fetchades alla på en gång, men kom på att det hade nog med att göra att jag skrivit in randomCatImages i [] i fetchen så jag tog bort det och då fetchade jag bara en katt i taget. 
+Det var svårt att förstå hur jag skulle göra med knappen för att få den att updatera sidan så att det fetchas en ny bild för varje knapptryck.
+
+Om jag hade haft mer tid hade det varit kul att använda mig av apiet och göra en select och länk för olika cat breeds med info. 
 
 
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?

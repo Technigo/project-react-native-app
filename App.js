@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components/native'
 
 import { RandomCats } from './components/RandomCats'
+import { AppTitle } from './components/AppTitle'
 
 
 
@@ -12,17 +13,11 @@ const Container = styled.View`
   align-items: center;
 `
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
 
 const App = () => {
   return (
     <Container>
-      <Title>Random cats app!</Title>
-      
-      <Title>🐈🐈🐈</Title>
+      <AppTitle name="Random cats app!"/>
       <RandomCats/>
     </Container>
   )
