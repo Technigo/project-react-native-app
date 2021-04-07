@@ -8,7 +8,6 @@ export const CustomNavigationBar = ({ navigation }) => {
       <Appbar.Content
         color="white"
         title="My awesome app"
-        onPress={() => navigation.navigate('Home')}
       />
     </Appbar.Header>
   );

@@ -1,24 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
-import {RootNavigator} from './navigation/Root'
+import { RootNavigator } from './navigation/Root';
+import { SettingsContext } from './context/settingsContext';
 
-const theme = {
-  ...DefaultTheme,
-  roundness: 5,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#3498db',
-    secondary: '#d1c40f',
-    accent: '#f1c40f',
-  },
-};
+
 
 const App = () => {
+  const settings = useContext(SettingsContext)
   return (
-    <PaperProvider theme={theme}>
-      <RootNavigator />
-    </PaperProvider>
+    <SettingsContext.Provider value={settings}>
+      <PaperProvider theme={settings.theme}>
+        <RootNavigator />
+      </PaperProvider>
+    </SettingsContext.Provider>
   );
 };
 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SettingsContext } from '../context/settingsContext';
 import { Text } from 'react-native';
 import {
   Headline,
@@ -9,34 +10,40 @@ import {
   Subheading,
 } from 'react-native-paper';
 import styled from 'styled-components/native';
+import {
+  MainViewContainer,
+  MainHeader,
+  MainSubheader,
+} from '../components/Styled/MainViews';
 
-// This is the main container for this screen
-const HomeContainer = styled.View`
-  flex: 1;
-  justify-content: center;
+const ConditionalSection = styled.View`
   align-items: center;
 `;
-const ConditionalSection = styled.View`
- margin: 10px;
+const StyledCaption = styled(Caption)`
+  margin-bottom: 10px;
 `;
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
 export const Home = ({ navigation }) => {
+  const settings = useContext(SettingsContext);
   return (
-    <HomeContainer>
-      <Headline>Welcome!</Headline>
-      <Subheading>Isabella</Subheading>
-      <ConditionalSection>
-        <Caption>It appears you are not logged in</Caption>
-        <Button
-          labelStyle={{ color: 'white' }}
-          mode="contained"
-          onPress={() => navigation.navigate('Profile')}>
-          Edit Profile
-        </Button>
-      </ConditionalSection>
+    <MainViewContainer verticalAlign="center">
+      <MainHeader>Welcome!</MainHeader>
+      {settings.user.name ? (
+        <MainSubheader>{settings.user.name}</MainSubheader>
+      ) : (
+        <ConditionalSection>
+          <StyledCaption>It appears you have no name</StyledCaption>
+          <Button
+            labelStyle={{ color: 'white' }}
+            mode="contained"
+            onPress={() => navigation.navigate('Profile')}>
+            Edit Profile
+          </Button>
+        </ConditionalSection>
+      )}
       <Button onPress={() => navigation.openDrawer()}>open drawer</Button>
-    </HomeContainer>
+    </MainViewContainer>
   );
 };
