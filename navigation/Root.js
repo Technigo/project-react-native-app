@@ -11,7 +11,7 @@ const Drawer = createDrawerNavigator();
 
 export const RootNavigator = () => {
   return (
-    <NavigationContainer >
+    <NavigationContainer>
       <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
         <Drawer.Screen name="Main" component={StackNavigator} />
       </Drawer.Navigator>

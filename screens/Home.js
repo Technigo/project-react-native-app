@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import { SettingsContext } from '../context/settingsContext';
 import { Text } from 'react-native';
 import {
@@ -15,6 +15,7 @@ import {
   MainHeader,
   MainSubheader,
 } from '../components/Styled/MainViews';
+import { useFocusEffect } from '@react-navigation/native';
 
 const ConditionalSection = styled.View`
   align-items: center;
@@ -26,12 +27,20 @@ const StyledCaption = styled(Caption)`
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
 export const Home = ({ navigation }) => {
-  const settings = useContext(SettingsContext);
+  const {user} = useContext(SettingsContext);
+  const [userName, setUserName] = useState(user.name)
+  
+  useFocusEffect(
+    useCallback(() => {
+      setUserName(user.name);
+    }, [])
+  );
+  
   return (
     <MainViewContainer verticalAlign="center">
       <MainHeader>Welcome!</MainHeader>
-      {settings.user.name ? (
-        <MainSubheader>{settings.user.name}</MainSubheader>
+      {userName ? (
+        <MainSubheader>{userName}</MainSubheader>
       ) : (
         <ConditionalSection>
           <StyledCaption>It appears you have no name</StyledCaption>

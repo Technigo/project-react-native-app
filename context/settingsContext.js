@@ -2,17 +2,24 @@ import React from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 export const settings = {
-  theme: {
-    ...DefaultTheme,
-    roundness: 5,
-    colors: {
+  themeColors: [
+    {
       ...DefaultTheme.colors,
+      warning: '#f1f',
+      disabled: '#000',
       primary: '#3498db',
       secondary: '#d1c40f',
       accent: '#f1c40f',
-      warning: '#f1f',
     },
-  },
+    {
+      ...DefaultTheme.colors,
+      warning: '#f1f',
+      disabled: '#000',
+      primary: '#98dbdb',
+      secondary: '#c40f',
+      accent: '#f4f',
+    },
+  ],
   user: {
     name: '',
   },
