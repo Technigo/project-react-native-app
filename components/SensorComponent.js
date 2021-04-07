@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
+
 // ==========================
 // = Functions
 const isShaking = (data) => {
@@ -88,9 +89,10 @@ export const SensorComponent = () => {
         <ShakeDataTitle>Shake Data</ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
         <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
+        <ShakeData>YYY: {data.y.toFixed(2)}</ShakeData>
+        <ShakeData>ZZZZ: {data.z.toFixed(2)}</ShakeData>
       </ShakeDataView>
     </ShakeView>
+    
   );
 };
