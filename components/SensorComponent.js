@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { View } from 'react-native'
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
@@ -34,17 +35,30 @@ const ShakeDataTitle = styled.Text`
 const ShakeData = styled.Text``;
 
 export const SensorComponent = () => {
-  // This function determines how often our program reads the accelerometer data in milliseconds
-  // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
+  
   Accelerometer.setUpdateInterval(400);
-
-  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
   const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
   });
 
+  
+ 
+  const randomChoice = () => {
+    
+    let arr = ['yes', 'no', 'maybe', 'probably']
+    let num = Math.floor(Math.random()* (4-0))
+
+    let choice = arr[num]
+    return choice
+  }
+   
+  
+    
+  
+  
+  
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
 
@@ -83,10 +97,13 @@ export const SensorComponent = () => {
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
       */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      {isShaking ? randomChoice():'' }
+      
+      
+      {isShaking(data) && <ShakeAlert>Shaking </ShakeAlert>}
       <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
+        <ShakeDataTitle>New Shake Data {randomChoice()}</ShakeDataTitle>
+        
         <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
         <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
         <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
