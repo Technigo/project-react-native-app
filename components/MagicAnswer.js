@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components/native'
-import { Text, Image, View } from 'react-native' //can delete all but Image later
+import React from 'react'
+
 
 // API:s
 import { MAGIC_API } from './reusable/urls';
@@ -11,7 +10,7 @@ import { MAGIC_API } from './reusable/urls';
     "Type": "affirmative"
 */
 
-const Container = styled.View`
+/* const Container = styled.View`
   flex: 1;
   width: 100%;
   background-color: white; 
@@ -22,7 +21,7 @@ const Container = styled.View`
 const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
-`;
+`; */
 
 /* const MagicBall = styled.Image`
   width: 40px,
@@ -31,26 +30,19 @@ const Title = styled.Text`
   object-fit: contain,
 `;
  */
+let MagicAnswer
 
-export const MagicAnswer = () => {
-  const [magicAnswerList, setMagicAnswerList] = useState([])
-
-    useEffect(() => {
-    fetch(MAGIC_API)
-      .then(res => res.json())
-      .then((magicdata) => {
-        console.log(magicdata)
-        setMagicAnswerList(magicdata)
+  fetch(MAGIC_API)
+    .then(res => res.json())
+    .then((magicdata) => {
+    console.log(magicdata)
+      MagicAnswer = magicdata
       })
       // .then(magicdata => setMagicAnswer(magicdata))
       .catch(err => console.error(err))
-  }, [])
-    if (magicAnswerList.length === 0) {
-    return <></>
-  }
 // steg 1 returnera magicAnswerList[0].Answer 
 // returnera {magicAnswerList} -----> har döpt om - se om jag nu får till det! :) 
-  return (
+/*   return (
     <Container>
       <Title>
       {magicAnswerList.map(message => (
@@ -58,5 +50,6 @@ export const MagicAnswer = () => {
       ))}
       </Title>
     </Container>
-  )
-}
+  ) */
+
+export default MagicAnswer
