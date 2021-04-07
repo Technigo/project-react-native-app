@@ -36,7 +36,10 @@ const MoviePoster = ({ title, poster_path, release_date }) => {
         source={{ uri: `https://image.tmdb.org/t/p/w500${poster_path}` }}
       />
       <TextContainer>
-        <TitleText>{title}</TitleText>
+        <TitleText>
+          {title}
+          {"\n"}
+        </TitleText>
         <DateText>Released {release_date}</DateText>
       </TextContainer>
     </CardContainer>

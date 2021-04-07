@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import MoviePoster from "./components/MoviePoster";
 
-const Container = styled.View``;
+const Container = styled.ScrollView`
+  flex: 1;
+  background-color: #191817;
+`;
 
 const App = () => {
   const [fetchMovieList, setFetchMovieList] = useState([]);
