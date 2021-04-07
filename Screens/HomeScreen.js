@@ -1,10 +1,30 @@
 import React, { useState } from "react"
 import { Text, View, TouchableOpacity } from "react-native"
+import styled from "styled-components/native"
 
 import { SensorComponent } from '../components/SensorComponent';
 import Dish from "../components/Dish"
 import Ingredient from '../components/Ingredient';
 import Diet from "../components/Diet"
+
+const Container = styled.ScrollView`
+  flex: 1;
+`
+
+const ChoiceView = styled.View`
+justify-content: center;
+align-items: center;
+border: 1px solid green;
+`
+const DishView = styled(ChoiceView)`
+  
+`
+const IngredientView = styled(ChoiceView)`
+  
+`
+const DietView = styled(ChoiceView)`
+  flex-direction: row;
+`
 
 const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDishQuery, ingredientQuery, setIngredientQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
 
@@ -13,8 +33,8 @@ const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDish
   }
 
   return (
-    <View>
-      <View>
+    <Container>
+      <DishView>
         {dishes.map(dish => (
           <Dish
             key={dish}
@@ -23,9 +43,9 @@ const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDish
             setDishQuery={setDishQuery}
           />
         ))}
-      </View>
+      </DishView>
 
-      <View>
+      <IngredientView>
         {ingredients.map(ingredient => (
           <Ingredient
             key={ingredient}
@@ -34,9 +54,9 @@ const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDish
             setIngredientQuery={setIngredientQuery}
           />
         ))}
-      </View>
+      </IngredientView>
 
-      <View>
+      <DietView>
         {diets.map(diet => (
           <Diet
             key={diet}
@@ -45,7 +65,7 @@ const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDish
             setDietQuery={setDietQuery}
           />
         ))}
-      </View>
+      </DietView>
 
       <TouchableOpacity onPress={handleClick}>
         <Text>
@@ -55,7 +75,7 @@ const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDish
 
       {/* <SensorComponent setIsMixingIngredients={setIsMixingIngredients} /> */}
 
-    </View >
+    </Container >
   )
 }
 
