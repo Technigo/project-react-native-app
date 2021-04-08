@@ -15,7 +15,9 @@ import {
   MainHeader,
   MainSubheader,
 } from '../components/Styled/MainViews';
-import { useFocusEffect } from '@react-navigation/native';
+import { useIsFocused, useFocusEffect } from '@react-navigation/native';
+import { MovieList } from '../components/MovieList';
+import { URL_LISTGET } from '../utils/apiConfig';
 
 const ConditionalSection = styled.View`
   align-items: center;
@@ -27,32 +29,38 @@ const StyledCaption = styled(Caption)`
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
 export const Home = ({ navigation }) => {
-  const {user} = useContext(SettingsContext);
-  const [userName, setUserName] = useState(user.name)
-  
+  const { user, session } = useContext(SettingsContext);
+  const [userName, setUserName] = useState(user.name);
+
+  const isFocused = useIsFocused();
   useFocusEffect(
-    useCallback(() => {
+    React.useCallback(() => {
       setUserName(user.name);
     }, [])
   );
-  
+
   return (
-    <MainViewContainer verticalAlign="center">
+    <MainViewContainer verticalAlign={userName ? 'flex-start' : 'center'}>
       <MainHeader>Welcome!</MainHeader>
-      {userName ? (
-        <MainSubheader>{userName}</MainSubheader>
+      {isFocused && userName ? (
+        <>
+          <MainSubheader>{userName}'s favorite movies</MainSubheader>
+          <MovieList type="likes" />
+        </>
       ) : (
         <ConditionalSection>
           <StyledCaption>It appears you have no name</StyledCaption>
           <Button
             labelStyle={{ color: 'white' }}
             mode="contained"
-            onPress={() => navigation.navigate('Profile')}>
+            onPress={() => {
+              navigation.navigate('Profile');
+              session.route = 'Profile';
+            }}>
             Edit Profile
           </Button>
         </ConditionalSection>
       )}
-      <Button onPress={() => navigation.openDrawer()}>open drawer</Button>
     </MainViewContainer>
   );
 };

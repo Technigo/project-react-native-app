@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { SettingsContext } from '../context/settingsContext';
 import {
   Card,
   useTheme,
@@ -12,12 +13,38 @@ import {
   IconButton,
 } from 'react-native-paper';
 import styled from 'styled-components/native';
-import { getYear } from '../utils/helpers'
-import { IMAGE_POSTER } from '../utils/apiConfig';
+import { getYear, apiCall } from '../utils/helpers';
+import { IMAGE_POSTER, URL_MOVIE } from '../utils/apiConfig';
 import MovieCard from './Styled/MovieCard';
 
-export const Movie = ({title, release_date, poster_path}) => {
+export const Movie = ({ id, title, release_date, poster_path, handleLikedMovie }) => {
   const { colors } = useTheme();
+  const { user } = React.useContext(SettingsContext);
+  const [liked, setLiked] = useState(false);
+
+  useEffect(() => {
+    const found = user.likes.find((liked) => {
+      return liked._id === id;
+    });
+    setLiked(found);
+  }, []);
+
+  const onLike = () => {
+    if (liked) {
+      user.likes.splice(
+        user.likes.findIndex(function (i) {
+          return i._id === id;
+        }),
+        1
+      );
+      handleLikedMovie(id)
+      setLiked(false);
+    } else if (!liked) {
+      user.likes.push({ _id: id, url: URL_MOVIE(id) });
+      setLiked(true);
+    }
+  };
+
   return (
     <MovieCard>
       <MovieCard.Poster source={{ uri: `${IMAGE_POSTER(185, poster_path)}` }} />
@@ -28,14 +55,12 @@ export const Movie = ({title, release_date, poster_path}) => {
         </MovieCard.Titles>
         <Divider />
         <MovieCard.Actions>
-          <Button mode="flat" onPress={() => console.log('Pressed')}>
-            View
-          </Button>
           <IconButton
-            color={colors.primary}
+            disabled={user.name === ''}
+            color={liked ? colors.accent : colors.primary}
             icon="heart"
             size={20}
-            onPress={() => console.log('Pressed')}
+            onPress={() => onLike()}
           />
         </MovieCard.Actions>
       </MovieCard.Content>

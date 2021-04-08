@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { SettingsContext } from '../context/settingsContext';
 import styled from 'styled-components/native';
-import { DrawerContentScrollView } from '@react-navigation/drawer';
+import { DrawerContentScrollView, useIsDrawerOpen  } from '@react-navigation/drawer';
 import {
   useTheme,
   Avatar,
@@ -37,11 +38,17 @@ const DrawerItem = styled(Drawer.Item)`
 `;
 
 export const DrawerContent = ({ navigation, ...props }) => {
-  const [active, setActive] = useState('Home');
+  const isDrawerOpen = useIsDrawerOpen();
+  const { session } = useContext(SettingsContext);
+  const [active, setActive] = useState(session.route);
   const { colors } = useTheme();
+  
+  React.useEffect(() => {
+    if(isDrawerOpen) {setActive(session.route)}
+  }, [isDrawerOpen])
 
   const onPressNavigation = (route) => {
-    setActive(route);
+    session.route = route;
     navigation.navigate(route);
   };
 

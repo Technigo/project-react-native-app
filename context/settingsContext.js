@@ -21,8 +21,12 @@ export const settings = {
     },
   ],
   user: {
-    name: '',
+    name: 'Bella',
+    likes: []
   },
+  session: {
+    route: 'Home'
+  }
 };
 
 export const SettingsContext = React.createContext(settings);
