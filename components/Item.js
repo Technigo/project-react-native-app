@@ -1,11 +1,10 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 
 const ItemContainer = styled.View`
   background-color:#fff;
-  width:300px;
+  width:310px;
   padding:15px;
   border-radius:10px;
   flex-direction:row;
