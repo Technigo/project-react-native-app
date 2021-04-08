@@ -18,15 +18,14 @@ const Title = styled.Text`
 const OracleImage = styled.Image`
   width: 400px;
   height: 400px;
-  margin-right: 50px;
   `
   const HomeScreen = ({navigation}) => {
     return(
 
 <Container>
-  <Title>Your daily affirmation card</Title>
-  <OracleImage source={require('../assets/fortune-card.png')} />
-  <Title>Shake me to shuffle the cards</Title>
+  <Title>Are you bored?</Title>
+  <OracleImage source={require('../assets/oracle.png')} />
+  <Title>Shake me to to get inspired</Title>
   <SensorComponent navigation={navigation}/>
 </Container>
 

@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 
+const Container = styled.Text`
+flex: 1;
+background-color: papayawhip;
+justify-content: center;
+align-items: center;
+`
+
 const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
 `
-
 const OracleText = styled.Text`
 color: black;
 `
@@ -19,18 +25,20 @@ const AffirmationMessage = () => {
   const [message, setMessage] = useState({});
 
   useEffect (()=> { 
-    fetch('https://dulce-affirmations-api.herokuapp.com/affirmation')
+    fetch('http://www.boredapi.com/api/activity/')
       .then (response => response.json())
       .then ((json) => { 
-        setMessage(json[0])       
+        setMessage(json)       
       });
   },[]);
 
     return(
       <>
+        <Container>
         <Title>Your daily affirmation card</Title>
-        <OracleText>{message.phrase}</OracleText>
-        <OracleImage source={require('../assets/card.png')} />
+        <OracleImage source={require('../assets/activity.png')} />
+        <OracleText>{message.activity}</OracleText>
+        </Container>
       </>
     )
 }
