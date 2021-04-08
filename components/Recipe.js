@@ -28,14 +28,18 @@ const InstructionsText = styled.Text`
   padding: 20px;
   border-top-width: 1px;
   border-top-color: lightgrey;
+  margin-bottom: 20px;
 `
 
 const Recipe = ({ recipes, handleTap }) => {
   return (
     <>
       {recipes.map(recipe => (
-        <TouchableOpacity onPress={() => handleTap(recipe.id)}>
-          <RecipeContainer key={recipe.id}>
+        <TouchableOpacity
+          key={recipe.id}
+          onPress={() => handleTap(recipe.id)}
+        >
+          <RecipeContainer>
             <RecipeImage source={{ uri: recipe.image }} />
             <RecipeText >{recipe.title}</RecipeText>
           </RecipeContainer>

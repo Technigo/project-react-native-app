@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components/native"
+import { Text } from "react-native"
 
 import { API_URL } from "../utils/urls"
 import Recipe from '../components/Recipe';
@@ -26,6 +27,10 @@ const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecip
 
     setIsMixingIngredients(false)
   }, [cuisineQuery])
+
+  if (recipes.length === 0) {
+    return <Text>Loading...</Text>
+  }
 
   return (
     <Container>

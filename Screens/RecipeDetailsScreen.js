@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Text } from "react-native"
 
 import { DETAILS_URL } from "../utils/urls"
 import RecipeDetails from "../components/RecipeDetails"
@@ -15,6 +16,10 @@ const RecipeDetailsScreen = ({ recipeId }) => {
         setSharedRecipe(data.sourceUrl)
       })
   }, [recipeId])
+
+  if (recipeDetails.length === 0) {
+    return <Text>Loading...</Text>
+  }
 
   return (
     <RecipeDetails

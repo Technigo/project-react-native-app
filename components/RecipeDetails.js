@@ -40,7 +40,8 @@ const InstructionsText = styled.Text`
   text-align: center;
   padding: 20px;
   border-top-width: 1px;
-  border-top-color: lightgrey;
+  border-top-color: lightgrey;  
+  margin-bottom: 20px;
 `
 
 const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
@@ -51,10 +52,6 @@ const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
       return
     }
     await Sharing.shareAsync(sharedRecipe)
-  }
-
-  if (recipeDetails.length === 0) {
-    return <Text>Loading...</Text>
   }
 
   return (
