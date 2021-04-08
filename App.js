@@ -49,14 +49,51 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="TopRated" component={TopScreen} />
-      <Stack.Screen name="Popular Movies" component={PopularScreen} />
-      <Stack.Screen name="Upcoming" component={UpcomingScreen} />
+    <Stack.Navigator initialRouteName="Home"
+    options={{
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+    }}
+    >
+      <Stack.Screen name="Home" component={HomeScreen} 
+      options={{
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+        headerTintColor: '#fff',
+      }}/>
+      <Stack.Screen name="TopRated" component={TopScreen} 
+       options={{
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+        headerTintColor: '#fff',
+      }}/>
+      <Stack.Screen name="Popular Movies" component={PopularScreen} 
+       options={{
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+        headerTintColor: '#fff',
+      }}/>
+      <Stack.Screen name="Upcoming" component={UpcomingScreen} 
+       options={{
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+        headerTintColor: '#fff',
+      }}/>
 
 
-      <Stack.Screen name="Details" component={DetailsPage} />
+      <Stack.Screen name="Details" component={DetailsPage} 
+       options={{
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+        headerTintColor: '#fff',
+      }}/>
 
       
 

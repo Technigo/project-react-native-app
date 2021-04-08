@@ -40,10 +40,15 @@ const MovieTitle = styled.Text`
 font-size: 24px;
 `
 
-const Loader = styled.ActivityIndicator``
-
 const LoaderContainer = styled.View`
-flex:1`
+flex:1;
+justify-content: center;
+align-items: center;
+background: black;
+color: red`
+
+const Loader = styled.ActivityIndicator`
+color: red`
 
 
 

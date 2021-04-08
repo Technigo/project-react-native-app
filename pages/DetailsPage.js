@@ -60,9 +60,14 @@ margin: 10px 0px 10px 0px
 `
 
 const LoaderContainer = styled.View`
-flex:1`
+flex:1;
+justify-content: center;
+align-items: center;
+background: black;
+color: red`
 
-const Loader = styled.ActivityIndicator``
+const Loader = styled.ActivityIndicator`
+color: red`
 
 
 
