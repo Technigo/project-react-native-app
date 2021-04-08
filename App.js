@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-
+import { useFonts } from '@use-expo/font'
 import styled from 'styled-components/native';
+
 import { Card } from './components/Card';
-import HomeScreen from './components/HomeScreen';
+import { HomeScreen } from './components/HomeScreen';
 import { RandomCoin } from './components/RandomCoin';
 
 const Container = styled.View`
@@ -15,6 +16,10 @@ const Container = styled.View`
 const Stack = createStackNavigator();
 
 const App = () => {
+  useFonts({
+    'Recursive': require('./assets/fonts/Recursive-VariableFont_CASL,CRSV,MONO,slnt,wght.ttf'),
+  })
+
   return (
     <Container>
       <NavigationContainer>
@@ -27,17 +32,16 @@ const App = () => {
           <Stack.Screen 
             name="Card" 
             component={Card}
-            options={{ title: "Back to homescreen" }}
+            options={{ title: "Coins" }}
           />
           <Stack.Screen 
           name="RandomCoin" 
           component={RandomCoin}
-          options={{ title: "Back to all the coins" }}
+          options={{ title: "Get random coin info" }}
         />
         </Stack.Navigator>
       </NavigationContainer>
     </Container>
-
   );
 };
 

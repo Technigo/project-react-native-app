@@ -17,21 +17,21 @@ const isShaking = (data) => {
 
 // ==========================
 // = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
+// const ShakeView = styled.View`
+//   display: flex;
+//   flex-direction: column;
+// `;
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
-`;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
+// const ShakeAlert = styled.Text`
+//   font-size: 36px;
+//   font-weight: bold;
+//   color: #aa0000;
+// `;
+// const ShakeDataView = styled.View``;
+// const ShakeDataTitle = styled.Text`
+//   font-weight: bold;
+// `;
+// const ShakeData = styled.Text``;
 
 export const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -39,11 +39,11 @@ export const SensorComponent = () => {
   Accelerometer.setUpdateInterval(400);
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
-  const [data, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
-  });
+  // const [data, setData] = useState({
+  //   x: 0,
+  //   y: 0,
+  //   z: 0,
+  // });
 
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
@@ -75,22 +75,22 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
-  return (
-    <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
-    </ShakeView>
-  );
+  // return (
+  //   <ShakeView>
+  //     {/* 
+  //     If isShaking returns true:
+  //       - We could render conditionally
+  //       - Maybe we want to dispatch some redux event when device shakes?
+  //       - Maybe change some styled props? 
+  //     */}
+  //     {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+  //     <ShakeDataView>
+  //       <ShakeDataTitle>Shake Data</ShakeDataTitle>
+  //       {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
+  //       <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
+  //       <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
+  //       <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
+  //     </ShakeDataView>
+  //   </ShakeView>
+  // );
 };
