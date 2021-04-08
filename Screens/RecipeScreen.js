@@ -50,12 +50,9 @@ const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecip
     fetch(API_URL(preparedDishString, preparedCuisineString, preparedDietString))
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         setRecipes(data.results[getRandomNumber(data.results.length)])
       })
       .catch(err => console.err(err))
-
-    console.log(recipes)
 
     setIsMixingIngredients(false)
   }, [cuisineQuery])

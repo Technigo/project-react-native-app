@@ -3,6 +3,8 @@ import { ScrollView, View, Text, Image, TouchableOpacity, Alert } from "react-na
 import styled from "styled-components/native"
 import * as Sharing from 'expo-sharing';
 
+import Loading from "./Loading"
+
 const RecipeText = styled.Text`
   color: black;
   font-weight: 700;
@@ -50,16 +52,13 @@ const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
     await Sharing.shareAsync(sharedRecipe)
   }
 
-  const createAlert = () => {
-
-  }
-
   if (recipeDetails.length === 0) {
     return <Text>Loading...</Text>
   }
 
   return (
     <>
+      {/* <Loading /> */}
       <RecipeContainer>
         <RecipeText>{recipeDetails.title}</RecipeText>
         <TouchableOpacity onPress={shareRecipe}>
