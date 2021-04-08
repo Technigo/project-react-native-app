@@ -7,7 +7,7 @@ const Filters = ({ingredientsFilter, setIngredientsFilter, glutenFilter, setGlut
   const glutenToggle = () => setGluteFilter(!glutenFilter)
   const calloriesToggle = () => setCalloriesFilter(!calloriesFilter)
   return (
-   <FiltersWrapper> 
+   <FiltersWrapper horizontal={true}> 
     <ButtonIngredients 
       ingredientsFilter={ingredientsFilter}
       onPress={onPress}>
@@ -30,11 +30,9 @@ const Filters = ({ingredientsFilter, setIngredientsFilter, glutenFilter, setGlut
 
 }
 export default Filters
-const FiltersWrapper = styled.View `
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background: gray;
+const FiltersWrapper = styled.ScrollView `
+  background: black;
+  padding: 10px;
 `
 
 const Button = styled.TouchableOpacity`

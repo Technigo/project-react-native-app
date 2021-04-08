@@ -1,5 +1,4 @@
 import React from 'react'
-import { Text } from'react-native'
 import styled from 'styled-components/native'
 import { useNavigation } from '@react-navigation/native';
 
@@ -15,15 +14,19 @@ const GoBackButton = () => {
 }
 export default GoBackButton
 
+const Text = styled.Text`
+  font-size: 14px;
+  color: white;
+`
+
 const Button = styled.TouchableOpacity`
   width: 120px;  
   height: 40px;
-  border: none;
+  border: 3px solid #6e8c6c;
   font-size: 16px;
   border-radius: 20px;
   padding: 10px;
-  margin: 3px;
+  margin: 10px;
   justify-content: center;
   align-items:center;
-  background-color: blue;
 `

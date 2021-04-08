@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native'
 import { useRoute } from '@react-navigation/native';
-import RecipePage from '../screens/RecipePage';
 
 import { SEARCH_RECIPE } from '../reusables/urls'
 
@@ -35,26 +34,40 @@ const RecipeDetail = () => {
                   {recipeInfo[0].label}
                 </Title>
                 <DetailsContainer>
-                  <DetailsText>{`${Math.round((Number(recipeInfo[0].calories)/Number(recipeInfo[0].totalWeight))*100)} callories`}</DetailsText>
+                  <DetailsText>{`${Math.round((Number(recipeInfo[0].calories) / Number(recipeInfo[0].totalWeight)) * 100)} callories`}</DetailsText>
                   <DetailsText>{`| ${recipeInfo[0].ingredients.length} ingredients`}</DetailsText>
                   <DetailsText>{recipeInfo[0].totalTime > 0 && `| ${Math.round(recipeInfo[0].totalTime)} minutes`}</DetailsText>
                 </DetailsContainer>
               </TextContainer>
             </ImageContainer>
             <SubTitle>Ingredients</SubTitle>
-            {recipeInfo[0].ingredientLines.map(line => <IngredientLine key={line}>{line}</IngredientLine> )}
+            {recipeInfo[0].ingredientLines.map(line => <IngredientLine key={line}>{line}</IngredientLine>)}
             <SubTitle>Nutrition</SubTitle>
             <NutritionContainer horizontal={true}>
               {recipeInfo[0].digest.map((nutrient) => {
                 return (
-                <NutrientContainer >
-                  <NutrientText>{nutrient.label}</NutrientText>
-                  <NutrientText>{`${Math.round((nutrient.total/nutrient.daily)*100)}%`}</NutrientText>
-                  <NutrientText>dv</NutrientText>
-                </NutrientContainer>
+                  <NutrientContainer >
+                    <NutrientText>{nutrient.label}</NutrientText>
+                    <NutrientText>{Math.round(nutrient.total)}</NutrientText>
+                    <NutrientText>{nutrient.unit}</NutrientText>
+                  </NutrientContainer>
                 )
               })}
             </NutritionContainer>
+            <SubTitle>Health Lables</SubTitle>
+            <HealthLabelsContainer>
+              
+              {recipeInfo[0].healthLabels.map((label, index, array) => {
+                if (index < array.length - 2) {
+                  return <DetailsText>{label},</DetailsText>
+                }
+                if (index === array.length - 2) {
+                  return <DetailsText>{label} and</DetailsText>
+                }
+                return <DetailsText>{label}</DetailsText>
+              })}
+
+            </HealthLabelsContainer>
 
           </Container>)}
       </>
@@ -101,23 +114,24 @@ const DetailsText = styled.Text`
   color: white;
 `
 const SubTitle = styled.Text`
-  color: black;
+  color: #6e8c6c;
   font-size: 22px;
   font-weight: bold;
   font-family: Arial;
   margin: 10px 0 5px 5px;
+  text-decoration: underline;
 `
 
 const IngredientLine = styled.Text`
   font-size: 16px;
   margin: 5px;
-  color: black;
+  color: white;
 `
 const NutritionContainer = styled.ScrollView`
   position: relative;
   margin-bottom: 20px;
 `
-const NutrientContainer = styled.View `
+const NutrientContainer = styled.View`
   border: 1px solid black;
   border-radius: 50;
   margin: 5px;
@@ -125,11 +139,16 @@ const NutrientContainer = styled.View `
   justify-content: center;
   width: 80px;
   height: 80px;
-  background: rgba(33, 32, 32, 0.2);
+  background: #6e8c6c;
 `
-const NutrientText = styled.Text `
+const NutrientText = styled.Text`
   font-size: 10px;
   margin: 2px;
-  color: black;
+  color: white;
   text-align:center;
+`
+const HealthLabelsContainer = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5px;
 `

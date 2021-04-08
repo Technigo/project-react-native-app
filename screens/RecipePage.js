@@ -16,7 +16,6 @@ export default RecipePage
 
 
 const Container = styled.ScrollView`
-  background-color: white;
   padding: 1px;
-  background: white;
+  background: black;
 `
