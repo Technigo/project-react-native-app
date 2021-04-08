@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
+import { ActivityIndicator } from 'react-native';
 
-import { Container, Loading, RandomCoinTitle, CoinCard, CoinTitle, CoinText, CoinSymbol, Button, ButtonText } from '../styledcomponents/RandomCoinStyle';
+import { Container, Loading, RandomCoinTitle, CoinCard, CoinTitle, CoinText, CoinSymbol, Button, ButtonText } from '../styledcomponents/ShakeRandomCoinStyles';
 
 
 const isShaking = (data) => {
-    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-    return totalForce > 1.72;
-  };
+  const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
+  return totalForce > 1.72;
+};
 
-export const RandomCoin = () => {
+export const ShakeRandomCoin = () => {
   const [coin, setCoin] = useState([]);
   const API_URL = "https://api.coinlore.net/api/tickers/?start=0&limit=30";
     
@@ -28,7 +29,7 @@ export const RandomCoin = () => {
   })}
 
   // Functions and states for shaking sensor
-  Accelerometer.setUpdateInterval(500);
+  Accelerometer.setUpdateInterval(800);
 
   const [data, setData] = useState({
     x: 0,
@@ -36,23 +37,16 @@ export const RandomCoin = () => {
     z: 0,
   });
 
-  // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
 
   const _subscribe = () => {
-    // Save the subscription so we can stop using the accelerometer later
     setSubscription(
-      // This is what actually starts reading the data
       Accelerometer.addListener((accelerometerData) => {
-        // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
         setData(accelerometerData);
       })
     );
   };
 
-  // This will tell the device to stop reading Accelerometer data.
-  // If we don't do this our device will become slow and drain a lot of battery
   const _unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
@@ -64,14 +58,14 @@ export const RandomCoin = () => {
   }, []);
 
   useEffect(() => {
-      if (isShaking(data)) {
-        fetchCoin();
-      } 
-  })
+    if (isShaking(data)) {
+      fetchCoin();
+    } 
+  }, [data])
 
   return (
     <Container>
-      {isShaking(data) && <Loading>LOADING COIN</Loading>}
+      {isShaking(data) && <><Loading>LOADING COIN</Loading><ActivityIndicator size="large" color="#ff1e56"/></>}
       {!isShaking(data) &&
         <>
           <RandomCoinTitle>RANDOM COIN</RandomCoinTitle>

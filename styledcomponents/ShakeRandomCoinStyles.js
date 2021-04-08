@@ -1,8 +1,9 @@
 import styled from 'styled-components/native';
 
+// Styles for page with random coin either via shake or button press
 export const Container = styled.View`
   flex: 1;
-  justify-content: space-evenly;
+  justify-content: center;
   background-color: black;
 `;
 
@@ -11,19 +12,19 @@ export const Loading = styled.Text`
   font-size: 40px;
   color: #ff1e56;
   font-weight: bold;
+  margin-bottom: 40px;
 `
 export const RandomCoinTitle = styled.Text`
-  font-size: 42px;
+  font-size: 48px;
   text-align: center;
-  color: #ffac41;
+  color: #ff1e56;
   font-weight: bold;
-  font-family: "Recursive";
+  font-family: "Trebuchet MS";
 `;
 
 export const CoinCard = styled.View`
-  flex: 0.6;
   padding: 40px 20px;
-  margin: 0px 20px 60px 20px;
+  margin: 60px 20px 30px 20px;
   border: 1px solid white;
 `;
 
@@ -31,14 +32,14 @@ export const CoinTitle = styled.Text`
   color: white;
   font-size: 28px;
   font-weight: bold;
-  font-family: "Recursive";
+  font-family: "Trebuchet MS";
 `;
 
 export const CoinText = styled.Text`
   color: white;
   font-size: 20px;
   padding: 3px 0;
-  font-family: "Recursive";
+  font-family: "Trebuchet MS";
 `;
 
 export const CoinSymbol = styled.Text`
@@ -46,19 +47,19 @@ export const CoinSymbol = styled.Text`
   font-size: 26px;
   font-weight: bold;
   margin-bottom: 10px;
-  font-family: "Recursive";
+  font-family: "Trebuchet MS";
 `;
 
 export const Button = styled.TouchableOpacity`
   padding: 20px;
-  background-color: #ff1e56;
-  margin-top: 40px;
+  background-color: #ffac41;
+  margin-top: 30px;
 `;
 
 export const ButtonText = styled.Text`
-  font-size: 22px;
+  font-size: 20px;
   color: white;
   font-weight: bold;
   text-align: center;
-  font-family: "Recursive";
+  font-family: "Trebuchet MS";
 `;
