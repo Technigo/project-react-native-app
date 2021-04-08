@@ -1,10 +1,9 @@
 import React from 'react'
-
-import { TouchableOpacity, Alert } from 'react-native'
+import { TouchableOpacity, Alert, Text } from 'react-native'
 import styled from 'styled-components/native'
-import { MovieDetails } from './MovieDetails'
 
-
+import
+ MovieDetails from './MovieDetails'
 
 const Movie = ({ id, title, poster_path, rating, overview}) => {
   
@@ -25,8 +24,13 @@ return (
       <MovieImage
         source={{ uri: `https://image.tmdb.org/t/p/w500${poster_path}`}} />  
         <Textsection>
-        <TitleText>{title}</TitleText>
+          <UpperTextContainer>
+            <TitleText>{title}</TitleText>
+            <RatingText>Rating: {rating}</RatingText>
+          </UpperTextContainer>
+        <LowerTextContainer>
         <MovieDetails id={id}/> 
+        </LowerTextContainer>
         </Textsection>
     </CardContainer>
   </TouchableOpacity>
@@ -36,38 +40,43 @@ return (
 
 export default Movie 
 
-// const DetailsAlert = styled.Alert`
-// background-color: pink;`
-
-
 const CardContainer = styled.View`
   display: 1;
   display: flex;
-  background-color: #3D3834;
-  margin-bottom: 5px;
+  background-color: #121E2D;
+  margin-bottom: 10px;
   flex-direction: row;
   flex-wrap: wrap;
-  
   `
   const MovieImage = styled.Image`
   width:100px;
   height:150px;
+  border-radius: 5px;
   `
   const Textsection = styled.View`
   display:flex;
   flex-direction:column;
   `
+  const UpperTextContainer = styled.View`
+  max-width: 300px;
+  height: 90px;
+  `  
   const TitleText = styled.Text`
   display: flex;
   color: #E0E0E0;
   font-size: 18px;
   padding: 5px 10px;
-  max-width: 200px;
-  height: 75px;
+  font-weight:bold;
   flex-direction: row;
   flex-wrap: wrap;
-  
   `
+  const RatingText = styled.Text`
+  color: #3BDEEE;
+  padding-left: 10px;
+  `
+  const LowerTextContainer = styled.View`
+  `
+  
 
  
   
