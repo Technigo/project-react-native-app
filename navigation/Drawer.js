@@ -56,7 +56,7 @@ export const DrawerContent = ({ navigation, ...props }) => {
     <DrawerContentScrollView {...props}>
       <TitleSection color={colors.primary}>
         <Wrapper title>
-          <AvatarIcon color="white" backgroundColor={colors.secondary} icon="gamepad" />
+          <AvatarIcon color="white" backgroundColor={colors.secondary} icon="movie" />
           <DrawerTitle>Apptitle</DrawerTitle>
         </Wrapper>
       </TitleSection>
@@ -68,7 +68,7 @@ export const DrawerContent = ({ navigation, ...props }) => {
           onPress={() => onPressNavigation('Home')}
         />
         <DrawerItem
-          icon="gamepad"
+          icon="movie"
           label="Movies"
           active={active === 'Movies'}
           onPress={() => onPressNavigation('Movies')}

@@ -21,7 +21,7 @@ export const settings = {
     },
   ],
   user: {
-    name: 'Bella',
+    name: '',
     likes: []
   },
   session: {
