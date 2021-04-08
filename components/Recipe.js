@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components/native"
+import { TouchableOpacity } from "react-native"
 
 const RecipeText = styled.Text`
   color: black;
@@ -29,15 +30,19 @@ const InstructionsText = styled.Text`
   border-top-color: lightgrey;
 `
 
-const Recipe = ({ recipes }) => {
+const Recipe = ({ recipes, handleTap }) => {
   return (
     <>
-      <RecipeContainer key={recipes.id}>
-        <RecipeImage source={{ uri: recipes.image }} />
-        <RecipeText >{recipes.title}</RecipeText>
-      </RecipeContainer>
+      {recipes.map(recipe => (
+        <TouchableOpacity onPress={() => handleTap(recipe.id)}>
+          <RecipeContainer key={recipe.id}>
+            <RecipeImage source={{ uri: recipe.image }} />
+            <RecipeText >{recipe.title}</RecipeText>
+          </RecipeContainer>
+        </TouchableOpacity>
+      ))}
       <InstructionsText>
-        Like what you see? Tap the image to get the full recipe. Or go back to change ingredients.
+        Like what you see? Tap the image to get the full recipe.
       </InstructionsText>
     </>
   )

@@ -7,7 +7,7 @@ const Loading = () => {
   return (
     <View>
       <LottieView
-        source={require("../assets/animation.json")}
+        source={require("../assets/food-animation.json")}
         style={{
           width: 150,
           height: 150

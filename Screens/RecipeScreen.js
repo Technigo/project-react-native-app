@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import { TouchableOpacity } from "react-native"
 import styled from "styled-components/native"
 
 import { API_URL } from "../utils/urls"
@@ -9,35 +8,32 @@ const Container = styled.ScrollView`
   flex: 1;
   background-color: white;
 `
-const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecipeId, isMixingIngredients, setIsMixingIngredients }) => {
+const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecipeId, setIsMixingIngredients }) => {
   const [recipes, setRecipes] = useState([])
 
-  const handleClick = () => {
+  const handleTap = (id) => {
+    setRecipeId(id)
     navigation.navigate("Recipe Details")
   }
-
-  const getRandomNumber = (maxNum) => Math.floor(Math.random() * maxNum)
 
   useEffect(() => {
     fetch(API_URL(dishQuery, cuisineQuery, dietQuery))
       .then(res => res.json())
       .then(data => {
-        setRecipes(data.results[getRandomNumber(data.results.length)])
+        setRecipes(data.results)
       })
       .catch(err => console.err(err))
 
     setIsMixingIngredients(false)
   }, [cuisineQuery])
 
-  useEffect(() => {
-    setRecipeId(recipes.id)
-  }, [recipes])
-
   return (
     <Container>
-      <TouchableOpacity onPress={handleClick}>
-        <Recipe recipes={recipes} />
-      </TouchableOpacity>
+      <Recipe
+        recipes={recipes}
+        setRecipeId={setRecipeId}
+        handleTap={handleTap}
+      />
     </Container>
   )
 }

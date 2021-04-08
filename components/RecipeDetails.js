@@ -10,21 +10,24 @@ const RecipeText = styled.Text`
   font-weight: 700;
   font-size: 24px;
   text-align: left;
-  font-family: Roboto;
 `
-const IngredientText = styled.Text`
+const Paragraph = styled.Text`
   font-size: 16px;
   text-align: left;
 `
 
-const IngredientListText = styled(IngredientText)`
+const HeadingText = styled(Paragraph)`
   font-weight: 700;
+  margin-bottom: 5px;
 `
 
 const RecipeImage = styled.Image`
   width: 100%;
   height: 200px;
-  margin-bottom: 10px;
+`
+
+const Subcontainer = styled.View`
+  margin: 10px 0;
 `
 
 const RecipeContainer = styled.ScrollView`
@@ -62,15 +65,18 @@ const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
         <TouchableOpacity onPress={shareRecipe}>
           <RecipeImage source={{ uri: recipeDetails.image }} />
         </TouchableOpacity>
-        <View>
-          <IngredientListText>List of ingredients</IngredientListText>
+        <Subcontainer>
+          <HeadingText>Ingredients</HeadingText>
           {recipeDetails.extendedIngredients.map(ingredient => (
-            <IngredientText key={ingredient.id} >{ingredient.name}</IngredientText>
+            <Paragraph key={ingredient.id} >🍴 {ingredient.name}</Paragraph>
           ))}
-        </View>
-        <Text>{recipeDetails.instructions.replace(/<\/?[^>]+>/gi, '')}</Text>
+        </Subcontainer>
+        <Subcontainer>
+          <HeadingText>Instructions</HeadingText>
+          <Paragraph>{recipeDetails.instructions.replace(/<\/?[^>]+>/gi, '')}</Paragraph>
+        </Subcontainer>
         <InstructionsText>
-          Sounds good? Tap the image to share the full recipe. Or go back to change ingredients.
+          Sounds good? Tap the image to share the recipe with your friends!
       </InstructionsText>
       </RecipeContainer>
     </>

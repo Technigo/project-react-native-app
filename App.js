@@ -19,7 +19,7 @@ const App = () => {
 
   const dishes = ["bbq", "cake", "pancake", "pasta", "pizza", "rice", "salad", "sandwich", "smoothie", "soup", "stew", "taco"]
   const cuisine = ["African", "American", "Chinese", "Eastern European", "French", "German", "Greek", "Indian", "Italian", "Japanese", "Jewish", "Mediterranean", "Mexican", "Middle Eastern", "Nordic", "Spanish", "Thai"]
-  const diets = ["Vegetarian", "Vegan", "Pescetarian", "Ketogenic", "Gluten-free"]
+  const diets = ["Vegetarian", "Vegan", "Pescetarian", "Ketogenic", "Gluten-free", "Lacto-Vegetarian", "Ovo-Vegetarian"]
 
   console.log(dishQuery, cuisineQuery, dietQuery, recipeId)
 

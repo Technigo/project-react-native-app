@@ -15,15 +15,17 @@ const Container = styled.ScrollView`
   flex: 1;
 `
 
+const Category = styled.View`
+`
+
 const ChoiceView = styled.View`
   justify-content: center;
   align-items: center;
-  border: 1px solid #ff5447;
   flex-direction: row;
   flex-wrap: wrap;
 `
 const DishView = styled(ChoiceView)`
-  padding: 20px 10px;
+  padding: 20px 0;
   
 `
 const CuisineView = styled(ChoiceView)`
@@ -45,9 +47,13 @@ const SubmitText = styled.Text`
   font-size: 20px;  
 `
 
+const CategoryLabel = styled.Text`
+  font-size: 20px;
+  margin: 5px 10px;
+`
 
 const SubmitTouchable = styled.TouchableOpacity`
-  margin-top: 20px;
+  margin: 20px 0;
   padding: 10px 30px;
   background-color: #ff5447;
   align-self: center;
@@ -61,8 +67,9 @@ const StyledTouchable = styled.TouchableOpacity`
 `
 
 const StyledPicker = styled.Picker`
-  width: 100%;
+  width: 90%;
   padding: 10px;
+  margin: 10px 0 20px;
 `
 
 const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuery, cuisineQuery, setCuisineQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
@@ -72,10 +79,6 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
 
   const handleTap = () => {
     navigation.navigate("Random Recipe")
-  }
-
-  const getIconPath = (icon) => {
-    require(`../assets/dishes/${icon}.png`)
   }
 
   const chooseDish = (dish) => {
@@ -93,57 +96,69 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
 
   return (
     <Container>
-
-      <DishView>
-        {dishes.map(dish => (
-          <StyledTouchable
-            key={dish}
-            onPress={() => chooseDish(dish)}
-          >
-            <Icon source={getIconPath(dish)} alt={dish} />
-            <RadioButton
-              value={dish}
-              status={checkedDish === dish ? 'checked' : 'unchecked'}
+      <Category>
+        <CategoryLabel>What kind of dish would you like?</CategoryLabel>
+        <DishView>
+          {dishes.map(dish => (
+            <StyledTouchable
+              key={dish}
               onPress={() => chooseDish(dish)}
-            />
-          </StyledTouchable>
-        ))}
-      </DishView>
-
-      <CuisineView>
-        <StyledPicker
-          selectedValue={cuisineQuery}
-          onValueChange={(itemValue) => chooseCuisine(itemValue)}
-        >
-          {cuisine.map(eachCuisine => (
-            <Picker.Item
-              key={eachCuisine}
-              label={eachCuisine}
-              value={eachCuisine} />
+            >
+              <Icon source={require(`../assets/dishes/${dish}.png`)} alt={dish} />
+              <RadioButton
+                value={dish}
+                status={checkedDish === dish ? 'checked' : 'unchecked'}
+                onPress={() => chooseDish(dish)}
+              />
+            </StyledTouchable>
           ))}
-        </StyledPicker>
-      </CuisineView>
+        </DishView>
+      </Category>
 
-      <DietView>
-        {diets.map(diet => (
-          <StyledTouchable
-            key={diet}
-            onPress={() => chooseDish(diet)}
+      <Category>
+        <CategoryLabel>Would you like a special cuisine?</CategoryLabel>
+        <CuisineView>
+          <StyledPicker
+            selectedValue={cuisineQuery}
+            onValueChange={(itemValue) => chooseCuisine(itemValue)}
           >
-            <Label>{diet}</Label>
-            <RadioButton
-              key={diet}
-              value={diet}
-              status={checkedDiet === diet ? 'checked' : 'unchecked'}
-              onPress={() => chooseDiet(diet)}
+            <Picker.Item
+              label="Pick a cuisine!"
+              value=""
             />
-          </StyledTouchable>
-        ))}
-      </DietView>
+            {cuisine.map(eachCuisine => (
+              <Picker.Item
+                key={eachCuisine}
+                label={eachCuisine}
+                value={eachCuisine} />
+            ))}
+          </StyledPicker>
+        </CuisineView>
+      </Category>
+
+      <Category>
+        <CategoryLabel>Any dietary restrictions?</CategoryLabel>
+        <DietView>
+          {diets.map(diet => (
+            <StyledTouchable
+              key={diet}
+              onPress={() => chooseDish(diet)}
+            >
+              <Label>{diet}</Label>
+              <RadioButton
+                key={diet}
+                value={diet}
+                status={checkedDiet === diet ? 'checked' : 'unchecked'}
+                onPress={() => chooseDiet(diet)}
+              />
+            </StyledTouchable>
+          ))}
+        </DietView>
+      </Category>
 
       <SubmitTouchable onPress={handleTap}>
         <SubmitText>
-          Tap to mix ingredients
+          Tap to get recipe
         </SubmitText>
       </SubmitTouchable>
 
