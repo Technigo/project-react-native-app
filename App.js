@@ -1,7 +1,7 @@
 import React from 'react'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import 'react-native-gesture-handler'
+
 
 import HomeScreen from './components/HomeScreen';
 import AffirmationMessage from './components/AffirmationMessage'

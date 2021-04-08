@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import 'react-native-gesture-handler'
+// import 'react-native-gesture-handler'
 
 // ==========================
 // = Functions

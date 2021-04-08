@@ -1,12 +1,22 @@
 # Project React Native App 📱
+My first React Native project. App for thoose booring moments. When you shake the phone you get a suggestion on a new activity and on click you get a "dad joke"😅. This activity & joke is a request from two different REST Api's. 
 
-Replace this readme with your own information about your project.
+## The built🪓 challanges 🤯 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+✅The app includes styled components and Navigation to navigate between the different pages. The project also includes anitmation from LottieView🎨.
 
-## The problem
+✅ functionality for showing activity is built using the accelerometer in the phone, when shaking the phone a function is triggered that listens to the forced used in the shake, and if the force of the shake exceeds a certain number (>1.78) a random activity will appear. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+✅The random activity is a fetch from a rest API http://www.boredapi.com/api/activity/ & and the dad joke is triggered on click is a fetch from rest API: https://icanhazdadjoke.com/slack
+
+The challanges were many. Mainly how to trigger a new navigation page when shaking the device. This included a deep dive into navigation-container. Using the navigation route setup in App.js that could be passed on to the different components. A powerful was to anvigate between different components. I solved this by reaching out to a developer a know, my own brother and bombarding him with question. It also included team meetings with my team and seeing other peoples solutions. 
+
+⏰ If I had more time I would continue styling the navigation container in a better way, were you can easily toogle between the components and change the default styling. And adding more animations and more coherent styling.
+
+### Tech ⚛️
+    👉React Native
+    👉Styled Components
+    👉JavaScript
 
 ## View it live
 
