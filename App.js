@@ -15,10 +15,10 @@ import AlbumList from './components/AlbumList'
 
 const App = () => {
   return (
-    <View>
+    <>
       <AlbumList />
      
-    </View>
+    </>
   )
 }
 
