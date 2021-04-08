@@ -3,27 +3,24 @@ import styled from 'styled-components/native'
 
 
 const Container = styled.View`
-display: flex;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
+border: 2px solid #800080;
 `
 
-const Title = styled.Text`
-display: flex;
-
-font-size: 36px;
-font-weight: bold;
-color: #aa0000;
-flex-direction: row;
+const Setup = styled.Text`
+border: 1px solid black;
+text-align: center;
+`
+const Punch = styled.Text`
+border: 1px solid black;
+text-align: center;
 `
 
 export const Jokes = ({setup, punchline}) => {
 
     return (
         <Container>
-            <Title>{setup}</Title>
-            <Title>{punchline}</Title>
+            <Setup>{setup}</Setup>
+            <Punch>{punchline}</Punch>
         </Container>
     )
 }

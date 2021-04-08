@@ -7,9 +7,6 @@ import { Jokes } from './Jokes'
 // ==========================
 // = Functions
 const isShaking = (data) => {
-  // x,y,z CAN be negative, force is directional
-  // We take the absolute value and add them together
-  // This gives us the total combined force on the device
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
 
   // If this force exceeds some threshold, return true, otherwise false
@@ -17,43 +14,24 @@ const isShaking = (data) => {
   return totalForce > 1.74;
 };
 
-// ==========================
-// = Styled components
+
 const ShakeView = styled.View`
-  display: flex;
-  flex:1;
-justify-content:center;
-align-items: center;
-flex-direction: column;
+    display:flex;
+    border: 2px solid red;
+    width:100%
+    justify-content:center;
+    align-items:center;
 `;
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
-`;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text`
-justify-content: center;
-`;
 
 export const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(500)
 
-  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
-//   const [data, setData] = useState({
-//     x: 0,
-//     y: 0,
-//     z: 0,
-//   });
-
   // This keeps track of whether we are listening to the Accelerometer data
-  const [subscription, setSubscription] = useState(null);
+  const [subscription, setSubscription] = useState(null)
+  const [joke, setJoke] = useState([])
   const [fetchingPaused, setFetchingPaused] = useState(false)
 
   const _subscribe = () => {
@@ -92,26 +70,12 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
-  const [joke, setJoke] = useState([])
-  
 
   
-
-
 
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      <ShakeAlert><Jokes setup={joke.setup} punchline={joke.punchline} /></ShakeAlert>
-      <ShakeDataView>
-        <ShakeDataTitle>bum</ShakeDataTitle>         
-      </ShakeDataView>
-
+      <Jokes setup={joke.setup} punchline={joke.punchline} />
     </ShakeView>
   );
 };
