@@ -89,7 +89,7 @@ export const SensorComponent = () => {
         <ShakeDataTitle>Shake Data</ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
         <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>YYY: {data.y.toFixed(2)}</ShakeData>
+        <ShakeData>YYYy: {data.y.toFixed(2)}</ShakeData>
         <ShakeData>ZZZZ: {data.z.toFixed(2)}</ShakeData>
       </ShakeDataView>
     </ShakeView>
