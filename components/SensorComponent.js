@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-// import 'react-native-gesture-handler'
 
 // ==========================
 // = Functions
@@ -18,13 +17,6 @@ const isShaking = (data) => {
 
 // useEffect, navigate to Affirmation Message if phone i shaken
 // ==========================
-// = Styled components
-
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #833471;
-`;
 
 export const SensorComponent = ({navigation}) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -77,7 +69,7 @@ export const SensorComponent = ({navigation}) => {
 
   return (
        <>
-        {isShaking(data) && <ShakeAlert>I am shaaaking</ShakeAlert> }
+        {isShaking(data)}
       </>
     );
   };
