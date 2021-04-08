@@ -39,9 +39,7 @@ const InstructionsText = styled.Text`
   border-top-color: lightgrey;
 `
 
-
 const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
-
 
   const shareRecipe = async () => {
     if (!(await Sharing.isAvailableAsync())) {

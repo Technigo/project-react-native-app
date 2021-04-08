@@ -16,38 +16,11 @@ const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecip
     navigation.navigate("Recipe Details")
   }
 
-  let preparedDish = []
-  let preparedCuisine = []
-  let preparedDiet = []
-
-  const prepareFetch = () => {
-    for (const [key, value] of Object.entries(dishQuery)) {
-      if (value) {
-        preparedDish.push(key)
-      }
-    }
-    for (const [key, value] of Object.entries(cuisineQuery)) {
-      if (value) {
-        preparedCuisine.push(key)
-      }
-    }
-    for (const [key, value] of Object.entries(dietQuery)) {
-      if (value) {
-        preparedDiet.push(key)
-      }
-    }
-  }
-
   const getRandomNumber = (maxNum) => Math.floor(Math.random() * maxNum)
 
   useEffect(() => {
-    prepareFetch()
 
-    let preparedDishString = preparedDish.join(",")
-    let preparedCuisineString = preparedCuisine.join(",")
-    let preparedDietString = preparedDiet.join(",")
-
-    fetch(API_URL(preparedDishString, preparedCuisineString, preparedDietString))
+    fetch(API_URL(dishQuery, cuisineQuery, dietQuery))
       .then(res => res.json())
       .then(data => {
         setRecipes(data.results[getRandomNumber(data.results.length)])
