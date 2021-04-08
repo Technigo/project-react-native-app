@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 
-import { MagicAnswer } from './components/MagicAnswer';
 import { ShakeSensor } from './components/ShakeSensor'
 import { StartPage } from './components/StartPage'
 // import { ShakeShake } from './components/ShakeShake'
-
 
 const Container = styled.View`
   flex: 1;
@@ -44,8 +42,7 @@ const App = () => {
 
   return (
     <Container>
-      <MagicAnswer></MagicAnswer>
-    {/* <ShakeSensor></ShakeSensor> */}
+      <ShakeSensor></ShakeSensor>
 {/*     {startScreen ? (
     <StartPage></StartPage>
     ) : (
