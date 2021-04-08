@@ -1,24 +1,29 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import { SensorComponent } from './components/SensorComponent';
+import { useState } from 'react';
+import { Vibration } from 'react-native';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
+import LandingScreen from './screens/LandingScreen';
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
+const API_URL = "https://game-of-thrones-quotes.herokuapp.com/v1/random";
 
 const App = () => {
+  const [gotQuote, setGotQuote] = useState();
+
+  const handleFetch = () => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then((json) => {
+        setGotQuote(json);
+        Vibration.vibrate();
+      });
+  };
+
   return (
-    <Container>
-      <SensorComponent></SensorComponent>
-    </Container>
+       <LandingScreen
+        gotQuote={gotQuote}
+        handleFetch={handleFetch}
+      >
+      </LandingScreen>
   );
 };
 
