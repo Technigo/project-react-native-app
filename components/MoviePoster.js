@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 
-const CardContainer = styled.View`
+const CardContainer = styled.TouchableOpacity`
   display: flex;
   background-color: #3d3834;
   min-height: 120px;
@@ -29,9 +29,13 @@ const DateText = styled.Text`
   padding: 5px;
 `;
 
-const MoviePoster = ({ title, poster_path, release_date }) => {
+const MoviePoster = ({ title, poster_path, release_date, overview }) => {
   return (
-    <CardContainer>
+    <CardContainer
+      onPress={() => {
+        alert(`${overview}`);
+      }}
+    >
       <MovieImage
         source={{ uri: `https://image.tmdb.org/t/p/w500${poster_path}` }}
       />

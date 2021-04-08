@@ -13,7 +13,7 @@ const App = () => {
   const API_URL =
     "https://api.themoviedb.org/3/movie/popular?api_key=bf14fff1c40836226439b742bbbb7950";
 
-  https: useEffect(() => {
+  useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((json) => {
