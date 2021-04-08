@@ -11,13 +11,12 @@ const isShaking = (data) => {
 
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.74;
+  return totalForce > 2;
 };
 
 
 const ShakeView = styled.View`
     display:flex;
-    border: 2px solid red;
     width:100%
     justify-content:center;
     align-items:center;

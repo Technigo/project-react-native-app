@@ -3,16 +3,25 @@ import styled from 'styled-components/native'
 
 
 const Container = styled.View`
-border: 2px solid #800080;
+
+margin-top: 30px;
 `
 
 const Setup = styled.Text`
-border: 1px solid black;
+
 text-align: center;
+color: #ffffff;
+font-size: 45px;
+margin: 10px 10px 30px;
+
 `
 const Punch = styled.Text`
-border: 1px solid black;
+
 text-align: center;
+color: #ffffff;
+font-size: 30px;
+margin: 0 10px 0;
+font-style: italic;
 `
 
 export const Jokes = ({setup, punchline}) => {
