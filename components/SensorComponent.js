@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
+import answers  from '../data/answers'
+
+
 // ==========================
 // = Functions
 const isShaking = (data) => {
@@ -15,9 +18,15 @@ const isShaking = (data) => {
   return totalForce > 1.78;
 };
 
+//Function to get a random number - use later on the array to get random Index. 
+const getRandomWholeInt = (num) => {
+  return Math.floor(Math.random() * num)
+}
+
 // ==========================
 // = Styled components
 const ShakeView = styled.View`
+  flex: 1;
   display: flex;
   flex-direction: column;
 `;
@@ -39,14 +48,19 @@ export const SensorComponent = () => {
   Accelerometer.setUpdateInterval(400);
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
-  const [data, setData] = useState({
+ /*  const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
-  });
+  }); */
+
+ 
 
   // This keeps track of whether we are listening to the Accelerometer data
+  //Subscription by default false
   const [subscription, setSubscription] = useState(null);
+  //Set state as undefined so its default to false
+  const [answer, setAnswer] = useState(undefined)
 
   const _subscribe = () => {
     // Save the subscription so we can stop using the accelerometer later
@@ -55,7 +69,11 @@ export const SensorComponent = () => {
       Accelerometer.addListener((accelerometerData) => {
         // Whenever this function is called, we have received new data
         // The frequency of this function is controlled by setUpdateInterval
-        setData(accelerometerData);
+        // setData(accelerometerData);
+        if(isShaking(accelerometerData)){
+          const randomIndex = getRandomWholeInt(answers.length)
+          setAnswer(answers[randomIndex])
+        }
       })
     );
   };
@@ -75,6 +93,15 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+ /* const [answer, setAnswer] = useState(0)
+
+  useEffect( () => {
+    !isShaking(data) && setAnswer(answers[Math.floor(Math.random() * answers.length)])
+    console.log(answer)
+  }, [isShaking]) 
+
+  console.log(isShaking(data)) */
+
   return (
     <ShakeView>
       {/* 
@@ -83,13 +110,15 @@ export const SensorComponent = () => {
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
       */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      {/* {isShaking(data) && <ShakeAlert>{answer}</ShakeAlert>} */}
       <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
+        <ShakeDataTitle>
+          {answer ? "Shake again and find your answers" : "Ask, shake and you shall receive"}
+        </ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
+        {answer ? <ShakeData>{answer}</ShakeData> : null}
+        <ShakeData></ShakeData>
+        <ShakeData></ShakeData>
       </ShakeDataView>
     </ShakeView>
   );
