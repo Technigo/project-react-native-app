@@ -13,8 +13,17 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
+  font-size: 50px;
+  color: white;
+  padding-top: 50px;
+  text-align: center
+`
+const InfoText = styled.Text`
   font-size: 24px;
   color: white;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  text-align: center;
 `
 // Sharing.isAvailableAsync()
 // Sharing.shareAsync(url, options)
@@ -22,8 +31,8 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>Pop it Up</Title>
-      <Title>Shake me to get the poping started!</Title>
+      <Title>PopUp Popcorn Gallery!</Title>
+      <InfoText>Shake me to get the popping started!</InfoText>
       <SensorImagePicker />
       <Footer />
     </Container>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 import { Text, Image } from 'react-native';
+import {  Vibration } from 'react-native'
 
 const isShaking = (data) => {
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
@@ -10,15 +11,10 @@ const isShaking = (data) => {
 };
 
 const ShakeView = styled.View`
-  flex: 1;
+  flex: 8;
+  justify-content: center;
+  align-items: center;
 `;
-
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #57E2E5;
-`;
-
 
 
 
@@ -50,9 +46,15 @@ export const SensorImagePicker = () => {
 
   useEffect(() => {
     _subscribe();
+    
 
     return () => _unsubscribe();
   }, []);
+
+    const vibrateDevice = () => {
+    Vibration.vibrate();
+  }
+
   
 const popcornArray = [
     require("../assets/aldis-popcorn-1.jpg"),
@@ -63,24 +65,23 @@ const popcornArray = [
   const [popcorn, setPopcorn] = useState(null);
   useEffect(() => {
     !isShaking(data) && setPopcorn(popcornArray[Math.floor(Math.random()*popcornArray.length)]);
+    vibrateDevice();
   }, [isShaking(data)]);
 
   return (
     <>
-    <ShakeView>
-        {isShaking(data) && <ShakeAlert>Pop Pop Pop</ShakeAlert>}
-      </ShakeView>
+    <ShakeView> 
       {popcorn && 
           <Image 
           style={{
-            resizeMode: "cover",
-            height: 600,
+            resizeMode: "contain",
+            height: 300,
             width: 350,
           }}
             source={popcorn}
             />
         }
-      
+        </ShakeView>
       </>
   );
 };
