@@ -67,13 +67,14 @@ const Home = () => {
 export default Home
 
 const Container = styled.ScrollView`
-  background-color: white;
+  background-color: black;
   padding: 1px;
   padding-top: 30;
 `
 
 const Title = styled.Text`
   font-size: 24px;
-  color: black;
-  margin: 20px 0 0 5px;
+  color: white;
+  margin: 5px;
+  text-align: center;
 `

@@ -20,7 +20,7 @@ const RecipeThumb = ({item}) => {
           <DetailsText>{item.recipe.source}</DetailsText>
         </DetailsContainer>
         <Button onPress={() => navigation.navigate('Recipe', { caption: `${item.recipe.uri}` })}>
-          <Text>Go to recipe</Text>
+          <ButtonText>Check recipe</ButtonText>
         </Button>
     </TextContainer> 
     </Container>
@@ -62,16 +62,20 @@ const DetailsText = styled.Text `
   margin: 5px;
   color: white;
 `
+const ButtonText = styled.Text `
+  font-size: 16px;
+  font_weight: bold;
+  color: white;
+`
 
 const Button = styled.TouchableOpacity`
-  width: 120px;  
+  width: 130px;  
   height: 40px;
-  border: none;
+  border: 2px solid white;
   font-size: 16px;
   border-radius: 20px;
   padding: 10px;
   margin: 3px;
   justify-content: center;
-  align-items:center;
-  background-color: blue;
+  align-items: center;
 `
