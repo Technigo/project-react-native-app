@@ -17,7 +17,7 @@ const Container = styled.View`
 const App = () => {
   return (
     <Container>
-      <AppTitle name="Random cats app!"/>
+      <AppTitle name="Cat Prokrastinator"/>
       <RandomCats/>
     </Container>
   )

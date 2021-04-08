@@ -6,12 +6,17 @@ import { View, Text } from 'react-native'
 const CatImage = styled.Image`
 width: 260px;
 height: 250px;
+margin-top: 30px;
 `
 const RandomButton = styled.TouchableOpacity`
 background-color: #aaaaee;
-padding: 8px;
+padding: 15px;
 border-radius: 3px;
 align-items: center;
+margin-top: 30px;
+`
+const ButtonText = styled.Text`
+font-size: 16px;
 `
 
 
@@ -34,8 +39,6 @@ export const RandomCats = () => {
         fetch (CAT_API)
           .then(res => res.json())
           .then(json => setRandomCatImages(json))
-       
-       
     }
 
   return(
@@ -44,7 +47,7 @@ export const RandomCats = () => {
         <View key={catImage.id}>
           <CatImage source={{uri: catImage.url}}/>
           <RandomButton onPress={updateRandomCat}>
-          <Text>Press for random kitty 🐾</Text>
+          <ButtonText>Press for random kitty 🐾</ButtonText>
         </RandomButton>
         </View>
       ))}
