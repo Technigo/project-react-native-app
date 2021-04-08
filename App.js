@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import styled from 'styled-components/native'
 
 import TopScreen from './pages/TopRatedPage'
 import PopularScreen from './pages/PopularPage'
@@ -11,19 +12,23 @@ import DetailsPage from './pages/DetailsPage'
 
 import Gallery from './pages/ImageGallery'
 
- 
-const fet = [9999, 1000] // Du kan göra en liknande där du passar id på filmen
-const dinc = "testar namn"
 
 
 
+const Container = styled.View`
+flex:1;
+align-items: center;
+justify-content: center
+`
+
+const Question = styled.Text`
+font-size: 16px`
 
 
 const HomeScreen = ({navigation}) => {
-  const [select, setSelect] = useState("feto")
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+    <Container >
+      <Question>Home Screen</Question>
       <Button
         title="Go to Top Rated Movies"
         onPress={() => navigation.navigate('TopRated')}
@@ -38,7 +43,7 @@ const HomeScreen = ({navigation}) => {
       />
 
      
-    </View>
+    </Container>
   )
 }
 
@@ -95,12 +100,6 @@ export default function App() {
         headerTintColor: '#fff',
       }}/>
 
-      
-
-
-
-
-
     </Stack.Navigator>
   </NavigationContainer>
 );
@@ -110,24 +109,5 @@ export default function App() {
    
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
-  homescreen: {
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center'
-  },
-
-  detailsscreen: {
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center'
-  }
-});
 

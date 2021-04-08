@@ -22,15 +22,15 @@ flex: 1;
 
 `
 const Bottom = styled.View`
-flex:1
+flex:2;
 background: rgba(0,0,0, 0.6); 
 padding:10px
 `
 /*background: rgba(255,255,255, 0.6); ^*/
 const MoviePicture = styled.Image`
 width: 100%;
-flex:2;
-border: 5px solid white;
+flex:3;
+border: 5px solid #000;
 `
 
 const MovieTitle = styled.Text`
