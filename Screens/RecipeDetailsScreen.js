@@ -3,14 +3,9 @@ import { Text, View } from "react-native"
 import styled from "styled-components/native"
 
 import { DETAILS_URL } from "../utils/urls"
+import RecipeDetails from "../components/RecipeDetails"
 
-
-const Container = styled.ScrollView`
-  flex: 1;
-  background-color: white;
-`
-
-const RecipeDetailsScreen = ({ navigation, dishQuery, ingredientQuery, dietQuery, recipeId, isMixingIngredients, setIsMixingIngredients }) => {
+const RecipeDetailsScreen = ({ recipeId }) => {
   const [recipeDetails, setRecipeDetails] = useState([])
 
   useEffect(() => {
@@ -26,17 +21,8 @@ const RecipeDetailsScreen = ({ navigation, dishQuery, ingredientQuery, dietQuery
 
   }, [recipeId])
 
-  if (recipeDetails.length === 0) {
-    return <Text>Loading...</Text>
-  }
-
   return (
-    <Container>
-      <Text>{recipeDetails.title}</Text>
-      {recipeDetails.extendedIngredients.map(ingredient => (
-        <Text>{ingredient.name}</Text>
-      ))}
-    </Container>
+    <RecipeDetails recipeDetails={recipeDetails} />
   )
 }
 

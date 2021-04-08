@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import { ScrollView, View, Text, Image } from "react-native"
 import styled from "styled-components/native"
 
 const RecipeText = styled.Text`
@@ -29,12 +30,20 @@ const InstructionsText = styled.Text`
   border-top-color: lightgrey;
 `
 
-const Recipe = ({ recipes }) => {
+const RecipeDetails = ({ recipeDetails }) => {
+
+  if (recipeDetails.length === 0) {
+    return <Text>Loading...</Text>
+  }
+
   return (
     <>
-      <RecipeContainer key={recipes.id}>
-        <RecipeImage source={{ uri: recipes.image }} />
-        <RecipeText >{recipes.title}</RecipeText>
+      <RecipeContainer>
+        <RecipeText>{recipeDetails.title}</RecipeText>
+        <RecipeImage source={{ uri: recipeDetails.image }} />
+        {recipeDetails.extendedIngredients.map(ingredient => (
+          <Text key={ingredient.id} >{ingredient.name}</Text>
+        ))}
       </RecipeContainer>
       <InstructionsText>
         Like what you see? Tap the image to get the full recipe. Or go back to change ingredients.
@@ -43,4 +52,4 @@ const Recipe = ({ recipes }) => {
   )
 }
 
-export default Recipe
+export default RecipeDetails

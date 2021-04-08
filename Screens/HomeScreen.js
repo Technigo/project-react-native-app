@@ -4,7 +4,7 @@ import styled from "styled-components/native"
 
 import { SensorComponent } from '../components/SensorComponent';
 import Dish from "../components/Dish"
-import Ingredient from '../components/Ingredient';
+import Cuisine from '../components/Cuisine';
 import Diet from "../components/Diet"
 
 const Container = styled.ScrollView`
@@ -19,14 +19,14 @@ border: 1px solid green;
 const DishView = styled(ChoiceView)`
   
 `
-const IngredientView = styled(ChoiceView)`
+const CuisineView = styled(ChoiceView)`
   
 `
 const DietView = styled(ChoiceView)`
   flex-direction: row;
 `
 
-const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDishQuery, ingredientQuery, setIngredientQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
+const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuery, cuisineQuery, setCuisineQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
 
   const handleClick = () => {
     navigation.navigate("Random Recipe")
@@ -45,16 +45,16 @@ const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDish
         ))}
       </DishView>
 
-      <IngredientView>
-        {ingredients.map(ingredient => (
-          <Ingredient
-            key={ingredient}
-            ingredient={ingredient}
-            ingredientQuery={ingredientQuery}
-            setIngredientQuery={setIngredientQuery}
+      <CuisineView>
+        {cuisine.map(eachCuisine => (
+          <Cuisine
+            key={eachCuisine}
+            cuisine={eachCuisine}
+            cuisineQuery={cuisineQuery}
+            setCuisineQuery={setCuisineQuery}
           />
         ))}
-      </IngredientView>
+      </CuisineView>
 
       <DietView>
         {diets.map(diet => (

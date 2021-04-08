@@ -11,16 +11,16 @@ const Stack = createStackNavigator();
 
 const App = () => {
   const [dishQuery, setDishQuery] = useState({})
-  const [ingredientQuery, setIngredientQuery] = useState({ tomato: false, basil: false })
+  const [cuisineQuery, setCuisineQuery] = useState({})
   const [dietQuery, setDietQuery] = useState({})
   const [isMixingIngredients, setIsMixingIngredients] = useState(false)
   const [recipeId, setRecipeId] = useState(0)
 
   const dishes = ["soup", "salad", "pasta", "risotto", "pizza", "curry", "stew", "pie", "wrap"]
-  const ingredients = ["tomato", "cheese", "eggs", "beef", "chicken", "corn", "lamb", "pork", "basil", "potato"]
+  const cuisine = ["african", "american", "british", "chinese", "eastern european", "french", "german", "greek", "indian", "italian", "japanese", "jewish", "mediterranean", "mexican", "middle eastern", "nordic", "spanish", "thai"]
   const diets = ["vegetarian", "vegan", "pescetarian", "ketogenic", "gluten-free"]
 
-  console.log(dishQuery, ingredientQuery, dietQuery, recipeId)
+  console.log(dishQuery, cuisineQuery, dietQuery, recipeId)
 
   return (
     <NavigationContainer>
@@ -29,12 +29,12 @@ const App = () => {
         <Stack.Screen name="Home">
           {props => <HomeScreen {...props}
             dishes={dishes}
-            ingredients={ingredients}
+            cuisine={cuisine}
             diets={diets}
             dishQuery={dishQuery}
             setDishQuery={setDishQuery}
-            ingredientQuery={ingredientQuery} s
-            setIngredientQuery={setIngredientQuery}
+            cuisineQuery={cuisineQuery}
+            setCuisineQuery={setCuisineQuery}
             dietQuery={dietQuery}
             setDietQuery={setDietQuery}
             isMixingIngredients={isMixingIngredients}
@@ -46,7 +46,7 @@ const App = () => {
         <Stack.Screen name="Random Recipe">
           {props => <RecipeScreen {...props}
             dishQuery={dishQuery}
-            ingredientQuery={ingredientQuery}
+            cuisineQuery={cuisineQuery}
             dietQuery={dietQuery}
             setRecipeId={setRecipeId}
             isMixingIngredients={isMixingIngredients}
@@ -58,7 +58,7 @@ const App = () => {
         <Stack.Screen name="Recipe Details">
           {props => <RecipeDetailsScreen {...props}
             dishQuery={dishQuery}
-            ingredientQuery={ingredientQuery}
+            cuisineQuery={cuisineQuery}
             dietQuery={dietQuery}
             recipeId={recipeId}
             isMixingIngredients={isMixingIngredients}
