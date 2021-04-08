@@ -8,6 +8,7 @@ const FeedContainer = styled.View`
   justify-content: center;
   align-items: center;
   height: 100%;
+  background-color: beige;
 `;
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
@@ -15,7 +16,7 @@ const FeedContainer = styled.View`
 export const Feed = ({ navigation }) => {
   return (
     <FeedContainer>
-      <Text>Feed Screen</Text>
+      <Text>Hello and welcome!</Text>
       {/* Here is an example of how to open/toggle the drawer via javascript */}
       <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
       <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
