@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { SensorImagePicker } from './components/SensorImagePicker'
-import { Text, Image, SafeAreaView  } from 'react-native';
 
+import { SensorImagePicker } from './components/SensorImagePicker'
+import { Footer } from './components/Footer'
 
 
 const Container = styled.View`
@@ -25,6 +25,7 @@ const App = () => {
       <Title>Pop it Up</Title>
       <Title>Shake me to get the poping started!</Title>
       <SensorImagePicker />
+      <Footer />
     </Container>
   )
 }

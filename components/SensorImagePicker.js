@@ -54,11 +54,11 @@ export const SensorImagePicker = () => {
     return () => _unsubscribe();
   }, []);
   
-  const popcornArray = [
-    "../assets/aldis-popcorn-1.jpg",
-    "../assets/aldis-popcorn-2.jpg",
-    "../assets/aldis-popcorn-3.jpg",
-    "../assets/aldis-popcorn-4.jpg",
+const popcornArray = [
+    require("../assets/aldis-popcorn-1.jpg"),
+    require("../assets/aldis-popcorn-2.jpg"),
+    require("../assets/aldis-popcorn-3.jpg"),
+    require("../assets/aldis-popcorn-4.jpg"),
   ]
   const [popcorn, setPopcorn] = useState(null);
   useEffect(() => {
@@ -66,19 +66,21 @@ export const SensorImagePicker = () => {
   }, [isShaking(data)]);
 
   return (
-      <ShakeView>
+    <>
+    <ShakeView>
         {isShaking(data) && <ShakeAlert>Pop Pop Pop</ShakeAlert>}
-        {popcorn && 
+      </ShakeView>
+      {popcorn && 
           <Image 
           style={{
             resizeMode: "cover",
-            height: 100,
-            width: 200
+            height: 600,
+            width: 350,
           }}
             source={popcorn}
             />
         }
-       
-      </ShakeView>
+      
+      </>
   );
 };
