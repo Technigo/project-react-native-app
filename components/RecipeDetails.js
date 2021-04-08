@@ -56,7 +56,7 @@ const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
 
   return (
     <>
-      <Loading />
+      {/* <Loading /> */}
       <RecipeContainer>
         <RecipeText>{recipeDetails.title}</RecipeText>
         <TouchableOpacity onPress={shareRecipe}>

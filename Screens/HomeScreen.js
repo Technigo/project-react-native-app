@@ -18,11 +18,12 @@ const Container = styled.ScrollView`
 const ChoiceView = styled.View`
   justify-content: center;
   align-items: center;
-  border: 1px solid green;
+  border: 1px solid #ff5447;
   flex-direction: row;
   flex-wrap: wrap;
 `
 const DishView = styled(ChoiceView)`
+  padding: 20px 10px;
   
 `
 const CuisineView = styled(ChoiceView)`
@@ -39,7 +40,19 @@ const Icon = styled.Image`
 
 const Label = styled.Text`
 `
+const SubmitText = styled.Text`
+  font-weight: 700;
+  font-size: 20px;  
+`
 
+
+const SubmitTouchable = styled.TouchableOpacity`
+  margin-top: 20px;
+  padding: 10px 30px;
+  background-color: #ff5447;
+  align-self: center;
+  border-radius: 20px;
+`
 const StyledTouchable = styled.TouchableOpacity`  
   justify-content: center;
   align-items: center;
@@ -57,8 +70,12 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
   const [selectedCuisine, setSelectedCuisine] = useState('');
   const [checkedDiet, setCheckedDiet] = useState('');
 
-  const handleClick = () => {
+  const handleTap = () => {
     navigation.navigate("Random Recipe")
+  }
+
+  const getIconPath = (icon) => {
+    require(`../assets/dishes/${icon}.png`)
   }
 
   const chooseDish = (dish) => {
@@ -83,7 +100,7 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
             key={dish}
             onPress={() => chooseDish(dish)}
           >
-            <Icon source={require(`../assets/dishes/${dish}.png`)} alt={dish} />
+            <Icon source={getIconPath(dish)} alt={dish} />
             <RadioButton
               value={dish}
               status={checkedDish === dish ? 'checked' : 'unchecked'}
@@ -124,13 +141,11 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
         ))}
       </DietView>
 
-      <TouchableOpacity onPress={handleClick}>
-        <Text>
-          Click to mix ingredients
-        </Text>
-      </TouchableOpacity>
-
-      {/* <SensorComponent setIsMixingIngredients={setIsMixingIngredients} /> */}
+      <SubmitTouchable onPress={handleTap}>
+        <SubmitText>
+          Tap to mix ingredients
+        </SubmitText>
+      </SubmitTouchable>
 
     </Container >
   )
