@@ -9,6 +9,8 @@ import UpcomingScreen from './pages/UpcomingPage'
 
 import DetailsPage from './pages/DetailsPage'
 
+import Gallery from './pages/ImageGallery'
+
  
 const fet = [9999, 1000] // Du kan göra en liknande där du passar id på filmen
 const dinc = "testar namn"
@@ -34,6 +36,8 @@ const HomeScreen = ({navigation}) => {
         title="Go to Most Upcoming Movies"
         onPress={() => navigation.navigate('Upcoming')}
       />
+
+     
     </View>
   )
 }
@@ -53,6 +57,8 @@ export default function App() {
 
 
       <Stack.Screen name="Details" component={DetailsPage} />
+
+      
 
 
 

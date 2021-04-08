@@ -29,24 +29,26 @@ padding:10px
 /*background: rgba(255,255,255, 0.6); ^*/
 const MoviePicture = styled.Image`
 width: 100%;
-flex:1
-border: 5px solid white`
+flex:2;
+border: 5px solid white;
+`
 
 const MovieTitle = styled.Text`
 font-size: 20px;
 font-weight: bold;
-margin-bottom: 20px;
 color: #fff
+margin-bottom: 10px
 `
 
 const TextSpan = styled.Text`
-color: red`
+color: red
+font-weight: normal`
 
 const MovieOverview = styled.Text`
 font-size: 16px
-font-weight: bold;
-margin-bottom: 20px;
+font-weight: normal;
 color: #fff
+
 `
 
 
@@ -54,6 +56,7 @@ const MovieReleaseDate = styled.Text`
 font-size: 16px
 font-weight: bold;
 color: #fff
+margin: 10px 0px 10px 0px
 `
 
 const LoaderContainer = styled.View`
@@ -101,9 +104,9 @@ const Details = ({ route }) => {
           source={{ uri:`https://image.tmdb.org/t/p/w780/${details.backdrop_path}`}}
         ></MoviePicture>
         <Bottom>
-          <MovieTitle>{details.original_title} <TextSpan>{details.vote_average}</TextSpan></MovieTitle>
+          <MovieTitle>{details.original_title} <TextSpan>{details.vote_average}/10</TextSpan></MovieTitle>
           <MovieOverview>{details.overview}</MovieOverview>
-          <MovieReleaseDate>Status Release: {details.status}</MovieReleaseDate>
+          <MovieReleaseDate>Status: {details.status}</MovieReleaseDate>
           <Share MovieHomepage={details.homepage}/>
         </Bottom>
       </Poster>

@@ -62,11 +62,15 @@ color: #fff
 const Details = ({ route }) => {
   const {itemID} = route.params;
   const [details, setDetails] = useState([])
+  const [load, setLoad ] = useState(True)
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${itemID}?api_key=2365aea36d60ef1f206bd1bdf23fd999&language=en-US`)
     .then(res => res.json())
     .then(json => setDetails(json))
+    
+    setTimeout(() => { setLoad(false)},3000)
+  
   }, [])
 
   console.log(details)

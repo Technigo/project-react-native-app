@@ -9,8 +9,10 @@ import DetailsPage from './DetailsPage'
 const API_Key = '2e6a7b75ad4d088fae1f52620044bef7'
 const URL = 'https://api.themoviedb.org/3/movie/popular?api_key=2365aea36d60ef1f206bd1bdf23fd999'
 
+const Container = styled.View`
+flex:1`
 
-const Container = styled.ScrollView`
+const Content = styled.ScrollView`
 flex: 1;
 width:100%
 `
@@ -23,11 +25,11 @@ height: 100%;
 
 
 const Top = styled.ImageBackground`
-width: 100vw;
+width: 375px;
 height: 100%;
 justify-content: center;
 align-items: center;
-` // 
+` //  width: 100vw funkar inte i appen när man öppnar med tel
 
 const TopText = styled.Image`
   height: 250px;
@@ -38,13 +40,19 @@ const MovieTitle = styled.Text`
 font-size: 24px;
 `
 
+const Loader = styled.ActivityIndicator``
+
+const LoaderContainer = styled.View`
+flex:1`
+
 
 
 
 
 const Popular = ({navigation}) => {
   const [movies, setMovies] = useState([])
-  const [title, setTitle] = useState([])
+  const [title, setTitle] = useState([]) // Ta bort
+  const [load, setLoad ] = useState(true)
 
   useEffect(() => {
     fetch(URL)
@@ -52,9 +60,12 @@ const Popular = ({navigation}) => {
     .then((json) => {
       setMovies(json.results)
       setTitle(json.results[0])
+
     }
     )
-  }, [])
+
+    setTimeout(() => { setLoad(false)},3000)
+  }, [movies])
 
   console.log(movies[0])
   console.log(title.poster_path)
@@ -62,12 +73,17 @@ const Popular = ({navigation}) => {
 
   //const (`https://image.tmdb.org/t/p/w300/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg`)
   
+
+  // På <Content horizontal={true}>, tar du bort horizontal={true} så får du en normal upp och ner scroll så som Maria hade ifall du sätter height till 800 px
+
   return (
-        <Container horizontal={true}
-        >
+        <Container >
 
-
-          {movies.map((movie) => (
+{load ? <LoaderContainer>
+        <Loader size="large" color="#fff" />
+      </LoaderContainer>
+      : <Content horizontal={true}> 
+        {movies.map((movie) => (
             <ImageContainer>
               <Top
           source={{ uri:`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}}>
@@ -85,6 +101,12 @@ const Popular = ({navigation}) => {
           </Top>
             </ImageContainer>
           ))}
+      </Content>
+
+
+
+}
+
 
 
         </Container>

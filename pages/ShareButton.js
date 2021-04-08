@@ -20,7 +20,7 @@ const ShareExample = ( {MovieHomepage} ) => {
     }
   };
   return (
-    <View style={{ marginTop: 50 }}> 
+    <View > 
       <Button onPress={onShare} title="Share" />
     </View>
   );
