@@ -1,5 +1,7 @@
-import React from 'react'
+import React  from 'react'
 import styled from 'styled-components/native'
+
+import { CatFacts } from './components/CatFacts'
 
 const Container = styled.View`
   flex: 1;
@@ -16,9 +18,8 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <Title>Very important cat facts</Title>
+      <CatFacts />
     </Container>
   )
 }
