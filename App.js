@@ -9,8 +9,7 @@ const Container = styled.View`
   align-items: center;
 `
 const Header = styled.View`
-  background-color: whitesmoke;
-  flex: 1;
+  background-color: red;  
   justify-content: center;
   align-items: center;
   width: 100%
@@ -23,11 +22,12 @@ const Knapp = styled.TouchableOpacity`
   align-items: center;
   background-color: black;
   height: 60px;
-  border-radius: 25px;  
+  border-radius: 25px; 
+  padding: 10px;
   `
 const Title = styled.Text`
   font-size: 36px;
-  color: palevioletred;
+  color: white;
   margin: 20px;
   `
 
@@ -50,14 +50,19 @@ const RecipeContainer = styled.ScrollView`
 margin: 20px 0;
 `
 const Footer = styled.View`
-  background-color: whitesmoke;  
+  background-color: darkgreen;  
   justify-content: center;
   align-items: center;
   width: 100%
   border: 2px solid black;
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 15px;
 `
+const CreditText = styled.Text`
+  font-size: 12px;
+  color: black;
+  margin-bottom: 0;
+  `
 
 const App = () => {
   const [tacos, setTacos] = useState ([])
@@ -86,6 +91,7 @@ const RandomRecipe = () => {
       <Knapp onPress={RandomRecipe}>
         <BtnText>Random Recipe</BtnText>
       </Knapp> 
+      <CreditText>API: https://taco-randomizer.herokuapp.com/random/</CreditText>
       </Footer>  
     </Container>
   )
