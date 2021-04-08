@@ -28,7 +28,7 @@ const HomeScreen = ({navigation}) => {
       />
       <Button
         title="Go to Most Popular Movies"
-        onPress={() => navigation.navigate('PopularScreen')}
+        onPress={() => navigation.navigate('Popular Movies')}
       />
       <Button
         title="Go to Most Upcoming Movies"
@@ -48,7 +48,7 @@ export default function App() {
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="TopRated" component={TopScreen} />
-      <Stack.Screen name="PopularScreen" component={PopularScreen} />
+      <Stack.Screen name="Popular Movies" component={PopularScreen} />
       <Stack.Screen name="Upcoming" component={UpcomingScreen} />
 
 

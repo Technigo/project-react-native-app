@@ -12,22 +12,20 @@ const URL = 'https://api.themoviedb.org/3/movie/popular?api_key=2365aea36d60ef1f
 
 const Container = styled.ScrollView`
 flex: 1;
-width:100%
 `
 
 const ImageContainer = styled.View`
-flex:1;
+width: 400px;
 height: 100%;
-
 `
 
 
 const Top = styled.ImageBackground`
-width: 100vw;
+width: 100%;
 height: 100%;
 justify-content: center;
 align-items: center;
-` // 
+`
 
 const TopText = styled.Image`
   height: 250px;

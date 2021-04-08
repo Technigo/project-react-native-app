@@ -56,26 +56,17 @@ font-weight: bold;
 color: #fff
 `
 
-const LoaderContainer = styled.View`
-flex:1`
-
-const Loader = styled.ActivityIndicator``
-
 
 
 
 const Details = ({ route }) => {
   const {itemID} = route.params;
   const [details, setDetails] = useState([])
-  const [load, setLoad ] = useState(true)
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${itemID}?api_key=2365aea36d60ef1f206bd1bdf23fd999&language=en-US`)
     .then(res => res.json())
     .then(json => setDetails(json))
-    
-    setTimeout(() => { setLoad(false)},3000)
-  
   }, [])
 
   console.log(details)
@@ -89,11 +80,6 @@ const Details = ({ route }) => {
 
   return (
     <Container>
-
-      { load? 
-      <LoaderContainer>
-        <Loader size="large" color="#fff" />
-      </LoaderContainer>  :
       <Poster
         source={{ uri:`https://image.tmdb.org/t/p/w1280/${details.poster_path}`}}
       >
@@ -107,12 +93,6 @@ const Details = ({ route }) => {
           <Share MovieHomepage={details.homepage}/>
         </Bottom>
       </Poster>
-
-      }
-
-
-
-      
     </Container>
   )
 }
