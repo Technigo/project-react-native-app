@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, Text, ScrollView } from 'react-native'
+import { FlatList, Text, ScrollView, Image } from 'react-native'
 import styled from 'styled-components/native'
+import clock from '../assets/clock.png'
+import calender from '../assets/calender.png'
 
 
 export const MovieDetails = ({ id }) => {
@@ -21,8 +23,52 @@ export const MovieDetails = ({ id }) => {
 
  return (
    <>
-      <Text>Votes:{movieDetails.vote_count}</Text>
-      <Text>Time:{movieDetails.runtime}</Text>
-   </>
+  <TextContainer>
+    <Timecontainer>
+      <ClockImage
+        source={clock} />  
+      <TimeText>Time:{movieDetails.runtime}</TimeText>
+    </Timecontainer>
+    <ReleaseContainer>
+    <CalenderImage
+      source={calender} /> 
+    <DateText> {movieDetails.release_date}</DateText>
+    </ReleaseContainer>
+  </TextContainer>
+  </>
  )
 }
+
+const TextContainer = styled.View`
+display: flex;
+flex-direction: column;
+padding: 10px;
+`
+const Timecontainer = styled.View`
+display: flex
+flex-direction: row;
+align-items: center;
+`
+
+const ClockImage = styled.Image`
+  height:20px;
+  width:20px;
+`
+const TimeText = styled.Text`
+  color: #BDBDBD;
+  padding: 5px;
+  `
+const ReleaseContainer = styled.View`
+display: flex
+flex-direction: row;
+align-items: center;
+padding-left: 4px;`
+
+const CalenderImage = styled.Image`
+  height:13px;
+  width:13px;
+`
+const DateText = styled.Text`
+  color: #BDBDBD;
+  padding: 0px 5px;
+  `

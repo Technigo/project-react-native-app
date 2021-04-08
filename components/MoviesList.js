@@ -16,7 +16,7 @@ const MoviesList = () => {
      .then(json => setMovies(json.results))
   },[])
 
-  
+
 
   return (
    
@@ -25,7 +25,7 @@ const MoviesList = () => {
     <Title>🎬 </Title>
     <Container>
       {movies.map(movie => (
-        <Movie  key={movie.id} id={movie.id} poster_path={movie.poster_path} title={movie.title} release_date={movie.release_date} rating={movie.vote_average} overview={movie.overview}/>
+        <Movie  key={movie.id} id={movie.id} poster_path={movie.poster_path} title={movie.title} rating={movie.vote_average} overview={movie.overview}/>
       ))}
       </Container>
     </Header>

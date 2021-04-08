@@ -6,7 +6,7 @@ import { MovieDetails } from './MovieDetails'
 
 
 
-const Movie = ({ id, title, poster_path, release_date, rating, overview}) => {
+const Movie = ({ id, title, poster_path, rating, overview}) => {
   
   const onPress = () => {
     Alert.alert(
@@ -24,11 +24,10 @@ return (
     <CardContainer>
       <MovieImage
         source={{ uri: `https://image.tmdb.org/t/p/w500${poster_path}`}} />  
-      <TextContainer>
+        <Textsection>
         <TitleText>{title}</TitleText>
-        <DateText>Released: {release_date}</DateText>
-        <MovieDetails id={id}/>
-      </TextContainer>
+        <MovieDetails id={id}/> 
+        </Textsection>
     </CardContainer>
   </TouchableOpacity>
   </>
@@ -42,9 +41,9 @@ export default Movie
 
 
 const CardContainer = styled.View`
+  display: 1;
   display: flex;
   background-color: #3D3834;
-  min-height: 120px;
   margin-bottom: 5px;
   flex-direction: row;
   flex-wrap: wrap;
@@ -54,20 +53,21 @@ const CardContainer = styled.View`
   width:100px;
   height:150px;
   `
-  const TextContainer = styled.Text`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  max-width: 200px;
+  const Textsection = styled.View`
+  display:flex;
+  flex-direction:column;
   `
   const TitleText = styled.Text`
- 
-  color: white;
+  display: flex;
+  color: #E0E0E0;
   font-size: 18px;
-  padding: 5px;
+  padding: 5px 10px;
+  max-width: 200px;
+  height: 75px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
   `
-  const DateText = styled.Text`
 
-  color: white;
-  padding: 5px;
-  `
+ 
+  
