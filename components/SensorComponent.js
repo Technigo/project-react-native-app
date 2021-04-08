@@ -12,7 +12,7 @@ const isShaking = (data) => {
 
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.78;
+  return totalForce > 1.30;
 };
 
 // ==========================
@@ -20,6 +20,7 @@ const isShaking = (data) => {
 const ShakeView = styled.View`
   display: flex;
   flex-direction: column;
+  flex: 0.8;
 `;
 
 const ShakeAlert = styled.Text`
@@ -27,11 +28,19 @@ const ShakeAlert = styled.Text`
   font-weight: bold;
   color: #aa0000;
 `;
-const ShakeDataView = styled.View``;
+const ShakeDataView = styled.View`
+  
+`;
 const ShakeDataTitle = styled.Text`
   font-weight: bold;
 `;
 const ShakeData = styled.Text``;
+
+const ShakeTitle = styled.Text`
+  font-size: 36px;
+  font-weight: bold;
+  color: #aa0000;
+`
 
 export const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -83,13 +92,15 @@ export const SensorComponent = () => {
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
       */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      <ShakeTitle>Start shaking!</ShakeTitle>
       <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
+        <ShakeDataTitle>Current shake force</ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
+        {/* <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
         <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
+        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData> */}
+        <ShakeData> {Math.abs(data.x.toFixed(2)) + Math.abs(data.y.toFixed(2)) + Math.abs(data.z.toFixed(2))}</ShakeData>
+        {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
       </ShakeDataView>
     </ShakeView>
   );
