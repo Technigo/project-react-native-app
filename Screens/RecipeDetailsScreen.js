@@ -7,6 +7,7 @@ import RecipeDetails from "../components/RecipeDetails"
 
 const RecipeDetailsScreen = ({ recipeId }) => {
   const [recipeDetails, setRecipeDetails] = useState([])
+  const [sharedRecipe, setSharedRecipe] = useState("")
 
   useEffect(() => {
     console.log(recipeId)
@@ -17,12 +18,16 @@ const RecipeDetailsScreen = ({ recipeId }) => {
       .then(data => {
         console.log(data)
         setRecipeDetails(data)
+        setSharedRecipe(data.sourceUrl)
       })
 
   }, [recipeId])
 
   return (
-    <RecipeDetails recipeDetails={recipeDetails} />
+    <RecipeDetails
+      recipeDetails={recipeDetails}
+      sharedRecipe={sharedRecipe}
+    />
   )
 }
 
