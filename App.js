@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native'
+
 import { SensorComponent } from './components/SensorComponent';
+import { SubTitleTemp } from './components/Subtitle';
+
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background: papayawhip;
   justify-content: center;
   align-items: center;
 `;
@@ -12,13 +16,28 @@ const Container = styled.View`
 const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
+  margin-bottom: 100px;
 `;
+
+
+
+
+
+
 
 const App = () => {
   return (
+    
     <Container>
-      <Title>Accelerometer</Title>
-      <SensorComponent></SensorComponent>
+        
+        <Title>Great Oracle has spoken: </Title>
+        <SensorComponent></SensorComponent>
+      
+        <SubTitleTemp></SubTitleTemp>
+    
+
+      
+      
     </Container>
   );
 };

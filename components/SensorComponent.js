@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
+
+
 // = Functions
 const isShaking = (data) => {
-  
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
   return totalForce > 1.78;
 };
@@ -21,11 +22,31 @@ const ShakeAlert = styled.Text`
   font-weight: bold;
   color: #aa0000;
 `;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
+const OracleDataView = styled.View`
+  font-size: 30px;
   font-weight: bold;
+  color: #460273;
+  
 `;
-const ShakeData = styled.Text``;
+
+const styles = StyleSheet.create ({
+  message: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#460273',
+    opacity: 0.2,
+    
+    
+    
+  }
+
+
+})
+  
+
+
+
+
 
 export const SensorComponent = () => {
   
@@ -36,50 +57,26 @@ export const SensorComponent = () => {
     z: 0,
   });
 
-  {/*}
-  
-  const [choice, setChoice] = useState(false)
- 
-  if (isShaking(data)) {
-    const randomChoice = () => {
-    
-      let arr = ['yes', 'no', 'maybe', 'probably']
-      let num = Math.floor(Math.random()* (4-0))
-  
-      setChoice(arr[num])
-      
-    }
-  }
-  
-*/}
   const Oracle = () => {
+
     const [choice, setChoice] = useState('')
-    const [request, setRequest] = useState(false)
-    
-    
+    let arr = ['It is certain', 'It is decidedly so', 'Without a doubt', 'Yes-definitely',
+  'You may rely on it', 'As I see it, yes', 'Most likely', 'Outlook good', 'Yes',
+  'Yes', 'Signs point to yes', 'Reply hazy, try again', 'Ask again later', 'Better not tell you now',
+  'Cannot predict now', 'Concentrate and ask again', 'Do not count on it',
+  'My reply is no', 'My sources say no', 'Outlook not so good', 'Very doubtful']
+
     useEffect(() => {
-      let arr = ['yes', 'no', 'maybe', 'probably']
-      let num = Math.floor(Math.random()* (4-0))
-      setChoice(arr[num])
-      setRequest(isShaking(data))
-      
-      
-
-      
-      
-
-
-    }, [request])
-      
-      return (
-        <View>
-          <Text>The suggestion is {choice} </Text>
-        </View>
-      )
-  }
+      isShaking(data) && setTimeout (() => {setChoice(arr[Math.floor(Math.random()* arr.length)])}, 3000)
+    }, [isShaking(data)])
   
-  
-  
+    return (
+      <View>
+        <Text style={styles.message}>{choice}</Text>
+      </View>
+    )
+  }  
+
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
 
@@ -115,19 +112,11 @@ export const SensorComponent = () => {
   return (
     <ShakeView>
       
+      {isShaking(data) && <ShakeAlert>Thinking </ShakeAlert>}
       
-
+      <OracleDataView>
        {Oracle()}
-      
-      
-      {isShaking(data) && <ShakeAlert>Shaking </ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>New Shake Data </ShakeDataTitle>
-        
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
+      </OracleDataView>
     </ShakeView>
   );
 };
