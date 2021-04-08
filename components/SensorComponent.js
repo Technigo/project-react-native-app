@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
 
-import answers from "../data/answers"
+import answers from "../data/answers";
 
 // FUNCTIONS
 // The total combined force on the device
@@ -13,19 +13,18 @@ const isShaking = (data) => {
 };
 
 // Get random answer
-const getRandomInt = (max) => {
-  return Math.floor(Math.random() * Math.floor(max));
-}
+const randomIndex = (number) => {
+  return Math.floor(Math.random() * number);
+};
 
 // STYLED COMPONENTS
 const ShakeView = styled.View`
   flex: 1;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 `;
 
-const ShakeDataView = styled.View` 
-`;
+const ShakeDataView = styled.View``;
 
 const ShakeAlert = styled.Text`
   font-size: 36px;
@@ -33,14 +32,13 @@ const ShakeAlert = styled.Text`
   color: black;
   text-align: center;
   margin: 20px;
-  background-color:lightgray;
-
+  background-color: lightgray;
 `;
 
 const ShakeDataTitle = styled.Text`
   font-weight: bold;
   text-align: center;
-  background-color:lightgray;
+  background-color: lightgray;
 `;
 
 const ShakeData = styled.Text``;
@@ -49,10 +47,9 @@ const ShakeData = styled.Text``;
 // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
 export const SensorComponent = () => {
   Accelerometer.setUpdateInterval(400);
-  // what?????
-  const answerIndex = Math.random(answers.length);
 
   const [answer, setAnswer] = useState(undefined);
+  // const [data, setData] = useState({x: 0, y: 0, z: 0});
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
 
@@ -63,7 +60,7 @@ export const SensorComponent = () => {
       Accelerometer.addListener((accelerometerData) => {
         // Whenever this function is called, we have received new data
         if (isShaking(accelerometerData)) {
-          const answerIndex = getRandomInt(answers.length);
+          const answerIndex = randomIndex(answers.length);
           setAnswer(answers[answerIndex]);
         }
       })

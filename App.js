@@ -34,7 +34,7 @@ const App = () => {
       </HeadingContainer>
       {/* add image here? */}
       <SensorContainer>
-        <SensorComponent></SensorComponent>
+        <SensorComponent />
       </SensorContainer>
     </Container>
   );
