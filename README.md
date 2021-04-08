@@ -13,6 +13,8 @@ problem med att få in urlen på random cats. och problem med att få fram min c
 JAg hade problem med att kattbilderna fetchades alla på en gång, men kom på att det hade nog med att göra att jag skrivit in randomCatImages i [] i fetchen så jag tog bort det och då fetchade jag bara en katt i taget. 
 Det var svårt att förstå hur jag skulle göra med knappen för att få den att updatera sidan så att det fetchas en ny bild för varje knapptryck.
 
+jag gjorde en costum button component för att test att använda den på fler ställen.
+
 
 vad vill jag göra här näst?
 Add a font

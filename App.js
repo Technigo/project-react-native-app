@@ -1,25 +1,23 @@
 import React from 'react'
-import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
+import { Home } from './components/Home'
 import { RandomCats } from './components/RandomCats'
-import { AppTitle } from './components/AppTitle'
 
+//import { AppTitle } from './components/AppTitle'
 
-
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+const Stack = createStackNavigator()
 
 
 const App = () => {
   return (
-    <Container>
-      <AppTitle name="Cat Prokrastinator"/>
-      <RandomCats/>
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="RandomCats" component={RandomCats} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 

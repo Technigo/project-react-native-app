@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+
+import { MyCustomButton } from './MyCustomButton'
 
 
 const CatImage = styled.Image`
@@ -8,18 +10,6 @@ width: 260px;
 height: 250px;
 margin-top: 30px;
 `
-const RandomButton = styled.TouchableOpacity`
-background-color: #aaaaee;
-padding: 15px;
-border-radius: 3px;
-align-items: center;
-margin-top: 30px;
-`
-const ButtonText = styled.Text`
-font-size: 16px;
-`
-
-
 
 export const RandomCats = () => {
   const [randomCatImages, setRandomCatImages] = useState ([])
@@ -34,8 +24,6 @@ export const RandomCats = () => {
     
 
     const updateRandomCat = () => {
-      
-     
         fetch (CAT_API)
           .then(res => res.json())
           .then(json => setRandomCatImages(json))
@@ -46,9 +34,7 @@ export const RandomCats = () => {
       {randomCatImages.map(catImage => (
         <View key={catImage.id}>
           <CatImage source={{uri: catImage.url}}/>
-          <RandomButton onPress={updateRandomCat}>
-          <ButtonText>Press for random kitty 🐾</ButtonText>
-        </RandomButton>
+          <MyCustomButton text='Press for random kitty 🐾' onPress={updateRandomCat} />
         </View>
       ))}
     </View>
