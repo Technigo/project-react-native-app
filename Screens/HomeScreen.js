@@ -2,20 +2,25 @@ import React, { useState } from "react"
 import { Text, View, TouchableOpacity } from "react-native"
 import styled from "styled-components/native"
 import { RadioButton } from 'react-native-paper';
+import { Picker } from '@react-native-picker/picker';
+
 
 import { SensorComponent } from '../components/SensorComponent';
 import Dish from "../components/Dish"
 import Cuisine from '../components/Cuisine';
 import Diet from "../components/Diet"
+import { ICON_PATH } from "../utils/urls";
 
 const Container = styled.ScrollView`
   flex: 1;
 `
 
 const ChoiceView = styled.View`
-justify-content: center;
-align-items: center;
-border: 1px solid green;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+  flex-direction: row;
+  flex-wrap: wrap;
 `
 const DishView = styled(ChoiceView)`
   
@@ -24,24 +29,44 @@ const CuisineView = styled(ChoiceView)`
   
 `
 const DietView = styled(ChoiceView)`
-  flex-direction: row;
+`
+
+const Icon = styled.Image`
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+`
+
+const Label = styled.Text`
+`
+
+const StyledTouchable = styled.TouchableOpacity`  
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 0 10px;
+`
+
+const StyledPicker = styled.Picker`
+  width: 100%;
+  padding: 10px;
 `
 
 const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuery, cuisineQuery, setCuisineQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
   const [checkedDish, setCheckedDish] = useState('');
-  const [checkedCuisine, setCheckedCuisine] = useState('');
+  const [selectedCuisine, setSelectedCuisine] = useState('');
   const [checkedDiet, setCheckedDiet] = useState('');
 
   const handleClick = () => {
     navigation.navigate("Random Recipe")
   }
-  console.log(dishQuery)
+
   const chooseDish = (dish) => {
     setCheckedDish(dish)
     setDishQuery(dish)
   }
   const chooseCuisine = (cuisine) => {
-    setCheckedCuisine(cuisine)
+    console.log(cuisine)
     setCuisineQuery(cuisine)
   }
   const chooseDiet = (diet) => {
@@ -54,51 +79,48 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
 
       <DishView>
         {dishes.map(dish => (
-          <TouchableOpacity
+          <StyledTouchable
             key={dish}
             onPress={() => chooseDish(dish)}
           >
-            <Text>{dish}</Text>
+            <Icon source={require(`../assets/dishes/${dish}.png`)} alt={dish} />
             <RadioButton
               value={dish}
               status={checkedDish === dish ? 'checked' : 'unchecked'}
               onPress={() => chooseDish(dish)}
             />
-          </TouchableOpacity>
+          </StyledTouchable>
         ))}
       </DishView>
 
       <CuisineView>
-        {cuisine.map(eachCuisine => (
-          <TouchableOpacity
-            key={eachCuisine}
-            onPress={() => chooseDish(eachCuisine)}
-          >
-            <Text>{eachCuisine}</Text>
-            <RadioButton
+        <StyledPicker
+          selectedValue={cuisineQuery}
+          onValueChange={(itemValue) => chooseCuisine(itemValue)}
+        >
+          {cuisine.map(eachCuisine => (
+            <Picker.Item
               key={eachCuisine}
-              value={eachCuisine}
-              status={checkedCuisine === eachCuisine ? 'checked' : 'unchecked'}
-              onPress={() => chooseCuisine(eachCuisine)}
-            />
-          </TouchableOpacity>
-        ))}
+              label={eachCuisine}
+              value={eachCuisine} />
+          ))}
+        </StyledPicker>
       </CuisineView>
 
       <DietView>
         {diets.map(diet => (
-          <TouchableOpacity
+          <StyledTouchable
             key={diet}
             onPress={() => chooseDish(diet)}
           >
-            <Text>{diet}</Text>
+            <Label>{diet}</Label>
             <RadioButton
               key={diet}
               value={diet}
               status={checkedDiet === diet ? 'checked' : 'unchecked'}
               onPress={() => chooseDiet(diet)}
             />
-          </TouchableOpacity>
+          </StyledTouchable>
         ))}
       </DietView>
 

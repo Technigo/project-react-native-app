@@ -19,7 +19,6 @@ const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecip
   const getRandomNumber = (maxNum) => Math.floor(Math.random() * maxNum)
 
   useEffect(() => {
-
     fetch(API_URL(dishQuery, cuisineQuery, dietQuery))
       .then(res => res.json())
       .then(data => {

@@ -10,6 +10,7 @@ const RecipeText = styled.Text`
   font-weight: 700;
   font-size: 24px;
   text-align: left;
+  font-family: Roboto;
 `
 const IngredientText = styled.Text`
   font-size: 16px;
@@ -40,7 +41,6 @@ const InstructionsText = styled.Text`
 `
 
 const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
-
   const shareRecipe = async () => {
     if (!(await Sharing.isAvailableAsync())) {
       Alert.alert("Sorry, sharing not available on your platform")
@@ -56,7 +56,7 @@ const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
 
   return (
     <>
-      {/* <Loading /> */}
+      <Loading />
       <RecipeContainer>
         <RecipeText>{recipeDetails.title}</RecipeText>
         <TouchableOpacity onPress={shareRecipe}>

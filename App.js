@@ -11,15 +11,15 @@ import RecipeDetailsScreen from "./Screens/RecipeDetailsScreen"
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [dishQuery, setDishQuery] = useState({})
-  const [cuisineQuery, setCuisineQuery] = useState({})
-  const [dietQuery, setDietQuery] = useState({})
+  const [dishQuery, setDishQuery] = useState("")
+  const [cuisineQuery, setCuisineQuery] = useState("")
+  const [dietQuery, setDietQuery] = useState("")
   const [isMixingIngredients, setIsMixingIngredients] = useState(false)
   const [recipeId, setRecipeId] = useState(0)
 
-  const dishes = ["soup", "salad", "pasta", "risotto", "pizza", "curry", "stew", "pie", "wrap", "burger", "fish"]
-  const cuisine = ["african", "american", "british", "chinese", "eastern european", "french", "german", "greek", "indian", "italian", "japanese", "jewish", "mediterranean", "mexican", "middle eastern", "nordic", "spanish", "thai"]
-  const diets = ["vegetarian", "vegan", "pescetarian", "ketogenic", "gluten-free"]
+  const dishes = ["bbq", "cake", "pancake", "pasta", "pizza", "rice", "salad", "sandwich", "smoothie", "soup", "stew", "taco"]
+  const cuisine = ["African", "American", "Chinese", "Eastern European", "French", "German", "Greek", "Indian", "Italian", "Japanese", "Jewish", "Mediterranean", "Mexican", "Middle Eastern", "Nordic", "Spanish", "Thai"]
+  const diets = ["Vegetarian", "Vegan", "Pescetarian", "Ketogenic", "Gluten-free"]
 
   console.log(dishQuery, cuisineQuery, dietQuery, recipeId)
 
