@@ -33,7 +33,7 @@ const InstructionsText = styled.Text`
   border-top-color: lightgrey;
 `
 
-const Recipe = ({ dishQuery, ingredientQuery, dietQuery, setIsMixingIngredients }) => {
+const Recipe = ({ dishQuery, ingredientQuery, dietQuery, setRecipeId, setIsMixingIngredients }) => {
   const [recipes, setRecipes] = useState([])
 
   let preparedDish = []
@@ -59,6 +59,8 @@ const Recipe = ({ dishQuery, ingredientQuery, dietQuery, setIsMixingIngredients 
     }
   }
 
+  const getRandomNumber = (maxNum) => Math.floor(Math.random() * maxNum)
+
   useEffect(() => {
     prepareFetch()
 
@@ -70,21 +72,31 @@ const Recipe = ({ dishQuery, ingredientQuery, dietQuery, setIsMixingIngredients 
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        setRecipes(data.results)
+        setRecipes(data.results[getRandomNumber(data.results.length)])
       })
       .catch(err => console.err(err))
+
+    console.log(recipes)
 
     setIsMixingIngredients(false)
   }, [ingredientQuery])
 
+  useEffect(() => {
+    setRecipeId(recipes.id)
+  }, [recipes])
+
   return (
     <>
-      {recipes.map(recipe => (
+      <RecipeContainer key={recipes.id}>
+        <RecipeImage source={{ uri: recipes.image }} />
+        <RecipeText >{recipes.title}</RecipeText>
+      </RecipeContainer>
+      {/* {recipes.map(recipe => (
         <RecipeContainer key={recipe.id}>
           <RecipeImage source={{ uri: recipe.image }} />
           <RecipeText >{recipe.title}</RecipeText>
         </RecipeContainer>
-      ))}
+      ))} */}
       <InstructionsText>
         Like what you see? Tap the image to get the full recipe. Or go back to change ingredients.
       </InstructionsText>

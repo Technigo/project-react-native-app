@@ -29,7 +29,7 @@ const DietView = styled(ChoiceView)`
 const HomeScreen = ({ navigation, dishes, ingredients, diets, dishQuery, setDishQuery, ingredientQuery, setIngredientQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
 
   const handleClick = () => {
-    navigation.navigate("Recipe")
+    navigation.navigate("Random Recipe")
   }
 
   return (

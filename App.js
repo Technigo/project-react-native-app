@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from "./Screens/HomeScreen"
 import RecipeScreen from "./Screens/RecipeScreen"
+import RecipeDetailsScreen from "./Screens/RecipeDetailsScreen"
 
 const Stack = createStackNavigator();
 
@@ -13,12 +14,13 @@ const App = () => {
   const [ingredientQuery, setIngredientQuery] = useState({ tomato: false, basil: false })
   const [dietQuery, setDietQuery] = useState({})
   const [isMixingIngredients, setIsMixingIngredients] = useState(false)
+  const [recipeId, setRecipeId] = useState(0)
 
   const dishes = ["soup", "salad", "pasta", "risotto", "pizza", "curry", "stew", "pie", "wrap"]
   const ingredients = ["tomato", "cheese", "eggs", "beef", "chicken", "corn", "lamb", "pork", "basil", "potato"]
   const diets = ["vegetarian", "vegan", "pescetarian", "ketogenic", "gluten-free"]
 
-  console.log(dishQuery, ingredientQuery, dietQuery)
+  console.log(dishQuery, ingredientQuery, dietQuery, recipeId)
 
   return (
     <NavigationContainer>
@@ -31,7 +33,7 @@ const App = () => {
             diets={diets}
             dishQuery={dishQuery}
             setDishQuery={setDishQuery}
-            ingredientQuery={ingredientQuery}
+            ingredientQuery={ingredientQuery} s
             setIngredientQuery={setIngredientQuery}
             dietQuery={dietQuery}
             setDietQuery={setDietQuery}
@@ -41,11 +43,24 @@ const App = () => {
           }
         </Stack.Screen>
 
-        <Stack.Screen name="Recipe">
+        <Stack.Screen name="Random Recipe">
           {props => <RecipeScreen {...props}
             dishQuery={dishQuery}
             ingredientQuery={ingredientQuery}
             dietQuery={dietQuery}
+            setRecipeId={setRecipeId}
+            isMixingIngredients={isMixingIngredients}
+            setIsMixingIngredients={setIsMixingIngredients}
+          />
+          }
+        </Stack.Screen>
+
+        <Stack.Screen name="Recipe Details">
+          {props => <RecipeDetailsScreen {...props}
+            dishQuery={dishQuery}
+            ingredientQuery={ingredientQuery}
+            dietQuery={dietQuery}
+            recipeId={recipeId}
             isMixingIngredients={isMixingIngredients}
             setIsMixingIngredients={setIsMixingIngredients}
           />
