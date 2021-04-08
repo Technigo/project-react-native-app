@@ -1,8 +1,11 @@
 import React from 'react'
 import { Text } from 'react-native'
 import styled from 'styled-components/native'
+import { useNavigation } from '@react-navigation/native'
+
 
 const RecipeThumb = ({item}) => {
+  const navigation= useNavigation()
   //console.log(item)
   const calories = Math.round((Number(item.recipe.calories)/Number(item.recipe.totalWeight))*100)
   return (
@@ -16,6 +19,9 @@ const RecipeThumb = ({item}) => {
           <DetailsText>{calories} ccal |</DetailsText>
           <DetailsText>{item.recipe.source}</DetailsText>
         </DetailsContainer>
+        <Button onPress={() => navigation.navigate('Recipe', { caption: `${item.recipe.uri}` })}>
+          <Text>Go to recipe</Text>
+        </Button>
     </TextContainer> 
     </Container>
   )
@@ -55,4 +61,17 @@ const DetailsText = styled.Text `
   font-size: 16px;
   margin: 5px;
   color: white;
+`
+
+const Button = styled.TouchableOpacity`
+  width: 120px;  
+  height: 40px;
+  border: none;
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 3px;
+  justify-content: center;
+  align-items:center;
+  background-color: blue;
 `
