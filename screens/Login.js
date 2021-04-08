@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
+import { loginUser } from "../hooks/asyncStorage";
 
 const LoginContainer = styled.View`
   display: flex;
@@ -14,7 +15,7 @@ const LoginTextInput = styled.TextInput`
   margin: 12px;
   padding: 10px;
   border-width: 1;
-  background: #ffff;
+  background: #fff;
   color: #000;
 `;
 const Submit = styled.Button``;
@@ -23,12 +24,30 @@ const Signup = styled.TouchableOpacity`
   margin: 20px;
 `;
 
-export const Login = ({ navigation }) => {
+export const Login = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [hasError, setHasError] = useState(false);
+
+  const onSubmit = async () => {
+    const userInfo = {
+      userName,
+      password,
+    };
+    const loginSuccess = await loginUser(userInfo);
+
+    if (loginSuccess) {
+      await props.route.params.recall();
+    } else {
+      setHasError(true);
+    }
+  };
 
   return (
     <LoginContainer>
+      {hasError && (
+        <Text style={{ color: "#fff" }}>Please validate your credentials.</Text>
+      )}
       <LoginTextInput
         onChangeText={setUserName}
         value={userName}
@@ -39,8 +58,8 @@ export const Login = ({ navigation }) => {
         value={password}
         placeholder="Add password"
       />
-      <Submit title="Login" onPress={() => null} />
-      <Signup onPress={() => navigation.navigate("register")}>
+      <Submit title="Login" onPress={onSubmit} />
+      <Signup onPress={() => props.navigation.navigate("register")}>
         <Text style={{ color: "#fff" }}>SignUp here</Text>
       </Signup>
     </LoginContainer>

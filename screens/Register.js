@@ -15,7 +15,7 @@ const RegisterTextInput = styled.TextInput`
   margin: 12px;
   padding: 10px;
   border-width: 1;
-  background: #ffff;
+  background: #fff;
   color: #000;
 `;
 
@@ -30,7 +30,7 @@ export const Register = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const { success, storeData } = useSaveUserInfo();
+  const { storeData } = useSaveUserInfo();
 
   const onSubmit = async () => {
     const userInfo = {
@@ -42,14 +42,14 @@ export const Register = (props) => {
     await props.route.params.recall();
   };
 
-  console.log(props);
+  //console.log(props);
 
   return (
     <RegisterContainer>
       <RegisterTextInput
         onChangeText={setfullName}
         value={fullName}
-        placeholder="Add username"
+        placeholder="Add Full Name"
       />
       <RegisterTextInput
         onChangeText={setUserName}

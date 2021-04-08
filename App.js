@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Octicons, Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useGetUser } from "./hooks/asyncStorage";
+import { MediaDetail } from "./screens/MediaDetail";
 
 // Const to set style options.
 const tabBarStyle = {
@@ -23,13 +24,15 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 // Home Navigation component
-const HomeStack = () => {
+const HomeStack = ({ recall }) => {
   return (
     <Stack.Navigator headerMode="none">
       <Stack.Screen
         name="appNavigation"
         component={NavigationTab}
+        initialParams={{ recall }}
       ></Stack.Screen>
+      <Stack.Screen name="media-detail" component={MediaDetail} />
     </Stack.Navigator>
   );
 };
@@ -38,7 +41,11 @@ const HomeStack = () => {
 const AuthStack = ({ recall }) => {
   return (
     <Stack.Navigator headerMode="none">
-      <Stack.Screen name="login" component={Login}></Stack.Screen>
+      <Stack.Screen
+        name="login"
+        component={Login}
+        initialParams={{ recall }}
+      ></Stack.Screen>
       <Stack.Screen
         name="register"
         component={Register}
@@ -49,7 +56,7 @@ const AuthStack = ({ recall }) => {
 };
 
 // Tab Navigation component (icons- options)
-const NavigationTab = () => {
+const NavigationTab = (props) => {
   return (
     <Tab.Navigator initialRouteName="Home" tabBarOptions={tabBarStyle}>
       <Tab.Screen
@@ -75,6 +82,7 @@ const NavigationTab = () => {
       <Tab.Screen
         name="Profile"
         component={Profile}
+        initialParams={{ recall: props.route.params.recall }}
         options={{
           tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
@@ -95,7 +103,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      {user ? <HomeStack /> : <AuthStack recall={recall} />}
+      {user ? <HomeStack recall={recall} /> : <AuthStack recall={recall} />}
     </NavigationContainer>
   );
 };
