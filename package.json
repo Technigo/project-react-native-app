@@ -8,6 +8,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/material-top-tabs": "^5.3.15",
+    "@react-navigation/native": "^5.9.4",
     "braces": "^3.0.2",
     "expo": "^40.0.0",
     "expo-sharing": "~8.5.0",
