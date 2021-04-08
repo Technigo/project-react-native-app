@@ -24,6 +24,5 @@ export const MyCustomButton = (props) => {
     <CustomButton onPress={onPress}>
       <ButtonText>{props.text}</ButtonText>
     </CustomButton>
-
   )
 }

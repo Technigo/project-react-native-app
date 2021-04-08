@@ -21,6 +21,7 @@ Add a font
 gör en select med olika raser länka till sida med den specifika rasen. 
 
 Om jag hade haft mer tid hade det varit kul att använda mig av apiet och göra en select och länk för olika cat breeds med info. 
+om jag haft mer tid hafde det varit roligt att göra en egen animation och lägga in.
 
 
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?

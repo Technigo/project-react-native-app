@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 
-//import { Button } from 'react-native'
-
 import { MyCustomButton } from './MyCustomButton'
+//import { SelectBreed } from './SelectBreed'
+
+
 
 
 const Container = styled.View`
@@ -21,12 +22,11 @@ export const Home = ({navigation}) => {
 
   }
 
-
-    return (
-
-      <Container>
-          <MyCustomButton text='Press for Random Kitty' onPress={pressHandler} />
-      </Container>
+  return (
+  <Container>
+    <MyCustomButton text='Press for procrastination' onPress={pressHandler} />
+   
+  </Container>
   )
-
 }
+

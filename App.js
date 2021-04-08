@@ -5,7 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { Home } from './components/Home'
 import { RandomCats } from './components/RandomCats'
 
-//import { AppTitle } from './components/AppTitle'
 
 const Stack = createStackNavigator()
 

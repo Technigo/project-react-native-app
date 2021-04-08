@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
-import { View } from 'react-native'
 
 import { MyCustomButton } from './MyCustomButton'
 
+const Container = styled.View`
+  flex: 1;
+  background-color: papayawhip;
+  justify-content: center;
+  align-items: center;
+`
+
+const ImageContainer = styled.View`
+  align-items: center;
+`
 
 const CatImage = styled.Image`
-width: 260px;
-height: 250px;
-margin-top: 30px;
+  width: 340px;
+  height: 350px;
 `
 
 export const RandomCats = () => {
@@ -30,15 +38,14 @@ export const RandomCats = () => {
     }
 
   return(
-    <View>
+    <Container>
       {randomCatImages.map(catImage => (
-        <View key={catImage.id}>
+        <ImageContainer key={catImage.id}>
           <CatImage source={{uri: catImage.url}}/>
           <MyCustomButton text='Press for random kitty 🐾' onPress={updateRandomCat} />
-        </View>
+        </ImageContainer >
       ))}
-    </View>
-
+    </Container>
   )
 }
 
