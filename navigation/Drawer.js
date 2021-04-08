@@ -62,9 +62,9 @@ export const DrawerContent = ({ navigation, ...props }) => {
         />
         <DrawerItem
           icon="gamepad"
-          label="Games"
-          active={active === 'Games'}
-          onPress={() => onPressNavigation('Games')}
+          label="Movies"
+          active={active === 'Movies'}
+          onPress={() => onPressNavigation('Movies')}
         />
         <DrawerItem
           icon="account"
