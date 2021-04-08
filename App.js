@@ -68,10 +68,10 @@ const App = () => {
 
   return (
     <Container>
-      <HeaderContainer 
+      {/* <HeaderContainer 
         name={name}
         onChangeName={onChangeName}
-        />
+        /> */}
 
       <BottomContainer>
 
@@ -80,9 +80,9 @@ const App = () => {
           uri: imageUrl,
         }}
         ></ImageContainer> */}
-        {/* <SensorComponent></SensorComponent> */}
-        <Text style={styles.text}>Count: {count} </Text>
-        <MainText>Hi</MainText>
+        <SensorComponent></SensorComponent>
+        {/* <Text style={styles.text}>Count: {count} </Text> */}
+        {/* <MainText>Hi</MainText>
         <OrangeText>you {name}</OrangeText>
         <Button
           title="Press me"
@@ -90,7 +90,7 @@ const App = () => {
         />
         <CustomButton onPress={() => setCount(count + 1)}>
           <Text>Try pressing here</Text>
-        </CustomButton>
+        </CustomButton> */}
       </BottomContainer>
     </Container>
   );
