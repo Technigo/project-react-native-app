@@ -1,53 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
 
+import { LinearGradient } from 'expo-linear-gradient'
 import { ShakeSensor } from './components/ShakeSensor'
-import { StartPage } from './components/StartPage'
-// import { ShakeShake } from './components/ShakeShake'
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  width: 100%;
   justify-content: center;
   align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
-
+  background-color: #0a0a0a;
+`
+// Could not make a linear background color without using inline syntax, got only errors
 const App = () => {
-//  const [startScreen, setStartScreen] = useState(true)
-
-  // Hur gör jag detta? Phone shake and initial screen will be set to false ---> instead render message inside of magic answer. 
-/*   const shake = () => {
-    setStartScreen(false);
-  }
-
-  useEffect(() => {
-    ShakeSensor.addListener(() => {
-      shake();
-    })
-    return () => {
-      ShakeSensor.removeListener();
-    }
-  }, []) */
-
-/* leftover from tryout rendering of each component earlier::: ---->   
-  <Container>
-    <ShakeSensor></ShakeSensor>
-    <MagicAnswer></MagicAnswer>
-  </Container> */
-
   return (
     <Container>
-      <ShakeSensor></ShakeSensor>
-{/*     {startScreen ? (
-    <StartPage></StartPage>
-    ) : (
-    <MagicAnswer></MagicAnswer>
-    )} */}
+      <LinearGradient 
+        colors={["#d16ba5", "#c777b9", "#ba83ca", "#aa8fd8", "#9a9ae1", "#8aa7ec", "#79b3f4", "#69bff8", "#52cffe", "#41dfff", "#46eefa", "#5ffbf1"]}
+        style={{flex: 1}}
+      >
+        <ShakeSensor></ShakeSensor>
+      </LinearGradient>
     </Container>
   )
 }

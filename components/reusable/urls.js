@@ -1,1 +1,0 @@
-export const MAGIC_API = 'http://worm.amplitut.de:8080/completemagic'

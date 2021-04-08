@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Accelerometer } from 'expo-sensors'
-import styled from 'styled-components/native'
+import { useFonts, Inter_500Medium } from '@expo-google-fonts/inter';
+import AppLoading from 'expo-app-loading';
+import { Image } from 'react-native' 
 
-import getData from '../data/magicanswer'
+import { ShakeView, ShakeAlert, ShakeDataView, InterShakeDataTitle } from '../StyledComponents/ShakeSensorStyling'
+import magicanswer from '../data/magicanswer'
 
-// import magicanswer from '../data/magicanswer'
-
-import { StartPage } from './StartPage'
-
-// FUNCTIONS: 
-let magicanswer
-
-const someFunc = () => {
-  getData().then((magicdataobjects) => {
-    // console.log(magicdataobjects) //take away *
-    magicanswer = magicdataobjects
-    })
-  // .catch(err => console.error(err)) // take away catch or add an error message *  */
-}
-
+// FUNCTIONS
 // The total combined force on the device
 const isShaking = (data) => {
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
@@ -30,29 +19,11 @@ const isShaking = (data) => {
 const randomAnswer = (number) => {
   return Math.floor(Math.random() * number)
 }
-
-// Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
-`;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
-
 // This function determines how often our program reads the accelerometer data in milliseconds
 // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
 export const ShakeSensor = () => {
   Accelerometer.setUpdateInterval(400);
-
+  
   const [answer, setAnswer] = useState(undefined)
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
@@ -69,13 +40,12 @@ export const ShakeSensor = () => {
         // Whenever this function is called, we have received new data
         if (isShaking(accelerometerData)) {
           const answerIndex = randomAnswer(magicanswer.length)
-          setAnswer(magicanswer[answerIndex].Answer)
+          setAnswer(magicanswer[answerIndex])
         }
       })
     )
   }
-
-  // This will tell the device to stop reading Accelerometer data otherwise our device will become slow and drain a lot of battery
+  // This will tell the device to stop reading Accelerometer data, otherwise our device will become slow and drain a lot of battery
   const _unsubscribe = () => {
     subscription && subscription.remove()
     setSubscription(null)
@@ -88,24 +58,32 @@ export const ShakeSensor = () => {
     return () => _unsubscribe()
   }, [])
 
-{/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-
-                <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-*/}
+  // custom font
+  const [fontsLoaded] =useFonts({
+    'Inter_500Medium': require('../assets/fonts/Inter_500Medium.ttf')
+  })
+  if (!fontsLoaded) {
+    return <AppLoading />
+  } else {
   return (
     <ShakeView>
       <ShakeDataView>
-        <ShakeDataTitle>
-          {answer ? "Ask me another question shake again" : "Ask me a yes / no question and shake me for an answer"}
-        </ShakeDataTitle>
-          {answer ? <ShakeAlert>{answer}</ShakeAlert> : null}
+        <InterShakeDataTitle>
+          {answer ? "Didn't like the answer? Shake it up and try again!" : "Ask a question and shake me to get your magic answer!"}
+        </InterShakeDataTitle>
+        <Image
+          source={require('../assets/magic-ball.png')}
+          accessibilityLabel='Magic 8 ball'
+          style={{
+            height: 200,
+            width: 200,
+            resizeMode: 'cover',
+            alignSelf: 'center'
+          }}
+        />
+        {answer ? <ShakeAlert>{answer}</ShakeAlert> : null}
       </ShakeDataView>
     </ShakeView>
   )
+  }
 }
