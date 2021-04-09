@@ -11,7 +11,7 @@ Two main challenges during this project were to figure out how to pass value fro
 
 First problem I solved by talking to a code coach, he explained how to pass parameters to the route you are navigating to. So I implemented that. And secod problem I solved by googling and going throuth answers on StackOverflow. I used accelerometer in the mobile phone to detect the shake and call a function that would shown random answers by using Math.random method on the array of possible answers.
 
-If I had more time I would have made better design for the actuall ball and added animation to it.
+If I had more time I would have made better design for the actuall ball and implemented some animations.
 
 ## View it live
 
