@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 
 import { FULLCOMIC_URL } from "../reusables/urls";
-import { ComicsList } from "./ComicsList";
 
-
-export const ComicDetails = ({ route }) => {
+export const ComicDetails = ({ route, navigation }) => {
   const [comic, setComic] = useState();
   const { id } = route.params;
 
@@ -20,7 +18,11 @@ export const ComicDetails = ({ route }) => {
       {comic && (
         <Wrapper>
           <Image
-            source={comic.images[0] && { uri: `${comic.images[0].path}/portrait_uncanny.jpg` }}
+            source={
+              comic.images[0] && {
+                uri: `${comic.images[0].path}/portrait_uncanny.jpg`,
+              }
+            }
           />
           <TextContainer>
             <Title>{comic.title}</Title>
@@ -30,12 +32,14 @@ export const ComicDetails = ({ route }) => {
                 : "No description"}
             </DetailText>
           </TextContainer>
+          <Button onPress={() => navigation.goBack()}>
+            <ButtonText>Back</ButtonText>
+          </Button>
         </Wrapper>
       )}
     </>
   );
 };
-
 
 const Wrapper = styled.View`
   flex: 1 1 auto;
@@ -62,3 +66,21 @@ const TextContainer = styled.View`
 `;
 
 const DetailText = styled.Text``;
+
+const Button = styled.TouchableOpacity`
+  height: 30px;
+  width: 100px;
+  background: black;
+  border-color: red;
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  border-radius: 10px;
+`;
+
+const ButtonText = styled.Text`
+  color: red;
+`;

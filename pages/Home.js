@@ -46,7 +46,9 @@ export const Home = ({ navigation }) => {
       {dimensions.width >= 768 ? (
         <></>
       ) : (
-        <Button title="Show Menu" onPress={() => navigation.toggleDrawer()} />
+        <Button onPress={() => navigation.toggleDrawer()}>
+          <ButtonText>Show Menu</ButtonText>
+        </Button> 
       )}
     </Wrapper>
   );
@@ -60,6 +62,19 @@ const Wrapper = styled.View`
   background-color: black;
 `;
 
-const Button = styled.Button`
-background-color: grey;
+const Button = styled.TouchableOpacity`
+height: 30px;
+width: 100px;
+background: black;
+border-color: red;
+border-style: solid;
+border-width: 2px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 50px;
+border-radius: 10px;
 `;
+
+const ButtonText = styled.Text`
+color: red;`

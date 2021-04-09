@@ -1,34 +1,34 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components/native";
-import { StyleSheet, Animated, useWindowDimensions } from "react-native";
+import { StyleSheet, Animated, useWindowDimensions, ActivityIndicator, View} from "react-native";
 
 import { COMICS_URL } from "../reusables/urls";
 import { ComicCard } from "../components/ComicCard";
 
-export const ComicsList = ({ navigation, setComicTitle }) => {
+export const ComicsList = ({ navigation, setComicTitle, comicTitle }) => {
   const [comicList, setComicList] = useState([]);
-  const [didMount, setDidMount] = useState(false);
   const scrollX = useRef(new Animated.Value(0)).current;
   const { width: windowWidth } = useWindowDimensions();
+  const [loading, setloading] = useState(true)
 
   useEffect(() => {
+    let mounted = true
     fetch(COMICS_URL)
       .then((res) => res.json())
-      .then((comics) => setComicList(comics.data.results));
-  }, []);
-
-  /*   useEffect(() => {
-    setDidMount(true);
-    return () => setDidMount(false);
-  }, []);
-
-  if (!didMount) {
-    return null;
+      .then((comics) => {setComicList(comics.data.results)
+         !comicTitle && setComicTitle("Issues")})
+      .then(() => {
+        if (mounted) {
+            setloading(false)
+        }
+    })
+      
+    return function cleanup(){
+      mounted = false
   }
-  console.log(didMount); */
+}, [setComicList, setComicTitle])
 
   const mapComics = (comic) => {
-    console.log(comic.images[0])
     return (
       <ComicCard
         path={comic.images[0] && comic.images[0].path}
@@ -41,8 +41,8 @@ export const ComicsList = ({ navigation, setComicTitle }) => {
     );
   };
 
- 
-  return windowWidth < 768 ? (
+  return loading ? <View style={[styles.container, styles.horizontal]}><ActivityIndicator size="large" color="#00ff00" /></View>
+ : windowWidth < 768 ? (
     <MobileView>
       <ScrollContainer>
         <Animated.ScrollView
@@ -134,4 +134,13 @@ const styles = StyleSheet.create({
     backgroundColor: "silver",
     marginHorizontal: 4,
   },
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
+  }
 });

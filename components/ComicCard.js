@@ -2,26 +2,18 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import {
-  Text,
   StyleSheet,
   View,
   ImageBackground,
   useWindowDimensions,
 } from "react-native";
 
-
-export const ComicCard = ({
-  title,
-  path,
-  id,
-  navigation,
-  setComicTitle,
-}) => {
+export const ComicCard = ({ title, path, id, navigation, setComicTitle }) => {
   const { width: windowWidth } = useWindowDimensions();
 
   const handlePress = () => {
     setComicTitle(title);
-    navigation.navigate("ComicDetails", { id: id });
+    navigation.navigate("ComicDetails", { id: id, navigation });
   };
 
   return (
@@ -29,22 +21,24 @@ export const ComicCard = ({
       {windowWidth < 768 ? (
         <View style={{ width: windowWidth, height: 250 }}>
           <ImageBackground
-            source={path &&{ uri: `${path}/portrait_uncanny.jpg` }}
-            style={styles.card}
+            source={path && { uri: `${path}/portrait_uncanny.jpg` }}
+            style={styles.backgroundImg}
           >
-            <View style={styles.textContainer}>
-              <Text style={styles.infoText}>{title}</Text>
-            </View>
+            <MobileTextContainer>
+              <MobileTitle>{title}</MobileTitle>
+            </MobileTextContainer>
           </ImageBackground>
         </View>
       ) : (
         <Card>
           <ImageContainer>
-            <Image source={path &&{ uri: `${path}/portrait_uncanny.jpg` }}></Image>
+            <Image
+              source={path && { uri: `${path}/portrait_uncanny.jpg` }}
+            ></Image>
           </ImageContainer>
-          <TextContainer>
-            <Title>{title}</Title>
-          </TextContainer>
+          <WebTextContainer>
+            <WebTitle>{title}</WebTitle>
+          </WebTextContainer>
         </Card>
       )}
     </TouchableOpacity>
@@ -52,12 +46,7 @@ export const ComicCard = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  card: {
+  backgroundImg: {
     flex: 1,
     marginVertical: 4,
     marginHorizontal: 16,
@@ -66,19 +55,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  textContainer: {
-    backgroundColor: "rgba(0,0,0, 0.7)",
-    paddingHorizontal: 24,
-    paddingVertical: 8,
-    borderRadius: 5,
-  },
   infoText: {
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
   },
 });
-
 
 const Card = styled.View`
   flex: 1 1 auto;
@@ -98,7 +80,7 @@ const Image = styled.Image`
   width: 100%;
   height: 100%;
 `;
-const TextContainer = styled.View`
+const WebTextContainer = styled.View`
   width: 300px;
   background-color: black;
   height: 100px;
@@ -106,6 +88,19 @@ const TextContainer = styled.View`
   flex-direction: column;
 `;
 
-const Title = styled.Text`
+const MobileTextContainer = styled.View`
+background-color: rgba(0,0,0, 0.7);
+padding-horizontal: 24px;
+padding-vertical: 8px;
+border-radius: 5px;
+`
+const MobileTitle = styled.Text`
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  `
+
+
+const WebTitle = styled.Text`
   color: yellow;
 `;
