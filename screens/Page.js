@@ -2,23 +2,21 @@ import React from 'react'
 import { Button, Text } from 'react-native'
 import styled from 'styled-components/native'
 
-// This is the main container for this screen
-const NotificationsContainer = styled.View`
+const PageContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 `;
 
-
-export const Notifications = ({ navigation: {goBack} }) => {
+export const Page = ({ navigation: {goBack} }) => {
   return (
-    <NotificationsContainer>
-      <Text>Notifications Screen</Text>
+    <PageContainer>
+      <Text>Page screen </Text>
       <Button 
-        title="Go Home" 
+        title="Go Back" 
         onPress={ () => goBack()} 
       />
-    </NotificationsContainer>
+    </PageContainer>
   );
 };
