@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
-// import { ImageBackground } from 'react-native'
-import { SensorComponent } from './components/SensorComponent'
 
 import background from './assets/space.jpeg'
+import { SensorComponent } from './components/SensorComponent'
 
 const Container = styled.View`
   flex: 1;
@@ -11,7 +10,7 @@ const Container = styled.View`
   align-items: center;
 `
 
-const BackgroundIMage = styled.ImageBackground`
+const BackgroundImage = styled.ImageBackground`
   flex: 1;
   height: 100%;
   width: 100%;
@@ -19,12 +18,12 @@ const BackgroundIMage = styled.ImageBackground`
 
 const App = () => {
   return (
-    <BackgroundIMage
+    <BackgroundImage
       source={background}>
       <Container>
-        <SensorComponent></SensorComponent>
+        <SensorComponent />
       </Container>
-    </BackgroundIMage>
+    </BackgroundImage>
   )
 }
 

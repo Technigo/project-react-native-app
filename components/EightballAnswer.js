@@ -1,53 +1,70 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
 
 const Eightball = styled.View`
-  width: 300px;
-  height: 300px;
+  width: 335px;
+  height: 335px;
   background-color: #000;
-  border-radius: 300;
+  border-radius: 335;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+`
+
+const Circle = styled.View `
+  width: 200px;
+  height: 200px;
+  border-radius: 200;
+  border: solid 5.5px #222;
   overflow: hidden;
   justify-content: center;
   align-items: center;
 `
 
-const AnswerBackground = styled.View `
-  width: 140px;
-  height: 140px;
-  background-color: #efefef;
-  border-radius: 140;
-  overflow: hidden;
-  justify-content: center;
+const Triangle = styled.View`
+  width: 0;
+  height: 0;
+  border-left-width: 100px;
+  border-left-style: solid;
+  border-left-color: transparent;
+  border-right-width: 100px;
+  border-right-style: solid;
+  border-right-color: transparent;
+  border-top-width: 150px;
+  border-top-style: solid;
+  border-top-color: blue;
+  //border-top-color: #1B3BCD;
+  margin-top: 63px;
+  justify-content: flex-end;
+  align-items: center;
+`
+
+const AnswerContainer = styled.View`
+  width: 150px;
+  height: 130px;
   align-items: center;
 `
 
 const Answer = styled.Text`
-  color: purple;
-  font-size: 20px;
-  text-align: center;
+  color: #FFF;
+  font-size: 18px;
+  text-align: center;  
 `
 
 const EightballAnswer = ({newAnswer}) => {
-  // const answers = ['It is certain', 'Without a doubt', 'You may rely on it', 'Yes definitely', 'It is decidedly so', 'As I see it yes', 'Most likely', 'Yes', 'Outlook good', 
-  // 'Signs point to yes', 'Reply hazy try again', 'Better not tell you now', 'Ask again later', 'Cannot predict now', 'Concentrate and ask again', "Don't count on it", 
-  // 'Outlook not so good', 'My sources say no', 'Very doubtful', 'My reply is no']
-
-  // const [randomAnswer, setRandomAnswer] = useState('')
-
-  // const setAnswer = () => {
-  //   answer = answers[Math.floor(Math.random() * answers.length)]
-  //   setRandomAnswer(randomAnswer)
-  // }
-
-  // // const answer = answers[Math.floor(Math.random() * answers.length)]
 
   return (
     <Eightball>
-      <AnswerBackground>
-        <Answer>
-          {newAnswer}
-        </Answer>
-      </AnswerBackground>
+        <Circle>
+          <Triangle>
+            <AnswerContainer>
+              <Answer>
+                {newAnswer}
+              </Answer>
+            </AnswerContainer>
+          </Triangle>
+        </Circle>
     </Eightball>
   )
 }

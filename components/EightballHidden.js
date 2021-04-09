@@ -9,6 +9,7 @@ const Eightball = styled.View`
   overflow: hidden;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 `
 
 const EightBackground = styled.View`
@@ -23,8 +24,9 @@ const EightBackground = styled.View`
 
 const EightText = styled.Text`
   color: #000;
-  font-size: 100px;
+  font-size: 120px;
   font-family: 'CourierNewPS-BoldMT';
+  margin-top: 10px;
 `
 
 const EightballHidden = () => {
