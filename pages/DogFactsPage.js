@@ -30,7 +30,7 @@ const ButtonText = styled.Text`
     font-size: 20px;
 `
 
-export const DogFacts = () => {
+export const DogFactsPage = () => {
     const [dogFacts, setDogFacts] = useState([])
     const [randomFact, setRandomFact] = useState('')
 
@@ -43,12 +43,13 @@ export const DogFacts = () => {
     }, [])
 
     const onPressRandomFact= () => {
-         setRandomFact(dogFacts[Math.floor(Math.random() * dogFacts.length)].fact)
+        return setRandomFact(dogFacts[Math.floor(Math.random() * dogFacts.length)].fact)
     }
 
     return(
         <>
         <Container>
+        <Text>Random Cat Facts</Text>
             <DogInformationText>
                 {randomFact}
             </DogInformationText>
@@ -56,7 +57,7 @@ export const DogFacts = () => {
         <ButtonTouchableOpacity
             onPress={onPressRandomFact}
         >
-            <ButtonText>New Fact!</ButtonText>
+            <ButtonText>Show me more!</ButtonText>
        </ButtonTouchableOpacity>
        </>
     )

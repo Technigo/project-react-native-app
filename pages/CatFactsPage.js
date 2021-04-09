@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Text, Button, TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 
-
 const Container = styled.View `
 background-color: papayawhip;
 justify-content: center;
@@ -30,7 +29,7 @@ const ButtonText = styled.Text`
     font-size: 20px;
 `
 
-export const CatFacts = () => {
+export const CatFactsPage = () => {
     const [catFacts, setCatFacts] = useState([])
     const [randomFact, setRandomFact] = useState('')
 
@@ -43,12 +42,13 @@ export const CatFacts = () => {
     }, [])
 
     const onPressRandomFact= () => {
-         setRandomFact(catFacts[Math.floor(Math.random() * catFacts.length)].text)
+         return setRandomFact(catFacts[Math.floor(Math.random() * catFacts.length)].text)
     }
 
     return(
         <>
         <Container>
+            <Text>Random Cat Facts</Text>
             <CatInformationText>
                 {randomFact}
             </CatInformationText>
@@ -56,9 +56,8 @@ export const CatFacts = () => {
         <ButtonTouchableOpacity
             onPress={onPressRandomFact}
         >
-            <ButtonText>New Fact!</ButtonText>
+            <ButtonText>Show me more!</ButtonText>
        </ButtonTouchableOpacity>
        </>
     )
 }
-
