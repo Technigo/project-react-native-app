@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Magic 8 ball - Shake me",
+    "description":"A magic 8 ball app - ask a question and shake your phone to get your magic answer! This is my first mobile application with React Native, built during the Technigo bootcamp.",
     "slug": "project-react-native-app",
     "privacy": "public",
     "sdkVersion": "37.0.0",

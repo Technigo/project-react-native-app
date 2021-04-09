@@ -23,7 +23,7 @@ const randomAnswer = (number) => {
 export const ShakeSensor = () => {
   Accelerometer.setUpdateInterval(400);
   
-  const [answer, setAnswer] = useState(undefined)
+  const [answer, setAnswer] = useState(undefined)// answer is false as default value
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
 /*   const [data, setData] = useState({ x: 0, y: 0, z: 0, }) */
