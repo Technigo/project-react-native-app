@@ -1,13 +1,12 @@
-# Project React Native App 📱
+# Project React Native App - Joke Generator 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is week 13 assignment project of Technigo bootcamp. A mobile application built using React Native.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The problem of making one shake - one joke fetch was solved using Locks. 
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@leelalaim/projects/joke-generator

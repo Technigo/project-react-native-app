@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
+
 import { SensorComponent } from './SensorComponent'
 
 
@@ -12,7 +13,7 @@ const MainContainer = styled.View`
 `
 const TopContainer = styled.View`
     flex: 0.6;
-    background-color: #fffff;
+    background-color: #ffffff;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -26,7 +27,6 @@ flex: 3;
   width:100%;
 `
 
-
 const Title = styled.Text`
   justify-content: center;
   align-items: center;
@@ -34,6 +34,7 @@ const Title = styled.Text`
   text-align: center;
   color: #000000;
 `
+
 const BottomContainer = styled.View`
 flex: 0.3;
 justify-content: center;
@@ -61,7 +62,7 @@ export const JokesGenerator = () => {
           <SensorComponent />
         </JokeContainer>
         <BottomContainer>
-            <Explanation>*Shake the phone - get the joke.</Explanation>
+            <Explanation>* Shake the phone - get the joke.</Explanation>
         </BottomContainer>
 
     </MainContainer>
