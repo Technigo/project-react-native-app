@@ -12,8 +12,8 @@ const Container = styled.ScrollView`
 `
 
 const Poster = styled.ImageBackground`
-  height: ${props => windowHeight};
-  width: ${props => windowWidth};
+  height: ${windowHeight};
+  width: ${windowWidth};
   align-items: center;
   justify-content: center;
   padding-bottom: 30px;
@@ -72,6 +72,7 @@ const HomeScreen = ({ navigation }) => {
     <Container horizontal={true}>
      {movieList.map(movie =>
         <Poster 
+        
           blurRadius={5}
           key = {movie.id}
           source={{ uri:`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}}

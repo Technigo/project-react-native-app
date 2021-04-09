@@ -17,7 +17,7 @@ const Container = styled.ScrollView`
 const LoaderContainer = styled.View`
   justify-content: center;
   align-items: center;
-  height: ${props => windowHeight};
+  height: ${windowHeight};
 `
 const Loader = styled.ActivityIndicator``
 
