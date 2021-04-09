@@ -9,8 +9,15 @@ const Container = styled.ScrollView`
   flex: 1;
   background-color: white;
 `
+
+const ErrorText = styled.Text`
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+`
+
 const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecipeId, setIsMixingIngredients }) => {
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState()
 
   const handleTap = (id) => {
     setRecipeId(id)
@@ -20,16 +27,18 @@ const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecip
   useEffect(() => {
     fetch(API_URL(dishQuery, cuisineQuery, dietQuery))
       .then(res => res.json())
-      .then(data => {
-        setRecipes(data.results)
-      })
+      .then(data => setRecipes(data.results))
       .catch(err => console.err(err))
 
     setIsMixingIngredients(false)
   }, [cuisineQuery])
 
-  if (recipes.length === 0) {
+  if (recipes === undefined) {
     return <Text>Loading...</Text>
+  }
+
+  if (recipes.length === 0) {
+    return <ErrorText>Oops, something went wrong. There are no recipes that match your search. Try to go back and change your search!</ErrorText>
   }
 
   return (

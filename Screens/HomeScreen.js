@@ -11,6 +11,19 @@ import Cuisine from '../components/Cuisine';
 import Diet from "../components/Diet"
 import { ICON_PATH } from "../utils/urls";
 
+import bbq from "../assets/dishes/bbq.png"
+import cake from "../assets/dishes/cake.png"
+import pancake from "../assets/dishes/pancake.png"
+import pasta from "../assets/dishes/pasta.png"
+import pizza from "../assets/dishes/pizza.png"
+import rice from "../assets/dishes/rice.png"
+import salad from "../assets/dishes/salad.png"
+import sandwich from "../assets/dishes/sandwich.png"
+import smoothie from "../assets/dishes/smoothie.png"
+import soup from "../assets/dishes/soup.png"
+import stew from "../assets/dishes/stew.png"
+import taco from "../assets/dishes/taco.png"
+
 const Container = styled.ScrollView`
   flex: 1;
 `
@@ -23,15 +36,7 @@ const ChoiceView = styled.View`
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-`
-const DishView = styled(ChoiceView)`
-  padding: 20px 0;
-  
-`
-const CuisineView = styled(ChoiceView)`
-  
-`
-const DietView = styled(ChoiceView)`
+  padding: 10px;
 `
 
 const Icon = styled.Image`
@@ -98,7 +103,7 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
     <Container>
       <Category>
         <CategoryLabel>What kind of dish would you like?</CategoryLabel>
-        <DishView>
+        <ChoiceView>
           {dishes.map(dish => (
             <StyledTouchable
               key={dish}
@@ -112,12 +117,12 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
               />
             </StyledTouchable>
           ))}
-        </DishView>
+        </ChoiceView>
       </Category>
 
       <Category>
         <CategoryLabel>Would you like a special cuisine?</CategoryLabel>
-        <CuisineView>
+        <ChoiceView>
           <StyledPicker
             selectedValue={cuisineQuery}
             onValueChange={(itemValue) => chooseCuisine(itemValue)}
@@ -133,12 +138,12 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
                 value={eachCuisine} />
             ))}
           </StyledPicker>
-        </CuisineView>
+        </ChoiceView>
       </Category>
 
       <Category>
         <CategoryLabel>Any dietary restrictions?</CategoryLabel>
-        <DietView>
+        <ChoiceView>
           {diets.map(diet => (
             <StyledTouchable
               key={diet}
@@ -153,7 +158,7 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
               />
             </StyledTouchable>
           ))}
-        </DietView>
+        </ChoiceView>
       </Category>
 
       <SubmitTouchable onPress={handleTap}>
