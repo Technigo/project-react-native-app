@@ -43,14 +43,14 @@ const SubTitle = styled.Text`
   text-align: center;
   text-shadow: -1px 0px 2px #fff;
 `
-  const MagicBallContainer = styled.View`
+const MagicBallContainer = styled.View`
   margin: 30px;
   text-align: center;
   flex: 1;
   align-items: center;
   `
 
-  const BallBlackOuter = styled.View`
+const BallBlackOuter = styled.View`
   background: #171717;
   height: 280px;
   width: 280px;
@@ -58,7 +58,7 @@ const SubTitle = styled.Text`
   position: relative;
   box-shadow: 0px 0px 18px #fff;
   `
-  const BallBlackInner = styled.View`
+const BallBlackInner = styled.View`
   background: #000;
   height: 220px;
   width: 220px;
@@ -67,7 +67,7 @@ const SubTitle = styled.Text`
   top: 30px;
   `
 
-  const TriangleInner = styled.View`
+const TriangleInner = styled.View`
   position: absolute;
   top: 68px;
   justify-content: center;
@@ -83,7 +83,7 @@ const SubTitle = styled.Text`
   border-bottom-color: #0062ec;
   `
 
-  const Answer = styled.Text`
+const Answer = styled.Text`
   font-size: 14px;
   top: 70px;
   width: 95px;
@@ -93,7 +93,7 @@ const SubTitle = styled.Text`
   position: absolute;
   `
 
-  const BackgroundImage = styled.ImageBackground`
+const BackgroundImage = styled.ImageBackground`
   flex: 1;
   position: absolute;
   z-index: -1;
@@ -104,7 +104,7 @@ const ShakeAlert = styled.Text`
   font-size: 36px;
   font-weight: bold;
   color: #aa0000;
-`;
+`
 
 export const MagicBallScreen = ({route, navigation}) => {
   const {name} = route.params //This is to receive an input value from Home Screen
@@ -118,6 +118,46 @@ export const MagicBallScreen = ({route, navigation}) => {
     y: 0,
     z: 0,
   });
+
+  
+  const RandomAnswer = () => {
+    const [answer, setAnswer] = useState('')
+    let arrayOfAnswers = [
+      "It is certain",
+      "As I see it, yes",
+      "Without a doubt",
+      "Yes - definitely",
+      "You may rely on it",
+      "Most likely",
+      "Outlook good",
+      "Yes",
+      "Don't count on it",
+      "My reply is no",
+      "Reply hazy, try again",
+      "My sources say no",
+      "Outlook not so good",
+      "It is decidedly so",
+      "Very doubtful",
+      "Ask again later",
+      "Better not tell you now",
+      "Cannot predict now",
+      "Signs point to yes",
+      "Concentrate and ask again"
+    ];
+
+    // Taking random answer if shake is detected
+    useEffect(() => {
+      isShaking(data) && setTimeout (() => {setAnswer(arrayOfAnswers[Math.floor(Math.random()* arrayOfAnswers.length)])}, 2000)
+      setTimeout (() => {setAnswer('')}, 3000)
+
+      return (
+        <Answer>{answer}</Answer>
+      )
+
+    }, [isShaking(data)]);
+
+
+  }
 
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
@@ -149,44 +189,9 @@ export const MagicBallScreen = ({route, navigation}) => {
     return () => _unsubscribe();
   }, []);
 
-  const RandomAnswer = () => {
-    const [answer, setAnswer] = useState('')
-    let arrayOfAnswers = [
-      "It is certain",
-      "As I see it, yes",
-      "Without a doubt",
-      "Yes - definitely",
-      "You may rely on it",
-      "Most likely",
-      "Outlook good",
-      "Yes",
-      "Don't count on it",
-      "My reply is no",
-      "Reply hazy, try again",
-      "My sources say no",
-      "Outlook not so good",
-      "It is decidedly so",
-      "Very doubtful",
-      "Ask again later",
-      "Better not tell you now",
-      "Cannot predict now",
-      "Signs point to yes",
-      "Concentrate and ask again"
-    ];
-
-    // Taking random answer if shake is detected
-    useEffect(() => {
-      isShaking(data) && setTimeout (() => {setAnswer(arrayOfAnswers[Math.floor(Math.random()* arrayOfAnswers.length)])}, 3000)
-    }, [isShaking(data)]);
-
-    return (
-      <Answer>{answer}</Answer>
-    )
-  }
 
   return (
     <Container>
-      {isShaking(data) && <ShakeAlert>Thinking</ShakeAlert>}
       <BackgroundImage source={require('../assets/magic-ball-background.jpg')}></BackgroundImage>
       <HeaderContainer>
         <Title>Hello {name}!</Title>
@@ -196,7 +201,7 @@ export const MagicBallScreen = ({route, navigation}) => {
         <BallBlackOuter></BallBlackOuter>
         <BallBlackInner></BallBlackInner>
         <TriangleInner>
-          {RandomAnswer}
+          {RandomAnswer()}
         </TriangleInner>
       </MagicBallContainer>
     </Container>

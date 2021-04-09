@@ -57,7 +57,7 @@ export const HomeScreen = ({ navigation }) => {
       <BackgroundImage source={require('../assets/home-image.jpg')}></BackgroundImage>
       <Text>Enter your name:</Text>
       <InputName 
-        placeholder='e.g. David'
+        placeholder='Type here ...'
         onChangeText={(val) => setName(val)}
       />
       <TouchableOpacity onPress={pressHandler}>
