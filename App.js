@@ -4,17 +4,21 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './screens/Home';
 import RecipePage from './screens/RecipePage';
+import WelcomePage from './screens/WelcomePage';
+import ProfilePage from './screens/ProfilePage';
 
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-       <Stack.Screen name="Home" component={Home}/>
-       <Stack.Screen name="Recipe" component={RecipePage}/> 
+        <Stack.Screen name="Welcome" component={WelcomePage}/>
+        <Stack.Screen name="Recipe Search" component={Home} />
+        <Stack.Screen name="Recipe" component={RecipePage} />
+        <Stack.Screen name="Profile" component={ProfilePage} />
       </Stack.Navigator>
     </NavigationContainer>
   )

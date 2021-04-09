@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { AntDesign } from '@expo/vector-icons'
-import { Collapse, CollapseHeader, CollapseBody, AccordionList } from 'accordion-collapse-react-native'
+import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native'
+import { ActivityIndicator } from "react-native";
 
 import { SEARCH_URL } from '../reusables/urls'
 import RecipeThumb from '../components/RecipeThumb'
@@ -20,15 +21,20 @@ const Home = () => {
   const [lactoseFilter, setLactoseFilter] = useState(false)
   const [peanutFilter, setPeanutFilter] = useState(false)
   const [accordionToggle, setAccordionToggle] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = () => {
     setSearch(searchWord)
   }
 
   useEffect(() => {
+    setLoading(true)
     fetch(SEARCH_URL(search, ingredientsFilter))
       .then(response => response.json())
-      .then(receivedRecipes => setRecipes(receivedRecipes.hits))
+      .then(receivedRecipes => {
+        setRecipes(receivedRecipes.hits)
+        setLoading(false)
+      })
   }, [search, ingredientsFilter])
 
   useEffect(() => {
@@ -53,42 +59,45 @@ const Home = () => {
     setFilteredRecipes(newFilteredRecipes)
   }, [calloriesFilter, glutenFilter, lactoseFilter, peanutFilter, recipes])
 
-
   return (
     <Container >
-      <Title>Choose your recipe here!</Title>
+      <Title>Search your recipe here!</Title>
       <SearchForm
         onSubmit={handleSubmit}
         searchWord={searchWord}
         setSearchWord={setSearchWord}
       />
-      <Collapse onToggle={() => setAccordionToggle(!accordionToggle)}>
-        <CollapseHeader >
-          <FilterIconWrapper onPress={() => setAccordionToggle(!accordionToggle)}>
-            <Title>Filters</Title>
-            <AntDesign 
-              name={accordionToggle? "upcircle" : "downcircle"}
-              size={24} 
-              color={glutenFilter || calloriesFilter || ingredientsFilter || lactoseFilter||peanutFilter ? "#6e8c6c" : "white"}
-            />
-          </FilterIconWrapper>
-        </CollapseHeader>
-        <CollapseBody>
-          <Filters
-            ingredientsFilter={ingredientsFilter}
-            setIngredientsFilter={setIngredientsFilter}
-            glutenFilter={glutenFilter}
-            setGluteFilter={setGluteFilter}
-            calloriesFilter={calloriesFilter}
-            setCalloriesFilter={setCalloriesFilter}
-            lactoseFilter={lactoseFilter}
-            setLactoseFilter={setLactoseFilter}
-            peanutFilter={peanutFilter}
-            setPeanutFilter={setPeanutFilter}
-          />
-        </CollapseBody>
-      </Collapse>
-      {filteredRecipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}
+      {loading ? <ActivityIndicator size="large" color="#6e8c6c" /> :
+        <>
+          <Collapse onToggle={() => setAccordionToggle(!accordionToggle)}>
+            <CollapseHeader >
+              <FilterIconWrapper onPress={() => setAccordionToggle(!accordionToggle)}>
+                <Title>Filters</Title>
+                <AntDesign
+                  name={accordionToggle ? "upcircle" : "downcircle"}
+                  size={24}
+                  color={glutenFilter || calloriesFilter || ingredientsFilter || lactoseFilter || peanutFilter ? "#6e8c6c" : "white"}
+                />
+              </FilterIconWrapper>
+            </CollapseHeader>
+            <CollapseBody>
+              <Filters
+                ingredientsFilter={ingredientsFilter}
+                setIngredientsFilter={setIngredientsFilter}
+                glutenFilter={glutenFilter}
+                setGluteFilter={setGluteFilter}
+                calloriesFilter={calloriesFilter}
+                setCalloriesFilter={setCalloriesFilter}
+                lactoseFilter={lactoseFilter}
+                setLactoseFilter={setLactoseFilter}
+                peanutFilter={peanutFilter}
+                setPeanutFilter={setPeanutFilter}
+              />
+            </CollapseBody>
+          </Collapse>
+          {filteredRecipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}
+        </>
+      }
     </Container>
   )
 }

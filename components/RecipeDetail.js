@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native'
 import { useRoute } from '@react-navigation/native';
+import { ActivityIndicator } from 'react-native'
 
 import { SEARCH_RECIPE } from '../reusables/urls'
 import ShareButton from '../components/ShareButton'
@@ -21,7 +22,7 @@ const RecipeDetail = () => {
   }, [])
 
   if (loading) {
-    return (<Title> Recipe is loading</Title>)
+    return (<ActivityIndicator size="large" color="#6e8c6c" />)
   } else {
     return (
       <>

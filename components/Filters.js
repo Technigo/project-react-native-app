@@ -81,7 +81,6 @@ const ButtonLactose = styled(Button)`
 const ButtonPeanut = styled(Button)`
   background-color: ${props => (props.peanutFilter ? "#6e8c6c" : "#ccc")};
 `
-
 const ButtonCallories = styled(Button)`
   background-color: ${props => (props.calloriesFilter ? "#6e8c6c" : "#ccc")};
 `
