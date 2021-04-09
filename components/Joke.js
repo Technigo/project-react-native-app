@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components/native'
 import LottieView from 'lottie-react-native'
-import { Platform } from 'react-native'
+
 
 const Container = styled.View`
   flex: 1;
@@ -48,7 +48,7 @@ const Joke = ({navigation}) => {
         <Container>
           <OracleText>{NewJoke.fallback}🤣</OracleText>
           <OracleImage source={require('../assets/turtle.png')} />
-          {Platform.OS !== 'web' && <LottieView source={require('../assets/confetti.json')} autoPlay/>}
+           <LottieView source={require('../assets/confetti.json')} autoPlay/>
           <RestartButton onPress={() => navigation.navigate('Start')}>
             <ButtonText>Start</ButtonText>
           </RestartButton>

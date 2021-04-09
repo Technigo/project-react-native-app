@@ -60,7 +60,7 @@ const AffirmationMessage = ({navigation}) => {
         <Container>
           <OracleText><Title>You can:</Title> {message.activity}...</OracleText>
           <OracleImage source={require('../assets/activity.png')} />
-          <JokeText> I also sense that you need a dad joke?👇</JokeText>
+          <JokeText> You also need a classic dad joke right?👇</JokeText>
           <RestartButton onPress={() => navigation.navigate('Joke')}>
             <ButtonText>Joke</ButtonText>
           </RestartButton>

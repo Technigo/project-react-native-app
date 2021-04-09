@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "want-inspiration",
+    "slug": "want-inspiration",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -23,7 +23,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "get-inspired"
     }
   }
 }

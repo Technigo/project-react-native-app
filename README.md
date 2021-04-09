@@ -20,4 +20,7 @@ The challanges were many. Mainly how to trigger a new navigation page when shaki
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://snack.expo.io/@sartish/inspiration
+Download expo app
+scan the QR code with your camera on your phone
+Obs! This app ONLY works on iphone..
