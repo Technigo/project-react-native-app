@@ -4,36 +4,52 @@ import styled from 'styled-components/native';
 
 // ==========================
 // = Functions
-const isShaking = (data) => {
+const isShaking = (data, props) => {
   // x,y,z CAN be negative, force is directional
   // We take the absolute value and add them together
   // This gives us the total combined force on the device
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-
+  const threshold = 1.50
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.78;
+  
+
+  if (totalForce > threshold) {
+    setTimeout(props.onStep, 650)
+  }
+
+  return totalForce > threshold;
 };
+
+
 
 // ==========================
 // = Styled components
 const ShakeView = styled.View`
-  display: flex;
+  flex: 1;
   flex-direction: column;
+  align-items: center;
+  background-color: purple;
+  padding: 15px;
+  margin: 15px;
 `;
 
 const ShakeAlert = styled.Text`
   font-size: 36px;
   font-weight: bold;
-  color: #aa0000;
+  color: teal;
 `;
-const ShakeDataView = styled.View``;
+const ShakeDataView = styled.View`
+
+`;
 const ShakeDataTitle = styled.Text`
   font-weight: bold;
 `;
-const ShakeData = styled.Text``;
+const ShakeData = styled.Text`
+  color: white;
+`;
 
-export const SensorComponent = () => {
+export const SensorComponent = (props) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -44,6 +60,8 @@ export const SensorComponent = () => {
     y: 0,
     z: 0,
   });
+  
+  const [currentSteps, setCurrentSteps] = useState(0)
 
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
@@ -75,6 +93,8 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+  //We need a different way of checking if shaking cuz if it happens inside a function always called on render it can happen too many times a second
+
   return (
     <ShakeView>
       {/* 
@@ -83,7 +103,7 @@ export const SensorComponent = () => {
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
       */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      {isShaking(data, props) && <ShakeAlert>Shaking</ShakeAlert>}
       <ShakeDataView>
         <ShakeDataTitle>Shake Data</ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
