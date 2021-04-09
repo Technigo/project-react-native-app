@@ -28,7 +28,6 @@ const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecip
     fetch(API_URL(dishQuery, cuisineQuery, dietQuery))
       .then(res => res.json())
       .then(data => setRecipes(data.results))
-      .catch(err => console.err(err))
 
     setIsMixingIngredients(false)
   }, [cuisineQuery])

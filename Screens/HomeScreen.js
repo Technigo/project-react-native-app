@@ -1,14 +1,8 @@
 import React, { useState } from "react"
-import { Text, View, TouchableOpacity } from "react-native"
 import styled from "styled-components/native"
-import { RadioButton } from 'react-native-paper';
-
-
-import { SensorComponent } from '../components/SensorComponent';
 import Dish from "../components/Dish"
 import Cuisine from '../components/Cuisine';
 import Diet from "../components/Diet"
-import { ICON_PATH } from "../utils/urls";
 
 import bbq from "../assets/dishes/bbq.png"
 import cake from "../assets/dishes/cake.png"

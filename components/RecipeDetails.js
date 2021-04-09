@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react"
-import { Share, ScrollView, View, Text, Image, TouchableOpacity, Alert } from "react-native"
+import React from "react"
+import { Share, TouchableOpacity } from "react-native"
 import styled from "styled-components/native"
-import * as Sharing from 'expo-sharing';
 
 import Loading from "./Loading"
 
