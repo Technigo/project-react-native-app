@@ -1,16 +1,10 @@
 import styled from 'styled-components/native'
 
-/* const MagicBall = styled.Image`
-  width: 200px,
-  height: 200px,
-  object-fit: contain,
-`; 
-
-height: 200,
-            width: 200,
-            resizeMode: 'cover',
-            alignSelf: 'center'
-*/
+export const MagicBall = styled.Image`
+  width: 200px;
+  height: 200px;
+  align-self: center;
+`
 
 export const ShakeView = styled.View`
   flex: 1;

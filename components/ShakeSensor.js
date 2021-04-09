@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Accelerometer } from 'expo-sensors'
 import { useFonts, Inter_500Medium } from '@expo-google-fonts/inter';
 import AppLoading from 'expo-app-loading';
-import { Image } from 'react-native' 
 
-import { ShakeView, ShakeAlert, ShakeDataView, InterShakeDataTitle } from '../StyledComponents/ShakeSensorStyling'
+import { ShakeView, ShakeAlert, ShakeDataView, InterShakeDataTitle, MagicBall } from '../StyledComponents/ShakeSensorStyling'
 import magicanswer from '../data/magicanswer'
 
 // FUNCTIONS
@@ -57,7 +56,7 @@ export const ShakeSensor = () => {
     // Stop listening to the data when we leave SensorComponent
     return () => _unsubscribe()
   }, [])
-  
+
   const [fontsLoaded] =useFonts({
     'Inter_500Medium': require('../assets/fonts/Inter_500Medium.ttf')
   })
@@ -70,14 +69,11 @@ export const ShakeSensor = () => {
         <InterShakeDataTitle>
           {answer ? "Didn't like the answer? Shake it up and try again!" : "Ask a question and shake me to get your magic answer!"}
         </InterShakeDataTitle>
-        <Image
+        <MagicBall
           source={require('../assets/magic-ball.png')}
-          accessibilityLabel='Magic 8 ball'
+          accessibilityLabel='Pink prophecy ball'
           style={{
-            height: 200,
-            width: 200,
             resizeMode: 'cover',
-            alignSelf: 'center'
           }}
         />
         {answer ? <ShakeAlert>{answer}</ShakeAlert> : null}
