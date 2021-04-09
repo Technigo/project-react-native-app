@@ -3,6 +3,7 @@ import styled from 'styled-components/native'
 import { useRoute } from '@react-navigation/native';
 
 import { SEARCH_RECIPE } from '../reusables/urls'
+import ShareButton from '../components/ShareButton'
 
 const RecipeDetail = () => {
   const route = useRoute()
@@ -19,7 +20,6 @@ const RecipeDetail = () => {
       })
   }, [])
 
-  console.log(recipeInfo)
   if (loading) {
     return (<Title> Recipe is loading</Title>)
   } else {
@@ -29,6 +29,7 @@ const RecipeDetail = () => {
           (<Container>
             <ImageContainer>
               <ImageCard source={{ uri: recipeInfo[0].image }} />
+              <ShareButton recipe={recipeInfo[0]} />
               <TextContainer >
                 <Title>
                   {recipeInfo[0].label}
@@ -46,7 +47,7 @@ const RecipeDetail = () => {
             <NutritionContainer horizontal={true}>
               {recipeInfo[0].digest.map((nutrient) => {
                 return (
-                  <NutrientContainer >
+                  <NutrientContainer key={nutrient.label}>
                     <NutrientText>{nutrient.label}</NutrientText>
                     <NutrientText>{Math.round(nutrient.total)}</NutrientText>
                     <NutrientText>{nutrient.unit}</NutrientText>
@@ -59,12 +60,12 @@ const RecipeDetail = () => {
               
               {recipeInfo[0].healthLabels.map((label, index, array) => {
                 if (index < array.length - 2) {
-                  return <DetailsText>{label},</DetailsText>
+                  return <DetailsText key={label}>{label},</DetailsText>
                 }
                 if (index === array.length - 2) {
-                  return <DetailsText>{label} and</DetailsText>
+                  return <DetailsText key={label}>{label} and</DetailsText>
                 }
-                return <DetailsText>{label}</DetailsText>
+                return <DetailsText key={label}>{label}</DetailsText>
               })}
 
             </HealthLabelsContainer>
