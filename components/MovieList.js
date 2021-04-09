@@ -14,9 +14,10 @@ flex-wrap: wrap;
 const MovieList = () => {
   
   const [movies, setMovies] = useState([])
+  const API = 'https://api.themoviedb.org/3/movie/popular?api_key=e90c1322becf61268c0c0fea570c7099&language=en-US&page=1'
 
   useEffect(() => {
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=e90c1322becf61268c0c0fea570c7099&language=en-US&page=1')
+    fetch(API)
     .then(res => res.json())
     .then(json => {
       setMovies(json.results)})

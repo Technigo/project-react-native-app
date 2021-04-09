@@ -23,6 +23,7 @@ const App = () => {
       </ScrollView>
     </Container>
   )
+  
 }
 
 export default App

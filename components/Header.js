@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+/* import { View } from 'react-native' */
 import styled from 'styled-components/native'
 
 const Heading = styled.Text`
@@ -12,10 +12,11 @@ margin: 25px 0 25px 0;
 
 const Header = () => {
 
-    return (
-        <Heading>
-            POPULAR MOVIES
-        </Heading>
-    )
+  return (
+    <Heading>
+      POPULAR MOVIES
+    </Heading>
+  )
+
 }
 export default Header

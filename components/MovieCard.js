@@ -1,7 +1,6 @@
 import React from 'react'
-import { TouchableOpacity, Alert } from 'react-native'
+import { TouchableOpacity, Alert, Share } from 'react-native'
 import styled from 'styled-components/native'
-import * as Sharing from 'expo-sharing';
 
 //Styled components
 
@@ -9,20 +8,42 @@ const CardContainer = styled.View`
   padding-bottom: 20px;
 `
 const MovieImage = styled.Image`
-height: 220px;
-width: 150px;
+height: 240px;
+width: 170px;
 `
 
 //
+/* const ShareExample = () => {
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'Waiting',
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+} */
 
-const MovieCard = ({ title, poster_path, overview }) => {
+export const MovieCard = ({ title, poster_path, overview }) => {
 
   const onPressCard = () => {
     Alert.alert(
       `${title}`,
       `${overview}`,
       [
-        { text: "Back to movies"}
+        { text: "Back to movies"}/* ,
+        { text: "Share", onPress: () => } */
       ]
     );
   }
@@ -36,6 +57,7 @@ const MovieCard = ({ title, poster_path, overview }) => {
     </TouchableOpacity>
     </>
   )
+
 }
 
 export default MovieCard
