@@ -17,7 +17,7 @@ Importing Lottie for expo made the app completely crash since there were a lot o
 
 The last day I focused on learning more about styled components, since that is something I can continue using later together with React. And I read up a bit and implemented a custom font, gradient background and an image in React Native. 
 
-I think that I would need much more time to properly understand both React Native and how different sensors for mobile function and how I can work with them. I have only been able to test my app on Android devices (tablet and phone), and it's made to be portrait view for now as specified in app.json
+I think that I would need much more time to properly understand both React Native and how different sensors for mobile function and how I can work with them. I have only been able to test my app on Android devices (tablet and phone), and an iPad with iOS version 12.5.1 and it's made to be portrait view for now as specified in app.json
 
 At the end of this week I am satisfied with having had a quick glimpse into React Native and mobile development and am curious to learn more  about it! but having a wider timeframe to complete a project. 
 ## View it live at Expo or with Expo Go: 
