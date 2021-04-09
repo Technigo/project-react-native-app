@@ -1,5 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { Text } from 'react-native'
+
+import { CatFacts } from './pages/CatFacts'
+import { DogFacts } from './pages/DogFacts'
 
 const Container = styled.View`
   flex: 1;
@@ -7,18 +11,21 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `
-//test
+
 const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
 `
 
 const App = () => {
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
+      <Title>Random Facts</Title>
+      <Text>This App gives you random information about cats and dogs, because - why not?</Text>
+      <CatFacts></CatFacts>
+      <DogFacts></DogFacts>
     </Container>
   )
 }
