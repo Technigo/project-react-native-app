@@ -4,11 +4,10 @@ import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
 
-
 // = Functions
 const isShaking = (data) => {
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-  return totalForce > 1.78;
+  return totalForce > 2.3;
 };
 
 // = Styled components
@@ -26,30 +25,21 @@ const OracleDataView = styled.View`
   font-size: 30px;
   font-weight: bold;
   color: #460273;
-  
+  justify-content: center;
+  align-items: center;
 `;
 
 const styles = StyleSheet.create ({
   message: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#460273',
-    opacity: 0.2,
-    
-    
-    
+    color: '#9768D1',
+    opacity: 0.8,
+    marginTop: 100,
   }
-
-
 })
-  
-
-
-
-
 
 export const SensorComponent = () => {
-  
   Accelerometer.setUpdateInterval(400);
   const [data, setData] = useState({
     x: 0,
@@ -58,7 +48,6 @@ export const SensorComponent = () => {
   });
 
   const Oracle = () => {
-
     const [choice, setChoice] = useState('')
     let arr = ['It is certain', 'It is decidedly so', 'Without a doubt', 'Yes-definitely',
   'You may rely on it', 'As I see it, yes', 'Most likely', 'Outlook good', 'Yes',
@@ -67,7 +56,8 @@ export const SensorComponent = () => {
   'My reply is no', 'My sources say no', 'Outlook not so good', 'Very doubtful']
 
     useEffect(() => {
-      isShaking(data) && setTimeout (() => {setChoice(arr[Math.floor(Math.random()* arr.length)])}, 3000)
+      isShaking(data) && setTimeout (() => {setChoice(arr[Math.floor(Math.random()* arr.length)])}, 2000)
+      setTimeout (() => {setChoice('')}, 5000)
     }, [isShaking(data)])
   
     return (
@@ -93,7 +83,6 @@ export const SensorComponent = () => {
   };
 
   // This will tell the device to stop reading Accelerometer data.
-  // If we don't do this our device will become slow and drain a lot of battery
   const _unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
@@ -107,13 +96,9 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
-
-
   return (
     <ShakeView>
-      
       {isShaking(data) && <ShakeAlert>Thinking </ShakeAlert>}
-      
       <OracleDataView>
        {Oracle()}
       </OracleDataView>

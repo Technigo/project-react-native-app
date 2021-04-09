@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native'
-import styled from 'styled-components/native';
 
 const styles = StyleSheet.create ({
     note: {
       fontSize: 14,
       fontWeight: 'bold',
-      color: '#460273',
+      color: '#FFA012',
       padding: 20,
       marginTop: 20,      
     }
