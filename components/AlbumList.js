@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
-import {  ActivityIndicator } from "react-native";
+import {  ActivityIndicator, Modal, TouchableOpacity, Text, Alert, View } from "react-native";
 
 
 const Container = styled.View`
@@ -32,6 +32,7 @@ const albumUrl = 'https://theaudiodb.com/api/v1/json/1/album.php?i=112024'
 
 const [isLoading, setLoading] = useState(true)
 const [data, setData] = useState([])
+const [modalVisible, setModalVisible] = useState(false)
 
 useEffect(() => {
   fetch(albumUrl)
@@ -43,23 +44,49 @@ useEffect(() => {
   
   return (
     <>
-       <Container>
-       <Title>The Weeknd App</Title>
-        {isLoading ? <ActivityIndicator/> : (
-          <List 
-            data={data}
-            keyExtractor={( {id}, index) => id}
-            renderItem={ ({item}) => (
-              <ImgAlbum
-                 source={{ uri: item.strAlbumThumb }}
-                 alt={item.strAlbum}
-              />
-            )}
+      <Container>
+        <Title>The Weeknd App</Title>
+          {isLoading ? <ActivityIndicator/> : (
+            <List 
+              data={data}
+              keyExtractor={( {id}, index) => id}
+              renderItem={ ({item}) => (
+                 <View>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => {
+                        Alert.alert("Modal has been closed.");
+                        setModalVisible(!modalVisible);
+                        }}>
 
-          />
-        )}
+                        <View>
+                          <View>
+                            <Text>{item.strAlbum}</Text>                   
+                            <TouchableOpacity 
+                                onPress={() => setModalVisible(!modalVisible)}
+                              >
+                              <Text>close</Text>
+                            </TouchableOpacity>
+                          </View>
+                        </View>
 
-       </Container>
+                    </Modal>
+
+                    <TouchableOpacity onPress={() => setModalVisible(true)}>
+                      <ImgAlbum
+                        source={{ uri: item.strAlbumThumb }}
+                      />
+                    </TouchableOpacity>
+
+                  </View> 
+              )}
+
+            />
+          )}
+
+      </Container>
       
     </>
   )
@@ -67,30 +94,3 @@ useEffect(() => {
 
 export default AlbumList
  
-
-// const Container = styled.ScrollView`
-//   /*flex: 1;*/
-//   /*background-color: papayawhip; */
-//    /* justify-content: center; */
-// `
-
-// const AlbumWrapper = styled.View` 
-// `
-
-{/* <Container>
-        <Title>The Weeknd App</Title>
-        {albums.map((album) => (
-          <AlbumWrapper key={album.idAlbum}>
-            <View>
-              <Image 
-                  source={{ uri: album.strAlbumThumb }}
-                  style={{ width: 350, height: 350 }} 
-                  //PlaceholderContent={<ActivityIndicator />}
-              />
-            </View>
-            <View>
-              <Text>{album.strAlbum}</Text>
-            </View>
-          </AlbumWrapper>
-        ))}
-      </Container> */}
