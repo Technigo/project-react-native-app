@@ -40,6 +40,7 @@ const ShakeDataView = styled.View`
 `;
 
 const ShakeQuestion = styled.Text`
+  text-align: center;
   font-size: 30px;
   font-weight: 900;
   color: #FF9C2A;

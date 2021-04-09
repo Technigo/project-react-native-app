@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import { Header } from './components/Header'
 import { SensorComponent } from './components/SensorComponent';
 
 const Container = styled.View`
@@ -22,6 +23,7 @@ const MagicBallIcon = styled.Image`
 const App = () => {
   return (
     <Container>
+      <Header />
       <MagicBallIcon source={require('./assets/magic-eight-ball.png')}/>
       <SensorComponent></SensorComponent>
     </Container>
