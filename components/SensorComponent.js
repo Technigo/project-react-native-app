@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
+import { useFonts, BioRhyme_400Regular } from '@expo-google-fonts/biorhyme'
+import { Rubik_900Black } from '@expo-google-fonts/rubik'
+import { AppLoading } from 'expo'
+
 
 import answers  from '../data/answers'
 
 
-// ==========================
-// = Functions
 const isShaking = (data) => {
   // x,y,z CAN be negative, force is directional
   // We take the absolute value and add them together
@@ -15,7 +17,7 @@ const isShaking = (data) => {
 
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.78;
+  return totalForce > 2.38;
 };
 
 //Function to get a random number - use later on the array to get random Index. 
@@ -23,38 +25,43 @@ const getRandomWholeInt = (num) => {
   return Math.floor(Math.random() * num)
 }
 
-// ==========================
-// = Styled components
 const ShakeView = styled.View`
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  alignt-items: center;
 `;
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
+const ShakeDataView = styled.View`
+  display: flex;
+  flex-direction: column;
+  top: 100px;
 `;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
+
+const ShakeQuestion = styled.Text`
+  font-size: 30px;
+  font-weight: 900;
+  color: #FF9C2A;
+  font-family: 'Rubik';
+  border: 2px solid black;
+`
+const ShakeAnswer = styled.Text`
+  text-align: center;
+  font-size: 26px;
+  color: #FF9C2A;
+  font-family: 'BioRhyme';
+  border: 2px solid black;
+`
 
 export const SensorComponent = () => {
+  const [fontLoaded] = useFonts({
+    'BioRhyme-Regular': require ('../assets/fonts/BioRhyme-Regular.ttf'),
+    'Rubik-VariableFont-wght': require('../assets/fonts/Rubik-VariableFont_wght.ttf')
+  })
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
-
-  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
- /*  const [data, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
-  }); */
-
- 
 
   // This keeps track of whether we are listening to the Accelerometer data
   //Subscription by default false
@@ -88,38 +95,41 @@ export const SensorComponent = () => {
   useEffect(() => {
     // Start listening to the data when this SensorComponent is active
     _subscribe();
-
     // Stop listening to the data when we leave SensorComponent
     return () => _unsubscribe();
   }, []);
 
- /* const [answer, setAnswer] = useState(0)
-
-  useEffect( () => {
-    !isShaking(data) && setAnswer(answers[Math.floor(Math.random() * answers.length)])
-    console.log(answer)
-  }, [isShaking]) 
-
-  console.log(isShaking(data)) */
 
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
       {/* if answer it true shake again otherwose ask*/}
       <ShakeDataView>
-        <ShakeDataTitle>
-          {answer ? "Shake again and find your answers" : "Ask, shake and you shall receive"}
-        </ShakeDataTitle>
-        {/* ifg answer is true show answer state - random array*/}
-        {answer ? <ShakeData>{answer}</ShakeData> : null}
-        <ShakeData></ShakeData>
-        <ShakeData></ShakeData>
+        <ShakeQuestion>
+          {answer ? 'Ask & Shake Again' : 'Ask, Shake & Get Enlightend'}
+        </ShakeQuestion>
+        {/* if answer is true show answer state - random array*/}
+        {answer && <ShakeAnswer>{answer}</ShakeAnswer>}
+        {/* {answer ? <ShakeTitle>{answer}</ShakeTitle> : null} */}
       </ShakeDataView>
     </ShakeView>
   );
-};
+
+}
+
+
+
+
+/* if (!fontLoaded) {
+  return <AppLoading />
+} else {
+  return (
+    <ShakeView>
+      <ShakeDataView>
+        <ShakeQuestion>
+          {answer ? "MORE QUESTIONS MORE SHAKES - SHAKE AGAIN" : "ASK, SHAKE AND YOU SHALL RECIEVE"}
+        </ShakeQuestion>
+        {answer && <ShakeTitle>{answer}</ShakeTitle>}
+      </ShakeDataView>
+    </ShakeView>
+  );
+}; */

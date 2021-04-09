@@ -5,20 +5,16 @@ import { SensorComponent } from './components/SensorComponent';
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #4a60e3;
   justify-content: center;
   align-items: center;
 `;
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
-
 const MagicBallIcon = styled.Image`
   margin: 50px 0;
-  width: 400px;
-  height: 400px;
+  top: 60px;
+  width: 200px;
+  height: 200px;
   justify-content: center;
   align-items: center;
 `
