@@ -110,21 +110,24 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
-
-
   // const [recipeList, setRecipeList] = useState([])
   const [recipe, setRecipe] = useState('')
 
   let recipeArray = ['Pizza', 'Pasta', 'Soup', 'Sallad']
 
   useEffect(() => {
-    !isShaking(data) && setRecipe(recipeArray[Math.floor(Math.random()*recipeArray.length)])
+    isShaking(data) && setRecipe(recipeArray[Math.floor(Math.random()*recipeArray.length)])
 }, [isShaking(data)])
 
-// const onShake = () => {
-//   setRecipe(recipeArray[Math.floor(Math.random()*recipeArray.length)])
-// }
-  
+// useEffect(() => {
+//   if (isShaking(data) === true) {
+//     setRecipe(recipeArray[Math.floor(Math.random()*recipeArray.length)])
+// }, [isShaking(data)])
+// )}
+
+
+
+
 
   return (
     <ShakeView>
@@ -135,8 +138,11 @@ export const SensorComponent = () => {
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props?  */}
      
-      {isShaking(data) === true && 
-        <ShakeAlert>{recipe}</ShakeAlert>}
+      {/* {isShaking(data) === true && 
+        <ShakeAlert>{recipe}</ShakeAlert>} */}
+      
+        <ShakeAlert>{recipe}</ShakeAlert>
+
       {/* {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>} */}
 
       {/* <ShakeDataView>
