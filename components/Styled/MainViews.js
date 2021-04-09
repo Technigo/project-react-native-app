@@ -1,27 +1,28 @@
-import {
-  Headline,
-  Caption,
-  Paragraph,
-  useTheme,
-  Button,
-  Subheading,
-  Divider,
-  Surface,
-  Title,
-} from 'react-native-paper';
+import { View } from 'react-native';
+import { Headline, Subheading, Caption } from 'react-native-paper';
 import styled from 'styled-components/native';
 
-export const MainViewContainer = styled.View`
+const Main = styled(View)`
   flex: 1;
-  background-color: ${(props) => props.color };
+  background-color: ${(props) => props.color};
   justify-content: ${(props) => props.verticalAlign};
 `;
 
-export const MainHeader = styled(Headline)`
+Main.Section = styled(View)`
+  align-items: center;
+`;
+
+Main.Header = styled(Headline)`
   text-align: center;
   margin: 20px 0;
 `;
-export const MainSubheader = styled(Subheading)`
+Main.Subheader = styled(Subheading)`
   text-align: center;
   text-transform: uppercase;
 `;
+
+Main.Caption = styled(Caption)`
+  margin-bottom: 10px;
+`;
+
+export default Main;

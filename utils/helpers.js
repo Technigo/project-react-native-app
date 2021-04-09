@@ -8,11 +8,11 @@ export const apiCall = (url, ...params) => {
   let data;
   fetch(url, {
     method: params.method,
-    body: JSON.stringify(params.body)
+    body: JSON.stringify(params.body),
   })
     .then((res) => res.json())
     .then((json) => {
       data = json;
     });
-    return data;
+  return data;
 };

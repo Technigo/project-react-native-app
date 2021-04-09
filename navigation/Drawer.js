@@ -1,54 +1,21 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { useIsDrawerOpen } from '@react-navigation/drawer';
+import { useTheme } from 'react-native-paper';
+
 import { SettingsContext } from '../context/settingsContext';
-import styled from 'styled-components/native';
-import { DrawerContentScrollView, useIsDrawerOpen  } from '@react-navigation/drawer';
-import {
-  useTheme,
-  Avatar,
-  Title,
-  Caption,
-  Paragraph,
-  Drawer,
-  Text,
-  TouchableRipple,
-  Switch,
-} from 'react-native-paper';
-
-const DrawerTitle = styled(Title)`
-  margin-top: 20px;
-  font-weight: bold;
-  margin-left: 20px;
-  color: white;
-`;
-
-const TitleSection = styled(Drawer.Section)`
-  margin-bottom: 20px;
-  background-color: ${(props) => props.color};
-`;
-const AvatarIcon = styled(Avatar.Icon)`
-  background-color: ${(props) => props.backgroundColor};
-`;
-const Wrapper = styled.View`
-  flex-flow: row wrap;
-  ${(props) => props.title && 'padding: 20px;'}
-`;
-const DrawerItem = styled(Drawer.Item)`
-  width: 100%;
-`;
-const DrawerContentScrollViewStyled = styled(DrawerContentScrollView)`
-  background-color: ${props => props.background};
-`;
+import DrawerScrollView from '../components/Styled/Drawer';
 
 export const DrawerContent = ({ navigation, ...props }) => {
   const isDrawerOpen = useIsDrawerOpen();
   const { session } = useContext(SettingsContext);
   const [active, setActive] = useState(session.route);
   const { colors, dark } = useTheme();
-  
+
   React.useEffect(() => {
-    if(isDrawerOpen) {setActive(session.route)}
-  }, [isDrawerOpen])
+    if (isDrawerOpen) {
+      setActive(session.route);
+    }
+  }, [isDrawerOpen]);
 
   const onPressNavigation = (route) => {
     session.route = route;
@@ -56,33 +23,37 @@ export const DrawerContent = ({ navigation, ...props }) => {
   };
 
   return (
-    <DrawerContentScrollViewStyled {...props} background={colors.background}>
-      <TitleSection color={dark ? colors.surface : colors.primary}>
-        <Wrapper title>
-          <AvatarIcon color="white" backgroundColor={dark ? colors.primary : colors.secondary} icon="movie" />
-          <DrawerTitle>Apptitle</DrawerTitle>
-        </Wrapper>
-      </TitleSection>
-      <Wrapper>
-        <DrawerItem
+    <DrawerScrollView {...props} background={colors.background}>
+      <DrawerScrollView.TitleSection color={dark ? colors.surface : colors.primary}>
+        <DrawerScrollView.Wrapper title>
+          <DrawerScrollView.Avatar
+            color="white"
+            backgroundColor={dark ? colors.primary : colors.secondary}
+            icon="movie"
+          />
+          <DrawerScrollView.Title>Filmoona</DrawerScrollView.Title>
+        </DrawerScrollView.Wrapper>
+      </DrawerScrollView.TitleSection>
+      <DrawerScrollView.Wrapper>
+        <DrawerScrollView.Item
           icon="home"
           label="Home"
           active={active === 'Home'}
           onPress={() => onPressNavigation('Home')}
         />
-        <DrawerItem
+        <DrawerScrollView.Item
           icon="movie"
           label="Movies"
           active={active === 'Movies'}
           onPress={() => onPressNavigation('Movies')}
         />
-        <DrawerItem
+        <DrawerScrollView.Item
           icon="account"
           label="Profile"
           active={active === 'Profile'}
           onPress={() => onPressNavigation('Profile')}
         />
-      </Wrapper>
-    </DrawerContentScrollViewStyled>
+      </DrawerScrollView.Wrapper>
+    </DrawerScrollView>
   );
 };

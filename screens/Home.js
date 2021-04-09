@@ -1,33 +1,11 @@
-import React, { useContext, useState, useCallback } from 'react';
-import { SettingsContext } from '../context/settingsContext';
-import { Text } from 'react-native';
-import {
-  Headline,
-  Caption,
-  Paragraph,
-  useTheme,
-  Button,
-  Subheading,
-} from 'react-native-paper';
-import styled from 'styled-components/native';
-import {
-  MainViewContainer,
-  MainHeader,
-  MainSubheader,
-} from '../components/Styled/MainViews';
+import React, { useContext, useState } from 'react';
 import { useIsFocused, useFocusEffect } from '@react-navigation/native';
+import { useTheme, Button } from 'react-native-paper';
+
+import Main from '../components/Styled/MainViews';
+import { SettingsContext } from '../context/settingsContext';
 import { MovieList } from '../components/MovieList';
-import { URL_LISTGET } from '../utils/apiConfig';
 
-const ConditionalSection = styled.View`
-  align-items: center;
-`;
-const StyledCaption = styled(Caption)`
-  margin-bottom: 10px;
-`;
-
-// The prop "navigation" is important if you are trying to open/toggle the drawer
-//  directly via Javascript
 export const Home = ({ navigation }) => {
   const { colors } = useTheme();
   const { user, session } = useContext(SettingsContext);
@@ -41,16 +19,16 @@ export const Home = ({ navigation }) => {
   );
 
   return (
-    <MainViewContainer verticalAlign={userName ? 'flex-start' : 'center'} color={colors.background}>
-      <MainHeader>Welcome!</MainHeader>
+    <Main verticalAlign={userName ? 'flex-start' : 'center'} color={colors.background}>
+      <Main.Header>Welcome!</Main.Header>
       {isFocused && userName ? (
         <>
-          <MainSubheader>{userName}'s favorite movies</MainSubheader>
+          <Main.Subheader>{userName}'s favorite movies</Main.Subheader>
           <MovieList type="likes" />
         </>
       ) : (
-        <ConditionalSection>
-          <StyledCaption>It appears you have no name</StyledCaption>
+        <Main.Section>
+          <Main.Caption>It appears you have no name</Main.Caption>
           <Button
             labelStyle={{ color: 'white' }}
             mode="contained"
@@ -60,8 +38,8 @@ export const Home = ({ navigation }) => {
             }}>
             Edit Profile
           </Button>
-        </ConditionalSection>
+        </Main.Section>
       )}
-    </MainViewContainer>
+    </Main>
   );
 };

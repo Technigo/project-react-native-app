@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { SettingsContext } from '../context/settingsContext';
 import { ScrollView, RefreshControl } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
-import { MainViewContainer, MainHeader } from '../components/Styled/MainViews';
+
+import { URL_TRENDING } from '../utils/apiConfig';
+import { SettingsContext } from '../context/settingsContext';
 import { Movie } from '../components/Movie';
-import { URL_TRENDING, URL_MOVIE } from '../utils/apiConfig';
 
 export const MovieList = ({ type }) => {
   const { user } = useContext(SettingsContext);
@@ -49,10 +49,9 @@ export const MovieList = ({ type }) => {
     });
   }, []);
 
-  const handleLikedMovie = (id) => {
+  const handleLikedMovie = () => {
     if (type === 'likes') {
-      // setData(data.results.filter((movie) => movie.id !== id));
-      getLikes()
+      getLikes();
     }
   };
 
@@ -63,7 +62,6 @@ export const MovieList = ({ type }) => {
         getData();
         break;
       case 'likes':
-        console.log('likk');
         getLikes();
         break;
     }

@@ -1,11 +1,9 @@
 import React from 'react';
-// import { Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from '../screens/Home';
 import { Movies } from '../screens/Movies';
 import { Profile } from '../screens/Profile';
-
 import { CustomNavigationBar } from '../components/Appbar';
 
 const Stack = createStackNavigator();

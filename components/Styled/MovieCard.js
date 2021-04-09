@@ -1,19 +1,6 @@
-import React from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
-import {
-  Card,
-  useTheme,
-  Title,
-  Paragraph,
-  Button,
-  Surface,
-  Caption,
-  Headline,
-  Divider,
-  IconButton,
-} from 'react-native-paper';
+import { View } from 'react-native';
+import { Card, Surface } from 'react-native-paper';
 import styled from 'styled-components/native';
-
 
 const MovieCard = styled(Surface)`
   flex-flow: row wrap;
@@ -25,6 +12,7 @@ const MovieCard = styled(Surface)`
 MovieCard.Poster = styled(Card.Cover)`
   width: 30%;
 `;
+
 MovieCard.Content = styled(View)`
   padding-top: 25px;
   padding-horizontal: 10px;
@@ -32,9 +20,11 @@ MovieCard.Content = styled(View)`
   flex-flow: column;
   justify-content: space-between;
 `;
+
 MovieCard.Titles = styled(View)`
   padding-left: 10px;
 `;
+
 MovieCard.Actions = styled(View)`
   flex-flow: row wrap;
   padding-bottom: 15px;

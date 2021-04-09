@@ -8,7 +8,6 @@ const App = () => {
   const settings = useContext(SettingsContext);
   const [theme, setTheme] = useState('light');
 
-  
   const toggleTheme = useCallback(() => {
     return setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
   }, [theme]);
@@ -17,7 +16,7 @@ const App = () => {
     () => ({
       toggleTheme,
       theme,
-      ...settings
+      ...settings,
     }),
     [toggleTheme, theme, settings]
   );
@@ -33,10 +32,10 @@ const App = () => {
                 colors: settings.themeColors[0],
               }
             : {
-              ...DarkTheme,
-              roundness: 5,
-              colors: settings.themeColors[1]
-            }
+                ...DarkTheme,
+                roundness: 5,
+                colors: settings.themeColors[1],
+              }
         }>
         <RootNavigator />
       </PaperProvider>

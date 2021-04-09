@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { SettingsContext } from '../context/settingsContext';
-import {
-  Card,
-  useTheme,
-  Title,
-  Paragraph,
-  Button,
-  Surface,
-  Caption,
-  Headline,
-  Divider,
-  IconButton,
-} from 'react-native-paper';
-import styled from 'styled-components/native';
-import { getYear, apiCall } from '../utils/helpers';
+import { useTheme, Caption, Headline, Divider, IconButton } from 'react-native-paper';
+
+import { getYear } from '../utils/helpers';
 import { IMAGE_POSTER, URL_MOVIE } from '../utils/apiConfig';
+import { SettingsContext } from '../context/settingsContext';
 import MovieCard from './Styled/MovieCard';
 
 export const Movie = ({ id, title, release_date, poster_path, handleLikedMovie }) => {
@@ -37,7 +26,7 @@ export const Movie = ({ id, title, release_date, poster_path, handleLikedMovie }
         }),
         1
       );
-      handleLikedMovie(id)
+      handleLikedMovie(id);
       setLiked(false);
     } else if (!liked) {
       user.likes.push({ _id: id, url: URL_MOVIE(id) });
