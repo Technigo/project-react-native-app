@@ -13,7 +13,7 @@ const isShaking = (data) => {
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.5
+  return totalForce > 1.7
 }
 
 const randomAnswer = (number) => {
@@ -57,8 +57,7 @@ export const ShakeSensor = () => {
     // Stop listening to the data when we leave SensorComponent
     return () => _unsubscribe()
   }, [])
-
-  // custom font
+  
   const [fontsLoaded] =useFonts({
     'Inter_500Medium': require('../assets/fonts/Inter_500Medium.ttf')
   })

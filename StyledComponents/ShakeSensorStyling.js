@@ -27,6 +27,8 @@ export const ShakeAlert = styled.Text`
   text-align: center;
   margin-top: 40px;
   color: #e3e3e3;
+  padding-left: 10px;
+  padding-right: 10px;
 `
 
 export const ShakeDataView = styled.View``
@@ -39,5 +41,6 @@ export const InterShakeDataTitle = styled.Text`
   letter-spacing: 1px;
   text-align: center;
   margin-bottom: 40px;
+  padding: 10px;
   flex-shrink: 2;
 `
