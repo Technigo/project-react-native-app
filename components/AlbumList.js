@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
-import {  ActivityIndicator, Modal, TouchableOpacity, Text, Alert, View } from "react-native";
+import {  ActivityIndicator, TouchableOpacity, Text, Alert, View } from "react-native";
 
+import AlbumCard from './AlbumCard'
 
 const Container = styled.View`
   flex: 1;
@@ -14,13 +15,7 @@ const Title = styled.Text`
   color: palevioletred;
   margin-top: 15px;
 `
-const ImgAlbum = styled.Image`
-  width: 360;
-  height: 360; 
-  border: 5px solid black;
-  
-  resize-mode: cover;
-`
+
 const List = styled.FlatList`
   background-color: black;
 `
@@ -32,7 +27,7 @@ const albumUrl = 'https://theaudiodb.com/api/v1/json/1/album.php?i=112024'
 
 const [isLoading, setLoading] = useState(true)
 const [data, setData] = useState([])
-const [modalVisible, setModalVisible] = useState(false)
+
 
 useEffect(() => {
   fetch(albumUrl)
@@ -49,43 +44,19 @@ useEffect(() => {
           {isLoading ? <ActivityIndicator/> : (
             <List 
               data={data}
-              keyExtractor={( {id}, index) => id}
+              //keyExtractor={( {id}) => id}
               renderItem={ ({item}) => (
-                 <View>
-                    <Modal
-                        animationType="slide"
-                        transparent={true}
-                        visible={modalVisible}
-                        onRequestClose={() => {
-                        Alert.alert("Modal has been closed.");
-                        setModalVisible(!modalVisible);
-                        }}>
-
-                        <View>
-                          <View>
-                            <Text>{item.strAlbum}</Text>                   
-                            <TouchableOpacity 
-                                onPress={() => setModalVisible(!modalVisible)}
-                              >
-                              <Text>close</Text>
-                            </TouchableOpacity>
-                          </View>
-                        </View>
-
-                    </Modal>
-
-                    <TouchableOpacity onPress={() => setModalVisible(true)}>
-                      <ImgAlbum
-                        source={{ uri: item.strAlbumThumb }}
-                      />
-                    </TouchableOpacity>
-
+                 <View key={item.idAlbum}>            
+                    <AlbumCard 
+                      image={item.strAlbumThumb}
+                      albumName={item.strAlbum}
+                      releaseYear={item.intYearReleased}
+                      
+                    />                  
                   </View> 
               )}
-
             />
           )}
-
       </Container>
       
     </>
