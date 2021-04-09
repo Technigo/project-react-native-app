@@ -1,4 +1,11 @@
 {
+  "web": {
+    "build": {
+      "babel": {
+        "include": ["react-router-native"]
+      }
+    }
+  },
   "expo": {
     "name": "project-react-native-app",
     "slug": "project-react-native-app",
