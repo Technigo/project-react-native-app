@@ -8,9 +8,6 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo-google-fonts/dev": "^0.1.0",
-    "@expo-google-fonts/didact-gothic": "^0.1.0",
-    "@expo-google-fonts/yatra-one": "^0.1.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-picker/picker": "1.9.2",
     "@react-navigation/native": "^5.9.4",
@@ -20,7 +17,6 @@
     "expo-font": "~8.4.0",
     "expo-sensors": "~9.2.0",
     "expo-sharing": "~8.5.0",
-    "lottie-react-native": "^2.6.1",
     "mem": "^6.1.1",
     "minimist": "^1.2.5",
     "react": "16.13.1",

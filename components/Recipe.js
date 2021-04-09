@@ -7,6 +7,8 @@ const RecipeText = styled.Text`
   font-weight: 700;
   font-size: 24px;
   text-align: left;
+  border-bottom-width: 3px;
+  border-bottom-color: #ff5447;
 `
 
 const RecipeImage = styled.Image`

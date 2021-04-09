@@ -4,8 +4,6 @@ import Dish from "../components/Dish"
 import Cuisine from '../components/Cuisine';
 import Diet from "../components/Diet"
 
-
-
 const Container = styled.ScrollView`
   flex: 1;
 `
@@ -22,6 +20,7 @@ const SubmitText = styled.Text`
 const CategoryLabel = styled.Text`
   font-size: 20px;
   margin: 5px 10px;
+  padding: 10px 0;
 `
 
 const SubmitTouchable = styled.TouchableOpacity`

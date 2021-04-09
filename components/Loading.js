@@ -1,19 +1,12 @@
 import React from "react"
-import { View } from "react-native"
-import LottieView from "lottie-react-native"
+import { ActivityIndicator } from "react-native"
 
 const Loading = () => {
-
   return (
-    <View>
-      <LottieView
-        source={require("../assets/food-animation.json")}
-        style={{
-          width: 150,
-          height: 150
-        }}
-      />
-    </View>
+    <ActivityIndicator
+      size="large"
+      color="#ff5447"
+    />
   )
 }
 

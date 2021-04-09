@@ -1,5 +1,3 @@
-import React from "react"
-
 const icons = {
   bbq: require("../assets/dishes/bbq.png"),
   cake: require("../assets/dishes/cake.png"),

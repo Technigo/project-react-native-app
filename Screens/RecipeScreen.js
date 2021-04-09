@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components/native"
-import { Text } from "react-native"
 
+import Loading from "../components/Loading"
 import { API_URL } from "../utils/urls"
 import Recipe from '../components/Recipe';
 
@@ -33,7 +33,7 @@ const RecipeScreen = ({ navigation, dishQuery, cuisineQuery, dietQuery, setRecip
   }, [cuisineQuery])
 
   if (recipes === undefined) {
-    return <Text>Loading...</Text>
+    return <Loading />
   }
 
   if (recipes.length === 0) {

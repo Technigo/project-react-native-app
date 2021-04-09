@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Text } from "react-native"
 
+import Loading from "../components/Loading"
 import { DETAILS_URL } from "../utils/urls"
 import RecipeDetails from "../components/RecipeDetails"
 
@@ -18,7 +18,7 @@ const RecipeDetailsScreen = ({ recipeId }) => {
   }, [recipeId])
 
   if (recipeDetails.length === 0) {
-    return <Text>Loading...</Text>
+    return <Loading />
   }
 
   return (

@@ -2,7 +2,6 @@ import React from "react"
 import { Share, TouchableOpacity } from "react-native"
 import styled from "styled-components/native"
 
-import Loading from "./Loading"
 
 const RecipeText = styled.Text`
   color: black;
@@ -18,6 +17,9 @@ const Paragraph = styled.Text`
 const HeadingText = styled(Paragraph)`
   font-weight: 700;
   margin-bottom: 5px;
+  align-self: flex-start;
+  border-bottom-width: 1px;
+  border-bottom-color: #ff5447;
 `
 
 const RecipeImage = styled.Image`
@@ -56,28 +58,25 @@ const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
   }
 
   return (
-    <>
-      {/* <Loading /> */}
-      <RecipeContainer>
-        <RecipeText>{recipeDetails.title}</RecipeText>
-        <TouchableOpacity onPress={shareRecipe}>
-          <RecipeImage source={{ uri: recipeDetails.image }} />
-        </TouchableOpacity>
-        <Subcontainer>
-          <HeadingText>Ingredients</HeadingText>
-          {recipeDetails.extendedIngredients.map(ingredient => (
-            <Paragraph key={ingredient.id} >🍴 {ingredient.name}</Paragraph>
-          ))}
-        </Subcontainer>
-        <Subcontainer>
-          <HeadingText>Instructions</HeadingText>
-          <Paragraph>{recipeDetails.instructions.replace(/<\/?[^>]+>/gi, '')}</Paragraph>
-        </Subcontainer>
-        <InstructionsText>
-          Sounds good? Tap the image to share the recipe with your friends!
+    <RecipeContainer>
+      <RecipeText>{recipeDetails.title}</RecipeText>
+      <TouchableOpacity onPress={shareRecipe}>
+        <RecipeImage source={{ uri: recipeDetails.image }} />
+      </TouchableOpacity>
+      <Subcontainer>
+        <HeadingText>Ingredients</HeadingText>
+        {recipeDetails.extendedIngredients.map(ingredient => (
+          <Paragraph key={ingredient.id} >🍴 {ingredient.name}</Paragraph>
+        ))}
+      </Subcontainer>
+      <Subcontainer>
+        <HeadingText>Instructions</HeadingText>
+        <Paragraph>{recipeDetails.instructions.replace(/<\/?[^>]+>/gi, '')}</Paragraph>
+      </Subcontainer>
+      <InstructionsText>
+        Sounds good? Tap the image to share the recipe with your friends!
       </InstructionsText>
-      </RecipeContainer>
-    </>
+    </RecipeContainer>
   )
 }
 
