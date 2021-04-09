@@ -3,7 +3,7 @@ import { TouchableOpacity, Alert } from 'react-native'
 import styled from 'styled-components/native'
 
 const CardContainer = styled.View`
-  padding-bottom: 20px;
+padding-bottom: 20px;
 `
 const MovieImage = styled.Image`
 height: 240px;
