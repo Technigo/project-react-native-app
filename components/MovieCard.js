@@ -35,12 +35,14 @@ width: 170px;
   };
 } */
 
-export const MovieCard = ({ title, poster_path, overview }) => {
+export const MovieCard = ({ title, poster_path, overview, vote_average }) => {
 
   const onPressCard = () => {
     Alert.alert(
       `${title}`,
-      `${overview}`,
+      `${overview}
+
+      ${vote_average} / 10`,
       [
         { text: "Back to movies"}/* ,
         { text: "Share", onPress: () => } */
