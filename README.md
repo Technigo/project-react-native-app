@@ -23,4 +23,5 @@ The challanges were many. Mainly how to trigger a new navigation page when shaki
 https://snack.expo.io/@sartish/inspiration
 Download expo app
 scan the QR code with your camera on your phone
-Obs! This app ONLY works on iphone..
+Play around 
+
