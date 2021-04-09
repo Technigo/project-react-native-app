@@ -110,12 +110,12 @@ export const SensorComponent = () => {
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
       */}
-      {/* {isShaking(data) && <ShakeAlert>{answer}</ShakeAlert>} */}
+      {/* if answer it true shake again otherwose ask*/}
       <ShakeDataView>
         <ShakeDataTitle>
           {answer ? "Shake again and find your answers" : "Ask, shake and you shall receive"}
         </ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
+        {/* ifg answer is true show answer state - random array*/}
         {answer ? <ShakeData>{answer}</ShakeData> : null}
         <ShakeData></ShakeData>
         <ShakeData></ShakeData>

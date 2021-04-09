@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import { SensorComponent } from './components/SensorComponent';
-import { MagicBallComponent } from './components/MagicBallComponent'
-
 
 const Container = styled.View`
   flex: 1;
@@ -17,10 +15,18 @@ const Title = styled.Text`
   color: palevioletred;
 `;
 
+const MagicBallIcon = styled.Image`
+  margin: 50px 0;
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+`
+
 const App = () => {
   return (
     <Container>
-      <MagicBallComponent></MagicBallComponent>
+      <MagicBallIcon source={require('./assets/magic-eight-ball.png')}/>
       <SensorComponent></SensorComponent>
     </Container>
   );
