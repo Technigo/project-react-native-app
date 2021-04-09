@@ -12,7 +12,7 @@ const isShaking = (data) => {
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.7
+  return totalForce > 1.78
 }
 
 const randomAnswer = (number) => {
