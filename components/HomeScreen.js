@@ -9,7 +9,7 @@ const Container = styled.View`
 `;
 
 const Title = styled.Text`
-  font-size: 50px;
+  font-size: 52px;
   color: #ff1e56;
   margin-bottom: 30px;
   font-weight: bold;
@@ -27,13 +27,13 @@ const InfoText = styled.Text`
 `;
 
 const Button = styled.TouchableOpacity`
-  background-color: #ffac41;
-  padding: 20px;
+  background-color: #127c56;
+  padding: 22px 30px;
   border-radius: 50px;
 `;
 
 const ButtonText = styled.Text`
-  font-size: 26px;
+  font-size: 30px;
   font-weight: bold;
   color: white;
   font-family: "Trebuchet MS";
@@ -43,8 +43,10 @@ export const HomeScreen = ({ navigation }) => {
   return (
     <Container>
       <Title>CRYPTOFUN</Title>
-      <InfoText>Here you can keep track of the most popular cryptocurrencys and buy them with fake money. You can also press the dices in the top right corner and get more information on random currencies.</InfoText>
-      <Button onPress={() => navigation.navigate("AllCoins")}><ButtonText>START</ButtonText></Button>
+      <InfoText>Here you can keep track of the most popular cryptocurrencies and buy them with fake money. You can also press the dices in the top right corner and get more information on random currencies.</InfoText>
+      <Button onPress={() => navigation.navigate("AllCoins")}>
+        <ButtonText>START</ButtonText>
+      </Button>
     </Container>
   )
 }

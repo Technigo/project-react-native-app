@@ -74,12 +74,12 @@ flex-direction: row;
 
 export const BuyButton = styled.TouchableOpacity`
 padding: 3px 5px;
-background-color: #ff1e56;
+background-color: #127c56;
 border-radius: 2px;
 ${props =>
 props.disabled ?
 `
-opacity: 0.5;
+opacity: 0.3;
 `:  `
 opacity: 1;
 `};
@@ -87,4 +87,5 @@ opacity: 1;
 
 export const SellButton = styled(BuyButton)`
 margin-left: 7px;
+background-color: #ff1e56;
 `;

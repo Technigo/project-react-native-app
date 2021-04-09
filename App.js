@@ -19,7 +19,11 @@ const App = () => {
     <Container>
       <NavigationContainer>
         <Stack.Navigator
-          screenOptions={{ headerStyle: { backgroundColor: "black" }, headerTintColor: "white" }}>
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "black", }, headerTintColor: '#fff',
+          }}
+        >
           <Stack.Screen
             name="HomeScreen"
             component={HomeScreen}
@@ -28,12 +32,12 @@ const App = () => {
           <Stack.Screen 
             name="AllCoins" 
             component={AllCoins}
-            options={{ title: "Coins" }}
+            options={{ title: "All Coins" }}
           />
           <Stack.Screen 
           name="ShakeRandomCoin" 
           component={ShakeRandomCoin}
-          options={{ title: "Random coin info" }}
+          options={{ title: "Random Coin Info" }}
         />
         </Stack.Navigator>
       </NavigationContainer>

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 const TopHeader = styled.View`
   display: flex;
@@ -31,7 +31,7 @@ export const Header = ({ onPress }) => {
     <TopHeader>
       <TitleText>CRYPTOFUN</TitleText>
       <Button onPress={onPress}>
-        <Dice source={require('../assets/dice.png')} />
+        <Dice source={require("../assets/dice.png")} />
       </Button>
     </TopHeader>
   )

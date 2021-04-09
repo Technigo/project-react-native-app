@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-import { Header } from './Header';
-import { Wallet, WalletImage, WalletText, Container, CoinCardContainer, CoinCardTop, CoinCardBottom, CoinTitle, CoinInfo, CoinSymbol, ButtonContainer, BuyButton, SellButton } from '../styledcomponents/AllCoinsStyles';
+import { Header } from "./Header";
+import { Wallet, WalletImage, WalletText, Container, CoinCardContainer, CoinCardTop, CoinCardBottom, CoinTitle, CoinInfo, CoinSymbol, ButtonContainer, BuyButton, SellButton } from "../styledcomponents/AllCoinsStyles";
 
 export const AllCoins = ({ navigation }) => {
   const [coins, setCoins] = useState([]);
@@ -13,24 +13,25 @@ export const AllCoins = ({ navigation }) => {
 
   useEffect(() => {
     setBuy(value.current);
-  }, [])
+  }, []);
 
   useEffect(() => {
       fetchCoins();
-  }, [])
+  }, []);
   
   const fetchCoins = () => {
     fetch(COIN_URL)
     .then(res => res.json())
     .then((json) => {
       setCoins(json.data)
-  })}
+    });
+  };
 
   return (
     <>
       <Header onPress={() => navigation.navigate("ShakeRandomCoin")}></Header>
       <Wallet>
-        <WalletImage source={require('../assets/purse.png')}/>
+        <WalletImage source={require("../assets/purse.png")}/>
         <WalletText>{Number.parseFloat(value.current).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} $</WalletText>
       </Wallet>
       <Container>
@@ -43,8 +44,16 @@ export const AllCoins = ({ navigation }) => {
             <CoinCardBottom>
               <CoinSymbol> {coin.symbol}</CoinSymbol>
               <ButtonContainer>
-                <BuyButton disabled={value.current < coin.price_usd} onPress={() => setBuy(value.current - Number.parseFloat(coin.price_usd))}><CoinInfo>BUY</CoinInfo></BuyButton>
-                <SellButton disabled={value.current === 100000} onPress={() => setBuy(value.current + Number.parseFloat(coin.price_usd))}><CoinInfo>SELL</CoinInfo></SellButton>
+                <BuyButton 
+                  disabled={value.current < coin.price_usd} 
+                  onPress={() => setBuy(value.current - Number.parseFloat(coin.price_usd))}>
+                  <CoinInfo>BUY</CoinInfo>
+                </BuyButton>
+                <SellButton 
+                  disabled={value.current === 100000} 
+                  onPress={() => setBuy(value.current + Number.parseFloat(coin.price_usd))}>
+                  <CoinInfo>SELL</CoinInfo>
+                </SellButton>
               </ButtonContainer>
             </CoinCardBottom>
           </CoinCardContainer>

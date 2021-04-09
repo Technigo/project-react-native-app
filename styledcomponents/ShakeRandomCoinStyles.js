@@ -35,13 +35,6 @@ export const CoinTitle = styled.Text`
   font-family: "Trebuchet MS";
 `;
 
-export const CoinText = styled.Text`
-  color: white;
-  font-size: 20px;
-  padding: 3px 0;
-  font-family: "Trebuchet MS";
-`;
-
 export const CoinSymbol = styled.Text`
   color: #ffac41;
   font-size: 26px;
@@ -50,9 +43,16 @@ export const CoinSymbol = styled.Text`
   font-family: "Trebuchet MS";
 `;
 
+export const CoinText = styled.Text`
+  color: white;
+  font-size: 20px;
+  padding: 3px 0;
+  font-family: "Trebuchet MS";
+`;
+
 export const Button = styled.TouchableOpacity`
   padding: 20px;
-  background-color: #ffac41;
+  background-color: #127c56;
   margin-top: 30px;
 `;
 
