@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
 
 import { MyCustomButton } from './MyCustomButton'
-//import { SelectBreed } from './SelectBreed'
 
+const image = { uri: "https://images.unsplash.com/photo-1516139008210-96e45dccd83b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" }
 
-
-
-const Container = styled.View`
+const Background = styled.ImageBackground `
   flex: 1;
-  background-color: papayawhip;
+  resizeMode: cover;
   justify-content: center;
   align-items: center;
+  
 `
-
-
 export const Home = ({navigation}) => {
 
   const pressHandler = () => {
@@ -22,11 +19,17 @@ export const Home = ({navigation}) => {
 
   }
 
+  const pressInfoHandler = () => {
+    navigation.navigate('CatInfo')
+
+  }
+
   return (
-  <Container>
-    <MyCustomButton text='Press for procrastination' onPress={pressHandler} />
-   
-  </Container>
+    <Background source={image}>
+       <MyCustomButton text='Kitty info 🐾' onPress={pressInfoHandler} />
+      <MyCustomButton text='Random kitty 🐾' onPress={pressHandler} />
+     
+    </Background>
   )
 }
 

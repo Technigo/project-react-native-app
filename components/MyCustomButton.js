@@ -4,11 +4,10 @@ import styled from 'styled-components/native'
 
 
 const CustomButton = styled.TouchableOpacity`
-background-color: #aaaaee;
+background-color: #e39c9c;
 padding: 15px;
 border-radius: 3px;
 margin-top: 30px;
-width: 230px;
 align-items: center;
 `
 const ButtonText = styled.Text`

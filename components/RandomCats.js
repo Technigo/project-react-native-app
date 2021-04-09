@@ -3,9 +3,10 @@ import styled from 'styled-components/native'
 
 import { MyCustomButton } from './MyCustomButton'
 
+
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #f1f2f1;
   justify-content: center;
   align-items: center;
 `
@@ -42,7 +43,7 @@ export const RandomCats = () => {
       {randomCatImages.map(catImage => (
         <ImageContainer key={catImage.id}>
           <CatImage source={{uri: catImage.url}}/>
-          <MyCustomButton text='Press for random kitty 🐾' onPress={updateRandomCat} />
+          <MyCustomButton text='🐾  NEXT  🐾' onPress={updateRandomCat} />
         </ImageContainer >
       ))}
     </Container>

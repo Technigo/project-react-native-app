@@ -18,9 +18,9 @@ jag gjorde en costum button component för att test att använda den på fler st
 
 vad vill jag göra här näst?
 Add a font
-gör en select med olika raser länka till sida med den specifika rasen. 
+gör en select med olika raser länka till sida med den specifika rasen. Jag försökte med det men kunde inte få det att fungera. Jag ville att i home skulle det finnas en dropdawn att välja på olika raser och få upp i en länk och en knapp för att komma till en länk med random cats images för prokrastinering. nu har jag bara navigationen kvar ändå även om den nte fyller ett syfte nu.
 
-Om jag hade haft mer tid hade det varit kul att använda mig av apiet och göra en select och länk för olika cat breeds med info. 
+Om jag hade haft mer tid hade det varit kul att använda mig av apiet och göra en select och länk för olika cat breeds med info.  
 om jag haft mer tid hafde det varit roligt att göra en egen animation och lägga in.
 
 
