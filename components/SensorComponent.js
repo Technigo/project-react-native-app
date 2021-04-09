@@ -85,7 +85,7 @@ export const SensorComponent = () => {
       */}
       {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
       <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
+        <ShakeDataTitle>Shake Data Test</ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
         <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
         <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>

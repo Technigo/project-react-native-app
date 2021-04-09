@@ -17,7 +17,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <SensorComponent></SensorComponent>
+      <SensorComponent><Title>This is test</Title></SensorComponent>
     </Container>
   );
 };
