@@ -7,7 +7,7 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `
-
+//test
 const Title = styled.Text`
   font-size: 24px;
   color: palevioletred;
