@@ -7,5 +7,7 @@ This is React Native project dedicated to the creation of Oracle app for mobile 
 The main problem was to couple mobile phone to the Expo development software to see how app performs on the mobile phone. 
 
 ## View it live
+https://expo.io/accounts/vladjnbykov/projects/oracle-react-native-app
 
-
+as a snack on Expo:
+https://snack.expo.io/@vladjnbykov/df578f
