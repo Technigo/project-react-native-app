@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { Text, Button, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 
 import { Welcome } from './pages/Welcome'
 import { CatFactsPage } from './pages/CatFactsPage'
@@ -8,21 +8,26 @@ import { DogFactsPage } from './pages/DogFactsPage'
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: whitesmoke;
   justify-content: center;
   align-items: center;
 `
 
-const Title = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 20px;
+const ButtonContainer = styled.View`
+  flex-direction: row;
+  padding: 20px;
+  justify-content: space-evenly;
 `
 
-const ButtonContainer = styled.View`
-  flex-direction: column;
-  padding: 20px;
+const ButtonTouchableOpacity = styled.TouchableOpacity`
+  padding: 10px;
+  border-radius: 10px;
+  background-color: pink;
+`
+
+const ButtonText = styled.Text`
+    font-size: 20px;
+    font-weight: 500;
 `
 
 const App = () => {
@@ -44,23 +49,24 @@ const App = () => {
     <Container>
       {initialScreen ? (
         <View>
-        <Welcome></Welcome>
-      <Button
-        onPress={onCatsButtonPress}
-        title="Cats"
-      />
-      <Button
-        onPress={onDogsButtonPress}
-        title="Dogs"
-      />
-      </View>
+          <Welcome></Welcome>
+          <ButtonContainer>
+            <ButtonTouchableOpacity
+              onPress={onCatsButtonPress}
+            >
+              <ButtonText>CATS</ButtonText>
+            </ButtonTouchableOpacity>
+            <ButtonTouchableOpacity
+              onPress={onDogsButtonPress}
+            >
+              <ButtonText>DOGS</ButtonText>
+            </ButtonTouchableOpacity>
+          </ButtonContainer>
+        </View>
       ) : (
-        (dogPage ? <DogFactsPage /> : <CatFactsPage />)
-     
-        // <CatFactsPage></CatFactsPage>
+        (dogPage === true ? <DogFactsPage onRestartMainPage={() => setInitialScreen(true)}/> : <CatFactsPage onRestartMainPage={() => setInitialScreen(true)}/>)
       )
     }
-      
     </Container>
   )
 }
