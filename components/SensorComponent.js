@@ -14,7 +14,7 @@ const isShaking = (data) => {
   // Increase this threshold if you need your user to shake harder
   return totalForce > 1.78;
 };
-
+//test//testar
 // ==========================
 // = Styled components
 const ShakeView = styled.View`
