@@ -11,37 +11,53 @@ const AppWrapper = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: #574334;
+  background-color: #000;
 `;
 
-const Title = styled.Text`
-  flex: 0.5;
-  font-size: 48px;
+const BaseText = styled.Text`
   color: white;
+  font-family: 'Courier New';
+`;
+
+const Title = styled(BaseText)`
+  flex: 0.20;
+  align-items: center;
+  font-size: 40px;
+  padding: 0px;
+  margin: 35px 15px 10px 15px;
+`;
+
+const TodayText = styled(BaseText)`
+  font-size: 20px;
 `;
 
 //these don't get applied for some reason :((
 const IncrementButton = styled.TouchableOpacity`
-  flex: 1;
-  margin: 15px;
+  margin: 10px 15px 5px 15px;
   padding: 15px 25px;
+  border: 2px solid #fff;
   border-radius: 15px;
-  color: black;
-  background-color: #5b2466;
 `;
 
-const ButtonLabel = styled.Text`
+const ButtonLabel = styled(BaseText)`
   font-size: 32px;
-  color: white;
 `;
 
-const Footer = styled.Text`
+const Explanation = styled(BaseText)`
+    font-size: 14px;
+    margin: 10px 30px 30px 30px;
+    text-align: center;
+    color: grey;
+`;
+
+const Footer = styled(BaseText)`
   font-size: 12px;
-  color: palevioletred;
   padding-bottom: 30px;
+  margin: 15px 80px 15px 80px;
+  text-align: center;
 `;
 
-const Linky = styled.Text`
+const Linky = styled(BaseText)`
   color: #2ca3e8;
 `;
 
@@ -49,7 +65,7 @@ const Linky = styled.Text`
 
 const App = () => {
 
-  const [steps, setSteps] = useState(10)
+  const [steps, setSteps] = useState(22)
   const [stepCooldown, setStepCooldown] = useState(false)
   const [currentQuote, setCurrentQuote] = useState({text: "", name: "", length: 0, shown: 0})
   const [revealHeld, setRevealHeld] = useState(false)
@@ -106,9 +122,12 @@ const App = () => {
         
         <Title>Zen Walker</Title>
 
+        <TodayText>Quote of the Day</TodayText>
+
         <QuoteHandler 
           shown={currentQuote.shown}
           onCurrentQuoteChange={onCurrentQuoteChange}
+          currentQuote={currentQuote}
           startReveal={startReveal}
         />
 
@@ -121,10 +140,12 @@ const App = () => {
         <IncrementButton
           onPress={() => {reveal(1)}}
         >
-          <ButtonLabel>Reveal!</ButtonLabel>
+          <ButtonLabel>reveal</ButtonLabel>
         </IncrementButton>
 
-        <Footer> Quotes provided by <Linky onPress={() => {Linking.openURL("https://zenquotes.io/")}}>ZenQuotes</Linky></Footer>
+        <Explanation>A hundred steps for<br></br>a word of wisdom</Explanation>
+
+        <Footer>Inspirational quotes provided by <Linky onPress={() => {Linking.openURL("https://zenquotes.io/")}}>ZenQuotes API</Linky></Footer>
       </AppWrapper>
   );
 };

@@ -5,35 +5,36 @@ const QuoteWrapper = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: #3b4e62;
+    background-color: #000;
     padding: 5px;
 `;
 
 const BaseText = styled.Text`
     color: white;
+    font-family: 'Courier New';
 `;
 
 const ActualQuote = styled(BaseText)`
-    font-size: ${(props) => (190 - props.length)}px;
-    margin: 10px 30px 40px 30px;
-    background-color: green;
+    font-size: ${(props) => (120 - props.length)}px;
+    margin: 10px 30px 30px 30px;
+    background-color: #000;
 `;
 
 const NameWrapper = styled.View`
     flex: 0.25;
     width: 100%;
     flex-direction: row;
-    margin: 10px 50px 20px 20px;
+    margin: 0px 90px 20px 20px;
     padding: 0px
     justify-content: flex-end;
     align-items: center;
-    background-color: purple;
+    background-color: #000;
 `;
 
 const Name = styled(BaseText)`
     font-size: 18px;
     text-align: right;
-    background-color: red;
+    background-color: #000;
     margin: 0px;
 `;
 
@@ -53,10 +54,10 @@ const revealQuote = (quote, props) => {
 
     const renderedQuote_2 = quoteTextAsArray_2.map((word, index) => {
         if (index > howFar) {
-            return `${word.replace(/[a-z]|[A-Z]/g, "_")} `
+            return `${word.replace(/[a-z]|[A-Z]/g, "_")}${index === quoteTextAsArray_2.length-1 ? "" : " "}`
             //itterate as many times as word.length
         } else {
-            return `${word} `
+            return `${word}${index === quoteTextAsArray_2.length-1 ? "" : " "}`
         }
     })
 
@@ -67,7 +68,7 @@ const Quote = (props) => {
     return (
         <>
             <QuoteWrapper>
-                <ActualQuote length={props.length}>{revealQuote(props.quote, props)}</ActualQuote>
+                <ActualQuote length={props.quote.length}>"{revealQuote(props.quote, props)}"</ActualQuote>
                 <NameWrapper>
                     <Name>- {props.quote.name}</Name>
                 </NameWrapper> 

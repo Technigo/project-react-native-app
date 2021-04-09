@@ -29,7 +29,7 @@ const ShakeView = styled.View`
   flex: 1;
   flex-direction: column;
   align-items: center;
-  background-color: purple;
+  background-color: #000;
   padding: 15px;
   margin: 15px;
 `;

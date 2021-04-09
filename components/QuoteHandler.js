@@ -13,8 +13,12 @@ const Container = styled.View`
     flex: 2;
     justify-content: center;
     align-items: center;
-    background-color: #928380;
+    background-color: #000;
 `;
+
+//For actual API response: if daily quote is same as is already loaded, shown remains
+//Goal for tonight:
+//[_] Get quote of the day fetch to work! :D
 
 const mockJSON = [
     {
@@ -40,6 +44,34 @@ const QuoteHandler = (props) => {
         shown: props.shown
     }
 
+    useEffect (() => {
+
+        fetch("https://thingproxy.freeboard.io/fetch/https://zenquotes.io/api/today", {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            // credentials: 'omit',
+            headers: {
+            
+            }
+            //     //'Content-Type': 'application/json'
+            //     // 'Content-Type': 'application/x-www-form-urlencoded',
+        })
+        .then(response => response.json())
+        .then(todaysQuote => {
+            console.log(todaysQuote)
+            props.onCurrentQuoteChange ({
+                text: todaysQuote[0].q,
+                name: todaysQuote[0].a,
+                length: todaysQuote[0].q.length,
+                shown: props.shown
+            })
+        })
+        .catch (err => {
+            console.error(err)
+        })
+    }, [])
+
     //How do I get
 
     // props.onCurrentQuoteChange(addProperties(JSON.stringify(testquote)))
@@ -47,7 +79,7 @@ const QuoteHandler = (props) => {
     return (
         <Container>
             <Quote 
-                quote={testquote}
+                quote={props.currentQuote}
             />
         </Container>
     )

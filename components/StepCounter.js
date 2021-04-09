@@ -9,25 +9,29 @@ const Container = styled.View`
     flex: 0.5;
     justify-content: center;
     align-items: center;
-    background-color: #3b6243;
+    background-color: #000;
 `;
 
-const Steps = styled.Text`
+const BaseText = styled.Text`
     color: white;
-    font-size: 24px;
-    margin: 30px;
-    background-color: #352364;
+    font-family: 'Courier New';
+`;
+
+const Steps = styled(BaseText)`
+    color: white;
+    font-size: 20px;
+    background-color: #000;
 `;
 
 const StepCounter = (props) => {
     return (
         <Container>
-            <SensorComponent 
+            {/* <SensorComponent 
                 steps={props.steps} 
                 onStep={props.onStep} 
                 stepCooldown={props.stepCooldown}
-            />
-            <Steps>Movement: {props.steps}</Steps>
+            /> */}
+            <Steps>Steps: {props.steps}</Steps>
         </Container>
     )
 }
