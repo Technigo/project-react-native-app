@@ -10,4 +10,4 @@ I had problems with the layout. It took long time before I understood that the i
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@sssylvasss/project-react-native-app
