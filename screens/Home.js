@@ -17,6 +17,8 @@ const Home = () => {
   const [ingredientsFilter, setIngredientsFilter] = useState(false)
   const [glutenFilter, setGluteFilter] = useState(false)
   const [calloriesFilter, setCalloriesFilter] = useState(false)
+  const [lactoseFilter, setLactoseFilter] = useState(false)
+  const [peanutFilter, setPeanutFilter] = useState(false)
 
   const handleSubmit = () => {
     setSearch(searchWord)
@@ -41,8 +43,14 @@ const Home = () => {
     if (glutenFilter) {
       newFilteredRecipes = newFilteredRecipes.filter((item) => item.recipe.healthLabels.includes('Gluten-Free'))
     }
+    if (lactoseFilter) {
+      newFilteredRecipes = newFilteredRecipes.filter((item) => item.recipe.healthLabels.includes('Dairy-Free'))
+    }
+    if (peanutFilter) {
+      newFilteredRecipes = newFilteredRecipes.filter((item) => item.recipe.healthLabels.includes('Peanut-Free'))
+    }
     setFilteredRecipes(newFilteredRecipes)
-  }, [calloriesFilter, glutenFilter, recipes])
+  }, [calloriesFilter, glutenFilter, lactoseFilter, peanutFilter, recipes])
 
 
   return (
@@ -57,7 +65,7 @@ const Home = () => {
         <CollapseHeader>
           <FilterIconWrapper>
             <Title>Filters</Title>
-            <AntDesign name="downcircle" size={24} color={glutenFilter || calloriesFilter|| ingredientsFilter? "#6e8c6c":"white"} />
+            <AntDesign name="downcircle" size={24} color={glutenFilter || calloriesFilter|| ingredientsFilter ||lactoseFilter ? "#6e8c6c":"white"} />
           </FilterIconWrapper>
         </CollapseHeader>
         <CollapseBody>
@@ -68,6 +76,10 @@ const Home = () => {
           setGluteFilter={setGluteFilter}
           calloriesFilter={calloriesFilter}
           setCalloriesFilter={setCalloriesFilter}
+          lactoseFilter={lactoseFilter}
+          setLactoseFilter={setLactoseFilter}
+          peanutFilter={peanutFilter}
+          setPeanutFilter={setPeanutFilter}
         />
         </CollapseBody>
       </Collapse>
