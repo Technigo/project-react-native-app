@@ -19,27 +19,39 @@ const Container = styled.View`
 flex:1;
 align-items: center;
 justify-content: center
+background: #000
 `
 
+const MyButton = styled.Button`
+color: red`
+
+
+
 const Question = styled.Text`
-font-size: 16px`
+font-size: 20px
+color: red;
+font-weight: bold;
+padding: 0px 20px 20px 20px`
 
 
 const HomeScreen = ({navigation}) => {
   return (
     <Container >
-      <Question>Home Screen</Question>
-      <Button
+      <Question>Welcome to Movie App, please select a category: </Question>
+      <MyButton
         title="Go to Top Rated Movies"
-        onPress={() => navigation.navigate('TopRated')}
+        color="red"
+        onPress={() => navigation.navigate('Top Rated Movies')}
       />
-      <Button
+      <MyButton
         title="Go to Most Popular Movies"
+        color="red"
         onPress={() => navigation.navigate('Popular Movies')}
       />
-      <Button
+      <MyButton
         title="Go to Most Upcoming Movies"
-        onPress={() => navigation.navigate('Upcoming')}
+        color="red"
+        onPress={() => navigation.navigate('Upcoming Movies')}
       />
 
      
@@ -69,7 +81,7 @@ export default function App() {
         },
         headerTintColor: '#fff',
       }}/>
-      <Stack.Screen name="TopRated" component={TopScreen} 
+      <Stack.Screen name="Top Rated Movies" component={TopScreen} 
        options={{
         headerStyle: {
           backgroundColor: '#000',
@@ -83,7 +95,7 @@ export default function App() {
         },
         headerTintColor: '#fff',
       }}/>
-      <Stack.Screen name="Upcoming" component={UpcomingScreen} 
+      <Stack.Screen name="Upcoming Movies" component={UpcomingScreen} 
        options={{
         headerStyle: {
           backgroundColor: '#000',
