@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Accelerometer } from 'expo-sensors'
-import { useFonts, Inter_500Medium } from '@expo-google-fonts/inter';
-import AppLoading from 'expo-app-loading';
-
-import { MagicAnswer2 } from './MagicAnswer2'
+import { useFonts, Inter_500Medium } from '@expo-google-fonts/inter'
+import AppLoading from 'expo-app-loading'
 
 import { ShakeView, ShakeAlert, ShakeDataView, InterShakeDataTitle, MagicBall } from '../StyledComponents/ShakeSensorStyling'
 import magicanswer from '../data/magicanswer'
