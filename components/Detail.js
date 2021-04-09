@@ -1,20 +1,28 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components/native'
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient'
+import { FontAwesome } from '@expo/vector-icons' 
+import { Dimensions } from 'react-native'
 import { API_DETAIL } from '../reusable/urls'
-import { FontAwesome } from '@expo/vector-icons'; 
-
 
 import LinkShare from './LinkShare'
+
+const windowHeight = Dimensions.get('window').height
 
 const Container = styled.ScrollView`
   flex: 1; 
   background-color: #000;
 `
 
+const LoaderContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  height: ${props => windowHeight};
+`
+const Loader = styled.ActivityIndicator``
+
 const Poster = styled.ImageBackground`
-  width: 100%;
-  height: 480px; 
+  height: 450px; 
 `
 
 const Gradient = styled(LinearGradient)`
@@ -55,22 +63,30 @@ const About = styled.Text`
 
 const ShareButton = styled.TouchableOpacity`
   align-items: center;
-  margin-top: 50;
+  margin-top: 50px;
 `
 
 const Detail = ({ route }) => {
   const [detailList, setDetailList] = useState('')
+  const [loading, setLoading]= useState(true)
   const { itemID } = route.params
 
   useEffect(() => {
     fetch(API_DETAIL(itemID))
       .then(response => response.json())
       .then(data => setDetailList(data))
-  }, [itemID])
 
+      setTimeout(()=>{
+        setLoading(false)
+      }, 1500)
+  }, [itemID])
 
   return (
     <Container>
+      {loading ?  
+      <LoaderContainer>
+        <Loader size="large" color="#ff0000"/>
+      </LoaderContainer> :
       <Poster source={{ uri:`https://image.tmdb.org/t/p/w780/${detailList.backdrop_path}`}}>
         <Gradient
           colors={[
@@ -79,17 +95,12 @@ const Detail = ({ route }) => {
             'rgba(0,0,0,0.5)',
             'rgba(0,0,0,1)',
           ]}
-        >
-        </Gradient> 
+        />
         <ContentContainer>
           <MovieTitle>{detailList.original_title}</MovieTitle>
           <RaitingContainer>
-            <Raiting>
-              {detailList.vote_average}/10
-            </Raiting>
-            <ReleaseDate>
-              {detailList.release_date}
-            </ReleaseDate>
+            <Raiting>{detailList.vote_average}/10</Raiting>
+            <ReleaseDate>{detailList.release_date}</ReleaseDate>
           </RaitingContainer>
           <About>{detailList.overview}</About>
           <ShareButton>
@@ -98,8 +109,8 @@ const Detail = ({ route }) => {
           </ShareButton>
         </ContentContainer>
       </Poster>
+      }
     </Container>
-   
   )
 }
 

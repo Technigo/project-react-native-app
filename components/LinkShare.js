@@ -1,7 +1,5 @@
 import React from 'react'
 import { Share, Button } from 'react-native'
-import styled from 'styled-components/native'
-
 
 const LinkShare = ({ hompageUrl }) => {
   const onShare = async () => {

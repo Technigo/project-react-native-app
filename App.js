@@ -14,10 +14,24 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
+          options={{
+            title: 'Popular movies',
+            headerStyle: {
+              backgroundColor: 'black',
+            }, 
+            headerTintColor: '#fff'
+          }}
         />
         <Stack.Screen
           name="Detail"
           component={Detail}
+          options={{
+            title: null,
+            headerStyle: {
+              backgroundColor: 'black',
+            }, 
+            headerTintColor: '#fff'
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

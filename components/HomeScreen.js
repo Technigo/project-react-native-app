@@ -1,28 +1,32 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components/native'
 import { API_URL } from '../reusable/urls'
+import { Dimensions } from 'react-native'
+import { AntDesign } from '@expo/vector-icons'
+
+const windowHeight = Dimensions.get('window').height
+const windowWidth = Dimensions.get('window').width
 
 const Container = styled.ScrollView`
-  background-color: black;
-  
+  background-color: black;  
 `
-const ImageContainer = styled.View`
-  
-`
+
 const Poster = styled.ImageBackground`
-  height: 830px;
+  height: ${props => windowHeight};
+  width: ${props => windowWidth};
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   padding-bottom: 30px;
-`
+` 
+
 const DetailListContainer = styled.View`
   width: 100%;
   align-items: center;
 `
 
 const Image = styled.Image`
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 340px;
   border-radius: 12px;
   opacity: 0.9;
 `
@@ -31,18 +35,31 @@ const ImageOverlay = styled.View`
   position: absolute;
   top: 50%;
   z-index: 1;
-  width: 200;
+  width: 170px;
 `
 
 const Title = styled.Text`
-  font-size: 20px;
-  color: white;
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: 10px;
+  color: #000; 
   text-align: center;
 `
 
-const HomeScreen = ({navigation}) => {
+ const Button = styled.TouchableOpacity`
+  background-color: ${props => (props.disabled ? "#ccc" : "red")};
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+` 
+
+const Icon = styled.View`
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  right: -20px;
+`
+
+const HomeScreen = ({ navigation }) => {
   const [movieList, setMovieList] = useState([])
 
   useEffect (() => {
@@ -51,30 +68,33 @@ const HomeScreen = ({navigation}) => {
       .then(data => setMovieList(data.results))
   }, [])
 
-
   return (
-    <Container horizontal={false}>
+    <Container horizontal={true}>
      {movieList.map(movie =>
-       <ImageContainer key={movie.id}> 
-        <Poster source={{ uri:`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}}> 
+        <Poster 
+          blurRadius={5}
+          key = {movie.id}
+          source={{ uri:`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}}
+        > 
           <DetailListContainer>
             <ImageOverlay>
-            <Title 
-              onPress={() => {
-                navigation.navigate('Detail', {
-                  itemID: `${movie.id}`                
-                })
-              }}
-            >
-              {movie.original_title}
-            </Title>
+              <Button 
+                onPress={() => {
+                  navigation.navigate('Detail', {
+                    itemID: `${movie.id}`                
+                  })
+                }}
+              >
+                <Title>{movie.original_title.toUpperCase()}</Title>
+              </Button>
             </ImageOverlay> 
             <Image source={{ uri:`https://image.tmdb.org/t/p/w780/${movie.backdrop_path}`}}/>
+            <Icon>
+              <AntDesign name="rightcircleo" size={44} color="white" /> 
+            </Icon>
           </DetailListContainer>  
         </Poster> 
-      </ImageContainer>
-    )}  
-
+      )}  
     </Container>
   )
 }
