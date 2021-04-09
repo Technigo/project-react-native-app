@@ -56,31 +56,24 @@ const JokeQuestion = styled(TextStyling)`
 
 const SensorComponent = () => {
   const timeToUpdateJoke = () =>{
-    //let time = new Date();
-    //if ((time-lastUpdate)>500) // if 500 ms since we last changed the joke
     {
-      //
+
       if (joke != null)
       {
         joke.punchline = "";
         joke.setup = "L o a d i n g";
       }
       newJokeCounter++;
-
-      console.log("test:" + newJokeCounter);
-      //lastUpdate = time;
     }
   };
 
 
   let [joke, setJoke] = useState([]);
-
-  useEffect(() => {
+    useEffect(() => {
       fetch(JOKE_URL)
       .then(res => res.json())
       .then(json => {
           setJoke(json)
-          console.log(json);
       })
   }, [newJokeCounter]);
 
@@ -132,7 +125,6 @@ const SensorComponent = () => {
           Shaking up a new joke!
           { timeToUpdateJoke() }
         </WhenShaken> }
-
       {!isShaking(data) &&
       <TheJoke>
         <JokeQuestion>{joke.setup}</JokeQuestion>
