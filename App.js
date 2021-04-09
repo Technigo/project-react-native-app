@@ -1,25 +1,25 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import { SensorComponent } from './components/SensorComponent';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
+import { MagicBallScreen } from './components/MagicBallScreen';
+import { HomeScreen } from './components/HomeScreen'
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
+
+const Stack = createStackNavigator();
+
 
 const App = () => {
+  
   return (
-    <Container>
-      <SensorComponent><Title>This is test</Title></SensorComponent>
-    </Container>
-  );
-};
+    <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='Home' component={HomeScreen} />
+          <Stack.Screen name='Magic Ball' component={MagicBallScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
 
-export default App;
+export default App
+

@@ -33,7 +33,7 @@ const ShakeDataTitle = styled.Text`
 `;
 const ShakeData = styled.Text``;
 
-export const SensorComponent = () => {
+export const MagicBallScreen = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
