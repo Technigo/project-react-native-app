@@ -4,18 +4,7 @@ import Dish from "../components/Dish"
 import Cuisine from '../components/Cuisine';
 import Diet from "../components/Diet"
 
-import bbq from "../assets/dishes/bbq.png"
-import cake from "../assets/dishes/cake.png"
-import pancake from "../assets/dishes/pancake.png"
-import pasta from "../assets/dishes/pasta.png"
-import pizza from "../assets/dishes/pizza.png"
-import rice from "../assets/dishes/rice.png"
-import salad from "../assets/dishes/salad.png"
-import sandwich from "../assets/dishes/sandwich.png"
-import smoothie from "../assets/dishes/smoothie.png"
-import soup from "../assets/dishes/soup.png"
-import stew from "../assets/dishes/stew.png"
-import taco from "../assets/dishes/taco.png"
+
 
 const Container = styled.ScrollView`
   flex: 1;

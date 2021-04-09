@@ -24,20 +24,21 @@ const Dish = ({ dishes, chooseDish, checkedDish }) => {
   return (
     <ChoiceView>
       {dishes.map(dish => (
-        <StyledTouchable
-          key={dish}
-          onPress={() => chooseDish(dish)}
+        < StyledTouchable
+          key={dish.name}
+          onPress={() => chooseDish(dish.name)}
         >
-          <Icon source={require(`../assets/dishes/${dish}.png`)} alt={dish} />
+          <Icon source={dish.icon} alt={dish.name} />
           <RadioButton
             color="#ff5447"
-            value={dish}
-            status={checkedDish === dish ? 'checked' : 'unchecked'}
-            onPress={() => chooseDish(dish)}
+            value={dish.name}
+            status={checkedDish === dish.name ? 'checked' : 'unchecked'}
+            onPress={() => chooseDish(dish.name)}
           />
         </StyledTouchable>
-      ))}
-    </ChoiceView>
+      ))
+      }
+    </ChoiceView >
   )
 }
 
