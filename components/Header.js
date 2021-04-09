@@ -1,5 +1,4 @@
 import React from 'react'
-/* import { View } from 'react-native' */
 import styled from 'styled-components/native'
 
 const Heading = styled.Text`
@@ -19,4 +18,5 @@ const Header = () => {
   )
 
 }
+
 export default Header

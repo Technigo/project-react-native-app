@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "popular-movies",
+    "slug": "popular-movies",
     "privacy": "public",
     "sdkVersion": "40.0.0",
     "platforms": ["ios", "android", "web"],
