@@ -15,4 +15,5 @@ If I had more time I would have made better design for the actuall ball and impl
 
 ## View it live
 
-View it live: 
+View it live: https://expo.io/@irina-dev/project-react-native-app
+
