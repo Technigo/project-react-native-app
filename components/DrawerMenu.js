@@ -11,18 +11,17 @@ const Drawer = createDrawerNavigator();
 
 export const DrawerMenu = () => {
   const dimensions = useWindowDimensions();
-  const [comicsId, setComicsId] = useState();
+  const [comicTitle, setComicTitle] = useState();
 
-  const ComicsL = ({ navigation }) => {
+  const ComicsListScreen = ({ navigation }) => {
     return (
       <ComicsList
-        comicsId={comicsId}
-        setComicsId={setComicsId}
+        comicTitle={comicTitle}
+        setComicTitle={setComicTitle}
         navigation={navigation}
       />
     );
   };
-  
 
   return (
     <Drawer.Navigator
@@ -31,19 +30,14 @@ export const DrawerMenu = () => {
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen
         name="ComicList"
-        component={ComicsL}
+        component={ComicsListScreen}
         options={{ title: "Marvel" }}
       />
-      {comicsId && (
+      {comicTitle && (
         <Drawer.Screen
           name="ComicDetails"
           component={ComicDetails}
-          options={{
-            drawerLabel: `${comicsId}`,
-            activeTintColor: "red",
-            activeBackgroundColor: "red",
-            inactiveTintColor: "red",
-          }}
+          options={{ title: `${comicTitle}` }}
         />
       )}
     </Drawer.Navigator>

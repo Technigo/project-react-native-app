@@ -1,6 +1,56 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components/native";
-import { useWindowDimensions } from "react-native";
+import { useWindowDimensions, Animated} from "react-native";
+
+export const Home = ({ navigation }) => {
+  const dimensions = useWindowDimensions();
+  const marvelArr = ["M", "A", "R", "V", "E", "L"];
+  const animatedValues = [];
+
+  marvelArr.forEach((_, i) => {
+    animatedValues[i] = new Animated.Value(0);
+  });
+
+  const animated = (toValue = 1) => {
+    const animations = marvelArr.map((_, i) => {
+      return Animated.timing(animatedValues[i], {
+        toValue,
+        duration: 1000,
+        useNativeDriver: false,
+      });
+    });
+    Animated.stagger(100, animations).start();
+  };
+
+  useEffect(() => {
+  animated();}, [])
+
+  return (
+    <Wrapper>
+      {marvelArr.map((word, index) => {
+        console.log(word, index);
+        return (
+          <Animated.Text
+            key={`${word}-${index}`}
+            style={{
+              color: "red",
+              fontSize: 40,
+              fontWeight: "bold",
+              opacity: animatedValues[index],
+            }}
+          >
+            {word}
+          </Animated.Text>
+        );
+      })}
+      {dimensions.width >= 768 ? (
+        <></>
+      ) : (
+        <Button title="Show Menu" onPress={() => navigation.toggleDrawer()} />
+      )}
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.View`
   flex: 1;
@@ -10,21 +60,6 @@ const Wrapper = styled.View`
   background-color: black;
 `;
 
-const Title = styled.Text`
-  color: red;
-  font-weight: bold;
-  font-size: 24px;
-  margin: 10px;
+const Button = styled.Button`
+background-color: grey;
 `;
-
-const Button = styled.Button``;
-
-export const Home = ({ navigation }) => {
-  const dimensions=useWindowDimensions();
-  return (
-    <Wrapper>
-      <Title>MARVEL</Title>
-      {dimensions.width >= 768 ? <></> : <Button title="Show Menu" onPress={() => navigation.toggleDrawer()} />}
-    </Wrapper>
-  );
-};
