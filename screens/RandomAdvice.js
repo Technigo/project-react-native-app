@@ -13,18 +13,17 @@ const NotificationsContainer = styled.View`
 
 export const RandomAdvice = () => {
   
-  const [randomAdvice, setRandomAdvice] = useState ('')
+  const [randomAdvice, setRandomAdvice] = useState ([])
 
   useEffect (() => {
     fetchRandomAdviceList()
-  }, [])
+  },)
 
   const fetchRandomAdviceList = () => {
     fetch('https://api.adviceslip.com/advice')
     .then(res => res.json())
-    .then(advice => setRandomAdvice(advice))
-    .catch(err => console.error(err))
-    
+    .then(data => setRandomAdvice(data.slip.advice))
+    .catch(err => console.error(err)) 
   }
 
 
@@ -36,7 +35,7 @@ export const RandomAdvice = () => {
       source={{uri:'https://media.giphy.com/media/jSSUtHZB08yOJGDAd2/source.gif'}}
       />
       </View>
-      <Text>{randomAdvice.advice}</Text>
+      <Text>{randomAdvice}</Text>
     </NotificationsContainer>
   );
 };

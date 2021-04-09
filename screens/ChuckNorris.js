@@ -33,6 +33,7 @@ export const ChuckNorris = () => {
       <View>
       <Image 
       source={{uri:'https://media.giphy.com/media/jSSUtHZB08yOJGDAd2/source.gif'}}
+      style={{width:400, height:400}}
       />
       </View>
       <Text>{chuckNorris.value}</Text>
