@@ -11,6 +11,7 @@
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
+    "accordion-collapse-react-native": "^1.0.0",
     "braces": "^3.0.2",
     "expo": "^40.0.0",
     "expo-sharing": "~8.5.0",

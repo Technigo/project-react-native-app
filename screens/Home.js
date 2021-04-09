@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
+import { AntDesign } from '@expo/vector-icons'
+import { Collapse, CollapseHeader, CollapseBody, AccordionList } from 'accordion-collapse-react-native'
 
 import { SEARCH_URL } from '../reusables/urls'
 import RecipeThumb from '../components/RecipeThumb'
@@ -51,14 +53,24 @@ const Home = () => {
         searchWord={searchWord}
         setSearchWord={setSearchWord}
       />
-      <Filters
-        ingredientsFilter={ingredientsFilter}
-        setIngredientsFilter={setIngredientsFilter}
-        glutenFilter={glutenFilter}
-        setGluteFilter={setGluteFilter}
-        calloriesFilter={calloriesFilter}
-        setCalloriesFilter={setCalloriesFilter}
-      />
+      <Collapse>
+        <CollapseHeader>
+          <FilterIconWrapper>
+            <Title>Filters</Title>
+            <AntDesign name="downcircle" size={24} color={glutenFilter || calloriesFilter|| ingredientsFilter? "#6e8c6c":"white"} />
+          </FilterIconWrapper>
+        </CollapseHeader>
+        <CollapseBody>
+        <Filters
+          ingredientsFilter={ingredientsFilter}
+          setIngredientsFilter={setIngredientsFilter}
+          glutenFilter={glutenFilter}
+          setGluteFilter={setGluteFilter}
+          calloriesFilter={calloriesFilter}
+          setCalloriesFilter={setCalloriesFilter}
+        />
+        </CollapseBody>
+      </Collapse>
       {filteredRecipes.map((item) => <RecipeThumb key={item.recipe.uri} item={item} />)}
     </Container>
   )
@@ -77,4 +89,9 @@ const Title = styled.Text`
   color: white;
   margin: 5px;
   text-align: center;
+`
+const FilterIconWrapper = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 `

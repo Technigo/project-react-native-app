@@ -24,13 +24,27 @@ const Filters = ({ingredientsFilter, setIngredientsFilter, glutenFilter, setGlut
       onPress={calloriesToggle}>
       <Text> 150 callories</Text>
     </ButtonCallories>
+    <ButtonCallories
+      calloriesFilter={calloriesFilter}
+      onPress={calloriesToggle}>
+      <Text> 150 callories</Text>
+    </ButtonCallories>
+    <ButtonCallories
+      calloriesFilter={calloriesFilter}
+      onPress={calloriesToggle}>
+      <Text> 150 callories</Text>
+    </ButtonCallories>
 
   </FiltersWrapper> 
   )
 
 }
 export default Filters
-const FiltersWrapper = styled.ScrollView `
+const FiltersWrapper = styled.View `
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   background: black;
   padding: 10px;
 `
