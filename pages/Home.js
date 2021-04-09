@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
+import { useWindowDimensions } from "react-native";
 
 const Wrapper = styled.View`
   flex: 1;
@@ -19,10 +20,11 @@ const Title = styled.Text`
 const Button = styled.Button``;
 
 export const Home = ({ navigation }) => {
+  const dimensions=useWindowDimensions();
   return (
     <Wrapper>
-      <Title>HOME</Title>
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
+      <Title>MARVEL</Title>
+      {dimensions.width >= 768 ? <></> : <Button title="Show Menu" onPress={() => navigation.toggleDrawer()} />}
     </Wrapper>
   );
 };

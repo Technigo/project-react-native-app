@@ -2,7 +2,9 @@
   "web": {
     "build": {
       "babel": {
-        "include": ["react-router-native"]
+        "include": [
+          "react-router-native"
+        ]
       }
     }
   },
@@ -11,7 +13,11 @@
     "slug": "project-react-native-app",
     "privacy": "public",
     "sdkVersion": "40.0.0",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,9 +29,12 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }

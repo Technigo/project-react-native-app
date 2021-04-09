@@ -3,26 +3,58 @@ import styled from "styled-components/native";
 
 import { FULLCOMIC_URL } from "../reusables/urls";
 
-const Wrapper = styled.View``;
+const Wrapper = styled.View`
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+`;
 
-const Title = styled.Text``;
+const Title = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 50px;
+`;
 
-export const ComicDetails = ({route}) => {
+const Image = styled.Image`
+  flex: 1 1 auto;
+  margin: 20px;
+`;
+
+const TextContainer = styled.View`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  margin: 20px;
+`;
+
+const DetailText = styled.Text``;
+
+export const ComicDetails = ({ route }) => {
   const [comic, setComic] = useState();
-  const {comicId} = route.params;
-  
-console.log(comicId)
+  const { id } = route.params;
+
   useEffect(() => {
-    fetch(FULLCOMIC_URL(comicId))
+    fetch(FULLCOMIC_URL(id))
       .then((res) => res.json())
       .then((comic) => setComic(comic.data.results[0]));
-  }, [setComic, comicId]);
+  }, [setComic, id]);
 
+  console.log(comic);
   return (
     <>
       {comic && (
         <Wrapper>
-          <Title>{comic.title}</Title>
+          <Image
+            source={{ uri: `${comic.images[0].path}/portrait_uncanny.jpg` }}
+          />
+          <TextContainer>
+            <Title>{comic.title}</Title>
+            <DetailText>
+              {comic.textObjects[0]
+                ? comic.textObjects[0].text
+                : "No description"}
+            </DetailText>
+          </TextContainer>
         </Wrapper>
       )}
     </>

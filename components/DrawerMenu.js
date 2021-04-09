@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "react-native-gesture-handler";
 import { useWindowDimensions } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -22,6 +22,7 @@ export const DrawerMenu = () => {
       />
     );
   };
+  
 
   return (
     <Drawer.Navigator
