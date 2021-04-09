@@ -1,12 +1,12 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+This is an little "PopUp Popcorn Gallery", showing photos by the artist Aldis Ellertsdottir.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The app uses shake sensor to randomly flipp through the photos. It also has vibration when you shake the phone.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had problems with the layout. It took long time before I understood that the images was actualy there, I could not just see them. It was also lots of problem setting up Expo.
 
 ## View it live
 
