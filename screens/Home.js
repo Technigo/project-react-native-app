@@ -14,7 +14,7 @@ const Home = () => {
   const [recipes, setRecipes] = useState([])
   const [searchWord, setSearchWord] = useState('')
   const [filteredRecipes, setFilteredRecipes] = useState([])
-  const [search, setSearch] = useState('dinner')
+  const [search, setSearch] = useState('vegetarian')
   const [ingredientsFilter, setIngredientsFilter] = useState(false)
   const [glutenFilter, setGluteFilter] = useState(false)
   const [calloriesFilter, setCalloriesFilter] = useState(false)
@@ -116,6 +116,7 @@ const Title = styled.Text`
   margin: 5px;
   text-align: center;
 `
+
 const FilterIconWrapper = styled.View`
   justify-content: center;
   align-items: center;
