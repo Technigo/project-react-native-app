@@ -1,6 +1,6 @@
-import React from 'react';
-import { Share } from 'react-native';
-import styled from 'styled-components/native';
+import React from 'react'
+import { Share } from 'react-native'
+import styled from 'styled-components/native'
 import { AntDesign } from '@expo/vector-icons'
 
 const ShareButton = ({ recipe }) => {
@@ -11,7 +11,7 @@ const ShareButton = ({ recipe }) => {
         message: `Here is really cool recipe!`,
         url: `${recipe.shareAs}`
       });
-      
+
     } catch (error) {
       alert(error.message);
     }

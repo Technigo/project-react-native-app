@@ -58,7 +58,7 @@ const RecipeDetail = () => {
             </NutritionContainer>
             <SubTitle>Health Lables</SubTitle>
             <HealthLabelsContainer>
-              
+
               {recipeInfo[0].healthLabels.map((label, index, array) => {
                 if (index < array.length - 2) {
                   return <DetailsText key={label}>{label},</DetailsText>
