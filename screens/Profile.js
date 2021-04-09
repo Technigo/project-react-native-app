@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef } from 'react';
 import { SettingsContext } from '../context/settingsContext';
-import { Text, TouchableHighlight, View } from 'react-native';
+import { TouchableHighlight, View } from 'react-native';
 import {
   Headline,
   Caption,
@@ -28,17 +28,18 @@ const FABStyled = styled(FAB)`
 `;
 
 const StyledTextInput = styled(TextInput)`
-  background-color: white;
-  elevation: 5;
+  background-color: ${props => props.background};
+  elevation: 2;
   color: black;
-`;
-
-const SwitchContainer = styled(Surface)`
-  elevation: 5;
+  `;
+  
+  const SwitchContainer = styled(Surface)`
+  elevation: 2;
   flex-direction: row;
   justify-content: space-between;
   padding-horizontal: 10px;
   padding-vertical: 20px;
+  background-color: ${props => props.background};
 `;
 
 const TouchArea = styled(TouchableHighlight)`
@@ -46,9 +47,11 @@ const TouchArea = styled(TouchableHighlight)`
 `;
 
 export const Profile = () => {
+  const { colors } = useTheme();
   const { user, toggleTheme, theme } = useContext(SettingsContext);
   const [text, setText] = useState(user.name);
   const [isEditing, setEditing] = useState(true);
+  
 
   const onPressed = () => {
     setEditing(!isEditing);
@@ -60,12 +63,10 @@ export const Profile = () => {
     //update context
     user.name = text;
   };
-  const test = () => {
-    console.log('test');
-    toggleTheme();
-  };
+  
+  
   return (
-    <MainViewContainer verticalAlign="flex-start">
+    <MainViewContainer verticalAlign="flex-start" color={colors.background}>
       <MainHeader>My Profile</MainHeader>
       <StyledTextInput
         label="NAME"
@@ -74,10 +75,12 @@ export const Profile = () => {
         disabled={isEditing}
         onChangeText={(text) => setText(text)}
         onSubmitEditing={onSubmit}
+        background={colors.surface}
+        
       />
-      <TouchArea disabled={isEditing} onPress={() => test()}>
-        <SwitchContainer>
-          <Text>SWITCH COLORS</Text>
+      <TouchArea disabled={isEditing} onPress={() => toggleTheme()}>
+        <SwitchContainer background={colors.surface}>
+          <Paragraph>DARK MODE</Paragraph>
           <View pointerEvents="none">
             <Switch disabled={isEditing} value={theme === 'dark'} />
           </View>

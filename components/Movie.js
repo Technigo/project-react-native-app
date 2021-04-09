@@ -57,7 +57,7 @@ export const Movie = ({ id, title, release_date, poster_path, handleLikedMovie }
         <MovieCard.Actions>
           <IconButton
             disabled={user.name === ''}
-            color={liked ? colors.accent : colors.primary}
+            color={liked ? colors.heart : colors.primary}
             icon="heart"
             size={20}
             onPress={() => onLike()}

@@ -1,23 +1,26 @@
 import React from 'react';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { DefaultTheme, DarkTheme,  Provider as PaperProvider } from 'react-native-paper';
 
 export const settings = {
-  themeColors: [
+  themeColors: [    
     {
       ...DefaultTheme.colors,
-      warning: '#f1f',
-      disabled: '#000',
-      primary: '#3498db',
-      secondary: '#d1c40f',
-      accent: '#f1c40f',
+      disabled: 'grey',
+      primary: '#194350',
+      secondary: '#ff8882',
+      accent: '#9dbeb9',
+      heart: '#ce1212'
     },
     {
-      ...DefaultTheme.colors,
-      warning: '#f1f',
-      disabled: '#000',
-      primary: '#98dbdb',
-      secondary: '#c40f',
-      accent: '#f4f',
+      ...DarkTheme.colors,
+      disabled: 'grey',
+      background: '#191a20',
+      surface: '#212125',
+      text: '#fff',
+      primary: '#3d50fa',
+      secondary: '#194350',
+      accent: '#3442b4',
+      heart: '#ce1212'
     },
   ],
   user: {

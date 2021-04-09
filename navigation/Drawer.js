@@ -36,12 +36,15 @@ const Wrapper = styled.View`
 const DrawerItem = styled(Drawer.Item)`
   width: 100%;
 `;
+const DrawerContentScrollViewStyled = styled(DrawerContentScrollView)`
+  background-color: ${props => props.background};
+`;
 
 export const DrawerContent = ({ navigation, ...props }) => {
   const isDrawerOpen = useIsDrawerOpen();
   const { session } = useContext(SettingsContext);
   const [active, setActive] = useState(session.route);
-  const { colors } = useTheme();
+  const { colors, dark } = useTheme();
   
   React.useEffect(() => {
     if(isDrawerOpen) {setActive(session.route)}
@@ -53,10 +56,10 @@ export const DrawerContent = ({ navigation, ...props }) => {
   };
 
   return (
-    <DrawerContentScrollView {...props}>
-      <TitleSection color={colors.primary}>
+    <DrawerContentScrollViewStyled {...props} background={colors.background}>
+      <TitleSection color={dark ? colors.surface : colors.primary}>
         <Wrapper title>
-          <AvatarIcon color="white" backgroundColor={colors.secondary} icon="movie" />
+          <AvatarIcon color="white" backgroundColor={dark ? colors.primary : colors.secondary} icon="movie" />
           <DrawerTitle>Apptitle</DrawerTitle>
         </Wrapper>
       </TitleSection>
@@ -80,6 +83,6 @@ export const DrawerContent = ({ navigation, ...props }) => {
           onPress={() => onPressNavigation('Profile')}
         />
       </Wrapper>
-    </DrawerContentScrollView>
+    </DrawerContentScrollViewStyled>
   );
 };

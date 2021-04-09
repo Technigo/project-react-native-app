@@ -29,6 +29,7 @@ const StyledCaption = styled(Caption)`
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
 export const Home = ({ navigation }) => {
+  const { colors } = useTheme();
   const { user, session } = useContext(SettingsContext);
   const [userName, setUserName] = useState(user.name);
 
@@ -40,7 +41,7 @@ export const Home = ({ navigation }) => {
   );
 
   return (
-    <MainViewContainer verticalAlign={userName ? 'flex-start' : 'center'}>
+    <MainViewContainer verticalAlign={userName ? 'flex-start' : 'center'} color={colors.background}>
       <MainHeader>Welcome!</MainHeader>
       {isFocused && userName ? (
         <>

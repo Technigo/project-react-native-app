@@ -1,5 +1,5 @@
 import React, { useContext, useState, useMemo, useCallback } from 'react';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { DefaultTheme, DarkTheme, Provider as PaperProvider } from 'react-native-paper';
 
 import { RootNavigator } from './navigation/Root';
 import { SettingsContext } from './context/settingsContext';
@@ -8,10 +8,7 @@ const App = () => {
   const settings = useContext(SettingsContext);
   const [theme, setTheme] = useState('light');
 
-  const themebase = {
-    ...DefaultTheme,
-    roundness: 5
-  };
+  
   const toggleTheme = useCallback(() => {
     return setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
   }, [theme]);
@@ -31,11 +28,13 @@ const App = () => {
         theme={
           theme === 'light'
             ? {
-                ...themebase,
+                ...DefaultTheme,
+                roundness: 5,
                 colors: settings.themeColors[0],
               }
             : {
-              ...themebase,
+              ...DarkTheme,
+              roundness: 5,
               colors: settings.themeColors[1]
             }
         }>
