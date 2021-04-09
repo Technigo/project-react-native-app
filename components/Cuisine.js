@@ -1,29 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
+import styled from "styled-components/native"
+import { Picker } from '@react-native-picker/picker';
 
+const ChoiceView = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
 
-const Cuisine = ({ cuisine, cuisineQuery, setCuisineQuery }) => {
-  const [isAdded, setIsAdded] = useState(false);
+const StyledPicker = styled.Picker`
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0 20px;
+`
 
-  useEffect(() => {
-    if (isAdded) {
-      setCuisineQuery({ ...cuisineQuery, [cuisine]: true })
-    } else {
-      setCuisineQuery({ ...cuisineQuery, [cuisine]: false })
-    }
-  }, [isAdded])
-
-
-  const toggleSwitch = () => {
-    setIsAdded(previousState => !previousState)
-  };
-
-
-
+const Cuisine = ({ cuisine, cuisineQuery, chooseCuisine }) => {
   return (
-    <TouchableOpacity onPress={toggleSwitch}>
-      <Text>Click to add {cuisine}</Text>
-    </TouchableOpacity>
+    <ChoiceView>
+      <StyledPicker
+        selectedValue={cuisineQuery}
+        onValueChange={(itemValue) => chooseCuisine(itemValue)}
+      >
+        <Picker.Item
+          label="Pick a cuisine!"
+          value=""
+        />
+        {cuisine.map(eachCuisine => (
+          <Picker.Item
+            key={eachCuisine}
+            label={eachCuisine}
+            value={eachCuisine} />
+        ))}
+      </StyledPicker>
+    </ChoiceView>
   )
 }
 

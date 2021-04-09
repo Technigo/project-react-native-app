@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { Text, View, TouchableOpacity } from "react-native"
 import styled from "styled-components/native"
 import { RadioButton } from 'react-native-paper';
-import { Picker } from '@react-native-picker/picker';
 
 
 import { SensorComponent } from '../components/SensorComponent';
@@ -29,24 +28,9 @@ const Container = styled.ScrollView`
 `
 
 const Category = styled.View`
+  padding: 10px;  
 `
 
-const ChoiceView = styled.View`
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 10px;
-`
-
-const Icon = styled.Image`
-  width: 50px;
-  height: 50px;
-  margin: 0 10px;
-`
-
-const Label = styled.Text`
-`
 const SubmitText = styled.Text`
   font-weight: 700;
   font-size: 20px;  
@@ -64,22 +48,9 @@ const SubmitTouchable = styled.TouchableOpacity`
   align-self: center;
   border-radius: 20px;
 `
-const StyledTouchable = styled.TouchableOpacity`  
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-  margin: 0 10px;
-`
 
-const StyledPicker = styled.Picker`
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0 20px;
-`
-
-const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuery, cuisineQuery, setCuisineQuery, dietQuery, setDietQuery, isMixingIngredients, setIsMixingIngredients }) => {
+const HomeScreen = ({ navigation, dishes, cuisine, diets, setDishQuery, cuisineQuery, setCuisineQuery, setDietQuery }) => {
   const [checkedDish, setCheckedDish] = useState('');
-  const [selectedCuisine, setSelectedCuisine] = useState('');
   const [checkedDiet, setCheckedDiet] = useState('');
 
   const handleTap = () => {
@@ -91,7 +62,6 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
     setDishQuery(dish)
   }
   const chooseCuisine = (cuisine) => {
-    console.log(cuisine)
     setCuisineQuery(cuisine)
   }
   const chooseDiet = (diet) => {
@@ -103,62 +73,29 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
     <Container>
       <Category>
         <CategoryLabel>What kind of dish would you like?</CategoryLabel>
-        <ChoiceView>
-          {dishes.map(dish => (
-            <StyledTouchable
-              key={dish}
-              onPress={() => chooseDish(dish)}
-            >
-              <Icon source={require(`../assets/dishes/${dish}.png`)} alt={dish} />
-              <RadioButton
-                value={dish}
-                status={checkedDish === dish ? 'checked' : 'unchecked'}
-                onPress={() => chooseDish(dish)}
-              />
-            </StyledTouchable>
-          ))}
-        </ChoiceView>
+        <Dish
+          dishes={dishes}
+          chooseDish={chooseDish}
+          checkedDish={checkedDish}
+        />
       </Category>
 
       <Category>
         <CategoryLabel>Would you like a special cuisine?</CategoryLabel>
-        <ChoiceView>
-          <StyledPicker
-            selectedValue={cuisineQuery}
-            onValueChange={(itemValue) => chooseCuisine(itemValue)}
-          >
-            <Picker.Item
-              label="Pick a cuisine!"
-              value=""
-            />
-            {cuisine.map(eachCuisine => (
-              <Picker.Item
-                key={eachCuisine}
-                label={eachCuisine}
-                value={eachCuisine} />
-            ))}
-          </StyledPicker>
-        </ChoiceView>
+        <Cuisine
+          cuisine={cuisine}
+          cuisineQuery={cuisineQuery}
+          chooseCuisine={chooseCuisine}
+        />
       </Category>
 
       <Category>
         <CategoryLabel>Any dietary restrictions?</CategoryLabel>
-        <ChoiceView>
-          {diets.map(diet => (
-            <StyledTouchable
-              key={diet}
-              onPress={() => chooseDish(diet)}
-            >
-              <Label>{diet}</Label>
-              <RadioButton
-                key={diet}
-                value={diet}
-                status={checkedDiet === diet ? 'checked' : 'unchecked'}
-                onPress={() => chooseDiet(diet)}
-              />
-            </StyledTouchable>
-          ))}
-        </ChoiceView>
+        <Diet
+          diets={diets}
+          chooseDiet={chooseDiet}
+          checkedDiet={checkedDiet}
+        />
       </Category>
 
       <SubmitTouchable onPress={handleTap}>

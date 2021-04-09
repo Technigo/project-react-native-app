@@ -1,33 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, View, Text } from 'react-native';
+import styled from "styled-components/native"
+import { RadioButton } from 'react-native-paper';
 
+const ChoiceView = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+const StyledTouchable = styled.TouchableOpacity`  
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin: 0 10px;
+`
+const Label = styled.Text`
+  font-size: 16px;
+`
 
-const Diet = ({ label, dietQuery, setDietQuery }) => {
-  const [isEnabled, setIsEnabled] = useState(false);
-
-  useEffect(() => {
-    if (isEnabled) {
-      setDietQuery({ ...dietQuery, [label]: true })
-    } else {
-      setDietQuery({ ...dietQuery, [label]: false })
-    }
-  }, [isEnabled])
-
-  const toggleSwitch = () => {
-    setIsEnabled(previousState => !previousState)
-  };
-
+const Diet = ({ diets, chooseDiet, checkedDiet }) => {
   return (
-    <View>
-      <Text>{label}</Text>
-      <Switch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
-    </View>
+    <ChoiceView>
+      {diets.map(diet => (
+        <StyledTouchable
+          key={diet}
+          onPress={() => chooseDiet(diet)}
+        >
+          <Label>{diet}</Label>
+          <RadioButton
+            color="#ff5447"
+            key={diet}
+            value={diet}
+            status={checkedDiet === diet ? 'checked' : 'unchecked'}
+            onPress={() => chooseDiet(diet)}
+          />
+        </StyledTouchable>
+      ))}
+    </ChoiceView>
   )
 }
 
