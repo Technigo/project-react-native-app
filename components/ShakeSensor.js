@@ -3,6 +3,8 @@ import { Accelerometer } from 'expo-sensors'
 import { useFonts, Inter_500Medium } from '@expo-google-fonts/inter';
 import AppLoading from 'expo-app-loading';
 
+import { MagicAnswer2 } from './MagicAnswer2'
+
 import { ShakeView, ShakeAlert, ShakeDataView, InterShakeDataTitle, MagicBall } from '../StyledComponents/ShakeSensorStyling'
 import magicanswer from '../data/magicanswer'
 
@@ -19,11 +21,11 @@ const randomAnswer = (number) => {
   return Math.floor(Math.random() * number)
 }
 // This function determines how often our program reads the accelerometer data in milliseconds
-// https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
+// https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms 
 export const ShakeSensor = () => {
   Accelerometer.setUpdateInterval(400);
   
-  const [answer, setAnswer] = useState(undefined)// answer is false as default value
+  const [answer, setAnswer] = useState(undefined) // make answer false as default value
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
 /*   const [data, setData] = useState({ x: 0, y: 0, z: 0, }) */
