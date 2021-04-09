@@ -1,7 +1,7 @@
 # Project React Native App 📱
 My first React Native project. App for thoose booring moments. When you shake the phone you get a suggestion on a new activity and on click you get a "dad joke"😅. This activity & joke is a request from two different REST Api's. 
 
-## The built🪓 challanges 🤯 
+## The built🪓 & challanges 🤯 
 
 ✅The app includes styled components and Navigation to navigate between the different pages. The project also includes anitmation from LottieView🎨.
 
@@ -13,12 +13,12 @@ The challanges were many. Mainly how to trigger a new navigation page when shaki
 
 ⏰ If I had more time I would continue styling the navigation container in a better way, were you can easily toogle between the components and change the default styling. And adding more animations and more coherent styling.
 
-### Tech ⚛️
+### Tech 🤓
     👉React Native
     👉Styled Components
     👉JavaScript
 
-## View it live
+## View it live 👀
 
 https://snack.expo.io/@sartish/inspiration
 Download expo app
