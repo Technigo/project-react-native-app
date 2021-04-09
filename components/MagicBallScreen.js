@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
+import { View } from 'react-native';
 
 // ==========================
 // = Functions
@@ -17,23 +18,96 @@ const isShaking = (data) => {
 
 // ==========================
 // = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
+const Container = styled.View`
+  flex: 1;
+  background-color: #1c1e1e;
+  align-items: center;
+`
+const HeaderContainer = styled.View`
+  flex: 0.25;
+  padding: 80px 20px 40px 20px;
+`
 
+const Title = styled.Text`
+  font-size: 34px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: -1px 0px 2px #fff;
+  margin-bottom: 20px;
+`
+
+const SubTitle = styled.Text`
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  text-shadow: -1px 0px 2px #fff;
+`
+  const MagicBallContainer = styled.View`
+  margin: 30px;
+  text-align: center;
+  flex: 1;
+  align-items: center;
+  `
+
+  const BallBlackOuter = styled.View`
+  background: #171717;
+  height: 280px;
+  width: 280px;
+  border-radius: 140;
+  position: relative;
+  box-shadow: 0px 0px 18px #fff;
+  `
+  const BallBlackInner = styled.View`
+  background: #000;
+  height: 220px;
+  width: 220px;
+  border-radius: 110;
+  position: absolute;
+  top: 30px;
+  `
+
+  const TriangleInner = styled.View`
+  position: absolute;
+  top: 68px;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-style: solid;
+  border-left-width: 85px;
+  border-bottom-width: 120px;
+  border-top-width: 0;
+  border-right-width: 85px;
+  border-bottom-color: #0062ec;
+  `
+
+  const Answer = styled.Text`
+  font-size: 14px;
+  top: 70px;
+  width: 95px;
+  height: 60px;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  `
+
+  const BackgroundImage = styled.ImageBackground`
+  flex: 1;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+`
 const ShakeAlert = styled.Text`
   font-size: 36px;
   font-weight: bold;
   color: #aa0000;
 `;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
 
-export const MagicBallScreen = () => {
+export const MagicBallScreen = ({route, navigation}) => {
+  const {name} = route.params //This is to receive an input value from Home Screen
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -75,22 +149,56 @@ export const MagicBallScreen = () => {
     return () => _unsubscribe();
   }, []);
 
+  const RandomAnswer = () => {
+    const [answer, setAnswer] = useState('')
+    let arrayOfAnswers = [
+      "It is certain",
+      "As I see it, yes",
+      "Without a doubt",
+      "Yes - definitely",
+      "You may rely on it",
+      "Most likely",
+      "Outlook good",
+      "Yes",
+      "Don't count on it",
+      "My reply is no",
+      "Reply hazy, try again",
+      "My sources say no",
+      "Outlook not so good",
+      "It is decidedly so",
+      "Very doubtful",
+      "Ask again later",
+      "Better not tell you now",
+      "Cannot predict now",
+      "Signs point to yes",
+      "Concentrate and ask again"
+    ];
+
+    // Taking random answer if shake is detected
+    useEffect(() => {
+      isShaking(data) && setTimeout (() => {setAnswer(arrayOfAnswers[Math.floor(Math.random()* arrayOfAnswers.length)])}, 3000)
+    }, [isShaking(data)]);
+
+    return (
+      <Answer>{answer}</Answer>
+    )
+  }
+
   return (
-    <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data Test</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
-    </ShakeView>
+    <Container>
+      {isShaking(data) && <ShakeAlert>Thinking</ShakeAlert>}
+      <BackgroundImage source={require('../assets/magic-ball-background.jpg')}></BackgroundImage>
+      <HeaderContainer>
+        <Title>Hello {name}!</Title>
+        <SubTitle>Ask a question then shake your phone for an answer</SubTitle>
+      </HeaderContainer>
+      <MagicBallContainer>
+        <BallBlackOuter></BallBlackOuter>
+        <BallBlackInner></BallBlackInner>
+        <TriangleInner>
+          {RandomAnswer}
+        </TriangleInner>
+      </MagicBallContainer>
+    </Container>
   );
 };
