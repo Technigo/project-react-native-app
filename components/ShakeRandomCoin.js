@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import { ActivityIndicator, Vibration } from "react-native";
 
-import { Container, Loading, RandomCoinTitle, CoinCard, CoinTitle, CoinText, CoinSymbol, Button, ButtonText } from '../styledcomponents/ShakeRandomCoinStyles';
+import { Container, Loading, RandomCoinTitle, CoinCard, CoinTitle, CoinText, CoinChange, CoinSymbol, Button, ButtonText } from '../styledcomponents/ShakeRandomCoinStyles';
 
 
 const isShaking = (data) => {
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-  return totalForce > 1.90;
+  return totalForce > 1.80;
 };
 
 export const ShakeRandomCoin = () => {
@@ -58,6 +58,7 @@ export const ShakeRandomCoin = () => {
 
   useEffect(() => {
     if (isShaking(data)) {
+      Vibration.vibrate();
       fetchCoin();
     } 
   }, [data]);
@@ -75,9 +76,15 @@ export const ShakeRandomCoin = () => {
             <CoinTitle>{coin.name}</CoinTitle>
             <CoinSymbol>{coin.symbol}</CoinSymbol>
             <CoinText>Price: {coin.price_usd} $</CoinText>
-            <CoinText>Change in last hour: {coin.percent_change_1h} %</CoinText>
-            <CoinText>Change in last 24 hours: {coin.percent_change_24h} %</CoinText>
-            <CoinText>Change in the last week: {coin.percent_change_7d} %</CoinText>
+            <CoinText>Change in last hour: 
+              <CoinChange percent={coin.percent_change_1h < 0}> {coin.percent_change_1h} %</CoinChange>
+            </CoinText>
+            <CoinText>Change in last 24 hours: 
+              <CoinChange percent={coin.percent_change_24h < 0}> {coin.percent_change_24h} %</CoinChange>
+            </CoinText>
+            <CoinText>Change in the last week: 
+              <CoinChange percent={coin.percent_change_7d < 0}> {coin.percent_change_7d} %</CoinChange>
+            </CoinText>
             <Button onPress={() => { 
               fetchCoin();
               Vibration.vibrate();}}>
@@ -87,5 +94,5 @@ export const ShakeRandomCoin = () => {
         </> 
       }
     </Container>  
-  )
-}
+  );
+};

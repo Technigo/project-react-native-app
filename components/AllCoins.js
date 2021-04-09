@@ -17,6 +17,7 @@ export const AllCoins = ({ navigation }) => {
 
   useEffect(() => {
       fetchCoins();
+      setInterval(() => fetchCoins(), 30000)
   }, []);
   
   const fetchCoins = () => {
@@ -60,5 +61,5 @@ export const AllCoins = ({ navigation }) => {
         ))}
       </Container>
     </>
-  )
-}
+  );
+};

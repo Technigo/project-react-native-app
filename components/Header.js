@@ -34,5 +34,5 @@ export const Header = ({ onPress }) => {
         <Dice source={require("../assets/dice.png")} />
       </Button>
     </TopHeader>
-  )
-}
+  );
+};

@@ -14,11 +14,9 @@ export const Loading = styled.Text`
   font-weight: bold;
   margin-bottom: 40px;
 `
-export const RandomCoinTitle = styled.Text`
+export const RandomCoinTitle = styled(Loading)`
   font-size: 48px;
-  text-align: center;
   color: #ff1e56;
-  font-weight: bold;
   font-family: "Trebuchet MS";
 `;
 
@@ -35,19 +33,25 @@ export const CoinTitle = styled.Text`
   font-family: "Trebuchet MS";
 `;
 
-export const CoinSymbol = styled.Text`
+export const CoinSymbol = styled(CoinTitle)`
   color: #ffac41;
-  font-size: 26px;
-  font-weight: bold;
   margin-bottom: 10px;
-  font-family: "Trebuchet MS";
 `;
 
-export const CoinText = styled.Text`
-  color: white;
-  font-size: 20px;
+export const CoinText = styled(CoinTitle)`
+  font-size: 22px;
   padding: 3px 0;
-  font-family: "Trebuchet MS";
+  font-weight: 400;
+`;
+
+export const CoinChange = styled(CoinText)`
+  ${props =>
+  props.percent ?
+  `
+  color: #bb2205;
+  `:  `
+  color: #127c56;
+  `};
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -56,10 +60,7 @@ export const Button = styled.TouchableOpacity`
   margin-top: 30px;
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonText = styled(CoinTitle)`
   font-size: 20px;
-  color: white;
-  font-weight: bold;
   text-align: center;
-  font-family: "Trebuchet MS";
 `;

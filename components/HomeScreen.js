@@ -48,5 +48,5 @@ export const HomeScreen = ({ navigation }) => {
         <ButtonText>START</ButtonText>
       </Button>
     </Container>
-  )
-}
+  );
+};
