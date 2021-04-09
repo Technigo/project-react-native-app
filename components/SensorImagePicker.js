@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import { Text, Image } from 'react-native';
-import {  Vibration } from 'react-native'
+import { Image, Vibration } from 'react-native';
 
 const isShaking = (data) => {
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
@@ -30,7 +29,6 @@ export const SensorImagePicker = () => {
   const [subscription, setSubscription] = useState(null);
 
   const _subscribe = () => {
-  
     setSubscription(
       
       Accelerometer.addListener((accelerometerData) => {
@@ -46,7 +44,6 @@ export const SensorImagePicker = () => {
 
   useEffect(() => {
     _subscribe();
-    
 
     return () => _unsubscribe();
   }, []);
@@ -61,6 +58,13 @@ const popcornArray = [
     require("../assets/aldis-popcorn-2.jpg"),
     require("../assets/aldis-popcorn-3.jpg"),
     require("../assets/aldis-popcorn-4.jpg"),
+    require("../assets/aldis-popcorn-5.jpg"),
+    require("../assets/aldis-popcorn-6.jpg"),
+    require("../assets/aldis-popcorn-7.jpg"),
+    require("../assets/aldis-popcorn-8.jpg"),
+    require("../assets/aldis-popcorn-9.jpg"),
+    require("../assets/aldis-popcorn-10.jpg"),
+    require("../assets/aldis-popcorn-11.jpg"),
   ]
   const [popcorn, setPopcorn] = useState(null);
   useEffect(() => {
@@ -76,7 +80,7 @@ const popcornArray = [
           style={{
             resizeMode: "contain",
             height: 300,
-            width: 350,
+            width: 370,
           }}
             source={popcorn}
             />
