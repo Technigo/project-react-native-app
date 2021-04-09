@@ -8,8 +8,10 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@use-expo/font": "^2.0.0",
     "braces": "^3.0.2",
     "expo": "^40.0.1",
+    "expo-app-loading": "^1.0.1",
     "expo-linear-gradient": "~8.4.0",
     "expo-sensors": "^9.2.0",
     "mem": "^6.1.1",

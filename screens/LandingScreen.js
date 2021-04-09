@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import { SensorComponent } from '../components/SensorComponent';
+import { GenerateGotQuote } from '../components/GenerateGotQuote';
 
 const Container = styled.View`
   flex: 1;
@@ -13,11 +13,16 @@ const Container = styled.View`
 const Heading = styled.Text`
   font-size: 40px;
   color: #ffffff;
+  font-family: trajanus;
+  text-align: center;
 `;
 
 const SubHeading = styled.Text`
-  font-size: 30px;
+  font-size: 20px;
   color: #ffffff;
+  font-family: trajanus;
+  text-align: center;
+  margin-top: 40px;
 `
 
 
@@ -30,11 +35,11 @@ const LandingScreen = ({ gotQuote, handleFetch }) => {
           <SubHeading>Raise your sword swiftly and you will receive wisdom</SubHeading>
         </>
       )}
-      <SensorComponent
+      <GenerateGotQuote
         onFetch={handleFetch}
         gotQuote={gotQuote}
       >
-      </SensorComponent>
+      </GenerateGotQuote>
     </Container>
   );
 };

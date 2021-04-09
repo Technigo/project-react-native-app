@@ -17,15 +17,19 @@ const isShaking = (data) => {
 const QuoteText = styled.Text`
   font-size: 32px;
   color: #ffffff;
+  font-family: trajanus;
+  text-align: center;
 `
 
 const QuoteCharacter = styled.Text`
-  font-size: 24px;
+  font-size: 18px;
   color: #ffffff;
   font-style: italic;
+  text-align: center;
+  margin-top: 30px;
 `
 
-export const SensorComponent = ({ onFetch, gotQuote }) => {
+export const GenerateGotQuote = ({ onFetch, gotQuote }) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -67,6 +71,8 @@ export const SensorComponent = ({ onFetch, gotQuote }) => {
     // Stop listening to the data when we leave SensorComponent
     return () => _unsubscribe();
   }, []);
+
+  let lastGotQuoteFetch = new Date();
 
   const maybeFetchNewQuote = (accelerometerData) => {
     const functionWasCalledAt = new Date();
