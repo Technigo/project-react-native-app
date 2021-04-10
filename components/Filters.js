@@ -54,7 +54,7 @@ const FiltersWrapper = styled.View`
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  background: black;
+  background: #1D1E20;
   padding: 10px;
 `
 

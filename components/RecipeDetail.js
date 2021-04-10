@@ -84,6 +84,7 @@ export default RecipeDetail
 
 const Container = styled.View`
   position: relative;
+  background: #1D1E20;
 `
 const Title = styled.Text`
   color: white;
@@ -106,6 +107,7 @@ const TextContainer = styled.View`
 `
 const DetailsContainer = styled.View`
   flex-direction: row;
+
 `
 const ImageCard = styled.Image`
   width: 100%;
@@ -123,17 +125,18 @@ const SubTitle = styled.Text`
   font-weight: bold;
   font-family: Arial;
   margin: 10px 0 5px 5px;
-  text-decoration: underline;
 `
 
 const IngredientLine = styled.Text`
   font-size: 16px;
   margin: 5px;
   color: white;
+  background: #1D1E20;
 `
 const NutritionContainer = styled.ScrollView`
   position: relative;
   margin-bottom: 20px;
+  background: #1D1E20;
 `
 const NutrientContainer = styled.View`
   border: 1px solid black;
@@ -155,4 +158,5 @@ const HealthLabelsContainer = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   margin: 5px;
+  background: #1D1E20;
 `

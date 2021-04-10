@@ -105,7 +105,7 @@ const Home = () => {
 export default Home
 
 const Container = styled.ScrollView`
-  background-color: black;
+  background-color: #1D1E20;
   padding: 1px;
   padding-top: 30;
 `
