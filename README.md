@@ -1,13 +1,16 @@
 # Project React Native App 📱
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This was a project created during the Technigo Bootcamp. 
+The main goals with this project were to:
+- learn how to use React Native to create a mobile app.
+- practice using Styled Components for styling.
 
 ## The problem
+During this week I experienced a lot of technical difficulties with my computer, resulting in the fact that I only had 2 days to work on this project. 
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+If I had more time I really would have wanted to work on the shake sensor branch. I also would have chosen a more interesting API with more usable data to make the App show more than just random facts.
+
+I experienced some problems with the API for dog facts. From time to time the fetch does not work, and other times it works as normal without the code being modified. I have not yet had time to troubleshoot this properly. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+

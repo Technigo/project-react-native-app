@@ -1,8 +1,7 @@
 import 'react-native-gesture-handler';
-import React, { useState } from 'react'
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import styled from 'styled-components/native'
 
 import { Welcome } from './pages/Welcome'
 import { CatFactsPage } from './pages/CatFactsPage'
