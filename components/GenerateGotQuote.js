@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
+import { houseThemes } from '../reusables/houseThemes'; 
+
 // Functions
 const isShaking = (data) => {
   // x,y,z CAN be negative, force is directional
@@ -14,20 +16,29 @@ const isShaking = (data) => {
   return totalForce > 1.78;
 };
 
+
+const Container = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background: ${props => props.bgColor ? props.bgColor : 'transparent' };
+  display: ${props => props.show ? 'flex' : 'none' };
+`;
+
 const QuoteText = styled.Text`
   font-size: 32px;
-  color: #ffffff;
   font-family: trajanus;
   text-align: center;
-`
+  color: ${props => props.color ? props.color : '#ffffff' };
+`;
 
 const QuoteCharacter = styled.Text`
   font-size: 18px;
-  color: #ffffff;
   font-style: italic;
   text-align: center;
   margin-top: 30px;
-`
+  color: ${props => props.color ? props.color : '#ffffff' };
+`;
 
 export const GenerateGotQuote = ({ onFetch, gotQuote }) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -84,9 +95,14 @@ export const GenerateGotQuote = ({ onFetch, gotQuote }) => {
   };
 
   return (
-    <>
-      <QuoteText>{gotQuote && (`"${gotQuote.sentence}"`)}</QuoteText>
-      <QuoteCharacter>{gotQuote && (gotQuote.character.name)}</QuoteCharacter>
-    </>
+    <Container show={!!gotQuote} bgColor={houseThemes[gotQuote?.character?.house?.slug]?.background}>
+      <QuoteText color={houseThemes[gotQuote?.character?.house?.slug]?.color}>
+        {gotQuote && (`"${gotQuote.sentence}"`)}
+      </QuoteText>
+
+      <QuoteCharacter color={houseThemes[gotQuote?.character?.house?.slug]?.color}>
+        {gotQuote && (gotQuote.character.name)}
+      </QuoteCharacter>
+    </Container>
   );
 };
