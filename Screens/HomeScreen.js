@@ -1,8 +1,12 @@
 import React, { useState } from "react"
 import styled from "styled-components/native"
+import * as Linking from 'expo-linking';
+import { Text } from "react-native"
+
 import Dish from "../components/Dish"
 import Cuisine from '../components/Cuisine';
 import Diet from "../components/Diet"
+
 
 const Container = styled.ScrollView`
   flex: 1;
@@ -44,12 +48,32 @@ const SubmitTouchableDisabled = styled.TouchableOpacity`
   opacity: 0.5;
 `
 
+const AttributionView = styled(Category)`
+  text-align: center; 
+  border-top-width: 2px;
+  border-top-color: lightgrey;
+  padding: 10px;
+`
+
+const AttributionText = styled.Text`
+  font-size: 16px;
+`
+
+const AttributionLink = styled(AttributionText)`
+  font-weight: 500;
+  color: #ff5447;
+`
+
 const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuery, cuisineQuery, setCuisineQuery, setDietQuery }) => {
   const [checkedDish, setCheckedDish] = useState('');
   const [checkedDiet, setCheckedDiet] = useState('');
 
   const handleTap = () => {
     navigation.navigate("Recipe Suggestions")
+  }
+
+  const handleTapLink = (url) => {
+    Linking.openURL(url)
   }
 
   const chooseDish = (dish) => {
@@ -107,6 +131,13 @@ const HomeScreen = ({ navigation, dishes, cuisine, diets, dishQuery, setDishQuer
           Tap to get recipe
         </SubmitText>
       </SubmitTouchable>}
+
+      <AttributionView>
+        <AttributionText>Icons made by
+        <AttributionLink onPress={() => handleTapLink("https://www.freepik.com")}> Freepik </AttributionLink>
+        from
+        <AttributionLink onPress={() => handleTapLink("https://www.flaticon.com/")}> www.flaticon.com </AttributionLink></AttributionText>
+      </AttributionView>
 
     </Container >
   )
