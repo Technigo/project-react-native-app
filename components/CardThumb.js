@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, StyleSheet, Button, Pressable } from 'react-native';
+import { Text, Image, StyleSheet, Button } from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
@@ -8,21 +8,23 @@ const styles = StyleSheet.create({
   },
 });
 
-const onPressCardButton = () => {};
-
 export const CardThumb = (props) => {
-  const { card } = props;
+  const { card, navigation } = props;
+
+  const onPressCardButton = () => {
+    navigation.navigate('CardDetails', { card: card });
+  };
+
   return (
     <>
-      <Pressable>
-        <Text>{card.name}</Text>
-        <Image
-          style={styles.image}
-          source={{
-            uri: card.imageUrl,
-          }}
-        />
-      </Pressable>
+      <Text>{card.name}</Text>
+      <Image
+        style={styles.image}
+        source={{
+          uri: card.imageUrl,
+        }}
+      />
+      <Button onPress={onPressCardButton} />
     </>
   );
 };

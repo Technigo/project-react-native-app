@@ -10,11 +10,11 @@ const Container = styled.View`
   align-items: center;
 `;
 
-export const Home = (props) => {
-  //   const { navigation, route } = props;
-
+export const Home = ({ navigation }) => {
   const [cards, setCards] = useState([]);
-  const renderItem = ({ item }) => <CardThumb card={item} />;
+  const renderItem = ({ item }) => (
+    <CardThumb key={item.id} card={item} navigation={navigation} />
+  );
 
   useEffect(() => {
     fetch('https://api.magicthegathering.io/v1/cards')

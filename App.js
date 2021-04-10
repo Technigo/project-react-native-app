@@ -22,7 +22,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator name='Home'>
         <Stack.Screen component={Home} name='Magic' />
-        <Stack.Screen component={CardDetails} name='Card:id' />
+        <Stack.Screen component={CardDetails} name='CardDetails' />
       </Stack.Navigator>
     </NavigationContainer>
   );
