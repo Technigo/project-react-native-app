@@ -8,4 +8,5 @@ I felt that it was very difficult to start with this project because it was so o
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+To see the project, download Expo and scan the QR code:
+https://expo.io/@hildebrand/project-react-native-app
