@@ -7,7 +7,6 @@ const HeaderText = styled.Text`
   font-size: 25px;
   text-align: center;
   font-family: futura;
-  margin-top: 40px;
 `
 
 const Header = () => {

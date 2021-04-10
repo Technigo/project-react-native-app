@@ -9,7 +9,7 @@ const Eightball = styled.View`
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
+  margin-bottom: 20px;
 `
 
 const Circle = styled.View `

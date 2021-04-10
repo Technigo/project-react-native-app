@@ -19,10 +19,10 @@ const MainView = styled.View`
 `
 
 const AnswerView = styled.View`
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
-  flex: 0.9;
+  flex: 0.78;
 `
 
 export const SensorComponent = () => {

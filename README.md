@@ -1,13 +1,9 @@
+This is a project made during the Technigo Bootcamp.
+
 # Project React Native App 📱
+This project assignment was to build a mobile application with React Native, using styled components and a chosen focus areas.
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I chose the focus area of sensors and the accelerometer. I made an app with a magic 8-ball, that shows different answers after shaking the phone. The code is split up into four different components. The sensor-component detects movement of the phone and stores a randomized answer from an array in the state. A different design is shown when shaking the phone. 
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://snack.expo.io/@julialeonieros/magic-8-ball
