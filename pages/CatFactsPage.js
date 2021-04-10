@@ -71,25 +71,25 @@ export const CatFactsPage = ({ navigation }) => {
 
     return(
         <MainContainer>
-            <ButtonTouchableOpacity
-            onPress={onPressRandomFact}
-        >
-            <ButtonText>Click here to get random cat facts</ButtonText>
-       </ButtonTouchableOpacity>
-        <Container>
-            <CatInformationText>
-                {randomFact}
-            </CatInformationText>
-        </Container>
-        <CatPageImage
-            source={require('../assets/cat.png')}
-        />
-        <ShareButtonText>
-                Interesting right? Share this fact with a friend!
-        </ShareButtonText>
-        <ShareButton>
-            <ShareText fact={randomFact}/>
-        </ShareButton>
+            <ButtonTouchableOpacity onPress={onPressRandomFact}>
+                <ButtonText>
+                    Click here to get random cat facts
+                </ButtonText>
+            </ButtonTouchableOpacity>
+            <Container>
+                <CatInformationText>
+                    {randomFact}
+                </CatInformationText>
+            </Container>
+            <CatPageImage
+                source={require('../assets/cat.png')}
+            />
+            <ShareButtonText>
+                    Interesting right? Share this fact with a friend!
+            </ShareButtonText>
+            <ShareButton>
+                <ShareText fact={randomFact}/>
+            </ShareButton>
        </MainContainer>
     )
 }

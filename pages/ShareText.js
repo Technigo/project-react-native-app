@@ -3,9 +3,9 @@ import styled from 'styled-components/native'
 import { Share } from 'react-native'
 
 const Container = styled.View`
-  background-color: whitesmoke;
-  display: flex;
-  align-items: center;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
 `
 
 const ButtonTouchableOpacity = styled.TouchableOpacity`
@@ -35,7 +35,9 @@ const ShareText = ({ fact }) => {
   return (
     <Container>
       <ButtonTouchableOpacity onPress={onShare}>
-        <ButtonText>Share</ButtonText>
+        <ButtonText>
+          Share
+        </ButtonText>
       </ButtonTouchableOpacity>
     </Container>
   )

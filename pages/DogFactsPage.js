@@ -69,7 +69,9 @@ export const DogFactsPage = ({ navigation }) => {
     return(
         <MainContainer>
             <ButtonTouchableOpacity onPress={onPressRandomFact}>
-                <ButtonText>Click here to get random dog facts!</ButtonText>
+                <ButtonText>
+                    Click here to get random dog facts!
+                </ButtonText>
             </ButtonTouchableOpacity>
             <Container>
                 <DogInformationText>
@@ -77,7 +79,7 @@ export const DogFactsPage = ({ navigation }) => {
                 </DogInformationText>
             </Container>
             <DogPageImage
-            source={require('../assets/dog.png')}
+                source={require('../assets/dog.png')}
             />
             <ShareButtonText>
                 Interesting right? Share this fact with a friend!

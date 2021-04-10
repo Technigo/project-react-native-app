@@ -22,7 +22,7 @@ const App = () => {
             headerStyle: {
               backgroundColor: 'whitesmoke',
             },
-            headerTintColor: 'whitesmoke'
+              headerTintColor: 'whitesmoke'
           }}
         />
         <Stack.Screen 
@@ -31,9 +31,9 @@ const App = () => {
           options={{ 
             title: 'Random Cat Facts',
             headerStyle: {
-            backgroundColor: 'whitesmoke',
-          },
-            headerTintColor: 'black' 
+              backgroundColor: 'whitesmoke',
+            },
+              headerTintColor: 'black' 
           }}
         />
         <Stack.Screen 
@@ -45,7 +45,7 @@ const App = () => {
               backgroundColor: 'whitesmoke',
             },
               headerTintColor: 'black' 
-            }} 
+          }} 
         />
       </Stack.Navigator>
     </NavigationContainer>
