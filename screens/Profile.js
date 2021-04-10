@@ -12,7 +12,7 @@ const FeedContainer = styled.View`
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
-export const Feed = ({ navigation }) => {
+const Profile = () => {
   return (
     <FeedContainer>
       <Text>Feed Screen</Text>
@@ -22,3 +22,5 @@ export const Feed = ({ navigation }) => {
     </FeedContainer>
   );
 };
+
+export default Profile

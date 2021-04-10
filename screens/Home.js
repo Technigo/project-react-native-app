@@ -12,15 +12,17 @@ const FeedContainer = styled.View`
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
-export const Feed = ({ navigation }) => {
+const Home = () => {
   return (
     <FeedContainer>
-      <Text>Hi there!</Text>
+      <Text>Welcome on my non-sense App!</Text>
       <Text>Are you wondering what the hack you are doing here? Well I'm wondering that too.</Text>
-      <Text>But since you're here you might as well check out some React Native Stuff I did. I mean look at that burger menu! 🤤</Text>
+      <Text>But since you're here you might as well check out some React Native Stuff I did. I mean, look at that burger menu! 🤤</Text>
       {/* Here is an example of how to open/toggle the drawer via javascript */}
       <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
       <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
     </FeedContainer>
   );
 };
+
+export default Home
