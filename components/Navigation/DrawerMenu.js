@@ -6,6 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { ComicsList } from "../../pages/ComicsList";
 import { ComicDetails } from "../../pages/ComicDetails";
 import { Home } from "../../pages/Home";
+import {Game} from "../../pages/Game"
 
 export const DrawerMenu = () => {
   const dimensions = useWindowDimensions();
@@ -38,7 +39,13 @@ export const DrawerMenu = () => {
           component={ComicDetails}
           options={{ title: `${comicTitle}` }}
         />
+        
       )}
+        <Drawer.Screen
+        name="Game"
+        component={Game}
+        options={{ title: "Game" }}
+      />
     </Drawer.Navigator>
   );
 };
