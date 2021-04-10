@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components/native";
-import { StyleSheet, Animated, useWindowDimensions, ActivityIndicator, View} from "react-native";
+import { StyleSheet, Animated, useWindowDimensions, ActivityIndicator} from "react-native";
 
 import { COMICS_URL } from "../reusables/urls";
-import { ComicCard } from "../components/ComicCard";
+import { ComicCard } from "../components/Comics/ComicCard";
 
 export const ComicsList = ({ navigation, setComicTitle, comicTitle }) => {
   const [comicList, setComicList] = useState([]);
-  const scrollX = useRef(new Animated.Value(0)).current;
-  const { width: windowWidth } = useWindowDimensions();
   const [loading, setloading] = useState(true)
+  const { width: windowWidth } = useWindowDimensions();
+  const scrollX = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     let mounted = true
@@ -41,7 +41,9 @@ export const ComicsList = ({ navigation, setComicTitle, comicTitle }) => {
     );
   };
 
-  return loading ? <View style={[styles.container, styles.horizontal]}><ActivityIndicator size="large" color="#00ff00" /></View>
+  return loading ?     <LoadingContainer>
+  <ActivityIndicator size="large" color="#00ff00" />
+</LoadingContainer>
  : windowWidth < 768 ? (
     <MobileView>
       <ScrollContainer>
@@ -94,7 +96,12 @@ export const ComicsList = ({ navigation, setComicTitle, comicTitle }) => {
   );
 };
 
-
+const LoadingContainer = styled.View `
+    flex: 1;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px;
+`
 const ScrollContainer = styled.View`
   height: 300px;
   align-items: center;
@@ -134,13 +141,4 @@ const styles = StyleSheet.create({
     backgroundColor: "silver",
     marginHorizontal: 4,
   },
-  container: {
-    flex: 1,
-    justifyContent: "center"
-  },
-  horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10
-  }
 });

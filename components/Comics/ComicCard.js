@@ -55,11 +55,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  infoText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
 });
 
 const Card = styled.View`
@@ -89,17 +84,16 @@ const WebTextContainer = styled.View`
 `;
 
 const MobileTextContainer = styled.View`
-background-color: rgba(0,0,0, 0.7);
-padding-horizontal: 24px;
-padding-vertical: 8px;
-border-radius: 5px;
-`
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-horizontal: 24px;
+  padding-vertical: 8px;
+  border-radius: 5px;
+`;
 const MobileTitle = styled.Text`
   color: white;
   font-size: 16px;
   font-weight: bold;
-  `
-
+`;
 
 const WebTitle = styled.Text`
   color: yellow;

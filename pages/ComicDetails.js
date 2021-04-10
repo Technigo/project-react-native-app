@@ -1,61 +1,126 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
+import {
+  ActivityIndicator,
+  ImageBackground,
+  useWindowDimensions,
+} from "react-native";
 
 import { FULLCOMIC_URL } from "../reusables/urls";
 
 export const ComicDetails = ({ route, navigation }) => {
   const [comic, setComic] = useState();
+  const [loading, setloading] = useState(true);
   const { id } = route.params;
+  const {height: windowHeight } = useWindowDimensions();
 
   useEffect(() => {
+    let mounted = true;
     fetch(FULLCOMIC_URL(id))
       .then((res) => res.json())
-      .then((comic) => setComic(comic.data.results[0]));
+      .then((comic) => setComic(comic.data.results[0]))
+      .then(() => {
+        if (mounted) {
+          setloading(false);
+        }
+      });
+    return function cleanup() {
+      mounted = false;
+    };
   }, [setComic, id]);
 
-  return (
+  return loading ? (
+    <LoadingContainer>
+      <ActivityIndicator size="large" color="#00ff00" />
+    </LoadingContainer>
+  ) : (
     <>
       {comic && (
         <Wrapper>
-          <Image
+          <ImageBackground
             source={
               comic.images[0] && {
                 uri: `${comic.images[0].path}/portrait_uncanny.jpg`,
               }
             }
-          />
-          <TextContainer>
-            <Title>{comic.title}</Title>
-            <DetailText>
-              {comic.textObjects[0]
-                ? comic.textObjects[0].text
-                : "No description"}
-            </DetailText>
-          </TextContainer>
-          <Button onPress={() => navigation.goBack()}>
-            <ButtonText>Back</ButtonText>
-          </Button>
+            style={{ flex: 1, minHeight: windowHeight}}
+            imageStyle={{ resizeMode: "repeat" }}
+          >
+            <Overlay>
+              <Container>
+                <ImageContainer>
+                  {comic.images[0] ? (
+                    <Image
+                      source={{
+                        uri: `${comic.images[0].path}/portrait_uncanny.jpg`,
+                      }}
+                    />
+                  ) : (
+                    <Title>No Image available </Title>
+                  )}
+                </ImageContainer>
+                <TextContainer>
+                  <Title>{comic.title}</Title>
+                  <DetailText>
+                    {comic.textObjects[0]
+                      ? comic.textObjects[0].text
+                      : "No description"}
+                  </DetailText>
+                </TextContainer>
+              </Container>
+              <Button onPress={() => navigation.goBack()}>
+                <ButtonText>Back</ButtonText>
+              </Button>
+            </Overlay>
+          </ImageBackground>
         </Wrapper>
       )}
     </>
   );
 };
 
+const LoadingContainer = styled.View `
+    flex: 1;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px;
+`
 const Wrapper = styled.View`
-  flex: 1 1 auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  background: black;
 `;
 
+const Overlay = styled.ScrollView`
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+`;
+
+const Container = styled.View`
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 700px;
+`;
 const Title = styled.Text`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 50px;
+  width: 300px;
+  color: yellow;
 `;
 
-const Image = styled.Image`
+const ImageContainer = styled.View`
   flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+`;
+const Image = styled.Image`
   margin: 20px;
+  height: 450px;
+  width: 300px;
 `;
 
 const TextContainer = styled.View`
@@ -63,9 +128,13 @@ const TextContainer = styled.View`
   flex-direction: column;
   flex: 1 1 auto;
   margin: 20px;
+  align-items: center;
 `;
 
-const DetailText = styled.Text``;
+const DetailText = styled.Text`
+  width: 300px;
+  color: white;
+`;
 
 const Button = styled.TouchableOpacity`
   height: 30px;

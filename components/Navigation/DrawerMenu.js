@@ -3,15 +3,14 @@ import "react-native-gesture-handler";
 import { useWindowDimensions } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import { ComicsList } from "../pages/ComicsList";
-import { ComicDetails } from "../pages/ComicDetails";
-import { Home } from "../pages/Home";
-
-const Drawer = createDrawerNavigator();
+import { ComicsList } from "../../pages/ComicsList";
+import { ComicDetails } from "../../pages/ComicDetails";
+import { Home } from "../../pages/Home";
 
 export const DrawerMenu = () => {
   const dimensions = useWindowDimensions();
   const [comicTitle, setComicTitle] = useState();
+  const Drawer = createDrawerNavigator();
 
   const ComicsListScreen = ({ navigation }) => {
     return (
