@@ -2,73 +2,106 @@ import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
+
 // ==========================
 // = Styled components
+
 const ShakeView = styled.View`
   display: flex;
   flex-direction: column;
 `;
 
+const TopContainer = styled.View`
+  flex: 1;
+  margin-top: 70px;
+`
+
 const ShakeAlert = styled.Text`
   font-size: 30px;
   font-weight: bold;
   color: red;
+  text-align: center;
 `;
-const ShakeDataView = styled.View`
-  flex: 1;
+
+const ShakeAlertView = styled.View`
+  flex: 2;
 `;
+
 const ShakeDataTitle = styled.Text`
   font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
 `;
-const ShakeData = styled.Text``;
+
+const ShakeData = styled.Text`
+  text-align: center;
+`;
 
 const ShakeTitle = styled.Text`
   font-size: 40px;
   font-weight: bold;
   color: #aa0000;
+`
+
+const BottomContainer = styled.View`
   flex: 1;
 `
 
-const ScoreCounter = styled.Text `
+const ScoreCounter = styled.Text`
   font-size: 20px;
   font-weight: bold;
   color: #aa0000;
-  flex: 1;
+  text-align: center;
+  margin-bottom: 25px;
 `
 
-export const SensorComponent = () => {
+const ResetButton = styled.button`
+  color: red;
+`
 
+// ==========================
+// = Components
+
+export const SensorComponent = () => {
+  // This function determines how often our program reads the accelerometer data in milliseconds
   Accelerometer.setUpdateInterval(400);
 
+  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
   const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
   });
 
+  // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
 
   const _subscribe = () => {
+    // Save the subscription so we can stop using the accelerometer later
     setSubscription(
+      // This is what actually starts reading the data
       Accelerometer.addListener((accelerometerData) => {
+        // Whenever this function is called, we have received new data
+        // The frequency of this function is controlled by setUpdateInterval
         setData(accelerometerData);
       })
     );
   };
 
+  // This will tell the device to stop reading Accelerometer data.
+  // If we don't do this our device will become slow and drain a lot of battery
   const _unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
   };
 
   useEffect(() => {
+    // Start listening to the data when this SensorComponent is active
     _subscribe();
-
     return () => _unsubscribe();
   }, []);
 
-  const currentForce = Math.abs(data.x.toFixed(2)) + Math.abs(data.y.toFixed(2)) + Math.abs(data.z.toFixed(2));
-
+  
   const isShakingSlow = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.30;
@@ -79,15 +112,22 @@ export const SensorComponent = () => {
     return totalForce > 1.40; //Remember to change this!
   };
   
-  const isShakingHard = (data) => {
+  const isShakingMediumHard = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.50; //Remember to change this!
   };
+  
+  const isShakingHard = (data) => {
+    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
+    return totalForce > 1.60; //Remember to change this!
+  };
+  
+  const currentForce = Math.abs(data.x.toFixed(2)) + Math.abs(data.y.toFixed(2)) + Math.abs(data.z.toFixed(2));
 
   const [score, setScore] = useState(0)
-
+  
   const currentScore = () => {
-    if (currentForce >1.3) //Change this!
+    if (currentForce >1.6) //Change this!
         setScore(score + 1 ) }
 
   useEffect (() => {
@@ -96,15 +136,21 @@ export const SensorComponent = () => {
 
   return (
     <ShakeView>
-      <ShakeTitle>Start shaking!</ShakeTitle>
-      <ShakeDataView>
+      <TopContainer>
+        <ShakeTitle>Start shaking!</ShakeTitle>
         <ShakeDataTitle>Current shake force</ShakeDataTitle>
         <ShakeData> {currentForce} </ShakeData>
-        {isShakingSlow(data) && <ShakeAlert>Shake harder!</ShakeAlert>}
-        {isShakingMedium(data) && <ShakeAlert>Harder!</ShakeAlert>}
-        {isShakingHard(data) && <ShakeAlert>There you go!</ShakeAlert>}
-      </ShakeDataView>
-      <ScoreCounter>Score: {score}</ScoreCounter>
+      </TopContainer>
+      <ShakeAlertView>
+          {isShakingSlow(data) && <ShakeAlert>Shake harder!</ShakeAlert>}
+          {isShakingMedium(data) && <ShakeAlert>Harder!</ShakeAlert>}
+          {isShakingMediumHard(data) && <ShakeAlert>HARDER!</ShakeAlert>}
+          {isShakingHard(data) && <ShakeAlert>There you go!</ShakeAlert>}
+      </ShakeAlertView>
+      <BottomContainer>
+        <ScoreCounter>Score: {score}</ScoreCounter>
+        <ResetButton onPress={() => setScore(0)} title="Reset"></ResetButton>
+      </BottomContainer>
     </ShakeView>
   );
 };
