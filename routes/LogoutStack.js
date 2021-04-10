@@ -1,15 +1,16 @@
+import React from "react"
 import { createStackNavigator } from "react-navigation-stack"
 
-import Home from "../screens/Home"
-import Profile from "../screens/Profile"
 import Logout from "../screens/Logout"
+import Header from "../shared/Header"
 
 const screens = {
     Logout: {
         screen: Logout,
-        navigationOptions: {
-            Title: "Home", 
-            Title: "Profile"
+        navigationOptions: ({ navigation }) => {
+            return {
+                headerTitle: () => <Header navigation={navigation} />,
+            }
         }
     },
 }

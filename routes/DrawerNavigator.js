@@ -3,15 +3,14 @@ import { createAppContainer } from "react-navigation"
 
 import HomeStack from "./HomeStack"
 import LogoutStack from "./LogoutStack"
-import StackNavigator from "./StackNavigator"
-
+import ProfileStack from "./ProfileStack"
 
 const DrawerNavigator = createDrawerNavigator({
     Home: {
         screen: HomeStack,
     },
     Profile: {
-        screen: StackNavigator,
+        screen: ProfileStack,
     },
     Logout: {
         screen: LogoutStack,

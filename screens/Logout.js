@@ -15,10 +15,8 @@ const LogoutContainer = styled.View`
 const Logout = () => {
   return (
     <LogoutContainer>
-      <Text>Feed Screen</Text>
-      {/* Here is an example of how to open/toggle the drawer via javascript */}
-      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
+      <Text>Logout here</Text>
+
     </LogoutContainer>
   );
 };

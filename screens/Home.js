@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button } from 'react-native';
+import { Text } from 'react-native';
 import styled from 'styled-components/native';
 
 // This is the main container for this screen
@@ -19,8 +19,6 @@ const Home = () => {
       <Text>Welcome on my non-sense App!</Text>
       <Text>Are you wondering what the hack you are doing here? Well I'm wondering that too.</Text>
       <Text>But since you're here you might as well check out some React Native Stuff I did. I mean, look at that burger menu! 🤤</Text>
-      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
     </HomeContainer>
   );
 }
