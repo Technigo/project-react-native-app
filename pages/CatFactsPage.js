@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Text, Button, TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
+
+import ShareText from './ShareText'
 
 const MainContainer = styled.View`
     flex: 1;
@@ -11,7 +12,7 @@ const MainContainer = styled.View`
 
 const Container = styled.View `
     margin: 20px;
-    padding:10px;
+    padding: 20px;
 `
 
 const CatInformationText = styled.Text`
@@ -23,9 +24,21 @@ const CatInformationText = styled.Text`
 const ButtonTouchableOpacity = styled.TouchableOpacity`
     background-color: pink;
     color: black;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 40px;
+    padding: 15px;
+    border-radius: 10px; 
+`
+
+const ShareButton = styled.TouchableOpacity`
+    background-color: whitesmoke;
+    color: black;
+    padding: 6px;
+    border-radius: 10px; 
+`
+
+const ShareButtonText = styled.Text`
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
 `
 
 const ButtonText = styled.Text`
@@ -33,15 +46,14 @@ const ButtonText = styled.Text`
     font-weight: 500;
 `
 
-const RestartButton = styled.TouchableOpacity`
-    padding: 10px;
-    border-radius: 10px;
-    background-color: pink;
-    margin-bottom: 40px;
+const CatPageImage = styled.Image`
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
 `
 
 
-export const CatFactsPage = ({onRestartMainPage}) => {
+export const CatFactsPage = ({ navigation }) => {
     const [catFacts, setCatFacts] = useState([])
     const [randomFact, setRandomFact] = useState('')
 
@@ -59,21 +71,25 @@ export const CatFactsPage = ({onRestartMainPage}) => {
 
     return(
         <MainContainer>
-        <ButtonTouchableOpacity
+            <ButtonTouchableOpacity
             onPress={onPressRandomFact}
         >
-            <ButtonText>Press me to get random cat facts</ButtonText>
+            <ButtonText>Click here to get random cat facts</ButtonText>
        </ButtonTouchableOpacity>
         <Container>
             <CatInformationText>
                 {randomFact}
             </CatInformationText>
         </Container>
-       <RestartButton 
-            onPress={onRestartMainPage}
-       >
-            <ButtonText>Back</ButtonText>
-        </RestartButton>
+        <CatPageImage
+            source={require('../assets/cat.png')}
+        />
+        <ShareButtonText>
+                Interesting right? Share this fact with a friend!
+        </ShareButtonText>
+        <ShareButton>
+            <ShareText fact={randomFact}/>
+        </ShareButton>
        </MainContainer>
     )
 }

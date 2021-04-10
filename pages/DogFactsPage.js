@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 
+import ShareText from './ShareText'
 
 const MainContainer = styled.View`
     flex: 1;
@@ -9,9 +10,9 @@ const MainContainer = styled.View`
     align-items: center;
 `
 
-const Container = styled.View `
-    align-items: center;
+const Container = styled.View`
     margin: 20px;
+    padding: 20px;
 `
 
 const DogInformationText = styled.Text`
@@ -23,24 +24,33 @@ const DogInformationText = styled.Text`
 const ButtonTouchableOpacity = styled.TouchableOpacity`
     background-color: pink;
     color: black;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
-    margin-top: 40px;
+`
+
+const ShareButton = styled.TouchableOpacity`
+    background-color: whitesmoke;
+    color: black;
+    padding: 6px;
+    border-radius: 10px; 
+`
+const ShareButtonText = styled.Text`
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
 `
 
 const ButtonText = styled.Text`
     font-size: 20px;
     font-weight: 500;
 `
-
-const RestartButton = styled.TouchableOpacity`
-    padding: 10px;
-    border-radius: 10px;
-    background-color: pink;
-    margin-bottom: 40px;
+const DogPageImage = styled.Image`
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
 `
 
-export const DogFactsPage = ({onRestartMainPage}) => {
+export const DogFactsPage = ({ navigation }) => {
     const [dogFacts, setDogFacts] = useState([])
     const [randomFact, setRandomFact] = useState('')
 
@@ -53,22 +63,28 @@ export const DogFactsPage = ({onRestartMainPage}) => {
     }, [])
 
     const onPressRandomFact = () => {
-        return setRandomFact(dogFacts[Math.floor(Math.random() * dogFacts.length)].fact)
+         return setRandomFact(dogFacts[Math.floor(Math.random() * dogFacts.length)].fact)
     }
 
     return(
         <MainContainer>
             <ButtonTouchableOpacity onPress={onPressRandomFact}>
-                <ButtonText>Press me to get random dog facts!</ButtonText>
+                <ButtonText>Click here to get random dog facts!</ButtonText>
             </ButtonTouchableOpacity>
             <Container>
                 <DogInformationText>
                     {randomFact}
                 </DogInformationText>
             </Container>
-            <RestartButton onPress={onRestartMainPage}>
-                <ButtonText>Back</ButtonText>
-            </RestartButton>
+            <DogPageImage
+            source={require('../assets/dog.png')}
+            />
+            <ShareButtonText>
+                Interesting right? Share this fact with a friend!
+            </ShareButtonText>
+            <ShareButton>
+                <ShareText fact={randomFact}/>
+            </ShareButton>
        </MainContainer>
     )
 }
