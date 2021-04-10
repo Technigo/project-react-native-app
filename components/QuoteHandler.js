@@ -46,7 +46,7 @@ const QuoteHandler = (props) => {
 
     useEffect (() => {
 
-        fetch("https://thingproxy.freeboard.io/fetch/https://zenquotes.io/api/today", {
+        fetch("https://thingproxy.freeboard.io/fetch/https://zenquotes.io/api/random", {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
             // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -63,7 +63,7 @@ const QuoteHandler = (props) => {
             props.onCurrentQuoteChange ({
                 text: todaysQuote[0].q,
                 name: todaysQuote[0].a,
-                length: todaysQuote[0].q.length,
+                length: todaysQuote[0].q.split(" ").length,
                 shown: props.shown
             })
         })
@@ -79,7 +79,8 @@ const QuoteHandler = (props) => {
     return (
         <Container>
             <Quote 
-                quote={props.currentQuote}
+                currentQuote={props.currentQuote}
+                onCurrentQuoteChange={props.onCurrentQuoteChange}
             />
         </Container>
     )

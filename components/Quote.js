@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 
-const QuoteWrapper = styled.View`
+const Wrapper = styled.View`
     flex: 1;
+    width: 90%;
     justify-content: center;
     align-items: center;
     background-color: #000;
@@ -14,11 +15,16 @@ const BaseText = styled.Text`
     font-family: 'Courier New';
 `;
 
-const ActualQuote = styled(BaseText)`
-    font-size: ${(props) => (120 - props.length)}px;
-    margin: 10px 30px 30px 30px;
-    background-color: #000;
+const QuoteWrapper = styled.View`
+    width: 80%;
 `;
+
+const ActualQuote = styled(BaseText)`
+    font-size: 24px;
+`;
+
+//font-size: ${(props) => (70 - (props.length * 0.7))}px;
+//margin: 10px 30px 30px 30px;
 
 const NameWrapper = styled.View`
     flex: 0.25;
@@ -42,15 +48,13 @@ const isLetter = (char) => {
     return char.length === 1 && char.match(/[a-z]/i);
 }
 
-const revealQuote = (quote, props) => {
+const revealQuote = (props) => {
 
-    let howFar = quote.shown-1
+    let howFar = props.currentQuote.shown-1
 
 
     //every WORD is an array entry
-    const quoteTextAsArray_2 = quote.text.split(" ")
-
-    console.log(quoteTextAsArray_2)
+    const quoteTextAsArray_2 = props.currentQuote.text.split(" ")
 
     const renderedQuote_2 = quoteTextAsArray_2.map((word, index) => {
         if (index > howFar) {
@@ -61,18 +65,28 @@ const revealQuote = (quote, props) => {
         }
     })
 
-    return renderedQuote_2
+    console.log(`Length: ${props.currentQuote.length}`)
+    console.log(`Shown: ${props.currentQuote.shown}`)
+    
+    return renderedQuote_2.join("").trim()
 }
 
 const Quote = (props) => {
     return (
         <>
-            <QuoteWrapper>
-                <ActualQuote length={props.quote.length}>"{revealQuote(props.quote, props)}"</ActualQuote>
+            <Wrapper>
+                <QuoteWrapper>
+                    <ActualQuote 
+                        adjustsFontSizeToFit
+                    >
+                        "{revealQuote(props)}"
+                    </ActualQuote>
+                </QuoteWrapper> 
+                
                 <NameWrapper>
-                    <Name>- {props.quote.name}</Name>
+                    <Name>- {props.currentQuote.name}</Name>
                 </NameWrapper> 
-            </QuoteWrapper>
+            </Wrapper>
             
         </>
     )

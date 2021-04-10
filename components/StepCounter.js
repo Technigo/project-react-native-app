@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
+import { Pedometer } from 'expo-sensors';
 
 import { SensorComponent } from './SensorComponent';
+import App from './Pedometer';
 
 const Container = styled.View`
     flex: 0.5;
@@ -23,15 +25,19 @@ const Steps = styled(BaseText)`
     background-color: #000;
 `;
 
+
 const StepCounter = (props) => {
+
+    Pedometer.watchStepCount(props.onStep)
+
     return (
         <Container>
+            <Steps>Steps: {props.steps}</Steps>
             {/* <SensorComponent 
                 steps={props.steps} 
                 onStep={props.onStep} 
                 stepCooldown={props.stepCooldown}
             /> */}
-            <Steps>Steps: {props.steps}</Steps>
         </Container>
     )
 }

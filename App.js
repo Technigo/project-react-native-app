@@ -65,33 +65,30 @@ const Linky = styled(BaseText)`
 
 const App = () => {
 
-  const [steps, setSteps] = useState(22)
-  const [stepCooldown, setStepCooldown] = useState(false)
+  const [steps, setSteps] = useState(1350)
   const [currentQuote, setCurrentQuote] = useState({text: "", name: "", length: 0, shown: 0})
   const [revealHeld, setRevealHeld] = useState(false)
   const [timer, setTimer] = useState(null)
 
-  const onStep = () => {
-    setSteps(steps+1)
-    setStepCooldown(stepCooldown)
+  const onStep = (newSteps) => {
+
+    const adjustedSteps = Math.ceil(newSteps.steps / 5)
+
+    setSteps(steps + adjustedSteps)
   };
 
   const onCurrentQuoteChange = (quote) => {
     setCurrentQuote(quote)
   };
 
-  const reveal = (spent) => {
+  const reveal = () => {
     
-    if (steps >= 0 + spent) {
-      setCurrentQuote({text: currentQuote.text, name: currentQuote.name, length: currentQuote.length, shown: currentQuote.shown + spent})
-      setSteps(steps - spent)
+    if (currentQuote.shown >= currentQuote.length) {
+      //do nothing :)
+    } else if (steps >= 0 + 100) {
+      setCurrentQuote({text: currentQuote.text, name: currentQuote.name, length: currentQuote.length, shown: currentQuote.shown + 1})
+      setSteps(steps - 100)
 
-    } else if (spent - steps > 0) {
-      const cantAfford = spent - steps
-      console.log(`cantAfford: ${cantAfford}`)
-      console.log(`spent - cantAfford: ${spent - cantAfford}`)
-      setCurrentQuote({text: currentQuote.text, name: currentQuote.name, length: currentQuote.length, shown: currentQuote.shown + (spent - cantAfford)})
-      setSteps(steps - (spent - cantAfford))
     }
 
     /*https://medium.com/@pavolfulop/repeat-onpress-action-when-holding-button-react-native-2c697cf28032*/
@@ -102,7 +99,12 @@ const App = () => {
   const startReveal = () => {
     console.log("reveal START")
     if (steps > 0 && revealHeld) {
-      setCurrentQuote({text: currentQuote.text, name: currentQuote.name, length: currentQuote.length, shown: currentQuote.shown + 1})
+      setCurrentQuote ({
+        text: currentQuote.text, 
+        name: currentQuote.name, 
+        length: currentQuote.length, 
+        shown: currentQuote.shown + 1
+      })
       setSteps(steps - 1)
       
     } //so the issue is that the onPressOut can never be triggered because the program is stuck in a loop
@@ -129,21 +131,21 @@ const App = () => {
           onCurrentQuoteChange={onCurrentQuoteChange}
           currentQuote={currentQuote}
           startReveal={startReveal}
+          onStep={onStep}
         />
 
         <StepCounter 
           steps={steps} 
-          onStep={onStep} 
-          stepCooldown={stepCooldown}
+          onStep={onStep}
         />
 
         <IncrementButton
-          onPress={() => {reveal(1)}}
+          onPress={() => {reveal(10)}}
         >
           <ButtonLabel>reveal</ButtonLabel>
         </IncrementButton>
 
-        <Explanation>A hundred steps for<br></br>a word of wisdom</Explanation>
+        <Explanation>A hundred steps for a word of wisdom</Explanation>
 
         <Footer>Inspirational quotes provided by <Linky onPress={() => {Linking.openURL("https://zenquotes.io/")}}>ZenQuotes API</Linky></Footer>
       </AppWrapper>
