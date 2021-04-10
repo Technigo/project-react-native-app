@@ -19,7 +19,7 @@ const TopContainer = styled.View`
 const ShakeAlert = styled.Text`
   font-size: 30px;
   font-weight: bold;
-  color: red;
+  color: #03FF4E;
   text-align: center;
 `;
 
@@ -31,16 +31,21 @@ const ShakeDataTitle = styled.Text`
   font-weight: bold;
   text-align: center;
   margin-top: 15px;
+  color: #03FF4E;
+
 `;
 
 const ShakeData = styled.Text`
   text-align: center;
+  color: #03FF4E;
 `;
 
 const ShakeTitle = styled.Text`
   font-size: 40px;
   font-weight: bold;
-  color: #aa0000;
+  color: #F803FF;
+  text-shadow-radius: 10;
+  text-shadow-color: #000000;
 `
 
 const BottomContainer = styled.View`
@@ -50,13 +55,23 @@ const BottomContainer = styled.View`
 const ScoreCounter = styled.Text`
   font-size: 20px;
   font-weight: bold;
-  color: #aa0000;
+  color: #F803FF;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 `
 
-const ResetButton = styled.button`
-  color: red;
+const ResetButton = styled.TouchableOpacity`
+  margin: 20px 0;
+  padding: 10px 30px;
+  background-color: #831586;
+  align-self: center;
+  border-radius: 20px;
+  border: 1px #ffffff;
+`
+
+const ButtonText = styled.Text`
+color: #ffffff; 
+font-weight: bold;
 `
 
 // ==========================
@@ -149,7 +164,9 @@ export const SensorComponent = () => {
       </ShakeAlertView>
       <BottomContainer>
         <ScoreCounter>Score: {score}</ScoreCounter>
-        <ResetButton onPress={() => setScore(0)} title="Reset"></ResetButton>
+        <ResetButton onPress={() => setScore(0)}>
+          <ButtonText>RESET</ButtonText>
+        </ResetButton>
       </BottomContainer>
     </ShakeView>
   );

@@ -1,22 +1,19 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import background from './assets/game-background.jpg'
+
 import { SensorComponent } from './components/SensorComponent';
 
-const Container = styled.View`
+const Container = styled.ImageBackground`
   flex: 1;
-  background-color: papayawhip;
+
   justify-content: center;
   align-items: center;
 `;
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
-
 const App = () => {
   return (
-    <Container>
+    <Container source={background}>
       <SensorComponent></SensorComponent>
     </Container>
   );
