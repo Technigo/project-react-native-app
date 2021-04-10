@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import styled from 'styled-components/native'
@@ -10,10 +9,6 @@ import UpcomingScreen from './pages/UpcomingPage'
 
 import DetailsPage from './pages/DetailsPage'
 
-import Gallery from './pages/ImageGallery'
-
-
-
 
 const Container = styled.View`
 flex:1;
@@ -23,15 +18,15 @@ background: #000
 `
 
 const MyButton = styled.Button`
-color: red`
-
-
+color: red
+`
 
 const Question = styled.Text`
 font-size: 20px
 color: red;
 font-weight: bold;
-padding: 0px 20px 20px 20px`
+padding: 0px 20px 20px 20px
+`
 
 
 const HomeScreen = ({navigation}) => {
@@ -49,12 +44,10 @@ const HomeScreen = ({navigation}) => {
         onPress={() => navigation.navigate('Popular Movies')}
       />
       <MyButton
-        title="Go to Most Upcoming Movies"
+        title="Go to Upcoming Movies"
         color="red"
         onPress={() => navigation.navigate('Upcoming Movies')}
       />
-
-     
     </Container>
   )
 }
@@ -82,43 +75,36 @@ export default function App() {
         headerTintColor: '#fff',
       }}/>
       <Stack.Screen name="Top Rated Movies" component={TopScreen} 
-       options={{
+        options={{
         headerStyle: {
           backgroundColor: '#000',
         },
         headerTintColor: '#fff',
       }}/>
       <Stack.Screen name="Popular Movies" component={PopularScreen} 
-       options={{
+        options={{
         headerStyle: {
           backgroundColor: '#000',
         },
         headerTintColor: '#fff',
       }}/>
       <Stack.Screen name="Upcoming Movies" component={UpcomingScreen} 
-       options={{
+        options={{
         headerStyle: {
           backgroundColor: '#000',
         },
         headerTintColor: '#fff',
       }}/>
-
-
       <Stack.Screen name="Details" component={DetailsPage} 
-       options={{
+        options={{
         headerStyle: {
           backgroundColor: '#000',
         },
         headerTintColor: '#fff',
       }}/>
-
     </Stack.Navigator>
   </NavigationContainer>
 );
-
-
-
-   
 }
 
 
