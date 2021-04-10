@@ -67,7 +67,7 @@ const AddFavouriteButton = ({ recipe }) => {
       <Ionicons
         name="star"
         size={30}
-        color={addFavourite ? "#FFA500" : "white"}
+        color={addFavourite ? "#c47b34" : "white"}
       />
     </Button>
   )

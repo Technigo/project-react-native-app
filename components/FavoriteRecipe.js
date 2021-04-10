@@ -38,7 +38,6 @@ const Container = styled.View `
 
 const ButtonText = styled.Text `
   font-size: 16px;
-  font-weight: bold;
   color: white;
   margin: 0 5px 0 5px;
 `

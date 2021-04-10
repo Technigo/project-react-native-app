@@ -13,6 +13,7 @@ const Stack = createStackNavigator();
 const App = () => {
 
   return (
+    <>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Welcome" component={WelcomePage} />
@@ -21,6 +22,7 @@ const App = () => {
         <Stack.Screen name="Profile" component={ProfilePage} />
       </Stack.Navigator>
     </NavigationContainer>
+   </>
   )
 }
 
