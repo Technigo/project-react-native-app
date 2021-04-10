@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, Button } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 import { CHUCK_API } from '../reuseables/urls'
@@ -34,7 +34,12 @@ export const ChuckNorris = ({ navigation }) => {
         style={{width: 400, height: 400}}  
       />
       <Text>{chuckNorris.value}</Text>
-      <Button title="BACK TO MENU" onPress={() => navigation.navigate('HOME')} />
+      {/* <Button title="BACK TO MENU" onPress={() => navigation.navigate('HOME')} /> */}
+      <TouchableOpacity
+        onPress={() => navigation.navigate('HOME')}
+      >
+        <Text>BACK TO MENU</Text>
+      </TouchableOpacity>
     </NotificationsContainer>
   );
 };

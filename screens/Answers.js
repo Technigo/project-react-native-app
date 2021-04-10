@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 import { YES_NO_API } from '../reuseables/urls'
@@ -12,7 +12,7 @@ const NotificationsContainer = styled.View`
   height: 100%;
 `;
 
-export const Answer = () => {
+export const Answer = ({ navigation }) => {
 
   const [Answer, setAnswer] = useState('')
 
@@ -33,6 +33,11 @@ export const Answer = () => {
       <Image source={{uri: }}/>
       </View> */}
       <Text>{Answer}</Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('HOME')}
+      >
+        <Text>BACK TO MENU</Text>
+      </TouchableOpacity>
     </NotificationsContainer>
   );
 };

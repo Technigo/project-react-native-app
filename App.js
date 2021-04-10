@@ -13,9 +13,9 @@ const App = () => {
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="HOME" component={Home}/>
-        <Drawer.Screen name="CHUCK NORRIS" component={ChuckNorris} />
-        <Drawer.Screen name="YES OR NO?" component={Answer} />
         <Drawer.Screen name="RANDOM ADVICE" component={RandomAdvice} />
+        <Drawer.Screen name="YES OR NO?" component={Answer} />
+        <Drawer.Screen name="'CHEERED UP' by CHUCK NORRIS" component={ChuckNorris} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
