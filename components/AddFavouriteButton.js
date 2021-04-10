@@ -3,63 +3,74 @@ import styled from 'styled-components/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Ionicons } from '@expo/vector-icons'
 
-const AddFavouriteButton = ({recipe}) => {
-
+const AddFavouriteButton = ({ recipe }) => {
   const value = {
     recipeLabel: recipe.label,
     recipeURI: recipe.uri,
   }
-
   const storage_Key = recipe.uri
-
 
   const storeData = async (value) => {
     try {
       const jsonValue = JSON.stringify(value)
       await AsyncStorage.setItem(storage_Key, jsonValue)
-      alert('Data successfully saved')
+      alert('Recipe is saved to favourites')
     } catch (e) {
-      alert('Failed to save the data to the storage')
+      alert('Failed to save the recipe to favourites')
     }
   }
-useEffect(()=> {
+  const removeData = async (key) => {
+    try {
+      await AsyncStorage.removeItem(key);
+      alert('Recipe is removed from favourites')
+      return true;
+    }
+    catch (exception) {
+      alert('Failed to remove the recipe from favourites')
+      return false;
+    }
+  }
 
-})
-  const importData = async () => {
+  const checkFavourite = async () => {
     try {
       const keys = await AsyncStorage.getAllKeys();
-      console.log(keys)
-      if(keys.includes(recipe.uri)){
-        console.log(true) 
-      } else console.log(false)
+      if (keys.includes(recipe.uri)) {
+        setAddFavourite(true)
+      } else {
+        setAddFavourite(false)
+      }
     } catch (error) {
-      console.error(error)
     }
+
   }
-  useEffect(()=> {
-    importData()
+
+  useEffect(() => {
+    checkFavourite()
   }, [])
 
-  const [addFavourite, setAddFavourite] = useState(importData())
+  const [addFavourite, setAddFavourite] = useState()
 
   const addFavouriteToggle = () => setAddFavourite(!addFavourite)
 
   return (
     <Button
-      //onPress={addFavouriteToggle}
-      onPress={()=> {
-        addFavouriteToggle()
-        storeData(value)}
-      }
+      onPress={() => {
+        if (addFavourite) {
+          addFavouriteToggle()
+          removeData(storage_Key)
+        } else {
+          addFavouriteToggle()
+          storeData(value)
+        }
+      }}
     >
       <Ionicons
         name="star"
-        size={30} 
+        size={30}
         color={addFavourite ? "#FFA500" : "white"}
       />
     </Button>
   )
-
 }
 
 export default AddFavouriteButton

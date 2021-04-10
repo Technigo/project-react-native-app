@@ -22,14 +22,14 @@ const ProfilePage = () => {
 
   useEffect(() => {
     importData()
-  }, [])
+  }, [data])
 
   useEffect(() => {
     if (favouriteRecipes) {
       const newArray = favouriteRecipes.map((item) => {
         return JSON.parse(item[1])
       })
-      console.log(newArray)
+      //console.log(newArray)
       setData(newArray)
     }
 
