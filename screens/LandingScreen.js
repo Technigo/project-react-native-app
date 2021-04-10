@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-// import { Animated } from 'react-native';
 
 import { GenerateGotQuote } from '../components/GenerateGotQuote';
 
@@ -25,7 +24,6 @@ const SubHeading = styled.Text`
   text-align: center;
   margin-top: 40px;
 `;
-
 
 const LandingScreen = ({ gotQuote, handleFetch }) => {
   return (
