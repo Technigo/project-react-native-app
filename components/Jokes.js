@@ -1,59 +1,53 @@
 import React, { useState, useEffect } from 'react'
-import { ImageBackground } from 'react-native'
 import styled from 'styled-components/native'
 
 import { JOKE_API } from '../reusable/urls'
+import background from '../assets/blue-brickwall.jpg'
 
-const Container = styled.View`
-flex: 1;
-background-color: papayawhip;
-justify-content: center;
-align-items: center;
-`
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
-
-const Main = styled.View`
-
-height: 60%
-background-color: papayawhip;
-justify-content: center;
-align-items: center;
-padding: 0 30px ; 
-`
-
-const Button = styled.TouchableOpacity`
-width: 50%;
-padding: 10px
-border: 2px solid black;
-border-radius: 25px;
-height: 60px;
-background-color: grey;
-justify-content: center;
-align-items: center;
-`
-
-const ButtonContainer = styled.View`
-width: 100%;
-justify-content: center;
-align-items: center;
-`
-
+const Container = styled.ImageBackground`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  `
 const Header = styled.View`
-background-color: grey
-justify-content: center;
-align-items: center;
-width: 100%;
-padding: 0 15px;
-margin-top: 0;
+  background-color: rgba(46, 32, 28, 0.7);
+  width: 100%;
+  padding: 30px;
+  `
+const HeaderTitle = styled.Text`
+  font-size: 24px;
+  color: white;
+  `
+const Title = styled.Text`
+  font-size: 32px;
+  font-weight: bold;
+  color:  rgb(54, 69, 79);;
+  text-shadow: 1px 1px rgb(255, 166, 201);
 `
-const BackgroundImage = styled.ImageBackground`
-
-`
-
+const Main = styled.ScrollView`
+  padding: 0 30px ; 
+  margin: 48px 20px;
+  `
+const Button = styled.TouchableOpacity`
+  width: 50%;
+  padding: 10px
+  border: 2px solid black;
+  border-radius: 25px;
+  height: 60px;
+  background-color: rgba(46, 32, 28, 0.7);
+  justify-content: center;
+  align-items: center;
+  `
+const ButtonContainer = styled.View`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  `
+const ButtonTitle = styled.Text`
+  font-size: 24px;
+  color: white;
+  `
 
 const Jokes = () => {
   const [houses, setHouses] = useState([])
@@ -70,20 +64,18 @@ const Jokes = () => {
   }, [updateJoke])
 
   return (
-    <Container>
-
+    <Container source={background}>
       <Header>
-        <Title>Get a new superfunny joke everytime you press the button below!</Title>
+        <HeaderTitle>Tap the button below and prepare to laugh 😂!</HeaderTitle>
       </Header>
       <Main>
         <Title>{houses.joke}</Title>
       </Main>
       <ButtonContainer>
         <Button onPress={onUpdateJoke}>
-          <Title>Press me</Title>
+          <ButtonTitle>Tap me!</ButtonTitle>
         </Button>
       </ButtonContainer>
-
     </Container>
   )
 }
