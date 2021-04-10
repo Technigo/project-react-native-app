@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import { useFonts, BioRhyme_400Regular } from '@expo-google-fonts/biorhyme'
-import { Rubik_900Black } from '@expo-google-fonts/rubik'
-import { AppLoading } from 'expo'
+import { useFonts, BioRhyme_400Regular } from '@expo-google-fonts/biorhyme';
+import { Rubik_900Black } from '@expo-google-fonts/rubik';
+import { AppLoading } from 'expo';
 
 
-import answers  from '../data/answers'
-import { MagicBall } from './MagicBall'
+import answers  from '../data/answers';
+import { MagicBall } from './MagicBall';
 
 
 const isShaking = (data) => {
@@ -23,8 +23,8 @@ const isShaking = (data) => {
 
 //Function to get a random number - use later on the array to get random Index. 
 const getRandomWholeInt = (num) => {
-  return Math.floor(Math.random() * num)
-}
+  return Math.floor(Math.random() * num);
+};
 
 const ShakeView = styled.View`
   flex: 1;
@@ -41,31 +41,31 @@ const ShakeDataView = styled.View`
   top: 100px;
 `;
 
-const ShakeQuestion = styled.Text`
+const ShakeAnswer = styled.Text`
   margin-bottom: 40px;
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 900;
-  color: #FF9C2A;
-  font-family: 'Rubik';
-  border: 2px solid black;
-`
-const ShakeAnswer = styled.Text`
+  color: #ff9c2a;
+  font-family: 'BioRhyme';
+`;
+
+const ShakeQuestion = styled.Text`
   padding: 10px;
   text-align: center;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 900;
-  color: #FF9C2A;
-  font-family: 'BioRhyme';
-  border: 2px solid #FF9C2A;
+  color: #ff9c2a;
+  border: 2px solid #ff9c2a;
   border-radius: 5px;
-`
+  font-family: 'Rubik';
+`;
 
 export const SensorComponent = () => {
   const [fontLoaded] = useFonts({
     'BioRhyme-Regular': require ('../assets/fonts/BioRhyme-Regular.ttf'),
     'Rubik-VariableFont-wght': require('../assets/fonts/Rubik-VariableFont_wght.ttf')
-  })
+  });
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -74,7 +74,7 @@ export const SensorComponent = () => {
   //Subscription by default false
   const [subscription, setSubscription] = useState(null);
   //Set state as undefined so its default to false
-  const [answer, setAnswer] = useState(undefined)
+  const [answer, setAnswer] = useState(undefined);
 
   const _subscribe = () => {
     // Save the subscription so we can stop using the accelerometer later
@@ -85,8 +85,8 @@ export const SensorComponent = () => {
         // The frequency of this function is controlled by setUpdateInterval
         // setData(accelerometerData);
         if(isShaking(accelerometerData)){
-          const randomIndex = getRandomWholeInt(answers.length)
-          setAnswer(answers[randomIndex])
+          const randomIndex = getRandomWholeInt(answers.length);
+          setAnswer(answers[randomIndex]);
         }
       })
     );
@@ -111,18 +111,17 @@ export const SensorComponent = () => {
     <ShakeView>
       {/* if answer it true shake again otherwose ask*/}
       <ShakeDataView>
+        {answer && <ShakeAnswer>{answer}</ShakeAnswer>}
         <ShakeQuestion>
-          {answer ? 'Ask & Shake Again' : 'Ask & Shake for Answer'}
+          {answer ? 'Shake Again' : 'Shake for Random Excuse'}
         </ShakeQuestion>
         {/* if answer is true show answer state - random array*/}
-        {answer && <ShakeAnswer>{answer}</ShakeAnswer>}
         {/* {answer ? <ShakeTitle>{answer}</ShakeTitle> : null} */}
         <MagicBall />
       </ShakeDataView>
     </ShakeView>
   );
-
-}
+};
 
 
 

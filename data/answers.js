@@ -1,24 +1,22 @@
 const answers = [
-    "It is certain",
-    "It is decidedly so",
-    "Without a doubt",
-    "Yes - definitely",
-    "You may rely on it",
-    "As I see it, yes",
-    "Most likely",
-    "Outlook good",
-    "Yes",
-    "Signs point to yes",
-    "Don't count on it",
-    "My reply is no",
-    "My sources say no",
-    "Outlook not so good",
-    "Very doubtful",
-    "Reply hazy, try again",
-    "Ask again later",
-    "Better not tell you now",
-    "Cannot predict now",
-    "Concentrate and ask again"
-]
+    "24 hour flu",
+    "Abducted By Aliens",
+    "Amnesia",
+    "Car Trouble",
+    "Full Moon",
+    "Huh?",
+    "I Was Mugged",
+    "It's Not My Job",
+    "I've Got a Headache",
+    "Mexican Food",
+    "My Dog Ate It",
+    "My Fish Died",
+    "No Hablo Inglese",
+    "The Voices Told Me To",
+    "Traffic Was Bad",
+    "What Memo?",
+    "Bad case of indigestion"
+];
 
-export default answers
+export default answers;
+
