@@ -1,24 +1,18 @@
 import { createStackNavigator } from "react-navigation-stack"
 
 import Home from "../screens/Home"
-import Logout from "../screens/Logout"
 import Profile from "../screens/Profile"
-import Overview from "../screens/Overview"
+import Logout from "../screens/Logout"
 
 const screens = {
-    Profile: {
-        screen: Profile
-    },
-    Overview: {
-        screen: Overview
-    },
-    Home: {
-        screen: Home
-    },
     Logout: {
-        screen: Logout
+        screen: Logout,
+        navigationOptions: {
+            Title: "Home", 
+            Title: "Profile"
+        }
     },
 }
 
-const StackNavigator = createStackNavigator(screens)
-export default createAppContainer(StackNavigator)
+const LogoutStack = createStackNavigator(screens)
+export default LogoutStack

@@ -1,8 +1,6 @@
 import { createStackNavigator } from "react-navigation-stack"
 import { createAppContainer } from "react-navigation"
 
-import Home from "../screens/Home"
-import Logout from "../screens/Logout"
 import Profile from "../screens/Profile"
 import Overview from "../screens/Overview"
 
@@ -13,13 +11,7 @@ const screens = {
     Overview: {
         screen: Overview
     },
-    Home: {
-        screen: Home
-    },
-    Logout: {
-        screen: Logout
-    },
 }
 
 const StackNavigator = createStackNavigator(screens)
-export default createAppContainer(StackNavigator)
+export default StackNavigator

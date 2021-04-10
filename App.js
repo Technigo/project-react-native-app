@@ -1,11 +1,12 @@
 import React from 'react';
 
 
-import StackNavigator from "./routes/StackNavigator"
+import DrawerNavigator from "./routes/DrawerNavigator"
+//import StackNavigator from "./routes/StackNavigator"
 
 const App = () => {
   return (
-    <StackNavigator />
+    <DrawerNavigator />
   );
 };
 
