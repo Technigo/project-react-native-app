@@ -11,7 +11,6 @@ const ProfilePage = () => {
     try {
       const keys = await AsyncStorage.getAllKeys();
       const result = await AsyncStorage.multiGet(keys);
-      //console.log(result)
       setFavouriteRecipes(result)
       return result
 
@@ -22,7 +21,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     importData()
-  }, [data])
+  }, [])
 
   useEffect(() => {
     if (favouriteRecipes) {
@@ -37,6 +36,7 @@ const ProfilePage = () => {
 
   return (
     <Container>
+      <Logo>yummy</Logo>
       <Title>Profile</Title>
       <Title>Favourite Recipes</Title>
       {data.length === 0 ? <Title>You do not have favourite recipes</Title> : <FavouriteRecipe data={data} />}
@@ -46,14 +46,24 @@ const ProfilePage = () => {
 }
 export default ProfilePage
 
-const Title = styled.Text`
+const Title = styled.Text `
   font-size: 24px;
   color: white;
-  margin: 15px;
+  margin: 10px;
   text-align: center;
 `
-const Container = styled.ScrollView`
+const Container = styled.ScrollView `
   background-color: black;
   padding: 1px;
   padding-top: 30;
+`
+
+const Logo = styled.Text`
+  font-size: 26px;
+  color: #c47b34;
+  font-style: italic;
+  font-weight: bold;
+  margin: 10px 10px 20px 10px;
+  text-align: center;
+  font-family: Georgia;
 `

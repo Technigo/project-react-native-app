@@ -22,13 +22,13 @@ const FavouriteRecipe = ({ data }) => {
 }
 export default FavouriteRecipe
 
-const Title = styled.Text`
+const Title = styled.Text `
   font-size: 20px;
   color: white;
   margin: 5px;
   text-align: left;
 `
-const Container = styled.View`
+const Container = styled.View `
   justify-content: flex-start;
   align-items: flex-start;
   margin: 0 0 15px 0;
@@ -36,17 +36,16 @@ const Container = styled.View`
   border-bottom-color: #6e8c6c;
 `
 
-const ButtonText = styled.Text`
+const ButtonText = styled.Text `
   font-size: 16px;
   font-weight: bold;
   color: white;
   margin: 0 5px 0 5px;
 `
 
-const Button = styled.TouchableOpacity`
+const Button = styled.TouchableOpacity `
   width: 130px;  
   height: 40px;
-  font-size: 16px;
   border-radius: 20px;
   flex-direction: row;
   align-items: center;
