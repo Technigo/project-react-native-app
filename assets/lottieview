@@ -1,0 +1,10 @@
+<View>
+        <LottieView 
+          source={require('./assets/animations/53558-mexican-fella.json')}
+          style={{
+            width:150,
+            height:150
+          }}
+          autoPlay
+          />
+          </View>
