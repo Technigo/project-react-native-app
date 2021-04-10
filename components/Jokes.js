@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 
-import { JOKE_API } from './reusable/url'
+import { JOKE_API } from '../reusable/urls'
 
 const Container = styled.View`
 flex: 1;
