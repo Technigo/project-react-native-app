@@ -1,55 +1,53 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 
-const Container = styled.View`
-  flex: 1;
+const Container = styled.ScrollView`
   background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
 `
 
 const Title = styled.Text`
   font-size: 20px;
   color: palevioletred;
+  flex: 1;
 `
 
-const ImageArt = styled.Image`
-  width: 50px;
-  height: 50px;
-`
+const ImageCard = styled.Image`
+  width: 100%;
+  height: 500px;
+  justify-content: center;
+  align-items: center
+  `
 
 const App = () => {
   const ART_URL =
-    "https://www.rijksmuseum.nl/api/en/collection?key=b5cLQ2UN&involvedMaker=Rembrandt+van+Rijn&ps=1";
+    "https://www.rijksmuseum.nl/api/en/collection?key=b5cLQ2UN&involvedMaker=Rembrandt+van+Rijn&ps=5";
   const [artList, setArtList] = useState();
 
   useEffect(() => {
     fetch(ART_URL)
       .then((response) => response.json())
-      .then((json) => setArtList(json.artObjects[0]))
+      .then((json) => setArtList(json.artObjects))
   }, [])
-
-  
 
   return (
     <>
-    {artList ? console.log(artList.webImage.url) : console.log('not ready')}
-    {artList && (
+    {artList ? console.log(artList[0].title) : console.log('not ready')}
+    
+    {artList && ( 
     <Container>
-      <Title>{artList.title}</Title>
+    {artList.map((artItem) =>  (
       <ImageCard
         source={{
-          uri: artList.webImage.url
+          uri: artItem.webImage.url,
         }} />
-    </Container>
+
+     ))}
+     </Container>
     )}
-    </>
+   </>
+   
   );
 };
 
 export default App;
-
-const ImageCard = styled.Image`
-  width: 100%;
-  height: 400px;
-`
