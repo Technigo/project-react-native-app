@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { ImageBackground } from 'react-native'
 import styled from 'styled-components/native'
 
 import { JOKE_API } from '../reusable/urls'
@@ -16,10 +17,12 @@ const Title = styled.Text`
 `
 
 const Main = styled.View`
+
+height: 60%
 background-color: papayawhip;
 justify-content: center;
 align-items: center;
-padding: 30px ; 
+padding: 0 30px ; 
 `
 
 const Button = styled.TouchableOpacity`
@@ -44,9 +47,13 @@ background-color: grey
 justify-content: center;
 align-items: center;
 width: 100%;
-padding: 15px;
-margin-top: 60px;
+padding: 0 15px;
+margin-top: 0;
 `
+const BackgroundImage = styled.ImageBackground`
+
+`
+
 
 const Jokes = () => {
   const [houses, setHouses] = useState([])
@@ -64,6 +71,7 @@ const Jokes = () => {
 
   return (
     <Container>
+
       <Header>
         <Title>Get a new superfunny joke everytime you press the button below!</Title>
       </Header>
@@ -75,6 +83,7 @@ const Jokes = () => {
           <Title>Press me</Title>
         </Button>
       </ButtonContainer>
+
     </Container>
   )
 }
