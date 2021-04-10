@@ -85,7 +85,6 @@ const ButtonCallories = styled(Button)`
   background-color: ${props => (props.calloriesFilter ? "#6e8c6c" : "#ccc")};
 `
 
-
 const Heading = styled.Text`
 font-size: 16px;
 margin: 2px 2px 2px 15px;
