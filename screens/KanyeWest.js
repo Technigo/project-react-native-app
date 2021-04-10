@@ -9,14 +9,26 @@ const NotificationsContainer = styled.View`
   align-items: center;
   height: 100%;
   padding: 40px;
-  //word-wrap:break-word;
+  word-wrap:break-word;
+  background-color:#f5d584;
 `;
 
 const TouchButton = styled(TouchableOpacity)`
-  background-color: red;
+  background-color:#20c5cb;
+  height: 100px;
+  width: 100px;
+  border-radius:100%;
+  justify-content: center;
+  align-items: center;
 `
+
 const ButtonText = styled(Text)`
-  color: blue;
+  color:#f5d584;
+  text-align: center;
+  font-size: 20px;
+`
+const InfoText = styled(Text)`
+  font-size: 20px;
 `
 
 
@@ -40,11 +52,11 @@ export const KanyeWest = ({navigation}) => {
     <NotificationsContainer>
       <View>
       <Image 
-      source={{uri:'https://media.giphy.com/media/H1ki8HAyAhf6kJ6cic/giphy.gif'}}
+      source={{uri:'https://media.giphy.com/media/61VzGiRUQp3pZ8omne/giphy.gif'}}
       style={{width:200, height:200}}
       />
       </View>
-      <Text>{kanyeWest}</Text>
+      <InfoText>{kanyeWest}</InfoText>
       <TouchButton onPress={()=> navigation.navigate('HOME')}>
         <ButtonText>GO HOME</ButtonText>
       </TouchButton>

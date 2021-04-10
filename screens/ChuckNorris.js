@@ -6,23 +6,31 @@ import styled, { ThemeConsumer } from 'styled-components/native';
 // This is the main container for this screen
 const NotificationsContainer = styled.View`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 100%;
   padding:40px;
+  word-wrap:break-word;
+  background-color:#20c5cb;
 `;
 
 const TouchButton = styled(TouchableOpacity)`
-  background-color: red;
+  background-color:#e68577;
+  height: 100px;
+  width: 100px;
+  border-radius:100%;
+  justify-content: center;
+  align-items: center;
 `
+
 const ButtonText = styled(Text)`
-  color: blue;
+  color:#20c5cb;
+  text-align: center;
+  font-size: 20px;
 `
-
-
-// const container = styled.Text`
-//   color: red;
-// `;
+const InfoText = styled(Text)`
+  font-size: 20px;
+`
 
 export const ChuckNorris = ({navigation}) => {
   
@@ -46,12 +54,12 @@ export const ChuckNorris = ({navigation}) => {
       <View>
       <Image 
       source={{uri:'https://media.giphy.com/media/jSSUtHZB08yOJGDAd2/source.gif'}}
-      style={{width:400, height:400}}
+      style={{width:300, height:300}}
       />
       </View>
-      <Text>{chuckNorris.value}</Text>
+      <InfoText>{chuckNorris.value}</InfoText>
       <TouchButton onPress={()=> navigation.navigate('HOME')}>
-        <ButtonText>GO HOME</ButtonText>
+        <ButtonText>BACK</ButtonText>
       </TouchButton>
     </NotificationsContainer>
   );

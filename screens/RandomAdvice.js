@@ -5,12 +5,31 @@ import styled, { ThemeConsumer } from 'styled-components/native';
 // This is the main container for this screen
 const NotificationsContainer = styled.View`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 100%;
   padding: 40px;
+  word-wrap:break-word;
+  background-color:#e68577;
 `;
 
+const TouchButton = styled(TouchableOpacity)`
+  background-color:#7f8b7c;
+  height: 100px;
+  width: 100px;
+  border-radius:100%;
+  justify-content: center;
+  align-items: center;
+`
+
+const ButtonText = styled(Text)`
+  color:#e68577;
+  text-align: center;
+  font-size: 20px;
+`
+const InfoText = styled(Text)`
+  font-size: 20px;
+`
 
 export const RandomAdvice = ({navigation}) => {
   
@@ -37,10 +56,10 @@ export const RandomAdvice = ({navigation}) => {
       style={{width:200, height:200}}
       />
       </View>
-      <Text>{randomAdvice}</Text>
-      <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
-        <Text>GO HOME</Text>
-      </TouchableOpacity>
+      <InfoText>{randomAdvice}</InfoText>
+      <TouchButton onPress={()=> navigation.navigate('HOME')}>
+        <ButtonText>GO HOME</ButtonText>
+      </TouchButton>
     </NotificationsContainer>
   );
 };
