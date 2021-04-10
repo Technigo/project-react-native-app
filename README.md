@@ -6,5 +6,5 @@ I have used a movie API to fetch different information about each movie in a lis
 To be my first project in React Native I think it all went pretty smooth. I had some problem, in the beginning, viewing the app on my phone via Expo go. So I just looked on the browser which didn't look the same as on the phone and had to redo some styling.
 
 ## View it live
-
+https://expo.io/@anla/project-react-native-app
 
