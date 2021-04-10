@@ -29,8 +29,8 @@ const Button = styled.TouchableOpacity`
   margin-top: 90px;
   padding: 5px 2px 8px 2px;
   align-items: center;
-
 `
+
 const ButtonText = styled.Text`
   font-size: 25px;
   color: #c44862;
