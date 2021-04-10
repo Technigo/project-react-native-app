@@ -1,26 +1,28 @@
-import React from 'react';
-import { Text, Button } from 'react-native';
+import React, { useState } from 'react';
+import { Text, Button, TextInput } from 'react-native';
 import styled from 'styled-components/native';
 
-// This is the main container for this screen
-const FeedContainer = styled.View`
+const ProfileContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 `;
 
-// The prop "navigation" is important if you are trying to open/toggle the drawer
-//  directly via Javascript
-const Profile = () => {
-  return (
-    <FeedContainer>
-      <Text>Feed Screen</Text>
-      {/* Here is an example of how to open/toggle the drawer via javascript */}
-      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-    </FeedContainer>
-  );
+const Profile = ({ navigation }) => {
+
+    const [name, setName] = useState ('')
+
+    return (
+        <ProfileContainer>
+            <Text>Profile bla</Text>
+            <TextInput 
+                placeholder="Heinrich"
+                onChangeText={(value) => setName(value)}
+            />
+            <Button title="Your Profile" onPress={() => navigation.navigate("Overview", {name})} />
+        </ProfileContainer>
+    );
 };
 
 export default Profile

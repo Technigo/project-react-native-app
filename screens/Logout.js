@@ -3,7 +3,7 @@ import { Text, Button } from 'react-native';
 import styled from 'styled-components/native';
 
 // This is the main container for this screen
-const FeedContainer = styled.View`
+const LogoutContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,12 +14,12 @@ const FeedContainer = styled.View`
 //  directly via Javascript
 const Logout = () => {
   return (
-    <FeedContainer>
+    <LogoutContainer>
       <Text>Feed Screen</Text>
       {/* Here is an example of how to open/toggle the drawer via javascript */}
       <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
       <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-    </FeedContainer>
+    </LogoutContainer>
   );
 };
 

@@ -1,10 +1,11 @@
 import React from 'react';
 
-import Navigator from "./routes/Navigator"
+
+import StackNavigator from "./routes/StackNavigator"
 
 const App = () => {
   return (
-    <Navigator />
+    <StackNavigator />
   );
 };
 
