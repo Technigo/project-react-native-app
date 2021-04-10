@@ -13,4 +13,5 @@ I experienced some problems with the API for dog facts. From time to time the fe
 
 ## View it live
 
+https://expo.io/@sofarz/projects/project-react-native-app
 
