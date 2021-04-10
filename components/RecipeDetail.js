@@ -5,6 +5,7 @@ import { ActivityIndicator } from 'react-native'
 
 import { SEARCH_RECIPE } from '../reusables/urls'
 import ShareButton from '../components/ShareButton'
+import AddFavouriteButton from '../components/AddFavouriteButton'
 
 const RecipeDetail = () => {
   const route = useRoute()
@@ -31,6 +32,7 @@ const RecipeDetail = () => {
             <ImageContainer>
               <ImageCard source={{ uri: recipeInfo[0].image }} />
               <ShareButton recipe={recipeInfo[0]} />
+              <AddFavouriteButton recipe={recipeInfo[0]}/>
               <TextContainer >
                 <Title>
                   {recipeInfo[0].label}
