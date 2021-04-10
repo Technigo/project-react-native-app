@@ -1,52 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Image, StyleSheet } from 'react-native';
-import styled from 'styled-components/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-// import CARD_API from './reusable/urls';
+import { Home } from './components/Home';
+import { CardDetails } from './components/CardDetails';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
+// const Title = styled.Text`
+//   font-size: 24px;
+//   color: palevioletred;
+// `;
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
+// const ThumbImage = styled.Image`
+//   width: 50;
+//   height: 50;
+// `;
 
-const styles = StyleSheet.create({
-  image: {
-    width: 50,
-    height: 50,
-  },
-});
-
-const CardThumb = (props) => {
-  return (
-    <>
-      <Title>{props.name}</Title>
-      <Image style={styles.image} source={{ uri: props.image }} />
-    </>
-  );
-};
+const Stack = createStackNavigator();
 
 const App = () => {
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    fetch('https://api.magicthegathering.io/v1/cards')
-      .then((res) => res.json())
-      .then((json) => setCards(json.cards));
-  }, []);
-
   return (
-    <Container>
-      {cards.map((card) => (
-        <CardThumb key={card.id} name={card.name} image={card.imageUrl} />
-      ))}
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator name='Home'>
+        <Stack.Screen component={Home} name='Magic' />
+        <Stack.Screen component={CardDetails} name='Card:id' />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
