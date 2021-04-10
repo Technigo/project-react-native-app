@@ -10,4 +10,4 @@ I did get the sensor component to work for making the first API call, but couldn
 
 ## View it live
 
-
+https://expo.io/@katlie/projects/recipe-finder
