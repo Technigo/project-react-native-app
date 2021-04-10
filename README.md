@@ -10,4 +10,5 @@ I had some problems in the beginning getting expo to work, so a lot of time was 
 The layout looks best on an iPhone 6/7/8.
 
 ## View it live
+https://expo.io/@julialeonieros/projects/project-react-native-app
 https://snack.expo.io/@julialeonieros/magic-8-ball
