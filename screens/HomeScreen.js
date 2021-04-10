@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components/native';
-import {Share} from 'react-native'
+import {Share, TouchableOpacity} from 'react-native';
+
 
 
 
@@ -21,14 +22,19 @@ const HomeScreen = () => {
       .catch(err => console.log(err)); 
     }
     
+     
     const shareAdvice = async () => {
-        if (!(await Sharing.isAvailableAsync())) {
-          alert("Sharing not available on your platform")
-          console.log("Sharing not available.")
-          return
-        }
-        await Sharing.shareAsync(sharedAdvice)
-      }         
+      try {
+        await Share.share({
+          message:advice
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  
+ 
+    
   
     return (
       <Container>
@@ -40,12 +46,11 @@ const HomeScreen = () => {
       <Title>💡💡💡</Title>
       </AdviceContainer>
       <BottomContainer>
-       <Button
+       <TouchableOpacity
             onPress={shareAdvice}
-            title="SHARE"
             color="#841584"
-            accessibilityLabel="Try the advice giver"
-          />
+            accessibilityLabel="Try the advice giver"><Text>SHARE</Text>
+       </TouchableOpacity>
       </BottomContainer>  
       </Container>
     )
@@ -93,7 +98,4 @@ const HomeScreen = () => {
     width: 80%;
     padding-bottom: 16px;
   `
-  const Button = styled.Text`
-    font-size: 16px;
-    text-align: center;
-  `;
+  
