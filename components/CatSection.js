@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 
 const ButtonText = styled.Text`
   font-size: 25px;
-  color: #995c1b;
+  color: #c44862;
   ` 
 
 const Container = styled.View`
@@ -22,19 +22,18 @@ const ButtonContainer = styled.View`
   `
 
 const Button = styled.TouchableOpacity`
-  background-color: #1d1812;
+  background-color: #712e35;
   border: 4px solid;
-  border-color: #995c1b;
+  border-color: #c44862;
   width: 200px;
   margin-top: 90px;
-  padding: 5px;
+  padding: 5px 2px 8px 2px;
   align-items: center;
   `
 
 const CatImage = styled.Image`
   width: 260px;
   height: 260px;
-  margin-top: 0px;
   `
 
 export const CatSection = () => {

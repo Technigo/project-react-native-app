@@ -2,7 +2,7 @@ import React  from 'react'
 import styled from 'styled-components/native'
 
 import { CatSection } from './components/CatSection'
-import background from './assets/grassimage.jpg'
+import background from './assets/flowerimage.jpg'
 
 
 const Container = styled.ImageBackground`
@@ -13,18 +13,13 @@ const Container = styled.ImageBackground`
 
 const Title = styled.Text`
   font-size: 35px;
-  margin: 30px;
-  color: green;
+  margin: 10px 25px 40px 25px;
+  color: 
+  #bc5a59;
   font-weight: bold;
   text-align: center;
  `
 
-const CatText = styled.Text`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  margin: 50px;
-  `
 
 const App = () => {
   return (
