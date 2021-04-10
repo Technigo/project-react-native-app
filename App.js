@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Feed } from './screens/Feed';
 import { ChuckNorris } from './screens/ChuckNorris';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { DadJoke } from './screens/DadJoke'
+import { KanyeWest } from './screens/KanyeWest'
 import { RandomAdvice } from './screens/RandomAdvice'
 
 
@@ -15,8 +15,8 @@ const App = () => {
       <Drawer.Navigator>
         <Drawer.Screen name="HOME" component={Feed} />
         <Drawer.Screen name="CHUCK NORRIS" component={ChuckNorris} />
-        <Drawer.Screen name="DAD JOKES" component={DadJoke} />
-        <Drawer.Screen name="RANDOM ADVICES" component={RandomAdvice} />
+        <Drawer.Screen name="KANYE WEST" component={KanyeWest} />
+        <Drawer.Screen name="GUESS WHAT" component={RandomAdvice} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

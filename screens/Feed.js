@@ -18,8 +18,8 @@ export const Feed = ({ navigation }) => {
     <FeedContainer>
       <Text>Hello and welcome!</Text>
       {/* Here is an example of how to open/toggle the drawer via javascript */}
-      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
+      {/* <Button title="Open drawer" onPress={() => navigation.openDrawer()} /> */}
+      <Button title="Check out some fun!" onPress={() => navigation.toggleDrawer()} />
     </FeedContainer>
   );
 };

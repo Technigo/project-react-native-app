@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styled, { ThemeConsumer } from 'styled-components/native';
 
 // This is the main container for this screen
@@ -8,10 +8,11 @@ const NotificationsContainer = styled.View`
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 40px;
 `;
 
 
-export const RandomAdvice = () => {
+export const RandomAdvice = ({navigation}) => {
   
   const [randomAdvice, setRandomAdvice] = useState ([])
 
@@ -32,10 +33,14 @@ export const RandomAdvice = () => {
     <NotificationsContainer>
       <View>
       <Image 
-      source={{uri:'https://media.giphy.com/media/jSSUtHZB08yOJGDAd2/source.gif'}}
+      source={{uri:'https://media.giphy.com/media/4WFFDZOOvt6GOQgvNb/giphy.gif'}}
+      style={{width:200, height:200}}
       />
       </View>
       <Text>{randomAdvice}</Text>
+      <TouchableOpacity onPress={()=> navigation.navigate('HOME')}>
+        <Text>GO HOME</Text>
+      </TouchableOpacity>
     </NotificationsContainer>
   );
 };
