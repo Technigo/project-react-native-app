@@ -1,13 +1,10 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+In this week's project I have build my first mobile application with React Native!
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I have used a movie API to fetch different information about each movie in a list of popular movies. The user can read more information about each movie when pressing. 
+To be my first project in React Native I think it all went pretty smooth. I had some problem, in the beginning, viewing the app on my phone via Expo go. So I just looked on the browser which didn't look the same as on the phone and had to redo some styling.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+

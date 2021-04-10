@@ -7,13 +7,11 @@ import ConvertTime from './ConvertTime'
 
 const MovieDetails = ({ id }) => {
   const [movieDetails, setMovieDetails] = useState()
-  //'https://api.themoviedb.org/3/movie/604822?api_key=e87ff9a70deb7f8f6f897b1efba6340a&language=en-US'
   
   useEffect(() => {
     fetch (`https://api.themoviedb.org/3/movie/${id}?api_key=e87ff9a70deb7f8f6f897b1efba6340a&language=en-US`)
     .then ((res) => res.json())
     .then ((json) => {setMovieDetails(json)}) 
-    .catch(err => console.error(err))
   }, [id])
 
   if(movieDetails === undefined) {
@@ -21,7 +19,6 @@ const MovieDetails = ({ id }) => {
  }
  
  return (
-   <>
   <TextContainer>
     <Timecontainer>
       <ClockImage
@@ -29,12 +26,11 @@ const MovieDetails = ({ id }) => {
       <ConvertTime mins= {movieDetails.runtime}/>
     </Timecontainer>
     <ReleaseContainer>
-    <CalenderImage
-      source={calender} /> 
-    <DateText> {movieDetails.release_date}</DateText>
+      <CalenderImage
+        source={calender} /> 
+      <DateText> {movieDetails.release_date}</DateText>
     </ReleaseContainer>
   </TextContainer>
-  </>
  )
 }
 
@@ -54,10 +50,7 @@ const ClockImage = styled.Image`
 height:20px;
 width:20px;
 `
-const ReleaseContainer = styled.View`
-display: flex
-flex-direction: row;
-align-items: center;
+const ReleaseContainer = styled (Timecontainer)`
 padding-left: 4px;`
 
 const CalenderImage = styled.Image`
