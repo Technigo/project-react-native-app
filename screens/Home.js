@@ -1,8 +1,6 @@
 import React from 'react';
-import { Text, Button } from 'react-native';
 import styled from 'styled-components/native';
 
-// This is the main container for this screen
 const HomeContainer = styled.View`
   display: flex;
   justify-content: center;
@@ -10,15 +8,55 @@ const HomeContainer = styled.View`
   height: 100%;
 `;
 
-// The prop "navigation" is important if you are trying to open/toggle the drawer
-//  directly via Javascript
+const HomeImage = styled.ImageBackground`
+  width: 100%;
+  height: 100%;
+`;
+
+const HomeText = styled.Text`
+  position: absolute;
+  color: yellow;
+  top: 55px;
+  margin: 0 30px 0 40px;
+  font-size: 17px;
+  font-family: Courier;
+  font-weight: bold;
+  line-height: 20px;
+`;
+
+const MenuButton = styled.TouchableOpacity`
+  position: absolute;
+  top: 550px;
+  border: 2px solid white;
+  border-radius: 25px;
+`;
+
+const ButtonText = styled.Text`
+  font-size: 20px;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+`;
+
 export const Home = ({ navigation }) => {
   return (
     <HomeContainer>
-      <Text>Hi there! You look a bit lost! Lookin´ for some advice in life? Or perhaps just want someone else to make that vital desicion for you? Or maybe just for Chuck Norris to cheer you up by simply being...Chuck Norris?</Text>
-      {/* Here is an example of how to open/toggle the drawer via javascript */}
-      <Button title="Open Self Help Menu" onPress={() => navigation.openDrawer()} />
-      {/* <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} /> */}
+       <HomeImage source={require('../assets/lost.jpg')}/>
+       <HomeText>
+          Hi there! {"\n"}
+          ...you look a bit lost! {"\n"}
+          {"\n"}
+          Want some advice in life? {"\n"} 
+          {"\n"} 
+          Or a bit of help with that vital "YES" or "NO" decision? {"\n"}
+          {"\n"}
+          Or perhaps just for Chuck Norris to cheer you up simply by being...Chuck Norris? {"\n"}
+          {"\n"}
+          WE ARE HERE FOR YOU!
+        </HomeText>
+        <MenuButton onPress={() => navigation.openDrawer()}>
+          <ButtonText>SELF HELP MENU</ButtonText>
+        </MenuButton>
     </HomeContainer>
   );
 };

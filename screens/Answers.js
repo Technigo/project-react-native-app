@@ -10,6 +10,34 @@ const NotificationsContainer = styled.View`
   justify-content: center;
   align-items: center;
   height: 100%;
+  background-color: black;
+`;
+
+const ImageGiph = styled.Image`
+  width: 350px;
+  height: 350px;
+`;
+
+const AnswerText = styled.Text`
+  color: yellow;
+  font-family: Courier;
+  font-weight: bold;
+  font-size: 35px;
+  margin: 20px 0 20px 0;
+`;
+
+const BackButton = styled.TouchableOpacity`
+  position: absolute;
+  top: 550px;
+  border: 2px solid white;
+  border-radius: 25px;
+`;
+
+const ButtonText = styled.Text`
+  font-size: 16px;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
 `;
 
 export const Answer = ({ navigation }) => {
@@ -29,15 +57,11 @@ export const Answer = ({ navigation }) => {
 
   return (
     <NotificationsContainer>
-      {/* <View>
-      <Image source={{uri: }}/>
-      </View> */}
-      <Text>{Answer}</Text>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('HOME')}
-      >
-        <Text>BACK TO MENU</Text>
-      </TouchableOpacity>
+      <ImageGiph source={{uri: 'https://media.giphy.com/media/l2JJu8U8SoHhQEnoQ/giphy.gif' }}/>
+      <AnswerText>{Answer.toLocaleUpperCase()}</AnswerText>
+      <BackButton onPress={() => navigation.navigate('HOME')}>
+        <ButtonText>BACK TO MENU</ButtonText>
+      </BackButton>
     </NotificationsContainer>
   );
 };
