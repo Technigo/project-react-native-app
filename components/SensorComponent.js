@@ -7,6 +7,7 @@ import { AppLoading } from 'expo'
 
 
 import answers  from '../data/answers'
+import { MagicBall } from './MagicBall'
 
 
 const isShaking = (data) => {
@@ -36,23 +37,28 @@ const ShakeView = styled.View`
 const ShakeDataView = styled.View`
   display: flex;
   flex-direction: column;
+  align-items: center;
   top: 100px;
 `;
 
 const ShakeQuestion = styled.Text`
+  margin-bottom: 40px;
   text-align: center;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 900;
   color: #FF9C2A;
   font-family: 'Rubik';
   border: 2px solid black;
 `
 const ShakeAnswer = styled.Text`
+  padding: 10px;
   text-align: center;
-  font-size: 26px;
+  font-size: 20px;
+  font-weight: 900;
   color: #FF9C2A;
   font-family: 'BioRhyme';
-  border: 2px solid black;
+  border: 2px solid #FF9C2A;
+  border-radius: 5px;
 `
 
 export const SensorComponent = () => {
@@ -106,11 +112,12 @@ export const SensorComponent = () => {
       {/* if answer it true shake again otherwose ask*/}
       <ShakeDataView>
         <ShakeQuestion>
-          {answer ? 'Ask & Shake Again' : 'Ask, Shake & Get Enlightend'}
+          {answer ? 'Ask & Shake Again' : 'Ask & Shake for Answer'}
         </ShakeQuestion>
         {/* if answer is true show answer state - random array*/}
         {answer && <ShakeAnswer>{answer}</ShakeAnswer>}
         {/* {answer ? <ShakeTitle>{answer}</ShakeTitle> : null} */}
+        <MagicBall />
       </ShakeDataView>
     </ShakeView>
   );
@@ -131,6 +138,7 @@ export const SensorComponent = () => {
         </ShakeQuestion>
         {answer && <ShakeTitle>{answer}</ShakeTitle>}
       </ShakeDataView>
+      <MagicBall />
     </ShakeView>
   );
 }; */

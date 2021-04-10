@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 
 import { Header } from './components/Header'
 import { SensorComponent } from './components/SensorComponent';
+import { Footer } from './components/Footer'
 
 const Container = styled.View`
   flex: 1;
@@ -11,21 +12,12 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const MagicBallIcon = styled.Image`
-  margin: 50px 0;
-  top: 60px;
-  width: 200px;
-  height: 200px;
-  justify-content: center;
-  align-items: center;
-`
-
 const App = () => {
   return (
     <Container>
       <Header />
-      <MagicBallIcon source={require('./assets/magic-eight-ball.png')}/>
       <SensorComponent></SensorComponent>
+      <Footer />
     </Container>
   );
 };
