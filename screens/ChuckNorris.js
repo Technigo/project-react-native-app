@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Button } from 'react-native';
 import styled from 'styled-components/native';
+
+import { CHUCK_API } from '../reuseables/urls'
 
 // This is the main container for this screen
 const NotificationsContainer = styled.View`
@@ -10,7 +12,7 @@ const NotificationsContainer = styled.View`
   height: 100%;
 `;
 
-export const ChuckNorris = () => {
+export const ChuckNorris = ({ navigation }) => {
 
   const [chuckNorris, setChuckNorris] = useState('')
 
@@ -19,7 +21,7 @@ export const ChuckNorris = () => {
   }, [])
 
   const fetchChuckNorrisJoke = () => {
-    fetch('https://api.chucknorris.io/jokes/random')
+    fetch(CHUCK_API)
       .then(res => res.json())
       .then(value => setChuckNorris(value))
       .catch(err => console.error(err))
@@ -27,10 +29,13 @@ export const ChuckNorris = () => {
 
   return (
     <NotificationsContainer>
-      {/* <View>
-      <Image source={{uri: }}/>
-      </View> */}
+      <Image 
+        source={{uri: 'https://media.giphy.com/media/jSSUtHZB08yOJGDAd2/giphy.gif' }} 
+        style={{width: 400, height: 400}}  
+      />
       <Text>{chuckNorris.value}</Text>
+      <Button title="BACK TO MENU" onPress={() => navigation.navigate('HOME')} />
     </NotificationsContainer>
   );
 };
+

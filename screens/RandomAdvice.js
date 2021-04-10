@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import styled from 'styled-components/native';
 
+import { ADVICE_API } from '../reuseables/urls'
+
 // This is the main container for this screen
 const NotificationsContainer = styled.View`
   display: flex;
@@ -12,16 +14,16 @@ const NotificationsContainer = styled.View`
 
 export const RandomAdvice = () => {
 
-  const [randomAdvice, setRandomAdvice] = useState('')
+  const [randomAdvice, setRandomAdvice] = useState([])
 
   useEffect(() => {
     fetchRandomAdvices()
   }, [])
 
   const fetchRandomAdvices = () => {
-    fetch('https://api.adviceslip.com/advice')
+    fetch(ADVICE_API)
       .then(res => res.json())
-      .then(advice => setRandomAdvice(advice))
+      .then(data => setRandomAdvice(data.slip.advice))
       .catch(err => console.error(err))
   }
 
@@ -30,7 +32,7 @@ export const RandomAdvice = () => {
       {/* <View>
       <Image source={{uri: }}/>
       </View> */}
-      <Text>{randomAdvice.advice}</Text>
+      <Text>{randomAdvice}</Text>
     </NotificationsContainer>
   );
 };

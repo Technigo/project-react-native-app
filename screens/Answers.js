@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import styled from 'styled-components/native';
 
+import { YES_NO_API } from '../reuseables/urls'
+
 // This is the main container for this screen
 const NotificationsContainer = styled.View`
   display: flex;
@@ -10,18 +12,18 @@ const NotificationsContainer = styled.View`
   height: 100%;
 `;
 
-export const DadJoke = () => {
+export const Answer = () => {
 
-  const [dadJoke, setDadJoke] = useState('')
+  const [Answer, setAnswer] = useState('')
 
   useEffect(() => {
-    fetchDadJokes()
+    fetchAnswers()
   }, [])
 
-  const fetchDadJokes = () => {
-    fetch('https://icanhazdadjoke.com/')
+  const fetchAnswers = () => {
+    fetch(YES_NO_API)
       .then(res => res.json())
-      .then(joke => setDadJoke(joke))
+      .then(data => setAnswer(data.answer))
       .catch(err => console.error(err))
   }
 
@@ -30,7 +32,7 @@ export const DadJoke = () => {
       {/* <View>
       <Image source={{uri: }}/>
       </View> */}
-      <Text>{dadJoke.joke}</Text>
+      <Text>{Answer}</Text>
     </NotificationsContainer>
   );
 };
