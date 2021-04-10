@@ -39,18 +39,22 @@ const HomeScreen = () => {
     return (
       <Container>
         <TopContainer>
-          <Title>Random Advice Giver</Title>
+          <Title>RANDOM ADVICE GIVER</Title>
+          <Title>Your free daily dose of wisdom</Title>
         </TopContainer>
       <AdviceContainer>
-      <Text>{advice}</Text>
+      <Title>💡💡💡</Title>
+      <Text>"{advice}"</Text>
       <Title>💡💡💡</Title>
       </AdviceContainer>
       <BottomContainer>
+      <ButtonContainer>
        <TouchableOpacity
             onPress={shareAdvice}
             color="#841584"
-            accessibilityLabel="Try the advice giver"><Text>SHARE</Text>
+            accessibilityLabel="Try the advice giver"><ButtonText>SHARE</ButtonText>
        </TouchableOpacity>
+       </ButtonContainer>
       </BottomContainer>  
       </Container>
     )
@@ -88,14 +92,40 @@ const HomeScreen = () => {
     color: palevioletred;
     justify-content: center;
     align-items: center;
+    padding-bottom: 16px;
   `
   
   const Text = styled.Text`
     font-size: 24px;
-    color: palevioletred;
+    color: black;
     justify-content: center;
     align-items: center;
     width: 80%;
     padding-bottom: 16px;
   `
   
+  const ButtonText = styled.Text`
+    font-size: 24px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 16px;
+  `
+ 
+  const ButtonContainer = styled.View`
+    background-color: #F40371
+    border: none;
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    & :hover {
+      background-color:#4CAF50;
+      color:white;
+    }
+ `
