@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components/native";
 import { Ionicons } from "@expo/vector-icons";
 import { useGetMediaDetail, useGetMediaVideos } from "../hooks/FetchData";
-import { Dimensions } from "react-native";
+import { Dimensions, Share } from "react-native";
 import { WebView } from "react-native-webview";
+import { useSaveFavoriteMedia, useGetMediaId } from "../hooks/asyncStorage";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -72,9 +73,24 @@ const ActionButtonTitle = styled.Text`
 export const MediaDetail = (props) => {
   const { detail } = useGetMediaDetail(props.route.params.media_id);
   const { videoKey } = useGetMediaVideos(props.route.params.media_id);
+  const { storeData } = useSaveFavoriteMedia();
+  const { idFound, getId } = useGetMediaId(props.route.params.media_id);
 
-  console.log(detail);
-  console.log(`https://www.youtube.com/embed/${videoKey}`);
+  const onShare = async () => {
+    try {
+      await Share.share({
+        message: `https://www.youtube.com/watch?v=${videoKey}`,
+      });
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const onSaveMedia = async () => {
+    await storeData(props.route.params.media_id);
+    await getId();
+  };
+
   return (
     <MediaDetailContainer>
       <MediaDetailHeader onPress={() => props.navigation.goBack()}>
@@ -91,16 +107,23 @@ export const MediaDetail = (props) => {
           />
         )}
       </VideoContainer>
+
       <ContentWrapper>
         <MediaTitle>{detail && detail.title}</MediaTitle>
         <MediaRating>⭐ {detail && detail.vote_average} / 10</MediaRating>
         <MediaOverview>{detail && detail.overview}</MediaOverview>
+
         <ButtonsContainer>
-          <ActionButton>
-            <Ionicons name="add" color="#fff" size={30} />
+          <ActionButton onPress={onSaveMedia}>
+            <Ionicons
+              name={idFound ? "heart-outline" : "add"}
+              color="#fff"
+              size={30}
+            />
             <ActionButtonTitle>My Favorites</ActionButtonTitle>
           </ActionButton>
-          <ActionButton>
+
+          <ActionButton onPress={onShare}>
             <Ionicons name="share-outline" color="#fff" size={30} />
             <ActionButtonTitle>Share</ActionButtonTitle>
           </ActionButton>

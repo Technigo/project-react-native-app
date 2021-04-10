@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { Home } from "./screens/Home";
 import { Upcoming } from "./screens/Upcoming";
@@ -10,6 +10,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Octicons, Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useGetUser } from "./hooks/asyncStorage";
 import { MediaDetail } from "./screens/MediaDetail";
+import LottieView from "lottie-react-native";
+import { View } from "react-native";
 
 // Const to set style options.
 const tabBarStyle = {
@@ -95,11 +97,42 @@ const NavigationTab = (props) => {
 };
 
 const App = () => {
+  const [isReady, setIsReady] = useState(false);
   const { user, getUser } = useGetUser();
+
+  const animation = useRef(null);
 
   const recall = () => {
     getUser();
   };
+
+  useEffect(() => {
+    if (animation) {
+      animation.current.play();
+    }
+    setTimeout(() => {
+      setIsReady(true);
+    }, 3000);
+  }, [animation]);
+
+  if (!isReady) {
+    return (
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          flex: 1,
+          backgroundColor: "#000",
+        }}
+      >
+        <LottieView
+          ref={animation}
+          source={require("./assets/lotties/splash.json")}
+          loop={false}
+        />
+      </View>
+    );
+  }
 
   return (
     <NavigationContainer>

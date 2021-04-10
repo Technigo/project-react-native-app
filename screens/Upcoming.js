@@ -18,6 +18,7 @@ const MediaList = styled.ScrollView`
 `;
 
 export const Upcoming = ({ navigation }) => {
+  console.log("navigation", navigation);
   const { upcomingList, error } = useGetUpcoming();
 
   return (
