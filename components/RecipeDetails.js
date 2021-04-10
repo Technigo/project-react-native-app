@@ -52,30 +52,42 @@ const RecipeDetails = ({ recipeDetails, sharedRecipe }) => {
       await Share.share({
         url: sharedRecipe
       })
-    } catch (error) {
-      console.log(error)
+    } catch {
+      alert("Sorry, sharing is not available on your platform.")
     }
   }
 
   return (
     <RecipeContainer>
+
       <RecipeText>{recipeDetails.title}</RecipeText>
+
       <TouchableOpacity onPress={shareRecipe}>
         <RecipeImage source={{ uri: recipeDetails.image }} />
       </TouchableOpacity>
+
       <Subcontainer>
+
         <HeadingText>Ingredients</HeadingText>
+
         {recipeDetails.extendedIngredients.map(ingredient => (
           <Paragraph key={ingredient.id} >🍴 {ingredient.name}</Paragraph>
         ))}
+
       </Subcontainer>
+
       <Subcontainer>
+
         <HeadingText>Instructions</HeadingText>
-        <Paragraph>{recipeDetails.instructions.replace(/<\/?[^>]+>/gi, '')}</Paragraph>
+
+        <Paragraph>{recipeDetails.instructions !== null && recipeDetails.instructions.replace(/<\/?[^>]+>/gi, '')}</Paragraph>
+
       </Subcontainer>
+
       <InstructionsText>
         Sounds good? Tap the image to share the recipe with your friends!
       </InstructionsText>
+
     </RecipeContainer>
   )
 }

@@ -60,7 +60,7 @@ const App = () => {
             }
           </Stack.Screen>
 
-          <Stack.Screen name="Random Recipe">
+          <Stack.Screen name="Recipe Suggestions">
             {props => <RecipeScreen {...props}
               dishQuery={dishQuery}
               cuisineQuery={cuisineQuery}
