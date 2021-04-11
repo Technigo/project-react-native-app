@@ -18,6 +18,11 @@ const Header = styled.View`
   flex: 1;
   `
 
+  const Title = styled.Text`
+  font-size: 36px;
+  color: white;
+  margin: 20px;
+  `
   const RandomRecipeBtn = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
@@ -28,12 +33,6 @@ const Header = styled.View`
   border: 2px solid black;
   `
 
-  const Title = styled.Text`
-  font-size: 36px;
-  color: white;
-  margin: 20px;
-  `
-  
   const RecipeName = styled.Text`
   font-size: 24px;
   color: palevioletred;
@@ -86,12 +85,12 @@ const Header = styled.View`
   
   const App = () => {
 
+    const [gts, setGts] = useState ()
+    const [data, setData] = useState([])
+
     const getRandomRecipe = () => {
       return setGts(Math.floor(Math.random() * 31))           
-    } 
-    
-  const [gts, setGts] = useState ()
-  const [data, setData] = useState([])
+    }     
 
   useEffect(() => { 
     fetch('https://api.edamam.com/search?q=gin&app_id=2e3ab8b1&app_key=616f91fa37bcccc85e74d8e8fa4a5078&from=0&to=30') 
@@ -101,7 +100,7 @@ const Header = styled.View`
   
   if(gts === undefined){
   return(
-    <Container>
+    <Container>      
       <Header>
         <Title>GT-randomizer!</Title>        
       </Header>            
@@ -117,15 +116,15 @@ const Header = styled.View`
       </Footer>  
     </Container>
   )
-  }
+}
   return (
-    <Container>
+    <Container>      
       <Header>
         <Title>GT-randomizer!</Title>        
       </Header>            
       <RecipeContainer >
           <Container>
-          <RecipeName >{data.hits[gts].recipe.label}</RecipeName>
+          <RecipeName>{data.hits[gts].recipe.label}</RecipeName>
             <GtImg source={{ uri: data.hits[gts].recipe.image}}/>
             {data.hits[gts].recipe.ingredientLines.map((ing) => (
             <RecipeText key={ing} >{ing}</RecipeText>
@@ -138,8 +137,7 @@ const Header = styled.View`
       </RandomRecipeBtn> 
       <CreditText></CreditText>
       </Footer>  
-    </Container>
-      
+    </Container>      
   )
 }
 

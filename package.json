@@ -10,14 +10,15 @@
   "dependencies": {
     "braces": "^3.0.2",
     "expo": "^40.0.0",
+    "expo-sensors": "^10.0.0",
+    "lottie-react-native": "~2.6.1",
     "mem": "^6.1.1",
     "minimist": "^1.2.5",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "^0.63.2",
     "react-native-web": "^0.15.0",
-    "styled-components": "^4.4.1",
-    "lottie-react-native": "~2.6.1"
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "babel-preset-expo": "^7.1.0"
