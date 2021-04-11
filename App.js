@@ -1,60 +1,100 @@
-
-import React, { useEffect, useState } from 'react';
-import { Button, Text, View, Image} from 'react-native';
+import React, { useEffect, useState }  from 'react';
+import { RefreshControl, SafeAreaView, ScrollView, StyleSheet, Text, Image, View } from 'react-native';
 import styled from 'styled-components/native'
 
-import HeaderFixed from './components/Header'
+
+const wait = (timeout) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+}
 
 const App = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+    const [refreshing, setRefreshing] = React.useState(false);
+    const [data, setData] = useState([false]);
 
-  const onNewDogImage = () => {
-    window.location.reload(false);
-  }
+ 
+const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  wait(2000).then(() => {
+    setRefreshing(false);
+    setData(!data); //Toggles the state between true/false
+  });
+});
 
-  useEffect(() => {
-    fetch('https://dog.ceo/api/breeds/image/random')
-        .then(res => res.json())
-        .then(json => setData(json))
-        .catch((error) => console.error(error))
-        .finally(() => setLoading(false));
-}, [])
+useEffect(() => {
+  fetch("https://dog.ceo/api/breeds/image/random")
+    .then((res) => res.json())
+    .then((json) => {
+      setData(json);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}, [refreshing]);
 
   return (
-    <View >
-      <HeaderFixed />
-      <View >
-        {isLoading ? <Text>Loading...</Text> : 
-        ( 
-          <Container>
-            <Image 
+    <SafeAreaView style={styles.container}>
+      <Header>
+        <Title>🐶 Random Dogs 🐕 </Title>
+      </Header>
+      <ScrollView
+        contentContainerStyle={styles.scrollView}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
+      >
+       <Image 
               source={{ uri: `${data.message}` }} 
               style={{ width: 300, height: 300 }} 
+              // style={styles.image}
             />
-            <Button
-              title="Press for More"
-              onPress={onNewDogImage}
-            />
-          </Container>
-        )}
-      </View>
-    </View>
-    
+        <Cta>Swipe Down ⬇️ </Cta>
+        <Cta>Get a new dog!🐶</Cta>
+
+      </ScrollView>
+    </SafeAreaView>
   );
-};
+}
 
-export default App
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+    backgroundColor: 'pink',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  // image: {
+  //   width:100,
+  //   height: 100,
+  // }
+});
 
 
-const Container = styled.View`
-  flex: 1;
-  margin-top: 200px;
-  justify-content: center;
-  align-items: center;
+const Header = styled.View`
+background-color: black;  
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 400px;
+margin-top: 40px;
+padding: 5px; 
+flex: 1;
+`
+const Title = styled.Text`
+font-size: 30px;
+color: white;
+margin: 20px;
 `
 
+const Cta = styled.Text`
+font-size: 25px;
+color: white;
+margin: 20px;
+`
 
-
-
-
+export default App;
