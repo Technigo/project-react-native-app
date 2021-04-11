@@ -1,28 +1,28 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components/native";
-import { Dimensions} from 'react-native'
+import { Dimensions } from "react-native";
 
 const ArtImage = styled.Image`
   width: 100%;
-  height: ${props => props.height / props.width * props.windowWidth}
+  height: ${(props) => (props.height / props.width) * props.windowWidth}
   justify-content: center;
   align-items: center;
-  `
+  `;
 
-const windowWidth = Dimensions.get('window').width
+const windowWidth = Dimensions.get("window").width;
 
-const ImageCard = ({webImage}) => {
+const ImageCard = ({ webImage }) => {
   return (
-      <ArtImage
-        width={webImage.width} 
-        height={webImage.height}
-        windowWidth={windowWidth}
-        resizeMode="contain"
-        source={{
-          uri: webImage.url,
-        }} 
-      />
-  )
-}
+    <ArtImage
+      width={webImage.width}
+      height={webImage.height}
+      windowWidth={windowWidth}
+      resizeMode="contain"
+      source={{
+        uri: webImage.url,
+      }}
+    />
+  );
+};
 
-export default ImageCard
+export default ImageCard;

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
@@ -10,10 +9,10 @@ const Container = styled.ScrollView`
   flex: 1;
 `;
 
-const HomeScreen = ( { navigation: { navigate } } ) => {
-
+const HomeScreen = ({ navigation: { navigate } }) => {
   const ART_URL =
-    "https://www.rijksmuseum.nl/api/en/collection?key=b5cLQ2UN&involvedMaker=Rembrandt+van+Rijn&ps=5";
+    "https://www.rijksmuseum.nl/api/en/collection?key=b5cLQ2UN&type=painting&imgonly=True&p=1&ps=40&s=relevance&ondisplay=True&toppieces=True";
+
   const [artList, setArtList] = useState();
 
   useEffect(() => {
@@ -22,24 +21,26 @@ const HomeScreen = ( { navigation: { navigate } } ) => {
       .then((json) => setArtList(json.artObjects));
   }, []);
 
-
   return (
     <>
-    {artList && (
-      <Container>
-        {artList.map((artItem) => (
-          <TouchableOpacity onPress={() => navigate('Details', {
-            objectNumber: artItem.objectNumber
-            }
-          )} key={artItem.id} >
-          <ImageCard {...artItem} />
-          </TouchableOpacity>
-        ))}
-      </Container>
-    )}
+      {artList && (
+        <Container>
+          {artList.map((artItem) => (
+            <TouchableOpacity
+              onPress={() =>
+                navigate("Details", {
+                  objectNumber: artItem.objectNumber,
+                })
+              }
+              key={artItem.id}
+            >
+              <ImageCard {...artItem} />
+            </TouchableOpacity>
+          ))}
+        </Container>
+      )}
     </>
-  )
-
-}
+  );
+};
 
 export default HomeScreen;

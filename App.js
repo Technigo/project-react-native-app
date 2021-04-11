@@ -8,12 +8,19 @@ import ArtDetails from "./components/ArtDetails";
 const Stack = createStackNavigator();
 
 const App = () => {
-
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Select a painting' }} />
-        <Stack.Screen name="Details" component={ArtDetails} options={{ title: 'Details' }}/>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: "Select a painting" }}
+        />
+        <Stack.Screen
+          name="Details"
+          component={ArtDetails}
+          options={{ title: "Details" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
