@@ -1,6 +1,8 @@
-import React from 'react'
-import NewsList from './components/NewsList'
+import React, {useState} from 'react'
 import styled from 'styled-components/native'
+
+import NewsList from './components/NewsList'
+import TopHeader from './components/TopHeader'
 
 const Container = styled.View`
   flex: 1;
@@ -9,17 +11,18 @@ const Container = styled.View`
   align-items: center;
 `
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
 const App = () => {
+  const[API, setAPI] = useState("https://newsapi.org/v2/top-headlines?country=se&apiKey=100a784cf0fb4828995b59dbf5a3276c")
+  
+  const handleCategoryChange = (category) => {
+    setAPI("https://newsapi.org/v2/top-headlines?country=se&category=" + category + "&apiKey=100a784cf0fb4828995b59dbf5a3276c")
+  }
+  
+  
   return (
     <Container>
-      <NewsList />
-      <Title>This is your very cool app!</Title>
-      <Title>Go to App.js and start coding!</Title>
-      <Title>💅💅💅</Title>
+      <TopHeader onCategoryChange = {handleCategoryChange}/>
+      <NewsList API_KEY={API}/>
     </Container>
   )
 }
