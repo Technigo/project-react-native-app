@@ -1,41 +1,38 @@
 import React from "react";
 import styled from "styled-components/native";
+
 import { SensorComponent } from "./components/SensorComponent";
+import { Icon } from "./components/Icon";
+
 
 const Container = styled.View`
   flex: 1;
-  background-color: white;
+  background-color: #B7E3FF;
   margin: 0;
 `;
 
 const HeadingContainer = styled.View`
-  flex: 1;
+  flex: 2;
   justify-content: center;
   align-items: center;
-  background-color: lightgray;
+
 `;
 
 const Title = styled.Text`
+  margin-top: 75px;
   font-size: 36px;
   font-weight: bold;
-  color: black;
-`;
-
-const SensorContainer = styled.View`
-  flex: 2;
-  background-color: gray;
+  color: #1B3359;
 `;
 
 const App = () => {
   return (
     <Container>
       <HeadingContainer>
-        <Title>Magic 8 ball</Title>
+        <Title>MAGIC EIGHT</Title>
+        <Icon />
       </HeadingContainer>
-      {/* add image here? */}
-      <SensorContainer>
-        <SensorComponent />
-      </SensorContainer>
+      <SensorComponent />
     </Container>
   );
 };
