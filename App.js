@@ -75,7 +75,7 @@ const App = () => {
     try {
       const result = await Share.share({
         message: 'Find cool dog facts here:',
-        url: ''
+        url: 'https://expo.io/@/projects/project-react-native-app'
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -97,8 +97,8 @@ const App = () => {
       <Title>🐶 20 fun dog facts 🐶</Title>
       
       <List
-      key = {dog}
       data = {dog}
+      keyExtractor={(item) => item.fact}
       renderItem = {({item}) => 
       <View>
         <InfoBox key= {item.fact}> 🐶 {item.fact} </InfoBox>
