@@ -29,5 +29,10 @@
   "devDependencies": {
     "babel-preset-expo": "^7.1.0"
   },
+  "rnpm": {
+    "assets": [
+	"./assets/fonts/"
+    ]
+  },
   "private": true
 }

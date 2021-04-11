@@ -1,33 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import styled from 'styled-components/native'
+import React from 'react'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
-import { Forecast } from './screens/Forecast'
-import { Homescreen } from './screens/homescreen'
-
-const MainView = styled.View`
-  flex: 1;
-  background-color: #DAFFEF;
-  justify-content: center;
-  align-items: center;
-`
-
+import { Popular } from './screens/Popular'
+import { Homescreen } from './screens/Homescreen'
+import { TopRated } from './screens/TopRated'
+import { Upcoming } from './screens/Upcoming'
+import { Detail } from './screens/Detail'
 
 const App = () => {
-
-  const [forecast, setForecast] = useState([])
-
-  // const [currentWeather, setCurrentWeather] = useState([])
-
-  // useEffect(() => {
-  //   fetch(dummydata)
-  //     .then(res => res.json())
-  //     .then(data => setCurrentWeather(data.main))
-  //     .catch(err => console.err(err))
-  // },[])
 
   const Stack = createStackNavigator();
 
@@ -35,8 +17,47 @@ const App = () => {
     <>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Homescreen} />
-        <Stack.Screen name="Forecast" component={Forecast} />
+        <Stack.Screen name="Home" component={Homescreen} 
+        options={{
+          headerStyle: {
+            backgroundColor: 'black',
+          },
+          headerTintColor: '#fff',
+        }}
+        />
+        <Stack.Screen name="Popular" component={Popular}
+        options={{
+          headerStyle: {
+            backgroundColor: 'black',
+          },
+          headerTintColor: '#fff',
+        }}
+        />
+        <Stack.Screen name="TopRated" component={TopRated} 
+        options={{
+          headerStyle: {
+            backgroundColor: 'black',
+          },
+          headerTintColor: '#fff',
+        }}
+        />
+        <Stack.Screen name="Upcoming" component={Upcoming} 
+        options={{
+          headerStyle: {
+            backgroundColor: 'black',
+          },
+          headerTintColor: '#fff',
+        }}
+        />
+        <Stack.Screen name="Detail" component={Detail}
+        getId={({ params }) => params.movieId}
+        options={{
+          headerStyle: {
+            backgroundColor: 'black',
+          },
+          headerTintColor: '#fff',
+        }}
+        />
       </Stack.Navigator>
       </NavigationContainer>
     </>

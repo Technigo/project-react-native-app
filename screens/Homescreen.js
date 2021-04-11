@@ -1,52 +1,58 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
 
-
-import dummydata from '../dummydata.json'
-
-const CurrentWeatherContainer = styled.View`
+const HomeContainer = styled.View`
   flex: 1;
   padding: 15px;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #DAFFEF;
+  background-color: black;
 `
 
-const TempHeading = styled.Text`
+const MainHeading = styled.Text`
   font-size: 37px;
-  color: #79676D;
+  color: white;
   margin-bottom: 20px;
+  font-weigth: 800;
+  text-align: center;
 `
 
 const SubHeading = styled.Text`
   font-sixe: 34px;
-  color: #79676D;
+  color: white;
+  margin-bottom: 30px;
 `
 
 const MyButton = styled.TouchableOpacity`
-  width: 100px;
+  width: 150px;
   padding: 10px;
-  margin: 20px;
-  border: 1px solid #79676D;
+  margin: 10px;
+  border: 1px solid white;
 `
 
 const ButtonText = styled.Text`
   text-align: center;
   font-weight: bold;
-  color: #79676D;
+  color: white;
 `
 
 
 export const Homescreen = ({ navigation }) => {
-
   return (
-    <CurrentWeatherContainer>
-      <TempHeading>The weather in Stockholm today is {dummydata.main.temp.toFixed()}°C with {dummydata.weather.map((value) => value.description)}. But it actually feels like {dummydata.main.feels_like.toFixed()}°C.</TempHeading>
-        <MyButton onPress={() => navigation.navigate('Forecast')}>
-         <ButtonText>Forecast</ButtonText>
-        </MyButton>
-    </CurrentWeatherContainer>
+  <HomeContainer>
+    <MainHeading>You want to watch a movie?</MainHeading>
+    <SubHeading>Here are some lists to browse!</SubHeading>
+      <MyButton onPress={() => navigation.navigate('Popular')}>
+       <ButtonText>Popular Movies</ButtonText>
+      </MyButton>
+      <MyButton onPress={() => navigation.navigate('TopRated')}>
+       <ButtonText>Top Rated Movies</ButtonText>
+      </MyButton>
+      <MyButton onPress={() => navigation.navigate('Upcoming')}>
+       <ButtonText>Upcoming Movies</ButtonText>
+      </MyButton>
+  </HomeContainer>
   )
 }
 
