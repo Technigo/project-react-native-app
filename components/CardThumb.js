@@ -1,16 +1,23 @@
+/*Outer dependencies*/
 import React from 'react';
-import { Text, Image, StyleSheet, Pressable } from 'react-native';
+import { Text, Pressable, Container } from 'react-native';
+import styled from 'styled-components/native';
 
-const styles = StyleSheet.create({
-  image: {
-    width: 50,
-    height: 50,
-  },
-});
+/*Styled components*/
+const ThumbImage = styled.Image`
+  width: 50px;
+  height: 50;
+`;
+
+const ThumbContainer = styled.View`
+flex 1;
+`;
 
 export const CardThumb = (props) => {
+  /*Deconstructing props*/
   const { card, navigation } = props;
 
+  /*Function to create route for CardDetails when clicking the entire CardThumb*/
   const onPressCardButton = () => {
     navigation.navigate('CardDetails', { card: card });
   };
@@ -18,13 +25,14 @@ export const CardThumb = (props) => {
   return (
     <>
       <Pressable onPressOut={onPressCardButton}>
-        <Text>{card.name}</Text>
-        <Image
-          style={styles.image}
-          source={{
-            uri: card.imageUrl,
-          }}
-        />
+        <ThumbContainer>
+          <Text>{card.name}</Text>
+          <ThumbImage
+            source={{
+              uri: card.imageUrl,
+            }}
+          />
+        </ThumbContainer>
       </Pressable>
     </>
   );

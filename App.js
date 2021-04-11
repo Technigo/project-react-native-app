@@ -1,20 +1,13 @@
+/*Outer dependencides*/
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Home } from './components/Home';
-import { CardDetails } from './components/CardDetails';
+/*Inner dependencies*/
+import { Home } from './pages/Home';
+import { CardDetails } from './pages/CardDetails';
 
-// const Title = styled.Text`
-//   font-size: 24px;
-//   color: palevioletred;
-// `;
-
-// const ThumbImage = styled.Image`
-//   width: 50;
-//   height: 50;
-// `;
-
+/*Using Stack as my type of Navigator*/
 const Stack = createStackNavigator();
 
 const App = () => {
