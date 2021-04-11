@@ -16,4 +16,4 @@ If I had more time I would've added a fade in animation for the welcome message 
 
 ## View it live
 
-Here's a link to my deployed site: 
+I ran into some problem when trying to deploy it via Expo. I instead created a snack on Expo of this project which you can view here: https://snack.expo.io/@isabellam5/eb6d7f. 
