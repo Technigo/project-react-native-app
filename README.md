@@ -1,13 +1,15 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A mobile app created with React native. 
+The app gives you random gin&tonic recipe from Edamam API. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had some issues wiht the expo go developer app in shake sensor branch. So I had to redo my project in the end of the week and just go with API calls. 
+I managed to merge the shake sensor with my api call last day, but got some issues that crashed the app after a few seconds. So I took one step back and just went with a button instead of 
+shake. 
+I also planed to add Lottie animation but Lottie wouldent work with our version of dependencis (we think..).
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@johlofg/project-react-native-app
