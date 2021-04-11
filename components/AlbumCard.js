@@ -14,8 +14,8 @@ const AlbumCard = (props) => {
 
   const onPressImage = () => {
     Alert.alert(
-      `${props.albumName}`,
-      `Released: ${props.releaseYear}`,
+      `${props.albumName}, Released: ${props.releaseYear}`,
+      `${props.moreInfo}`,
       [
         { text: 'Go back to albums'}
       ]

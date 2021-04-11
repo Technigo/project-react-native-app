@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
-import {  ActivityIndicator, TouchableOpacity, Text, Alert, View } from "react-native";
+import {  ActivityIndicator, View } from "react-native";
 
 import AlbumCard from './AlbumCard'
 
@@ -51,7 +51,7 @@ useEffect(() => {
                       image={item.strAlbumThumb}
                       albumName={item.strAlbum}
                       releaseYear={item.intYearReleased}
-                      
+                      moreInfo={item.strDescriptionEN}
                     />                  
                   </View> 
               )}

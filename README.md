@@ -1,13 +1,13 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is a project to build a mobile app with React Native. The app is fetching information from a music API and renders album images.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+After installing the dependencies needed, I created the App.js which renders the AlbumList component. The AlbumList fetches from the API and renders images in a flatlist. Each Album image is its own component AlbumCard, which is pressable. When pressing, an alert pops up showing extra information about each album. 
+
+In the API I chose, two album objects are lacking images which leads to only black background color showing there. If I would have more time, I would have found a way to display some placeholder info, e.g. an Activityindicator. I inserted a PlaceholderContent but it doesn´t recognize that the fetched url is an empty string for these two objects. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+E
