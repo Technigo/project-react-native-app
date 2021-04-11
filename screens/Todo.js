@@ -59,7 +59,7 @@ const AddSign = styled.Text`
 
 `;
 
-export const Travel = () => {
+export const Todo = () => {
   const [item, setItem] = useState("");
   const [itemsList, setItemsList] = useState([]);
   //The array of items
