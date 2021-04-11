@@ -18,15 +18,21 @@ const HeaderTitle = styled.Text`
   font-size: 24px;
   color: white;
   `
-const Title = styled.Text`
+const Main = styled.ScrollView`
+  padding: 0 30px ; 
+  margin: 48px 20px;
+  `
+const MainTitle = styled.Text`
   font-size: 32px;
   font-weight: bold;
   color:  rgb(54, 69, 79);;
   text-shadow: 1px 1px rgb(255, 166, 201);
-`
-const Main = styled.ScrollView`
-  padding: 0 30px ; 
-  margin: 48px 20px;
+  `
+const ButtonContainer = styled.View`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
   `
 const Button = styled.TouchableOpacity`
   width: 50%;
@@ -37,12 +43,6 @@ const Button = styled.TouchableOpacity`
   background-color: rgba(46, 32, 28, 0.7);
   justify-content: center;
   align-items: center;
-  `
-const ButtonContainer = styled.View`
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
   `
 const ButtonTitle = styled.Text`
   font-size: 24px;
@@ -69,7 +69,7 @@ const Jokes = () => {
         <HeaderTitle>Tap the button below and prepare to laugh 😂!</HeaderTitle>
       </Header>
       <Main>
-        <Title>{houses.joke}</Title>
+        <MainTitle>{houses.joke}</MainTitle>
       </Main>
       <ButtonContainer>
         <Button onPress={onUpdateJoke}>
