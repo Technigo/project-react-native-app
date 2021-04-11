@@ -23,8 +23,8 @@ Images: https://unsplash.com/photos/eIOPDU3Fkwk by Waldemar Brandt
 
 
 
-<div style="position:relative;width:360px ; height:740px ; overflow:hidden"><img src="./assets/Previews/Screenshot_20210412-001629_Expo Go.jpg" style="position: absolute; width:100% ; object-fit: cover; " /></div>
+<div style="display:flex; width:100%; flex-wrap: wrap; justify-content: space-evenly;"><div style="position:relative;width:360px ; height:740px ; overflow:hidden"><img src="./assets/Previews/Screenshot_20210412-001629_Expo Go.jpg" style="position: absolute; width:100% ; object-fit: cover; " /></div>
 <img src="./assets/Previews/Screenshot_20210412-001636_Expo Go.jpg" style="  width:360px ; height:740px " />
 <img src="./assets/Previews/Screenshot_20210412-001642_Expo Go.jpg" style="  width:360px ; height:740px " />
 <img src="./assets/Previews/Screenshot_20210412-001658_Expo Go.jpg" style="  width:360px ; height:740px " />
-<img src="./assets/Previews/Screenshot_20210412-001710_Expo Go.jpg" style="  width:360px ; height:740px " />
+<img src="./assets/Previews/Screenshot_20210412-001710_Expo Go.jpg" style="  width:360px ; height:740px " /></div>
