@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
-import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 
 // ==========================
 // = Functions
 const isShaking = (data) => {
-  // x,y,z CAN be negative, force is directional
-  // We take the absolute value and add them together
-  // This gives us the total combined force on the device
+ 
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
 
   // If this force exceeds some threshold, return true, otherwise false
@@ -18,30 +15,25 @@ const isShaking = (data) => {
   
 };
 
-
-
 // ==========================
 // = Styled components
 const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  background-color: magenta;
+  justify-content: center;
+  align-items: center;
 `;
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
+const ShakeText = styled.Text`
+  font-size: 40px;
   font-weight: bold;
-  color: #aa0000;
+  color: yellow;
 `;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
 
 export const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
-  Accelerometer.setUpdateInterval(400);
+  Accelerometer.setUpdateInterval(800);
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
   const [data, setData] = useState({
@@ -50,25 +42,15 @@ export const SensorComponent = () => {
     z: 0,
   });
   
-
-  const pickTodaysOutfit = () => {
-    const [todaysOutfit, setTodaysOutfit] = useState('');
-    let outfits = ["pyjamas", "dress", "jumpsuit", "suit", "nothing", "overall", "swimsuit", "yeti costume", "jeans & t-shirt", "kaftan"]
-
+  const [todaysOutfit, setTodaysOutfit] = useState('');
+  let outfits = ["pyjamas", "dress", "jumpsuit", "suit", "nothing", "overall", "swimsuit", "yeti costume", "jeans & t-shirt", "kaftan"]
     
-    
-    useEffect(() => {
-      isShaking(data) && setTimeout(() => {setTodaysOutfit(outfits[Math.floor(Math.random()*outfits.length)])}, 2000)
-      setTimeout(() => {setTodaysOutfit('')}, 5000)
-    }, [isShaking(data)])
-    console.log(todaysOutfit);
-    
-    return (
-      <View>
-        <Text>{todaysOutfit}</Text>
-      </View>
-    )
-  }
+  useEffect(() => {
+    if (isShaking(data)){
+      setTodaysOutfit("Picking outfit")
+      setTimeout(() => {setTodaysOutfit(outfits[Math.floor(Math.random()*outfits.length)])}, 1000)
+    }
+  }, [data])
 
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
@@ -102,8 +84,7 @@ export const SensorComponent = () => {
 
   return (
     <ShakeView>
-      {isShaking(data) && <ShakeAlert>Picking Outfit</ShakeAlert>}
-      <View>{pickTodaysOutfit()}</View>
+      <ShakeText>{todaysOutfit}</ShakeText>
     </ShakeView>
   );
 };
