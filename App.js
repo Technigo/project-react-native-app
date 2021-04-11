@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { SensorComponent } from './components/SensorComponent';
+import { StartMessage } from './components/StartMessage';
 
 const Container = styled.View`
   flex: 1;
@@ -17,6 +18,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
+      <StartMessage/>
       <SensorComponent></SensorComponent>
     </Container>
   );

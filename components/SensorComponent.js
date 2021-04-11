@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
+import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
+
 
 // ==========================
 // = Functions
@@ -13,7 +15,10 @@ const isShaking = (data) => {
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
   return totalForce > 1.78;
+  
 };
+
+
 
 // ==========================
 // = Styled components
@@ -44,6 +49,26 @@ export const SensorComponent = () => {
     y: 0,
     z: 0,
   });
+  
+
+  const pickTodaysOutfit = () => {
+    const [todaysOutfit, setTodaysOutfit] = useState('');
+    let outfits = ["pyjamas", "dress", "jumpsuit", "suit", "nothing", "overall", "swimsuit", "yeti costume", "jeans & t-shirt", "kaftan"]
+
+    
+    
+    useEffect(() => {
+      isShaking(data) && setTimeout(() => {setTodaysOutfit(outfits[Math.floor(Math.random()*outfits.length)])}, 2000)
+      setTimeout(() => {setTodaysOutfit('')}, 5000)
+    }, [isShaking(data)])
+    console.log(todaysOutfit);
+    
+    return (
+      <View>
+        <Text>{todaysOutfit}</Text>
+      </View>
+    )
+  }
 
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
@@ -77,20 +102,8 @@ export const SensorComponent = () => {
 
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
+      {isShaking(data) && <ShakeAlert>Picking Outfit</ShakeAlert>}
+      <View>{pickTodaysOutfit()}</View>
     </ShakeView>
   );
 };
