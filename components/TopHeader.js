@@ -16,7 +16,6 @@ const Category = styled.Text`
   padding-bottom: 10px;
 `
 
-
 const TopHeader = ({onCategoryChange}) => {
 
     return (

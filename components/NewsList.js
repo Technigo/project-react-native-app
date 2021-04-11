@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import styled from 'styled-components/native'
-import { View, Text, Image, FlatList } from 'react-native';
+import { View, Text, Image, FlatList } from 'react-native'
 
 import NewsCard from './NewsCard'
 import Loading from './Loading'
@@ -13,7 +13,7 @@ const CardContainer = styled.View`
 
 const Flat = styled.FlatList`
   flex: 1;
-`;
+`
 
 const NewsList = ({API_KEY}) => {
     // const API_KEY = 'https://newsapi.org/v2/top-headlines?country=se&apiKey=100a784cf0fb4828995b59dbf5a3276c'
@@ -21,9 +21,9 @@ const NewsList = ({API_KEY}) => {
     const [currentlyLoading, setCurrentlyLoading] = useState(true)
 
     useEffect(() => {
-        fetchNews();
-        setCurrentlyLoading(true);
-     }, [API_KEY]);
+        fetchNews()
+        setCurrentlyLoading(true)
+     }, [API_KEY])
 
     const fetchNews = () => {
         fetch(API_KEY) 
@@ -49,8 +49,6 @@ const NewsList = ({API_KEY}) => {
 
         />
        </CardContainer>
-
-
     )
 }
 

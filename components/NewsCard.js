@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import { Linking } from 'react-native'
 import styled from 'styled-components/native'
 
 import {time_ago} from '../assets/dateFromNow'
 
 const Card = styled.TouchableOpacity`
+    flex-direction: row;
     padding: 10px;
     width: 100%;
     height: auto;
-    flex-direction: row;
-    background: rgba(150,60,10,0.07);
     margin-bottom: 10px;
     border-radius: 10;
+    background: rgba(150,60,10,0.07);
 `
 
 const NewsTitleContainer = styled.View`
@@ -50,9 +50,8 @@ const Img = styled.Image`
 
 const NewsCard = ({title, urlToImage, source, publishedAt, description, url}) => {
 
-
     const capitalizeFirstLetter = (string) => {
-        return checkName(string[0].toUpperCase() + string.slice(1));
+        return checkName(string[0].toUpperCase() + string.slice(1))
     }
 
     const checkUrl = (string) => {
@@ -63,7 +62,7 @@ const NewsCard = ({title, urlToImage, source, publishedAt, description, url}) =>
 
     const checkName = (string) => {
       return (
-        string.replace(/Vm-fotboll/ , "VM-fotboll").replace(/Svenskgolf/ , "Svensk Golf").replace(/Nsd/ , "NSD").replace(/Hn/ , "Hallands Nyheter").replace(/Nwt/ , "NWT").replace(/Nyteknik/ , "Ny Teknik").replace(/Jmk.su/ , "Läget - JMK").replace(/Folkbladet.nu/ , "Västerbottens Folkblad").replace(/Sla/ , "Skaraborgs Allehanda").replace(/Sydostran/ , "Sydöstran").replace(/Vk/ , "Västerbottens-Kuriren").replace(/Olandsbladet/ , "Ölandsbladet").replace(/Dt/ , "Dalarnas Tidningar").replace(/Vimmerbytidning/ , "Vimmerby Tidning").replace(/Eposten/ , "Enköpings-Posten").replace(/Dagensps/ , "Dagens PS").replace(/Ystadsallehanda/ , "Ystads Allehanda").replace(/Fz/ , "FZ").replace(/Ttela/ , "TTELA").replace(/Borasdly/ , "Borås DLY").replace(/Nsk/ , "Norra Skåne").replace(/Fotbolldirekt/ , "FotbollDirekt").replace(/Ekuriren/ , "Eskilstuna-Kuriren").replace(/Dagensps/ , "Dagens PS").replace(/FotbollDagens Industrirekt/ , "FotbollDirekt").replace(/Dagens Industrigital.di/ , "DiGital").replace(/Pcforalla.idg/ , "PC för Alla").replace(/Macworld.idg/ , "MacWorld").replace(/Computersweden.idg/ , "Computer Sweden").replace(/Skaraborgslanstidning/ , "Skaraborgs Läns Tidning").replace(/Sweclockers.com/ , "SweClockers").replace(/Dn/ , "DN").replace(/Di/, "Dagens Industri").replace(/Svt/, "SVT").replace(/Sverigesradio/, "Sveriges Radio").replace(/Dagensmedicin/, "Dagens Medicin").replace(/Bohuslaningen/, "Bohusläningen").replace(/M3.idg/, "M3 - IDG").replace(/Vaxjolakers/, "Växjö Lakers")
+        string.replace(/Unt/ , "Upsala Nya Tidning").replace(/Vm-fotboll/ , "VM-fotboll").replace(/Svenskgolf/ , "Svensk Golf").replace(/Nsd/ , "NSD").replace(/Hn/ , "Hallands Nyheter").replace(/Nwt/ , "NWT").replace(/Nyteknik/ , "Ny Teknik").replace(/Jmk.su/ , "Läget - JMK").replace(/Folkbladet.nu/ , "Västerbottens Folkblad").replace(/Sla/ , "Skaraborgs Allehanda").replace(/Sydostran/ , "Sydöstran").replace(/Vk/ , "Västerbottens-Kuriren").replace(/Olandsbladet/ , "Ölandsbladet").replace(/Dt/ , "Dalarnas Tidningar").replace(/Vimmerbytidning/ , "Vimmerby Tidning").replace(/Eposten/ , "Enköpings-Posten").replace(/Dagensps/ , "Dagens PS").replace(/Ystadsallehanda/ , "Ystads Allehanda").replace(/Fz/ , "FZ").replace(/Ttela/ , "TTELA").replace(/Borasdly/ , "Borås DLY").replace(/Nsk/ , "Norra Skåne").replace(/Fotbolldirekt/ , "FotbollDirekt").replace(/Ekuriren/ , "Eskilstuna-Kuriren").replace(/Dagensps/ , "Dagens PS").replace(/FotbollDagens Industrirekt/ , "FotbollDirekt").replace(/Dagens Industrigital.di/ , "DiGital").replace(/Pcforalla.idg/ , "PC för Alla").replace(/Macworld.idg/ , "MacWorld").replace(/Computersweden.idg/ , "Computer Sweden").replace(/Skaraborgslanstidning/ , "Skaraborgs Läns Tidning").replace(/Sweclockers.com/ , "SweClockers").replace(/Dn/ , "DN").replace(/Di/, "Dagens Industri").replace(/Svt/, "SVT").replace(/Sverigesradio/, "Sveriges Radio").replace(/Dagensmedicin/, "Dagens Medicin").replace(/Bohuslaningen/, "Bohusläningen").replace(/M3.idg/, "M3 - IDG").replace(/Vaxjolakers/, "Växjö Lakers")
       )
     }
     
@@ -82,4 +81,4 @@ const NewsCard = ({title, urlToImage, source, publishedAt, description, url}) =>
     )
 }
  
-export default NewsCard;
+export default NewsCard

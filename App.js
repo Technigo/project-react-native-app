@@ -18,7 +18,6 @@ const App = () => {
     setAPI("https://newsapi.org/v2/top-headlines?country=se&category=" + category + "&apiKey=100a784cf0fb4828995b59dbf5a3276c")
   }
   
-  
   return (
     <Container>
       <TopHeader onCategoryChange = {handleCategoryChange}/>

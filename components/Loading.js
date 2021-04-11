@@ -1,16 +1,12 @@
 import React from 'react'
-import {ActivityIndicator} from 'react-native'
-import styled from 'styled-components/native' 
-
-const Container = styled.View``
+import {ActivityIndicator, View} from 'react-native'
 
 const Loading = () => {
     return (
-        <Container>
+        <View>
             <ActivityIndicator size='large' color='#efefef'/> 
-        </Container>
+        </View>
     )
 }
-
 
 export default Loading 
