@@ -1,10 +1,14 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "Joke-randomizer",
+    "slug": "joke-randomizer",
     "privacy": "public",
     "sdkVersion": "40.0.0",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,9 +20,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "This is a joke randomizer. Tap the button to get a new joke!",
+    "githubUrl": "https://github.com/Marielle8/project-react-native-app"
   }
 }
