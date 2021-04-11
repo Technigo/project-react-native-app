@@ -1,13 +1,12 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is a Car application made with react native and react navigation to display different cars at certain prices.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The problem this week was the lack of time that I had making this application. 
+I started with creating a skiss for my project and during that process i decided to go for multipage app using React Navigation. The home page has a name of the application. And the other screens are different cars, the screens display a image of the cars + the cars name and starting price. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@ulve17/project-react-native-app  
