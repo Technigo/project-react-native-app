@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "Zen Walker",
+    "slug": "zen-walker",
     "privacy": "public",
     "sdkVersion": "37.0.0",
     "platforms": ["ios", "android", "web"],

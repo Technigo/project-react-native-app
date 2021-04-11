@@ -1,15 +1,17 @@
 # Project React Native App 📱
 
-TEST change after origin switch!
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment was to create a phone app using React Native and the development framework Expo
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I decided to develop a step-counting app where you reveal words in an inspirational quote by spending steps you've walked.
+
+I initially tried using the provided SensorComponent as a pedometer, but my results were unreliable. Unsure of how to improve it, I decided to keep developing everything around it until I could get advice during the friday QnA session. Van pointed me towards the Expo functionality called expo-sensors, which I then decided to use instead of the SensorComponent. I still ended up dividing registered steps by five in order to account for how oversensitive the pedometer was during testing.
+
+Before writing the fetch from the ZenQuotes API, I tested my quote revealing functionality on a mock API response I wrote. I ran into an issue where the API wouldn't accept my GET requests, despite the endpoint being fine when visited via browser. It turned out to be a security issue, despite the API documentation claiming no key was needed. As a workaround, I ended up sending my GET request through a proxy, bypassing the issue (but increasing load time, which unfortunatly is yet to be communicated visually in the GUI).
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Build link:
+
+

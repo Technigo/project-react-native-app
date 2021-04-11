@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 
 const Wrapper = styled.View`
@@ -44,31 +44,22 @@ const Name = styled(BaseText)`
     margin: 0px;
 `;
 
-const isLetter = (char) => {
-    return char.length === 1 && char.match(/[a-z]/i);
-}
-
 const revealQuote = (props) => {
 
     let howFar = props.currentQuote.shown-1
 
+    const quoteTextAsArray = props.currentQuote.text.split(" ")
 
-    //every WORD is an array entry
-    const quoteTextAsArray_2 = props.currentQuote.text.split(" ")
-
-    const renderedQuote_2 = quoteTextAsArray_2.map((word, index) => {
+    const renderedQuote = quoteTextAsArray.map((word, index) => {
         if (index > howFar) {
-            return `${word.replace(/[a-z]|[A-Z]/g, "_")}${index === quoteTextAsArray_2.length-1 ? "" : " "}`
-            //itterate as many times as word.length
+            return `${word.replace(/[a-z]|[A-Z]/g, "_")}${index === quoteTextAsArray.length-1 ? "" : " "}`
+            
         } else {
-            return `${word}${index === quoteTextAsArray_2.length-1 ? "" : " "}`
+            return `${word}${index === quoteTextAsArray.length-1 ? "" : " "}`
         }
     })
-
-    console.log(`Length: ${props.currentQuote.length}`)
-    console.log(`Shown: ${props.currentQuote.shown}`)
     
-    return renderedQuote_2.join("").trim()
+    return renderedQuote.join("").trim()
 }
 
 const Quote = (props) => {
@@ -93,19 +84,3 @@ const Quote = (props) => {
 }
 
 export default Quote;
-
-//every character is an array entry
-    // const quoteTextAsArray = Array.from(quote.text)
-
-    // const renderedQuote = quoteTextAsArray.map((char, index) => {
-    //     if (!isLetter(char)) {
-    //         howFar++
-    //         return char
-    //     } else if (index > howFar) {
-    //         return "_"
-    //     } else {
-    //         return char
-    //     }
-    // })
-
-    // console.log(renderedQuote)

@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import * as Linking from 'expo-linking';
 
-import { SensorComponent } from './components/SensorComponent';
 import QuoteHandler from './components/QuoteHandler'
 import StepCounter from './components/StepCounter'
-import { Button, TouchableOpacity } from 'react-native';
 
 const AppWrapper = styled.View`
   flex: 1;
@@ -31,7 +29,6 @@ const TodayText = styled(BaseText)`
   font-size: 16px;
 `;
 
-//these don't get applied for some reason :((
 const IncrementButton = styled.TouchableOpacity`
   margin: 20px 15px 25px 15px;
   padding: 10px 25px;
@@ -61,18 +58,14 @@ const Linky = styled(BaseText)`
   color: #2ca3e8;
 `;
 
-
-
 const App = () => {
 
-  const [steps, setSteps] = useState(847)
+  const [steps, setSteps] = useState(0)
   const [currentQuote, setCurrentQuote] = useState({text: "", name: "", length: 0, shown: 0})
-  const [revealHeld, setRevealHeld] = useState(false)
-  const [timer, setTimer] = useState(null)
 
   const onStep = (newSteps) => {
 
-    const adjustedSteps = Math.ceil(newSteps.steps / 5)
+    const adjustedSteps = Math.ceil(newSteps.steps / 5) //divided by five to account for pedometer oversensitivity
 
     setSteps(steps + adjustedSteps)
   };
@@ -91,33 +84,7 @@ const App = () => {
 
     }
 
-    /*https://medium.com/@pavolfulop/repeat-onpress-action-when-holding-button-react-native-2c697cf28032*/
-                  //onPressIn={() => {while(steps > 0) {setTimeout(startReveal)}}}
-    //https://docs.expo.io/versions/latest/sdk/pedometer/ 
   };
-
-  const startReveal = () => {
-    console.log("reveal START")
-    if (steps > 0 && revealHeld) {
-      setCurrentQuote ({
-        text: currentQuote.text, 
-        name: currentQuote.name, 
-        length: currentQuote.length, 
-        shown: currentQuote.shown + 1
-      })
-      setSteps(steps - 1)
-      
-    } //so the issue is that the onPressOut can never be triggered because the program is stuck in a loop
-    setTimer(setTimeout(startReveal, 500))
-  };
-
-  const stopReveal = () => {
-    setRevealHeld(false)
-    setTimer(clearTimeout(timer))
-  };
-
-  //how does onCurrentQuoteChange fit in with incrementation? Is it obsolete now??
-
 
   return (
       <AppWrapper>
@@ -130,7 +97,6 @@ const App = () => {
           shown={currentQuote.shown}
           onCurrentQuoteChange={onCurrentQuoteChange}
           currentQuote={currentQuote}
-          startReveal={startReveal}
           onStep={onStep}
         />
 
@@ -138,6 +104,7 @@ const App = () => {
           steps={steps} 
           onStep={onStep}
         />
+
         <Explanation>100 steps = 1 word</Explanation>
 
         <IncrementButton
