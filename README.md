@@ -21,4 +21,8 @@ Images: https://unsplash.com/photos/eIOPDU3Fkwk by Waldemar Brandt
 
  Images:
 
-<img src="./assets/Previews/Screenshot_20210412-001629_Expo Go.jpg" style=" width:360px ; height:740px " />
+<img src="./assets/Previews/Screenshot_20210412-001629_Expo Go.jpg" style=" width:180px ; height:370px " />
+<img src="./assets/Previews/Screenshot_20210412-001636_Expo Go.jpg" style=" width:180px ; height:370px " />
+<img src="./assets/Previews/Screenshot_20210412-001642_Expo Go.jpg" style=" width:180px ; height:370px " />
+<img src="./assets/Previews/Screenshot_20210412-001658_Expo Go.jpg" style=" width:180px ; height:370px " />
+<img src="./assets/Previews/Screenshot_20210412-001710_Expo Go.jpg" style=" width:180px ; height:370px " />
