@@ -17,7 +17,12 @@
     "react-dom": "16.8.3",
     "react-native": "^0.61.4",
     "react-native-web": "^0.15.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "react-native-reanimated": "~1.13.0",
+    "react-native-gesture-handler": "~1.8.0",
+    "react-native-screens": "~2.15.2",
+    "react-native-safe-area-context": "3.1.9",
+    "@react-native-community/masked-view": "0.1.10"
   },
   "devDependencies": {
     "babel-preset-expo": "^7.1.0"
