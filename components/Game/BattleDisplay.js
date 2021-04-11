@@ -4,13 +4,15 @@ import "react-native-gesture-handler";
 import { ImageBackground } from "react-native";
 
 export const BattleDisplay = ({ char, HP, alignment }) => {
-
-    //render
+  //render
   return (
     <>
       {HP && alignment === "hero" ? (
         <LifeBar>
-          <Life life={`${(HP / char.hp) * 100}%`} lifecolor={`${((HP / char.hp) * 100)>50?"green":"red"}`}></Life>
+          <Life
+            life={`${(HP / char.hp) * 100}%`}
+            lifecolor={`${(HP / char.hp) * 100 > 50 ? "green" : "red"}`}
+          ></Life>
         </LifeBar>
       ) : (
         <></>
@@ -36,7 +38,10 @@ export const BattleDisplay = ({ char, HP, alignment }) => {
       </ImageContainer>
       {HP && alignment === "villain" ? (
         <LifeBar>
-          <Life life={`${(HP / char.hp) * 100}%`} lifecolor={`${((HP / char.hp) * 100)>50?"blue":"red"}`}></Life>
+          <Life
+            life={`${(HP / char.hp) * 100}%`}
+            lifecolor={`${(HP / char.hp) * 100 > 50 ? "blue" : "red"}`}
+          ></Life>
         </LifeBar>
       ) : (
         <></>
@@ -48,7 +53,7 @@ export const BattleDisplay = ({ char, HP, alignment }) => {
 //styled components
 const LifeBar = styled.View`
   width: 200px;
-  margin:10px;
+  margin: 10px;
   height: 30px;
   position: relative;
   border-color: black;
@@ -71,4 +76,3 @@ const ImageContainer = styled.View`
   max-width: 400px;
   position: relative;
 `;
-

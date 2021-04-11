@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import styled from "styled-components/native";
-import { useWindowDimensions, Animated, ImageBackground} from "react-native";
+import { useWindowDimensions, Animated, ImageBackground } from "react-native";
 import "react-native-gesture-handler";
 
 export const Home = ({ navigation }) => {
-//local consts
+  //local consts
   const dimensions = useWindowDimensions();
   const marvelArr = ["M", "A", "R", "V", "E", "L"];
   const animatedValues = [];
@@ -25,40 +25,43 @@ export const Home = ({ navigation }) => {
     Animated.stagger(100, animations).start();
   };
 
-  //useEffects 
+  //useEffects
   useEffect(() => {
-  animated();}, [])
+    animated();
+  }, []);
 
   //render
   return (
-    
-      <ImageBackground source={require("../assets/comicBg.jpg")} style={{flex:1, width:"100%"}}>
-        <Wrapper>
-      {marvelArr.map((word, index) => {
-        console.log(word, index);
-        return (
-          <Animated.Text
-            key={`${word}-${index}`}
-            style={{
-              color: "red",
-              fontSize: 60,
-              fontWeight: "bold",
-              opacity: animatedValues[index],
-            }}
-          >
-            {word}
-          </Animated.Text>
-        );
-      })}
-      {dimensions.width >= 768 ? (
-        <></>
-      ) : (
-        <Button onPress={() => navigation.toggleDrawer()}>
-          <ButtonText>Show Menu</ButtonText>
-        </Button> 
-      )}</Wrapper>
-      </ImageBackground>
-    
+    <ImageBackground
+      source={require("../assets/comicBg.jpg")}
+      style={{ flex: 1, width: "100%" }}
+    >
+      <Wrapper>
+        {marvelArr.map((word, index) => {
+          console.log(word, index);
+          return (
+            <Animated.Text
+              key={`${word}-${index}`}
+              style={{
+                color: "red",
+                fontSize: 60,
+                fontWeight: "bold",
+                opacity: animatedValues[index],
+              }}
+            >
+              {word}
+            </Animated.Text>
+          );
+        })}
+        {dimensions.width >= 768 ? (
+          <></>
+        ) : (
+          <Button onPress={() => navigation.toggleDrawer()}>
+            <ButtonText>Show Menu</ButtonText>
+          </Button>
+        )}
+      </Wrapper>
+    </ImageBackground>
   );
 };
 
@@ -88,4 +91,3 @@ const Button = styled.TouchableOpacity`
 const ButtonText = styled.Text`
   color: black;
 `;
-

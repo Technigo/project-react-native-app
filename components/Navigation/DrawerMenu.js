@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "react-native-gesture-handler";
 import { useWindowDimensions } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -6,7 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { ComicsList } from "../../pages/ComicsList";
 import { ComicDetails } from "../../pages/ComicDetails";
 import { Home } from "../../pages/Home";
-import { GameStart } from "../../pages/Game/GameStart"
+import { GameStart } from "../../pages/Game/GameStart";
 
 export const DrawerMenu = () => {
   //local consts
@@ -42,9 +42,8 @@ export const DrawerMenu = () => {
           component={ComicDetails}
           options={{ title: `${comicTitle}` }}
         />
-        
       )}
-        <Drawer.Screen
+      <Drawer.Screen
         name="Game"
         component={GameStart}
         options={{ title: "Game" }}

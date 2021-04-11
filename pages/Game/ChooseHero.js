@@ -6,7 +6,7 @@ import styled from "styled-components/native";
 const json = require("../../assets/characters.json");
 
 export const ChooseHero = ({ navigation }) => {
- //local const
+  //local const
   const [heroes, setHeroes] = useState([]);
 
   //local functions

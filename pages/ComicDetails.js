@@ -10,12 +10,11 @@ import {
 import { FULLCOMIC_URL } from "../reusables/urls";
 
 export const ComicDetails = ({ route, navigation }) => {
-
   //local consts
   const [comic, setComic] = useState();
   const [loading, setloading] = useState(true);
   const { id } = route.params;
-  const {height: windowHeight } = useWindowDimensions();
+  const { height: windowHeight } = useWindowDimensions();
 
   //useEffect
   useEffect(() => {
@@ -48,7 +47,7 @@ export const ComicDetails = ({ route, navigation }) => {
                 uri: `${comic.images[0].path}/portrait_uncanny.jpg`,
               }
             }
-            style={{ flex: 1, minHeight: windowHeight}}
+            style={{ flex: 1, minHeight: windowHeight }}
             imageStyle={{ resizeMode: "repeat" }}
           >
             <Overlay>
@@ -84,14 +83,13 @@ export const ComicDetails = ({ route, navigation }) => {
   );
 };
 
-
 //styled components
-const LoadingContainer = styled.View `
-    flex: 1;
-    justify-content: center;
-    flex-direction: row;
-    padding: 10px;
-`
+const LoadingContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  flex-direction: row;
+  padding: 10px;
+`;
 const Wrapper = styled.View`
   flex: 1;
   display: flex;
@@ -116,7 +114,7 @@ const Title = styled.Text`
   font-weight: bold;
   margin-bottom: 50px;
   width: 300px;
-  color:black;
+  color: black;
 `;
 
 const ImageContainer = styled.View`
@@ -140,7 +138,7 @@ const TextContainer = styled.View`
 
 const DetailText = styled.Text`
   width: 300px;
-  color:black;
+  color: black;
 `;
 
 const Button = styled.TouchableOpacity`

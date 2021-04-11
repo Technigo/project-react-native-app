@@ -21,8 +21,8 @@ const ImageArray = [
 
 export const PlayGame = ({ route, navigation }) => {
   Accelerometer.setUpdateInterval(400);
- 
-  //local consts 
+
+  //local consts
   const { hero } = route.params;
   const { villain } = route.params;
 
@@ -110,25 +110,25 @@ export const PlayGame = ({ route, navigation }) => {
     handleAttack();
   }, [isShaking(data)]);
 
-
-//render
-  return (<>
-    <Scroll>
-      <BattleDisplay char={villain} HP={villainHP} alignment="villain" />
-      <ShakeView>
-        {isShaking(data) ? (
-          <ShakeAlert>
-            <AttackImage source={ImageArray[hero.number]}></AttackImage>
-          </ShakeAlert>
-        ) : (
-          printAttack()
-        )}
-      </ShakeView>
-      <BattleDisplay char={hero} HP={heroHP} alignment="hero" />
-    </Scroll></>
+  //render
+  return (
+    <>
+      <Scroll>
+        <BattleDisplay char={villain} HP={villainHP} alignment="villain" />
+        <ShakeView>
+          {isShaking(data) ? (
+            <ShakeAlert>
+              <AttackImage source={ImageArray[hero.number]}></AttackImage>
+            </ShakeAlert>
+          ) : (
+            printAttack()
+          )}
+        </ShakeView>
+        <BattleDisplay char={hero} HP={heroHP} alignment="hero" />
+      </Scroll>
+    </>
   );
 };
-
 
 //styled components
 const Scroll = styled.SafeAreaView`
@@ -163,4 +163,3 @@ const AttackImage = styled.Image`
   width: 100px;
   height: 100px;
 `;
-
