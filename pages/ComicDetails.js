@@ -101,7 +101,7 @@ const Wrapper = styled.View`
 
 const Overlay = styled.ScrollView`
   flex: 1;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 `;
 
 const Container = styled.View`
@@ -116,7 +116,7 @@ const Title = styled.Text`
   font-weight: bold;
   margin-bottom: 50px;
   width: 300px;
-  color: yellow;
+  color:black;
 `;
 
 const ImageContainer = styled.View`
@@ -140,14 +140,14 @@ const TextContainer = styled.View`
 
 const DetailText = styled.Text`
   width: 300px;
-  color: white;
+  color:black;
 `;
 
 const Button = styled.TouchableOpacity`
   height: 30px;
   width: 100px;
-  background: black;
-  border-color: red;
+  background: white;
+  border-color: grey;
   border-style: solid;
   border-width: 2px;
   display: flex;
@@ -158,5 +158,5 @@ const Button = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  color: red;
+  color: black;
 `;

@@ -112,7 +112,7 @@ export const PlayGame = ({ route, navigation }) => {
 
 
 //render
-  return (
+  return (<>
     <Scroll>
       <BattleDisplay char={villain} HP={villainHP} alignment="villain" />
       <ShakeView>
@@ -125,7 +125,7 @@ export const PlayGame = ({ route, navigation }) => {
         )}
       </ShakeView>
       <BattleDisplay char={hero} HP={heroHP} alignment="hero" />
-    </Scroll>
+    </Scroll></>
   );
 };
 
@@ -163,3 +163,4 @@ const AttackImage = styled.Image`
   width: 100px;
   height: 100px;
 `;
+

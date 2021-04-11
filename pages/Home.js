@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components/native";
-import { useWindowDimensions, Animated} from "react-native";
+import { useWindowDimensions, Animated, ImageBackground} from "react-native";
 import "react-native-gesture-handler";
 
 export const Home = ({ navigation }) => {
@@ -31,7 +31,9 @@ export const Home = ({ navigation }) => {
 
   //render
   return (
-    <Wrapper>
+    
+      <ImageBackground source={require("../assets/comicBg.jpg")} style={{flex:1, width:"100%"}}>
+        <Wrapper>
       {marvelArr.map((word, index) => {
         console.log(word, index);
         return (
@@ -39,7 +41,7 @@ export const Home = ({ navigation }) => {
             key={`${word}-${index}`}
             style={{
               color: "red",
-              fontSize: 40,
+              fontSize: 60,
               fontWeight: "bold",
               opacity: animatedValues[index],
             }}
@@ -54,8 +56,9 @@ export const Home = ({ navigation }) => {
         <Button onPress={() => navigation.toggleDrawer()}>
           <ButtonText>Show Menu</ButtonText>
         </Button> 
-      )}
-    </Wrapper>
+      )}</Wrapper>
+      </ImageBackground>
+    
   );
 };
 
@@ -65,22 +68,24 @@ const Wrapper = styled.View`
   background-color: #fff;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: rgba(255, 255, 255, 0.8);
 `;
 
 const Button = styled.TouchableOpacity`
-height: 30px;
-width: 100px;
-background: black;
-border-color: red;
-border-style: solid;
-border-width: 2px;
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 50px;
-border-radius: 10px;
+  height: 30px;
+  width: 100px;
+  background: white;
+  border-color: grey;
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  border-radius: 10px;
 `;
 
 const ButtonText = styled.Text`
-color: red;`
+  color: black;
+`;
+

@@ -120,7 +120,7 @@ const ScrollContainer = styled.View`
 `;
 
 const MobileView = styled.SafeAreaView`
-  background-color: black;
+  background-color: white;
   flex: 1;
   display: flex;
   align-items: center;
@@ -129,7 +129,7 @@ const MobileView = styled.SafeAreaView`
 `;
 
 const WebView = styled.SafeAreaView`
-  background-color: black;
+  background-color: white;
   flex: 1;
   display: flex;
   justify-content: space-evenly;

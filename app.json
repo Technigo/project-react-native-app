@@ -9,8 +9,8 @@
     }
   },
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "Marvel-App",
+    "slug": "marvel-app",
     "privacy": "public",
     "sdkVersion": "40.0.0",
     "platforms": [
@@ -35,6 +35,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": ""
+    "description": "",
+    "githubUrl": "https://github.com/Pauan8/project-react-native-app"
   }
 }

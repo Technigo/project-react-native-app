@@ -1,18 +1,20 @@
 # Project React Native App 📱
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is a first dive in to the world of React Native, exploring navigation, sensors and styling.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+My project started out quite simple, with just a fetch of an API from Marvel and displaying some comics. Then I incoporated React Navigation using drawer navigator and later also stack navigator. This, together with styled components, was very interesting but also a bit of a challange to get into. I ended up using drawer navigation as my main menu and stack navigaton as a nested navigation for the game-part of the App.
+I also added some animation with react animated. I found this to be the hardest part to build from scratch, so I ended up using others code with a bit of modification. Using this to display the different comics in a slide show on the phone made it much improved from just a normal scroll down view.
+Much of the end of this weeks project went to doing my game where I use the Accelerometer and using this, the user get's to choose a hero and attacks an enemy by shakig the phone. The game is very random, but atleast the characters have some modified hitpoints and attackdamage to make it a bit more interesting.
+
+If I had more time I would do so much more with this. I see much potential in these techniques.
+
+tools: VScode, Expo, Expo GO, Npm, Stack Overflow, Slack, Postman
+techniques: React, React Native, React Navigation, React Animated, React sensors Accelerometer, Styled Components
+
+Icons: https://www.flaticon.com/authors/smashicons by Smashicons, https://www.freepik.com by Freepik
+Images: https://unsplash.com/photos/eIOPDU3Fkwk by Waldemar Brandt
 
 ## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+ Expo published: 
+ Expo Snack: 
