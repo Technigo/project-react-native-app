@@ -34,6 +34,7 @@ Images: https://unsplash.com/photos/eIOPDU3Fkwk by Waldemar Brandt
 <img src="./assets/Previews/Screenshot_20210412-001642_Expo Go.jpg" style="  width:360px ; height:740px " />
 <img src="./assets/Previews/Screenshot_20210412-001658_Expo Go.jpg" style="  width:360px ; height:740px " /></div>
 
+
 ### Play Game 
 
 <div style="display:flex; width:100%; flex-wrap: wrap; justify-content: space-evenly;">
