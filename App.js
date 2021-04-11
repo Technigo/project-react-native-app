@@ -20,32 +20,32 @@ const BaseText = styled.Text`
 `;
 
 const Title = styled(BaseText)`
-  flex: 0.20;
+  flex: 0.25;
   align-items: center;
-  font-size: 40px;
+  font-size: 30px;
   padding: 0px;
-  margin: 35px 15px 10px 15px;
+  margin: 35px 15px 5px 15px;
 `;
 
 const TodayText = styled(BaseText)`
-  font-size: 20px;
+  font-size: 16px;
 `;
 
 //these don't get applied for some reason :((
 const IncrementButton = styled.TouchableOpacity`
-  margin: 10px 15px 5px 15px;
-  padding: 15px 25px;
+  margin: 20px 15px 25px 15px;
+  padding: 10px 25px;
   border: 2px solid #fff;
   border-radius: 15px;
 `;
 
 const ButtonLabel = styled(BaseText)`
-  font-size: 32px;
+  font-size: 26px;
 `;
 
 const Explanation = styled(BaseText)`
     font-size: 14px;
-    margin: 10px 30px 30px 30px;
+    margin: 5px 30px 5px 30px;
     text-align: center;
     color: grey;
 `;
@@ -53,7 +53,7 @@ const Explanation = styled(BaseText)`
 const Footer = styled(BaseText)`
   font-size: 12px;
   padding-bottom: 30px;
-  margin: 15px 80px 15px 80px;
+  margin: 15px 50px 15px 50px;
   text-align: center;
 `;
 
@@ -65,7 +65,7 @@ const Linky = styled(BaseText)`
 
 const App = () => {
 
-  const [steps, setSteps] = useState(1350)
+  const [steps, setSteps] = useState(847)
   const [currentQuote, setCurrentQuote] = useState({text: "", name: "", length: 0, shown: 0})
   const [revealHeld, setRevealHeld] = useState(false)
   const [timer, setTimer] = useState(null)
@@ -138,14 +138,13 @@ const App = () => {
           steps={steps} 
           onStep={onStep}
         />
+        <Explanation>100 steps = 1 word</Explanation>
 
         <IncrementButton
           onPress={() => {reveal(10)}}
         >
           <ButtonLabel>reveal</ButtonLabel>
         </IncrementButton>
-
-        <Explanation>A hundred steps for a word of wisdom</Explanation>
 
         <Footer>Inspirational quotes provided by <Linky onPress={() => {Linking.openURL("https://zenquotes.io/")}}>ZenQuotes API</Linky></Footer>
       </AppWrapper>

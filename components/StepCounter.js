@@ -8,10 +8,11 @@ import { SensorComponent } from './SensorComponent';
 import App from './Pedometer';
 
 const Container = styled.View`
-    flex: 0.5;
+    flex: 0.25;
     justify-content: center;
     align-items: center;
     background-color: #000;
+    margin-bottom: -7px;
 `;
 
 const BaseText = styled.Text`
@@ -21,7 +22,7 @@ const BaseText = styled.Text`
 
 const Steps = styled(BaseText)`
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     background-color: #000;
 `;
 

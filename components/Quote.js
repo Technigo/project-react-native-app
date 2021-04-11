@@ -3,10 +3,9 @@ import styled from 'styled-components/native';
 
 const Wrapper = styled.View`
     flex: 1;
-    width: 90%;
+    width: 80%;
     justify-content: center;
     align-items: center;
-    background-color: #000;
     padding: 5px;
 `;
 
@@ -16,21 +15,21 @@ const BaseText = styled.Text`
 `;
 
 const QuoteWrapper = styled.View`
-    width: 80%;
+    flex: 1.2;
+    align-items: center;
+    justify-content: flex-end;
+    width: 90%;
 `;
 
 const ActualQuote = styled(BaseText)`
-    font-size: 24px;
+    font-size: 18px;
 `;
 
-//font-size: ${(props) => (70 - (props.length * 0.7))}px;
-//margin: 10px 30px 30px 30px;
-
 const NameWrapper = styled.View`
-    flex: 0.25;
+    flex: 0.7;
     width: 100%;
     flex-direction: row;
-    margin: 0px 90px 20px 20px;
+    margin: 20px 60px 0px 0px;
     padding: 0px
     justify-content: flex-end;
     align-items: center;
@@ -38,7 +37,8 @@ const NameWrapper = styled.View`
 `;
 
 const Name = styled(BaseText)`
-    font-size: 18px;
+    width: 50%;
+    font-size: 16px;
     text-align: right;
     background-color: #000;
     margin: 0px;
@@ -84,7 +84,7 @@ const Quote = (props) => {
                 </QuoteWrapper> 
                 
                 <NameWrapper>
-                    <Name>- {props.currentQuote.name}</Name>
+                    <Name numberOfLines={3}>- {props.currentQuote.name}</Name>
                 </NameWrapper> 
             </Wrapper>
             
