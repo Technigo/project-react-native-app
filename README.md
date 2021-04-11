@@ -13,5 +13,8 @@ Before writing the fetch from the ZenQuotes API, I tested my quote revealing fun
 ## View it live
 
 Build link:
-
-
+Unfortunatly I am getting the following error when trying to run expo publish:
+    connect ECONNREFUSED 127.0.0.1:80
+    Error: connect ECONNREFUSED 127.0.0.1:80
+        at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1106:14)
+I will ask for help on StackOverflow and fix this as soon as I get the time to.
