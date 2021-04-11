@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components/native";
-import { Dimensions } from 'react-native'
+import { Dimensions} from 'react-native'
 
 const ArtImage = styled.Image`
   width: 100%;
@@ -13,7 +13,7 @@ const windowWidth = Dimensions.get('window').width
 
 const ImageCard = ({webImage}) => {
   return (
-    <ArtImage
+      <ArtImage
         width={webImage.width} 
         height={webImage.height}
         windowWidth={windowWidth}

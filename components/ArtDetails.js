@@ -42,10 +42,9 @@ const DescriptionText= styled.Text`
 
 const windowWidth = Dimensions.get('window').width
 
-const ArtDetails = () => {
-
+const ArtDetails = ({ route }) => {
   const DETAIL_URL =
-    "https://www.rijksmuseum.nl/api/en/collection/SK-C-5?key=b5cLQ2UN";
+    `https://www.rijksmuseum.nl/api/en/collection/${route.params.objectNumber}?key=b5cLQ2UN`;
   const [details, setDetails] = useState();
 
   useEffect(() => {
