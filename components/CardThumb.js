@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 
 /*Styled components*/
 const ThumbContainer = styled.View`
-flex 1;
+  background: green;
 `;
 
 const ThumbText = styled.Text`
@@ -13,8 +13,8 @@ const ThumbText = styled.Text`
 `;
 
 const ThumbImage = styled.Image`
-  width: 50px;
-  height: 50;
+  width: 100px;
+  height: 100px;
 `;
 
 export const CardThumb = (props) => {

@@ -1,12 +1,10 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+We were to create an app using React Native using 1 of three "methods": API-call, navigation or sensor. I chose to use API-call and navigation to create an displaying Cards and then further details of the cards when clicking them.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+At first there was a lot of research as we weren't given much to go on this week. We had to both make new software (expo) work as well as learning Native. I didn't plan much this week, it was more trial and error and lot of help from friends and colleagues. If I had more time I would have liked to have spent more time on styling and trying more advanced methods in the actual screens. Now getting the shell in place of navigation was so hard that not much time was left for other things.
 
 ## View it live
 
