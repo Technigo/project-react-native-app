@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 
-
 const Container = styled.View`
 flex: 1;
 background-color: white;
-
 align-items: center;
 `
 
@@ -58,6 +56,7 @@ const Header = styled.View`
   const RecipeContainerStart = styled.View`
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin: 20px;
   flex: 4;
   `
@@ -88,7 +87,7 @@ const Header = styled.View`
   const App = () => {
 
     const getRandomRecipe = () => {
-      return setGts(Math.floor(Math.random() * 31))      
+      return setGts(Math.floor(Math.random() * 31))           
     } 
     
   const [gts, setGts] = useState ()
@@ -97,7 +96,7 @@ const Header = styled.View`
   useEffect(() => { 
     fetch('https://api.edamam.com/search?q=gin&app_id=2e3ab8b1&app_key=616f91fa37bcccc85e74d8e8fa4a5078&from=0&to=30') 
     .then(data => data.json()) 
-    .then(json => setData(json))     
+    .then(json => setData(json)) 
   }, [])
   
   if(gts === undefined){
@@ -106,9 +105,9 @@ const Header = styled.View`
       <Header>
         <Title>GT-randomizer!</Title>        
       </Header>            
-      <RecipeContainerStart>
-        <RecipeText>Click the button below to get a sweet gin&tonic recipe!</RecipeText>
-        <RecipeText>🍸🍹🍋</RecipeText>
+      <RecipeContainerStart>        
+            <RecipeText>Click the button below to get a nice gin&tonic recipe!</RecipeText>
+            <RecipeText>🍸🍹🍋</RecipeText>          
       </RecipeContainerStart>
       <Footer>
       <RandomRecipeBtn onPress={getRandomRecipe}>
@@ -130,7 +129,7 @@ const Header = styled.View`
             <GtImg source={{ uri: data.hits[gts].recipe.image}}/>
             {data.hits[gts].recipe.ingredientLines.map((ing) => (
             <RecipeText key={ing} >{ing}</RecipeText>
-            ))} 
+            ))}             
             </Container>          
       </RecipeContainer>
       <Footer>
