@@ -10,11 +10,14 @@ import {
 import { FULLCOMIC_URL } from "../reusables/urls";
 
 export const ComicDetails = ({ route, navigation }) => {
+
+  //local consts
   const [comic, setComic] = useState();
   const [loading, setloading] = useState(true);
   const { id } = route.params;
   const {height: windowHeight } = useWindowDimensions();
 
+  //useEffect
   useEffect(() => {
     let mounted = true;
     fetch(FULLCOMIC_URL(id))
@@ -30,6 +33,7 @@ export const ComicDetails = ({ route, navigation }) => {
     };
   }, [setComic, id]);
 
+  //render
   return loading ? (
     <LoadingContainer>
       <ActivityIndicator size="large" color="#00ff00" />
@@ -80,6 +84,8 @@ export const ComicDetails = ({ route, navigation }) => {
   );
 };
 
+
+//styled components
 const LoadingContainer = styled.View `
     flex: 1;
     justify-content: center;

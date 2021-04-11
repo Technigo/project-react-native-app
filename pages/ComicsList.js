@@ -1,34 +1,44 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components/native";
-import { StyleSheet, Animated, useWindowDimensions, ActivityIndicator} from "react-native";
+import {
+  StyleSheet,
+  Animated,
+  useWindowDimensions,
+  ActivityIndicator,
+} from "react-native";
 import "react-native-gesture-handler";
 
 import { COMICS_URL } from "../reusables/urls";
 import { ComicCard } from "../components/Comics/ComicCard";
 
 export const ComicsList = ({ navigation, setComicTitle, comicTitle }) => {
+  //local consts
   const [comicList, setComicList] = useState([]);
-  const [loading, setloading] = useState(true)
+  const [loading, setloading] = useState(true);
   const { width: windowWidth } = useWindowDimensions();
   const scrollX = useRef(new Animated.Value(0)).current;
 
+  //useEffect
   useEffect(() => {
-    let mounted = true
+    let mounted = true;
     fetch(COMICS_URL)
       .then((res) => res.json())
-      .then((comics) => {setComicList(comics.data.results)
-         !comicTitle && setComicTitle("Issues")})
+      .then((comics) => {
+        setComicList(comics.data.results);
+        !comicTitle && setComicTitle("Issues");
+      })
       .then(() => {
         if (mounted) {
-            setloading(false)
+          setloading(false);
         }
-    })
-      
-    return function cleanup(){
-      mounted = false
-  }
-}, [setComicList, setComicTitle])
+      });
 
+    return function cleanup() {
+      mounted = false;
+    };
+  }, [setComicList, setComicTitle]);
+
+  //local function
   const mapComics = (comic) => {
     return (
       <ComicCard
@@ -42,10 +52,12 @@ export const ComicsList = ({ navigation, setComicTitle, comicTitle }) => {
     );
   };
 
-  return loading ?     <LoadingContainer>
-  <ActivityIndicator size="large" color="#00ff00" />
-</LoadingContainer>
- : windowWidth < 768 ? (
+  //render
+  return loading ? (
+    <LoadingContainer>
+      <ActivityIndicator size="large" color="#00ff00" />
+    </LoadingContainer>
+  ) : windowWidth < 768 ? (
     <MobileView>
       <ScrollContainer>
         <Animated.ScrollView
@@ -62,9 +74,8 @@ export const ComicsList = ({ navigation, setComicTitle, comicTitle }) => {
                 },
               },
             ],
-            { useNativeDriver: false}
+            { useNativeDriver: false }
           )}
-          
           scrollEventThrottle={1}
         >
           {comicList.map((comic) => mapComics(comic))}
@@ -91,18 +102,17 @@ export const ComicsList = ({ navigation, setComicTitle, comicTitle }) => {
       </ScrollContainer>
     </MobileView>
   ) : (
-    <WebView>
-      {comicList.map((comic) => mapComics(comic))}
-    </WebView>
+    <WebView>{comicList.map((comic) => mapComics(comic))}</WebView>
   );
 };
 
-const LoadingContainer = styled.View `
-    flex: 1;
-    justify-content: center;
-    flex-direction: row;
-    padding: 10px;
-`
+//styled components
+const LoadingContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  flex-direction: row;
+  padding: 10px;
+`;
 const ScrollContainer = styled.View`
   height: 300px;
   align-items: center;
@@ -134,6 +144,7 @@ const Indicator = styled.View`
   justify-content: center;
 `;
 
+//react native styles
 const styles = StyleSheet.create({
   normalDot: {
     height: 8,

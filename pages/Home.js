@@ -4,6 +4,7 @@ import { useWindowDimensions, Animated} from "react-native";
 import "react-native-gesture-handler";
 
 export const Home = ({ navigation }) => {
+//local consts
   const dimensions = useWindowDimensions();
   const marvelArr = ["M", "A", "R", "V", "E", "L"];
   const animatedValues = [];
@@ -12,6 +13,7 @@ export const Home = ({ navigation }) => {
     animatedValues[i] = new Animated.Value(0);
   });
 
+  //local function
   const animated = (toValue = 1) => {
     const animations = marvelArr.map((_, i) => {
       return Animated.timing(animatedValues[i], {
@@ -23,9 +25,11 @@ export const Home = ({ navigation }) => {
     Animated.stagger(100, animations).start();
   };
 
+  //useEffects 
   useEffect(() => {
   animated();}, [])
 
+  //render
   return (
     <Wrapper>
       {marvelArr.map((word, index) => {
@@ -55,6 +59,7 @@ export const Home = ({ navigation }) => {
   );
 };
 
+//styled components
 const Wrapper = styled.View`
   flex: 1;
   background-color: #fff;

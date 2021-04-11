@@ -1,38 +1,58 @@
 {
   "hero": [
     {
+      "number": 0,
       "name": "Thor",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350/portrait_uncanny.jpg"
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350/portrait_uncanny.jpg",
+      "hp": 50,
+      "dmg": 9
     },
     {
-        "name": "Spider-man",
-        "image": "http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b/portrait_uncanny.jpg"
+      "number": 1,
+      "name": "Spider-man",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b/portrait_uncanny.jpg",
+      "hp": 30,
+      "dmg": 8
     },
     {
-        "name": "Storm",
-        "image": "http://i.annihil.us/u/prod/marvel/i/mg/6/40/526963dad214d/portrait_uncanny.jpg"
+      "number": 2,
+      "name": "Storm",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/6/40/526963dad214d/portrait_uncanny.jpg",
+      "hp": 20,
+      "dmg": 11
     },
-    { 
+    {
+      "number": 3,
       "name": "Captain Marvel",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/6/80/5269608c1be7a/portrait_uncanny.jpg"
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/6/80/5269608c1be7a/portrait_uncanny.jpg",
+      "hp": 60,
+      "dmg": 6
     }
   ],
   "villain": [
     {
       "name": "Green Goblin",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/e/f0/4cd05ee55faa2/portrait_uncanny.jpg"
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/e/f0/4cd05ee55faa2/portrait_uncanny.jpg",
+      "hp": 30,
+      "dmg": 7
     },
     {
-        "name": "Mystique",
-        "image": "http://i.annihil.us/u/prod/marvel/i/mg/5/03/5390dc2225782/portrait_uncanny.jpg"
+      "name": "Mystique",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/5/03/5390dc2225782/portrait_uncanny.jpg",
+      "hp": 20,
+      "dmg": 13
     },
     {
-        "name": "Magneto",
-        "image": "http://i.annihil.us/u/prod/marvel/i/mg/3/b0/5261a7e53f827/portrait_uncanny.jpg"
+      "name": "Magneto",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/3/b0/5261a7e53f827/portrait_uncanny.jpg",
+      "hp": 40,
+      "dmg": 10
     },
-    { 
+    {
       "name": "Loki",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/d/90/526547f509313/portrait_uncanny.jpg"
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/d/90/526547f509313/portrait_uncanny.jpg",
+      "hp": 45,
+      "dmg": 9
     }
   ]
 }
