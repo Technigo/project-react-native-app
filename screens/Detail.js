@@ -9,33 +9,49 @@ const MainContainer = styled.View`
 
 const BackgropImage = styled.ImageBackground`
   flex: 1;
+  justify-content: flex-end;
+  align-items: center;
 `
 
 const PosterImage = styled.Image`
-  width: 50px;
-  height: auto;
-  flex: 3;
+  flex: 1;
+  height: 300px;
   position: absolute;
-  border: 1px solid yellow;
+  bottom: 120px;
+  width: 200px;
+  margin: 10px;
+  border: 3px solid white;
 `
 
 const TextContainer = styled.View`
-  flex: 1;
-  border: 1px solid red;
-  justify-content: flex-end;
+  margin: 10px;
+  height: 250px;
+  padding: 10px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 20px;
+  background: rgba(0,0,0, 0.6); 
 `
 
 const MovieTitle = styled.Text`
   font-size: 18px;
   color: white;
   margin: 10px;
+  margin-left: 0;
   font-weight: ${props => (props.bold ? '800' : '400')};
 `
 
 const MovieText = styled.Text`
   font-size: 12px;
-  color: white;
-  border: 1px solid blue;
+  color: ${props => (props.rating ? 'red' : 'white')};
+  margin-bottom: 10px;
+  font-weight: ${props => (props.rating ? '800' : '400')};
+`
+
+const RatingContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
 `
 
 export const Detail = () => {
@@ -55,7 +71,12 @@ export const Detail = () => {
           <PosterImage source={{uri: `http://image.tmdb.org/t/p/w342/${details.poster_path}`}}/>
           <TextContainer>
             <MovieTitle bold>{details.title}</MovieTitle>
+            <MovieText rating>{details.vote_average} / 10</MovieText>
             <MovieText>{details.overview}</MovieText>
+            <RatingContainer>
+            {details.genres.map(genre => 
+              <MovieText>{genre.name} · </MovieText>)}
+            </RatingContainer>
           </TextContainer>
         </BackgropImage>
       ) }

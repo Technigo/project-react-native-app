@@ -14,4 +14,4 @@ If I had more time I would include a search function and perhaps a share functio
 
 ## View it live
 
-Find my app here (scan the QR code with the Expo app):
+Find my app here (scan the QR code with the Expo app): https://expo.io/@sirihemsley/projects/project-react-native-app
