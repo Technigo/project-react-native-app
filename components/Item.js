@@ -50,7 +50,7 @@ const Item = (props) => {
       <ItemContainer>
         <ItemLeft>
           <Square></Square>
-          <ItemName>{props.itemName}</ItemName>
+          <ItemName>{props.text}</ItemName>
         </ItemLeft>
         <Circular></Circular>
       </ItemContainer>

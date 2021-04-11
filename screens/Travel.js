@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, TextInput, Platform } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { KeyboardAvoidingView, TextInput, View, TouchableOpacity, Platform, Keyboard } from 'react-native';
 import styled from 'styled-components/native';
 
 import Item from '../components/Item'
@@ -54,55 +53,64 @@ const AddButton = styled.View`
   align-items:center;
   border-color: #C0C0C0;
   border-width:1px;
-
-
 `;
 
 const AddSign = styled.Text`
 
 `;
 
-
 export const Travel = () => {
-  const [item, setItem] = useState();
-  const [itemsList, setItemsList] =useState([]);
+  const [item, setItem] = useState("");
+  const [itemsList, setItemsList] = useState([]);
   //The array of items
 
   const handleAddItem = () => {
-    setItemsList([...itemsList], item)
+    Keyboard.dismiss();
+    setItemsList([...itemsList, item])
     //This will change the state of the array ItemsList to 
     //the existing list but adding the new item
+   /*  setItem(null); */
+    //This will clear the input
   }
+
+  const deleteItem = (index) => {
+    let newList = [...itemsList];
+    newList.splice(index,1);
+    setItemsList(newList);
+  } 
 
   return (
     <Container>
       <Wrapper>
         <SectionTitle>Places I want to visit</SectionTitle>
           <ListOfItems>
-            <Item itemName={'Item 1'}/>
-            <Item itemName={'Item 2'}/>
-            <Item itemName={'Item 3'}/>
-            <Item itemName={'Item 4'}/>
-            <Item itemName={'Item 5'}/>
+            {
+              itemsList.map((singleItem, index) => {
+                return (
+                  <TouchableOpacity key={index} onPress={() => deleteItem(index)}> 
+                    <Item text={singleItem} />
+                  </TouchableOpacity>
+                )
+              })
+            }
           </ListOfItems>
       </Wrapper>
-      
-      <InputWrapper
+      <InputWrapper /* Why is KeyboardAvoidingView not working? */
         behaviour={Platform.OS==="ios" ? "padding" : "height"}
-        >
-        <Input placeholder={'Add something to your list...'} value ={item} onChangeText={text => setItem(text)}></Input>
+      >
+        <Input 
+          placeholder={'Add something to your list...'} 
+          value ={item} 
+          onChangeText={text => setItem(text)}>
+        </Input>
         {/* Everytime the text changes, it will grab whatever the text it is and will set 
-        the item to be that text.
-        The warning appeared when I added the onChangeText*/}
+        the item to be that text. The warning appeared when I added the onChangeText*/}
         <TouchableOpacity onPress={() => handleAddItem()}>
-          {/* When pressed it will call the function addItem. The error appeared after adding this*/}
           <AddButton>
             <AddSign>+</AddSign>
           </AddButton>
         </TouchableOpacity>
       </InputWrapper>
-      
-  
     </Container>
   );
 };
