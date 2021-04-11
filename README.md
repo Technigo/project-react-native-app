@@ -13,3 +13,4 @@ If I had more time, I would also dive into navigation between several screens in
 ## View it live
 
 The deployed project can be seen here: https://expo.io/@/projects/project-react-native-app
+Also saved as snack, which may work better on iPhone: https://snack.expo.io/@theresehag/dog-fact-app
