@@ -16,7 +16,6 @@ const TextContainer = styled.Text`
   height: 100%;
   width: 50%;
   text-align: justify;
-  margin-right: "10";
 `
 
 const Profile = ({ navigation }) => {
