@@ -68,17 +68,8 @@ const ArtDetails = ({ route }) => {
           />
           <TextContainer>
             <TitleText>{details.title} ({details.dating.presentingDate})</TitleText>
-
-            {details.scLabelLine.split(", ").map((item, index) => {
-              if (index === 0) {
-                return <MakerText key={index}>{item}</MakerText>;
-              }
-              if (index === 1) {
-                return <TypeText key={index}>{item}</TypeText>;
-              }
-              return null;
-            })}
-
+            <MakerText>{details.principalMaker}</MakerText>
+            <TypeText>{details.physicalMedium}</TypeText>
             <DescriptionText>{details.label.description}</DescriptionText>
           </TextContainer>
         </Container>
