@@ -58,7 +58,7 @@ const LifeBar = styled.View`
 
 const Life = styled.View`
   width: ${(props) => props.life};
-  height: 30px;
+  height: 27px;
   position: absolute;
   background: ${(props) => props.lifecolor};
   top: -1px;
