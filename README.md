@@ -19,4 +19,4 @@ I had a clear idea of what to do but couldn't in the end pass the params from on
 
 ## View it live
 
-https://expo.io/@/projects/project-react-native-app.
+https://exp.host/@tobias_hagberg/project-react-native-app
