@@ -15,7 +15,10 @@ export const Profile = ({ navigation }) => {
     <>
       <ProfileContainer>
         <View style={{ padding: 10,alignItems: 'center', justifyContent: 'center' }}>
-        <Button onPress={() => navigation.goBack()} title="Back to Welcome screen" />
+        <Button 
+          onPress={() => navigation.goBack()} 
+          title="Back to Welcome screen" 
+        />
         </View>
 
         <Text style={{fontWeight: '800'}}>Current profile</Text>

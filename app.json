@@ -4,7 +4,11 @@
     "slug": "project-react-native-app",
     "privacy": "public",
     "sdkVersion": "40.0.0",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,9 +20,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "In this week's project, I built my first mobile application with React Native!\nFocusing on\n- How to use React Native to create a mobile app\n- Practice using Styled Components for your styling.\n\nI Chose Focus Area: Multiscreen / Navigation",
+    "githubUrl": "https://github.com/TobiasHagberg/project-react-native-app/tree/drawer-navigation"
   }
 }
