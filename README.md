@@ -16,5 +16,9 @@ Icons: https://www.flaticon.com/authors/smashicons by Smashicons, https://www.fr
 Images: https://unsplash.com/photos/eIOPDU3Fkwk by Waldemar Brandt
 
 ## View it live
- Expo published: 
- Expo Snack: 
+ Expo published: https://expo.io/@pauan8/projects/marvel-app
+ Expo Snack: https://snack.expo.io/@pauan8/github.com-pauan8-project-react-native-app
+
+ Images:
+
+<img src="./assets/Previews/Screenshot_20210412-001629_Expo Go.jpg" style=" width:360px ; height:740px " />
