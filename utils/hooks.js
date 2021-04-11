@@ -5,8 +5,6 @@ function useIsShaking() {
   const [isShaking, setIsShaking] = useState(false);
   const [subscription, setSubscription] = useState(null);
 
-  Accelerometer.setUpdateInterval(400);
-
   const _subscribe = () => {
     setSubscription(
       Accelerometer.addListener((accelerometerData) => {
