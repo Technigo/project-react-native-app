@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
+import "react-native-gesture-handler";
 import {
   ActivityIndicator,
   ImageBackground,

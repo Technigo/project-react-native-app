@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components/native";
 import { StyleSheet, Animated, useWindowDimensions, ActivityIndicator} from "react-native";
+import "react-native-gesture-handler";
 
 import { COMICS_URL } from "../reusables/urls";
 import { ComicCard } from "../components/Comics/ComicCard";

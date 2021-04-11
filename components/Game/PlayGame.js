@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
+import "react-native-gesture-handler";
 
 // ==========================
 // = Functions
@@ -30,8 +31,10 @@ const ShakeData = styled.Text`
 font-weight: bold;
 color: black;`;
 
-export const PlayGame = () => {
+export const PlayGame = ({route}) => {
+  const {hero} = route.params;
   Accelerometer.setUpdateInterval(400);
+ /*  const {hero} = route.params; */
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
   const [data, setData] = useState({
@@ -81,7 +84,7 @@ export const PlayGame = () => {
   return (
     <ShakeView>
       {isShaking(data) && <ShakeAlert>Rolling</ShakeAlert>}
-     {(hit>5)?(<ShakeData>yes</ShakeData>):(<ShakeData>no</ShakeData>)}
+     {(hit>5)?(<ShakeData>yes  {hero} </ShakeData>):(<ShakeData>no {hero}</ShakeData>)}
     </ShakeView>
   );
 };
