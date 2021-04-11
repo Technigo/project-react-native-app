@@ -1,34 +1,23 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { Feed } from './screens/Feed'
-import { Notifications } from './screens/Notifications'
-import { createDrawerNavigator } from '@react-navigation/drawer'
-import { Page } from './screens/Page'
+import React from "react"
 
-const Drawer = createDrawerNavigator()
-
+import {StyleSheet} from 'react-native'
+import { NavigationContainer } from "@react-navigation/native"
+import AppNavigator from "./navigation/AppNavigator"
 
 const App = () => {
   return (
+    <View style={styles.main}>
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen 
-          name="Feed" 
-          component={Feed}
-        />
-        <Drawer.Screen 
-          name="Notifications" 
-          component={Notifications} 
-        />
-        <Drawer.Screen 
-          name="Page" 
-          component={Page}
-        />
-      </Drawer.Navigator>
+      <AppNavigator />
     </NavigationContainer>
-   
-   
-  );
-};
+    </View>
+  )
+}
 
 export default App
+
+const styles = StyleSheet.create({
+  main: {
+  backgroundColor: "#F2F2F2" 
+  }
+})
