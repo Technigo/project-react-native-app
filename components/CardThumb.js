@@ -1,16 +1,20 @@
 /*Outer dependencies*/
 import React from 'react';
-import { Text, Pressable, Container } from 'react-native';
+import { Pressable } from 'react-native';
 import styled from 'styled-components/native';
 
 /*Styled components*/
+const ThumbContainer = styled.View`
+flex 1;
+`;
+
+const ThumbText = styled.Text`
+  color: blue;
+`;
+
 const ThumbImage = styled.Image`
   width: 50px;
   height: 50;
-`;
-
-const ThumbContainer = styled.View`
-flex 1;
 `;
 
 export const CardThumb = (props) => {
@@ -26,7 +30,7 @@ export const CardThumb = (props) => {
     <>
       <Pressable onPressOut={onPressCardButton}>
         <ThumbContainer>
-          <Text>{card.name}</Text>
+          <ThumbText>{card.name}</ThumbText>
           <ThumbImage
             source={{
               uri: card.imageUrl,
