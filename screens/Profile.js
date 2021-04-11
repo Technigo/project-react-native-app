@@ -15,12 +15,12 @@ const Profile = ({ navigation }) => {
 
     return (
         <ProfileContainer>
-            <Text>Profile bla</Text>
+            <Text>So what's your name, stranger?</Text>
             <TextInput 
-                placeholder="Heinrich"
+                placeholder="Name"
                 onChangeText={(value) => setName(value)}
             />
-            <Button title="Your Profile" onPress={() => navigation.navigate("Overview", {name})} />
+            <Button title="Don't click" onPress={() => navigation.navigate("Overview", {name})} />
         </ProfileContainer>
     );
 };
