@@ -1,34 +1,17 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment was to build a mobile application with React Native.
 
 ## The problem
-svårt med ett nytt sätt att tänka och göra på, men det var en kul utmaning och roligt att göra en app! Jag tror att jag råkat bygga den bästa prokrastinerarappen till mig själv.
 
-Jag ville först göra project 1, men fick det inte att fungera i mobilen. Expo Go visade bara appen i en sekund och sen stängdes den ner. så jag beslöt mig för att göra detta project istället. 
-problem med att få in urlen på random cats. och problem med att få fram min consol log. för att se om jag hade datan, men kom på att jag kunde displaya catsImage.id från api:et och det fungerade så då vet jag att jag har datan.
+At first I wanted to choose the focus area: Sensors, to build a "ball in a hole" app. But I could not get it to work on my phone. I could see my app for only one second in my phone and then Expo Go crashed and the app disappeared. So I choose the focus area: API:s & sharing instead. The API I fetched my data from was https://docs.thecatapi.com to build a Cat application.
 
-JAg hade problem med att kattbilderna fetchades alla på en gång, men kom på att det hade nog med att göra att jag skrivit in randomCatImages i [] i fetchen så jag tog bort det och då fetchade jag bara en katt i taget. 
-Det var svårt att förstå hur jag skulle göra med knappen för att få den att updatera sidan så att det fetchas en ny bild för varje knapptryck.
+My idea was to have a home page with two buttons. One that was linked to a page where i fetched data from an API to show different random cat images when pressing a button. And one to a page with an other API where i fetched data to display information about different cat breeds. But I culden´t figure out how to get my API values in to a Select/Picker dropdown. I tryed so many ways and read so many articles but eventually (due to the lack of time) I hade to give up :(
+So if I hade more time I would still sit by my computer trying to solve this...
 
-jag gjorde en costum button component för att test att använda den på fler ställen.
-
-
-vad vill jag göra här näst?
-Add a font
-gör en select med olika raser länka till sida med den specifika rasen. Jag försökte med det men kunde inte få det att fungera. Jag ville att i home skulle det finnas en dropdawn att välja på olika raser och få upp i en länk och en knapp för att komma till en länk med random cats images för prokrastinering. nu har jag bara navigationen kvar ändå även om den nte fyller ett syfte nu.
-
-Om jag hade haft mer tid hade det varit kul att använda mig av apiet och göra en select och länk för olika cat breeds med info.  
-om jag haft mer tid hafde det varit roligt att göra en egen animation och lägga in.
-
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week was hard, but also a fun challenge! And I´m happy with what i achived in this few days. I also think I have learned a lot from all the googeling.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@ellefrankenberg/project-react-native-app
 
-api_key=ea0566f3-f5f8-4c25-af3c-bfb39b49849a
-""
