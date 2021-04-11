@@ -2,10 +2,9 @@ import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import styled from "styled-components/native";
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   background-color: black;
   flex: 1;
-  align-items: center;
 `;
 
 const HeaderImage = styled.Image`
@@ -33,7 +32,7 @@ const FlexWrapper = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 10px;
-`;
+`
 
 const ArtButton = styled.TouchableOpacity`
   background-color: pink;
