@@ -1,13 +1,17 @@
-# Project React Native App 📱
+Project built during Technigo Bootcamp.
 
-Replace this readme with your own information about your project.
+# Popular Movies React Native App 📱
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This app is a React Native take on a previous project I did that displays popular movies and let's you get more detailed info when you click on them.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started with looking at the structure of my previous project and decided which parts I was going to redo for this project.
+To make sure everything would work I built it one component at at time and used styled components to style it.
+Instead of doing a details page I went for an alert box that appears when a movie is pressed (using TouchableOpacity), and it displays the title, overview and the rating.
+
+Tech used: React, React Native, Styled Components, hooks, API's
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@heyzephyr/projects/popular-movies
