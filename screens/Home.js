@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react'
-import { Button, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { FlatList, TouchableOpacity, StyleSheet, } from 'react-native';
 import styled from 'styled-components/native';
 
 
@@ -16,23 +16,19 @@ export const Home = ({ navigation }) => {
     <>
       <HomeContainer>  
         <StyledText>Welcome</StyledText>
-          <FlatList
-            data={profiles}
-            renderItem={({ item }) => (
               <TouchableOpacity 
-                onPress={() => navigation.navigate('Profile', {
-                  itemId: 1001,
-                  otherParam: item,
-                })}
+                onPress={() => navigation.navigate('Profile')}
                 style={styles.TouchableOpacityContainer}>
-                  <TouchableOpacityText>Sign up</TouchableOpacityText>
+                <TouchableOpacityText>Sign up</TouchableOpacityText>
               </TouchableOpacity>
-            )}
-          />
       </HomeContainer>
       <NavigationContainer>
-        <StyledText>Navigation</StyledText>
-        <Button title="Open navigation" onPress={() => navigation.toggleDrawer()} />
+        <TouchableOpacity 
+          title="Open navigation"  
+          onPress={() => navigation.toggleDrawer()} 
+          style={styles.TouchableOpacityContainer}>
+            <TouchableOpacityText>open navigation</TouchableOpacityText>
+        </TouchableOpacity>
       </NavigationContainer>
     </>
   );
@@ -40,33 +36,35 @@ export const Home = ({ navigation }) => {
 
 // This is the main container for this screen
 
-const HomeContainer = styled.View`
+const HomeContainer = styled.SafeAreaView`
   flex: 1;  
   justify-content: center;
+  align-content: center;
   align-items: center;
   background-color: #8ECAE6;
-  padding: 20px;
+  padding: 40px;
 `;
 const StyledText = styled.Text`
   font-size: 28px;
   font-weight: 800;
   color: #023047;
   text-transform: uppercase;
+  background-color: #FFB703;
+  padding: 10px;
 `;
 const styles = StyleSheet.create({
   TouchableOpacityContainer: {
     padding: 10,
     backgroundColor: '#023047',
   }
-})
-
+});
 const TouchableOpacityText = styled.Text`
   font-size: 20px;
   font-weight: 800;
   color: #8ECAE6;
   text-transform: uppercase;
 `;
-const NavigationContainer = styled.View`
+const NavigationContainer = styled.SafeAreaView`
   flex: 1;  
   justify-content: center;
   align-items: center;

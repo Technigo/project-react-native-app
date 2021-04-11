@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native';
 import styled from 'styled-components/native';
-import { Home } from './Home';
+
 
 const LogoutContainer = styled.View` 
   flex: 1;  
@@ -13,16 +13,20 @@ const LogoutContainer = styled.View`
 `;
 
 const StyledText = styled.Text`
-  font-size: 1.5rem;
   font-weight: 800;
-  font-color: #023047;
+  color: #023047;
 `;
 
 export const Logout = () => {
-    return ( 
+  const refresh  = () => { window.location.reload("Refresh")}
+
+  return ( 
         <LogoutContainer>
             <StyledText>Thank you for your visit!</StyledText>
-            <Button title="Back Home" />
+            <Button 
+              title="Logout"
+              onPress={refresh}
+            />
         </LogoutContainer>
      );
 }
