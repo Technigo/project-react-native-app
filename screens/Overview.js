@@ -10,6 +10,15 @@ const OverviewContainer = styled.View`
   height: 100%;
 `;
 
+const TextContainer = styled.Text`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  text-align: justify;
+`
+
 const Overview = ( {navigation} ) => {
     const pressHandler = ( ) => {
         navigation.goBack()
@@ -17,9 +26,11 @@ const Overview = ( {navigation} ) => {
 
     return (
         <OverviewContainer>
-            <Text>What are you still doing here {navigation.getParam("name")}?</Text>
-            <Text> Amazed by my React Skills?</Text>
-            <Button title="Change Profile" onPress={pressHandler}/>
+            <TextContainer>
+              So, how does that nested Stack-Navigation feel {navigation.getParam("name")}?
+              You can now either go back by using the button or the arrow.
+            </TextContainer>
+            <Button title="Go back" onPress={pressHandler}/>
         </OverviewContainer>
   );
 };

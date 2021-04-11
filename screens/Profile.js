@@ -9,20 +9,34 @@ const ProfileContainer = styled.View`
   height: 100%;
 `;
 
+const TextContainer = styled.Text`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  text-align: justify;
+  margin-right: "10";
+`
+
 const Profile = ({ navigation }) => {
 
     const [name, setName] = useState ('')
 
     return (
         <ProfileContainer>
-            <Text>So what's your name, stranger?</Text>
-            <TextInput 
-                placeholder="Name"
-                onChangeText={(value) => setName(value)}
-            />
-            <Button title="Don't click" onPress={() => navigation.navigate("Overview", {name})} />
+            <TextContainer>
+                Name:
+                <TextInput 
+                    placeholder="Name"
+                    onChangeText={(value) => setName(value)}
+                />
+            </TextContainer>
+                <Button title="Submit" onPress={() => navigation.navigate("Overview", {name})} />
+
         </ProfileContainer>
     );
 };
 
 export default Profile
+

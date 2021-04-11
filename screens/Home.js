@@ -9,13 +9,25 @@ const HomeContainer = styled.View`
   height: 100%;
 `;
 
+const TextContainer = styled.Text`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  text-align: justify;
+`
+
 const Home = () => {
 
   return (
     <HomeContainer>
-      <Text>Welcome on my non-sense App!</Text>
-      <Text>Are you wondering what the hack you are doing here? Well I'm wondering that too.</Text>
-      <Text>But since you're here you might as well check out some React Native Stuff I did.</Text>
+      <TextContainer>
+        Welcome on my App!
+        On here you can navigate through two types of Navigation.
+        Simple stack-navigation and the drawer-navigation.
+        Using the hamburger menu will open the drawer-navigation. The simple stack-navigation can be found in the Profile.
+      </TextContainer>
     </HomeContainer>
   );
 }

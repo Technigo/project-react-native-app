@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from "react-native"
 import { Icon } from 'react-native-elements'
 
 const Header = ( {navigation} ) => {
-
     const openMenu = () => {
         navigation.openDrawer()
     }
@@ -15,12 +14,12 @@ const Header = ( {navigation} ) => {
                 reverse
                 name='menu'
                 type='ionicon'
-                color='#517fa4'
+                color='black'
                 onPress={openMenu}
             />
             <View>
                 <Text style={styles.headerText}>
-                    React Native Navigation
+                    Navigation in React Native
                 </Text>
             </View>
         </View>
@@ -30,20 +29,19 @@ const Header = ( {navigation} ) => {
 const styles = StyleSheet.create({
     header: {
         width: "100%",
-        heigt: "100%",
+        height: "100%",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-between",
     },
     headerText: {
         fontWeight: "bold",
-        fontSize: 20,
+        fontSize: 15,
         color: "#333",
         letterSpacing: 1,
     },
     icon:{
         position: "absolute",
-
     }
 })
 
