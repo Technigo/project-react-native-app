@@ -1,26 +1,54 @@
 import React from 'react'
-import styled from 'styled-components/native'
+import { StyleSheet } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import { createStackNavigator } from '@react-navigation/stack'
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`
+import { HomeStackScreen, LogOutStackScreen, ProfileStackScreen } from './screens/StackNavigators'
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`
+const Drawer = createDrawerNavigator()
 
 const App = () => {
   return (
-    <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
-      <Title>💅💅💅</Title>
-    </Container>
+    <NavigationContainer>
+      <Drawer.Navigator style={styles.drawerContainer}>
+        <Drawer.Screen style={styles.drawerOptions} name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Profile" component={ProfileStackScreen} />
+        <Drawer.Screen name="LogOut" component={LogOutStackScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   )
 }
 
+const styles = StyleSheet.create ({
+  drawerContainer: {
+    backgroundColor: "red"
+  },
+  drawerOptions: {
+    backgroundColor: "red"
+  }
+})
+
 export default App
+
+/*
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Home"
+          component="Home"
+          options={{ title: "Home"}}
+        />
+        <Stack.Screen 
+          name="Notifications"
+          component="Notifications"
+          options={{ title: "Notifications"}}
+      </Stack.Navigator>
+    </NavigationContainer
+      />
+  )
+}
+*/
