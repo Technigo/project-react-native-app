@@ -11,3 +11,5 @@ If I had more time I would have added some extra features and an extra component
 Technologies: API's, hooks, React, React Native, Styled Components.
 
 ## View it live
+
+https://expo.io/@carolinef3/project-react-native-app
