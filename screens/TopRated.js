@@ -13,7 +13,7 @@ const ListContainer = styled.ScrollView`
 `
 
 
-export const TopRated = () => {
+export const TopRated = ({ navigation }) => {
   const [topRated, setTopRated] = useState([])
   const TOP_LIST_API = 'https://api.themoviedb.org/3/movie/top_rated?api_key=bf4522dc489e8ffdfd36be08819077b1&language=en-US&page=1'
 

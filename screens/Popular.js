@@ -28,7 +28,7 @@ export const Popular = ({navigation}) => {
     <Container>
       <ListContainer>
           {popular.map(movie => (
-            <MovieCard {...movie} navigation={navigation} />
+            <MovieCard key={movie.id} {...movie} navigation={navigation} />
             ))}
         </ListContainer>
       </Container>
