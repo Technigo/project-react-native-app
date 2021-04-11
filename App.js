@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { ImageBackground } from 'react-native'
 import styled from 'styled-components/native'
+
+import backgroundImage from './assets/images/gtImage.jpg'
 
 const Container = styled.View`
 flex: 1;
 background-color: white;
 align-items: center;
+`
+const Containerr = styled.ImageBackground`
+flex 1;
+height: 100%;
 `
 
 const Header = styled.View`
@@ -12,8 +19,7 @@ const Header = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%
-  border: 2px solid black;
-  margin-top: 40px;
+  border: 2px solid black;  
   padding: 15px; 
   flex: 1;
   `
@@ -66,15 +72,9 @@ const Header = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%
-  border: 2px solid black;
-  margin-top: 20px;
+  border: 2px solid black; 
+  margin-top: 20px; 
   padding: 15px;  
-  `
-
-  const CreditText = styled.Text`
-  font-size: 12px;
-  color: black;
-  margin-bottom: 0;
   `
 
   const GtImg = styled.Image`
@@ -85,12 +85,12 @@ const Header = styled.View`
   
   const App = () => {
 
-    const [gts, setGts] = useState ()
-    const [data, setData] = useState([])
-
     const getRandomRecipe = () => {
       return setGts(Math.floor(Math.random() * 31))           
     }     
+    const [gts, setGts] = useState ()
+    const [data, setData] = useState([])
+
 
   useEffect(() => { 
     fetch('https://api.edamam.com/search?q=gin&app_id=2e3ab8b1&app_key=616f91fa37bcccc85e74d8e8fa4a5078&from=0&to=30') 
@@ -100,21 +100,19 @@ const Header = styled.View`
   
   if(gts === undefined){
   return(
-    <Container>      
+    <Containerr source={backgroundImage}>
       <Header>
         <Title>GT-randomizer!</Title>        
       </Header>            
-      <RecipeContainerStart>        
-            <RecipeText>Click the button below to get a nice gin&tonic recipe!</RecipeText>
-            <RecipeText>🍸🍹🍋</RecipeText>          
+      <RecipeContainerStart >
+          <RecipeText>Click the button below to get a nice gin&tonic recipe!</RecipeText>  
       </RecipeContainerStart>
       <Footer>
       <RandomRecipeBtn onPress={getRandomRecipe}>
         <BtnText>Random GT</BtnText>
-      </RandomRecipeBtn> 
-      <CreditText></CreditText>
-      </Footer>  
-    </Container>
+      </RandomRecipeBtn>      
+      </Footer>       
+    </Containerr>
   )
 }
   return (
@@ -122,7 +120,7 @@ const Header = styled.View`
       <Header>
         <Title>GT-randomizer!</Title>        
       </Header>            
-      <RecipeContainer >
+      <RecipeContainer>
           <Container>
           <RecipeName>{data.hits[gts].recipe.label}</RecipeName>
             <GtImg source={{ uri: data.hits[gts].recipe.image}}/>
@@ -134,8 +132,7 @@ const Header = styled.View`
       <Footer>
       <RandomRecipeBtn onPress={getRandomRecipe}>
         <BtnText>Random GT</BtnText>
-      </RandomRecipeBtn> 
-      <CreditText></CreditText>
+      </RandomRecipeBtn>       
       </Footer>  
     </Container>      
   )
