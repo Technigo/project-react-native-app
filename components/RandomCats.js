@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native'
 
+import { Header } from './Header'
 import { MyCustomButton } from './MyCustomButton'
 
 
 const Container = styled.View`
   flex: 1;
   background-color: #f1f2f1;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
 `
 
 const ImageContainer = styled.View`
@@ -31,22 +31,24 @@ export const RandomCats = () => {
       .then(json => setRandomCatImages(json))
     },[]) 
     
-
     const updateRandomCat = () => {
-        fetch (CAT_API)
-          .then(res => res.json())
-          .then(json => setRandomCatImages(json))
+      fetch (CAT_API)
+        .then(res => res.json())
+        .then(json => setRandomCatImages(json))
     }
 
   return(
-    <Container>
-      {randomCatImages.map(catImage => (
-        <ImageContainer key={catImage.id}>
-          <CatImage source={{uri: catImage.url}}/>
-          <MyCustomButton text='🐾  NEXT  🐾' onPress={updateRandomCat} />
-        </ImageContainer >
-      ))}
-    </Container>
+    <>
+      <Header text= "CATZ!"/>
+      <Container>
+        {randomCatImages.map(catImage => (
+          <ImageContainer key={catImage.id}>
+            <CatImage source={{uri: catImage.url}}/>
+            <MyCustomButton text='🐾  NEXT  🐾' onPress={updateRandomCat} />
+          </ImageContainer >
+        ))}
+      </Container>
+    </>
   )
 }
 

@@ -7,8 +7,6 @@ import { RandomCats } from './components/RandomCats'
 import { CatInfo } from './components/CatInfo'
 
 
-
-
 const Stack = createStackNavigator()
 
 
