@@ -8,4 +8,6 @@ We got some starting code for this project and the problem was mainly to choose 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@polkapetunian/projects/project-react-native-app
+
+Use the Expo Go mobile app to view this app.
