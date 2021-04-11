@@ -5,7 +5,7 @@ import { ChuckNorris } from './screens/ChuckNorris';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { KanyeWest } from './screens/KanyeWest'
 import { RandomAdvice } from './screens/RandomAdvice'
-import styled from 'styled-components/native';
+
 
 
 

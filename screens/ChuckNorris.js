@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-// import {  } from 'react-native-gesture-handler';
-import styled, { ThemeConsumer } from 'styled-components/native';
 
-// This is the main container for this screen
+import styled from 'styled-components/native';
+
 const NotificationsContainer = styled.View`
   display: flex;
   justify-content: space-evenly;
@@ -14,7 +13,7 @@ const NotificationsContainer = styled.View`
   background-color:#20c5cb;
 `;
 
-const TouchButton = styled(TouchableOpacity)`
+const TouchButton = styled.TouchableOpacity`
   background-color:#e68577;
   height: 100px;
   width: 100px;
@@ -23,12 +22,12 @@ const TouchButton = styled(TouchableOpacity)`
   align-items: center;
 `
 
-const ButtonText = styled(Text)`
+const ButtonText = styled.Text`
   color:#20c5cb;
   text-align: center;
   font-size: 20px;
 `
-const InfoText = styled(Text)`
+const InfoText = styled.Text`
   font-size: 20px;
 `
 
@@ -46,8 +45,6 @@ export const ChuckNorris = ({navigation}) => {
     .then(value => setChuckNorris(value))
     .catch(err => console.error(err))
   }
-
-
 
   return (
     <NotificationsContainer>

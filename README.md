@@ -1,13 +1,16 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+First try in learning react native. 
+Combined a nav-bar with fetch from 3 API´s
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Had a problem to get it all up and running.
+I still cant connect to expo on my mobile.
+
+If it would have worked better with all the technical connections I would have had some more time to experiment with more interaction and to acctually make the app work in Expo mobile.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Cant get it to work on Netlify unfortunately.  

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import styled, { ThemeConsumer } from 'styled-components/native';
+import styled from 'styled-components/native';
 
-// This is the main container for this screen
 const NotificationsContainer = styled.View`
   display: flex;
   justify-content: space-evenly;
@@ -13,7 +12,7 @@ const NotificationsContainer = styled.View`
   background-color:#e68577;
 `;
 
-const TouchButton = styled(TouchableOpacity)`
+const TouchButton = styled.TouchableOpacity`
   background-color:#7f8b7c;
   height: 100px;
   width: 100px;
@@ -22,12 +21,12 @@ const TouchButton = styled(TouchableOpacity)`
   align-items: center;
 `
 
-const ButtonText = styled(Text)`
+const ButtonText = styled.Text`
   color:#e68577;
   text-align: center;
   font-size: 20px;
 `
-const InfoText = styled(Text)`
+const InfoText = styled.Text`
   font-size: 20px;
 `
 
@@ -46,8 +45,6 @@ export const RandomAdvice = ({navigation}) => {
     .catch(err => console.error(err)) 
   }
 
-
-
   return (
     <NotificationsContainer>
       <View>
@@ -58,7 +55,7 @@ export const RandomAdvice = ({navigation}) => {
       </View>
       <InfoText>{randomAdvice}</InfoText>
       <TouchButton onPress={()=> navigation.navigate('HOME')}>
-        <ButtonText>GO HOME</ButtonText>
+        <ButtonText>BACK</ButtonText>
       </TouchButton>
     </NotificationsContainer>
   );
