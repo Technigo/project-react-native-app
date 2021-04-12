@@ -12,4 +12,6 @@ It was a completely new way of working with styling using Styled Components, a b
 
 ## View it live
 
-11 April 2021: Published links does not currently work for iOS.
+To view this project live, please follow the link below and scan the QR code with the Expo Mobile App (Android phone only. 11 April 2021: Published links does not currently work for iOS)
+
+https://expo.io/@idasylven/projects/self-help-app
