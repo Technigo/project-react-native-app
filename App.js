@@ -63,7 +63,7 @@ const App = () => {
     try {
       const result = await Share.share({
         message: "Find cool dog facts here:",
-        url: "https://expo.io/@/projects/project-react-native-app",
+        url: "https://expo.io/@theresehag/projects/project-react-native-app",
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
