@@ -12,6 +12,12 @@ It was a completely new way of working with styling using Styled Components, a b
 
 ## View it live
 
-To view this project live, please follow the link below and scan the QR code with the Expo Mobile App (Android phone only. 11 April 2021: Published links does not currently work for iOS)
+_11 April 2021: This project was originally made with the foundation of an iPhone 8. Published links does not currently work for iOS_
+
+To view this project live, please follow the link below and scan the QR code with the Expo Mobile App (Android phone only).
 
 https://expo.io/@idasylven/projects/self-help-app
+
+You can also find a web preview of the project as a snack by following this link:
+
+https://snack.expo.io/@idasylven/uplifting-chocolates-
