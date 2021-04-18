@@ -26,13 +26,11 @@ export const MovieCard = ({ title, poster_path, overview, vote_average }) => {
   }
 
   return (
-    <>
     <TouchableOpacity onPress={onPressCard}>
       <CardContainer>
         <MovieImage source={{uri: `https://image.tmdb.org/t/p/w342${poster_path}`}} />
       </CardContainer>
     </TouchableOpacity>
-    </>
   )
 
 }
