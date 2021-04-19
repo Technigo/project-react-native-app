@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "oracle-react-native-app",
+    "slug": "oracle-react-native-app",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "This is React Native project dedicated to the creation of Oracle app for mobile phone. It uses accelerometer in the mobile phone to activate random function selecting answers from the Oracle. Timer functions are deployed to make instructions and messages disappear after a few seconds.",
+    "githubUrl": "https://github.com/vladjnbykov/project-react-native-app/tree/shake-sensor"
   }
 }
