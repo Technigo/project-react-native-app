@@ -10,4 +10,4 @@ If I had more time I would like to add a home screen with a logo, short rules an
 
 ## View it live
 
-This is the project on Expo https://expo.io/@erry/projects/dont-drop-your-phone The Expo app is required to scan the QR code and open the app.
+This is the project on Expo https://expo.io/@erry/projects/shake-it The Expo Go app is required to scan the QR code and open the project.
