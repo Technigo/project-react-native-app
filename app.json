@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "dont-drop-your-phone",
-    "slug": "dont-drop-your-phone",
+    "name": "shake-it",
+    "slug": "shake-it",
     "privacy": "public",
     "sdkVersion": "37.0.0",
     "platforms": [
@@ -26,7 +26,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "",
+    "description": "A Shaking game for your phone! Created with React Native.",
     "githubUrl": "https://github.com/TheErry/project-react-native-app/tree/shake-sensor"
   }
 }
