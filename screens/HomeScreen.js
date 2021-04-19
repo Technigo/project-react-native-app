@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 import {Share, TouchableOpacity} from 'react-native';
 
+import { API_URL } from '../reusable/urls';
+
 
 
 
@@ -13,7 +15,7 @@ const HomeScreen = () => {
       fetchAdvice();
     },);
 
-    const API_URL='https://api.adviceslip.com/advice'
+    
   
     const fetchAdvice = () => {
       fetch(API_URL)
