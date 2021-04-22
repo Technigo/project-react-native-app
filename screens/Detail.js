@@ -67,7 +67,7 @@ export const Detail = () => {
   return (
     <MainContainer>
       { details.length !== 0 && (
-        <BackgropImage source={{uri: `http://image.tmdb.org/t/p/original/${details.backdrop_path}`}}>¨
+        <BackgropImage source={{uri: `http://image.tmdb.org/t/p/original/${details.backdrop_path}`}}>
           <PosterImage source={{uri: `http://image.tmdb.org/t/p/w342/${details.poster_path}`}}/>
           <TextContainer>
             <MovieTitle bold>{details.title}</MovieTitle>

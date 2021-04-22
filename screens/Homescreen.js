@@ -11,15 +11,15 @@ const HomeContainer = styled.View`
 `
 
 const MainHeading = styled.Text`
-  font-size: 37px;
+  font-size: 27px;
   color: white;
   margin-bottom: 20px;
-  font-weigth: 800;
+  font-weight: 800;
   text-align: center;
 `
 
 const SubHeading = styled.Text`
-  font-sixe: 34px;
+  font-size: 16px;
   color: white;
   margin-bottom: 30px;
 `
