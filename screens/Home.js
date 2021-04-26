@@ -18,7 +18,7 @@ const HomeContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vw;
+  height: 100%;
 `
 
 const styles = StyleSheet.create({

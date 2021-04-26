@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 const HeaderContainer = styled.View`
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 80px;
   background-color: #443a70;
 `
 
