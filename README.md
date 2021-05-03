@@ -1,10 +1,11 @@
 # Project React Native App 📱
 
-The assignment wast to create a drawer navigator containing at least three different items. 
+## Learning goals
 
-
-## The problem
-
+How to:
+-use React Native to create a mobile app
+-use styled components for styling
+-create a drawer navigator
 
 
 ## View it live
