@@ -25,8 +25,6 @@ const ImageGallery = () => {
         )
       }, [])
 
-      console.log(movies)
-
       const Container = styled.View`
       flex:1`
 
@@ -49,9 +47,6 @@ height: 800px
 }
 
 export default ImageGallery
-
-
-//source={{ uri:`https://image.tmdb.org/t/p/w1280/${details.poster_path}`}}
 
 
 

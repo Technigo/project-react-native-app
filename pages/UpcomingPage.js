@@ -85,7 +85,7 @@ const Upcoming = ({navigation}) => {
           </LoaderContainer>
           : <Content horizontal={true}> 
             {movies.map((movie) => (
-              <ImageContainer>
+              <ImageContainer key={movie.id}>
                 <Top
                 blurRadius={5}
                 source={{ uri:`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}}>
