@@ -38,6 +38,7 @@ height: 800px
       
       {movies.map(movie => (
           <MyBackground
+          key={movie.id}
           source={{ uri:`https://image.tmdb.org/t/p/w1280/${movie.poster_path}`}}
           ></MyBackground>
       ))}

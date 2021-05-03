@@ -28,7 +28,6 @@ font-weight: bold;
 padding: 0px 20px 20px 20px
 `
 
-
 const HomeScreen = ({navigation}) => {
   return (
     <Container >
@@ -52,9 +51,7 @@ const HomeScreen = ({navigation}) => {
   )
 }
 
-
 const Stack = createStackNavigator();
-
 
 export default function App() {
   return (
