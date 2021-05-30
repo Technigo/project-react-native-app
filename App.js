@@ -1,8 +1,9 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { Feed } from './screens/Feed';
-import { Notifications } from './screens/Notifications';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+
+import { Feed } from './screens/Feed'
+import { TodoList } from './screens/TodoList'
 
 const Drawer = createDrawerNavigator();
 
@@ -11,7 +12,7 @@ const App = () => {
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Notifications" component={Notifications} />
+        <Drawer.Screen name="Your Todos" component={TodoList} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
