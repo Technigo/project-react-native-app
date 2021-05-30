@@ -4,6 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 
 import { Feed } from './screens/Feed'
 import { TodoList } from './screens/TodoList'
+import { Home } from './screens/Home'
 
 const Drawer = createDrawerNavigator();
 
@@ -11,8 +12,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <Drawer.Navigator>
-        <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Your Todos" component={TodoList} />
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="TodoList" component={TodoList} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

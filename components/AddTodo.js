@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextInput, Button, TouchableOpacity, Keyboard, Platform } from 'react-native'
 import styled from 'styled-components/native'
+
+import { TodoList } from '../screens/TodoList'
 
 const InputWrapper = styled.KeyboardAvoidingView`
   flex-direction: row;
@@ -43,6 +45,10 @@ export const AddTodo = () => {
 	const [todo, setTodo] = useState("")
   const [todoList, setTodoList] = useState([])
 
+	useEffect(() => {
+		submitNewTodo
+	}, [todoList])
+
   const submitNewTodo = () => {
     Keyboard.dismiss();
 		setTodoList([...todoList, todo])
@@ -71,6 +77,11 @@ export const AddTodo = () => {
 			<TodoText>
 				You added todo "{todoList.slice(-1)}" to your list!
 			</TodoText>
+			<TodoList
+				todo={todo}
+				todoList={todoList} 
+			/>
+
 		</>
 	)
 }
