@@ -1,13 +1,20 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment was to build an application for mobile using React Native. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I struggled a lot with this week's assignment 🤯 I had a lot of issues downloading all dependencies. And along came the issues with understanding React Native😅 After trying different approaches to fulfill the minimum requirements I ended up doing a multiscreen app using React Drawer Navigation. Tech that I used:
+
+- React Drawer Navigator containing 2 different items, Home and TodoList.
+- useState hook, allowing the user to add information on Home.
+- useEffect hook, to render every time the state changes.
+- navigation.navigate() and route.params to pass data between screens
+- Styled Components
+
+If I had more time I would read up more on Styled Components and passing props, since it felt like I just repeated a lot of code.
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.io/@tuttibalutti/project-react-native-app 
