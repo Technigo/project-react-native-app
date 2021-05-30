@@ -1,36 +1,56 @@
-import React, { useState, useEffect, Component } from 'react'
-import { View, Text, Platform, Button, TouchableOpacity, Keyboard, FlatList } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Platform, Button, TouchableOpacity, Keyboard } from 'react-native'
 import styled from 'styled-components/native'
 import SelectMultiple from 'react-native-select-multiple'
 
-import { HamburgerMenu } from '../components/HamburgerMenu'
 import { Header } from '../components/Header'
-import { AddTodo } from '../components/AddTodo'
-//import { RadioButton } from '../components/RadioButton'
 
 // This is the main container for this screen
 const HomeContainer = styled.View`
-  flex: 1;
+	flex: 1;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: red;
+  background-color: #0000FF;
+`
+
+const TodoContainer = styled.View`
+	flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `
 
 const InputWrapper = styled.KeyboardAvoidingView`
-  flex-direction: row;
+	flex-direction: row;
   justify-content: center;
   align-items: center;
 `
 
 const Input = styled.TextInput`
-  margin: 20px;
+  margin: 10px;
   padding: 15px 15px;
   background-color: #fff;
   border-radius: 60px;
   border-color: #fdbaf8;
   border-width: 3px;
   width: 220px;
+`
+
+const GoButton = styled.View`
+  margin: 20px; 
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #2196F3;
+  border-color: #fdbaf8;
+  justify-content: center;
+  align-items: center; 
+`
+const GoButtonText = styled.Text`
+	font-weight: bold;	  
+	color: #fff;
 `
 
 const AddButton = styled.View`
@@ -45,138 +65,108 @@ const AddButton = styled.View`
   align-items: center; 
 `
 
-const ButtonSign = styled.Text`
+const ButtonText = styled.Text`
   font-weight: bold;
   color: #93329e;
 `
 
-const List = styled.FlatList`
-	background-color: green;
-`
-
-const HeaderContainer = styled.View`
-  width:100%;	
+const SelectWrapper = styled.View`
+	margin-left: 10%;
 	display: flex;
-	margin-bottom: 50px;
-	flex-direction: row;
-	justify-content: space-around;
-	background-color: white;
+	flex-direction: column;
+	width: 100%;
+	align-items: flex-start;
 `
 
-const TodoContainer = styled.View`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0000FF;
-  width: 100%;
+const StyledText = styled.Text`
+	margin: 10px;
+	width: 80%;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 1px 1px 2px #fdbaf8;
+`
+const StyledTitle = styled.Text`
+	margin: 10px 50px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 1px 1px 2px #fdbaf8;
 `
 
-// const ButtonContainer = styled.View`
-//   align-self: flex-start;
-//   background-color: green;
-//   width: 20%;
-// `
-
-// The prop "navigation" is important if you are trying to open/toggle the drawer
-//  directly via Javascript
 export const Home = ({ navigation }) => {
-  const [todo, setTodo] = useState("")
-  //const [todoList, setTodoList] = useState([])
+  const [text, setText] = useState("")
 	const [todoList, setTodoList] = useState([])
 	const [selectedCategories, setSelectedCategories] = useState([])
+	
 	const categories = ['Study', 'Fun', 'Home']
 
 	useEffect(() => {
 		submitNewTodo
-		//onTodoChanged
 	}, [todoList])
 
   const submitNewTodo = () => {
     Keyboard.dismiss();
-		console.log(todo)
-		console.log(selectedCategories)
 		let categoriesArray = selectedCategories.map(category => {
 			return category.value
 		})
-		console.log(categoriesArray)
-		setTodoList([...todoList, {todo: todo, category: categoriesArray }])
-
-		setTodo(null)
+		
+		setTodoList([...todoList, {todo: text, category: categoriesArray }])
+		setText(null)
   }
 
-	// const onTodoChanged = (index, event) => {
-	// 	let newTodo = [...todoList]
-	// 	newTodo[index] = event.target.value
-
-	// 	setTodoList(newTodo)
-	// }
-
 	const onSelectionsChange = (event) => {
-		console.log(event)
 		setSelectedCategories(event)
 	} 
 
-	// const onCategoryChanged = (event) => {
-	// 	todoList.category(event.target.value)
-	// 	setTodoList([...todoList])
-	// }
-
-	console.log(todoList)
-	//console.log(category)
-
-
-	//const list = Object.keys(todoList)
-  
 	return (
-    <HomeContainer>
-			<Header />
-			<TodoContainer>
-			<InputWrapper
-				behavior={Platform.OS === "ios" ? "padding" : "height"}
-			>
-				<Input 
-					type="text"
-					placeholder={'Add todo'} 
-					value ={todo} 
-					onChangeText={(text) => setTodo(text)}>
-				</Input>
-				<TouchableOpacity onPress={() => submitNewTodo()}>
-					<AddButton>
-						<ButtonSign>+</ButtonSign>
-					</AddButton>
+		<>
+			<HomeContainer>
+				<Header />
+				<TodoContainer>
+					<StyledText>{
+						todoList.length === 0 ? "You currently have 0 todo's" 
+						: `You added todo "${todoList[todoList.length - 1].todo}" to your list!`
+					}
+					</StyledText>
+					<InputWrapper behavior={
+						Platform.OS === "ios" ? "padding" 
+						: "height"
+					}>
+						<Input 
+							type="text"
+							placeholder={'Add todo'} 
+							value ={text} 
+							onChangeText={(item) => setText(item)}>
+						</Input>
+						<TouchableOpacity onPress={() => submitNewTodo()}>
+							<AddButton>
+								<ButtonText>+</ButtonText>
+							</AddButton>
+						</TouchableOpacity>
+					</InputWrapper>
+					<SelectWrapper>
+						<StyledTitle>Categories</StyledTitle>
+						<SelectMultiple 
+							items={categories}
+							selectedItems={selectedCategories}
+							onSelectionsChange={onSelectionsChange}
+						/>
+					</SelectWrapper>	
+				</TodoContainer>
+				<TouchableOpacity 
+					title="SEE MY LIST" 
+					onPress={() => navigation.navigate('TodoList', { todoList: todoList})}>
+					<GoButton>
+						<GoButtonText>SEE MY LIST</GoButtonText>
+					</GoButton>
 				</TouchableOpacity>
-			</InputWrapper>
-			<View>
-				<SelectMultiple 
-					items={categories}
-					selectedItems={selectedCategories}
-					onSelectionsChange={onSelectionsChange}
-				/>
-			</View>
-			<Text> {todoList.length === 0 ? "You have 0 todo's" : `You added todo "${todoList[todoList.length - 1].todo}" to your list!`}
-			</Text>
-			{todoList.map((item) => {
-				return (
-				<Text>{item.todo}</Text>
-				)
-			})}
-			
-			{/* <List
-				data={todoList}
-				renderItem={({ item }) => (
-					<TouchableOpacity onPress={() => navigation.navigate('TodoList', {
-						todolist: todoList
-					})}>
-						<Text>{item}</Text>
-					</TouchableOpacity>
-				)}
-			/> */}
-			</TodoContainer>
-			<Button 
-          title="Menu" 
-          onPress={() => navigation.openDrawer()}   
-        />
-    </HomeContainer>
+				<Button 
+						title="Menu" 
+						onPress={() => navigation.openDrawer()}   
+					/>
+			</HomeContainer>
+		</>
   )
 }

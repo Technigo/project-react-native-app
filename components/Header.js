@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components/native'
 
 const Title = styled.Text`
-  display: flex;
+  margin-top: 15%;
+	display: flex;
   justify-content: center;
   align-items: center;
   font-size: 34px;
   font-weight: bold;
   color: #fff;
-  text-shadow: 2px 2px 3px #fdbaf8;
-  
+  text-shadow: 2px 2px 3px #fdbaf8;	
 `
 
 export const Header = () => {
