@@ -28,7 +28,7 @@ const AnswerText = styled.Text`
 
 const BackButton = styled.TouchableOpacity`
   position: absolute;
-  top: 550px;
+  top: 640px;
   border: 2px solid white;
   border-radius: 25px;
   margin-top: 20px;
