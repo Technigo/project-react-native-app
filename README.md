@@ -1,4 +1,4 @@
-Project built during Technigo Bootcamp.
+Project week 13 of Technigo bootcamp
 
 # Popular Movies React Native App 📱
 
