@@ -9,3 +9,5 @@ Describe how you approached to problem, and what tools and techniques you used t
 ## View it live
 https://expo.io/@liaback/projects/project-react-native-app
 
+https://snack.expo.io/@liaback/react-native-app---shake-sensore
+
