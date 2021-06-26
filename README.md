@@ -1,4 +1,4 @@
-# Project Dont Drop Your Phone 📱
+# Project Shake It 📱
 
 This app was built with the purpose of practice to use React Native and Styled Components, with the focus point of using the Accelerometer. It's a simple game where you have to shake your phone as hard and long as possible to gain points.
 
