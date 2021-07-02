@@ -8,21 +8,22 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@unimodules/core": "^6.0.0",
-    "@unimodules/react-native-adapter": "^6.3.1",
+    "@unimodules/core": "~7.1.1",
+    "@unimodules/react-native-adapter": "~6.3.1",
     "braces": "^3.0.2",
-    "expo": "^40.0.1",
-    "expo-sensors": "~9.2.0",
+    "expo": "^42.0.0",
+    "expo-linking": "~2.3.1",
+    "expo-sensors": "~10.2.2",
     "mem": "^6.1.1",
     "minimist": "^1.2.5",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
-    "react-native": "^0.61.4",
-    "react-native-web": "^0.15.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-web": "~0.13.12",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
-    "babel-preset-expo": "^7.1.0"
+    "babel-preset-expo": "8.3.0"
   },
   "private": true
 }
