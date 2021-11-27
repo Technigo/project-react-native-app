@@ -1,47 +1,49 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import Header from '../Header';
+import { View, Image, Text, Button, StyleSheet } from "react-native";
 
-const Container = styled.View`
-	background-color: black;
-	justify-content: center;
-	align-items: center;
-    font-family: Merienda;
-    margin: 1rem 0;
-    width: 80%;
-    height: auto;
-    flex: 5;
-`;
-
-const ImageGif = styled.Image`
-    borderRadius: 10px;
-    margin: 2rem auto;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: wheat;
-    margin: 1rem auto;
-`;
-
-const StartButton = styled.Button`
-`;
 
 const Start = ({ navigation }) => {
     return (
-        <Container>
-            <Header />
-            <ImageGif
-                style={{ width: 250, height: 250, marginBottom: 20, fontSize: 24 }}
+        <View style={styles.container}>
+            <Image
+                style={styles.image}
                 source={require('../../assets/zultar.gif')} />
-            <Title>Do you want to know your fortune?</Title>
-            <StartButton
+            <Text style={styles.text}>Do you want to know your fortune?</Text>
+            <Button
                 title="Tap to ask"
                 color="red"
                 onPress={() => navigation.navigate('Answers')}
             />
-        </Container>
+        </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: "black",
+        justifyContent: "center",
+        alignItems: "center",
+        fontFamily: "Merienda",
+        width: "100%",
+        flex: 1,
+    },
+    image: {
+        borderRadius: 10,
+        width: 250,
+        height: 250,
+        marginBottom: 20
+    },
+    text: {
+        fontSize: 24,
+        color: "wheat",
+        margin: 16,
+        textAlign: "center",
+    },
+    button: {
+        marginTop: 16,
+        backgroundColor: "blue",
+    }
+
+});
 
 export default Start;

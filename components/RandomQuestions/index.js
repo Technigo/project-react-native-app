@@ -2,28 +2,22 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Footer from '../Footer';
 import Instructions from '../Instructions';
-import Lottie from "react-lottie";
-import animationData from '../../lotties/big-brother-watching.json';
 
 const Container = styled.View`
 	background-color: black;
-    border-radius: 10px;
 	justify-content: space-around;
 	align-items: center;
     font-family: Merienda;
-    margin: 1rem 0;
-    width: 85%;
-    height: auto;
+    width: 100%;
     flex: 1;
 `;
 
 const TitleContainer = styled.View`
-    margin: 2rem auto;
+    margin: 10px auto;
     text-align: center;
     justify-content: center;
-    margin: 0 auto;
     flex: 1;
-
+    background-color: gray;
 `;
 
 const Title = styled.Text`
@@ -32,10 +26,10 @@ const Title = styled.Text`
 `;
 
 const QuestionsContainer = styled.View`
-    background: black;
+    background: gray;
     width: 80%;
     height: auto;
-    margin: 2rem auto;
+    margin: 10px auto;
     text-align: center;
     border-radius: 10px;
     justify-content: center;
@@ -46,27 +40,19 @@ const QuestionsContainer = styled.View`
 const Questions = styled.Text`
 	font-size: 24px;
     height: auto;
-    margin: 0.5rem auto;
+    margin: 8px auto;
     text-align: center;
     color: white;
 `;
 
 const RandomQuestions = ({ question, navigation }) => {
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
+
     return (
         <Container>
             <TitleContainer>
-                <Title>Magic Zoltar</Title>
+                <Title>Zoltar says to you: </Title>
             </TitleContainer>
 
-            <Lottie options={defaultOptions} height={150} width={150} />
             {question && <QuestionsContainer>
                 <Questions>{question.question}</Questions>
                 <Questions>{question.answer}</Questions>

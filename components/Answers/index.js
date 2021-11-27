@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components/native';
 import Footer from '../Footer';
 import Instructions from '../Instructions';
-import Lottie from "react-lottie";
-import animationData from '../../lotties/speak-and-talk.json';
 import Concentrate from '../Concentrate';
 
 const Container = styled.View`
@@ -11,18 +9,16 @@ const Container = styled.View`
 	justify-content: space-around;
 	align-items: center;
     font-family: Merienda;
-    margin: 1rem 0;
-    width: 85%;
-    height: auto;
+    width: 100%;
     flex: 1;
 `;
 
 const TitleContainer = styled.View`
-    margin: 2rem auto;
+    margin: 10px auto;
     text-align: center;
     justify-content: center;
-    margin: 0 auto;
-    flex: 1.5;
+    flex: 1;
+    background-color: gray;
 `;
 
 const Title = styled.Text`
@@ -34,7 +30,7 @@ const AnswerContainer = styled.View`
     background: red;
     width: 70%;
     height: auto;
-    margin: 3rem auto;
+    margin: 10px;
     text-align: center;
     border-radius: 10px;
     justify-content: center;
@@ -45,21 +41,14 @@ const AnswerContainer = styled.View`
 const Answer = styled.Text`
 	font-size: 24px;
     height: auto;
-    margin: 2rem auto;
+    margin: 32px auto;
     text-align: center;
     color: white;
 `;
 
 
 const Answers = ({ answer, navigation }) => {
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
+
     console.log("from Answers component", answer)
     return (
         <Container>
@@ -68,11 +57,10 @@ const Answers = ({ answer, navigation }) => {
                     <TitleContainer>
                         <Title>Zoltar says</Title>
                     </TitleContainer>
-                    <Lottie options={defaultOptions} height={150} width={200} />
                     <AnswerContainer>
                         <Answer>{answer}</Answer>
                     </AnswerContainer>
-                    <Instructions instructions={"Ask again and shake your"} />
+                    <Instructions instructions={"Ask again and shake your phone"} />
                 </> :
                 <Concentrate />}
             <Footer text={"Don't know what to ask for?"} sign={">"} navigation={navigation} direction={'Randomquestions'} />

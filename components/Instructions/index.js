@@ -2,21 +2,23 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
-	background-color: black;
-	align-items: center;
-    margin: 1.5rem 0;
-    width: 100%;
+	background: gray;
+    margin: 24px 0;
+    width: 80%;
     height: auto;
-    flex: 0.5;
+    text-align: center;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
 `;
 
 const Text = styled.Text`
-	font-size: 20px;
+	font-size: 17px;
 	color: wheat;
-    margin: 1rem auto;
+    margin: 10px;
     font-style: italic;
-    justify-content: center;
     font-family: Merienda;
+    flex-wrap: wrap;
 `;
 
 const Instructions = ({ instructions }) => {

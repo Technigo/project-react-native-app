@@ -6,7 +6,7 @@ const Container = styled.View`
 	justify-content: center;
 	align-items: center;
     width: 100%;
-    height: 2rem;
+    height: 32px;
     flex: 1;
 `;
 
