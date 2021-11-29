@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Accelerometer } from 'expo-sensors';
-import styled from 'styled-components/native';
+import React, { useState, useEffect } from "react";
+import { Accelerometer } from "expo-sensors";
+import styled from "styled-components/native";
 
 // ==========================
 // = Functions
@@ -48,7 +48,8 @@ export const SensorComponent = () => {
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
 
-  const _subscribe = () => {
+  const subscribe = () => {
+    Accelerometer.setUpdateInterval(1000);
     // Save the subscription so we can stop using the accelerometer later
     setSubscription(
       // This is what actually starts reading the data
@@ -62,17 +63,17 @@ export const SensorComponent = () => {
 
   // This will tell the device to stop reading Accelerometer data.
   // If we don't do this our device will become slow and drain a lot of battery
-  const _unsubscribe = () => {
+  const unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
   };
 
   useEffect(() => {
     // Start listening to the data when this SensorComponent is active
-    _subscribe();
+    subscribe();
 
     // Stop listening to the data when we leave SensorComponent
-    return () => _unsubscribe();
+    return () => unsubscribe();
   }, []);
 
   return (

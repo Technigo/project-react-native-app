@@ -10,7 +10,7 @@
   "dependencies": {
     "braces": "^3.0.2",
     "expo": "^40.0.1",
-    "expo-sensors": "^9.2.0",
+    "expo-sensors": "~8.1.0",
     "mem": "^6.1.1",
     "minimist": "^1.2.5",
     "react": "16.8.3",
