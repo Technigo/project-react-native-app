@@ -1,26 +1,73 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from "react";
+import styled from "styled-components/native";
+import * as Font from "expo-font";
+import ShakeApi from "./components/ShakeApi";
+import { View, Text } from "react-native";
+import { MainContainer, Container, Ball, ViewPort } from "./components/StyledComponents";
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
+const Info = styled.View`
+  z-index: 100;
+  position: absolute;
+  width: 100px;
+  flex: 1;
+  top: 100px;
 `;
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
+const InfoText = styled.Text`
+  font-size: 16px;
+  text-align: center;
+  color: rosybrown;
 `;
 
-const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
+export default class App extends React.Component {
+  state = {
+    fontsLoaded: false,
+  };
 
-export default App;
+  async loadFonts() {
+    await Font.loadAsync({
+      // Load a font from a static resource
+      LondrinaSolidBlack: require("./assets/fonts/LondrinaSolid-Black.ttf"),
+
+      // Any string can be used as the fontFamily name. Here we use an object to provide more control
+      "LondrinaSolid-Regular": {
+        uri: require("./assets/fonts/LondrinaSolid-Regular.ttf"),
+        display: Font.FontDisplay.FALLBACK,
+      },
+    });
+    this.setState({ fontsLoaded: true });
+  }
+
+  componentDidMount() {
+    this.loadFonts();
+  }
+
+  render() {
+    // Use the font with the fontFamily property after loading
+    if (this.state.fontsLoaded) {
+      return (
+        <MainContainer>
+          <Info>
+            <InfoText>Shake your phone to play</InfoText>
+          </Info>
+          <Container>
+            <Ball
+              style={{
+                shadowOpacity: 0.75,
+                shadowRadius: 4,
+                shadowColor: "grey",
+                shadowOffset: { height: 7, width: 20 },
+              }}
+            >
+              <ViewPort>
+                <ShakeApi />
+              </ViewPort>
+            </Ball>
+          </Container>
+        </MainContainer>
+      );
+    } else {
+      return null;
+    }
+  }
+}
