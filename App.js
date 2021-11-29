@@ -1,26 +1,22 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { ButtonApi } from './screens/ButtonApi'
+import { ShakeApi } from './screens/ShakeApi'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import { StartScreen } from './screens/StartScreen'
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Drawer = createDrawerNavigator()
 
 const App = () => {
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+		<NavigationContainer>
+			<Drawer.Navigator>
+				<Drawer.Screen name="What's up?" component={StartScreen} />
+				<Drawer.Screen name="Click for Quote" component={ButtonApi} />
+				<Drawer.Screen name="Shake for Quote" component={ShakeApi} />
+			</Drawer.Navigator>
+		</NavigationContainer>
 	);
 };
 
-export default App;
+export default App
