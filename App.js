@@ -5,6 +5,8 @@ import ShakeApi from "./components/ShakeApi";
 import { View, Text } from "react-native";
 import { MainContainer, Container, Ball, ViewPort } from "./components/StyledComponents";
 
+import { BallSvg } from "./components/Ball";
+
 const Info = styled.View`
   z-index: 100;
   position: absolute;
@@ -51,14 +53,8 @@ export default class App extends React.Component {
             <InfoText>Shake your phone to play</InfoText>
           </Info>
           <Container>
-            <Ball
-              style={{
-                shadowOpacity: 0.75,
-                shadowRadius: 4,
-                shadowColor: "grey",
-                shadowOffset: { height: 7, width: 20 },
-              }}
-            >
+            <BallSvg style={{ position: "absolute", shadowOpacity: 0.75, shadowRadius: 4, shadowColor: "grey", shadowOffset: { height: 7, width: 20 } }} />
+            <Ball>
               <ViewPort>
                 <ShakeApi />
               </ViewPort>

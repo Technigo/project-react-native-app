@@ -1,5 +1,3 @@
-import React from "react";
-
 export const answers = [
   "I think, yes!",
   "Ask me later I am tired",

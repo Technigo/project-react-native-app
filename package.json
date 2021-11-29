@@ -18,6 +18,7 @@
     "react-dom": "17.0.1",
     "react-native": "0.64.2",
     "react-native-radial-gradient": "^1.0.9",
+    "react-native-svg": "^12.1.1",
     "react-native-web": "0.17.1",
     "styled-components": "^5.3.3"
   },

@@ -40,7 +40,6 @@ export const Container = styled.View`
 `;
 
 export const Ball = styled.View`
-  background-color: black;
   border-radius: 1000;
   z-index: 10;
   width: 300px;
@@ -51,7 +50,7 @@ export const Ball = styled.View`
 `;
 
 export const ViewPort = styled.View`
-  background: whitesmoke;
+  background: #dedede;
   border-radius: 1000;
   width: 50%;
   height: 50%;
