@@ -2,8 +2,6 @@
   "expo": {
     "name": "project-react-native-app",
     "slug": "project-react-native-app",
-    "privacy": "public",
-    "sdkVersion": "37.0.0",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
