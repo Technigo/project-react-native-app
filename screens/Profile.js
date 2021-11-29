@@ -9,11 +9,11 @@ const CenteredView = styled.View`
 `
 
 
-export const StartScreen = () => {
+export const Profile = () => {
 
     return (
         <CenteredView>
-            <Text>This is the StartScreen</Text>
+            <Text>Your profile</Text>
         </CenteredView>
 
     )
