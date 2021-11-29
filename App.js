@@ -1,26 +1,30 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import ButtonApi from "./components/ButtonApi";
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+export default function App() {
+  const [count, setCount] = useState(0);
 
-const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
+  return (
+    <View style={styles.container}>
+      <ButtonApi />
+      <Text style={styles.counterText}> {count}</Text>
+      <Button title="Tape me" onPress={() => setCount(count + 1)} />
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "powderblue",
+    alignItems: "center",
+    paddingTop: 90,
+    color: "red",
+  },
 
-export default App;
+  counterText: {
+    color: "red",
+    padding: "20",
+  },
+});
