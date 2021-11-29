@@ -3,13 +3,15 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
 	background: gray;
-    margin: 24px 0;
+    margin: 50px 0;
     width: 80%;
     height: auto;
     text-align: center;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    flex: 0.5;
+    padding: 10px;
 `;
 
 const Text = styled.Text`
@@ -19,6 +21,7 @@ const Text = styled.Text`
     font-style: italic;
     font-family: Merienda;
     flex-wrap: wrap;
+    text-align: center;
 `;
 
 const Instructions = ({ instructions }) => {

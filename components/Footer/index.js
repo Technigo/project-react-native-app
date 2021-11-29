@@ -14,6 +14,7 @@ const Container = styled.View`
 const GotoRandomButton = styled.Button`
 	font-size: 24px;
 	color: white;
+    font-weight: bold;
 `;
 
 const Footer = ({ text, sign, navigation, direction }) => {

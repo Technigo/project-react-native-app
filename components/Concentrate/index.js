@@ -12,14 +12,25 @@ const Container = styled.View`
     margin: 16px 0;
     width: 85%;
     height: auto;
-    flex: 8;
+    flex: 3;
 `;
 
-const Concentrate = ({ answer }) => {
+const Image = styled.Image`
+    borderRadius: 10;
+    width: 250;
+    height: 250;
+    flex: 1.5;
+`;
+
+
+const Concentrate = () => {
 
     return (
         <Container>
             <Instructions instructions={"Concentrate, ask your question and shake your phone"} />
+            <Image
+                source={require('../../assets/zultar-card.jpeg')}
+            />
         </Container>
     );
 };

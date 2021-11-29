@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import Footer from '../Footer';
 import Instructions from '../Instructions';
+import questions from '../../utils/questions.json'
 
 const Container = styled.View`
 	background-color: black;
@@ -13,28 +14,30 @@ const Container = styled.View`
 `;
 
 const TitleContainer = styled.View`
-    margin: 10px auto;
+    margin: 32px auto;
     text-align: center;
     justify-content: center;
-    flex: 1;
-    background-color: gray;
+    flex: 0.5;
+    background-color: black;
+    width: 70%;
 `;
 
 const Title = styled.Text`
-	font-size: 24px;
-	color: yellow;
+	font-size: 18px;
+	color: gray;
+    text-align: center;
 `;
 
 const QuestionsContainer = styled.View`
     background: gray;
     width: 80%;
     height: auto;
-    margin: 10px auto;
+    margin: 50px auto;
     text-align: center;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    flex: 2;
+    flex: 1;
 `;
 
 const Questions = styled.Text`
@@ -45,20 +48,47 @@ const Questions = styled.Text`
     color: white;
 `;
 
-const RandomQuestions = ({ question, navigation }) => {
+const ButtonQuestion = styled.TouchableHighlight`
+	font-size: 24px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: red;
+    border-radius: 10px;
+`;
+
+const ButtonText = styled.Text`
+	font-size: 24px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+`;
+
+const RandomQuestions = ({ navigation }) => {
+    const [randomQuestion, setRandomQuestion] = useState(null)
+
+    const getRandomElement = () => {
+        const randomElement = questions.questions[Math.floor(Math.random() * questions.questions.length)];
+        setRandomQuestion(randomElement.question)
+    }
 
     return (
         <Container>
             <TitleContainer>
-                <Title>Zoltar says to you: </Title>
+                <Title>
+                    What people ask before you to Zoltar?
+                </Title>
             </TitleContainer>
 
-            {question && <QuestionsContainer>
-                <Questions>{question.question}</Questions>
-                <Questions>{question.answer}</Questions>
+            {randomQuestion && <QuestionsContainer>
+                <Questions>{randomQuestion}</Questions>
             </QuestionsContainer>}
 
-            <Instructions instructions={"Shake your phone to see random questions and answers from Zoltar"} />
+            <ButtonQuestion onPress={() => getRandomElement()}>
+                <ButtonText>Ask to Zoltar</ButtonText>
+            </ButtonQuestion>
+
+
+            {!randomQuestion && <Instructions instructions={"Tap the button to see random questions to ask Zoltar"} />}
             <Footer text={"I know what to ask for!"} sign={"<"} navigation={navigation} direction={'Answers'} />
         </Container>
     );

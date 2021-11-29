@@ -1,33 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Start from './components/Start';
 import Answers from './components/Answers';
 import RandomQuestions from './components/RandomQuestions';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { API_URL } from './utils/url'
+
 
 const Stack = createNativeStackNavigator();
 
+{/* This way to write the component let me use props, so I'll keept it for academic reasons */ }
 const App = () => {
-
-	const [answer, setAnswer] = useState("")
-	const [question, setQuestion] = useState({
-		question: "Do I have toothpaste on my sweater?",
-		answer: "Signs point to yes"
-	})
-
-	const fetchAnswer = () => {
-		let params = encodeURIComponent("placeholder");
-		fetch(API_URL(params))
-			.then(res => res.json())
-			.then(json => {
-				setAnswer(json.magic.answer)
-			}).catch((error) => {
-				console.log('Error in Fetch:' + error.message);
-			});
-	}
-
-	useEffect(fetchAnswer, [])
 
 	return (
 		<NavigationContainer>
@@ -39,28 +21,29 @@ const App = () => {
 						title: 'Magic Zoltar',
 						headerStyle: {
 							backgroundColor: '#f4511e',
-							fontSize: 24,
 						},
 						headerTintColor: '#fff',
 						headerTitleStyle: {
 							fontWeight: 'bold',
+							fontSize: 24,
 						},
 					}} />
 				<Stack.Screen
 					name="Answers"
+					component={Answers}
 					options={{
 						title: 'Magic Zoltar',
 						headerStyle: {
 							backgroundColor: '#f4511e',
-							fontSize: 24,
+
 						},
 						headerTintColor: '#fff',
 						headerTitleStyle: {
 							fontWeight: 'bold',
+							fontSize: 24,
 						},
 					}}
 				>
-					{(props) => <Answers {...props} answer={answer} />}
 				</Stack.Screen>
 
 				<Stack.Screen
@@ -76,7 +59,7 @@ const App = () => {
 							fontWeight: 'bold',
 						},
 					}}>
-					{(props) => <RandomQuestions {...props} question={question} />}
+					{(props) => <RandomQuestions {...props} />}
 				</Stack.Screen>
 
 			</Stack.Navigator>

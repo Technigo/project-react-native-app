@@ -1,96 +1,108 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
+import { API_URL } from '../../utils/url'
+import Instructions from '../Instructions';
+import Concentrate from '../Concentrate';
 
-// ==========================
-// = Functions
 const isShaking = (data) => {
-    // x,y,z CAN be negative, force is directional
-    // We take the absolute value and add them together
-    // This gives us the total combined force on the device
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-
-    // If this force exceeds some threshold, return true, otherwise false
-    // Increase this threshold if you need your user to shake harder
-    return totalForce > 1.78;
+    return totalForce > 2;
 };
 
-// ==========================
-// = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
+const AnswerContainer = styled.View`
+    background: red;
+    width: 80%;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 `;
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
+const Answer = styled.Text`
+	font-size: 28px;
+    height: auto;
+    margin: 32px auto;
+    text-align: center;
+    color: white;
+    font-weight: bold;
 `;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
+
+const TitleContainer = styled.View`
+    margin: 10px auto;
+    text-align: center;
+    justify-content: center;
+    flex: 0.5;
+    background-color: black;
 `;
-const ShakeData = styled.Text``;
+
+const Title = styled.Text`
+	font-size: 24px;
+	color: yellow;
+`;
 
 export const SensorComponent = () => {
-    // This function determines how often our program reads the accelerometer data in milliseconds
-    // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
     Accelerometer.setUpdateInterval(400);
-
-    // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
     const [data, setData] = useState({
         x: 0,
         y: 0,
         z: 0,
     });
 
-    // This keeps track of whether we are listening to the Accelerometer data
     const [subscription, setSubscription] = useState(null);
+    const [isShakingNow, setIsChakingNow] = useState(false);
+    const [answer, setAnswer] = useState(null)
 
     const _subscribe = () => {
-        // Save the subscription so we can stop using the accelerometer later
         setSubscription(
-            // This is what actually starts reading the data
             Accelerometer.addListener((accelerometerData) => {
-                // Whenever this function is called, we have received new data
-                // The frequency of this function is controlled by setUpdateInterval
                 setData(accelerometerData);
             })
         );
     };
 
-    // This will tell the device to stop reading Accelerometer data.
-    // If we don't do this our device will become slow and drain a lot of battery
     const _unsubscribe = () => {
         subscription && subscription.remove();
         setSubscription(null);
     };
 
     useEffect(() => {
-        // Start listening to the data when this SensorComponent is active
         _subscribe();
-
-        // Stop listening to the data when we leave SensorComponent
         return () => _unsubscribe();
     }, []);
 
+
+    const fetchAnswer = () => {
+        let params = encodeURIComponent("placeholder");
+        fetch(API_URL(params))
+            .then(res => res.json())
+            .then(json => {
+                setAnswer(json.magic.answer)
+            }).catch((error) => {
+                console.log('Error in Fetch:' + error.message);
+            });
+    }
+
+    if (isShakingNow !== isShaking(data)) {
+        setIsChakingNow(isShaking(data))
+        if (!isShakingNow) {
+            fetchAnswer()
+        }
+    }
+
     return (
-        <ShakeView>
-            {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-            {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-            <ShakeDataView>
-                <ShakeDataTitle>Shake Data</ShakeDataTitle>
-                {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-                <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-                <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-                <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-            </ShakeDataView>
-        </ShakeView>
+        answer ?
+            <>
+                <TitleContainer>
+                    <Title>Zoltar speaks:</Title>
+                </TitleContainer>
+                <AnswerContainer>
+                    <Answer>{answer}</Answer>
+                </AnswerContainer>
+                <Instructions instructions={"Ask again and shake your phone"} />
+            </> : <Concentrate />
     );
 };

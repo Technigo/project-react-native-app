@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Image, Text, Button, StyleSheet } from "react-native";
+import { View, Image, Text, Button, TouchableOpacity, StyleSheet } from "react-native";
 
-
+//approach without styled components
 const Start = ({ navigation }) => {
     return (
         <View style={styles.container}>
@@ -9,11 +9,10 @@ const Start = ({ navigation }) => {
                 style={styles.image}
                 source={require('../../assets/zultar.gif')} />
             <Text style={styles.text}>Do you want to know your fortune?</Text>
-            <Button
-                title="Tap to ask"
-                color="red"
-                onPress={() => navigation.navigate('Answers')}
-            />
+
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Answers')}>
+                <Text style={styles.buttonText} >Ask to Zoltar</Text>
+            </TouchableOpacity>
         </View>
     );
 };
@@ -29,19 +28,29 @@ const styles = StyleSheet.create({
     },
     image: {
         borderRadius: 10,
-        width: 250,
+        width: 270,
         height: 250,
-        marginBottom: 20
+        marginBottom: 25,
+        flex: 0.7,
+
     },
     text: {
         fontSize: 24,
         color: "wheat",
-        margin: 16,
+        margin: 25,
         textAlign: "center",
     },
     button: {
-        marginTop: 16,
-        backgroundColor: "blue",
+        marginTop: 20,
+        backgroundColor: "red",
+        padding: 20,
+        borderRadius: 10,
+
+    },
+    buttonText: {
+        color: "white",
+        fontSize: 20,
+        textAlign: "center",
     }
 
 });
