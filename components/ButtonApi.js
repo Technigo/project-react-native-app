@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, TouchableHighlight } from "react-native";
+import { Text, View, Button } from "react-native";
 import styled from "styled-components/native";
 
 const QuoteText = styled.Text`
@@ -12,22 +12,21 @@ const ApiButton = styled.TouchableHighlight`
 `;
 
 const ButtonApi = () => {
-  const [quote, setQuote] = setState({});
+  const [art, setArt] = useState({});
 
-  const generateQuote = () => {
-    fetch("http://api.quotable.io/random")
+  const generateArt = () => {
+    fetch("https://api.artic.edu/api/v1/artworks")
       .then((res) => res.json())
-      .then((data) => setQuote(data));
+      .then((data) => setArt(data));
   };
 
   return (
     <View>
       <Text>Click on the button! </Text>
-      <ApiButton onPress={generateQuote}>
-        <Text>Touch Here</Text>
-      </ApiButton>
-      <Text>Quote:{guote.content} </Text>
-      <Text> Author:{quote.author} </Text>
+      <Button title="click!" onPress={generateArt} />
+      <Text> Art:{art.title}</Text>
     </View>
   );
 };
+
+export default ButtonApi;
