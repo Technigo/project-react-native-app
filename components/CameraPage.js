@@ -21,8 +21,9 @@ export default function CameraPage() {
   }
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type}>
-        <View style={styles.buttonContainer}>
+      {/* <Camera style={styles.camera} type={type}> */}
+      <Camera ref={ref => {this.camera = ref;}}>
+      <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
@@ -62,3 +63,5 @@ const styles = StyleSheet.create({
 	  color: 'white',
 	},
   });
+
+  
