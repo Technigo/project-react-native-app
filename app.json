@@ -1,12 +1,13 @@
 {
 	"expo": {
-		"name": "project-react-native-app",
-		"slug": "project-react-native-app",
+		"name": "magic-ball",
+		"slug": "magic-ball-native-app",
+		"sdkVersion":"43.0.0",
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
 		"splash": {
-			"image": "./assets/splash.png",
+			"image": "./assets/askme.jpeg",
 			"resizeMode": "contain",
 			"backgroundColor": "#ffffff"
 		},
@@ -19,12 +20,12 @@
 		},
 		"android": {
 			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
+				"foregroundImage":"./assets/askme.jpeg",
 				"backgroundColor": "#FFFFFF"
 			}
 		},
 		"web": {
-			"favicon": "./assets/favicon.png"
+			"favicon": "./assets/askme.jpeg"
 		}
 	}
 }

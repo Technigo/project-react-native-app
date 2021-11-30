@@ -1,9 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
-import { View, Text } from "react-native";
 import styled from "styled-components/native";
 
+export const InfoText = styled.Text`
+  font-size: 16px;
+  text-align: center;
+  color: rosybrown;
+`;
+
+export const Info = styled.View`
+  z-index: 100;
+  position: absolute;
+  width: 100px;
+  flex: 1;
+  top: 100px;
+`;
+
 export const QuoteText = styled.Text`
-  font-family: LondrinaSolid-Regular;
+  font-family: LondrinaSolid-Light;
   font-size: 16px;
   color: rosybrown;
   text-shadow: none;
@@ -40,7 +52,7 @@ export const Container = styled.View`
 `;
 
 export const Ball = styled.View`
-  border-radius: 1000;
+  border-radius: 100;
   z-index: 10;
   width: 300px;
   height: 300px;
@@ -50,11 +62,10 @@ export const Ball = styled.View`
 `;
 
 export const ViewPort = styled.View`
-  background: #dedede;
-  border-radius: 1000;
+  border-radius: 100;
   width: 50%;
   height: 50%;
-  border: 2px solid rosybrown;
+  border: 2px solid silver;
   display: flex;
   justify-content: center;
   align-items: center;
