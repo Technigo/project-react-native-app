@@ -75,7 +75,7 @@ export default Main;
 const Container = styled.View`
   align-items: center;
   justify-content: center;
-  padding-top: ${Constants.statusBarHeight};
+  padding-top: ${Constants.statusBarHeight}px;
   background-color: black;
   padding: 24px;
 `;
