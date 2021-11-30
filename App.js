@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components/native";
 
+import ButtonApi from "./components/ButtonApi";
+
 const Container = styled.View`
   flex: 1;
   background-color: papayawhip;
@@ -16,9 +18,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>Hello there</Title>
-      <Title>What's your name</Title>
-      <Title>💅💅💅</Title>
+      <ButtonApi />
     </Container>
   );
 };
