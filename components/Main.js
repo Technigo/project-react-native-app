@@ -54,8 +54,9 @@ const Main = () => {
 
   return (
     <Container>
+      <Heading>Compass</Heading>
       <Image
-        source={require("../../assets/compass.png")}
+        source={require("../assets/compass.png")}
         style={{
           transform: [{ rotate: 360 - heading + "deg" }],
         }}
@@ -88,4 +89,10 @@ const Text = styled.Text`
 const Image = styled.Image`
   width: 400px;
   height: 400px;
+`;
+
+const Heading = styled.Text`
+  font-size: 40px;
+  color: white;
+  padding-bottom: 20px;
 `;

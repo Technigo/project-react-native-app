@@ -1,6 +1,14 @@
 import React from "react";
 import styled from "styled-components/native";
-import Main from "./source/components/Main";
+import Main from "./components/Main";
+
+const App = () => {
+  return (
+    <Container>
+      <Main />
+    </Container>
+  );
+};
 
 const Container = styled.View`
   display: flex;
@@ -10,12 +18,8 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const App = () => {
-  return (
-    <Container>
-      <Main />
-    </Container>
-  );
-};
+const Text = styled.Text`
+  font-size: 25px;
+`;
 
 export default App;
