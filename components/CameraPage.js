@@ -4,7 +4,7 @@ import { Camera } from 'expo-camera';
 
 export default function CameraPage() {
   const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
+  const [type, setType] = useState(Camera.Constants.Type.front);
 
   useEffect(() => {
     (async () => {
@@ -21,9 +21,8 @@ export default function CameraPage() {
   }
   return (
     <View style={styles.container}>
-      {/* <Camera style={styles.camera} type={type}> */}
-      <Camera ref={ref => {this.camera = ref;}}>
-      <View style={styles.buttonContainer}>
+      <Camera style={styles.camera} type={type}>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
