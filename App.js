@@ -3,23 +3,24 @@ import styled from "styled-components/native";
 
 // import ButtonApi from "./components/ButtonApi";
 import ShakeApi from "./components/ShakeApi";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Description from "./components/Description";
 
 const Container = styled.View`
-  flex: 1;
+  display: flex;
+  height: 100vh;
   background-color: papayawhip;
-  justify-content: center;
   align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
 `;
 
 const App = () => {
   return (
     <Container>
+      <Header />
+      <Description />
       <ShakeApi />
+      <Footer />
     </Container>
   );
 };

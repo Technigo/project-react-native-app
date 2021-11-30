@@ -3,6 +3,13 @@ import { View, Text, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
 
+const Container = styled.View`
+  border: 1px solid black;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+`;
+
 const QuoteText = styled.Text`
   font-weight: 700;
 `;
@@ -68,9 +75,9 @@ const ShakeApi = () => {
   const { x, y, z } = data;
 
   return (
-    <View>
-      <QuoteText>Quote: {quote}</QuoteText>
-    </View>
+    <Container>
+      <QuoteText>- {quote}</QuoteText>
+    </Container>
   );
 };
 
