@@ -12,14 +12,14 @@ const Container = styled.View`
 
 const HeaderTitle = styled.Text`
   position: absolute;
-  top: 90;
+  top: 90px;
   color: #eedf8b;
   text-shadow: 3px 3px #e09f3e;
   font-size: 35px;
   font-weight: 800;
 `
 const HeaderSpan = styled.Text`
-  font-size: 25;
+  font-size: 25px;
   color: #444644;
 `
 

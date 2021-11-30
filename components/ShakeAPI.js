@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, ActivityIndicator, Image } from 'react-native'
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
-import { DrinkCard } from './DrinkCard'
+import { DrinkCard, DrinkWrapper } from './DrinkCard'
 import PlaceHolderImage from '../assets/icon.png'
 
 export const ShakeAPI = () => {
@@ -12,7 +12,7 @@ export const ShakeAPI = () => {
     z: 0,
   })
 
-  const [drink, setDrink] = useState({})
+  const [drink, setDrink] = useState()
   const [loading, setLoading] = useState(false)
   const [subscription, setSubscription] = useState(null)
 
@@ -67,11 +67,20 @@ export const ShakeAPI = () => {
   if (loading) {
     return <ActivityIndicator />
   }
+  console.log(drink)
 
   return (
     <DrinkCard>
-      <Image source={PlaceHolderImage} />
-      <Text>Drink: {drink.strDrink}</Text>
+      {drink?.drinks.length > 0 &&
+        drink.drinks.map((item) => (
+          <DrinkWrapper key={item.idDrink}>
+            <Image
+              style={{ width: '100%', height: '100%' }}
+              source={{ uri: item.strDrinkThumb }}
+            />
+            <Text>Drink: {item.strDrink}</Text>
+          </DrinkWrapper>
+        ))}
     </DrinkCard>
   )
 }

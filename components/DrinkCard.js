@@ -13,3 +13,8 @@ export const DrinkCard = styled.View`
   border-color: #e09f3e;
   border-width: 5px;
 `
+
+export const DrinkWrapper = styled.View`
+  width: 100%;
+  height: 100%;
+`
