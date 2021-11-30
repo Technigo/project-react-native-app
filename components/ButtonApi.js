@@ -3,8 +3,12 @@ import React, {useState, useEffect} from 'react';
 import { View, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 
+
+import { FETCH_URL } from '../utils/urls';
+
 const QuoteText = styled.Text`
 	font-weight: 700;
+	color: white;
 `;
 
 const APIButton = styled.TouchableOpacity`
@@ -13,18 +17,27 @@ const APIButton = styled.TouchableOpacity`
 
 const ButtonApi = () => {
 
-	const [quote, setQuote] = useState({});
+	//const [quote, setQuote] = useState({});
 	const [loading, setLoading] = useState(false);
 
-	useEffect(() => {
-		generateQuote();
-	}, []);
+	//useEffect(() => {
+	//	generateQuote();
+	//}, []);
 
-	const generateQuote = () => {
+	//const generateQuote = () => {
+	//	setLoading(true);
+	//	fetch('http://api.quotable.io/random')
+	//		.then((res) => res.json())
+	//		.then((quote) => setQuote(quote))
+	//		.finally(() => setLoading(false))
+	//};
+
+
+	const generateMovie = () => {
 		setLoading(true);
-		fetch('http://api.quotable.io/random')
+		fetch(FETCH_URL)
 			.then((res) => res.json())
-			.then((quote) => setQuote(quote))
+			.then((json) => setMovieList(json.results))
 			.finally(() => setLoading(false))
 	};
 
@@ -34,13 +47,12 @@ const ButtonApi = () => {
 
 	return (
 		<View>
-			<Text>Click the button to generate quote!</Text>
+			<QuoteText>Welcome to Randomizer!</QuoteText>
+			<QuoteText>Click the button to generate quote!</QuoteText>
 			{/* when button pressed the api is called */}
-			<APIButton onPress={generateQuote}>
-				<Text>Click</Text>
+			<APIButton onPress={generateMovie}>
+				<QuoteText>Click</QuoteText>
 			</APIButton>
-			<QuoteText>Quote: {quote.content}</QuoteText>
-			<Text>Author: {quote.author}</Text>
 		</View>
 	)
 };
