@@ -7,7 +7,8 @@ import { StartScreen } from './screens/StartScreen'
 import { Contact } from './screens/Contact'
 import { Profile } from './screens/Profile'
 import { StatusBar } from 'expo-status-bar'
-import { Ionicons } from '@expo/vector-icons'
+import { StepCount } from './screens/StepCount'
+// import { Ionicons } from '@expo/vector-icons'
 
 
 const Drawer = createDrawerNavigator()
@@ -24,6 +25,7 @@ const App = () => {
 				},
 			  }}>
 				<Drawer.Screen name="What's up?" component={StartScreen} />
+				<Drawer.Screen name="Step on" component={StepCount} />
 				<Drawer.Screen name="Click for Quote" component={ButtonApi} />
 				<Drawer.Screen name="Shake for Quote" component={ShakeApi} />
 				<Drawer.Screen name="Your profile" component={Profile} />
