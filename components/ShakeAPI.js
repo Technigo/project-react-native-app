@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, ActivityIndicator } from 'react-native'
+import { View, Text, ActivityIndicator, Image } from 'react-native'
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
+import { DrinkCard } from './DrinkCard'
+import PlaceHolderImage from '../assets/icon.png'
 
 export const ShakeAPI = () => {
   const [data, setData] = useState({
@@ -67,8 +69,9 @@ export const ShakeAPI = () => {
   }
 
   return (
-    <View>
+    <DrinkCard>
+      <Image source={PlaceHolderImage} />
       <Text>Drink: {drink.strDrink}</Text>
-    </View>
+    </DrinkCard>
   )
 }
