@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ActivityIndicator, Image } from 'react-native';
+
 import styled from 'styled-components/native';
 import { Accelerometer } from 'expo-sensors';
 
 
-const QuoteView = styled.View`
+const MovieView = styled.View`
 	display: flex;
+	margin: 10px;
 	justify-content: center;
 	align-items: center;
 	border: solid 2px blue;
-	width: 400px;
-	padding: 20px;
-	object-fit: scale-down;
+	width: 80%;
+	height: 80%;
 `
-const QuoteText = styled.Text`
+const MovieText = styled.Text`
 	font-weight: 700;
 	border: solid 2px black;
 `;
+const Animation = styled.Image`
+	width: 250px;
+	height: 250px;
+`
 const BurgerImage = styled.Image`
-	width: 350px;
-	height: 350px;
-	margin: 20px;
-
+	width: 100%;
+	height: 100%;
+	resize-mode: center;
 `
 
 const ShakeApi = () => {
@@ -30,12 +34,12 @@ const ShakeApi = () => {
 		y: 0,
 		z: 0,
 	});
-	const [quote, setQuote] = useState({});
+	const [movie, setMovie] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [subscription, setSubscription] = useState(null);
 
 	useEffect(() => {
-		generateQuote();
+		generateMovie();
 	}, []);
 
 	useEffect(() => {
@@ -46,7 +50,7 @@ const ShakeApi = () => {
 
 	useEffect(() => {
 		if (isShakingEnough(data)) {
-			generateQuote();
+			generateMovie();
 		}
 	}, [data]);
 
@@ -63,13 +67,22 @@ const ShakeApi = () => {
 		setSubscription(null);
 	};
 
-	const generateQuote = () => {
-		setLoading(true);
-		fetch('https://meme-api.herokuapp.com/gimme')
+	const generateMovie = () => {
+		// const randomNum = Math.floor(Math.random()*data.length)
+		// 	document.querySelector('.title').textContent = (data[randomNum].title),
+		// 	document.querySelector('.description').textContent = (data[randomNum].description)
+		// setLoading(true);
+		fetch(`https://ghibliapi.herokuapp.com/films`)
 			.then((res) => res.json())
-			.then((data) => setQuote(data))
-			.finally(() => setLoading(false));
+			.then((data) => setMovie(data),
+			
+			// const quotes = [{},..];
+			// const quote = quotes[Math.floor(Math.random() * quotes.length)];
+			)
+			.finally(() => setLoading(false))
 	};
+
+
 
 	const isShakingEnough = (data) => {
 		const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
@@ -81,11 +94,14 @@ const ShakeApi = () => {
 	}
 
 	return (
-		<QuoteView>
-			<QuoteText>Quote: {quote.title}</QuoteText>
-			<BurgerImage source={{uri: `${quote.url}` }} />
-			<Text>COWABUNGA!</Text>
-		</QuoteView>
+		<>
+		<Animation source={require('../assets/ghibli.gif')} />
+		<MovieView key={movie.id}>
+			<MovieText>Title: {movie.title}</MovieText>
+				<BurgerImage source={{uri: `${movie.image}` }} />
+					<MovieText>{movie.description}</MovieText>
+		</MovieView>
+		</>
 	);
 };
 
