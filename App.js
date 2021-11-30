@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
-import { SensorComponent } from "./components/SensorComponent";
-import { ShakeTwin } from "./components/ShakeTwin";
+
 import { StepCounter } from "./components/StepCounter";
+import { WelcomePage } from "./components/WelcomePage";
 
 const Container = styled.View`
   flex: 1;
@@ -11,19 +11,13 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
-
 const App = () => {
+  const [showWelcomePage, setShowWelcomePage] = useState(true);
+  useEffect(() => {
+    setTimeout(() => setShowWelcomePage(false), 5000);
+  }, []);
   return (
-    <Container>
-      <Title>Hello</Title>
-      {/* <SensorComponent></SensorComponent>
-      <ShakeTwin /> */}
-      <StepCounter />
-    </Container>
+    <Container>{showWelcomePage ? <WelcomePage /> : <StepCounter />}</Container>
   );
 };
 

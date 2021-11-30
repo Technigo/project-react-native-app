@@ -1,56 +1,59 @@
 import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import { Pedometer } from "expo-sensors";
+import { Header } from "./Header";
 
 export const StepCounter = () => {
-  const end = new Date();
-  const start = new Date();
+  const [isPedometerAvailable, setIsPedometerAvailable] = useState("checking");
+  const [pastStepCount, setPastStepCount] = useState(0);
+  const [currentStepCount, setCurrentStepCount] = useState(0);
 
-  const [stepMeter, setStepMeter] = useState({
-    isPedometerAvailable: "checking",
-    pastStepCount: 0,
-    currentStepCount: 0,
-  });
+  let subscription;
 
-  useEffect(() => {
-    console.log("Hello", stepMeter);
-    Pedometer.watchStepCount((result) => {
-      setStepMeter({ ...stepMeter, currentStepCount: result.steps });
+  const subscribe = () => {
+    subscription = Pedometer.watchStepCount((result) => {
+      setCurrentStepCount(result.steps);
     });
 
     Pedometer.isAvailableAsync().then(
       (result) => {
-        setStepMeter({ ...stepMeter, isPedometerAvailable: String(result) });
+        setIsPedometerAvailable(result);
       },
       (error) => {
-        setStepMeter({
-          ...stepMeter,
-          isPedometerAvailable: "Could not get isPedometerAvailable: " + error,
-        });
+        setIsPedometerAvailable("Could not get isPedometerAvailable: " + error);
       }
     );
+
+    const end = new Date();
+    const start = new Date();
+    start.setDate(end.getDate() - 1);
+    Pedometer.getStepCountAsync(start, end).then(
+      (result) => {
+        setPastStepCount(result.steps);
+      },
+      (error) => {
+        setPastStepCount("Could not get stepCount: " + error);
+      }
+    );
+  };
+
+  const unsubscribe = () => {
+    subscription && subscription.remove();
+    subscription = null;
+  };
+
+  useEffect(() => {
+    subscribe();
+    return () => unsubscribe();
   }, []);
 
-  start.setDate(end.getDate() - 1);
-  Pedometer.getStepCountAsync(start, end).then(
-    (result) => {
-      setStepMeter({ ...stepMeter, pastStepCount: result.steps });
-    },
-    (error) => {
-      setStepMeter({
-        ...stepMeter,
-        pastStepCount: "Could not get stepCount: " + error,
-      });
-    }
-  );
   return (
     <View>
+      <Header />
       <Text>Hello</Text>
-      <Text>
-        {/* Pedometer.isAvailableAsync(): {stepMeter.isPedometerAvailable} */}
-      </Text>
-      <Text>Steps taken in the last 24 hours: {stepMeter.pastStepCount}</Text>
-      <Text>Walk! And watch this go up: {stepMeter.currentStepCount}</Text>
+      <Text>Pedometer.isAvailableAsync(): {isPedometerAvailable}</Text>
+      <Text>Steps taken in the last 24 hours: {pastStepCount}</Text>
+      <Text>Walk! And watch this go up: {currentStepCount}</Text>
     </View>
   );
 };
