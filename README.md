@@ -13,4 +13,5 @@ My personal favorite movie artefact The Magic Ball with a supernatural power of 
 
 ## View it live
 
+Android build: 
 https://expo.dev/artifacts/eas/sRqKzSM2a59yqzRMC4pVF6.aab
