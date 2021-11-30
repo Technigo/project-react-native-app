@@ -18,8 +18,4 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const Text = styled.Text`
-  font-size: 25px;
-`;
-
 export default App;

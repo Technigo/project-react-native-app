@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Constants from "expo-constants";
 import * as Location from "expo-location";
 import styled from "styled-components/native";
+import Loading from "./Loading";
 
 const Main = () => {
   const [heading, setHeading] = useState(null);
@@ -9,15 +10,17 @@ const Main = () => {
 
   useEffect(async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== `granted`) {
-      setErrorMessage({
-        errorMessage: `Permission to access location was denied!`,
-      });
-    } else {
-      Location.watchHeadingAsync((data) => {
-        setHeading(Math.round(data.trueHeading));
-      });
-    }
+    setTimeout(() => {
+      if (status !== `granted`) {
+        setErrorMessage({
+          errorMessage: `Permission to access location was denied!`,
+        });
+      } else {
+        Location.watchHeadingAsync((data) => {
+          setHeading(Math.round(data.trueHeading));
+        });
+      }
+    }, 2000);
   }, []);
 
   const getCompassText = (heading) => {
@@ -47,7 +50,7 @@ const Main = () => {
     }
     return (
       <Container>
-        <Text>{text}</Text>
+        <Loading />
       </Container>
     );
   }
@@ -70,8 +73,6 @@ const Main = () => {
 export default Main;
 
 const Container = styled.View`
-  font-size: 18px;
-  flex: 1;
   align-items: center;
   justify-content: center;
   padding-top: ${Constants.statusBarHeight};
@@ -79,11 +80,11 @@ const Container = styled.View`
   padding: 24px;
 `;
 
-const Text = styled.Text`
+const Heading = styled.Text`
+  margin: 0;
+  font-size: 50px;
   color: white;
-  font-size: 24px;
-  margin: 0 24px;
-  text-align: center;
+  font-weight: 100;
 `;
 
 const Image = styled.Image`
@@ -91,8 +92,10 @@ const Image = styled.Image`
   height: 400px;
 `;
 
-const Heading = styled.Text`
-  font-size: 40px;
+const Text = styled.Text`
+  font-size: 24px;
+  font-weight: 100;
+  margin: 0 24px;
+  text-align: center;
   color: white;
-  padding-bottom: 20px;
 `;
