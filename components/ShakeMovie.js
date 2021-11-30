@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 import styled from "styled-components/native"; // use /native when you are styling core components
-import { BORED_URL } from "../utils/Urls";
+import { MOVIE_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
 
 // STYLED COMPONENTS
-
 const ActivityText = styled.Text`
   font-weight: 700;
 `;
 
-const ShakeAPI = () => {
+const ShakeMovie = () => {
   const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
   });
-  const [activity, setActivity] = useState({});
+  const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(false);
   const [subscription, setSubscription] = useState(null);
 
   useEffect(() => {
-    generateActivity();
+    generateMovie();
   }, []);
 
   useEffect(() => {
@@ -35,7 +34,7 @@ const ShakeAPI = () => {
 
   useEffect(() => {
     if (isShakingEnough(data)) {
-      generateActivity();
+      generateMovie();
     }
   }, [data]);
 
@@ -55,17 +54,23 @@ const ShakeAPI = () => {
     setSubscription(null);
   };
 
-  const generateActivity = () => {
+  const generateMovie = () => {
     setLoading(true);
-    fetch(BORED_URL)
+    fetch(MOVIE_URL(randomMovie()))
       .then((res) => res.json())
-      .then((data) => setActivity(data))
+      .then((data) => setMovie(data))
       .finally(() => setLoading(false));
   };
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.78;
+  };
+  // gets a random number from the complete list of movies.
+  const randomMovie = () => {
+    const min = Math.ceil(1);
+    const max = Math.floor(907331);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
   };
 
   if (loading) {
@@ -74,10 +79,12 @@ const ShakeAPI = () => {
 
   return (
     <View>
-      <ActivityText>Activity: {activity.activity}</ActivityText>
-      <Text>Type: {activity.type}</Text>
+      <ActivityText>Title: {movie.original_title}</ActivityText>
+      <Text>Overview: {movie.overview}</Text>
+      <Text>Homepage: {movie.homepage}</Text>
+      <Text>Released: {movie.release_date}</Text>
     </View>
   );
 };
 
-export default ShakeAPI;
+export default ShakeMovie;
