@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, Vibration } from 'react-native';
 import styled from 'styled-components/native';
 import { Accelerometer } from 'expo-sensors';
 
@@ -7,7 +7,7 @@ const QuoteText = styled.Text`
   font-weight: 700;
 `;
 
-const ShakeApi = () => {
+export const ShakeApi = () => {
   const [data, setData] = useState({
     x: 0,
     y: 0,
@@ -48,6 +48,7 @@ const ShakeApi = () => {
 
   const generateQuote = () => {
     setLoading(true);
+    Vibration.vibrate();
     fetch('http://api.quotable.io/random')
       .then((res) => res.json())
       .then((data) => setQuote(data))
@@ -70,5 +71,3 @@ const ShakeApi = () => {
     </View>
   );
 };
-
-export default ShakeApi;
