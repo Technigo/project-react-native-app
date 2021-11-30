@@ -8,15 +8,23 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
     "braces": "^3.0.2",
     "expo": "^40.0.1",
     "expo-sensors": "^9.2.0",
     "mem": "^6.1.1",
     "minimist": "^1.2.5",
+    "npm-install-peers": "^1.2.2",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "^0.61.4",
-    "react-native-web": "^0.15.0",
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-reanimated": "~1.7.0",
+    "react-native-safe-area-context": "^0.7.3",
+    "react-native-screens": "^2.18.1",
+    "react-native-web": "^0.15.7",
+    "react-navigation": "^4.4.4",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
