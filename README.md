@@ -12,3 +12,5 @@ My personal favorite movie artefact The Magic Ball with a supernatural power of 
 - Fading animation on each ball answer
 
 ## View it live
+
+https://expo.dev/artifacts/eas/sRqKzSM2a59yqzRMC4pVF6.aab

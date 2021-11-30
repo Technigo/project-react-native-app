@@ -1,31 +1,35 @@
 {
-	"expo": {
-		"name": "magic-ball",
-		"slug": "magic-ball-native-app",
-		"sdkVersion":"43.0.0",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/askme-icon.jpeg",
-		"splash": {
-			"image": "./assets/askme.jpeg",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"updates": {
-			"fallbackToCacheTimeout": 0
-		},
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage":"./assets/askme.jpeg",
-				"backgroundColor": "#FFFFFF"
-			}
-		},
-		"web": {
-			"favicon": "./assets/askme.jpeg"
-		}
-	}
+  "expo": {
+    "name": "magic-ball",
+    "slug": "magic-ball-native-app",
+    "sdkVersion": "43.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/askme-icon.jpeg",
+    "splash": {
+      "image": "./assets/askme.jpeg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.marysnopok.magicball.reactnative"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/askme.jpeg",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.marysnopok.reactnative.magicball"
+    },
+    "web": {
+      "favicon": "./assets/askme.jpeg"
+    }
+  }
 }
