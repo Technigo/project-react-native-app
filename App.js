@@ -4,6 +4,7 @@ import { Feed } from './screens/Feed';
 import { Notifications } from './screens/Notifications';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { ShakeApi } from './screens/ShakeApi';
+import { MagicBall } from './screens/MagicBall';
 
 const Drawer = createDrawerNavigator();
 
@@ -14,6 +15,7 @@ const App = () => {
         <Drawer.Screen name='Feed' component={Feed} />
         <Drawer.Screen name='Notifications' component={Notifications} />
         <Drawer.Screen name='Quote' component={ShakeApi} />
+        <Drawer.Screen name='MagicBall' component={MagicBall} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
