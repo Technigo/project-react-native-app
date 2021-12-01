@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const trails = createSlice({
   name: 'trails',
   initialState: {
-    currentPosition: 'north',
+    currentPosition: null,
     loading: false,
   },
   reducers: {

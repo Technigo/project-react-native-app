@@ -1,17 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { trails } from './reducers/trails';
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Trail = () => {
   const currentPosition = useSelector((store) => store.trails.currentPosition);
-  console.log(currentPosition);
 
   return (
     <View>
       <Title>
-        You are in {currentPosition}, shake for a suggestion on a trail!
+        You are in {currentPosition} of Sweden, shake for a suggestion on a
+        trail!
       </Title>
     </View>
   );
