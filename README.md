@@ -1,13 +1,13 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+I have made an app which gets you a random friends quote when you shake your phone!
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This was made using React, Styled Components and React Native.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week motivation has been a problem. I felt that the project was big and I didn't know what to do. But once I felt that I had an idea I just went for it. And now in the end I feel really happy about it!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+You can view the project here: https://expo.dev/@alisebrink/project-react-native-app
