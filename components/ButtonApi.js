@@ -15,12 +15,6 @@ const AuthorText = styled.Text`
   margin-top: 20px;
 `;
 
-const ButtonContainer = styled.View`
-  display: flex;
-  box-shadow: 2px 4px #30c59b;
-  margin-top: 40px;
-`;
-
 const ButtonText = styled.Text`
   font-weight: 700;
   font-family: Poppins_300Light;
@@ -29,12 +23,14 @@ const ButtonText = styled.Text`
 const ApiButton = styled.TouchableOpacity`
   width: 30%;
   background-color: #3acfa5;
-  padding: 10px;
+  padding: 7px;
   margin-top: 10px;
   margin-bottom: 15px;
   border-radius: 8px;
   justify-content: center;
   align-items: center;
+  box-shadow: 2px 4px #30c59b;
+  margin-top: 40px;
 `;
 
 const ButtonApi = () => {
@@ -61,11 +57,9 @@ const ButtonApi = () => {
     <Container>
       <QuoteText>{quote.content}</QuoteText>
       <AuthorText>{quote.author}</AuthorText>
-      <ButtonContainer>
-        <ApiButton onPress={generateQuote}>
-          <ButtonText>New quote</ButtonText>
-        </ApiButton>
-      </ButtonContainer>
+      <ApiButton onPress={generateQuote}>
+        <ButtonText>New quote</ButtonText>
+      </ApiButton>
     </Container>
   );
 };

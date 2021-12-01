@@ -33,7 +33,6 @@ const App = () => {
   } else {
     return (
       <Container>
-        <Header />
         <ButtonApi />
       </Container>
     );
