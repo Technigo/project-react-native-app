@@ -3,9 +3,41 @@ import { Text, View, TouchableOpacity, ActivityIndicator } from "react-native";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
 
-// const ApiButton = styled.TouchableOpacity`
-//   width: 50%;
-//   background-color: green;
+const ActivityBall = styled.View`
+  display: flex;
+  background-color: black;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ActivitySuggestion = styled.Text`
+  justify-content: center;
+  display: flex;
+  padding: 70px 0;
+  border: 3px solid green;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+  width: fit-content;
+  block-size: fit-content;
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+// const ActivitySuggestion2 = styled.Text`
+// text-align:center
+//   align-items: center;
+//   background-color: white;
+//   color: black;
 // `;
 
 const ShakeApi = () => {
@@ -67,10 +99,13 @@ const ShakeApi = () => {
   const { x, y, z } = data;
 
   return (
-    <View>
-      <Text> Activity:{activity.activity}</Text>
-      <Text> Type of activity:{activity.type}</Text>
-    </View>
+    <ActivityBall>
+      <ActivitySuggestion> {activity.activity}</ActivitySuggestion>
+      {/* <ActivitySuggestion2>
+        {" "}
+        Type of activity:{activity.type}
+      </ActivitySuggestion2> */}
+    </ActivityBall>
   );
 };
 
