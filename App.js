@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import GetWeather from './components/GetWeather';
 
 const Container = styled.View`
 	flex: 1;
@@ -16,9 +17,8 @@ const Title = styled.Text`
 const App = () => {
 	return (
 		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
+			<Title>The weather today is just amazing!</Title>
+			<GetWeather />
 		</Container>
 	);
 };
