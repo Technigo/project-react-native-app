@@ -36,7 +36,8 @@ export const StepCount = () => {
         onChangeText={onChangeNumber}
         value={number}
         placeholder="Aim for health"
-        // keyboardType="numeric"
+        keyboardType="numeric"
+        returnKeyType='done'
       />
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Set goal!</Text>

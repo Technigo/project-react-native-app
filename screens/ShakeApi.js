@@ -75,7 +75,7 @@ export const ShakeApi = () => {
 
     const isShakingEnough = (data) => {
 		const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
-		return totalForce > 1.78
+		return totalForce > 1.5
 	}
 
     if (loading) {
