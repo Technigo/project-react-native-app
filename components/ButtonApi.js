@@ -2,33 +2,35 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 
-const Container = styled.Text`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
 const QuoteText = styled.Text`
-  font-weight: 700;
+  font-family: AbrilFatface_400Regular;
+  font-size: 40px;
+  color: #895cf4;
 `;
 
 const AuthorText = styled.Text`
-  font-style: italic;
+  font-family: Poppins_300Light_Italic;
+  margin-top: 20px;
+  align-items: center;
 `;
 
-const HeaderText = styled.Text``;
+const ButtonContainer = styled.View`
+  display: flex;
+  align-items: right;
+`;
 
 const ButtonText = styled.Text`
   font-weight: 700;
+  font-family: Poppins_300Light;
 `;
 
 const ApiButton = styled.TouchableOpacity`
-  width: 50%;
+  width: 30%;
   background-color: lightblue;
   padding: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 15px;
-  border-radius: 5px;
+  border-radius: 8px;
   justify-content: center;
   align-items: center;
 `;
@@ -55,14 +57,13 @@ const ButtonApi = () => {
 
   return (
     <View>
-      <Text>Click button to generate quote</Text>
-      <ApiButton onPress={generateQuote}>
-        <ButtonText>Click for quote!</ButtonText>
-      </ApiButton>
-      <Container>
-        <QuoteText>{quote.content}</QuoteText>
-        <AuthorText>{quote.author}</AuthorText>
-      </Container>
+      <QuoteText>{quote.content}</QuoteText>
+      <AuthorText>{quote.author}</AuthorText>
+      <ButtonContainer>
+        <ApiButton onPress={generateQuote}>
+          <ButtonText>New quote</ButtonText>
+        </ApiButton>
+      </ButtonContainer>
     </View>
   );
 };

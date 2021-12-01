@@ -1,24 +1,41 @@
 import React from "react";
 import styled from "styled-components/native";
-import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
+import {
+  useFonts,
+  Poppins_300Light,
+  Poppins_300Light_Italic,
+  Poppins_600SemiBold,
+} from "@expo-google-fonts/poppins";
+import { AbrilFatface_400Regular } from "@expo-google-fonts/abril-fatface";
 
 import ButtonApi from "./components/ButtonApi";
 import ShakeApi from "./components/ShakeApi";
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #7bdfc3;
   justify-content: center;
-  align-items: center;
   padding: 20px;
 `;
 
 const App = () => {
-  return (
-    <Container>
-      <ButtonApi />
-    </Container>
-  );
+  let [fontsLoaded] = useFonts({
+    Poppins_300Light,
+    Poppins_300Light_Italic,
+    Poppins_600SemiBold,
+    AbrilFatface_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <Container>
+        <ButtonApi />
+      </Container>
+    );
+  }
 };
 
 export default App;

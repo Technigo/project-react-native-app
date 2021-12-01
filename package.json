@@ -8,9 +8,13 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/abril-fatface": "^0.2.0",
     "@expo-google-fonts/inter": "^0.2.0",
+    "@expo-google-fonts/lobster": "^0.2.0",
+    "@expo-google-fonts/poppins": "^0.2.0",
     "braces": "^3.0.2",
     "expo": "~43.0.0",
+    "expo-app-loading": "~1.2.1",
     "expo-font": "~10.0.3",
     "expo-sensors": "~11.0.3",
     "expo-status-bar": "~1.1.0",
