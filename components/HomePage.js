@@ -8,11 +8,8 @@ const HomePage = () => {
 		<HomeContainer>
 			<HeaderText>Welcome to Randomizer!</HeaderText>
 			<DescriptionText>
-				Movies are hard to choose. 
-				So many are released into theaters or for rental every week. 
-				A random movie selection probably isn't any better or worse than your choosing. 
-				Disregard Rotten Tomatoes and other film review sites and evolve to our method 
-				of random movie selection.
+				To choose a movie can be hard sometimes. If you'are having troubles to find Movies are hard to choose. 
+				Slide to the right to get a random movie for the Friday night! 
 			</DescriptionText>
 			<MovieImage source={require("../assets/clapperboard.png")} />
 			<HandImage source={require("../assets/hand.png")} />
@@ -53,5 +50,5 @@ const MovieImage = styled.Image`
 const HandImage = styled.Image`
 	width: 100px;
 	height: 100px;
-	margin: 10px auto;
+	margin: 20px auto;
 `;

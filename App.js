@@ -2,8 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import ShakeApi from './components/ShakeApi';
 import HomePage from './components/HomePage';
+import Movies from './components/Movies';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -28,10 +28,8 @@ const App = () => {
 						"backgroundColor": "black"
 					}
 				}}>
-        {/* Tab.Screen elements determine the different screens available for this app
-        and the component attribute states which component to generate for each tab*/}
         <Tab.Screen name="Home" component={HomePage} />
-        <Tab.Screen name="Share" component={ShakeApi} />
+        <Tab.Screen name="Movies" component={Movies} />
       </Tab.Navigator>
 		</NavigationContainer>
 	);
