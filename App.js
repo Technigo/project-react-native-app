@@ -9,6 +9,7 @@ const Container = styled.View`
 	background-color: #AB9F9D;
 	justify-content: center;
 	align-items: center;
+  height: 100%;
 `;
 
 const App = () => {
