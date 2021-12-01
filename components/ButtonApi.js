@@ -2,26 +2,35 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 
+const Container = styled.Text`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
 const QuoteText = styled.Text`
   font-weight: 700;
 `;
 
-const AuthorText = styled.Text``;
+const AuthorText = styled.Text`
+  font-style: italic;
+`;
 
 const HeaderText = styled.Text``;
 
 const ButtonText = styled.Text`
   font-weight: 700;
-  justify-content: center;
-  align-items: center;
 `;
 
 const ApiButton = styled.TouchableOpacity`
   width: 50%;
   background-color: lightblue;
   padding: 10px;
-  margin: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   border-radius: 5px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ButtonApi = () => {
@@ -50,8 +59,10 @@ const ButtonApi = () => {
       <ApiButton onPress={generateQuote}>
         <ButtonText>Click for quote!</ButtonText>
       </ApiButton>
-      <QuoteText>Quote: {quote.content}</QuoteText>
-      <Text>Author: {quote.author}</Text>
+      <Container>
+        <QuoteText>{quote.content}</QuoteText>
+        <AuthorText>{quote.author}</AuthorText>
+      </Container>
     </View>
   );
 };
