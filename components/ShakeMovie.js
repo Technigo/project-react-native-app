@@ -73,6 +73,8 @@ const ShakeMovie = () => {
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
   };
 
+  console.log(movie);
+
   if (loading) {
     return <ActivityIndicator size="large" />;
   }
@@ -81,7 +83,11 @@ const ShakeMovie = () => {
     <View>
       <ActivityText>Title: {movie.original_title}</ActivityText>
       <Text>Overview: {movie.overview}</Text>
-      <Text>Homepage: {movie.homepage}</Text>
+      {movie.homepage ? (
+        <Text>Homepage: {movie.homepage}</Text>
+      ) : (
+        <Text>Nope</Text>
+      )}
       <Text>Released: {movie.release_date}</Text>
     </View>
   );

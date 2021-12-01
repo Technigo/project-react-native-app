@@ -1,10 +1,26 @@
 import React from "react";
-import { Button, Text, View, TouchableHighlight } from "react-native";
+import {
+  Button,
+  Text,
+  View,
+  TouchableHighlight,
+  ImageBackground,
+  Image,
+} from "react-native";
 import styled from "styled-components/native";
 
 const APIButton = styled.TouchableHighlight`
   width: 50%;
   background-color: pink;
+`;
+
+const TechnigoImage = styled.Image`
+  width: 100%;
+  height: 100%;
+`;
+
+const ScreenBg = styled.ImageBackground`
+  height: 100%;
 `;
 
 const StartScreen = ({ navigation }) => {
@@ -16,6 +32,10 @@ const StartScreen = ({ navigation }) => {
         Watch a movie, do something random, read a poem or get enlightened by
         Ka*ye?{" "}
       </Text>
+      <TechnigoImage
+        source={require("../assets/favicon.png")}
+        resizeMode="contain"
+      />
 
       <APIButton onPress={() => navigation.navigate("Movie")}>
         <Text>random movie</Text>
