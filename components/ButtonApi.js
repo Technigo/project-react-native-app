@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 
-const Container = styled.View``;
-
 const QuoteText = styled.Text`
   font-family: AbrilFatface_400Regular;
   font-size: 40px;
@@ -54,13 +52,13 @@ const ButtonApi = () => {
   }
 
   return (
-    <Container>
+    <View>
       <QuoteText>{quote.content}</QuoteText>
       <AuthorText>{quote.author}</AuthorText>
       <ApiButton onPress={generateQuote}>
         <ButtonText>New quote</ButtonText>
       </ApiButton>
-    </Container>
+    </View>
   );
 };
 
