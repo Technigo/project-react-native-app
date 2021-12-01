@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
 
-const QuoteText = styled.Text`
-  font-weight: 700;
-`;
+// const QuoteText = styled.Text`
+//   font-weight: 700;
+// `;
 
 const ApiButton = styled.TouchableOpacity`
   width: 50%;
@@ -34,7 +34,7 @@ const ButtonApi = () => {
   return (
     <View>
       <ApiButton onPress={generateActivity}>
-        <Text>Click on the button! </Text>{" "}
+        <Text>Click on the button! </Text>
       </ApiButton>
       <Text> Activity:{activity.activity}</Text>
       <Text> Type of activity:{activity.type}</Text>

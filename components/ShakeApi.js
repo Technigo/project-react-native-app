@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity, ActivityIndicator } from "react-native";
-import { Accelerometer } from 'expo-sensors';
+import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
 
-const QuoteText = styled.Text`
-  font-weight: 700;
-`;
+// const ApiButton = styled.TouchableOpacity`
+//   width: 50%;
+//   background-color: green;
+// `;
 
-const ApiButton = styled.TouchableOpacity`
-  width: 50%;
-  background-color: green;
-`;
-
-const ButtonApi = () => {
+const ShakeApi = () => {
+  const [data, setData] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+  const [subscription, setSubscription] = useState(null);
   const [activity, setActivity] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -20,56 +22,30 @@ const ButtonApi = () => {
     generateActivity();
   }, []);
 
-
-
-
-
-
-
-export default function App() {
-  const [data, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
-  });
-  const [subscription, setSubscription] = useState(null);
-
-  const _slow = () => {
+  useEffect(() => {
     Accelerometer.setUpdateInterval(1000);
-  };
+    subscribe();
+    return () => unsubscribe();
+  }, []);
 
-  const _fast = () => {
-    Accelerometer.setUpdateInterval(16);
-  };
+  useEffect(() => {
+    if (isShaking(data)) {
+      generateActivity();
+    }
+  }, [data]);
 
-  const _subscribe = () => {
+  const subscribe = () => {
     setSubscription(
-      Accelerometer.addListener(accelerometerData => {
+      Accelerometer.addListener((accelerometerData) => {
         setData(accelerometerData);
       })
     );
   };
 
-  const _unsubscribe = () => {
+  const unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
   };
-
-
-
-
-
-
-
-
-
-
-  useEffect(() => {
-    _subscribe();
-    return () => _unsubscribe();
-  }, []);
-
-
 
   const generateActivity = () => {
     setLoading();
@@ -79,19 +55,23 @@ export default function App() {
       .finally(() => setLoading(false));
   };
 
+  const isShaking = (data) => {
+    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
+    return totalForce > 1.78;
+  };
+
   if (loading) {
     return <ActivityIndicator />;
   }
 
+  const { x, y, z } = data;
+
   return (
     <View>
-      <ApiButton onPress={generateActivity}>
-        <Text>Click on the button! </Text>{" "}
-      </ApiButton>
       <Text> Activity:{activity.activity}</Text>
       <Text> Type of activity:{activity.type}</Text>
     </View>
   );
 };
 
-export default ButtonApi;
+export default ShakeApi;
