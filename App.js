@@ -1,15 +1,15 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, DrawerItemList, DrawerItem, DrawerContentScrollView } from '@react-navigation/native'
 import { ButtonApi } from './screens/ButtonApi'
 import { ShakeApi } from './screens/ShakeApi'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { RandomVideos } from './screens/RandomVideos'
 import { HomeScreen } from './screens/HomeScreen'
 import { Contact } from './screens/Contact'
-import { Profile } from './screens/Profile'
 import { StatusBar } from 'expo-status-bar'
 import { StepCount } from './screens/StepCount'
 import { Ionicons } from '@expo/vector-icons'
+import { View, Image, Text } from 'react-native'
 
 
 const Drawer = createDrawerNavigator()
@@ -19,16 +19,15 @@ const App = () => {
 	return (
 		<NavigationContainer>
 			<StatusBar />
-			
-			<Drawer.Navigator
+			<Drawer.Navigator 
 			  screenOptions={{
 				drawerStyle: {
 					color: '#333',
-				  backgroundColor: '#dedede',
-				  width: 343,
+					backgroundColor: '#dedede',
+					width: 343,
 				},
 			  }}>
-				  
+
 				<Drawer.Screen 
 					name="Home" 
 					component={HomeScreen}
@@ -107,12 +106,9 @@ const App = () => {
 					),
 				}}/>
 
-					{/* <Drawer.Screen name="Contact" component={Contact} /> */}
-
 			</Drawer.Navigator>
 		</NavigationContainer>
 	)
 }
 
 export default App
-
