@@ -33,7 +33,7 @@ const ShakeDataTitle = styled.Text`
 `
 const ShakeData = styled.Text``
 
-export const SensorComponent = () => {
+const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400)
@@ -75,22 +75,31 @@ export const SensorComponent = () => {
     return () => _unsubscribe()
   }, [])
 
-  return (
-    <ShakeView>
-      {/* 
+  return isShaking(data)
+}
+
+// <ShakeView>
+{
+  /* 
       If isShaking returns true:
         - We could render conditionally
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
-    </ShakeView>
-  )
+      */
 }
+{
+  /* {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+    </ShakeView> */
+}
+
+{
+  /* <ShakeDataView>
+<ShakeDataTitle>Shake Data</ShakeDataTitle>
+//toFixed(2) only shows two decimal places, otherwise it's quite a lot 
+<ShakeData>X: {data.x.toFixed(2)}</ShakeData>
+<ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
+<ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
+</ShakeDataView> */
+}
+
+export default SensorComponent
