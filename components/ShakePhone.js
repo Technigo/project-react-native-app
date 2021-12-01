@@ -13,7 +13,7 @@ const Paragraph = styled.Text`
   color: ${(props) => props.theme.colors.textYellow};
 `;
 
-const ShakeApi = () => {
+const ShakePhone = () => {
   // used to store the current position of the phone
   const [data, setData] = useState({
     x: 0,
@@ -82,4 +82,4 @@ const ShakeApi = () => {
   );
 };
 
-export default ShakeApi;
+export default ShakePhone;
