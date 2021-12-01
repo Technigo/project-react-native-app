@@ -1,55 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity, ActivityIndicator } from "react-native";
-import styled from "styled-components/native";
+import React from "react";
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+  Image,
+  Dimensions,
+} from "react-native";
 
-// const QuoteText = styled.Text`
-//   font-weight: 700;
-// `;
+import Snow from "react-native-snow-bg";
+import BgImg from "./winterBg.jpg";
 
-const ApiButton = styled.TouchableOpacity`
-  width: 50%;
-  background-color: green;
-`;
+const { width, height } = Dimensions.get("window");
 
-const ButtonApi = () => {
-  const [activity, setActivity] = useState({});
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    generateActivity();
-  }, []);
-
-  const generateActivity = () => {
-    setLoading();
-    fetch("https://www.boredapi.com/api/activity/")
-      .then((res) => res.json())
-      .then((data) => setActivity(data))
-      .finally(() => setLoading(false));
-  };
-
-  if (loading) {
-    return <ActivityIndicator />;
-  }
-
+const ButtonApi: () => React$Node = () => {
   return (
-    <View>
-      <ApiButton onPress={generateActivity}>
-        <Text>Click on the button! </Text>
-      </ApiButton>
-      <Text> Activity:{activity.activity}</Text>
-      <Text> Type of activity:{activity.type}</Text>
-    </View>
+    <>
+      <Image source={BgImg} style={styles.bg} />
+      <StatusBar barStyle="dark-content" />
+      <View>
+        <View style={styles.sectionContainer}>
+          <Text style={styles.sectionTitle}>Technigo winter app</Text>
+        </View>
+      </View>
+      <Snow fullScreen snowflakesCount={150} fallSpeed="medium" />
+    </>
   );
 };
 
+const styles = StyleSheet.create({
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: "600",
+    color: "white",
+  },
+  bg: {
+    width,
+    height,
+    position: "absolute",
+  },
+});
+
 export default ButtonApi;
-
-//  const generateArt = () => {
-//     fetch("https://api.artic.edu/api/v1/artworks")
-//       .then((res) => res.json())
-//       .then((data) => setArt(data));
-//   };
-
-// setTimeout(function(){
-//  	alert("Sup!");
-// }, 2000);

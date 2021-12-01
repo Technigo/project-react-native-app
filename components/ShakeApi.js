@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity, ActivityIndicator } from "react-native";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
+import Snow from "react-native-snow-bg";
 
 const ActivityBall = styled.View`
   display: flex;
@@ -31,6 +32,12 @@ const ActivitySuggestion = styled.Text`
   position: absolute;
   top: 0;
   left: 0;
+`;
+
+const Suggestion = styled.Text`
+  font-size: 12px;
+  margin: 5px;
+  color: black;
 `;
 
 // const ActivitySuggestion2 = styled.Text`
@@ -99,13 +106,17 @@ const ShakeApi = () => {
   const { x, y, z } = data;
 
   return (
-    <ActivityBall>
-      <ActivitySuggestion> {activity.activity}</ActivitySuggestion>
-      {/* <ActivitySuggestion2>
+    <View>
+      <ActivityBall>
+        <ActivitySuggestion>
+          <Suggestion>{activity.activity}</Suggestion>
+        </ActivitySuggestion>
+        {/* <ActivitySuggestion2>
         {" "}
         Type of activity:{activity.type}
       </ActivitySuggestion2> */}
-    </ActivityBall>
+      </ActivityBall>
+    </View>
   );
 };
 
