@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, TouchableHighlight } from "react-native";
 import { Pedometer } from "expo-sensors";
 import { ProgressChart } from "react-native-chart-kit";
 import { Header } from "./Header";
-import { SettingButton } from "./SettingButton";
 
 const styles = StyleSheet.create({
   WalkText: {
@@ -15,10 +14,13 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
   },
-  StepCounterContainer: {},
+  StepCounterContainer: {
+    backgroundColor: "papayawhip",
+    flex: 1,
+  },
 });
 
-export const StepCounter = ({ navigation }) => {
+export const StepCounter = ({ onStepChange, step }) => {
   const [isPedometerAvailable, setIsPedometerAvailable] = useState("checking");
   const [pastStepCount, setPastStepCount] = useState(0);
   const [currentStepCount, setCurrentStepCount] = useState(0);
@@ -74,7 +76,7 @@ export const StepCounter = ({ navigation }) => {
     useShadowColorFromDataset: false, // optional
   };
   const data = {
-    data: [pastStepCount / 10000],
+    data: [pastStepCount / 1000],
   };
   return (
     <View style={styles.StepCounterContainer}>
@@ -95,9 +97,8 @@ export const StepCounter = ({ navigation }) => {
           hideLegend={true}
         />
       </View>
-      <Text style={styles.WalkText}>The daily goal is 10 000.</Text>
+      <Text style={styles.WalkText}>The daily goal is {step}.</Text>
       <Text style={styles.WalkText}>Keep walking to reach your goal!</Text>
-      <SettingButton onPress={() => navigation.navigate("Settings")} />
     </View>
   );
 };

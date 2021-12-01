@@ -5,31 +5,48 @@ import { StepCounter } from "./components/StepCounter";
 import { WelcomePage } from "./components/WelcomePage";
 
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { Settings } from "./components/Settings";
 
 const Container = styled.View`
   flex: 1;
   background-color: papayawhip;
 `;
-const Stack = createNativeStackNavigator();
+
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   const [showWelcomePage, setShowWelcomePage] = useState(true);
+  const [step, onStepChange] = useState("");
   useEffect(() => {
     setTimeout(() => setShowWelcomePage(false), 1000);
   }, []);
+
   return (
-    // <Container>{showWelcomePage ? <WelcomePage /> : <StepCounter />}</Container>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={StepCounter}
-          options={{ title: "Welcome" }}
-        />
-        <Stack.Screen name="Profile" component={Settings} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      {showWelcomePage ? (
+        <Container>
+          <WelcomePage />
+        </Container>
+      ) : (
+        <NavigationContainer>
+          <Drawer.Navigator>
+            <Drawer.Screen
+              name="Keep on walking"
+              component={StepCounter}
+              onStepChange={onStepChange}
+              step={step}
+            />
+            <Drawer.Screen
+              name="Settings"
+              component={Settings}
+              onStepChange={onStepChange}
+              step={step}
+            />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      )}
+    </>
   );
 };
 
