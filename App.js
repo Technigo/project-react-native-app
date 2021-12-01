@@ -1,36 +1,38 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Text } from 'react-native'
+import { Text, View, StyleSheet, ImageBackground } from 'react-native'
 import { ShakeAPI } from './components/ShakeAPI'
+import { Header } from './components/Header'
+import { HomePage } from './components/HomePage'
 
-const Container = styled.View`
-  flex: 1;
-  background-color: #fff3b0;
-  justify-content: center;
-  align-items: center;
-`
+const image = { uri: 'https://i.imgur.com/9j8yIOX.jpg' }
 
-const HeaderTitle = styled.Text`
-  position: absolute;
-  top: 90px;
-  color: #eedf8b;
-  text-shadow: 3px 3px #e09f3e;
-  font-size: 35px;
-  font-weight: 800;
-`
-const HeaderSpan = styled.Text`
-  font-size: 25px;
-  color: #444644;
-`
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff3b0',
+  },
+  image: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: -1,
+  },
+})
 
 const App = () => {
   return (
-    <Container>
-      <HeaderTitle>
-        Shake<HeaderSpan>to</HeaderSpan>Make
-      </HeaderTitle>
-      <ShakeAPI />
-    </Container>
+    <View style={styles.container}>
+      <ImageBackground style={styles.image} source={image}>
+        <HomePage />
+      </ImageBackground>
+    </View>
   )
 }
 
