@@ -5,17 +5,26 @@ import styled from "styled-components/native";
 
 const Container = styled.View`
   flex: 1;
-  background-color: lightyellow;
   justify-content: center;
   align-items: center;
 `;
 
 const QuoteText = styled.Text`
-  font-size: 16px;
-  color: hotpink;
-  margin: 10px auto;
+  font-size: 22px;
+  color: #ecb977;
+  margin: 40px 50px;
   text-align: center;
-  max-width: 60%;
+  font-weight: bold;
+  text-transform: uppercase;
+`;
+
+const ShakeText = styled.Text`
+  font-size: 18px;
+  color: #ecb977;
+  margin: 20px 50px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
 `;
 
 const ShakeApi = () => {
@@ -59,7 +68,7 @@ const ShakeApi = () => {
 
   const generateQuote = () => {
     setLoading(true);
-    fetch("https://api.quotable.io/random")
+    fetch("https://api.kanye.rest/")
       .then((res) => res.json())
       .then((data) => setQuote(data))
       .finally(() => setLoading(false));
@@ -84,8 +93,8 @@ const ShakeApi = () => {
 
   return (
     <Container>
-      <QuoteText>Quote: {quote.content}</QuoteText>
-      <QuoteText>Author: {quote.author}</QuoteText>
+      <ShakeText>Shake for Ye-quote!</ShakeText>
+      <QuoteText>"{quote.quote}"</QuoteText>
     </Container>
   );
 };

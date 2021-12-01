@@ -5,7 +5,7 @@ import ShakeApi from "./components/ShakeApi";
 
 const Container = styled.View`
   flex: 1;
-  background-color: lightyellow;
+  background-color: #ffeccc;
   justify-content: center;
   align-items: center;
 `;
@@ -13,6 +13,7 @@ const Container = styled.View`
 const App = () => {
   return (
     <Container>
+      {/* <ButtonApi /> */}
       <ShakeApi />
     </Container>
   );

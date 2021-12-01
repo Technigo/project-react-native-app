@@ -16,11 +16,10 @@ const Container = styled.View`
 `;
 
 const Paragraph = styled.Text`
-  font-size: 16px;
+  font-size: 22px;
   color: hotpink;
-  margin: 10px auto;
+  margin: 40px 50px;
   text-align: center;
-  max-width: 60%;
 `;
 
 const APIButton = styled.TouchableHighlight`
@@ -38,10 +37,11 @@ const ButtonApi = () => {
 
   const generateQuote = () => {
     setLoading(true);
-    fetch("https://api.quotable.io/random")
+    fetch("https://api.kanye.rest/")
       .then((res) => res.json())
-      .then((data) => setQuote(data))
+      .then((quote) => setQuote(quote))
       .finally(() => setLoading(false));
+    console.log("QUOTE", quote);
   };
 
   if (loading) {
@@ -50,12 +50,10 @@ const ButtonApi = () => {
 
   return (
     <Container>
-      <Paragraph>Click button to generate another quote!</Paragraph>
+      <Paragraph>"{quote.quote}"</Paragraph>
       <APIButton onPress={generateQuote}>
-        <Text>Click!</Text>
+        <Text> Click! </Text>
       </APIButton>
-      <Paragraph>Quote: {quote.content}</Paragraph>
-      <Paragraph>Author: {quote.author}</Paragraph>
     </Container>
   );
 };
