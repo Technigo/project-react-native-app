@@ -29,7 +29,6 @@ const QuestionsContainer = styled.View`
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-
 `;
 
 const QuestionsText = styled.Text`
