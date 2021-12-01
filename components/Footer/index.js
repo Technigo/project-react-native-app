@@ -6,8 +6,7 @@ const Container = styled.View`
 	justify-content: center;
 	align-items: center;
     width: 100%;
-    height: 32px;
-    flex: 0.5;
+    height: 80px;
     margin-top: 20px;
     flex-direction: row;
 `;
@@ -26,12 +25,7 @@ const ButtonText = styled.Text`
     text-align: center;
     color: #444444;
     font-weight: bold;
-`;
-
-const Image = styled.Image`
-    width: 50;
-    height: 50;
-    margin: 10px;
+    font-family: Merienda_700Bold;
 `;
 
 const Footer = ({ text, sign, navigation, direction }) => {
@@ -41,9 +35,6 @@ const Footer = ({ text, sign, navigation, direction }) => {
             <ButtonQuestion onPress={() => navigation.navigate(direction)}>
                 <ButtonText>{`${sign} ${text}`}</ButtonText>
             </ButtonQuestion>
-            {/* <Image
-                source={require('../../assets/question.jpeg')}
-            /> */}
         </Container>
     );
 };

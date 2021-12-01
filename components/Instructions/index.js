@@ -15,12 +15,13 @@ const Container = styled.View`
 
 const Text = styled.Text`
 	font-size: 17px;
-	color: #E88A1A;
+	color: #444444;
     margin: 10px;
     font-style: italic;
     font-family: Merienda;
     flex-wrap: wrap;
     text-align: center;
+    font-family: Merienda_400Regular;
 `;
 
 const Instructions = ({ instructions }) => {

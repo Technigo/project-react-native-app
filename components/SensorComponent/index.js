@@ -29,6 +29,7 @@ const Answer = styled.Text`
     text-align: center;
     color: white;
     font-weight: bold;
+    font-family: Merienda_700Bold;
 `;
 
 const TitleContainer = styled.View`
@@ -41,7 +42,8 @@ const TitleContainer = styled.View`
 
 const Title = styled.Text`
 	font-size: 24px;
-	color: yellow;
+	color: #EDEDED;
+    font-family: Merienda_400Regular;
 `;
 
 const Loader = styled.ActivityIndicator`
@@ -60,7 +62,7 @@ export const SensorComponent = () => {
     const [isShakingNow, setIsChakingNow] = useState(false);
     const [answer, setAnswer] = useState(null)
 
-    const _subscribe = () => {
+    const subscribe = () => {
         setSubscription(
             Accelerometer.addListener((accelerometerData) => {
                 setData(accelerometerData);
@@ -68,14 +70,14 @@ export const SensorComponent = () => {
         );
     };
 
-    const _unsubscribe = () => {
+    const unsubscribe = () => {
         subscription && subscription.remove();
         setSubscription(null);
     };
 
     useEffect(() => {
-        _subscribe();
-        return () => _unsubscribe();
+        subscribe();
+        return () => unsubscribe();
     }, []);
 
 

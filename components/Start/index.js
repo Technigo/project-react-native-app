@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         margin: 25,
         textAlign: "center",
         fontWeight: "bold",
+        fontFamily: 'Merienda_700Bold',
     },
     button: {
         marginTop: 20,
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 20,
         textAlign: "center",
+        fontFamily: 'Merienda_400Regular',
     }
 
 });

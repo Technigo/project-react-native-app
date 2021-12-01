@@ -14,11 +14,10 @@ const Container = styled.View`
 `;
 
 const Image = styled.Image`
-   borderRadius: 10;
-    width: 250;
-    height: 200;
-    flex: 1.5;
-    margin-top: 10px;
+   borderRadius: 10px;
+    width: 250px;
+    height: 280px;
+    margin-top: 20px;
 `;
 
 const QuestionsContainer = styled.View`
@@ -30,15 +29,16 @@ const QuestionsContainer = styled.View`
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    flex: 0.7;
+
 `;
 
-const Questions = styled.Text`
+const QuestionsText = styled.Text`
 	font-size: 24px;
     height: auto;
     margin: 8px auto;
     text-align: center;
     color: black;
+    font-family: Merienda_700Bold;
 `;
 
 const ButtonQuestion = styled.TouchableHighlight`
@@ -54,6 +54,7 @@ const ButtonText = styled.Text`
     padding: 15px;
     text-align: center;
     color: white;
+    font-family: Merienda_400Regular;
 `;
 
 const RandomQuestions = ({ navigation }) => {
@@ -73,11 +74,11 @@ const RandomQuestions = ({ navigation }) => {
             />
 
             {randomQuestion && <QuestionsContainer>
-                <Questions>{randomQuestion}</Questions>
+                <QuestionsText>{randomQuestion}</QuestionsText>
             </QuestionsContainer>}
 
             <ButtonQuestion onPress={() => getRandomElement()}>
-                <ButtonText>Inspiration please</ButtonText>
+                <ButtonText>Inspiration</ButtonText>
             </ButtonQuestion>
 
 
