@@ -1,24 +1,20 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import { Quote } from './components/Quote';
+
 const Container = styled.View`
 	flex: 1;
-	background-color: papayawhip;
+	background-color: #9C8CD4;
 	justify-content: center;
 	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
+	text-align:center;
 `;
 
 const App = () => {
 	return (
 		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
+			<Quote />
 		</Container>
 	);
 };
