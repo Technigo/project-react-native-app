@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 
 import { Buttons } from './Components/Buttons';
 import { LoadingSpinner } from './Components/LoadingSpinner';
+import { SensorComponent } from './components/SensorComponent';
 
 const Container = styled.View`
   flex: 1;
@@ -55,6 +56,7 @@ const App = () => {
       </InnerContainer>
       {/* <LoadingSpinner /> */}
       <Buttons />
+      <SensorComponent />
     </Container>
   );
 };
