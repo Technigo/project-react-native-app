@@ -11,12 +11,13 @@ import { AbrilFatface_400Regular } from "@expo-google-fonts/abril-fatface";
 
 import ButtonApi from "./components/ButtonApi";
 import ShakeApi from "./components/ShakeApi";
+import Header from "./components/Header";
 
 const Container = styled.View`
   flex: 1;
   background-color: #7bdfc3;
-  justify-content: center;
   padding: 20px;
+  justify-content: center;
 `;
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
   } else {
     return (
       <Container>
+        <Header />
         <ButtonApi />
       </Container>
     );

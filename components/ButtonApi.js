@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 
+const Container = styled.View``;
+
 const QuoteText = styled.Text`
   font-family: AbrilFatface_400Regular;
   font-size: 40px;
@@ -11,12 +13,12 @@ const QuoteText = styled.Text`
 const AuthorText = styled.Text`
   font-family: Poppins_300Light_Italic;
   margin-top: 20px;
-  align-items: center;
 `;
 
 const ButtonContainer = styled.View`
   display: flex;
-  align-items: right;
+  box-shadow: 2px 4px #30c59b;
+  margin-top: 40px;
 `;
 
 const ButtonText = styled.Text`
@@ -26,7 +28,7 @@ const ButtonText = styled.Text`
 
 const ApiButton = styled.TouchableOpacity`
   width: 30%;
-  background-color: lightblue;
+  background-color: #3acfa5;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 15px;
@@ -56,7 +58,7 @@ const ButtonApi = () => {
   }
 
   return (
-    <View>
+    <Container>
       <QuoteText>{quote.content}</QuoteText>
       <AuthorText>{quote.author}</AuthorText>
       <ButtonContainer>
@@ -64,7 +66,7 @@ const ButtonApi = () => {
           <ButtonText>New quote</ButtonText>
         </ApiButton>
       </ButtonContainer>
-    </View>
+    </Container>
   );
 };
 
