@@ -6,12 +6,14 @@ const TrailData = [
     title: 'Norra Sverige (fjällen)',
     trail: [],
     description: [],
+    TrailKm: [],
   },
   {
     id: 2,
     title: 'Norra Sverige (icke fjällen)',
     trail: [],
     description: [],
+    TrailKm: [],
   },
 
   {
@@ -29,10 +31,10 @@ const TrailData = [
       'Från STF Grövelsjön Fjällstation går du åt nordost över Långfjället. På Långfjället passerar du en informationstavla om Linnés möte med falkfångare 1734. Här finns lämningar från ett gammalt falkfångarläger. Sträckans högsta punkt ligger redan efter fem kilometer, söder om Jakobshöjden. Härifrån får du storslagna vyer över Storvätteshogna – Svealands högsta fjäll som reser sig 1 204 meter över havet. Därefter sluttar leden svagt utför mot Hävlingen.',
       'På Roslagsledens kortaste sträcka, etapp 10 mellan Gåsvik och Sandviken, hinner du med både museibesök och en avstickare till Väddö gårdsmejeri.',
     ],
-    Etappens längd: ['7,9km', '15km', '21km', '9km'],
+    TrailKm: ['7,9km', '15km', '21km', '9km'],
   },
 
-  { id: 4, title: 'Södra Sverige', trail: [], description: [], Etappens längd: [] },
+  { id: 4, title: 'Södra Sverige', trail: [], description: [], TrailKm: [] },
 ];
 
 export const TrailData = createSlice({

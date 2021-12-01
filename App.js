@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+import { Buttons } from './Components/Buttons';
+
 const Container = styled.View`
   flex: 1;
   background-color: #d5e9d3;
@@ -55,6 +57,7 @@ const App = () => {
         <Emojis>✨ 🥑 🌲 </Emojis>
       </InnerContainer>
       <Loading size='large' color='palevioletred' />
+      <Buttons />
     </Container>
   );
 };
