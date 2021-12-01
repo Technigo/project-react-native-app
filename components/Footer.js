@@ -6,10 +6,10 @@ const Container = styled.View`
   position: absolute;
   bottom: 0;
   height: 50px;
-  width: 100vw;
+  width: 100%;
   background-color: blue;
   justify-content: center;
-  text-align: center;
+  align-items: center;
 `;
 
 const Footer = () => {

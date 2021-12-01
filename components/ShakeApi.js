@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
+import { useFonts, Epilogue_500Medium } from "@expo-google-fonts/epilogue";
 
 const Container = styled.View`
   border: 1px solid black;
   justify-content: center;
   text-align: center;
-  padding: 10px;
+  padding: 30px;
 `;
 
 const QuoteText = styled.Text`
@@ -23,6 +24,9 @@ const ShakeApi = () => {
   const [quote, setQuote] = useState([]);
   const [loading, setLoading] = useState(false);
   const [subscription, setSubscription] = useState(null);
+  const [fontsLoaded] = useFonts({
+    Epilogue_500Medium,
+  });
 
   useEffect(() => {
     getQuote();
@@ -68,7 +72,7 @@ const ShakeApi = () => {
     return totalForce > 1.78;
   };
 
-  if (loading) {
+  if (loading || !fontsLoaded) {
     return <ActivityIndicator />;
   }
 
@@ -76,7 +80,9 @@ const ShakeApi = () => {
 
   return (
     <Container>
-      <QuoteText>- {quote}</QuoteText>
+      <QuoteText style={{ fontFamily: "Epilogue_500Medium" }}>
+        - {quote}
+      </QuoteText>
     </Container>
   );
 };

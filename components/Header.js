@@ -4,10 +4,10 @@ import styled from "styled-components/native";
 
 const HeaderContainer = styled.View`
   height: 150px;
-  width: 100vw;
+  width: 100%;
   background-color: blue;
   justify-content: center;
-  text-align: center;
+  align-items: center;
 `;
 
 const HeaderText = styled.Text`

@@ -6,22 +6,25 @@ import ShakeApi from "./components/ShakeApi";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Description from "./components/Description";
+import SwitchImage from "./components/SwitchImage";
 
 const Container = styled.View`
-  display: flex;
-  height: 100vh;
-  background-color: papayawhip;
+  padding: 10px;
   align-items: center;
+  border: 1px solid red;
 `;
 
 const App = () => {
   return (
-    <Container>
+    <>
       <Header />
-      <Description />
-      <ShakeApi />
+      <Container>
+        <Description />
+        <SwitchImage />
+        <ShakeApi />
+      </Container>
       <Footer />
-    </Container>
+    </>
   );
 };
 
