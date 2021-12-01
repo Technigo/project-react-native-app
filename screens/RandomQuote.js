@@ -1,18 +1,53 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ActivityIndicator, Vibration } from "react-native";
+import {
+	View,
+	Text,
+	ActivityIndicator,
+	Vibration,
+	StyleSheet,
+} from "react-native";
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
 
-const RandomQuoteContainer = styled.View`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-`;
+// Styled components
 
-const QuoteText = styled.Text`
-	font-weight: 700;
-`;
+// const RandomQuoteContainer = styled.View`
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	height: 100%;
+// `;
+
+// Stylesheet
+
+const styles = StyleSheet.create({
+	container: {
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		height: "100%",
+	},
+	magic8ball: {
+		width: 300,
+		height: 300,
+		backgroundColor: "black",
+		borderRadius: 150,
+	},
+	quote: {
+		width: 300,
+		height: 300,
+		borderRadius: 150,
+		fontWeight: "700",
+		color: "#ffffff",
+		borderColor: "red",
+		borderWidth: 5,
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		padding: 30,
+		textAlign: "center",
+	},
+});
 
 export const RandomQuote = () => {
 	const [data, setData] = useState({
@@ -72,9 +107,13 @@ export const RandomQuote = () => {
 	}
 
 	return (
-		<RandomQuoteContainer>
-			<QuoteText>Quote: {quote.content}</QuoteText>
-			<Text>Author: {quote.author}</Text>
-		</RandomQuoteContainer>
+		<View style={styles.container}>
+			<View style={styles.magic8ball}>
+				{/* <Question>What movie should I watch?</Question> */}
+				<Text style={styles.quote}>{quote.content}</Text>
+			</View>
+			{/* <Text>Author: {quote.author}</Text> */}
+			<Text>Shake to start</Text>
+		</View>
 	);
 };

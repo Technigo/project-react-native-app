@@ -1,8 +1,7 @@
 import React from "react";
-import { Text, Button } from "react-native";
+import { Text } from "react-native";
 import styled from "styled-components/native";
 
-// This is the main container for this screen
 const HomeContainer = styled.View`
 	display: flex;
 	justify-content: center;
@@ -10,14 +9,13 @@ const HomeContainer = styled.View`
 	height: 100%;
 `;
 
-// The prop "navigation" is important if you are trying to open/toggle the drawer
-//  directly via Javascript
-export const Home = ({ navigation }) => {
+export const Home = () => {
 	return (
 		<HomeContainer>
 			<Text>Home Screen</Text>
-			{/* Here is an example of how to open/toggle the drawer via javascript */}
-			<Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
 		</HomeContainer>
 	);
 };
+
+// If I want to use a button to toggle the dreawer I can add navigation as a prop and add this button:
+// <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
