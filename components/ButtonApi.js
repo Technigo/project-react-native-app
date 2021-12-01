@@ -12,7 +12,9 @@ const HeaderText = styled.Text``;
 
 const ApiButton = styled.TouchableOpacity`
   width: 50%;
-  background-color: green;
+  background-color: blue;
+  padding: 10px;
+  margin: 10px;
 `;
 
 const ButtonApi = () => {

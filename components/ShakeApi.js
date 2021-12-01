@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import { Accelerometer } from "expo-sensors";
 
 const QuoteText = styled.Text`
   font-weight: 700;
-`;
-
-const AuthorText = styled.Text``;
-
-const HeaderText = styled.Text``;
-
-const ApiButton = styled.TouchableOpacity`
-  width: 50%;
-  background-color: green;
 `;
 
 const ButtonApi = () => {
@@ -22,6 +14,36 @@ const ButtonApi = () => {
   useEffect(() => {
     generateQuote();
   }, []);
+
+
+
+  const [data, setData] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+  const [subscription, setSubscription] = useState(null);
+
+  const _subscribe = () => {
+    Accelerometer.setUpdateInterval(1000);
+    setSubscription(
+      Accelerometer.addListener((accelerometerData) => {
+        setData(accelerometerData);
+      })
+    );
+  };
+
+  const _unsubscribe = () => {
+    subscription && subscription.remove();
+    setSubscription(null);
+  };
+
+  useEffect(() => {
+    _subscribe();
+    return () => _unsubscribe();
+  }, []);
+
+
 
   const generateQuote = () => {
     setLoading(true);
@@ -39,7 +61,7 @@ const ButtonApi = () => {
     <View>
       <Text>Click button to generate quote</Text>
       <ApiButton onPress={generateQuote}>
-        <Text>Click for quote!</Text>
+        <Text>Click me!</Text>
       </ApiButton>
       <QuoteText>Quote: {quote.content}</QuoteText>
       <Text>Author: {quote.author}</Text>
