@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
-	background: gray;
+	background: #D9D9D9;
     margin: 50px 0;
     width: 80%;
     height: auto;
@@ -10,13 +10,12 @@ const Container = styled.View`
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    flex: 0.5;
     padding: 10px;
 `;
 
 const Text = styled.Text`
 	font-size: 17px;
-	color: wheat;
+	color: #E88A1A;
     margin: 10px;
     font-style: italic;
     font-family: Merienda;

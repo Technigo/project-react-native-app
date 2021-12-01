@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
-	background-color: red;
+	background-color: #CF3030;
 	justify-content: center;
 	align-items: center;
     width: 100%;
@@ -13,6 +13,7 @@ const Container = styled.View`
 const Title = styled.Text`
 	font-size: 24px;
 	color: white;
+    font-weight: bold;
 `;
 
 const Header = () => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import Footer from '../Footer';
 import Instructions from '../Instructions';
 
 
@@ -16,10 +15,10 @@ const Container = styled.View`
 `;
 
 const Image = styled.Image`
-    borderRadius: 10;
-    width: 250;
-    height: 250;
-    flex: 1.5;
+    borderRadius: 10px;
+    width: 250px;
+    height: 250px;
+    flex: 8;
 `;
 
 
@@ -29,7 +28,7 @@ const Concentrate = () => {
         <Container>
             <Instructions instructions={"Concentrate, ask your question and shake your phone"} />
             <Image
-                source={require('../../assets/zultar-card.jpeg')}
+                source={require('../../assets/zoltar-card.jpeg')}
             />
         </Container>
     );

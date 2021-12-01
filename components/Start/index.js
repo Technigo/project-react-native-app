@@ -7,7 +7,7 @@ const Start = ({ navigation }) => {
         <View style={styles.container}>
             <Image
                 style={styles.image}
-                source={require('../../assets/zultar.gif')} />
+                source={require('../../assets/zoltar-start.gif')} />
             <Text style={styles.text}>Do you want to know your fortune?</Text>
 
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Answers')}>
@@ -36,13 +36,14 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 24,
-        color: "wheat",
+        color: "#D9D9D9",
         margin: 25,
         textAlign: "center",
+        fontWeight: "bold",
     },
     button: {
         marginTop: 20,
-        backgroundColor: "red",
+        backgroundColor: "#CF3030",
         padding: 20,
         borderRadius: 10,
 

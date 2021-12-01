@@ -10,34 +10,27 @@ const Container = styled.View`
 	align-items: center;
     font-family: Merienda;
     width: 100%;
-    flex: 1;
+    flex: 1.5;
 `;
 
-const TitleContainer = styled.View`
-    margin: 32px auto;
-    text-align: center;
-    justify-content: center;
-    flex: 0.5;
-    background-color: black;
-    width: 70%;
-`;
-
-const Title = styled.Text`
-	font-size: 18px;
-	color: gray;
-    text-align: center;
+const Image = styled.Image`
+   borderRadius: 10;
+    width: 250;
+    height: 200;
+    flex: 1.5;
+    margin-top: 10px;
 `;
 
 const QuestionsContainer = styled.View`
-    background: gray;
+    background: #D9D9D9;
     width: 80%;
     height: auto;
-    margin: 50px auto;
+    margin: 40px auto 20px auto;
     text-align: center;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    flex: 1;
+    flex: 0.7;
 `;
 
 const Questions = styled.Text`
@@ -45,14 +38,14 @@ const Questions = styled.Text`
     height: auto;
     margin: 8px auto;
     text-align: center;
-    color: white;
+    color: black;
 `;
 
 const ButtonQuestion = styled.TouchableHighlight`
 	font-size: 24px;
-    margin: 50px auto;
+    margin: 20px auto 40px auto;
     text-align: center;
-    background-color: red;
+    background-color: #CF3030;
     border-radius: 10px;
 `;
 
@@ -73,22 +66,22 @@ const RandomQuestions = ({ navigation }) => {
 
     return (
         <Container>
-            <TitleContainer>
-                <Title>
-                    What people ask before you to Zoltar?
-                </Title>
-            </TitleContainer>
+            {!randomQuestion && <Instructions instructions={"Get some inpiration about what to ask to Zoltar"} />}
+
+            <Image
+                source={require('../../assets/zoltar-white.jpg')}
+            />
 
             {randomQuestion && <QuestionsContainer>
                 <Questions>{randomQuestion}</Questions>
             </QuestionsContainer>}
 
             <ButtonQuestion onPress={() => getRandomElement()}>
-                <ButtonText>Ask to Zoltar</ButtonText>
+                <ButtonText>Inspiration please</ButtonText>
             </ButtonQuestion>
 
 
-            {!randomQuestion && <Instructions instructions={"Tap the button to see random questions to ask Zoltar"} />}
+
             <Footer text={"I know what to ask for!"} sign={"<"} navigation={navigation} direction={'Answers'} />
         </Container>
     );

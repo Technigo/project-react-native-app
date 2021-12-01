@@ -11,7 +11,7 @@ const isShaking = (data) => {
 };
 
 const AnswerContainer = styled.View`
-    background: red;
+    background: #CF3030;
     width: 80%;
     height: auto;
     margin: 10px;
@@ -42,6 +42,10 @@ const TitleContainer = styled.View`
 const Title = styled.Text`
 	font-size: 24px;
 	color: yellow;
+`;
+
+const Loader = styled.ActivityIndicator`
+	flex: 4;
 `;
 
 export const SensorComponent = () => {
@@ -76,6 +80,7 @@ export const SensorComponent = () => {
 
 
     const fetchAnswer = () => {
+
         let params = encodeURIComponent("placeholder");
         fetch(API_URL(params))
             .then(res => res.json())
@@ -91,6 +96,10 @@ export const SensorComponent = () => {
         if (!isShakingNow) {
             fetchAnswer()
         }
+    }
+
+    if (isShakingNow) {
+        return <Loader size="large" color="#CF3030" />
     }
 
     return (

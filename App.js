@@ -20,9 +20,9 @@ const App = () => {
 					options={{
 						title: 'Magic Zoltar',
 						headerStyle: {
-							backgroundColor: '#f4511e',
+							backgroundColor: '#444444',
 						},
-						headerTintColor: '#fff',
+						headerTintColor: 'wheat',
 						headerTitleStyle: {
 							fontWeight: 'bold',
 							fontSize: 24,
@@ -34,10 +34,10 @@ const App = () => {
 					options={{
 						title: 'Magic Zoltar',
 						headerStyle: {
-							backgroundColor: '#f4511e',
+							backgroundColor: '#444444',
 
 						},
-						headerTintColor: '#fff',
+						headerTintColor: 'wheat',
 						headerTitleStyle: {
 							fontWeight: 'bold',
 							fontSize: 24,
@@ -51,10 +51,10 @@ const App = () => {
 					options={{
 						title: 'I know what to ask for!',
 						headerStyle: {
-							backgroundColor: '#f4511e',
+							backgroundColor: '#444444',
 							fontSize: 24,
 						},
-						headerTintColor: '#fff',
+						headerTintColor: 'wheat',
 						headerTitleStyle: {
 							fontWeight: 'bold',
 						},
@@ -63,7 +63,7 @@ const App = () => {
 				</Stack.Screen>
 
 			</Stack.Navigator>
-		</NavigationContainer>
+		</NavigationContainer >
 	);
 }
 
