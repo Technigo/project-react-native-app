@@ -4,7 +4,7 @@
             "question": "Do I have toothpaste on my sweater?"
         },
         {
-            "question": "Like what you see?"
+            "question": "Should I buy the lottery today?"
         },
         {
             "question": "Are you feeling lucky?"
@@ -13,10 +13,10 @@
             "question": "Should I ask for a raise?"
         },
         {
-            "question": "Did the cat drag it in?"
+            "question": "Will I find a job?"
         },
         {
-            "question": "Will there be more snow?"
+            "question": "Will there be more cold this winter?"
         },
         {
             "question": "Should I try to skateboard?"
@@ -29,6 +29,9 @@
         },
         {
             "question": "Will I died today?"
+        },
+        {
+            "question": "Will I live 100 years?"
         }
     ]
 }

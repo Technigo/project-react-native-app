@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, Button, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 //approach without styled components
 const Start = ({ navigation }) => {
@@ -11,7 +11,7 @@ const Start = ({ navigation }) => {
             <Text style={styles.text}>Do you want to know your fortune?</Text>
 
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Answers')}>
-                <Text style={styles.buttonText} >Ask to Zoltar</Text>
+                <Text style={styles.buttonText} >Ask Zoltar</Text>
             </TouchableOpacity>
         </View>
     );

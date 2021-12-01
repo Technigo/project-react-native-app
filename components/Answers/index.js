@@ -17,7 +17,7 @@ const Answers = ({ navigation }) => {
     return (
         <Container>
             <SensorComponent />
-            <Footer text={"Don't know what to ask for?"} sign={">"} navigation={navigation} direction={'Randomquestions'} />
+            <Footer text={"Not sure what to ask?"} sign={">"} navigation={navigation} direction={'Randomquestions'} />
         </Container>
     );
 };

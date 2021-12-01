@@ -26,7 +26,7 @@ const Concentrate = () => {
 
     return (
         <Container>
-            <Instructions instructions={"Concentrate, ask your question and shake your phone"} />
+            <Instructions instructions={"Concentrate, make your question and shake your phone"} />
             <Image
                 source={require('../../assets/zoltar-card.jpeg')}
             />

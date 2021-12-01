@@ -66,7 +66,7 @@ const RandomQuestions = ({ navigation }) => {
 
     return (
         <Container>
-            {!randomQuestion && <Instructions instructions={"Get some inpiration about what to ask to Zoltar"} />}
+            {!randomQuestion && <Instructions instructions={"Get some inpiration about what to ask Zoltar"} />}
 
             <Image
                 source={require('../../assets/zoltar-white.jpg')}
