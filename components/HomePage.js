@@ -8,7 +8,7 @@ const HomePage = () => {
 		<HomeContainer>
 			<HeaderText>Welcome to Randomizer!</HeaderText>
 			<DescriptionText>
-				To choose a movie can be hard sometimes. If you'are having troubles to find Movies are hard to choose. 
+				To choose a movie can be hard sometimes therefore I created this app to save your movie night! 
 				Slide to the right to get a random movie for the Friday night! 
 			</DescriptionText>
 			<MovieImage source={require("../assets/clapperboard.png")} />
