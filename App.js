@@ -21,7 +21,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>shake your phone to get a movie suggestion</Title>
+      <Title>shake to get a movie suggestion</Title>
       <ShakeApi />
     </Container>
   )

@@ -101,7 +101,13 @@ export const ShakeApi = () => {
 
   return (
     <View>
-      <TitleText>{movie.original_title}</TitleText>
+      <TitleText>
+        {movie.original_title ? (
+          <Text> {movie.original_title}</Text>
+        ) : (
+          <Text>Shake again!</Text>
+        )}
+      </TitleText>
 
       {movie.overview && <OverviewText>{movie.overview}</OverviewText>}
 
@@ -109,9 +115,16 @@ export const ShakeApi = () => {
         {movie.vote_average ? (
           <Text> Rating {movie.vote_average}</Text>
         ) : (
-          <Text>No rating found </Text>
-        )}{" "}
-        <Text>Released: {movie.release_date}</Text>
+          <Text>No rating found</Text>
+        )}
+        <Text>
+          {" "}
+          {movie.release_date ? (
+            <Text>Released {movie.release_date}</Text>
+          ) : (
+            <Text>No release date found</Text>
+          )}
+        </Text>
       </RatingText>
     </View>
   )
