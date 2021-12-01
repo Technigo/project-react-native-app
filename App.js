@@ -1,26 +1,37 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { Provider } from 'react-redux';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+// import styled from 'styled-components/native';
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+// component
+import Main from "./components/Main";
+
+// Reducer
+import { potter } from './reducers/potter';
+
+//Redux setup to combine all reducers
+const reducer = combineReducers({
+	potter: potter.reducer,
+  });
+  const store = configureStore({ reducer });
+
+
+
+
+
 
 const App = () => {
+   
+
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+		<Provider store={store}>
+			<Main />
+		</Provider>
+		
 	);
 };
 
 export default App;
+
+// we must import Core components to be able to use them and styled-components/native
