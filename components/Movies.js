@@ -53,7 +53,6 @@ const Movies = () => {
 							<TitleText>{randomMovie.title}</TitleText>
 							<Description>{randomMovie.overview}</Description>
 							<Rate>Rate: {randomMovie.vote_average}</Rate>
-
 							<APIButton onPress={generateMovie}>
 								<Text style={styles.title}>Give me more tips!</Text>
 							</APIButton>
