@@ -43,10 +43,9 @@ const Main = () => {
     }
   };
 
-  let text = "Loading..";
   if (!heading) {
     if (errorMessage) {
-      text = errorMessage;
+      return <Text> {errorMessage}</Text>;
     }
     return (
       <Container>
