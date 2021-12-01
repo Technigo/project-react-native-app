@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components/native";
 import StartPage from "./components/StartPage";
+import { NavigationContainer } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Container = styled.View`
   flex: 1;
@@ -14,11 +16,15 @@ const Title = styled.Text`
   color: palevioletred;
 `;
 
+// const Stack = createNativeStackNavigator();
+
 const App = () => {
   return (
-    <Container>
-      <StartPage />
-    </Container>
+    <NavigationContainer>
+      <Container>
+        <StartPage />
+      </Container>
+    </NavigationContainer>
   );
 };
 

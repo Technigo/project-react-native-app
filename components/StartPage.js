@@ -1,7 +1,19 @@
-import React from "react";
-import { View, Text, Image, Button, TouchableHighlight } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  Button,
+  TouchableHighlight,
+  ImageBackground,
+} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import styled from "styled-components/native";
 import Judith from "./Judith";
+import Frans from "./Frans";
+import Johannes from "./Johannes";
+import Rembrandt from "./Rembrandt";
 
 const StartBox = styled.View`
   display: flex;
@@ -23,50 +35,58 @@ const ImageBoxSmall = styled.View`
   flex-direction: column;
 `;
 
+const ArtistPic = styled.Image`
+  width: 150px;
+  height: 150px;
+`;
+
 const ArtisBtn = styled.TouchableHighlight`
   align-items: center;
 `;
 
-const StartPage = () => {
+// const GoToJudith = (navigation) => {
+//   return (
+//     <View>
+//       <ArtisBtn onPress={() => navigation.navigate("Judith.js")}>
+//         <Text>Judith</Text>
+//       </ArtisBtn>
+//     </View>
+//   );
+// };
+
+const StartPage = (navigation) => {
+  const [currentTab, setCurrentTab] = useState("");
+
   return (
     <StartBox>
       <Judith />
+      <Frans />
+      <Johannes />
+      <Rembrandt />
       <Text>The golden age of Dutch</Text>
       <ImageBox>
         <ImageBoxSmall>
-          <Image
-            source={require("../assets/Judith.jpeg")}
-            style={{ width: 150, height: 150 }}
-          />
+          <ArtistPic source={require("../assets/Judith.jpeg")} />
           <ArtisBtn>
             <Text>Judith</Text>
           </ArtisBtn>
         </ImageBoxSmall>
         <ImageBoxSmall>
-          <Image
-            source={require("../assets/Frans.png")}
-            style={{ width: 150, height: 150 }}
-          />
+          <ArtistPic source={require("../assets/Frans.png")} />
           <ArtisBtn>
             <Text>Frans</Text>
           </ArtisBtn>
         </ImageBoxSmall>
         <ImageBoxSmall>
-          <Image
-            source={require("../assets/Johannes.jpeg")}
-            style={{ width: 150, height: 150 }}
-          />
+          <ArtistPic source={require("../assets/Johannes.jpeg")} />
           <ArtisBtn>
             <Text>Joahnnes</Text>
           </ArtisBtn>
         </ImageBoxSmall>
         <ImageBoxSmall>
-          <Image
-            source={require("../assets/Rembrant.jpeg")}
-            style={{ width: 150, height: 150 }}
-          />
+          <ArtistPic source={require("../assets/Rembrant.jpeg")} />
           <ArtisBtn>
-            <Text>Rembrant</Text>
+            <Text>Rembrandt</Text>
           </ArtisBtn>
         </ImageBoxSmall>
       </ImageBox>
