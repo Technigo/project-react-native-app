@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, Button } from 'react-native';
 import styled from 'styled-components/native';
+import * as Location from 'expo-location';
 
 // This is the main container for this screen
 const FeedContainer = styled.View`
@@ -19,6 +20,7 @@ export const Feed = ({ navigation }) => {
       {/* Here is an example of how to open/toggle the drawer via javascript */}
       <Button title='Open drawer' onPress={() => navigation.openDrawer()} />
       <Button title='Toggle drawer' onPress={() => navigation.toggleDrawer()} />
+      {/* <Button /> */}
     </FeedContainer>
   );
 };
