@@ -10,11 +10,18 @@ const AuthorText = styled.Text``;
 
 const HeaderText = styled.Text``;
 
+const ButtonText = styled.Text`
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+`;
+
 const ApiButton = styled.TouchableOpacity`
   width: 50%;
-  background-color: blue;
+  background-color: lightblue;
   padding: 10px;
   margin: 10px;
+  border-radius: 5px;
 `;
 
 const ButtonApi = () => {
@@ -41,7 +48,7 @@ const ButtonApi = () => {
     <View>
       <Text>Click button to generate quote</Text>
       <ApiButton onPress={generateQuote}>
-        <Text>Click for quote!</Text>
+        <ButtonText>Click for quote!</ButtonText>
       </ApiButton>
       <QuoteText>Quote: {quote.content}</QuoteText>
       <Text>Author: {quote.author}</Text>
