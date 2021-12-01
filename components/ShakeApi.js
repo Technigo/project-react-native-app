@@ -59,7 +59,6 @@ const ShakeApi = () => {
                 console.log(data)
                 const randomCoin = data.coins[Math.floor(Math.random() * data.coins.length)]
                 setRandomCoins(randomCoin)
-                // setCoins(data.coins)
             })
             .finally(() => setLoading(false))
     }

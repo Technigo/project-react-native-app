@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { cart } from '../reducers/cart'
 import { View, Text } from 'react-native'
+import styled from 'styled-components/native'
+
 
 
 const Cart = () => {
@@ -13,18 +15,16 @@ const Cart = () => {
     return (
         <View className="cart">
             <View className="total">
-                <Text className="emoji" role="img" aria-label="cart">🛒</Text>
-                <Text className="amount">Total: {Math.round(totalPrice * 100) / 100} $ </Text>
+                <AmountText className="amount">$ {Math.round(totalPrice * 100) / 100}</AmountText>
             </View>
-
-            {/* <Text className="items">
-                {coins.map((coin) => (
-                    <CartItem key={coin.id} coin={coin} />
-                ))}
-            </Text> */}
         </View>
     )
 
 }
 
 export default Cart
+
+const AmountText = styled.Text`
+    font-size: 25px;
+    font-weight: bold;
+`
