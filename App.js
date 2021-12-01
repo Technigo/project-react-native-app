@@ -7,14 +7,12 @@ import { WelcomePage } from "./components/WelcomePage";
 const Container = styled.View`
   flex: 1;
   background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
 `;
 
 const App = () => {
   const [showWelcomePage, setShowWelcomePage] = useState(true);
   useEffect(() => {
-    setTimeout(() => setShowWelcomePage(false), 5000);
+    setTimeout(() => setShowWelcomePage(false), 1000);
   }, []);
   return (
     <Container>{showWelcomePage ? <WelcomePage /> : <StepCounter />}</Container>
