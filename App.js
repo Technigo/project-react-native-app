@@ -1,23 +1,39 @@
 import React from 'react';
-// importing styled from a specific native core
-import styled from 'styled-components/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import ButtonApi from './components/ButtonApi';
 import ShakeApi from './components/ShakeApi';
+import HomePage from './components/HomePage';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: black;
-	justify-content: center;
-	align-items: center;
-`;
+const Tab = createMaterialTopTabNavigator();
 
 const App = () => {
 
 	return (
-		<Container>
-			<ShakeApi  />
-		</Container>
+		<NavigationContainer>
+			<Tab.Navigator screenOptions={{
+					"tabBarActiveTintColor": "red",
+					"tabBarInactiveTintColor": "white",
+					"tabBarLabelStyle": {
+						"textAlign": "center",
+						"fontWeight": "bold",
+						"fontSize": 15
+					},
+					"tabBarIndicatorStyle": {
+						"borderBottomColor": "black",
+						"borderBottomWidth": 3
+					},
+					"tabBarStyle": {
+						"paddingTop": 50,
+						"backgroundColor": "black"
+					}
+				}}>
+        {/* Tab.Screen elements determine the different screens available for this app
+        and the component attribute states which component to generate for each tab*/}
+        <Tab.Screen name="Home" component={HomePage} />
+        <Tab.Screen name="Share" component={ShakeApi} />
+      </Tab.Navigator>
+		</NavigationContainer>
 	);
 };
 

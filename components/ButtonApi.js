@@ -1,10 +1,6 @@
-import React, {useState, useEffect} from 'react';
-// importing core componenets from react native
-import { View, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
-
-
-import { FETCH_URL } from '../utils/urls';
 
 const QuoteText = styled.Text`
 	font-weight: 700;
@@ -12,49 +8,40 @@ const QuoteText = styled.Text`
 `;
 
 const APIButton = styled.TouchableOpacity`
+	width: 50%;
 	background-color: green;
-`
+`;
 
 const ButtonApi = () => {
-
-	//const [quote, setQuote] = useState({});
+	const [quote, setQuote] = useState({});
 	const [loading, setLoading] = useState(false);
 
-	//useEffect(() => {
-	//	generateQuote();
-	//}, []);
+	useEffect(() => {
+		generateQuote();
+	}, []);
 
-	//const generateQuote = () => {
-	//	setLoading(true);
-	//	fetch('http://api.quotable.io/random')
-	//		.then((res) => res.json())
-	//		.then((quote) => setQuote(quote))
-	//		.finally(() => setLoading(false))
-	//};
-
-
-	const generateMovie = () => {
+	const generateQuote = () => {
 		setLoading(true);
-		fetch(FETCH_URL)
+		fetch('http://api.quotable.io/random')
 			.then((res) => res.json())
-			.then((json) => setMovieList(json.results))
-			.finally(() => setLoading(false))
+			.then((data) => setQuote(data))
+			.finally(() => setLoading(false));
 	};
 
-	if(loading) {
-		return <ActivityIndicator />
+	if (loading) {
+		return <ActivityIndicator />;
 	}
 
 	return (
 		<View>
-			<QuoteText>Welcome to Randomizer!</QuoteText>
-			<QuoteText>Click the button to generate quote!</QuoteText>
-			{/* when button pressed the api is called */}
-			<APIButton onPress={generateMovie}>
-				<QuoteText>Click</QuoteText>
+			<Text>Click button to generate quote!</Text>
+			<APIButton onPress={generateQuote}>
+				<Text>Click</Text>
 			</APIButton>
+			<QuoteText>Quote: {quote.content}</QuoteText>
+			<Text>Author: {quote.author}</Text>
 		</View>
-	)
+	);
 };
 
 export default ButtonApi;

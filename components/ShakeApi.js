@@ -18,36 +18,40 @@ const ShakeApi = () => {
     z: 0,
   });
 
+
 	// communication that we have between sensor that checks where our phone is located and our code
 	// subscription is about our code telling from now on (maybe todays date) I would like to contantly get information about the position of the phone
   const [subscription, setSubscription] = useState(null);
 
 	// random movie from movieList array, returns only one item
-	const randomMovielist = movieList[Math.floor(Math.random() * 	movieList.length)]
+	const randomMovie = movieList[Math.floor(Math.random() * 	movieList.length)]
+	console.log(randomMovie)
+
+	useEffect(() => {
+		generateMovie();
+	}, []);
 
 	//useEffect(() => {
-	//	generateMovie();
-	//}, []);
+	//	Accelerometer.setUpdateInterval(1000);
+  //  subscribe();
+  //  return () => unsubscribe();
+  //}, []);
 
-	useEffect(() => {
-		Accelerometer.setUpdateInterval(1000);
-    subscribe();
-    return () => unsubscribe();
-  }, []);
-
-	useEffect(() => {
-    if(isShakingEnough(data)) {
-			generateMovie()
-		}
-  }, [data]);
+	//useEffect(() => {
+  //  if(isShakingEnough(data)) {
+	//		generateMovie()
+	//	}
+  //}, [data]);
 
 	const generateMovie = () => {
 		setLoading(true);
 		fetch(FETCH_URL)
 			.then((res) => res.json())
+			// random movie from movieList array, returns only one item
 			.then((json) => setMovieList(json.results))
 			.finally(() => setLoading(false))
 	};
+
 
 	if(loading) {
 		return <ActivityIndicator />
@@ -71,22 +75,33 @@ const ShakeApi = () => {
     setSubscription(null);
   };
 
+
+
+
+
 	return (
 		<Container>
-		{!randomMovielist &&
+			
+		{/*{!randomMovielist &&
 		<> 
 			<TitleText>Shake your phone to see a random movie</TitleText>
 		</>
-		}
-		{randomMovielist && 
+		}*/}
+
+		{randomMovie && 
 			<View>
-				<TitleText>{randomMovielist.title}</TitleText>
-				<Description>{randomMovielist.overview}</Description>
-				<Rate>Rate: {randomMovielist.vote_average}</Rate>
+				<TitleText>{randomMovie.title}</TitleText>
+
+				{/*<TitleText>HELLO</TitleText>*/}
+				<Description>{randomMovie.overview}</Description>
+				<Rate>Rate: </Rate>
 				<MovieImage 
-					source={{uri:`https://image.tmdb.org/t/p/w500/${randomMovielist.poster_path}`}} /> 
+					source={{uri:`https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`}} />
+				<APIButton onPress={generateMovie}>
+					<Text>Give me more tips!</Text>
+				</APIButton>
 			</View>
-		}
+		 }
 		</Container>
 	)
 };
