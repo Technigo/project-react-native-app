@@ -1,10 +1,44 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import styled from 'styled-components/native';
 
 import { Buttons } from './Components/Buttons';
 import { Trail } from './Components/Trail';
+import { trails } from './Components/reducers/trails';
 import { LoadingSpinner } from './Components/LoadingSpinner';
 import SensorComponent from './Components/SensorComponent';
+
+const reducer = combineReducers({
+  trails: trails.reducer,
+});
+
+const store = configureStore({ reducer });
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Container>
+        {/*  <ImTage
+        source={{
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
+        }}
+      /> */}
+        <InnerContainer>
+          <Title>Where do you want to hike?</Title>
+          <Text>Please choose your area</Text>
+          <Emojis>✨ 🥑 🌲 </Emojis>
+        </InnerContainer>
+        {/* <LoadingSpinner /> */}
+        <Buttons />
+        {/* <SensorComponent /> */}
+        <Trail />
+      </Container>
+    </Provider>
+  );
+};
+
+export default App;
 
 const Container = styled.View`
   flex: 1;
@@ -41,26 +75,3 @@ const ImTage = styled.Image`
   height: 50px;
   margin-bottom: 20px;
 `;
-
-const App = () => {
-  return (
-    <Container>
-      {/*  <ImTage
-        source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }}
-      /> */}
-      <InnerContainer>
-        <Title>Where do you want to hike?</Title>
-        <Text>Please choose your area</Text>
-        <Emojis>✨ 🥑 🌲 </Emojis>
-      </InnerContainer>
-      {/* <LoadingSpinner /> */}
-      <Buttons />
-      {/* <SensorComponent /> */}
-      <Trail />
-    </Container>
-  );
-};
-
-export default App;

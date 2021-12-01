@@ -1,39 +1,51 @@
 import React from 'react';
 import { useState } from 'react';
+import { trails } from './reducers/trails';
 import { Text, TouchableHighlight, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components/native';
 
 export const Buttons = () => {
-  const [count, setCount] = useState(0);
-  const onPress = () => setCount(count + 1);
+  const dispatch = useDispatch();
 
   const onNorthFjall = () => {
-    () => {};
+    dispatch(trails.actions.setCurrentPosition('northFjall'));
+  };
+
+  const onNorth = () => {
+    dispatch(trails.actions.setCurrentPosition('north'));
+  };
+
+  const onMiddle = () => {
+    dispatch(trails.actions.setCurrentPosition('middle'));
+  };
+
+  const onSouth = () => {
+    dispatch(trails.actions.setCurrentPosition('south'));
   };
 
   return (
     <View>
-      <Button onPress={onNortFjall}>
+      <Touch onPress={onNorthFjall}>
         <Text>North of Sweden (fjäll)</Text>
-      </Button>
+      </Touch>
 
-      <Button onPress={onPress}>
+      <Touch onPress={onNorth}>
         <Text>North of Sweden (no fjäll)</Text>
-      </Button>
+      </Touch>
 
-      <Button onPress={onPress}>
+      <Touch onPress={onMiddle}>
         <Text>Middle of Sweden</Text>
-      </Button>
+      </Touch>
 
-      <Button onPress={onPress}>
+      <Touch onPress={onSouth}>
         <Text>South of Sweden</Text>
-      </Button>
-      <Text>{count || null}</Text>
+      </Touch>
     </View>
   );
 };
 
-const Button = styled.TouchableHighlight`
+const Touch = styled.TouchableHighlight`
   border: 1px solid palevioletred;
   background-color: #d5e9d3;
   padding: 15px;

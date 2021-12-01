@@ -1,9 +1,9 @@
-import { createSlice } from 'react-redux/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const trails = createSlice({
   name: 'trails',
   initialState: {
-    currentPosition: null,
+    currentPosition: 'north',
     loading: false,
   },
   reducers: {

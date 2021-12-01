@@ -20,7 +20,9 @@
     "react-lottie": "^1.2.3",
     "react-native": "0.64.2",
     "react-native-web": "0.17.1",
-    "styled-components": "^5.3.3"
+    "react-redux": "^7.2.6",
+    "styled-components": "^5.3.3",
+    "undefined": "react-redux/toolkit"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
