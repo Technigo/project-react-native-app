@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import { Buttons } from './Components/Buttons';
+import { Trail } from './Components/Trail';
 import { LoadingSpinner } from './Components/LoadingSpinner';
-import { SensorComponent } from './components/SensorComponent';
+import SensorComponent from './Components/SensorComponent';
 
 const Container = styled.View`
   flex: 1;
@@ -56,7 +57,8 @@ const App = () => {
       </InnerContainer>
       {/* <LoadingSpinner /> */}
       <Buttons />
-      <SensorComponent />
+      {/* <SensorComponent /> */}
+      <Trail />
     </Container>
   );
 };

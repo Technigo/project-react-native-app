@@ -7,9 +7,13 @@ export const Buttons = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(count + 1);
 
+  const onNorthFjall = () => {
+    () => {};
+  };
+
   return (
     <View>
-      <Button onPress={onPress}>
+      <Button onPress={onNortFjall}>
         <Text>North of Sweden (fjäll)</Text>
       </Button>
 
