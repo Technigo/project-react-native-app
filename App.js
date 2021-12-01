@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { View, Text, ActivityIndicator } from 'react-native';
 
-import { ButtonApi } from './components/ButtonApi';
+import { Bored } from './components/Bored';
 import { ShakeApi } from './components/ShakeApi';
 import { StartPage } from './components/StartPage';
+import { Header } from './components/Header';
 
 const Container = styled.View`
   flex: 1;
@@ -17,11 +19,16 @@ const Title = styled.Text`
   color: palevioletred;
 `;
 
-const App = navigation => {
+const App = () => {
   return (
-    <Container>
-      <StartPage />
-    </Container>
+    <>
+      <Header />
+      <View>
+        <Container>
+          <Bored />
+        </Container>
+      </View>
+    </>
   );
 };
 

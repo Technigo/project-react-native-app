@@ -19,7 +19,7 @@ import {
 
 import styled from 'styled-components/native';
 
-import { ButtonApi } from './ButtonApi';
+import { ButtonApi } from './Bored';
 
 const Feed = ({ navigation }) => {
   return (
