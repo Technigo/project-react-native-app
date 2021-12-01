@@ -1,34 +1,26 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import { View, Text, ActivityIndicator } from 'react-native';
-
-import { Bored } from './components/Bored';
+import { NavigationContainer } from '@react-navigation/native';
 import { ShakeApi } from './components/ShakeApi';
-import { StartPage } from './components/StartPage';
+import { Bored } from './components/Bored';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import { View } from 'react-native';
+
 import { Header } from './components/Header';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
-    <>
+    <View>
       <Header />
-      <View>
-        <Container>
-          <Bored />
-        </Container>
-      </View>
-    </>
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName='Feed'>
+          <Drawer.Screen name='Shake' component={ShakeApi} />
+          <Drawer.Screen name='Bored' component={Bored} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </View>
   );
 };
 
