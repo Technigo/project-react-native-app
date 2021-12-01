@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
+
+import ShakeCookie from "./ShakeCookie";
 
 const OuterContainer = styled.View`
   flex: 1;
@@ -30,26 +32,32 @@ const HomeButton = styled.TouchableOpacity`
   width: 70%;
   background-color: white;
   color: red;
-  font-size: 16px;
-  text-align: center;
+  font-size: 14px;
   padding: 3px;
   border-radius: 2px;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Home = ({ navigation }) => {
+const Home = () => {
+  const [page, setPage] = useState("Home");
+
   return (
-    <CoverImage source={require("../assets/cover.jpg")}>
-      <OuterContainer>
-        <Container>
-          <HomeButton
-            title="To the game"
-            onPress={() => navigation.navigate("Ball")}
-          >
-            <Text>Find your luck!</Text>
-          </HomeButton>
-        </Container>
-      </OuterContainer>
-    </CoverImage>
+    <>
+      {page === "Home" ? (
+        <CoverImage source={require("../assets/cover.jpg")}>
+          <OuterContainer>
+            <Container>
+              <HomeButton title="Home" onPress={() => setPage("Cookie")}>
+                <Text>Find your luck!</Text>
+              </HomeButton>
+            </Container>
+          </OuterContainer>
+        </CoverImage>
+      ) : (
+        <ShakeCookie />
+      )}
+    </>
   );
 };
 

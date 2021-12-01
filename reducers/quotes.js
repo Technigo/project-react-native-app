@@ -35,6 +35,14 @@ const proverbs = [
     id: 8,
     quote: "Don’t pursue happiness – create it.",
   },
+  {
+    id: 9,
+    quote: "Adversity is the parent of virtue.",
+  },
+  {
+    id: 10,
+    quote: "Let the deeds speak.",
+  },
 ];
 
 const initialState = {

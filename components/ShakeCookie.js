@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import { useDispatch } from "react-redux";
 
-import MagicBall from "./MagicBall";
+import Cookie from "./Cookie";
 import { quotes } from "../reducers/quotes";
 
-const ShakeApi = () => {
+const ShakeCookie = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState({
     x: 0,
@@ -15,7 +15,7 @@ const ShakeApi = () => {
   const [subscription, setSubscription] = useState(null);
 
   useEffect(() => {
-    Accelerometer.setUpdateInterval(400);
+    Accelerometer.setUpdateInterval(1000);
     subscribe();
     return () => unsubscribe();
   }, []);
@@ -47,7 +47,7 @@ const ShakeApi = () => {
     return totalForce > 1.8;
   };
 
-  return <MagicBall />;
+  return <Cookie />;
 };
 
-export default ShakeApi;
+export default ShakeCookie;
