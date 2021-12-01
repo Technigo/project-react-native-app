@@ -5,20 +5,21 @@ import Data from "./components/Data"
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #d9cab3;
   justify-content: center;
   align-items: center;
 `
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: #212121;
+  margin-bottom: 20px;
 `
 
 const App = () => {
   return (
     <Container>
-      <Title>This is your cool app!</Title>
+      <Title>Who is this Pokemon?</Title>
       <Data />
     </Container>
   )
