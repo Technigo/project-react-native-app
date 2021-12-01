@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import { Buttons } from './Components/Buttons';
+import { LoadingSpinner } from './Components/LoadingSpinner';
 
 const Container = styled.View`
   flex: 1;
@@ -33,10 +34,6 @@ const Emojis = styled.Text`
   font-size: 30px;
 `;
 
-const Loading = styled.ActivityIndicator`
-  padding: 20px;
-`;
-
 const ImTage = styled.Image`
   width: 50px;
   height: 50px;
@@ -46,17 +43,17 @@ const ImTage = styled.Image`
 const App = () => {
   return (
     <Container>
-      <ImTage
+      {/*  <ImTage
         source={{
           uri: 'https://reactnative.dev/img/tiny_logo.png',
         }}
-      />
+      /> */}
       <InnerContainer>
-        <Title>This is your cool app!</Title>
-        <Text>Go to App.js and start coding</Text>
+        <Title>Where do you want to hike?</Title>
+        <Text>Please choose your area</Text>
         <Emojis>✨ 🥑 🌲 </Emojis>
       </InnerContainer>
-      <Loading size='large' color='palevioletred' />
+      {/* <LoadingSpinner /> */}
       <Buttons />
     </Container>
   );
