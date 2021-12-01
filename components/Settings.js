@@ -17,10 +17,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Settings = ({ onStepChange, step }) => {
+export const Settings = ({ onstepChange, step, setStep }) => {
   console.log(step);
-  console.log(onStepChange);
-  const onSubmit = () => {};
+  //   console.log(onStepChange);
+  console.log(setStep);
+  //   const onSubmit = () => {};
   return (
     <View style={styles.Container}>
       <Header />
@@ -28,12 +29,14 @@ export const Settings = ({ onStepChange, step }) => {
       <Text>Change me!</Text>
       <TextInput
         style={styles.input}
-        onChangeText={onStepChange}
+        // onChangeText={(value) => onStepChange(value)}
+        // onChangeText={(text) => console.log(text)}
+        onChangeText={(event) => setStep(event.target.value)}
         value={step}
-        onSubmitEditing={onStepChange}
+        // onSubmitEditing={onstepChange}
         keyboardType={"default"}
       />
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      {/* <Button title="Submit" onPress={handleSubmit(onSubmit)} /> */}
     </View>
   );
 };

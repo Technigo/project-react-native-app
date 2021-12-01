@@ -17,7 +17,12 @@ const Drawer = createDrawerNavigator();
 
 const App = () => {
   const [showWelcomePage, setShowWelcomePage] = useState(true);
-  const [step, onStepChange] = useState("");
+  const [step, setStep] = useState(10000);
+  console.log(step);
+  const onstepChange = (event) => {
+    setStep(event.target.value);
+  };
+
   useEffect(() => {
     setTimeout(() => setShowWelcomePage(false), 1000);
   }, []);
@@ -34,13 +39,14 @@ const App = () => {
             <Drawer.Screen
               name="Keep on walking"
               component={StepCounter}
-              onStepChange={onStepChange}
+              onstepChange={onstepChange}
               step={step}
             />
             <Drawer.Screen
               name="Settings"
               component={Settings}
-              onStepChange={onStepChange}
+              onstepChange={onstepChange}
+              setStep={setStep}
               step={step}
             />
           </Drawer.Navigator>

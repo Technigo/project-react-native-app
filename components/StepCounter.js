@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const StepCounter = ({ onStepChange, step }) => {
+export const StepCounter = ({ onstepChange, step }) => {
   const [isPedometerAvailable, setIsPedometerAvailable] = useState("checking");
   const [pastStepCount, setPastStepCount] = useState(0);
   const [currentStepCount, setCurrentStepCount] = useState(0);
@@ -97,7 +97,7 @@ export const StepCounter = ({ onStepChange, step }) => {
           hideLegend={true}
         />
       </View>
-      <Text style={styles.WalkText}>The daily goal is {step}.</Text>
+      <Text style={styles.WalkText}>Your daily goal is {step}.</Text>
       <Text style={styles.WalkText}>Keep walking to reach your goal!</Text>
     </View>
   );
