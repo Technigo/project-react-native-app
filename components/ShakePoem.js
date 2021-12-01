@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 import styled from "styled-components/native"; // use /native when you are styling core components
-import { BORED_URL } from "../utils/Urls";
+import { POEM_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
 
 // STYLED COMPONENTS
@@ -10,18 +10,18 @@ const ActivityText = styled.Text`
   font-weight: 700;
 `;
 
-const ShakeAPI = () => {
+const ShakePoem = () => {
   const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
   });
-  const [activity, setActivity] = useState({});
+  const [poem, setPoem] = useState([]);
   const [loading, setLoading] = useState(false);
   const [subscription, setSubscription] = useState(null);
 
   useEffect(() => {
-    generateActivity();
+    generatePoem();
   }, []);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const ShakeAPI = () => {
 
   useEffect(() => {
     if (isShakingEnough(data)) {
-      generateActivity();
+      generatePoem();
     }
   }, [data]);
 
@@ -55,11 +55,12 @@ const ShakeAPI = () => {
     setSubscription(null);
   };
 
-  const generateActivity = () => {
+  const generatePoem = () => {
     setLoading(true);
-    fetch(BORED_URL)
+    fetch(POEM_URL)
       .then((res) => res.json())
-      .then((data) => setActivity(data))
+      .then((data) => setPoem(data[0]))
+      // .then((data) => setPoem(data))
       .finally(() => setLoading(false));
   };
 
@@ -74,10 +75,23 @@ const ShakeAPI = () => {
 
   return (
     <View>
-      <ActivityText>Activity: {activity.activity}</ActivityText>
-      <Text>Type: {activity.type}</Text>
+      <ActivityText>Title: {poem.title}</ActivityText>
+      {/* <Text>Written by: {poem.poet}</Text> */}
+      <Text>{poem.content}</Text>
     </View>
   );
 };
 
-export default ShakeAPI;
+export default ShakePoem;
+
+{
+  /* <View>
+{poem.map(
+  (poem) => (
+    (<ActivityText>Title: {poem.title}</ActivityText>),
+    (<Text>Poet: {poem.author}</Text>),
+    (<Text>{poem.lines}</Text>)
+  )
+)}
+</View> */
+}
