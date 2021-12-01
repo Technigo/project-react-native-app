@@ -3,35 +3,33 @@ import { View, Text, ActivityIndicator, Image  } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native'
 
-const QuoteContainer = styled.View`
+const AnimalContainer = styled.View`
     border-radius: 10px;
-    width: 90%;
     padding: 20px;
-    margin: 10px;
+    margin: 20px 10%;
     background-color: lightgrey;
     justify-content: center;
     align-items: center;
 `
 const TitleText = styled.Text`
+    margin: 10px 0 20px 0;
     color: grey;
 `
-const RandomFox = 'https://randomfox.ca/floof/' //.image
+
 const RandomDog = 'https://random.dog/woof.json' //.url
-const RandomCat ='https://aws.random.cat/meow' //.file
 
-
-const ShakeApi = () => {
+const ShakeDog = () => {
   const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
   });
-  const [quote, setQuote] = useState({})
+  const [animal, setAnimal] = useState({})
   const [loading, setLoading] = useState(false)
   const [subscription, setSubscription] = useState(null);
 
   useEffect(() => {
-      generateQuote()
+    generateAnimal()
   },[])
 
   useEffect(() => {
@@ -42,7 +40,7 @@ const ShakeApi = () => {
 
   useEffect(() => {
       if (isShakingEnough(data)) {
-          generateQuote()
+        generateAnimal()
       }
   },[data])
 
@@ -59,12 +57,11 @@ const ShakeApi = () => {
     setSubscription(null);
   };
 
-  const generateQuote = () => {
+  const generateAnimal = () => {
       setLoading(true)
-      /* fetch('http://api.quotable.io/random') */
-      fetch(RandomFox)
+      fetch(RandomDog)
         .then((res) => res.json())
-        .then((data) => setQuote(data))
+        .then((data) => setAnimal(data))
         .finally(() => setLoading(false))
   }
 
@@ -73,20 +70,15 @@ const ShakeApi = () => {
       return totalForce > 1.78
   }
 
-  if (loading) {
-      return <ActivityIndicator />
-  }
-  console.log(quote.image)
   return (
-      <QuoteContainer>
-            <TitleText>Random Animal!</TitleText>
-            <Image source = {{uri: quote.image}}
-            style = {{ width: 200, height: 200 }}
+      <AnimalContainer>
+            <TitleText>Random Dogs!</TitleText>
+            {loading && <ActivityIndicator size="large" color="blue" />}
+            <Image source = {{uri: animal.url}}
+            style = {{ width: 200, height: 200, borderRadius: 10, margin: 10}}
             />
-        {/*<QuoteText>Quote: {quote.content}</QuoteText>
-          <Text>Author: {quote.author}</Text> */}
-      </QuoteContainer>
+      </AnimalContainer>
     )
   }
 
-  export default ShakeApi
+  export default ShakeDog
