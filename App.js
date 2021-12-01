@@ -1,25 +1,31 @@
 import React from "react";
-import styled from "styled-components/native";
+import { Provider } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { quotes } from "./reducers/quotes";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Compass from "./components/Compass";
+import Home from "./components/Home";
+import ShakeApi from "./components/ShakeApi";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
+const reducer = combineReducers({
+  quotes: quotes.reducer,
+});
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
+const store = configureStore({ reducer });
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <Container>
-      <Compass />
-    </Container>
+    <NavigationContainer>
+      <Provider store={store}>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Ball" component={ShakeApi} />
+        </Stack.Navigator>
+      </Provider>
+    </NavigationContainer>
   );
 };
 
