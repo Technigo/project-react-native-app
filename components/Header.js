@@ -17,7 +17,7 @@ export const Header = () => {
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
-    margin: 30px auto;
+    margin: 40px auto 30px auto;
   `;
 
   return (
