@@ -11,24 +11,19 @@ import {
 import styled from "styled-components/native";
 
 const JudithBox = styled.View`
-  display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const ImageBox = styled.ScrollView`
-  /* display: flex; */
-  /* align-items: center; */
-  /* align-items: center; */
-  /* flex-wrap: wrap;
-  flex-direction: row; */
-  width: 300px;
-  height: auto;
+  background: gray;
 `;
 
 const JudithImg = styled.Image`
   width: 150px;
   height: 150px;
+`;
+
+const TitleText = styled.Text`
+  font-weight: bold;
+  text-align: center;
 `;
 
 const Judith = () => {
@@ -50,10 +45,21 @@ const Judith = () => {
       <Button title="get Judith" onPress={getJudiths} />
       {data.length > 0 &&
         data.map((art) => (
-          <ImageBox key={art.id}>
-            <Text>{art.title}</Text>
+          <ScrollView
+            key={art.id}
+            contentContainerStyle={{
+              alignItems: "center",
+              justifyContent: "center",
+              border: 1,
+              border: "solid",
+              padding: 5,
+              margin: 10,
+              width: 180,
+            }}
+          >
+            <TitleText>{art.title}</TitleText>
             <JudithImg source={art?.webImage?.url} />
-          </ImageBox>
+          </ScrollView>
         ))}
     </JudithBox>
   );
