@@ -64,6 +64,7 @@ export const StepCount = () => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#eee',
       },
       input: {
         borderColor: "#333333",
@@ -110,8 +111,8 @@ export const StepCount = () => {
         fontSize: 18,
       },
       quote: {
-        fontSize: 28,
-        lineHeight: 34,
+        fontSize: 32,
+        lineHeight: 36,
         fontWeight: '100',
         textAlign: 'center',
         marginBottom: 48,

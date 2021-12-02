@@ -1,65 +1,103 @@
-import React, { useState }from 'react';
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { SafeAreaView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import { StepCount } from './StepCount'
 
 import { Card } from 'react-native-elements'
 
 export const CardItems = () => {
-    const [currentTab, setCurrentTab] = useState();
+    const [screen, setScreen] = useState();
+
+      // const onPressButton = (event) => {
+      //   setScreen(event.target)
+      // }
 
   return (
+
     <SafeAreaView style={styles.container}>
-        <Card title="Step on">
-            <View style={styles.headingContainer}>
-                <Ionicons style={styles.icon}
-                    name="planet"
-                />
-                <Text style={styles.paragraph}>
-                Set your steps goal for today!
-                </Text>
-                <Ionicons style={styles.chevronicon}
-                    name="chevron-forward"
-                />
-            </View>
-            <Text style={styles.body}>
-            Did you know that for the sake of your health, you need about 15 000 steps per day? 
-            </Text>
-            {currentTab === 'HomeScreen' && <StepCount />}
-        </Card>
+        
+        <TouchableOpacity title="Step on" onPress={() => setScreen(<StepCount />)}>
+          <Card borderRadius='8'>
+              <View style={styles.headingContainer}>
+                  <Ionicons style={styles.icon}
+                      name="planet"
+                  />
+                  <Text style={styles.paragraph}>
+                    Set your steps goal for today!
+                  </Text>
+                  <Ionicons style={styles.chevronicon}
+                      name="chevron-forward"
+                  />
+              </View>
+              <Text style={styles.body}>
+                Did you know that for the sake of your health, you need about 15 000 steps per day? 
+              </Text>
+          </Card>
+        </TouchableOpacity>
 
-        <Card title="Random videos">
-            <View style={styles.headingContainer}>
-                <Ionicons style={styles.icon}
-                    name="videocam"
-                />
-                <Text style={styles.paragraph}>
-                Watch some random videos!
-                </Text>
-                <Ionicons style={styles.chevronicon}
-                    name="chevron-forward"
-                />
-            </View>
-            <Text style={styles.body}>
-            Films are often seen primarily as a form of entertainment, but it's worth remembering cinema is also an art form.
-            </Text>
-        </Card>
+        <TouchableOpacity 
+          activeOpacity= '0.1'
+        >
+          <Card title="Random videos"
+            borderRadius='8'>
+              <View style={styles.headingContainer}>
+                  <Ionicons style={styles.icon}
+                      name="videocam"
+                  />
+                  <Text style={styles.paragraph}>
+                    Watch some random videos!
+                  </Text>
+                  <Ionicons style={styles.chevronicon}
+                      name="chevron-forward"
+                  />
+              </View>
+              <Text style={styles.body}>
+                Films are often seen primarily as a form of entertainment, but it's worth remembering cinema is also an art form.
+              </Text>
+          </Card>
+        </TouchableOpacity>
 
-        <Card title="Quotes">
-            <View style={styles.headingContainer}>
-                    <Ionicons style={styles.icon}
-                        name="heart-half"
-                    />
-                    <Text style={styles.paragraph}>
-                        Who doesn't LOVE quotes?
-                    </Text>
-                    <Ionicons style={styles.chevronicon}
-                        name="chevron-forward"
-                    />
-            </View>
-            <Text style={styles.body}>
-                Get som quotes, and maybe pass it on to someone who needs it?
-            </Text>
-        </Card>
+
+       <TouchableOpacity>
+          <Card title="Quotes"
+          borderRadius='8'>
+              <View style={styles.headingContainer}>
+                      <Ionicons style={styles.icon}
+                          name="heart-half"
+                      />
+                      <Text style={styles.paragraph}>
+                          Who doesn't LOVE quotes?
+                      </Text>
+                      <Ionicons style={styles.chevronicon}
+                          name="chevron-forward"
+                      />
+              </View>
+              <Text style={styles.body}>
+                  Get som quotes, and maybe pass it on to someone who needs it?
+              </Text>
+          </Card>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Card title="Quotes"
+            borderRadius='8'>
+              <View style={styles.headingContainer}>
+                      <Ionicons style={styles.icon}
+                          name="book"
+                      />
+                      <Text style={styles.paragraph}>
+                          More Quotes, just by shaking!
+                      </Text>
+                      <Ionicons style={styles.chevronicon}
+                          name="chevron-forward"
+                      />
+              </View>
+              <Text style={styles.body}>
+                  Get som quotes, and maybe pass it on to someone who needs it?
+              </Text>
+          </Card>
+        </TouchableOpacity>
+
     </SafeAreaView>
   );
 };
@@ -71,7 +109,7 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '300',
     color: '#333',
     textAlign: 'left',
     minWidth: 280,

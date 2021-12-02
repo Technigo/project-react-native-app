@@ -1,24 +1,7 @@
 import React, { useState, useEffect} from "react"
 import { Accelerometer } from "expo-sensors"
-import { Text, ActivityIndicator } from 'react-native'
-import styled from "styled-components/native"
+import { Text, View, ActivityIndicator, StyleSheet } from 'react-native'
 
-
-const CenteredView = styled.View`
-display: flex;
-align-items: center;
-margin: 0 auto;
-`
-
-const QuoteText = styled.Text`
-    font-weight: 700;
-    text-align: center;
-    padding: 32px;
-    background-color: #1a1a1a;
-    margin: 32px;
-    font-size: 18px;
-    color: #fff;
-`
 
 
 export const ShakeApi = () => {
@@ -83,12 +66,48 @@ export const ShakeApi = () => {
     }
 
     return (
-        <CenteredView>
-		    <CenteredView>
-                <QuoteText>{quote.content}</QuoteText>
-            </CenteredView>
-            <Text>Author: {quote.author}</Text>
-        </CenteredView>
+      <View style={styles.container}>
+        <View style={styles.container}>
+            <Text style={styles.quote}>{quote.content}</Text>
+            <Text style={styles.author}>{quote.author}</Text>
+        </View>
+        <Text style={styles.howtodo}> Just shake your phone firmly and I will give you a quote.</Text>
+      </View>
 
     )
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      alignItems: 'center',
+      backgroundColor: '#eee',
+  },
+    quote: {
+      fontSize: 32,
+      lineHeight: 36,
+      fontWeight: '200',
+      textAlign: 'center',
+      marginBottom: 48,
+      marginTop: 48,
+      maxWidth: 343,
+    },
+    author: {
+      fontSize: 18,
+      lineHeight: 22,
+      fontWeight: '400',
+      textAlign: 'center',
+      maxWidth: 343,
+    },
+    howtodo: {
+      fontSize: 18,
+      lineHeight: 22,
+      fontWeight: '500',
+      textAlign: 'center',
+      maxWidth: 343,
+      marginBottom: 64,
+      color: '#1a1a1a',
+    }
+})
+

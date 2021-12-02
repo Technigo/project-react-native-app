@@ -1,0 +1,21 @@
+const Drawer = createDrawerNavigator()
+	const [onHome, setOnHome] = useState(true)
+
+	return (
+		<>
+		{onHome ? 
+		(<Container>
+			<Animation source={require('./assets/morty.gif')} />
+			<Title>Are you ready to shake?</Title>
+			<StartButton onPress={() => setOnHome(false)}><EnterText>Enter</EnterText></StartButton>
+		</Container>) 
+		: (
+		<NavigationContainer >
+			<Drawer.Navigator initialRouteName="Ghibli">
+				<Drawer.Screen name="Ghibli - Shake your phone!" component={Ghibli} />
+				<Drawer.Screen name="Dogs - Shake your phone!" component={Dogs} />
+			</Drawer.Navigator>
+		</NavigationContainer>
+	)}
+	</>
+	)

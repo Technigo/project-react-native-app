@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, Text, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet } from 'react-native'
 
 
 export const ProfileImage = () => {
@@ -11,7 +11,6 @@ export const ProfileImage = () => {
                 style={styles.img} 
                 source={require('../assets/jes.png')} 
             />
-            <Text>Jessi Nygren Walhed</Text>
         </View>
 
     )
@@ -19,11 +18,12 @@ export const ProfileImage = () => {
 
 const styles = StyleSheet.create({
     img: {
-      width: 64,
-      height: 64,
-      borderRadius: 50,
+      width: 150,
+      height: 150,
+      borderRadius: 75,
     },
     container: {
-        justifyContent: 'bottom'
+        flex: 1,
+        justifyContent: 'center',
     }
   });
