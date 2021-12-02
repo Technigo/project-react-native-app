@@ -16,8 +16,9 @@ const Container = styled.View`
 `;
 
 const QuoteContainer = styled.View`
-  width: 100%;
+  width: 95%;
   height: 28%;
+  margin-top: 15px;
   padding-right: 10px;
   padding-left: 10px;
   background-color: #adc2a9;

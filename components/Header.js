@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import styled from "styled-components/native";
+import { useFonts, Epilogue_500Medium } from "@expo-google-fonts/epilogue";
 
 const HeaderContainer = styled.View`
   background-color: #99a799;
@@ -17,9 +18,15 @@ const HeaderText = styled.Text`
 `;
 
 const Header = () => {
+  const [fontsLoaded] = useFonts({
+    Epilogue_500Medium,
+  });
+
   return (
     <HeaderContainer>
-      <HeaderText>When in doubt ask Ron!</HeaderText>
+      <HeaderText style={{ fontFamily: "Epilogue_500Medium" }}>
+        When in doubt ask Ron!
+      </HeaderText>
     </HeaderContainer>
   );
 };

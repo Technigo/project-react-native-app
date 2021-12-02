@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import styled from "styled-components/native";
+import { useFonts, Epilogue_400Regular } from "@expo-google-fonts/epilogue";
 
 const Container = styled.View`
   margin-bottom: 10px;
@@ -16,9 +17,15 @@ const DescText = styled.Text`
 `;
 
 const Description = () => {
+  const [fontsLoaded] = useFonts({
+    Epilogue_400Regular,
+  });
+
   return (
     <Container>
-      <DescText>Shake to get Ron's advice</DescText>
+      <DescText style={{ fontFamily: "Epilogue_400Regular" }}>
+        Shake to get Ron's advice
+      </DescText>
     </Container>
   );
 };

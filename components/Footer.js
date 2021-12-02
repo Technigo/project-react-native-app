@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
+import { useFonts, Epilogue_400Regular } from "@expo-google-fonts/epilogue";
 import styled from "styled-components/native";
 
 const Container = styled.View`
@@ -17,9 +18,13 @@ const FooterText = styled.Text`
 `;
 
 const Footer = () => {
+  const [fontsLoaded] = useFonts({
+    Epilogue_400Regular,
+  });
+
   return (
     <Container>
-      <FooterText>
+      <FooterText style={{ fontFamily: "Epilogue_400Regular" }}>
         Follow Ron's advice to live the full Swanson lifestyle.
       </FooterText>
     </Container>

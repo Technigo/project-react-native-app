@@ -13,10 +13,6 @@ const Container = styled.View`
   padding: 20px;
 `;
 
-const QuoteText = styled.Text`
-  font-weight: 700;
-`;
-
 const ShakeApi = () => {
   const [data, setData] = useState({
     x: 0,
@@ -82,9 +78,7 @@ const ShakeApi = () => {
 
   return (
     <Container>
-      <QuoteText style={{ fontFamily: "Epilogue_500Medium" }}>
-        - {quote}
-      </QuoteText>
+      <Text style={{ fontFamily: "Epilogue_500Medium" }}>- {quote}</Text>
     </Container>
   );
 };
