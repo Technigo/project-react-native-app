@@ -29,7 +29,7 @@ const App = () => {
 					}
 				}}>
         <Tab.Screen name="Home" component={HomePage} />
-        <Tab.Screen name="Top Rated" component={Movies} />
+        <Tab.Screen name="Movies" component={Movies} />
       </Tab.Navigator>
 		</NavigationContainer>
 	);
