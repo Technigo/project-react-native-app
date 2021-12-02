@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components/native"
 
 import Data from "./components/Data"
+import Shake from "./components/Shake"
 
 const Container = styled.View`
   flex: 1;
@@ -17,9 +18,14 @@ const Title = styled.Text`
 `
 
 const App = () => {
+  // const [currentTab, setCurrentTab] = useState("Shake")
+
   return (
     <Container>
+      {/* {currentTab === "Shake" ? <Shake /> : <Data />} */}
       <Title>Who is this Pokemon?</Title>
+      {/* <Shake /> */}
+
       <Data />
     </Container>
   )
