@@ -1,7 +1,7 @@
 {
 	"expo": {
-		"name": "project-react-native-app",
-		"slug": "project-react-native-app",
+		"name": "take-a-time-out",
+		"slug": "take-a-time-out",
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
