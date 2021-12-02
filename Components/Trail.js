@@ -7,11 +7,11 @@ import trails from '../.expo-shared/trails.json';
 
 export const Trail = () => {
   const [subscription, setSubscription] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [selectedTrail, setSelectedTrail] = useState(0);
+
   const currentPosition = useSelector((store) => store.trails.currentPosition);
 
   const currentTrails = trails[currentPosition];
-  console.log(currentTrails.length);
 
   const [data, setData] = useState({
     x: 0,
@@ -20,8 +20,9 @@ export const Trail = () => {
   });
 
   //This is seting a trail to start with. Figure out if want that to be set in the begining or not.
+
   useEffect(() => {
-    generateTrail();
+    randomizeTrail();
   }, []);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export const Trail = () => {
 
   useEffect(() => {
     if (isShakingEnough(data)) {
-      generateTrail();
+      randomizeTrail();
     }
   }, [data]);
 
@@ -49,31 +50,39 @@ export const Trail = () => {
     setSubscription(null);
   };
 
-  const generateTrail = () => {
-    setLoading(true);
-
-    // En trail skall slumpas fram utifrån vilken av knapparna man tryckte på i första steget.
-    /*  .finally(() => setLoading(false)); */
+  const randomizeTrail = () => {
+    const randomTrailNumber = Math.floor(Math.random() * currentTrails.length);
+    setSelectedTrail(currentTrails[randomTrailNumber]);
   };
-
-  const randomTrailNumber = Math.floor(Math.random() * currentTrails.length);
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.78;
   };
 
-  const randomTrail = currentTrails[randomTrailNumber];
+  const { x, y, z } = data;
 
   return (
     <View>
       <Title>
+        <Xyz>
+          x {x}
+          {'\n'}
+        </Xyz>
+        <Xyz>
+          y {y}
+          {'\n'}
+        </Xyz>
+        <Xyz>
+          z {z}
+          {'\n'}
+        </Xyz>
         You are in the {currentPosition} of Sweden, shake for a suggestion on a
         trail!
       </Title>
       <View>
-        <Text>Trail name: {randomTrail.trail}</Text>
-        <Text>Trail description: {randomTrail.description}</Text>
+        <Text>Trail name: {selectedTrail.trail}</Text>
+        <Text>Trail description: {selectedTrail.description}</Text>
       </View>
     </View>
   );
@@ -83,4 +92,10 @@ const Title = styled.Text`
   font-size: 30px;
   text-align: center;
   color: #1e5f18;
+`;
+
+const Xyz = styled.Text`
+  font-size: 15px;
+  text-align: left;
+  color: black;
 `;
