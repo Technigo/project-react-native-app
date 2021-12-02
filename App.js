@@ -26,16 +26,26 @@ const Title = styled.Text`
 const showPage = ["StartingPage", "ShakePhone", "Planets"];
 
 const App = () => {
+  // state to handle which component is loaded
   const [currentPage, setCurrentPage] = useState(showPage[0]);
+  const [loading, setLoading] = useState(false);
   // font is downloaded from here: https://www.fontspace.com/sf-distant-galaxy-font-f6436
+  // How to use custom font in react native: https://blog.jsdisco.dev/using-custom-fonts-with-expo
   let [fontsLoaded] = useFonts({
     SWFont: require("./assets/SfDistantGalaxy.ttf"),
+    SWFontHollow: require("./assets/SfDistantGalaxyHollow.ttf"),
   });
 
+  // while the fonts are loading, show the loading-spinner
   if (!fontsLoaded) {
-    return <Loading />;
+    return (
+      <Theme>
+        <Loading />
+      </Theme>
+    );
   }
 
+  // function that controls which component to show with a switch
   const showCurrentPage = () => {
     switch (currentPage) {
       case "StartingPage":
@@ -57,11 +67,8 @@ const App = () => {
   return (
     <Theme>
       <Container>
+        {loading && <Loading />}
         {showCurrentPage()}
-        {/* <Title>Is this star wars?</Title>
-
-        <ShakeApi /> */}
-        <Loading />
       </Container>
     </Theme>
   );
