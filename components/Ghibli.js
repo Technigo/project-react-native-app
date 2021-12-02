@@ -8,8 +8,7 @@ import { useFonts, Montserrat_500Medium } from '@expo-google-fonts/montserrat';
 const ScreenBackground = styled.ImageBackground`
 	height: 100%;
 	resize-mode: center;
-`;
-
+`
 const MainView = styled.View`
 	display: flex;
 	align-items: center;
@@ -45,7 +44,7 @@ const MovieText = styled.Text`
   textShadowRadius: 10px;
 `
 
-const ShakeApi = () => {
+const Ghibli = () => {
 	const [data, setData] = useState({
 		x: 0,
 		y: 0,
@@ -138,4 +137,4 @@ const ShakeApi = () => {
 	);
 };
 
-export default ShakeApi;
+export default Ghibli;
