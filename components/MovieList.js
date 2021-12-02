@@ -6,14 +6,13 @@ import { MOVIES_URL } from '../utils/urls';
 
 
 // = Styled components
-const MoviesView = styled.View`
-        display: flex;
-        flex-direction: column;
+const MoviesView = styled.ScrollView`
+
     `;
 const styles = StyleSheet.create({
     moviePoster: {
-        width: 300,
-        height: 300,
+        width: '100%',
+        height: 350,
     },
 });
 
@@ -29,7 +28,7 @@ export const MovieList = ({ navigation }) => {
     }, []);
 
     return (
-        <MoviesView >
+        <MoviesView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
             {
                 list.map((movie) => (
                     <View key={movie.id}>
