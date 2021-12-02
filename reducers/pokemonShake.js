@@ -4,15 +4,21 @@ export const pokemonShake = createSlice({
   name: 'pokemonShake',
   initialState: {
     pokemon: {},
-    favorites: [{}]
+    favorites: []
   },
   reducers: {
     setCurrent: (store, action) => {
       store.pokemon = action.payload
     },
     storeFavorite: (store, action) => {
-      // if (pokemon.id !== store.favorites)
-      store.favorites = [action.payload, ...store.favorites]
+      const pokemonIsStored = store.favorites.find(
+        (item) => item.pokemon === action.payload.pokemon
+      )
+      if (pokemonIsStored) {
+        console.log('Pokemon is already in list')
+      } else {
+        store.favorites = [action.payload, ...store.favorites]
+      }
     },
     removeFavorite: (store, action) => {
       // XXXX

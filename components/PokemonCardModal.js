@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-  Image
-} from 'react-native'
+import { Modal, StyleSheet, Text, Pressable, View, Image } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { pokemonShake } from '../reducers/pokemonShake'
@@ -28,7 +20,7 @@ export const PokemonCardModal = () => {
   }, [])
 
   const handleStoreFavorite = () => {
-    console.log(pokemon)
+    // console.log(pokemon)
     dispatch(pokemonShake.actions.storeFavorite(pokemon))
   }
 
@@ -50,10 +42,11 @@ export const PokemonCardModal = () => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.')
-          setModalVisible(!modalVisible)
-        }}>
+        // onRequestClose={() => {
+        //   Alert.alert('Modal has been closed.')
+        //   setModalVisible(!modalVisible)
+        // }}
+      >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.nameTypeContainer}>
@@ -76,15 +69,6 @@ export const PokemonCardModal = () => {
               {pokedexPrefix()}
               {pokemon.id}
             </Text>
-            {/* {pokemon.id < 10 && (
-              <Text style={styles.modalText}>Pokémon #00{pokemon.id}</Text>
-            )}
-            {pokemon.id > 9 && pokemon.id < 100 && (
-              <Text style={styles.modalText}>Pokémon #0{pokemon.id}</Text>
-            )}
-            {pokemon.id > 99 && (
-              <Text style={styles.modalText}>Pokémon #{pokemon.id}</Text>
-            )} */}
             <Text style={styles.modalText}>
               Height: {pokemon.height * 10} cm Weight: {pokemon.weight / 10} kg
             </Text>
@@ -98,7 +82,7 @@ export const PokemonCardModal = () => {
             <Pressable
               style={[styles.button, styles.buttonFavorite]}
               onPress={handleStoreFavorite}>
-              <Text style={styles.textStyle}>Add to favorites</Text>
+              <Text style={styles.textStyle}>Add to favorites!</Text>
             </Pressable>
           </View>
         </View>

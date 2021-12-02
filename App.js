@@ -1,10 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { StyleSheet, Text, ImageBackground } from 'react-native'
-// import styled from 'styled-components/native'
-
-// import FetchPokemon from './components/FetchPokemon'
+import { StyleSheet, ImageBackground } from 'react-native'
 
 import { pokemonShake } from './reducers/pokemonShake'
 import ShakeFetch from './components/ShakeFetch'
@@ -18,10 +15,6 @@ const store = configureStore({ reducer })
 const App = () => {
   return (
     <Provider store={store}>
-      {/* <Container>
-        <FetchPokemon />
-        
-      </Container> */}
       <ImageBackground
         source={require('./assets/sunburst.jpg')}
         resizeMode="cover"
@@ -42,15 +35,5 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 })
-// const Container = styled.View`
-//   flex: 1;
-//   background-color: dodgerblue;
-//   justify-content: center;
-//   align-items: center;
-// `
 
-// const Title = styled.Text`
-//   font-size: 24px;
-//   color: palevioletred;
-// `
 export default App
