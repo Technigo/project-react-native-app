@@ -1,26 +1,56 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { StyleSheet, Text, ImageBackground } from 'react-native'
+// import styled from 'styled-components/native'
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+// import FetchPokemon from './components/FetchPokemon'
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+import { pokemonShake } from './reducers/pokemonShake'
+import ShakeFetch from './components/ShakeFetch'
+
+const reducer = combineReducers({
+  pokemonShake: pokemonShake.reducer
+})
+
+const store = configureStore({ reducer })
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
+  return (
+    <Provider store={store}>
+      {/* <Container>
+        <FetchPokemon />
+        
+      </Container> */}
+      <ImageBackground
+        source={require('./assets/sunburst.jpg')}
+        resizeMode="cover"
+        style={styles.image}>
+        <ShakeFetch />
+      </ImageBackground>
+    </Provider>
+  )
+}
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
+// const Container = styled.View`
+//   flex: 1;
+//   background-color: dodgerblue;
+//   justify-content: center;
+//   align-items: center;
+// `
+
+// const Title = styled.Text`
+//   font-size: 24px;
+//   color: palevioletred;
+// `
+export default App
