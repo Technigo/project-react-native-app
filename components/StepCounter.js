@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Text, View, StyleSheet, TouchableHighlight } from "react-native";
 import { Pedometer } from "expo-sensors";
 import { ProgressChart } from "react-native-chart-kit";
@@ -7,7 +8,7 @@ import { Header } from "./Header";
 const styles = StyleSheet.create({
   WalkText: {
     fontSize: 20,
-    margin: 20,
+    margin: 5,
     textAlign: "center",
   },
   ChartWrapper: {
@@ -18,9 +19,16 @@ const styles = StyleSheet.create({
     backgroundColor: "papayawhip",
     flex: 1,
   },
+  StepText: {
+    fontWeight: "700",
+    color: "rosybrown",
+    fontSize: 40,
+    textAlign: "center",
+    margin: 0,
+  },
 });
 
-export const StepCounter = ({ stepData }) => {
+export const StepCounter = () => {
   const [isPedometerAvailable, setIsPedometerAvailable] = useState("checking");
   const [pastStepCount, setPastStepCount] = useState(0);
   const [currentStepCount, setCurrentStepCount] = useState(0);
@@ -37,19 +45,20 @@ export const StepCounter = ({ stepData }) => {
         setIsPedometerAvailable(result);
       },
       (error) => {
-        setIsPedometerAvailable("Could not get isPedometerAvailable: " + error);
+        setIsPedometerAvailable(error);
       }
     );
 
     const end = new Date();
     const start = new Date();
+    start.setHours(0, 0, 0, 0);
     start.setDate(end.getDate() - 1);
     Pedometer.getStepCountAsync(start, end).then(
       (result) => {
         setPastStepCount(result.steps);
       },
       (error) => {
-        setPastStepCount("Could not get stepCount: " + error);
+        setPastStepCount("No steps avalible");
       }
     );
   };
@@ -75,16 +84,20 @@ export const StepCounter = ({ stepData }) => {
     barPercentage: 0.5,
     useShadowColorFromDataset: false, // optional
   };
+  const stepData = useSelector((state) => state.settings.steps);
+
   const data = {
-    data: [pastStepCount / 1000],
+    data: [pastStepCount / stepData],
   };
+
   return (
     <View style={styles.StepCounterContainer}>
       <Header />
       {/* <Text>Pedometer.isAvailableAsync(): {isPedometerAvailable}</Text> */}
-      <Text style={styles.WalkText}>
-        You have taken {pastStepCount} in the last 24 hours
-      </Text>
+      <Text style={styles.WalkText}>You have taken</Text>
+      <Text style={styles.StepText}> {pastStepCount} </Text>
+
+      <Text style={styles.WalkText}>steps today.</Text>
       {/* <Text>Walk! And watch this go up: {currentStepCount}</Text> */}
       <View style={styles.ChartWrapper}>
         <ProgressChart

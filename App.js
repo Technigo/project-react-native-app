@@ -9,7 +9,7 @@ import { WelcomePage } from "./components/WelcomePage";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Settings } from "./components/Settings";
+import { SettingsPage } from "./components/SettingsPage";
 
 const Container = styled.View`
   flex: 1;
@@ -51,7 +51,7 @@ const App = () => {
             <Drawer.Screen
               name="Settings"
               // component={() => <Settings stepData={step} />}
-              component={Settings}
+              component={SettingsPage}
               // onstepChange={onstepChange}
               // setStep={setStep}
               // step={step}

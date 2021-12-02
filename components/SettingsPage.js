@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Settings = () => {
+export const SettingsPage = () => {
   const dispatch = useDispatch();
   //   console.log(stepData);
   //   console.log(onStepChange);
@@ -28,7 +28,9 @@ export const Settings = () => {
   const onStepChange = () => {
     dispatch(settings.actions.setSteps(step), setStep(step));
   };
-  console.log(step);
+  console.log("this is step" + step);
+  console.log("on change" + onStepChange);
+  console.log("store" + settings.actions.setSteps(step));
   return (
     <View style={styles.Container}>
       <Header />
@@ -38,7 +40,7 @@ export const Settings = () => {
         style={styles.input}
         // onChangeText={(value) => onStepChange(value)}
         // onChangeText={(text) => console.log(text)}
-        onChangeText={(event) => setStep(event.target.value)}
+        onChangeText={(text) => setStep(text)}
         value={step}
         onSubmitEditing={onStepChange}
         keyboardType={"default"}
