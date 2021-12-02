@@ -24,7 +24,7 @@ const Movies = () => {
 	const [loading, setLoading] = useState(false);
 
 	// random movie from movieList array, returns only one item
-	const randomMovie = movieList[Math.floor(Math.random() * 	movieList.length)]
+	const randomMovie = movieList[Math.floor(Math.random() * 	movieList.length)];
 
 	useEffect(() => {
 		generateMovie();
