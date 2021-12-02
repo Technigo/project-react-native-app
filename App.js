@@ -1,5 +1,11 @@
 import React from 'react';
+import { TouchableHighlight } from 'react-native';
 import styled from 'styled-components/native';
+
+import ButtonApi from './components/ButtonApi';
+import RollD6 from './components/RollD6';
+
+
 
 const Container = styled.View`
 	flex: 1;
@@ -16,9 +22,11 @@ const Title = styled.Text`
 const App = () => {
 	return (
 		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
+			<Title>Dice Roller</Title>
+
+			<Title>Shake to roll a D6 (6 sided dice)</Title>
+			{/* <ButtonApi />  */}
+			<RollD6 />
 		</Container>
 	);
 };
