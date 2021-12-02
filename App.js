@@ -5,9 +5,7 @@ import StepCounter from './components/StepCounter'
 
 const Container = styled.View`
 	flex: 1;
-	background-color: white;
-	justify-content: center;
-	align-items: center;
+	
 `;
 const Text = styled.Text`
 font-size: 24px;`

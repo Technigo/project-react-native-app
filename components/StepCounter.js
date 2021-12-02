@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Image } from "react-native";
 import { Pedometer } from "expo-sensors";
 import styled from "styled-components/native";
 
-import ButtonApi from "./ButtonApi";
-
-const Container = styled.View`
-  flex: 0.5;
-  justify-content: center;
-  align-items: center;
-`;
 const Title = styled.Text`
   font-size: 15px;
   margin: 10px;
@@ -17,29 +9,29 @@ const Title = styled.Text`
 `;
 const TestImage = styled.Image`
   height: 50%;
-  width: 350px;
+  width: 250px;
 `;
 const Affirmation = styled.Text`
   font-size: 20px;
 `;
-const ContainerEnd = styled.View`
-  flex: 0.5;
+
+
+const ScreenBackgroundEnd = styled.ImageBackground`
+flex: 1;
+justify-content: center;
+align-items: center;
+`;
+const ScreenBackgroundMiddle = styled.ImageBackground`
+  flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: green;
 `;
 
-const ContainerStart = styled.View`
-  flex: 0.5;
+const ScreenBackgroundStart = styled.ImageBackground`
+  flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: pink;
 `;
-const ContainerMiddle =styled.View`
-    flex: 0.5;
-    justify-content: center;
-    align-items: center;
-    background-color: blue;`
 
 const StepCounter = () => {
   const [steps, setSteps] = useState(0);
@@ -70,33 +62,33 @@ const StepCounter = () => {
       .then((res) => res.json())
       .then((data) => setAffirmation(data));
   }; // This fetch function fetches a random affirmation and stores it as setAffirmation
-    //Conditionally render 
-  if (previousSteps > 10000) {
+  //Conditionally renders, by using different name for Container, can change background color
+
+  if (previousSteps > 2000) {
     return (
-      <ContainerEnd>
+      <ScreenBackgroundEnd source={require("../assets/glitter.jpg")}>
         <TestImage source={require("../assets/star.png")} />
         <Title> You reached your daily goal! You are a Star!</Title>
-      </ContainerEnd>
+      </ScreenBackgroundEnd>
     );
-  } else if (previousSteps > 5000) {
+  } else if (previousSteps > 1000) {
     return (
-      <ContainerMiddle>
+      <ScreenBackgroundMiddle source={require("../assets/blue-pink.jpg")}>
         <Title> You are (over) halfway to your target! Woohoo!</Title>
 
         <Title>Steps taken over the past 24 h: {previousSteps}.</Title>
         <Title> Keep going! </Title>
         <Title> You have {target} remaining to reach your target!</Title>
-      </ContainerMiddle>
+      </ScreenBackgroundMiddle>
     );
   } else {
     return (
-        <>
-      <ContainerStart>
-        <Title>
-          Steps taken over the past 24 h: {previousSteps} </Title>
+      <>
+        <ScreenBackgroundStart source={require("../assets/pink-stripe.jpg")}>
+          <Title>Steps taken over the past 24 h: {previousSteps} </Title>
           <Title>{target} steps to reach your target!</Title>
-      </ContainerStart>
-      <Affirmation>{affirmation.affirmation}</Affirmation>
+          <Affirmation>{affirmation.affirmation}</Affirmation>
+        </ScreenBackgroundStart>
       </>
     );
   }
