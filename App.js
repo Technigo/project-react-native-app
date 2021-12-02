@@ -18,7 +18,7 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>Kanye West </Title>
+      <Title>Work in title! </Title>
       <Facts />
     </Container>
   );

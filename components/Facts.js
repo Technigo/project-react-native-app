@@ -1,5 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableHighlight } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
+  Pressable,
+} from "react-native";
+import styled from "styled-components/native";
+
+const FactContainer = styled.View`
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`;
+
+const FactText = styled.Text`
+  font-weight: 700;
+  margin: 10px;
+`;
+
+const FactButton = styled.Pressable`
+  width: 70px;
+  padding: 5px;
+  background-color: gray;
+  text-align: center;
+  border-radius: 20px;
+  margin: 10px;
+`;
 
 export const Facts = () => {
   const [fact, setFact] = useState({});
@@ -7,25 +36,29 @@ export const Facts = () => {
 
   useEffect(() => {
     generateFacts();
-  }, [setFact]);
+  }, []);
 
   const generateFacts = () => {
     setLoading(true);
-    fetch("https://asli-fun-fact-api.herokuapp.com/")
+    fetch("https://uselessfacts.jsph.pl/random.json?language=en")
       .then(response => response.json())
       .then(json => setFact(json))
-      .finally(setLoading(false));
+      .finally(() => setLoading(false));
   };
 
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
   return (
-    <View>
-      <View>
-        <TouchableHighlight onPress={generateFacts}>
-          <Text>Gimme some sweet facts yo!</Text>
-        </TouchableHighlight>
-      </View>
-      <Text>Fact: {fact.fact}</Text>
-      <View></View>
-    </View>
+    <FactContainer>
+      <Text>Click button for some sweet facts yo!</Text>
+
+      <FactButton key={fact.id} onPress={generateFacts}>
+        <Text>Generate</Text>
+      </FactButton>
+      <FactText>Fact: {fact.text}</FactText>
+      <Text>Source: {fact.source}</Text>
+    </FactContainer>
   );
 };
