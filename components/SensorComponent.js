@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Text } from 'react-native'
 import { Accelerometer } from 'expo-sensors'
 import styled from 'styled-components/native'
 
@@ -33,7 +34,7 @@ const ShakeDataTitle = styled.Text`
 `
 const ShakeData = styled.Text``
 
-const SensorComponent = () => {
+const SensorComponent = ({ onShake }) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400)
@@ -75,7 +76,17 @@ const SensorComponent = () => {
     return () => _unsubscribe()
   }, [])
 
-  return isShaking(data)
+  // whenever the device is shaking -> useEffect invoke function onShake/handleShake
+  const shaking = isShaking(data)
+  useEffect(() => {
+    onShake(shaking)
+  }, [shaking])
+
+  return (
+    isShaking(data) && (
+      <Text style={{ color: '#aa0000', fontSize: 20 }}>Shaking</Text>
+    )
+  )
 }
 
 // <ShakeView>

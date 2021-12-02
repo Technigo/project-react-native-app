@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text, Button } from 'react-native'
-// import { Ionicons } from '@expo/vector-icons'
+import React, { useState, useRef, useCallback } from 'react'
+import { View, Text, Button, StyleSheet, Animated } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
 
@@ -33,25 +32,111 @@ const rollDice = () => {
 const DiceTwoScreen = () => {
   const [diceNumber, setDiceNumber] = useState('')
 
+  const handleShake = () => {
+    // setDiceNumber(rollDice().toString())
+    shake()
+    let counter = 0
+    let interval = setInterval(() => {
+      setDiceNumber(rollDice().toString())
+      counter++
+      if (counter === 10) {
+        clearInterval(interval)
+      }
+    }, 50)
+  }
+
+  const anim = useRef(new Animated.Value(0))
+
+  const shake = useCallback(() => {
+    // makes the sequence loop
+    Animated.loop(
+      // runs the animation array in sequence
+      Animated.sequence([
+        // shift element to the left by 2 units
+        Animated.timing(anim.current, {
+          toValue: -4,
+          duration: 50,
+          useNativeDriver: true,
+        }),
+        // shift element to the right by 2 units
+        Animated.timing(anim.current, {
+          toValue: 4,
+          duration: 50,
+          useNativeDriver: true,
+        }),
+        // bring the element back to its original position
+        Animated.timing(anim.current, {
+          toValue: 0,
+          duration: 50,
+          useNativeDriver: true,
+        }),
+      ]),
+      // loops the above animation config 3 times
+      { iterations: 3 }
+    ).start()
+  }, [])
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ color: '#006600', fontSize: 40 }}>DiceTwo Screen!</Text>
-      {/* <Ionicons name='ios-videocam-outline' size={80} color='#006600' /> */}
-      <MaterialCommunityIcons
-        name={displayDice(diceNumber)}
-        size={80}
-        color='#006600'
-      />
+    <View style={styles.container}>
+      <Text style={styles.titleText}>Number Dice (1-6)</Text>
+      <View style={styles.viewContainer}>
+        <Animated.View style={{ transform: [{ translateX: anim.current }] }}>
+          <MaterialCommunityIcons
+            name={displayDice(diceNumber)}
+            size={120}
+            color='#006600'
+          />
+        </Animated.View>
+        <Text style={styles.text}>{displayDice(diceNumber)}</Text>
+      </View>
+
       <Button
         title='Roll Dice'
-        onPress={() => setDiceNumber(rollDice().toString())}
+        onPress={() => {
+          // invoke shake function -> illustrate 'shaking' dice
+          shake()
+          // invoke rollDice 10 times with an interval of 50ms
+          let counter = 0
+          let interval = setInterval(() => {
+            setDiceNumber(rollDice().toString())
+            counter++
+            if (counter === 10) {
+              clearInterval(interval)
+            }
+          }, 50)
+        }}
+        color='#F4A442'
+        accessibilityLabel='Press the button to roll the dice'
       />
-      <Text style={{ color: '#006600', fontSize: 16 }}>or try to shake</Text>
-      <AntDesign name='shake' size={40} color='#006600' />
-      {/* infinite loop when SensorComponent return boolean true, need to fix this! */}
-      {<SensorComponent /> && <Text>Shaking</Text>}
+      <View style={styles.viewContainer}>
+        <Text style={styles.text}>or try to shake</Text>
+        <AntDesign name='shake' size={40} color='#006600' />
+        {/* SensorComponent - pass the handleShake as prop */}
+        <SensorComponent onShake={handleShake} />
+      </View>
     </View>
   )
 }
+
+// = StyleSheet
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  titleText: {
+    color: '#006600',
+    fontSize: 40,
+    margin: 20,
+  },
+  viewContainer: {
+    alignItems: 'center',
+    margin: 30,
+  },
+  text: {
+    margin: 10,
+  },
+})
 
 export default DiceTwoScreen
