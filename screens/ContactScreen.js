@@ -10,26 +10,6 @@ const ContactContainer = styled.View`
 `;
 
 
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-
-  inputDesc: {
-    height: 80,
-    borderWidth:1,
-    padding:50,
-    margin:12,
-  },
-
-  contactUs: {
-    textDecorationLine:'underline',
-  },
-});
-
 
 
 export const Contact = () => {
@@ -40,9 +20,7 @@ export const Contact = () => {
   
   return (
     <ContactContainer>
-      <Text style={styles.contactUs}>
-            <h1>Contact Us</h1>
-        </Text>
+      <h1>Contact Us</h1>
       <TextInput
         style={styles.input}
         onChangeText={onChangeName}
@@ -75,5 +53,25 @@ export const Contact = () => {
     </ContactContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+
+  inputDesc: {
+    height: 80,
+    borderWidth:1,
+    padding:50,
+    margin:12,
+  },
+
+  contactUs: {
+    textDecorationLine:'underline',
+  },
+});
 
 
