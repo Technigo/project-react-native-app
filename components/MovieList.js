@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import { Text, Image, View, StyleSheet } from 'react-native';
-import { MOVIES_URL } from '../utils/urls';
-
+import { Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { MOVIES_URL, CHRISTMAS_URL, TOP_RATED_URL } from '../utils/urls';
 
 // = Styled components
 const MoviesView = styled.ScrollView`
@@ -16,13 +15,19 @@ const styles = StyleSheet.create({
     },
 });
 
-export const MovieList = ({ navigation }) => {
+export const MovieList = ({ route, navigation }) => {
 
+    const { listId } = route.params;
+    let url=MOVIES_URL;
+if(listId ==='christmas'){
+url = CHRISTMAS_URL;}
+else if(listId === 'toprated'){
+url = TOP_RATED_URL;}
 
     const [list, setList] = useState([]);
 
     useEffect(() => {
-        fetch(MOVIES_URL)
+        fetch(url)
             .then((res) => res.json())
             .then((data) => setList(data.results));
     }, []);
@@ -31,16 +36,18 @@ export const MovieList = ({ navigation }) => {
         <MoviesView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
             {
                 list.map((movie) => (
-                    <View key={movie.id}>
+                    <TouchableOpacity key={movie.id} onPress={() =>
+                        navigation.navigate('Details', { movieId: movie.id })
+                      }>
                         <Image
                             style={styles.moviePoster}
                             source={{
                                 uri: `https://image.tmdb.org/t/p/w780${movie.poster_path}`,
                             }} />
                         <Text>{movie.title}</Text>
-                    </View>
+                    </TouchableOpacity>
                 ))
             }
         </MoviesView >
     );
-};
+}

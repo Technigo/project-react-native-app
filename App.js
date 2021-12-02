@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 import { MovieList } from './components/MovieList';
+import { MovieDetails } from './components/MovieDetails';
 
 const Container = styled.View`
   flex: 1;
@@ -21,10 +22,15 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   return (
       <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="Start" component={MovieList} />
-          <Tab.Screen name="Christmas" component={MovieList} />
-          <Tab.Screen name="Top Rated" component={MovieList} />
+        <Tab.Navigator backBehavior="history">
+          <Tab.Screen name="Start" component={MovieList} initialParams={{ listId: 'default' }} />
+          <Tab.Screen name="Christmas" component={MovieList} initialParams={{ listId: 'christmas' }} />
+          <Tab.Screen name="Top Rated" component={MovieList} initialParams={{ listId: 'toprated' }} />
+          <Tab.Screen options={{
+        tabBarButton: () => null,
+        tabBarVisible: false, // if you don't want to see the tab bar
+      }}
+      name="Details" component={MovieDetails}  />
         </Tab.Navigator>
       </NavigationContainer>
     //  <Container>
