@@ -59,8 +59,22 @@ const ShakeMovie = () => {
     fetch(MOVIE_URL(randomMovie()))
       .then((res) => res.json())
       .then((data) => setMovie(data))
+
       .finally(() => setLoading(false));
   };
+
+  // How to filter the list and remove empty objects?
+  // const generateMovie = () => {
+  //   setLoading(true);
+  //   fetch(MOVIE_URL(randomMovie()))
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       let completeList = data.filter((movies) => movies.length > 0);
+  //       setMovie(completeList);
+  //     })
+
+  //     .finally(() => setLoading(false));
+  // };
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);

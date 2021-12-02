@@ -11,18 +11,6 @@ import ShakePoem from "./components/ShakePoem";
 import ShakeKanye from "./components/ShakeKanye";
 import StartScreen from "./components/StartScreen";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
-
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
