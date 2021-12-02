@@ -7,7 +7,7 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native'
-import Loading from './Loading'
+import { LoadingSpinner } from './LoadingSpinner'
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
 
@@ -99,7 +99,7 @@ export const ShakeAPI = () => {
   }
 
   if (loading) {
-    return <Loading />
+    return <LoadingSpinner />
   }
 
   return (
