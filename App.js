@@ -3,7 +3,6 @@ import styled from "styled-components/native";
 import { useFonts } from "expo-font";
 
 import Theme from "./Theme";
-import ShakeApi from "./components/ShakeApi";
 import StartingPage from "./components/StartingPage";
 import ShakePhone from "./components/ShakePhone";
 import Planets from "./components/Planets";
@@ -19,15 +18,13 @@ const Container = styled.View`
 
 const Title = styled.Text`
   font-size: 24px;
-  font-family: "SWFont";
+  font-family: "SWFontHollow";
   color: ${(props) => props.theme.colors.textYellow};
 `;
 
-const showPage = ["StartingPage", "ShakePhone", "Planets"];
-
 const App = () => {
   // state to handle which component is loaded
-  const [currentPage, setCurrentPage] = useState(showPage[0]);
+  const [currentPage, setCurrentPage] = useState("StartPage");
   const [loading, setLoading] = useState(false);
   // font is downloaded from here: https://www.fontspace.com/sf-distant-galaxy-font-f6436
   // How to use custom font in react native: https://blog.jsdisco.dev/using-custom-fonts-with-expo
@@ -45,30 +42,23 @@ const App = () => {
     );
   }
 
-  // function that controls which component to show with a switch
-  const showCurrentPage = () => {
-    switch (currentPage) {
-      case "StartingPage":
-        return (
-          <StartingPage
-            setCurrentPage={setCurrentPage}
-            showPage={showPage}
-          />
-        );
-      case "ShakePhone":
-        return <ShakePhone />;
-      case "Planets":
-        return <Planets />;
-      default:
-        return <StartingPage />;
-    }
+  const handleCurrentPage = (category) => {
+    setCurrentPage(category);
   };
 
   return (
     <Theme>
       <Container>
         {loading && <Loading />}
-        {showCurrentPage()}
+        {currentPage === "StartPage" && (
+          <StartingPage setCurrentPage={setCurrentPage} />
+        )}
+        {currentPage === "Planets" && (
+          <Planets
+            setCurrentPage={setCurrentPage}
+            setLoading={setLoading}
+          />
+        )}
       </Container>
     </Theme>
   );
