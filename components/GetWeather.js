@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ActivityIndicator, Button, Image } from 'react-native'
+import { View, Text, ActivityIndicator, Button} from 'react-native'
 import styled from 'styled-components/native'
 import * as Location from 'expo-location';
 
@@ -58,9 +58,24 @@ const GetWeather = () => {
     getWeather()
   }
 
+  const ImagePicker = () => {
+    if (weather === "Rain" || "Drizzle") {
+      return '../assets/Rain_icon.png';
+    } else if (weather === "Clear") {
+      return '../assets/Clear_icon.png';
+    } else if (weather === "Clouds") {
+      return '../assets/Clouds_icon.png';
+    } else if (weather === "Snow") {
+      return '../assets/Snow_icon.png';
+    } else if (weather === "Thunderstorm") {
+      return '../assets/Thunderstorm_icon.png';
+    } else return '../assets/Other_icon.png';
+  };
+
   if (loading) {
     return <ActivityIndicator />
   }
+
 
   return (
     <View>
@@ -69,7 +84,7 @@ const GetWeather = () => {
 				resizeMode="contain"
 			/>
       <Text>Hello handsome, I see you are in {city} </Text>
-      <Text>Weather {weather}</Text>
+      {weather && (<Text>Weather {weather}</Text>)}
       <Button title='Weather' onPress={onBtnPress} />
     </View> 
   )
