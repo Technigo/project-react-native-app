@@ -17,13 +17,13 @@ const TextBox = styled.View`
   align-items: center;
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 125px;
+  margin-bottom: 28%;
 `;
 
 const QuoteText = styled.Text`
   font-weight: 700;
-  font-size: 24px;
-  padding-bottom: 10px;
+  font-size: 30px;
+  padding-bottom: 15px;
 `;
 const KanyeBackground = styled.ImageBackground`
   height: 100%;
@@ -108,7 +108,7 @@ const ShakeApi = () => {
           "{quote.quote}"
         </QuoteText>
         <Text>
-          Shake the phone to get more valueable wisdome from Kanye West.
+          Shake the phone to get more valuable wisdom from Kanye West.
         </Text>
       </TextBox>
     </KanyeBackground>
