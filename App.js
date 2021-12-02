@@ -1,26 +1,31 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from "react";
+import { Provider } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import paintings from "./reducers/paintings";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import Home from "./components/Home";
+import MoreInfo from "./components/MoreInfo";
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Drawer = createDrawerNavigator();
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
+  const reducer = combineReducers({
+    paintings: paintings.reducer,
+  });
+
+  const store = configureStore({ reducer });
+  return (
+    <NavigationContainer>
+      <Provider store={store}>
+        <Drawer.Navigator initialRouteName="Home">
+          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="More info" component={MoreInfo} />
+        </Drawer.Navigator>
+      </Provider>
+    </NavigationContainer>
+  );
 };
 
 export default App;
