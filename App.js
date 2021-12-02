@@ -32,8 +32,6 @@ const EnterText = styled.Text`
 	text-align: center;
 `
 
-
-
 const App = () => {
 
 	const Drawer = createDrawerNavigator()
@@ -48,7 +46,7 @@ const App = () => {
 			<StartButton onPress={() => setOnHome(false)}><EnterText>Enter</EnterText></StartButton>
 		</Container>) 
 		: (
-		<NavigationContainer>
+		<NavigationContainer style={{backgroundColor: '#133337'}}>
 			<Drawer.Navigator initialRouteName="Ghibli">
 				<Drawer.Screen name="Ghibli - Shake your phone!" component={Ghibli} />
 				<Drawer.Screen name="Dogs - Shake your phone!" component={Dogs} />

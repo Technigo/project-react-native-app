@@ -110,7 +110,7 @@ const Dogs = () => {
 	return (
 		<>
 		
-		<ScreenBackground source={require('../assets/background.jpg')}>
+		<ScreenBackground source={require('../assets/dogBackground.jpg')}>
 			<MainView >
 			<Animation source={require('../assets/dog.gif')} />
 				<View style={{backgroundColor: '#ffffff8C', margin: '5px', padding: '5px', border: 'solid 2px black'}}>

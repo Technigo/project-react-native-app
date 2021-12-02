@@ -1,13 +1,14 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I made a mobile app with React Native, you shake your phone and get random images fetched from an api.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had alot of issues with the expo app, I could'nt get it to show on my phone.
+The problems I had i got alot of help from stackoverflow and from my classmates, im acctually really proud of one problem that I managed to solve. I wanted the api I worked with to show random images so I had to create a function that randomly picked the id's for the images wich I then called for in the fetch.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Project page: https://expo.dev/@mattsson717/project-react-native-app
+
+Manifest: https://exp.host/@mattsson717/project-react-native-app/index.exp?sdkVersion=43.0.0

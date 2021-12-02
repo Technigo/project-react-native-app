@@ -115,7 +115,7 @@ const Ghibli = () => {
 	return (
 		<>
 		<ScreenBackground source={require('../assets/background.jpg')}>
-			<MainView >
+			<MainView>
 			<Animation source={require('../assets/ghibli.gif')} />
 				<View style={{backgroundColor: '#ffffff8C', margin: '5px', padding: '5px', border: 'solid 2px black'}}>
 					<MovieView>
