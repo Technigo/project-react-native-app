@@ -3,12 +3,14 @@ import { View, Text, ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 import { Accelerometer } from 'expo-sensors';
 
+//Styling
 const QuoteText = styled.Text`
 	font-weight: 700;
+	color: white;
+	font-size: 24px;
 `;
 
 const APIButton = styled.TouchableOpacity`
-	background-color: powderblue;
 	width: 50%;
 	align-items: center;
 	justify-content: center;
@@ -69,10 +71,10 @@ const ShakeApi = () => {
 
 	const generateQuote = () => {
 		setLoading(true);
-		fetch('http://api.quotable.io/random')
+		fetch('http://randommovielines.herokuapp.com//api/v1.0/famousquotes')
 			.then((res) => res.json())
 			//data (quote) we recieve in the second then
-			.then((quote) => setQuote(quote))
+			.then((data) => setQuote(data))
 			.finally(() => setLoading(false));
 	};
 
@@ -92,12 +94,26 @@ const ShakeApi = () => {
 	}
 
 	const { x, y, z } = data;
+
 	return (
 		<View>
-			<QuoteText> Quote: {quote.content} </QuoteText>
-			<Text> Author: {quote.author} </Text>
+			<QuoteText>Quote: {quote.quote}</QuoteText>
 		</View>
 	);
 };
+
+// 	return (
+// 		<View>
+// 			{questions.map((question) => {
+// 				return (
+// 					<View key={question.id}>
+// 						<QuoteText> Question: {question.question} </QuoteText>
+// 						<Text> Answer: {question.correct_answer} </Text>
+// 					</View>
+// 				);
+// 			})}
+// 		</View>
+// 	);
+// };
 
 export default ShakeApi;
