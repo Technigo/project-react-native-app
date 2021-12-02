@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
   StepCounterContainer: {
     backgroundColor: "papayawhip",
     flex: 1,
+    padding: 15,
   },
   StepText: {
     fontWeight: "700",
@@ -52,6 +53,8 @@ export const StepCounter = () => {
     const end = new Date();
     const start = new Date();
     start.setHours(0, 0, 0, 0);
+    console.log(start, "start");
+    console.log(end, "end");
     start.setDate(end.getDate() - 1);
     Pedometer.getStepCountAsync(start, end).then(
       (result) => {
@@ -110,8 +113,14 @@ export const StepCounter = () => {
           hideLegend={true}
         />
       </View>
+      {pastStepCount < stepData ? (
+        <Text style={styles.WalkText}>Just keep walking...</Text>
+      ) : (
+        <Text style={styles.WalkText}>
+          Walk like a champion, you reached your goal!
+        </Text>
+      )}
       <Text style={styles.WalkText}>Your daily goal is {stepData}.</Text>
-      <Text style={styles.WalkText}>Keep walking to reach your goal!</Text>
     </View>
   );
 };
