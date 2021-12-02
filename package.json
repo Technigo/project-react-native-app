@@ -20,6 +20,7 @@
     "react-native-web": "0.17.1",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
+    "rn-css": "^1.4.4",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

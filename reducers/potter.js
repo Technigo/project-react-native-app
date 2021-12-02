@@ -4,14 +4,11 @@ export const potter = createSlice({
   name: "potter",
   initialState: {
     fan: false,
-    userName: "",
     harryPotterApi: []
   },
 
   reducers: {
-    setUsername: (store, action) => {
-      store.userName = action.payload;
-    },
+    
     setHarryPotterApi: (store, action) => {
         store.harryPotterApi = action.payload;
       },
