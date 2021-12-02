@@ -1,5 +1,12 @@
 import React, { useState, useRef, useCallback } from 'react'
-import { View, Text, Button, StyleSheet, Animated } from 'react-native'
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  Animated,
+  Vibration,
+} from 'react-native'
 // import { Ionicons } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons'
@@ -35,6 +42,7 @@ const DiceOneScreen = () => {
 
   const handleShake = () => {
     shake()
+    Vibration.vibrate()
     let counter = 0
     let interval = setInterval(() => {
       setDiceChore(rollDice().toString())
@@ -96,6 +104,8 @@ const DiceOneScreen = () => {
         onPress={() => {
           // invoke shake function -> illustrate 'shaking' dice
           shake()
+          // vibrates the device once
+          Vibration.vibrate()
           // invoke rollDice 10 times with an interval of 50ms
           let counter = 0
           let interval = setInterval(() => {
