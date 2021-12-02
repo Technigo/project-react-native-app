@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native'
+import Loading from './Loading'
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
 
@@ -89,7 +90,7 @@ export const ShakeAPI = () => {
     })
       .then((res) => res.json())
       .then((data) => setDrink(data))
-      .finally(() => setLoading(false))
+      .finally(() => setTimeout(() => setLoading(false), 3000))
   }
 
   const isShakingEnough = (data) => {
@@ -98,7 +99,7 @@ export const ShakeAPI = () => {
   }
 
   if (loading) {
-    return <ActivityIndicator />
+    return <Loading />
   }
 
   return (
