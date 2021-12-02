@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import StartPage from "./components/StartPage";
 import { NavigationContainer } from "@react-navigation/native";
-import { Button, View, Text, Image, TouchableOpacity } from "react-native";
+// import {
+//   Button,
+//   View,
+//   Text,
+//   Image,
+//   TouchableOpacity,
+//   Animated,
+// } from "react-native";
 import Judith from "./components/Judith";
 import Frans from "./components/Frans";
 import Johannes from "./components/Johannes";
 import Rembrandt from "./components/Rembrandt";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-// const BigBox = styled.View`
-//   display: flex;
-//   background-color: papayawhip;
-// `;
+import { keyframes } from "styled-components/native";
 
 const Container = styled.View`
   flex: 1;
@@ -22,13 +24,14 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
-  /* width: 300px; */
 `;
 
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 30px;
   color: rgba(232, 209, 78, 1);
   margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(251, 173, 0, 0.8);
 `;
 
 const DescriptiveText = styled.Text`
@@ -67,15 +70,14 @@ const ArtisButton = styled.TouchableOpacity`
 
 const ButtonText = styled.Text`
   text-align: center;
-  color: white;
+  color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
 `;
-// style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
 
 function StartScreen({ navigation }) {
   return (
     <Container>
-      <Title>Golden Age</Title>
+      <Title>The Golden Age</Title>
       <ImageBox>
         <ImageBoxSmall>
           <ArtistPic source={require("./assets/Judith.jpeg")} />
@@ -101,7 +103,11 @@ function StartScreen({ navigation }) {
             <ButtonText>GO TO REMBRANDT</ButtonText>
           </ArtisButton>
         </ImageBoxSmall>
-        <DescriptiveText>Welcome</DescriptiveText>
+        <DescriptiveText>
+          Welcome to the Golden Age of Dutch painting. Thanks to the Rijksmuseum
+          you can here enjoy their collection of four of my favourite Dutch
+          painters.
+        </DescriptiveText>
       </ImageBox>
     </Container>
   );
@@ -112,7 +118,6 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <Container> */}
       <Stack.Navigator>
         <Stack.Screen name="Home" component={StartScreen} />
         <Stack.Screen name="Judith" component={Judith} />
@@ -120,7 +125,6 @@ const App = () => {
         <Stack.Screen name="Johannes" component={Johannes} />
         <Stack.Screen name="Rembrandt" component={Rembrandt} />
       </Stack.Navigator>
-      {/* </Container> */}
     </NavigationContainer>
   );
 };
