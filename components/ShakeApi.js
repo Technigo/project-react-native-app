@@ -1,0 +1,118 @@
+import React, { useEffect, useState } from 'react';
+import { View, Text, ActivityIndicator } from 'react-native';
+import styled from 'styled-components/native';
+import { Accelerometer } from 'expo-sensors';
+import { useFonts, Buda_300Light } from '@expo-google-fonts/buda';
+
+const Heading = styled.Text`
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 30px;
+`;
+
+const TextBox = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 125px;
+`;
+
+const QuoteText = styled.Text`
+  font-weight: 700;
+  font-size: 24px;
+  padding-bottom: 10px;
+`;
+const KanyeBackground = styled.ImageBackground`
+  height: 100%;
+`;
+
+const ShakeApi = () => {
+  // shakedata
+  const [data, setData] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+  const [quote, setQuote] = useState({});
+  const [loading, setLoading] = useState(false);
+  // subscription always leve with unsubscription
+  const [subscription, setSubscription] = useState(null);
+  const [fontsLoaded] = useFonts({
+    Buda_300Light,
+  });
+
+  useEffect(() => {
+    generateQuote();
+  }, []);
+
+  //   how often the acc will check + when component get mounted we will subscribe, and then unmount(?)
+  useEffect(() => {
+    Accelerometer.setUpdateInterval(1000);
+    subscribe();
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (isShakingEnough(data)) generateQuote();
+  }, [data]);
+
+  // //   how often the acc will check
+  //   const _slow = () => {
+  //     Accelerometer.setUpdateInterval(1000);
+  //   };
+
+  //   const _fast = () => {
+  //     Accelerometer.setUpdateInterval(16);
+  //   };
+
+  // //   keep phone updated
+  const subscribe = () => {
+    setSubscription(
+      Accelerometer.addListener((accelerometerData) => {
+        setData(accelerometerData);
+      })
+    );
+  };
+
+  //   stop beeing updated
+  const unsubscribe = () => {
+    subscription && subscription.remove();
+    setSubscription(null);
+  };
+
+  const generateQuote = () => {
+    setLoading(true);
+    fetch('https://api.kanye.rest/')
+      .then((res) => res.json())
+      .then((quote) => setQuote(quote))
+      .finally(() => setLoading(false));
+  };
+
+  const isShakingEnough = (data) => {
+    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
+    return totalForce > 1.78;
+  };
+
+  if (loading || !fontsLoaded) {
+    return <ActivityIndicator />;
+  }
+
+  return (
+    <KanyeBackground source={require('../assets/ye_background.jpg')}>
+      <Heading>What Ye said: </Heading>
+      <TextBox>
+        <QuoteText style={{ fontFamily: 'Buda_300Light' }}>
+          "{quote.quote}"
+        </QuoteText>
+        <Text>
+          Shake the phone to get more valueable wisdome from Kanye West.
+        </Text>
+      </TextBox>
+    </KanyeBackground>
+  );
+};
+
+export default ShakeApi;
