@@ -4,21 +4,17 @@ import { cart } from '../reducers/cart'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import styled from 'styled-components/native'
 import { LinearGradient } from 'expo-linear-gradient';
+import LottieView from 'lottie-react-native';
 
 const CartItem = ({ coin }) => {
     // const dispatch = useDispatch()
-
-    // const onQuantityIncrease = (coin) => {
-    //     dispatch(cart.actions.addItem(coin))
-    // }
-
     // const onQuantityDecrease = (coin) => {
     //     dispatch(cart.actions.removeItem(coin))
     // }
 
     return (
         <CoinsList key={coin.id}>
-            <BackgroundColor colors={['rgba(240,86,12,1)', 'rgba(0,121,255,1)']}>
+            <BackgroundColor colors={['rgba(149,149,149,0.742734593837535)', 'rgba(255,253,253,1)']}>
                 <ContainerLeft>
                     <Image
                         style={{
@@ -30,20 +26,26 @@ const CartItem = ({ coin }) => {
                     />
                     {/* <View>
                         <TouchableOpacity onPress={() => onQuantityDecrease(coin)}><Text>-</Text></TouchableOpacity>
-                        <TouchableOpacity onPress={() => onQuantityIncrease(coin)}><Text>+</Text></TouchableOpacity>
                     </View> */}
                     <View>
                         <CoinSymbol>{coin.symbol}</CoinSymbol>
-                        <CoinName>{coin.name}</CoinName>
-                        {/* <Text>x{coin.quantity}</Text>
-                    <Text>{coin.price * coin.quantity}:-</Text> */}
+                        <CoinName>{coin.name} x {coin.quantity}</CoinName>
                     </View>
                 </ContainerLeft>
-                <View>
-                    <PortfolioText>Portfolio</PortfolioText>
-                    <PortfolioSum>$ {Math.round(coin.price * coin.quantity)}</PortfolioSum>
-                </View>
-
+                <PortfolioBox>
+                    <PortfolioAmount>
+                        <PortfolioText>Portfolio</PortfolioText>
+                        <PortfolioSum>$ {Math.round(coin.price * coin.quantity)}</PortfolioSum>
+                    </PortfolioAmount>
+                    <LottieView
+                        source={require("../assets/coins-drop.json")}
+                        style={{
+                            width: 100,
+                            height: 100,
+                        }}
+                        autoPlay
+                    />
+                </PortfolioBox>
             </BackgroundColor>
         </CoinsList>
     )
@@ -97,11 +99,20 @@ const PortfolioText = styled.Text`
     font-size: 16px;
     font-weight: bold;
     margin-left: 5px;
-    color: whitesmoke;
+    color: #626262;
 `
 
 const PortfolioSum = styled.Text`
     font-size: 23px;
     font-weight: bold;
     color: black;
+`
+const PortfolioBox = styled.View`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+const PortfolioAmount = styled.View`
+    display: flex;
+    margin-top: 40px;
 `

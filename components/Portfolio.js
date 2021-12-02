@@ -6,14 +6,16 @@ import CoinCard from './CoinCard'
 import Cart from './Cart'
 import CartItem from './CartItem'
 import LottieView from 'lottie-react-native';
+import { useFonts, Questrial_400Regular } from '@expo-google-fonts/questrial';
 
 const Portfolio = ({ navigation }) => {
     const [coins, setCoins] = useState([])
     const [loading, setLoading] = useState(false)
+    const [fontsLoaded] = useFonts({
+        Questrial_400Regular,
+    });
 
     const chosenCoins = useSelector((store) => store.cart.items)
-    console.log(chosenCoins)
-    console.log(chosenCoins)
     useEffect(() => {
         generateQuote()
     }, [])
@@ -28,7 +30,7 @@ const Portfolio = ({ navigation }) => {
             .finally(() => setLoading(false))
     }
 
-    if (loading) {
+    if (loading || !fontsLoaded) {
         return <ActivityIndicator size="large" />
     }
 
@@ -65,7 +67,7 @@ const Portfolio = ({ navigation }) => {
             </ScrollView>
             <ButtonContainer>
                 <GoNextPage onPress={() => navigation.navigate('RandomCrypto')}>
-                    <ButtonText>Discover new currency</ButtonText>
+                    <ButtonText style={{ fontFamily: 'Questrial_400Regular' }}>Discover new currency</ButtonText>
                 </GoNextPage>
             </ButtonContainer>
         </Container >
@@ -109,7 +111,7 @@ const BalanceContainer = styled.View`
 `
 const BalanceText = styled.Text`
     font-size: 25px;
-    color: black;
+    color: grey;
 `
 const RankingText = styled.Text`
     font-size: 25px;

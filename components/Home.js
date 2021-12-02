@@ -1,7 +1,8 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from 'react-native'
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native'
 import styled from 'styled-components/native'
 import LottieView from 'lottie-react-native';
+import { useFonts, Questrial_400Regular } from '@expo-google-fonts/questrial';
 
 
 const Container = styled.View`
@@ -34,10 +35,18 @@ const ButtonText = styled.Text`
 
 
 const Home = ({ navigation }) => {
+    const [fontsLoaded] = useFonts({
+        Questrial_400Regular,
+    });
+    const [loading, setLoading] = useState(false)
+
+    if (loading || !fontsLoaded) {
+        return <ActivityIndicator size="large" />
+    }
 
     return (
         <Container>
-            <WelcomeText>Welcome to CryptoPortfolio</WelcomeText>
+            <WelcomeText style={{ fontFamily: 'Questrial_400Regular' }}>Welcome to CryptoPortfolio</WelcomeText>
             <StartButton onPress={() => navigation.navigate('Portfolio')}>
                 <ButtonText>START</ButtonText>
             </StartButton>

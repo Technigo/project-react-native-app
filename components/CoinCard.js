@@ -57,7 +57,7 @@ const CoinsList = styled.View`
   justify-content: space-between;
   border-radius: 25px;
   width: 250px;
-  height: 150px;
+  height: 160px;
   padding: 10px;
   margin-top: 5px;
   margin-left: 12px;
@@ -70,7 +70,7 @@ const BackgroundColor = styled(LinearGradient)`
   justify-content: space-between;
   right: 0;
   top: 0;
-  height: 120%;
+  height: 110%;
   border-radius: 25px;
   padding: 10px;
 `
