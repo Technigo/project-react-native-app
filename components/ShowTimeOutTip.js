@@ -12,13 +12,15 @@ const ShakeView = styled.View`
   background-color: magenta;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const ShakeText = styled.Text`
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
   color: yellow;
-`;
+  text-align: center;
+  padding: 5px;
+`
 
 export const ShowTimeOutTip = () => {
   Accelerometer.setUpdateInterval(400);
@@ -28,25 +30,29 @@ export const ShowTimeOutTip = () => {
     y: 0,
     z: 0,
   })
+
+  const [todaysTip, setTodaysTip] = useState(null)
+  const [subscription, setSubscription] = useState(null)
   
-  const [todaysTip, setTodaysTip] = useState('');
   let tips = [
 	  "Go for a walk",
 	  "Take a bath",
-	  "SNHK (sitt ned och håll käften)",
+	  "Sit down and shut the fuck up for 5 minutes",
 	  "Call a friend",
 	  "Do nothing",
-	  "Stretch your body"
+	  "Stretch your body", 
+	  "Listen to some of your favourite music or a podcast", 
+	  "Take deep breaths", 
+	  "Meet a friend",
+	  "Allow yourself some alone time to recharge"
 	]
   
   useEffect(() => {
     if (isShakingEnough(data)){
-      setTodaysTip("Picking tip")
+      setTodaysTip("Picking activity")
       setTimeout(() => {setTodaysTip(tips[Math.floor(Math.random()*tips.length)])}, 1000)
     }
   }, [data])
-
-  const [subscription, setSubscription] = useState(null)
 
   const subscribe = () => {
     setSubscription(
@@ -59,7 +65,7 @@ export const ShowTimeOutTip = () => {
   const unsubscribe = () => {
     subscription && subscription.remove()
     setSubscription(null)
-  }
+}
 
   useEffect(() => {
     subscribe()

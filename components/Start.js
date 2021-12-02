@@ -1,5 +1,4 @@
 import React from 'react'
-import { Text } from 'react-native'
 import styled from 'styled-components/native'
 import { ShowTimeOutTip } from './ShowTimeOutTip'
 
@@ -11,18 +10,29 @@ const Container = styled.View`
 `
 
 const Title = styled.Text`
-	font-size: 24px;
+	font-size: 54px;
 	text-align: center;
 	color: palevioletred;
+`
+
+const MyAppText = styled.Text`
+	font-size: 24px;
+	text-align: center;
+`
+
+const TipContainer = styled.Text`
+	margin-top: 50px;
 `
 
 export const Start = () => {
 	return (
 		<Container>
-            <Title>⌛️⌛️⌛️</Title>
-			<Title>Time for a time out?</Title>
-			<Text>Shake your phone to get a time out tip!</Text>
-            <ShowTimeOutTip />
+			<Title>Time out!</Title>
+			<Title>⌛️⌛️⌛️</Title>
+			<MyAppText>Shake your phone to get a time out tip!</MyAppText>
+			<TipContainer>
+	            <ShowTimeOutTip />
+			</TipContainer>
 		</Container>
 	)
 }
