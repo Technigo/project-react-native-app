@@ -1,0 +1,3 @@
+export const BASE_URL = 'https://api.themoviedb.org/3/movie/popular?api_key=e58023f07fc5d5dcc5a06fe9c4423b7d&language=en-US&page=1]'
+export const UPCOMING_URL = 'https://api.themoviedb.org/3/movie/upcoming?api_key=e58023f07fc5d5dcc5a06fe9c4423b7d&language=en-US&page=1]'
+export const DETAILS_URL = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}?api_key=e58023f07fc5d5dcc5a06fe9c4423b7d&language=en-US]`
