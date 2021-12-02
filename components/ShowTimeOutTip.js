@@ -12,7 +12,6 @@ const ShakeView = styled.View`
   background-color: magenta;
   justify-content: center;
   align-items: center;
-  padding: 5px;
 `
 
 const ShakeText = styled.Text`
