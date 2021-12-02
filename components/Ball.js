@@ -1,7 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Text, View } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import { Text, View, Animated, PanResponder } from "react-native";
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
+
+const Container = styled.View`
+  flex: 1;
+  background-color: #f2f939;
+  align-items: center;
+`;
+const Title = styled.Text`
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: 900;
+`;
 
 const BallContainer = styled.View`
   height: 300px;
@@ -32,6 +43,24 @@ const Number = styled.Text`
 `;
 
 const Ball = () => {
+  const pan = useRef(new Animated.ValueXY()).current;
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderGrant: () => {
+        pan.setOffset({
+          x: pan.x._value,
+          y: pan.y._value,
+        });
+      },
+      onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }]),
+      onPanResponderRelease: () => {
+        pan.flattenOffset();
+      },
+    })
+  ).current;
+
   const [subscription, setSubscription] = useState(null);
   const [answer, setAnswer] = useState({});
   const [data, setData] = useState({
@@ -82,20 +111,30 @@ const Ball = () => {
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-    return totalForce > 1.35;
+    return totalForce > 1.3;
   };
 
   const { x, y, z } = data;
   return (
-    <View>
-      <BallContainer>
-        <Content>
-          <Answer>
-            {isShakingEnough(data) ? answer.quote : <Number>8</Number>}
-          </Answer>
-        </Content>
-      </BallContainer>
-    </View>
+    <Container>
+      <Title>Here you can find the answer on everything!</Title>
+      <View>
+        <Animated.View
+          style={{
+            transform: [{ translateX: pan.x }, { translateY: pan.y }],
+          }}
+          {...panResponder.panHandlers}
+        >
+          <BallContainer>
+            <Content>
+              <Answer>
+                {isShakingEnough(data) ? answer.quote : <Number>8</Number>}
+              </Answer>
+            </Content>
+          </BallContainer>
+        </Animated.View>
+      </View>
+    </Container>
   );
 };
 

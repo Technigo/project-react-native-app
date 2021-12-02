@@ -1,25 +1,23 @@
 import React from "react";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
+
 import styled from "styled-components/native";
 import Ball from "./components/Ball";
-
-const Container = styled.View`
-  flex: 1;
-  background-color: #f2f939;
-  align-items: center;
-`;
-
-const Title = styled.Text`
-  margin-top: 50px;
-  font-size: 30px;
-  font-weight: 900;
-`;
+import Birds from "./components/Birds";
+import Home from "./components/Home";
 
 const App = () => {
+  const Drawer = createDrawerNavigator();
+
   return (
-    <Container>
-      <Title>Here you can find the answer on everything!</Title>
-      <Ball />
-    </Container>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Ball" component={Ball} />
+        <Drawer.Screen name="Birds" component={Birds} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 };
 
