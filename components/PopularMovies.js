@@ -14,25 +14,24 @@ import {
 	Share
 } from 'react-native';
 import styled from 'styled-components/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { FETCH_URL } from '../utils/urls';
+import { POPULAR_URL } from '../utils/urls';
 
-const Movies = () => {
+const PopularMovies = () => {
 
 	const [movieList, setMovieList] = useState([]);
 	const [loading, setLoading] = useState(false);
 
 	// random movie from movieList array, returns only one item
 	const randomMovie = movieList[Math.floor(Math.random() * 	movieList.length)]
-
+	console.log(randomMovie)
 
 	useEffect(() => {
 		generateMovie();
 	}, []);
 
 	const generateMovie = () => {
-		fetch(FETCH_URL)
+		fetch(POPULAR_URL)
 			.then((res) => res.json())
 			.then((json) => {
 				setMovieList(json.results);
@@ -41,17 +40,6 @@ const Movies = () => {
 			.finally(() => setLoading(false))
 	};
 
-	//const aquarius = () => {
-	//	/* setLoading(true) */
-	//	fetch('https://horoscope-api.herokuapp.com/horoscope/today/Aquarius', {
-	//		method: 'GET',
-	//		headers: {
-	//			'Content-Type': 'application/json'
-	//		}})
-	//	.then((res) => res.json())
-	//	.then((data) => console.log("data", data))
-	//}
-		
 	// share function, that gives possibility to share directly from your phone and send a message with movie title 
 	const onShare = async () => {
     try {
@@ -81,38 +69,19 @@ const Movies = () => {
 			{randomMovie && 
 				<SafeAreaView style={styles.container}>
 					<ScrollView style={styles.scrollView}>
-							<Container> 
-								<MovieImage 
-									source={{uri:`https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`}} 
-								/>
-								<TitleText>
-									{randomMovie.title}
-								</TitleText>
-								<Description>
-									{randomMovie.overview}
-								</Description>
-								<Rate>
-									Rate: {randomMovie.vote_average}
-								</Rate>
-								<ButtonContainer>
-									<Icon.Button
-										name="arrow-right"
-										backgroundColor="red"
-										size={20}
-										onPress={generateMovie}
-									>
-										<Text style={styles.title}>NEXT</Text>
-									</Icon.Button>
-									<Icon.Button
-										name="share-alt"
-										backgroundColor="red"
-										size={20}
-										onPress={onShare}
-									>
-										<Text style={styles.title}>SHARE</Text>
-									</Icon.Button>
-								</ButtonContainer>
-							</Container>
+						<Container>
+							<MovieImage 
+								source={{uri:`https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`}} />
+							<TitleText>{randomMovie.title}</TitleText>
+							<Description>{randomMovie.overview}</Description>
+							<Rate>Rate: {randomMovie.vote_average}</Rate>
+							<APIButton onPress={generateMovie}>
+								<Text style={styles.title}>NEXT</Text>
+							</APIButton>
+							<ShareButton onPress={onShare}>
+								<Text style={styles.title}>Share</Text>
+							</ShareButton>
+						</Container>
 						</ScrollView> 
 				</SafeAreaView>
 		 	}
@@ -120,7 +89,7 @@ const Movies = () => {
 	)
 };
 
-export default Movies;
+export default PopularMovies;
 
 // STYLING
 const styles = StyleSheet.create({
@@ -132,15 +101,13 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: 'black',
-    marginHorizontal: 10,
-
+    marginHorizontal: 20,
   },
 	title: {
 		color: "white",
 		fontSize: 20,
 		textAlign: "center"
 	},
-
 });
 
 const Container = styled.View`
@@ -158,14 +125,6 @@ const TitleText = styled.Text`
 	margin: 10px auto;
 	text-align:center;
 `;
-
-const ButtonContainer = styled.View`
-	flex:1;
-	flex-direction: row;
-	justify-content: space-between;
-	margin-bottom: 50px;
-	width:60%;
-`;	
 
 const Description = styled.Text`
 	font-size: 16px;
@@ -186,14 +145,17 @@ const MovieImage = styled.Image`
 `;
 
 const APIButton = styled.TouchableOpacity`
-	
+	width: 40%;
 	background-color: red;
 	padding: 10px;
 	border-radius: 5px;
+	margin-bottom: 20px;
 `;
 
 const ShareButton = styled.TouchableOpacity`
+	width: 40%;
 	background-color: red;
 	padding: 10px;
 	border-radius: 5px;
+	margin-bottom: 70px;
 `;

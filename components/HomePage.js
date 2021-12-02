@@ -31,7 +31,7 @@ const HeaderText = styled.Text`
 	color: white; 
 	font-size: 30px;
 	font-weight: bold;
-	margin: 20px auto;
+	margin-top: 60px;
 `;
 
 const DescriptionText = styled.Text`
