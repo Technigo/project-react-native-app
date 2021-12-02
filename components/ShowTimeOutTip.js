@@ -12,14 +12,14 @@ const ShakeView = styled.View`
   background-color: magenta;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 `
 
 const ShakeText = styled.Text`
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   color: yellow;
   text-align: center;
-  padding: 5px;
 `
 
 export const ShowTimeOutTip = () => {
