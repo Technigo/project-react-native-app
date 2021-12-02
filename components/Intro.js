@@ -1,44 +1,75 @@
 import React from "react";
+import styled from "styled-components/native";
 import { useDispatch, useSelector } from "react-redux";
 // Reducer potter
 import { potter } from "../reducers/potter";
+// Redux Thunk potter
+import { renderCards } from "../reducers/potter";
 // Core components
-// import { View, Text, TextInput } from 'react-native';
-import { renderCards } from "../reducers/potter"
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 
+// Styling
+const image = { uri: "https://wallpaper.dog/large/985111.jpg"};
+const Input = styled.TextInput`
+  height: 40px;
+  margin: 12px;
+  border: 1px solid red;
+`;
+const BackgroundImage = styled.ImageBackground`
+ background-repeat: no-repeat, repeat;
+ background-size: cover;
+ background-position: center; 
+ height: 100vh;
+`;
 
+// const Label = styled.label` 
+// color:white
+// `;
+
+// Function
 const Intro = () => {
-    const dispatch = useDispatch();
-    const intro = useSelector((store) => store.potter.intro);
-
+  const dispatch = useDispatch();
+  const fan = useSelector((store) => store.potter.fan);
 
   const handleSubmit = (event) => {
-      console.log("AaAA");
     event.preventDefault();
     dispatch(renderCards());
-    dispatch(potter.actions.setIntro(false));
-
+    dispatch(potter.actions.setIntro(true));
   };
 
   const handleInputChange = (event) => {
-      dispatch(potter.actions.setUsername(event.target.value));
+    dispatch(potter.actions.setUsername(event.target.value));
   };
 
   return (
-    <>
-      <h1>Welcome to HarryPotter</h1>
+    <View>
+      <BackgroundImage source={image} >
 
-      <form onSubmit={handleSubmit}>
-        <input
+      <form>
+        <label>Are you a Harry Potter's fan?</label>
+        <Input
           type="text"
           required
-          placeholder="type your name..."
+          placeholder=" Type your name ..."
           onChange={handleInputChange}
         />
-        <button type="submit">submit</button>
+        <TouchableOpacity onPress={handleSubmit}>
+          <Text>YES</Text>
+
+        </TouchableOpacity>
+
+        {/* <button type="submit">YES</button> */}
       </form>
-    
-    </>
+
+      </BackgroundImage>
+    </View>
   );
 };
 export default Intro;

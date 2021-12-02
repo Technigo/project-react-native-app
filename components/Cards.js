@@ -1,35 +1,40 @@
 import React from 'react';
-
-// import styled from 'styled-components/native';
-
+import {  useSelector } from "react-redux";
+// Reducer potter
+import { potter } from "../reducers/potter";
 // Core components
-// import { View, Text } from 'react-native';
+import { View, Text, Image } from "react-native";
+import styled from 'styled-components/native';
 
-// Styling
-// const Container = styled.View`
-// 	background-color: purple;	
-// `;
+// Styled components
 
-// const Title = styled.Text`
-// 	font-size: 24px;
-// 	color: palevioletred;
-// `;
 
-// const Cards = () => {
-//     return (
-//         <Container>
-// 			<Title>Harry Potter!</Title>
-// 			<Title>Go to App.js and start coding</Title>
-// 		</Container>
-//     )
-// }
-// export default Cards;
 
 const Cards = () => {
-    return(
+    const harryPotterApi = useSelector((store) => store.potter.harryPotterApi);
+    const userName = useSelector((store) => store.potter.userName);
+    return (
         <>
-        <h1>Harry</h1>
-        <p>lala</p>
+        <Text>Welcome {userName}</Text>
+        <Text>Harry Potter' Students</Text>
+        
+        <View>
+            {harryPotterApi.map((item) => {
+                return(
+                
+                    <>
+                    {console.log(item.image)}
+
+                    <Text>{item.name}</Text>
+                    <Text>{item.house}</Text>
+                    <Image source={{uri:item.image}} />
+                    </>
+                )
+            })}
+
+        </View>
+        
+
         </>
     )
 }

@@ -6,11 +6,11 @@ import Intro from './Intro';
 import Cards from './Cards';
 
 const Main = () => {
-    const intro = useSelector((store) => store.potter.intro);
+    const fan = useSelector((store) => store.potter.fan);
 
     return (
         <>
-        {intro ? <Intro /> : <Cards />}
+        {fan ? <Cards /> : <Intro />}
         </>
         )
 }

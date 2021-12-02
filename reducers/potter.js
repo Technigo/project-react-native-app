@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const potter = createSlice({
   name: "potter",
   initialState: {
-    intro: true,
+    fan: false,
     userName: "",
     harryPotterApi: []
   },
@@ -17,7 +17,7 @@ export const potter = createSlice({
       },
 
     setIntro: (store, action) => {
-      store.intro = action.payload;
+      store.fan = action.payload;
     }
   },
 });
