@@ -1,34 +1,24 @@
-import React from 'react';
-import { TouchableHighlight } from 'react-native';
-import styled from 'styled-components/native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { TouchableHighlight } from "react-native";
+import styled from "styled-components/native";
 
-import ButtonApi from './components/ButtonApi';
-import RollD6 from './components/RollD6';
+import Home from "./components/Home";
+import ButtonApi from "./components/ButtonApi";
+import RollD6 from "./components/RollD6";
 
-
-
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Tab = createBottomTabNavigator();
 
 const App = () => {
-	return (
-		<Container>
-			<Title>Dice Roller</Title>
-
-			<Title>Shake to roll a D6 (6 sided dice)</Title>
-			{/* <ButtonApi />  */}
-			<RollD6 />
-		</Container>
-	);
+    return (
+        <NavigationContainer>
+            <Tab.Navigator>
+                <Tab.Screen name="Home" component={Home} />
+                <Tab.Screen name="Roll D6" component={RollD6} />
+            </Tab.Navigator>
+        </NavigationContainer>
+    );
 };
 
 export default App;

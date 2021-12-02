@@ -3,6 +3,19 @@ import { Text, View, TouchableOpacity, ActivityIndicator } from "react-native";
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
 
+const Container = styled.View`
+    flex: 1;
+    background-color: papayawhip;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Title = styled.Text`
+    font-size: 24px;
+    color: palevioletred;
+`;
+
+
 const DiceText = styled.Text`
     font-weight: 700;
 `;
@@ -74,7 +87,11 @@ const RollD6 = () => {
     }
 
     return (
-        <View>
+        <Container>
+            <Title>Dice Roller</Title>
+
+            <Title>Shake to roll a D6 (6 sided dice)</Title>
+
             <View>
                 {dice && (
                     <>
@@ -90,7 +107,7 @@ const RollD6 = () => {
                     <Text>Click to roll!</Text>
                 </APIButton>
             </View>
-        </View>
+        </Container>
     );
 };
 
