@@ -8,10 +8,18 @@ import { BORED_URL } from "../utils/Urls"
 
 const ActivityText = styled.Text`
   font-size: 18px;
+  margin-top: 40%;
   color: black;
+  text-align: center;
+`
+const Title = styled.Text`
+  font-size: 24px;
+  color: palevioletred;
+  margin-bottom: 20px;
+  text-align: center;
 `
 
-export const ShakeApi = () => {
+export const Bored = () => {
   const [data, setData] = useState({
     x: 0,
     y: 0,
@@ -72,8 +80,9 @@ export const ShakeApi = () => {
 
   return (
     <View>
-      <ActivityText>{activity.activity}</ActivityText>
-      <ActivityText>{activity.type}</ActivityText>
+      <Title>Shake for activity suggestion!</Title>
+      <ActivityText>Activity: {activity.activity}</ActivityText>
+      <ActivityText>category: {activity.type}</ActivityText>
     </View>
   )
 }
