@@ -4,3 +4,13 @@ Shaker
 Navigator
 Header
 Footer
+
+
+https://api.harvardartmuseums.org/image?q=width%3A%3E2000&page=2&size=2%
+
+https://api.harvardartmuseums.org/RESOURCE_TYPE?apikey=YOUR_API_KEY
+
+
+38ca95a1-d468-4740-b0e1-27ba3b2a61ec
+
+https://api.harvardartmuseums.org/image?q=width%3A%3E2000&page=2&size=2%apikey=38ca95a1-d468-4740-b0e1-27ba3b2a61ec
