@@ -26,7 +26,6 @@ const Movies = () => {
 	// random movie from movieList array, returns only one item
 	const randomMovie = movieList[Math.floor(Math.random() * 	movieList.length)]
 
-
 	useEffect(() => {
 		generateMovie();
 	}, []);
@@ -41,22 +40,11 @@ const Movies = () => {
 			.finally(() => setLoading(false))
 	};
 
-	//const aquarius = () => {
-	//	/* setLoading(true) */
-	//	fetch('https://horoscope-api.herokuapp.com/horoscope/today/Aquarius', {
-	//		method: 'GET',
-	//		headers: {
-	//			'Content-Type': 'application/json'
-	//		}})
-	//	.then((res) => res.json())
-	//	.then((data) => console.log("data", data))
-	//}
-		
 	// share function, that gives possibility to share directly from your phone and send a message with movie title 
 	const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `Hey! I found a great movie for tonight! It called ${randomMovie.title}. Can you buy popcorn?`,
+        message: `Hey! :) I found a great movie for tonight! It called ${randomMovie.title}. Can you buy popcorn?`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -84,16 +72,23 @@ const Movies = () => {
 							<Container> 
 								<MovieImage 
 									source={{uri:`https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`}} 
+									resizeMode="center"
 								/>
 								<TitleText>
 									{randomMovie.title}
 								</TitleText>
+								<Rate>
+									<Icon
+										name="star"
+										size={20}
+										color="yellow"
+									/>
+									{randomMovie.vote_average}
+								</Rate>
 								<Description>
 									{randomMovie.overview}
 								</Description>
-								<Rate>
-									Rate: {randomMovie.vote_average}
-								</Rate>
+
 								<ButtonContainer>
 									<Icon.Button
 										name="arrow-right"
@@ -163,7 +158,7 @@ const ButtonContainer = styled.View`
 	flex:1;
 	flex-direction: row;
 	justify-content: space-between;
-	margin-bottom: 50px;
+	margin: 30px auto;
 	width:60%;
 `;	
 
@@ -176,24 +171,13 @@ const Description = styled.Text`
 
 const Rate = styled.Text`
 	font-size: 16px;
-	color: yellow;
-	margin: 20px auto;
+	font-weight: bold;
+	color: white;
+	margin-bottom: 10px;
 `;
 
 const MovieImage = styled.Image`
-	width: 300px;
-	height: 500px;
+	width: 100%;
+	height: 400px;
 `;
 
-const APIButton = styled.TouchableOpacity`
-	
-	background-color: red;
-	padding: 10px;
-	border-radius: 5px;
-`;
-
-const ShareButton = styled.TouchableOpacity`
-	background-color: red;
-	padding: 10px;
-	border-radius: 5px;
-`;
