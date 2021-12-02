@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 import styled from "styled-components/native"; // use /native when you are styling core components
+import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { BORED_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
 
 // STYLED COMPONENTS
 
-const ActivityText = styled.Text`
-  font-weight: 700;
+const Container = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6dc7b;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+`;
+
+const TitleText = styled.Text`
+  font-family: "Raleway_800ExtraBold";
+  font-size: 30px;
+  font-weight: 800;
+  color: #55c4b5;
 `;
 
 const ShakeActivity = () => {
@@ -73,10 +87,11 @@ const ShakeActivity = () => {
   }
 
   return (
-    <View>
-      <ActivityText>Activity: {activity.activity}</ActivityText>
-      <Text>Type: {activity.type}</Text>
-    </View>
+    <Container>
+      <Text>Lets...</Text>
+      <TitleText>{activity.activity}</TitleText>
+      <Text>A kind of {activity.type} type of activity</Text>
+    </Container>
   );
 };
 

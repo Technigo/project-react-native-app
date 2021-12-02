@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 import styled from "styled-components/native"; // use /native when you are styling core components
+import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { MOVIE_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
 
 // STYLED COMPONENTS
-const ActivityText = styled.Text`
-  font-weight: 700;
+const Container = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7bfae2;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+`;
+
+const TitleText = styled.Text`
+  font-family: "Raleway_800ExtraBold";
+  font-size: 30px;
+  font-weight: 800;
+  color: #7a59e4;
 `;
 
 const ShakeMovie = () => {
@@ -92,8 +106,9 @@ const ShakeMovie = () => {
   }
 
   return (
-    <View>
-      <ActivityText>Title: {movie.original_title}</ActivityText>
+    <Container>
+      <Text>Lets watch: </Text>
+      <TitleText>{movie.title}</TitleText>
       <Text>Overview: {movie.overview}</Text>
       {movie.homepage ? (
         <Text>Homepage: {movie.homepage}</Text>
@@ -101,7 +116,7 @@ const ShakeMovie = () => {
         <Text>Nope</Text>
       )}
       <Text>Released: {movie.release_date}</Text>
-    </View>
+    </Container>
   );
 };
 

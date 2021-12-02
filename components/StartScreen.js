@@ -10,19 +10,39 @@ import {
   Linking,
 } from "react-native";
 import styled from "styled-components/native";
+import {
+  useFonts,
+  Raleway_100Thin,
+  Raleway_200ExtraLight,
+  Raleway_300Light,
+  Raleway_400Regular,
+  Raleway_500Medium,
+  Raleway_600SemiBold,
+  Raleway_700Bold,
+  Raleway_800ExtraBold,
+  Raleway_900Black,
+  Raleway_100Thin_Italic,
+  Raleway_200ExtraLight_Italic,
+  Raleway_300Light_Italic,
+  Raleway_400Regular_Italic,
+  Raleway_500Medium_Italic,
+  Raleway_600SemiBold_Italic,
+  Raleway_700Bold_Italic,
+  Raleway_800ExtraBold_Italic,
+  Raleway_900Black_Italic,
+} from "@expo-google-fonts/raleway";
 
 const Container = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: papayawhip;
-  border: 1px solid green;
+
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 const GridBox = styled.View`
-  border: 1px solid green;
   padding: 10px;
 `;
 
@@ -32,7 +52,6 @@ const Title = styled.Text`
   font-weight: 800;
   color: palevioletred;
   align-self: center;
-  border: 1px solid green;
 `;
 
 const StartText = styled.Text`
@@ -49,7 +68,7 @@ const APIButton = styled.Pressable`
   padding-vertical: 12px;
   padding-horizontal: 32px;
   border-radius: 4px;
-  elevation: 3px;
+  elevation: 3;
   background-color: pink;
   width: 250px;
   margin-bottom: 8px;
@@ -60,16 +79,16 @@ const ButtonText = styled.Text`
   line-height: 21px;
   font-weight: bold;
   letter-spacing: 0.25px;
-  color: white;
+  color: #205b32;
   text-transform: uppercase;
 `;
 
 const RoundImage = styled.Image`
   width: 200px;
   height: 200px;
-  border-radius: 50%;
   border: 1px solid #205b32;
   align-self: center;
+  border-radius: 100px;
 `;
 
 const CreditText = styled.Text`
