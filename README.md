@@ -17,4 +17,4 @@ I can say that was a very interesting experience to start knowing about [React N
 
 ## View it live
 
-See:
+See: https://expo.dev/@priscilaalfaro/project-react-native-app-priscilaalfaro
