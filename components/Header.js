@@ -16,7 +16,7 @@ const Title = styled.Text`
 const Header = () => {
   return (
     <HeaderContainer>
-      <Title> WOW ITS WORKING </Title>
+      <Title> This is a header </Title>
     </HeaderContainer>
   )
 }
