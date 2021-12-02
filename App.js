@@ -1,26 +1,27 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { ImageBackground, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { Home } from './screens/HomeScreen';
+import { About } from './screens/AboutScreen';
+import { Contact } from './screens/ContactScreen';
+import { Services } from './screens/ServiceScreen';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Drawer = createDrawerNavigator();
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
+  return (
+    <NavigationContainer>
+		<ImageBackground></ImageBackground>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={Home} />
+		<Drawer.Screen name="About" component={About} />
+        <Drawer.Screen name="Contact" component={Contact} />
+        <Drawer.Screen name="Services" component={Services} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default App;
