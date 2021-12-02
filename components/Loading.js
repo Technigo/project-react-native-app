@@ -14,7 +14,7 @@ export const Loading = () => {
 
   return (
     <LottieView
-      source={require('../.expo/animations/loading.json')}
+      source={require('../assets/loading.json')}
       //   options={defaultOptions}
     />
   )
