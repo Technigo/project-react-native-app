@@ -12,10 +12,6 @@ const Frans = () => {
       .then((data) => setFrans(data));
   };
 
-  //   const mapFrans = getFrans.map((item) => {
-  //     return <Text>{item.title}</Text>;
-  //   });
-
   return (
     <View>
       <Text>hello from Frans</Text>

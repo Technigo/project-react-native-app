@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components/native";
 import StartPage from "./components/StartPage";
 import { NavigationContainer } from "@react-navigation/native";
-import { Button, View, Text, Image } from "react-native";
+import { Button, View, Text, Image, TouchableOpacity } from "react-native";
 import Judith from "./components/Judith";
 import Frans from "./components/Frans";
 import Johannes from "./components/Johannes";
@@ -21,13 +21,23 @@ const Container = styled.View`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: papayawhip;
+  background-color: rgba(0, 0, 0, 0.8);
   /* width: 300px; */
 `;
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: rgba(232, 209, 78, 1);
+  margin-bottom: 20px;
+`;
+
+const DescriptiveText = styled.Text`
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(232, 209, 78, 1);
+  text-align: center;
+  padding: 10px;
+  width: 250px;
 `;
 
 const ArtistPic = styled.Image`
@@ -41,48 +51,57 @@ const ImageBox = styled.View`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 90vw;
+  /* width: 90%; */
 `;
 
 const ImageBoxSmall = styled.View`
   display: flex;
   flex-direction: column;
+  margin: 1px;
 `;
 
+const ArtisButton = styled.TouchableOpacity`
+  background: rgba(232, 209, 78, 1);
+  padding: 7px;
+`;
+
+const ButtonText = styled.Text`
+  text-align: center;
+  color: white;
+  font-weight: bold;
+`;
 // style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
 
 function StartScreen({ navigation }) {
   return (
     <Container>
+      <Title>Golden Age</Title>
       <ImageBox>
         <ImageBoxSmall>
           <ArtistPic source={require("./assets/Judith.jpeg")} />
-          <Button
-            title="Go to Judith"
-            onPress={() => navigation.navigate("Judith")}
-          />
+          <ArtisButton onPress={() => navigation.navigate("Judith")}>
+            <ButtonText>GO TO JUDITH</ButtonText>
+          </ArtisButton>
         </ImageBoxSmall>
         <ImageBoxSmall>
           <ArtistPic source={require("./assets/Frans.png")} />
-          <Button
-            title="Go to Frans"
-            onPress={() => navigation.navigate("Frans")}
-          />
+          <ArtisButton onPress={() => navigation.navigate("Frans")}>
+            <ButtonText>GO TO FRANS</ButtonText>
+          </ArtisButton>
         </ImageBoxSmall>
         <ImageBoxSmall>
           <ArtistPic source={require("./assets/Johannes.jpeg")} />
-          <Button
-            title="Go to Johannes"
-            onPress={() => navigation.navigate("Johannes")}
-          />
+          <ArtisButton onPress={() => navigation.navigate("Johannes")}>
+            <ButtonText>GO TO JOHANNES</ButtonText>
+          </ArtisButton>
         </ImageBoxSmall>
         <ImageBoxSmall>
           <ArtistPic source={require("./assets/Rembrant.jpeg")} />
-          <Button
-            title="Go to Rembrandt"
-            onPress={() => navigation.navigate("Rembrandt")}
-          />
+          <ArtisButton onPress={() => navigation.navigate("Rembrandt")}>
+            <ButtonText>GO TO REMBRANDT</ButtonText>
+          </ArtisButton>
         </ImageBoxSmall>
+        <DescriptiveText>Welcome</DescriptiveText>
       </ImageBox>
     </Container>
   );
