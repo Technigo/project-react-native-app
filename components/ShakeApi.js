@@ -17,7 +17,7 @@ const TextBox = styled.View`
   align-items: center;
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 28%;
+  margin-bottom: 40%;
 `;
 
 const QuoteText = styled.Text`
