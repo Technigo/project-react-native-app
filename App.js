@@ -9,21 +9,36 @@ import Description from "./components/Description";
 import SwitchImage from "./components/SwitchImage";
 
 const Container = styled.View`
-  padding: 10px;
+  width: 100%;
+  height: 100%;
   align-items: center;
-  border: 1px solid red;
+  background-color: #d3e4cd;
+`;
+
+const QuoteContainer = styled.View`
+  width: 100%;
+  height: 28%;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #adc2a9;
+  border: 1px solid #99a799;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const App = () => {
   return (
     <>
-      <Header />
       <Container>
-        <Description />
+        <Header />
         <SwitchImage />
-        <ShakeApi />
+        <Description />
+        <QuoteContainer>
+          <ShakeApi />
+        </QuoteContainer>
+        <Footer />
       </Container>
-      <Footer />
     </>
   );
 };

@@ -7,15 +7,21 @@ const Container = styled.View`
   bottom: 0;
   height: 50px;
   width: 100%;
-  background-color: blue;
+  background-color: #99a799;
   justify-content: center;
   align-items: center;
+`;
+
+const FooterText = styled.Text`
+  color: #fef5ed;
 `;
 
 const Footer = () => {
   return (
     <Container>
-      <Text>Follow Ron's advice to live the Swanson lifestyle.</Text>
+      <FooterText>
+        Follow Ron's advice to live the full Swanson lifestyle.
+      </FooterText>
     </Container>
   );
 };

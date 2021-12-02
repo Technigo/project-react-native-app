@@ -5,10 +5,12 @@ import { Accelerometer } from "expo-sensors";
 import { useFonts, Epilogue_500Medium } from "@expo-google-fonts/epilogue";
 
 const Container = styled.View`
-  border: 1px solid black;
+  background-color: #fef5ed;
+  border: 1px solid #99a799;
+  border-radius: 30px;
   justify-content: center;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
 `;
 
 const QuoteText = styled.Text`

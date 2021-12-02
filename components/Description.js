@@ -3,19 +3,22 @@ import { Text, View } from "react-native";
 import styled from "styled-components/native";
 
 const Container = styled.View`
+  margin-bottom: 10px;
   width: fit-content;
   padding: 10px;
-  border: 1px solid black;
+  background-color: #adc2a9;
+  border: 1px solid #99a799;
   border-radius: 30px;
-  background-color: white;
   text-align: center;
-  margin-bottom: 10px;
+`;
+const DescText = styled.Text`
+  color: #c55353;
 `;
 
 const Description = () => {
   return (
     <Container>
-      <Text>Shake to get Ron's advice</Text>
+      <DescText>Shake to get Ron's advice</DescText>
     </Container>
   );
 };
