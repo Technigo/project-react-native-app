@@ -11,6 +11,7 @@
     "@react-navigation/drawer": "^6.1.8",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
+    "@reduxjs/toolkit": "^1.6.2",
     "braces": "^3.0.2",
     "expo": "~43.0.0",
     "expo-cli": "^4.13.0",
@@ -27,6 +28,8 @@
     "react-native-screens": "~3.8.0",
     "react-native-svg": "^12.1.1",
     "react-native-web": "0.17.1",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

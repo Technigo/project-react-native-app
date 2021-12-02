@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
+import { useDispatch } from "react-redux";
+import { settings } from "../reducers/Settings";
 
 import { Header } from "./Header";
 
@@ -17,11 +19,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Settings = ({ onstepChange, step, setStep }) => {
-  console.log(step);
+export const Settings = () => {
+  const dispatch = useDispatch();
+  //   console.log(stepData);
   //   console.log(onStepChange);
-  console.log(setStep);
-  //   const onSubmit = () => {};
+
+  const [step, setStep] = useState();
+  const onStepChange = () => {
+    dispatch(settings.actions.setSteps(step), setStep(step));
+  };
+  console.log(step);
   return (
     <View style={styles.Container}>
       <Header />
@@ -33,7 +40,7 @@ export const Settings = ({ onstepChange, step, setStep }) => {
         // onChangeText={(text) => console.log(text)}
         onChangeText={(event) => setStep(event.target.value)}
         value={step}
-        // onSubmitEditing={onstepChange}
+        onSubmitEditing={onStepChange}
         keyboardType={"default"}
       />
       {/* <Button title="Submit" onPress={handleSubmit(onSubmit)} /> */}
