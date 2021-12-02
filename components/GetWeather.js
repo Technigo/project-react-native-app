@@ -1,11 +1,45 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ActivityIndicator, Button} from 'react-native'
+import { ActivityIndicator } from 'react-native'
 import styled from 'styled-components/native'
 import * as Location from 'expo-location';
 
+const Container = styled.View `
+  padding-top: 2px;
+  height: 40%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+const APIButton = styled.TouchableOpacity`
+  text-align: center;
+  justify-content: center;
+	width: 50%;
+  max-width: 200px;
+	background-color: #06B3D1;
+  border-radius: 5px;
+  height: 40px;
+`
+const Title = styled.Text`
+	font-size: 30px;
+  font-weight: bold;
+	color: #ee7ec0;
+  text-align: center;
+`
 const WeatherImage = styled.Image `
   width: 100%;
 	height: 100%;
+`
+const BtnText = styled.Text `
+  color: #e6f4f1;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+`
+const StyledText = styled.Text `
+  font-size: 25px;
+  color: #00344e;
+  margin-bottom: 30px;
 `
 
 const GetWeather = () => {
@@ -58,35 +92,55 @@ const GetWeather = () => {
     getWeather()
   }
 
-  const ImagePicker = () => {
-    if (weather === "Rain" || "Drizzle") {
-      return '../assets/Rain_icon.png';
-    } else if (weather === "Clear") {
-      return '../assets/Clear_icon.png';
-    } else if (weather === "Clouds") {
-      return '../assets/Clouds_icon.png';
-    } else if (weather === "Snow") {
-      return '../assets/Snow_icon.png';
-    } else if (weather === "Thunderstorm") {
-      return '../assets/Thunderstorm_icon.png';
-    } else return '../assets/Other_icon.png';
+  const ImagePicker = (weather) => {
+    switch (weather) {
+      case 'Rain' :
+        return require('../assets/Rain_icon.png')
+        break 
+      case 'Clear' :
+        return require('../assets/Clear_icon.png')
+        break
+      case 'Clouds' :
+        return require('../assets/Clouds_icon.png')
+        break
+      case 'Snow' :
+        return require('../assets/Snow_icon.png')
+        break
+      case 'Thunderstorm' :
+        return require('../assets/Thunderstorm_icon.png')
+        break
+      default: 
+        return require('../assets/Other_icon.png')
+    }
   };
 
   if (loading) {
     return <ActivityIndicator />
   }
 
-
   return (
-    <View>
-      <WeatherImage
-				source={require('../assets/Rain_icon.png')}
-				resizeMode="contain"
-			/>
-      <Text>Hello handsome, I see you are in {city} </Text>
-      {weather && (<Text>Weather {weather}</Text>)}
-      <Button title='Weather' onPress={onBtnPress} />
-    </View> 
+    <Container>
+      {!weather && (
+        <APIButton 
+          onPress={onBtnPress}>
+          <BtnText>Get Weather</BtnText>
+        </APIButton>)}
+      {/* I'd use !! which I call bang bang operator to boolianize error. https://pretagteam.com/question/error-text-strings-must-be-rendered-within-a-text-component */}
+      {!!weather && (
+      <>  
+        <Title>The weather in {city} is just amazing!</Title>
+        <WeatherImage
+          source={ImagePicker(weather)}
+          resizeMode="contain"
+        />
+        <StyledText>Right now it's {weather.toLowerCase()}. Isn't that something?</StyledText>
+        <APIButton
+          onPress={() => setWeather('')}>
+          <BtnText>Start</BtnText>
+        </APIButton>
+      </>
+      )}
+    </Container> 
   )
 }
 

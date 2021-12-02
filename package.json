@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/styled-components-react-native": "^5.1.2",
-    "babel-preset-expo": "^8.5.1"
+    "babel-preset-expo": "8.5.1"
   },
   "private": true
 }
