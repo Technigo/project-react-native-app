@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import styled from 'styled-components/native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import React, { useState } from 'react'
+import styled from 'styled-components/native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 
-import Ghibli from './components/Ghibli';
-import Dogs from './components/Dogs';
+import Ghibli from './components/Ghibli'
+import Dogs from './components/Dogs'
 
 const Animation = styled.Image`
 	width: 150px;
@@ -36,7 +36,7 @@ const EnterText = styled.Text`
 
 const App = () => {
 
-	const Drawer = createDrawerNavigator();
+	const Drawer = createDrawerNavigator()
 	const [onHome, setOnHome] = useState(true)
 
 	return (
@@ -54,9 +54,9 @@ const App = () => {
 				<Drawer.Screen name="Dogs - Shake your phone!" component={Dogs} />
 			</Drawer.Navigator>
 		</NavigationContainer>
-	)};
+	)}
 	</>
 	)
-};
+}
 
-export default App;
+export default App
