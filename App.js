@@ -11,9 +11,9 @@ const App = () => {
 	return (
 		<NavigationContainer>
 			<Drawer.Navigator>
+				<Drawer.Screen name="Today's Quote" component={RandomQuote} />
 				<Drawer.Screen name="Home" component={Home} />
 				<Drawer.Screen name="About" component={About} />
-				<Drawer.Screen name="Random Quote" component={RandomQuote} />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);

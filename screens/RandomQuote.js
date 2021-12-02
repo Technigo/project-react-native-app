@@ -6,17 +6,9 @@ import {
 	Vibration,
 	StyleSheet,
 } from "react-native";
-import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
-
-// Styled components
-
-// const RandomQuoteContainer = styled.View`
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	height: 100%;
-// `;
+import { LinearGradient } from "expo-linear-gradient";
+import { Keyframe, Easing } from "react-native-reanimated";
 
 // Stylesheet
 
@@ -30,22 +22,47 @@ const styles = StyleSheet.create({
 	magic8ball: {
 		width: 300,
 		height: 300,
-		backgroundColor: "black",
 		borderRadius: 150,
+		marginBottom: 40,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 3,
+			height: 5,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 8,
 	},
-	quote: {
+	textContainer: {
 		width: 300,
 		height: 300,
 		borderRadius: 150,
 		fontWeight: "700",
 		color: "#ffffff",
-		borderColor: "red",
-		borderWidth: 5,
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
-		padding: 30,
+		padding: 35,
 		textAlign: "center",
+	},
+	introText: {
+		fontWeight: "700",
+		fontSize: 29,
+		lineHeight: 38,
+		color: "#ffffff",
+		textAlign: "center",
+	},
+	quoteText: {
+		fontWeight: "700",
+		fontSize: 19,
+		lineHeight: 28,
+		color: "#ffffff",
+		textAlign: "center",
+	},
+	shakeText: {
+		fontWeight: "600",
+		fontSize: 16,
+		lineHeight: 28,
+		color: "#031b3b",
 	},
 });
 
@@ -59,9 +76,9 @@ export const RandomQuote = () => {
 	const [loading, setLoading] = useState(false);
 	const [subscription, setSubscription] = useState(null);
 
-	useEffect(() => {
-		generateQuote();
-	}, []);
+	// useEffect(() => {
+	// 	generateQuote();
+	// }, []);
 
 	useEffect(() => {
 		Accelerometer.setUpdateInterval(1000);
@@ -107,13 +124,21 @@ export const RandomQuote = () => {
 	}
 
 	return (
-		<View style={styles.container}>
-			<View style={styles.magic8ball}>
-				{/* <Question>What movie should I watch?</Question> */}
-				<Text style={styles.quote}>{quote.content}</Text>
-			</View>
+		<LinearGradient
+			colors={["#f0f4ff", "#bfd7ef", "#9bbbea"]}
+			style={styles.container}
+		>
+			<LinearGradient colors={["#031b3b", "#233b5b"]} style={styles.magic8ball}>
+				<View style={styles.textContainer}>
+					{quote.content ? (
+						<Text style={styles.quoteText}>{quote.content}</Text>
+					) : (
+						<Text style={styles.introText}>Get your quote for today</Text>
+					)}
+				</View>
+			</LinearGradient>
 			{/* <Text>Author: {quote.author}</Text> */}
-			<Text>Shake to start</Text>
-		</View>
+			<Text style={styles.shakeText}>Shake to start</Text>
+		</LinearGradient>
 	);
 };
