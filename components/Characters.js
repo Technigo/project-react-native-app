@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View,
   Text,
   FlatList,
   ActivityIndicator,
   SafeAreaView,
+  View,
+  Image,
 } from 'react-native';
 import { CHARACTERS_URL } from '../utils/urls';
 
@@ -32,17 +33,15 @@ const Characters = () => {
 
   console.log('DATA', characters);
 
+  const renderItem = ({ item }) => <Text>{item.name}</Text>;
+
   return (
     <SafeAreaView>
       <View>
         <FlatList
           data={characters}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => {
-            <Text>
-              {item.name} {item.species}
-            </Text>;
-          }}
+          renderItem={({ item }) => <Text>{item.name}</Text>}
+          keyExtractor={(item) => item.id}
         />
       </View>
     </SafeAreaView>
