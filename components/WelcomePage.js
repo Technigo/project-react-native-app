@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { useSelector } from "react-redux";
+import { WalkLoader } from "./WalkAnimation";
 
 const FirstTitle = styled.Text`
   font-size: 70px;
@@ -25,6 +26,7 @@ export const WelcomePage = () => {
     <Container>
       <FirstTitle>Hello</FirstTitle>
       <SecondTitle>{nameData ? { namedata } : "You"}</SecondTitle>
+      <WalkLoader />
     </Container>
   );
 };

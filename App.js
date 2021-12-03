@@ -32,7 +32,7 @@ const App = () => {
   // };
 
   useEffect(() => {
-    setTimeout(() => setShowWelcomePage(false), 1000);
+    setTimeout(() => setShowWelcomePage(false), 5000);
   }, []);
 
   return (

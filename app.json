@@ -18,7 +18,6 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "Track your steps",
-    "title": "StepTracker"
+    "description": "Track your steps"
   }
 }
