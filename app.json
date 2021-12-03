@@ -1,7 +1,10 @@
 {
 	"expo": {
-		"name": "project-react-native-app",
-		"slug": "project-react-native-app",
+		"name": "Friends quote - React Native app made by Linnea Isebrink",
+		"slug": "Friends quote - React Native app made by Linnea Isebrink",
+		"description": "This is a React Native app that allows you to get a quote from Friends by shaking your phone!",
+		"title": "React Native - Shake to get friends quote",
+		"primaryColor": "#9C8CD4",
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
