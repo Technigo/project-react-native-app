@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-// Core components
-import { View, Text, Image, ScrollView } from "react-native";
 import styled from "styled-components/native";
+import { View, Text, Image, ScrollView } from "react-native"; // Core components
 
-// Styled components
+
+// Styled core components
 const Wrapper = styled.View`
-border:15px solid black;
+  border: 15px solid black;
 `;
 
 const Picture = styled.Image`
@@ -44,6 +44,7 @@ const Cards = () => {
   const harryPotterApi = useSelector((store) => store.potter.harryPotterApi);
   return (
     <ScrollView>
+      {/* I used the slice method to be able to render only the ten first objects of the array instead of rendering all of them */}
       {harryPotterApi.slice(0, 9).map((item) => {
         return (
           <Wrapper key={item.name}>

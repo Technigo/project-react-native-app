@@ -13,7 +13,6 @@ const reducer = combineReducers({
 });
 const store = configureStore({ reducer });
 
-
 // Function
 const App = () => {
   return (
@@ -24,7 +23,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-// we must import Core components to be able to use them and styled-components/native

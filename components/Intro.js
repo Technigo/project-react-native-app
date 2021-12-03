@@ -6,42 +6,41 @@ import { renderCards } from "../reducers/potter"; // Redux Thunk potter
 import { View, Text, TouchableOpacity, ImageBackground } from "react-native"; // Core components
 
 // Styled core components
-const FlexContainer = styled.View `
+const FlexContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 750px;
+  height: 100%;
 `;
 
-const Container = styled.View `
+const Container = styled.View`
   height: 100px;
 `;
 
-const Question = styled.Text `
+const Question = styled.Text`
   margin: 10px 0 20px;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
 `;
-const Button = styled.TouchableOpacity `
+const Button = styled.TouchableOpacity`
   margin: 0 auto;
   background-color: #dddddd;
   padding: 5px;
   width: 50px;
 `;
 
-const ButtonText = styled.Text `
+const ButtonText = styled.Text`
   color: #000;
   font-size: 20px;
   text-align: center;
   font-weight: 700;
 `;
 
-const Background = styled.ImageBackground `
-  height: 750px;
+const Background = styled.ImageBackground`
+ height: 100%;
 `;
 const image = { uri: "https://wallpaper.dog/large/985111.jpg" };
-
 
 // Function
 const Intro = () => {
