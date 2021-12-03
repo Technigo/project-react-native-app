@@ -18,7 +18,7 @@ const Container = styled.View`
 const App = () => {
   // state to handle which component is loaded
   const [currentPage, setCurrentPage] = useState("StartPage");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   // font is downloaded from here: https://www.fontspace.com/sf-distant-galaxy-font-f6436
   // How to use custom font in react native: https://blog.jsdisco.dev/using-custom-fonts-with-expo
   let [fontsLoaded] = useFonts({

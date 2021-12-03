@@ -38,7 +38,7 @@ const Loading = () => {
   return (
     <LoadingContainer>
       <Animated.Image
-        source={require("../assets/loadingSymbol.svg")}
+        source={require("../assets/loadingSymbol.png")}
         style={{
           width: 50,
           height: 50,

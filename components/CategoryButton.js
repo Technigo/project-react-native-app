@@ -1,6 +1,25 @@
 import React from "react";
-import { Pressable, Text, View, StyleSheet } from "react-native";
+import {
+  Pressable,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 import styled from "styled-components/native";
+
+const ButtonText = styled.Text`
+  font-size: 16px;
+  font-family: "SWFontHollow";
+  color: ${(props) => props.theme.colors.textYellow};
+  line-height: 21;
+  padding: 5px;
+`;
+
+const ButtonYellow = styled.TouchableOpacity`
+  border: 1px solid #ffe81f;
+  border-radius: 5px;
+  width: max-content;
+`;
 
 const styles = StyleSheet.create({
   button: {
@@ -28,12 +47,9 @@ const styles = StyleSheet.create({
 
 const CategoryButton = ({ buttonText, onPressed }) => {
   return (
-    <Pressable
-      style={styles.button}
-      onPress={() => onPressed(buttonText)}
-    >
-      <Text style={styles.text}>{buttonText}</Text>
-    </Pressable>
+    <ButtonYellow onPress={() => onPressed(buttonText)}>
+      <ButtonText>{buttonText}</ButtonText>
+    </ButtonYellow>
   );
 };
 
