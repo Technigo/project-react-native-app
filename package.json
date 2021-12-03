@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/permanent-marker": "^0.2.0",
+    "@expo-google-fonts/roboto": "^0.2.0",
     "braces": "^3.0.2",
     "expo": "~43.0.0",
     "expo-sensors": "~11.0.3",

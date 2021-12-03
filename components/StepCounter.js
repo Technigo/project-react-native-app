@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Pedometer } from "expo-sensors";
 import styled from "styled-components/native";
 import { useFonts, PermanentMarker_400Regular } from '@expo-google-fonts/permanent-marker';
+import { Roboto_700Bold } from '@expo-google-fonts/roboto';
 
 const Title = styled.Text`
-  font-size: 15px;
+  font-size: 20px;
   margin: 10px;
-  color: "rgb(rgb(0, 0, 0)";
+  color: white;
+  text-align: center;
 `;
 
 const Success= styled.Text `
@@ -20,7 +22,11 @@ const Affirmation = styled.Text`
   font-size: 20px;
 `;
 
-
+const StepsText= styled.Text`
+color: white;
+font-size: 60px; 
+margin-bottom: 30px;
+`
 const ScreenBackgroundEnd = styled.ImageBackground`
 flex: 1;
 justify-content: center;
@@ -36,6 +42,7 @@ const ScreenBackgroundStart = styled.ImageBackground`
   flex: 1;
   justify-content: center;
   align-items: center;
+  
 `;
 
 const StepCounter = () => {
@@ -43,7 +50,7 @@ const StepCounter = () => {
   const [previousSteps, setPreviousSteps] = useState(0);
   const [affirmation, setAffirmation] = useState({});
   const [fontsLoaded] = useFonts({
-    PermanentMarker_400Regular,
+    PermanentMarker_400Regular, Roboto_700Bold,
   });
 
   const end = new Date();
@@ -72,7 +79,7 @@ const StepCounter = () => {
   }; // This fetch function fetches a random affirmation and stores it as setAffirmation
   //Conditionally renders, by using different name for Container, can change background color
 
-  if (previousSteps > 10000 && fontsLoaded) {
+  if (previousSteps > 20000 && fontsLoaded) {
     return (
       <ScreenBackgroundEnd source={require("../assets/glitter.jpg")}>
         <TestImage source={require("../assets/star.png")} resizeMode="contain"/>
@@ -80,21 +87,20 @@ const StepCounter = () => {
         <Success style={{fontFamily: 'PermanentMarker_400Regular'}}> {previousSteps} steps!!! </Success>
       </ScreenBackgroundEnd>
     );
-  } else if (previousSteps > 5000 && fontsLoaded) {
+  } else if (previousSteps > 10000 && fontsLoaded) {
     return (
-      <ScreenBackgroundMiddle source={require("../assets/blue-pink.jpg")}>
-        <Title> You are (over) halfway to your target! Woohoo!</Title>
-
-        <Title>Steps taken over the past 24 h: {previousSteps}.</Title>
-        <Title> Keep going! </Title>
-        <Title> You have {target} remaining to reach your target!</Title>
+      <ScreenBackgroundMiddle source={require("../assets/cosmic.png")}>
+         <StepsText style={{fontFamily: 'PermanentMarker_400Regular'}}>{previousSteps} steps</StepsText>
+        <Title style={{fontFamily: 'Roboto_700Bold'}}> You are (over) halfway to your target! Woohoo!</Title>
+        <Title style={{fontFamily: 'Roboto_700Bold'}}> Keep going, reach for the stars! </Title>
+        <Title style={{fontFamily: 'Roboto_700Bold'}}> You have {target} remaining to reach your target!</Title>
       </ScreenBackgroundMiddle>
     );
   } else {
-    return (
+    return (// this screen is presented if the steps are under 5000. At 1000 steps an API is invoked to fetch an affirmation
       <>
         <ScreenBackgroundStart source={require("../assets/pink-stripe.jpg")}>
-          <Title>Steps taken over the past 24 h: {previousSteps} </Title>
+          <Title>{previousSteps} steps</Title>
           <Title>{target} steps to reach your target!</Title>
           <Affirmation>{affirmation.affirmation}</Affirmation>
         </ScreenBackgroundStart>
