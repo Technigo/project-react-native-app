@@ -5,34 +5,54 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Button,
-  Linking,
-  Image,
   ImageBackground,
 } from 'react-native';
 import styled from 'styled-components/native';
-import * as Location from 'expo-location';
+import { useFonts, Buda_300Light } from '@expo-google-fonts/buda';
+import { Poppins_400Regular } from '@expo-google-fonts/poppins';
+
+const Heading = styled.Text`
+  font-size: 27px;
+  text-align: center;
+  margin-top: 10%;
+`;
+
+const TextBox = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 40%;
+`;
 
 const QuoteText = styled.Text`
   font-weight: 700;
+  font-size: 25px;
+  padding-bottom: 15px;
+`;
+const ThinkBackground = styled.ImageBackground`
+  height: 100%;
 `;
 
 const APIbutton = styled.TouchableOpacity`
-  width: 50%;
-  background-color: blue;
+  border-radius: 6px;
+  padding: 2% 3%;
+  background-color: #fff;
+  margin: 10%;
 `;
 
-const TechnigoImage = styled.Image`
-  height: 238px;
-`;
-
-const ScreenBackground = styled.ImageBackground`
-  height: 100%;
+const ButtonText = styled.Text`
+  font-size: 15px;
 `;
 
 const ButtonApi = () => {
   const [quote, setQuote] = useState({});
   const [loading, setLoading] = useState(false);
-  const [location, setLocation] = useState({});
+  const [fontsLoaded] = useFonts({
+    Buda_300Light,
+    Poppins_400Regular,
+  });
 
   useEffect(() => {
     generateQuote();
@@ -46,52 +66,25 @@ const ButtonApi = () => {
       .finally(() => setLoading(false));
   };
 
-  // v1 promise approach
-  const getLocation = () => {
-    Location.requestForegroundPermissionsAsync()
-      .then((data) => {
-        if (data.status !== 'granted') {
-          console.log('Permission to access location was denied');
-        } else {
-          return Location.getCurrentPositionAsync({});
-        }
-      })
-      .then((locationData) => {
-        Linking.openURL(
-          `http://www.google.com/maps/place/${locationData.coords.latitude},${locationData.coords.longitude}`
-        );
-      });
-  };
-
-  // v2 async approach
-  // const getLocation = async () => {
-  //   let data = await Location.requestForegroundPermissionsAsync();
-  //   if (data.status !== 'granted') {
-  //     console.log('Permission to access location was denied');
-  //   } else {
-  //     let locationData = await Location.getCurrentPositionAsync({});
-  //     console.log('locationData', locationData);
-  //   }
-  // };
-
-  if (loading) {
+  if (loading || !fontsLoaded) {
     return <ActivityIndicator />;
   }
 
   return (
-    <ScreenBackground source={require('../assets/splash.png')}>
-      <Text>Click to generate quote</Text>
-      <APIbutton onPress={generateQuote}>
-        <Text>click me!</Text>
-      </APIbutton>
-      <QuoteText>Quote: {quote.content}</QuoteText>
-      <Text>Author: {quote.author}</Text>
-      <Button title="get location" onPress={getLocation} />
-      <TechnigoImage
-        source={require('../assets/favicon.png')}
-        resizeMode="contain"
-      />
-    </ScreenBackground>
+    <ThinkBackground source={require('../assets/think_back.jpg')}>
+      <Heading style={{ fontFamily: 'Poppins_400Regular' }}>
+        Well-thought thoughts
+      </Heading>
+      <TextBox>
+        <QuoteText style={{ fontFamily: 'Buda_300Light' }}>
+          "{quote.content}"
+        </QuoteText>
+        <Text>{quote.author}</Text>
+        <APIbutton onPress={generateQuote}>
+          <ButtonText>New quote</ButtonText>
+        </APIbutton>
+      </TextBox>
+    </ThinkBackground>
   );
 };
 

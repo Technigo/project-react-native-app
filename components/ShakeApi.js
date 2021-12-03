@@ -3,12 +3,12 @@ import { View, Text, ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 import { Accelerometer } from 'expo-sensors';
 import { useFonts, Buda_300Light } from '@expo-google-fonts/buda';
+import { Poppins_400Regular } from '@expo-google-fonts/poppins';
 
 const Heading = styled.Text`
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 35px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10%;
 `;
 
 const TextBox = styled.View`
@@ -21,10 +21,16 @@ const TextBox = styled.View`
 `;
 
 const QuoteText = styled.Text`
-  font-weight: 700;
+  font-weight: 500;
   font-size: 30px;
   padding-bottom: 15px;
 `;
+
+const ShakeText = styled.Text`
+  font-size: 16px;
+  padding-right: 12%;
+`;
+
 const KanyeBackground = styled.ImageBackground`
   height: 100%;
 `;
@@ -42,6 +48,7 @@ const ShakeApi = () => {
   const [subscription, setSubscription] = useState(null);
   const [fontsLoaded] = useFonts({
     Buda_300Light,
+    Poppins_400Regular,
   });
 
   useEffect(() => {
@@ -58,15 +65,6 @@ const ShakeApi = () => {
   useEffect(() => {
     if (isShakingEnough(data)) generateQuote();
   }, [data]);
-
-  // //   how often the acc will check
-  //   const _slow = () => {
-  //     Accelerometer.setUpdateInterval(1000);
-  //   };
-
-  //   const _fast = () => {
-  //     Accelerometer.setUpdateInterval(16);
-  //   };
 
   // //   keep phone updated
   const subscribe = () => {
@@ -101,15 +99,17 @@ const ShakeApi = () => {
   }
 
   return (
-    <KanyeBackground source={require('../assets/ye_background.jpg')}>
-      <Heading>What Ye said: </Heading>
+    <KanyeBackground source={require('../assets/kanye_back.jpg')}>
+      <Heading style={{ fontFamily: 'Poppins_400Regular' }}>
+        What Ye said:{' '}
+      </Heading>
       <TextBox>
         <QuoteText style={{ fontFamily: 'Buda_300Light' }}>
           "{quote.quote}"
         </QuoteText>
-        <Text>
-          Shake the phone to get more valuable wisdom from Kanye West.
-        </Text>
+        <ShakeText>
+          Shake your phone to get more valuable wisdom from Kanye West.
+        </ShakeText>
       </TextBox>
     </KanyeBackground>
   );

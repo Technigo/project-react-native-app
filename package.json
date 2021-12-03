@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/buda": "^0.2.0",
+    "@expo-google-fonts/poppins": "^0.2.0",
     "@react-navigation/drawer": "^6.1.8",
     "@react-navigation/native": "^6.0.6",
     "braces": "^3.0.2",
