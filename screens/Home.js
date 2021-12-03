@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Text, View, Alert } from 'react-native';
+import {
+  Text,
+  View,
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 
 import { Bored } from './Bored';
 import { TodoItem } from './TodoItem';
@@ -76,7 +82,7 @@ export const Home = ({ navigation }) => {
         return [{ text: text, key: Math.random().toString() }, ...prevTodos];
       });
     } else {
-      Alert.alert('Alert Title', 'My Alert Msg', [
+      Alert.alert('OOPS!', 'Todo must be over 3 chars long', [
         {
           text: 'Cancel',
           onPress: () => console.log('Cancel Pressed'),
@@ -88,47 +94,46 @@ export const Home = ({ navigation }) => {
   };
 
   return (
-    // <TouchableWithoutFeedback
-    //   onPress={() => {
-    //     Keyboard.dismiss();
-    //     console.log('dismissed keyboard');
-    //   }}
-    // >
-    <FeedContainer>
-      {/* <EnterName>Enter name here</EnterName> */}
-      {/* <TextInputField
-        placeholder='Enter name here'
-        onChangeText={user => setUser(user)}
-        value={user}
-      ></TextInputField> */}
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+        console.log('dismissed keyboard');
+      }}
+    >
+      <FeedContainer>
+        {/* <EnterName>Enter name here</EnterName>
+        <TextInputField
+          placeholder='Enter name here'
+          onChangeText={user => setUser(user)}
+          value={user}
+        ></TextInputField>
 
-      <View>
-        <Text>
-          {user ? <Text>Hello {user} 🌞 Here are today's todos</Text> : ''}
-        </Text>
-      </View>
+        <View>
+          <Text>
+            {user ? <Text>Hello {user} 🌞 Here are today's todos</Text> : ''}
+          </Text>
+        </View> */}
 
-      {/* COMPONENT */}
-      <AddTodo submitHandler={submitHandler} />
-      {todos.length > 0 && (
-        <ListContainer>
-          <TodosTitle>TODOS</TodosTitle>
-          <List
-            data={todos}
-            // this renders the todos with title: text
-            renderItem={({ item }) => (
-              <TodoItem item={item} pressHandler={pressHandler} />
-            )}
-          />
-        </ListContainer>
-      )}
+        <AddTodo submitHandler={submitHandler} />
+        {todos.length > 0 && (
+          <ListContainer>
+            <TodosTitle>TODOS</TodosTitle>
+            <List
+              data={todos}
+              // this renders the todos with title: text
+              renderItem={({ item }) => (
+                <TodoItem item={item} pressHandler={pressHandler} />
+              )}
+            />
+          </ListContainer>
+        )}
 
-      <View>
-        <NavButton onPress={() => navigation.navigate('Activities')}>
-          <Text>No todos? go to activities</Text>
-        </NavButton>
-      </View>
-    </FeedContainer>
-    // </TouchableWithoutFeedback>
+        <View>
+          <NavButton onPress={() => navigation.navigate('Activities')}>
+            <Text>No todos? go to activities</Text>
+          </NavButton>
+        </View>
+      </FeedContainer>
+    </TouchableWithoutFeedback>
   );
 };

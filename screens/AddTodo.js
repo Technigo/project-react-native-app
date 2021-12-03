@@ -8,6 +8,7 @@ const InputField = styled.TextInput`
   border: 2px solid #161616;
   padding: 10px;
   border-radius: 10px;
+  width: 150px;
 `;
 
 export const AddTodo = ({ submitHandler }) => {

@@ -10,6 +10,7 @@ const Item = styled.Text`
   border: 1px solid black;
   border-radius: 10px;
   padding-left: 10px;
+  text-align: center;
 `;
 
 export const TodoItem = ({ item, pressHandler }) => {
