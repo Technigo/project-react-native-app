@@ -1,25 +1,30 @@
 import React from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
+import { AntDesign } from '@expo/vector-icons';
 
 const HeaderContainer = styled.View`
-  height: 70px;
-  background-color: #778899;
+  height: 150px;
+  background-color: #79b4b7;
 `;
 
 const HeaderText = styled.Text`
   position: relative;
-  height: 100px;
+  height: 200px;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  padding-top: 10px;
+  padding-top: 20px;
+  font-family: Arial;
 `;
 
 export const Header = () => {
   return (
     <HeaderContainer>
-      <HeaderText>Header</HeaderText>
+      <HeaderText>
+        TODO OR NOT TODO
+        <AntDesign name='meho' size={24} color='black' />
+      </HeaderText>
     </HeaderContainer>
   );
 };

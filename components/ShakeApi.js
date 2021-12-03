@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
-import { Accelerometer } from 'expo-sensors';
+import { View, Text, ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
+import { Accelerometer } from 'expo-sensors';
 
 const QuoteText = styled.Text`
   font-weight: 700;
@@ -23,16 +23,40 @@ export const ShakeApi = () => {
 
   // when the component gets mounted (as soon as it's used), we're gonna subscribe to the change of position
   useEffect(() => {
-    _subscribe();
-    return () => _unsubscribe(); // when we unmount, we tell it to NOT subscribe anymore
+    Accelerometer.setUpdateInterval(1000);
+    subscribe();
+    return () => unsubscribe(); // when we unmount, we tell it to NOT subscribe anymore
   }, []);
 
   // this useEffect will show the quote IF the shake is hard enough
   useEffect(() => {
     if (isShakingEnough(data)) {
-      generateActivity();
+      generateQuote();
     }
   }, [data]);
+
+  // this tells the phone to keep the sensor updated about the positions
+  const subscribe = () => {
+    setSubscription(
+      Accelerometer.addListener(accelerometerData => {
+        setData(accelerometerData);
+      })
+    );
+  };
+
+  // this tells the phone NOT to keep the sensors updated about the positions
+  const unsubscribe = () => {
+    subscription && subscription.remove();
+    setSubscription(null);
+  };
+
+  const generateActivity = () => {
+    setLoading(true);
+    fetch('https://www.boredapi.com/api/activity')
+      .then(response => response.json())
+      .then(json => setActivity(json))
+      .finally(setLoading(false));
+  };
 
   const isShakingEnough = data => {
     // x,y,z CAN be negative, force is directional
@@ -45,46 +69,9 @@ export const ShakeApi = () => {
     return totalForce > 1.78;
   };
 
-  const generateActivity = () => {
-    setLoading(true);
-    fetch('https://www.boredapi.com/api/activity')
-      .then(response => response.json())
-      .then(json => setActivity(json))
-      .finally(setLoading(false));
-  };
-
   if (loading) {
-    <ActivityIndicator />;
+    return <ActivityIndicator />;
   }
-  // shows the original position of the phone
-
-  // this code is responsible to tell the accelerometer how often it should check that the position is updated (slow and fast)
-  //   const _slow = () => {
-  //     Accelerometer.setUpdateInterval(1000);
-  //   };
-
-  //   const _fast = () => {
-  //     Accelerometer.setUpdateInterval(16);
-  //   };
-
-  // this tells the phone to keep the sensor updated about the positions
-  const _subscribe = () => {
-    Accelerometer.setUpdateInterval(1000);
-
-    setSubscription(
-      Accelerometer.addListener(accelerometerData => {
-        setData(accelerometerData);
-      })
-    );
-  };
-
-  // this tells the phone NOT to keep the sensos updated about the positions
-  const _unsubscribe = () => {
-    subscription && subscription.remove();
-    setSubscription(null);
-  };
-
-  const { x, y, z } = data;
 
   return (
     <View>
