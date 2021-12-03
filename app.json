@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "Dice-Roller",
+    "slug": "Dice-Roller",
     "privacy": "public",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
