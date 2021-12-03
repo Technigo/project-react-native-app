@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project-react-native-app",
-    "slug": "project-react-native-app",
+    "name": "zancotti-compass",
+    "slug": "zancotti-compass",
     "version": "1.0.0",
     "orientation": "portrait",
     "splash": {
@@ -24,6 +24,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }

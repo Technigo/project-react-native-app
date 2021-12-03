@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components/native";
 import LottieView from "lottie-react-native";
 
+// I only got Lottie to work when i followed Lotties instructions of how to use it in react native.
+// Hence there is a class function in this component, which means there wont be a useEffect.
+
 export default class Loading extends React.Component {
   componentDidMount() {
     this.animation.play();
@@ -13,10 +16,6 @@ export default class Loading extends React.Component {
         <LottieView
           ref={(animation) => {
             this.animation = animation;
-          }}
-          style={{
-            width: 400,
-            height: 400,
           }}
           source={require("../assets/Lotties/spinner.json")}
         />
