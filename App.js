@@ -1,9 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-
-// import styled from 'styled-components/native';
-
 // component
 import Main from "./components/Main";
 
@@ -16,6 +13,8 @@ const reducer = combineReducers({
 });
 const store = configureStore({ reducer });
 
+
+// Function
 const App = () => {
   return (
     <Provider store={store}>

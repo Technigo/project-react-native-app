@@ -10,7 +10,7 @@ const FlexContainer = styled.View `
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 700px;
+  height: 750px;
 `;
 
 const Container = styled.View `
@@ -37,17 +37,19 @@ const ButtonText = styled.Text `
   font-weight: 700;
 `;
 
-const image = { uri: "https://wallpaper.dog/large/985111.jpg" };
-
 const Background = styled.ImageBackground `
   height: 750px;
 `;
+const image = { uri: "https://wallpaper.dog/large/985111.jpg" };
+
 
 // Function
 const Intro = () => {
   const dispatch = useDispatch();
   const fan = useSelector((store) => store.potter.fan);
 
+  // When the user clicks the yes button, it makes 2 actions to work;
+  // It calls the API + changes the value from false to true of the fan key
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(renderCards());
