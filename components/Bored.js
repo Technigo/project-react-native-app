@@ -6,17 +6,48 @@ import { Accelerometer } from "expo-sensors"
 
 import { BORED_URL } from "../utils/Urls"
 
-const ActivityText = styled.Text`
-  font-size: 18px;
-  margin-top: 40%;
-  color: black;
+const Flexbox = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const Title = styled.Text`
+  margin-top: 15%;
+  font-weight: 700;
+  font-size: 22px;
+  color: #edb506;
   text-align: center;
 `
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-  margin-bottom: 20px;
+
+const ActivityText = styled.Text`
+  font-size: 18px;
+  color: white;
   text-align: center;
+  font-weight: 700;
+`
+
+const CategoryText = styled.Text`
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+`
+
+const Container = styled.View`
+  margin-top: 10%;
+  background-color: #edb506;
+  height: 320px;
+  width: 320px;
+  border-radius: 500;
+  display: flex;
+  justify-content: center;
+`
+
+const ShakeImage = styled.Image`
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
 `
 
 export const Bored = () => {
@@ -79,10 +110,13 @@ export const Bored = () => {
   const { x, y, z } = data
 
   return (
-    <View>
-      <Title>Shake for activity suggestion!</Title>
-      <ActivityText>Activity: {activity.activity}</ActivityText>
-      <ActivityText>category: {activity.type}</ActivityText>
-    </View>
+    <Flexbox>
+      <Title>Shake me for activity suggestion!</Title>
+      <ShakeImage source={require("../assets/shake.png")} />
+      <Container>
+        <ActivityText>{activity.activity}</ActivityText>
+        <CategoryText>Category: {activity.type}</CategoryText>
+      </Container>
+    </Flexbox>
   )
 }

@@ -1,32 +1,37 @@
 import React from "react"
-import { Button, Text, View, ImageBackground, Image } from "react-native"
+import { View, Text, ImageBackground } from "react-native"
 import styled from "styled-components/native"
 
-const Container = styled.View`
-  flex: 1;
-  background-color: whitesmoke;
-  justify-content: center;
-  align-items: center;
+// const Container = styled.View`
+//   background-color: whitesmoke;
+//   justify-content: center;
+//   align-items: center;
+// `
+
+const TopTitle = styled.Text`
+  font-size: 36px;
+  color: #000;
+  margin-top: 30%;
 `
 
-const Title = styled.Text`
+const SubTitle = styled.Text`
   font-size: 24px;
-  color: palevioletred;
-  margin-bottom: 20px;
+  color: #000;
   text-align: center;
 `
 
-const StickerImage = styled.Image`
-  height: 312px;
-  width: 312px;
+const BackgroundImage = styled.ImageBackground`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
 `
 
 export const StartScreen = () => {
   return (
-    <Container>
-      <Title>Don't know what to do?</Title>
-      <Title>head to the menu!</Title>
-      <StickerImage source={require("../assets/entertainment.png")} />
-    </Container>
+    <BackgroundImage source={require("../assets/dog-bgr.jpg")}>
+      <TopTitle>Bored?</TopTitle>
+      <SubTitle>Head to the menu!</SubTitle>
+    </BackgroundImage>
   )
 }

@@ -6,43 +6,55 @@ import {
   ActivityIndicator,
   ImageBackground,
 } from "react-native"
-
 import styled from "styled-components/native"
 import { Accelerometer } from "expo-sensors"
 
 import { MOVIE_URL } from "../utils/Urls"
 
 //Styled components 🎨
-const TitleText = styled.Text`
+
+const HeadTitle = styled.Text`
+  font-weight: 700;
   font-size: 22px;
+  color: #000;
+  text-align: center;
+  margin-top: 20%;
+`
+
+const TitleText = styled.Text`
+  font-size: 20px;
+  color: #fff;
   font-weight: 700;
   margin-bottom: 40px;
   text-align: center;
 `
 
 const OverviewText = styled.Text`
-  font-size: 14px;
-  color: black;
+  font-size: 16px;
+  color: #fff;
   text-align: center;
   margin-bottom: 20px;
 `
 
 const RatingText = styled.Text`
   display: flex;
-  justify-content: space-evenly;
-  font-size: 18px;
-  color: red;
+  font-size: 14px;
+  color: #fff;
   text-align: center;
 `
 
-const ReleasedText = styled.Text`
-  font-size: 15px;
-  text-align: center;
+const MovieContainer = styled.View`
+  align-items: center;
+  background-color: #edb506;
+  width: 100%;
+  height: 100%;
 `
 
-const Moviebackground = styled.ImageBackground`
-  height: 312px;
-  width: 312px;
+const ShakeImage = styled.Image`
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20%;
 `
 
 export const ShakeMovieApi = () => {
@@ -51,16 +63,21 @@ export const ShakeMovieApi = () => {
     y: 0,
     z: 0,
   })
+
   const [movie, setMovie] = useState({})
   const [loading, setLoading] = useState(false)
   const [subscription, setSubscription] = useState(null)
 
-  //Fetching the movie API and passing in the randomise function
+  //Fetching the movie API and passing in the randomise function it also filters only movies with adult value false
   const generateMovie = () => {
     setLoading(true)
     fetch(MOVIE_URL(randomizedMovie()))
       .then((res) => res.json())
-      .then((data) => setMovie(data))
+      .then((data) => {
+        if (data.adult === false) {
+          setMovie(data)
+        }
+      })
       .finally(() => setLoading(false))
   }
 
@@ -106,32 +123,34 @@ export const ShakeMovieApi = () => {
     return totalForce > 1.78
   }
 
+  const { x, y, z } = data
+
   // Function that gets a random number from the complete list of movies.
-  const randomizedMovie = () => {
-    const min = Math.ceil(1)
-    const max = Math.floor(907331)
-    return Math.floor(Math.random() * (max - min + 1) + min)
+  const randomizedMovie = (max, min) => {
+    return Math.random() * (907331 - 1) + 1
   }
 
   if (loading) {
     return <ActivityIndicator />
   }
-
-  const { x, y, z } = data
-
   return (
-    <View>
-      <Moviebackground source={require("../assets/entertainment.png")} />
+    <MovieContainer>
+      <HeadTitle>Shake me for a movie suggestion!</HeadTitle>
+      <ShakeImage source={require("../assets/shake.png")} />
       <TitleText>
         {movie.original_title ? (
           <Text>{movie.original_title}</Text>
         ) : (
-          <Text>Shake again!</Text>
+          <Text>Something went wrong, Shake again!</Text>
         )}
       </TitleText>
 
       <OverviewText>
-        {movie.overview && <Text>{movie.overview}</Text>}
+        {movie.overview ? (
+          <Text>{movie.overview}</Text>
+        ) : (
+          <Text>We couldn't find an overview of this movie</Text>
+        )}
       </OverviewText>
 
       <RatingText>
@@ -140,14 +159,7 @@ export const ShakeMovieApi = () => {
         ) : (
           <Text>No rating found</Text>
         )}
-        <Text>
-          {movie.release_date ? (
-            <Text>Released {movie.release_date}</Text>
-          ) : (
-            <Text>no release found</Text>
-          )}
-        </Text>
       </RatingText>
-    </View>
+    </MovieContainer>
   )
 }
