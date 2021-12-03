@@ -1,96 +1,143 @@
 import React, { useState, useEffect } from 'react';
+import { View, Text } from 'react-native'
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
-// ==========================
-// = Functions
-const isShaking = (data) => {
-  // x,y,z CAN be negative, force is directional
-  // We take the absolute value and add them together
-  // This gives us the total combined force on the device
-  const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-
-  // If this force exceeds some threshold, return true, otherwise false
-  // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.78;
-};
-
-// ==========================
-// = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
-`;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
-
 export const SensorComponent = () => {
-  // This function determines how often our program reads the accelerometer data in milliseconds
-  // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
-  Accelerometer.setUpdateInterval(400);
-
-  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
   const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
-  });
-
-  // This keeps track of whether we are listening to the Accelerometer data
-  const [subscription, setSubscription] = useState(null);
-
-  const _subscribe = () => {
-    // Save the subscription so we can stop using the accelerometer later
-    setSubscription(
-      // This is what actually starts reading the data
-      Accelerometer.addListener((accelerometerData) => {
-        // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
-        setData(accelerometerData);
-      })
-    );
-  };
-
-  // This will tell the device to stop reading Accelerometer data.
-  // If we don't do this our device will become slow and drain a lot of battery
-  const _unsubscribe = () => {
-    subscription && subscription.remove();
-    setSubscription(null);
-  };
+  })
+  const [spacefact, setSpacefact] = useState({})
+  const [subscription, setSubscription] = useState(null)
 
   useEffect(() => {
-    // Start listening to the data when this SensorComponent is active
-    _subscribe();
+    getSpacefact()
+  }, [])
 
-    // Stop listening to the data when we leave SensorComponent
-    return () => _unsubscribe();
-  }, []);
+  useEffect(() => {
+    if (isShakingEnough(data)) {
+      getSpacefact()
+    }
+  }, [])
+
+  const subscribe = () => {
+    setSubscription(
+      Accelerometer.addListener((accelerometerData) => {
+        setData(accelerometerData)
+      })
+    )
+  }
+
+  const unsubscribe = () => {
+    subscription && subscription.remove()
+    setSubscription(null)
+  }
+
+  const SpaceFactArray = [
+        {
+          fact: 'SPACE IS COMPLETELY SILENT',
+          details: 'There is no atmosphere in space, which means that sound has no medium or way to travel to be heard.'
+       },
+        {
+          fact: 'THE HOTTEST PLANET IN OUR SOLAR SYSTEM IS 450°C',
+          details: 'Venus is the hottest planet in the solar system and has an average surface temperature of around 450°C. Did you know that Venus is not the closest planet to the sun? That is Mercury. You would think that Mercury would then be the hottest, but Mercury has no atmosphere (which regulates temperature), resulting in big fluctuations.'
+        },
+        {
+          fact: 'A FULL NASA SPACE SUIT COSTS $12,000,000',
+          details: 'While the entire suit costs a cool $12m, 70% of that cost is for the backpack and control module. However, the space suits that NASA uses were built in 1974. If these were priced by today, they would cost an estimated 150 million dollars!'
+        },
+        {
+          fact: 'THE SUN’S MASS TAKES UP 99.86% OF THE SOLAR SYSTEM',
+          details: 'The Sun accounts for 99.86% of the mass in our solar system with a mass of around 330,000 times that of Earth. Did you know that the Sun is made up of mostly hydrogen (three quarters worth) with the rest of its mass attributed to helium. If the Sun had a voice would it be high and squeaky from all that helium?'
+        },
+        {
+          fact: 'ONE MILLION EARTHS CAN FIT INSIDE THE SUN',
+          details: 'The Sun is large enough that approximately 1.3 million Earths could fit inside (if squashed in) or if the Earths retained their spherical shape then 960,000 would fit. But can you visualise that number of Earths?'
+        },
+        {
+          fact: 'THERE ARE MORE TREES ON EARTH THAN STARS IN THE MILKY WAY',
+          details: 'There are about three trillion trees on Planet Earth, and between 100-400 billion stars, approximately, in the galaxy.'
+        },
+        {
+          fact: 'THE SUNSET ON MARS APPEARS BLUE',
+          details: 'Just as colors are made more dramatic in sunsets on Earth, sunsets on Mars, according to NASA,  would appear bluish to human observers watching from the red planet. Fine dust makes the blue near the Suns part of the sky much more visibilke, while normal daylight makes the Red Planets familiar rusty dust color the most perceptible to the human eye.'
+        },
+        {
+          fact: 'THERE ARE MORE STARS IN THE UNIVERSE THAN GRAINS OF SANDS ON EARTH',
+          details: 'The universe extends far beyond our own galaxy, The Milky Way, which is why scientists can only estimate how many stars are in space. However, scientists estimate the universe contains approximately 1,000,000,000,000,000,000,000,000 stars, or a septillion. While no one can actually count every single grain of sand on the earth, the estimated total is somewhere around seven quintillion, five hundred quadrillion grains.'
+       },
+        {
+          fact: 'ONE DAY ON VENUS IS LONGER THAN ONE YEAR',
+          details: 'Venus has a slow axis rotation which takes 243 Earth days to complete its day. The orbit of Venus around the Sun is 225 Earth days, making a year on Venus 18 days less than a day on Venus.'
+        },
+        {
+          fact: 'THERE IS A PLANET MADE OF DIAMONDS',
+          details: 'There’s a planet made of diamonds twice the size of earth The "super earth," aka 55 Cancri e, is most likely covered in graphite and diamond. Paying a visit to that planet would probably pay for the $12 million dollar space suit needed to get there!'
+        },
+      ]
+    
+    
+  const getSpacefact = () => {
+    const theSpacefact = SpaceFactArray[Math.floor(Math.random() * SpaceFactArray.length)]
+    setSpacefact(theSpacefact)
+  }
+
+  const isShakingEnough = (data) => {
+    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
+    return totalForce > 1.78
+  }
 
   return (
-    <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
-    </ShakeView>
-  );
-};
+    <Container>
+       <FactButton
+         key={spacefact.fact}>
+         <FactText>{spacefact.fact}</FactText>
+        <DetailsText>{spacefact.details}</DetailsText>
+       </FactButton>
+       <ClickButton onPress={() => { getSpacefact()}}>
+          <ButtonText>Press to find out cool space fact!</ButtonText>
+       </ClickButton>
+     </Container>
+      )
+    }
+    
+    const Container = styled.View`
+    margin: 0 auto;
+    `
+    const FactButton= styled.TouchableOpacity`
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 300px;
+    padding: 30px;
+    padding-bottom: 0;
+    `
+    const FactText = styled.Text`
+    color: pink;
+    font-size: 18px;
+    margin-bottom: 5px;
+    `
+    const DetailsText = styled.Text`
+    color: white;
+    font-size: 16px;
+    `
+    
+    const ClickButton = styled.TouchableOpacity`
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 2px solid pink;
+    margin: 15px;
+    width: 240px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px #959695;
+    `
+    
+    const ButtonText = styled.Text`
+    font-weight: 700;
+    color: pink;
+    `
