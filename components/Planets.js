@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Text } from "react-native";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
 
@@ -65,7 +64,11 @@ const Planets = ({ setCurrentPage, setLoading }) => {
     fetch(`https://swapi.dev/api/planets/${randomNr}`)
       .then((res) => res.json())
       .then((json) => setNewPlanet(json))
-      .finally(() => setLoading(false));
+      .finally(() =>
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000)
+      );
   };
 
   const isShakingEnough = (data) => {
@@ -73,17 +76,10 @@ const Planets = ({ setCurrentPage, setLoading }) => {
       Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.78;
   };
+
   const onPressed = (category) => {
     setCurrentPage(category);
   };
-
-  // const returnMovie = (films) => {
-  //   setLoading(true);
-  //   films.map((API) => {
-  //     return <AppearedIn API={API} />;
-  //   });
-  //   setLoading(false);
-  // };
 
   return (
     <>
@@ -95,7 +91,7 @@ const Planets = ({ setCurrentPage, setLoading }) => {
       <InfoText>Gravity: {planet.gravity}</InfoText>
       {planet.films &&
         planet.films.map((API) => {
-          return <AppearedIn API={API} />;
+          return <AppearedIn API={API} key={API} />;
         })}
       <CategoryButton buttonText="StartPage" onPressed={onPressed} />
     </>

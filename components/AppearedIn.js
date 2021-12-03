@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
 
@@ -9,7 +9,6 @@ const InfoText = styled.Text`
 `;
 
 const AppearedIn = ({ API }) => {
-  console.log("I am in appared");
   const [movie, setNewMovie] = useState({});
 
   const generateFilm = () => {
@@ -18,9 +17,15 @@ const AppearedIn = ({ API }) => {
       .then((json) => setNewMovie(json));
   };
 
-  generateFilm();
+  useEffect(() => {
+    generateFilm();
+  }, []);
 
-  return <InfoText>Name: {movie.title}</InfoText>;
+  return (
+    <>
+      <InfoText>{movie.title}</InfoText>
+    </>
+  );
 };
 
 export default AppearedIn;

@@ -43,8 +43,6 @@ const Loading = () => {
           width: 50,
           height: 50,
           /* source for changing color of svg https://codepen.io/sosuke/pen/Pjoqqp*/
-          filter:
-            "invert(11%) sepia(77%) saturate(7188%) hue-rotate(3deg) brightness(97%) contrast(119%)",
           transform: [{ rotate: rotateData }],
         }}
       />
