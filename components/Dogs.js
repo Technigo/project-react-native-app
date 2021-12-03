@@ -16,7 +16,7 @@ const MainView = styled.View`
 const MovieView = styled.View`
 	display: flex;
 	justify-content: center;
-	flex-direction:row
+	flex-direction: row;
 	width: 100%;
 `
 const Animation = styled.Image`
@@ -101,7 +101,7 @@ const Dogs = () => {
 	}
 
 	if (loading || !fontsLoaded) {
-		return <ActivityIndicator size='small' color='#133337' />
+		return <ActivityIndicator size='large' color='#133337' />
 	}
 
 	return (
@@ -110,7 +110,7 @@ const Dogs = () => {
 		<ScreenBackground source={require('../assets/dogBackground.jpg')}>
 			<MainView >
 			<Animation source={require('../assets/dog.gif')} />
-				<View style={{backgroundColor: '#ffffff8C', margin: '5px', padding: '5px', border: 'solid 2px black'}}>
+				<View style={{backgroundColor: '#ffffff8C', margin: '5px', padding: '5px', border: 'solid 2px #000'}}>
 					<MovieView>
 						<MovieImage source={{uri: dog.url }} />
 					</MovieView>

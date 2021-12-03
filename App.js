@@ -46,7 +46,7 @@ const App = () => {
 			<StartButton onPress={() => setOnHome(false)}><EnterText>Enter</EnterText></StartButton>
 		</Container>) 
 		: (
-		<NavigationContainer style={{backgroundColor: '#133337'}}>
+		<NavigationContainer>
 			<Drawer.Navigator initialRouteName="Ghibli">
 				<Drawer.Screen name="Ghibli - Shake your phone!" component={Ghibli} />
 				<Drawer.Screen name="Dogs - Shake your phone!" component={Dogs} />
