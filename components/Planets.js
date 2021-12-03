@@ -4,6 +4,7 @@ import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
 
 import CategoryButton from "./CategoryButton";
+import AppearedIn from "./AppearedIn";
 
 const TopText = styled.Text`
   font-size: 24px;
@@ -25,6 +26,7 @@ const Planets = ({ setCurrentPage, setLoading }) => {
     z: 0,
   });
   const [planet, setNewPlanet] = useState({});
+
   // outside of the scope of bootcamp, communication between sensor and our code
   const [subscription, setSubscription] = useState(null);
 
@@ -58,7 +60,7 @@ const Planets = ({ setCurrentPage, setLoading }) => {
   };
 
   const generatePlanet = () => {
-    const randomNr = Math.floor(Math.random() * 60);
+    const randomNr = Math.floor(Math.random() * (60 - 1));
     setLoading(true);
     fetch(`https://swapi.dev/api/planets/${randomNr}`)
       .then((res) => res.json())
@@ -74,6 +76,15 @@ const Planets = ({ setCurrentPage, setLoading }) => {
   const onPressed = (category) => {
     setCurrentPage(category);
   };
+
+  // const returnMovie = (films) => {
+  //   setLoading(true);
+  //   films.map((API) => {
+  //     return <AppearedIn API={API} />;
+  //   });
+  //   setLoading(false);
+  // };
+
   return (
     <>
       <TopText>Shake your phone to learn about a new planet</TopText>
@@ -82,6 +93,10 @@ const Planets = ({ setCurrentPage, setLoading }) => {
       <InfoText>Terrain: {planet.terrain}</InfoText>
       <InfoText>Climate: {planet.climate}</InfoText>
       <InfoText>Gravity: {planet.gravity}</InfoText>
+      {planet.films &&
+        planet.films.map((API) => {
+          return <AppearedIn API={API} />;
+        })}
       <CategoryButton buttonText="StartPage" onPressed={onPressed} />
     </>
   );
