@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react"
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ActivityIndicator,
-  ImageBackground,
-} from "react-native"
+import { View, Text, ActivityIndicator, Image } from "react-native"
 import styled from "styled-components/native"
 import { Accelerometer } from "expo-sensors"
 
 import { MOVIE_URL } from "../utils/Urls"
 
 //Styled components 🎨
+const MovieContainer = styled.View`
+  align-items: center;
+  background-color: #edb506;
+  width: 100%;
+  height: 100%;
+`
 
 const HeadTitle = styled.Text`
   font-weight: 700;
@@ -41,13 +41,6 @@ const RatingText = styled.Text`
   font-size: 14px;
   color: #fff;
   text-align: center;
-`
-
-const MovieContainer = styled.View`
-  align-items: center;
-  background-color: #edb506;
-  width: 100%;
-  height: 100%;
 `
 
 const ShakeImage = styled.Image`

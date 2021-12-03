@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native"
-
+import { View, Text, ActivityIndicator } from "react-native"
 import styled from "styled-components/native"
 import { Accelerometer } from "expo-sensors"
 
 import { BORED_URL } from "../utils/Urls"
 
+//Styled components 🎨
 const Flexbox = styled.View`
   display: flex;
   align-items: center;
