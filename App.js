@@ -1,8 +1,25 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import { ImageBackground } from 'react-native'
-import { SensorComponent } from './components/SensorComponent';
-import { SpaceFact } from './components/SpaceFact';
+import React, { useState } from 'react'
+import styled from 'styled-components/native'
+import { ImageBackground, Button } from 'react-native'
+
+import { SensorComponent } from './components/SensorComponent'
+import { SpaceFact } from './components/SpaceFact'
+
+
+const App = () => {
+  const [currentTab, setCurrentTab] = useState('Button')
+
+  return (
+    <Container>
+      <ScreenBackground source={require('./assets/rocket-background.png')}>
+      <Button title="Home" onPress={() => setCurrentTab('SpaceFact')} />
+      <Button title="Shake" onPress={() => setCurrentTab('SensorComponent')} />
+      {currentTab === 'SpaceFact' && <SpaceFact />}
+      {currentTab === 'SensorComponent' && <SensorComponent />}
+      </ScreenBackground>
+    </Container>
+  )
+}
 
 const Container = styled.View`
   flex: 1;
@@ -18,17 +35,7 @@ const Title = styled.Text`
 
 const ScreenBackground = styled.ImageBackground`
   height: 100%;
+  width: 100%;
 `
 
-const App = () => {
-  return (
-    <Container>
-      <ScreenBackground source={require('./assets/rocket-background.png')}>
-      <SpaceFact />
-      {/* <SensorComponent></SensorComponent> */}
-      </ScreenBackground>
-    </Container>
-  );
-};
-
-export default App;
+export default App
