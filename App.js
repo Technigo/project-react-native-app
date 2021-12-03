@@ -9,6 +9,7 @@ import TabIcon from "./components/TabIcon";
 import Home from "./components/Home";
 import ButtonApi from "./components/ButtonApi";
 import RollD6 from "./components/RollD6";
+import CustomRoll from "./components/CustomRoll";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -25,6 +26,8 @@ const App = () => {
                             iconName = "home";
                         } else if (route.name === "Roll D6") {
                             iconName = "die";
+                        } else if (route.name === "Custom") {
+                            iconName = "dice";
                         }
                         return <TabIcon name={iconName} />;
                     },
@@ -32,6 +35,7 @@ const App = () => {
             >
                 <Tab.Screen name="Home" component={Home} />
                 <Tab.Screen name="Roll D6" component={RollD6} />
+                <Tab.Screen name="Custom" component={CustomRoll} />
             </Tab.Navigator>
         </NavigationContainer>
     );
