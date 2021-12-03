@@ -1,9 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import styled from 'styled-components/native';
 import { trails } from './Components/reducers/trails';
 import { Main } from './Components/Main';
+import { PackList } from './Components/PackList';
+import { Allemansrätt } from './Components/Allemansrätt';
 
 const reducer = combineReducers({
   trails: trails.reducer,
@@ -12,26 +16,18 @@ const reducer = combineReducers({
 const store = configureStore({ reducer });
 
 const App = () => {
+  const Drawer = createDrawerNavigator();
   return (
     <Provider store={store}>
-      <Main />
-      {/*  <ImTage
-        source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }}
-      /> */}
-
-      {/* <LoadingSpinner /> */}
-
-      {/* <SensorComponent /> */}
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName='Home'>
+          <Drawer.Screen name='Home' component={Main} />
+          <Drawer.Screen name='Packlist' component={PackList} />
+          <Drawer.Screen name='Allemansrätten' component={Allemansrätt} />
+        </Drawer.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 };
 
 export default App;
-
-const ImTage = styled.Image`
-  width: 50px;
-  height: 50px;
-  margin-bottom: 20px;
-`;

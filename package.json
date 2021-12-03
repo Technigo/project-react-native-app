@@ -8,6 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/drawer": "^6.1.8",
+    "@react-navigation/native": "^6.0.6",
     "@reduxjs/toolkit": "^1.6.2",
     "braces": "^3.0.2",
     "expo": "~43.0.0",
@@ -19,6 +21,10 @@
     "react-dom": "17.0.1",
     "react-lottie": "^1.2.3",
     "react-native": "0.64.2",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-reanimated": "^2.2.4",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-unordered-list": "^1.0.4",
     "react-native-web": "0.17.1",
     "react-redux": "^7.2.6",
     "styled-components": "^5.3.3",

@@ -19,8 +19,6 @@ export const Trail = () => {
     z: 0,
   });
 
-  //This is seting a trail to start with. Figure out if want that to be set in the begining or not.
-
   useEffect(() => {
     randomizeTrail();
   }, []);
@@ -60,30 +58,16 @@ export const Trail = () => {
     return totalForce > 1.78;
   };
 
-  const { x, y, z } = data;
-
   return (
     <View>
       <Title>
-        <Xyz>
-          x {x}
-          {'\n'}
-        </Xyz>
-        <Xyz>
-          y {y}
-          {'\n'}
-        </Xyz>
-        <Xyz>
-          z {z}
-          {'\n'}
-        </Xyz>
         You are in the {currentPosition} of Sweden, shake for a suggestion on a
         trail!
       </Title>
-      <View>
+      <SuggestionBox>
         <Text>Trail name: {selectedTrail.trail}</Text>
         <Text>Trail description: {selectedTrail.description}</Text>
-      </View>
+      </SuggestionBox>
     </View>
   );
 };
@@ -94,8 +78,7 @@ const Title = styled.Text`
   color: #1e5f18;
 `;
 
-const Xyz = styled.Text`
-  font-size: 15px;
-  text-align: left;
-  color: black;
+const SuggestionBox = styled.View`
+  /* border: 2px solid black; */
+  padding: 20px 10px;
 `;

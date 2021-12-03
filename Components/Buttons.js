@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { trails } from './reducers/trails';
 import { Text, TouchableHighlight, View } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -26,6 +25,9 @@ export const Buttons = () => {
 
   return (
     <View>
+      <Title>Are you in the mood for a hike?</Title>
+      <Title2>Please choose your area</Title2>
+
       <Touch onPress={onNorthFjall}>
         <Text>North of Sweden (fjäll)</Text>
       </Touch>
@@ -44,6 +46,19 @@ export const Buttons = () => {
     </View>
   );
 };
+
+const Title = styled.Text`
+  font-size: 30px;
+  text-align: center;
+  color: #1e5f18;
+`;
+
+const Title2 = styled.Text`
+  font-size: 15px;
+  text-align: center;
+
+  color: palevioletred;
+`;
 
 const Touch = styled.TouchableHighlight`
   border: 1px solid palevioletred;

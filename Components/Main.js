@@ -12,10 +12,8 @@ export const Main = () => {
   return (
     <>
       <Container>
+        <Emojis> 🌲 🌲 🌲 </Emojis>
         <InnerContainer>
-          <Title>Are you in the mood for a hike?</Title>
-          <Text>Please choose your area</Text>
-          <Emojis>✨ 🥑 🌲 </Emojis>
           {currentPosition ? <Trail /> : <Buttons />}
         </InnerContainer>
       </Container>
@@ -33,19 +31,6 @@ const Container = styled.View`
 const InnerContainer = styled.View`
   border: 3px dotted palevioletred;
   padding: 30px;
-`;
-
-const Title = styled.Text`
-  font-size: 30px;
-  text-align: center;
-  color: #1e5f18;
-`;
-
-const Text = styled.Text`
-  font-size: 15px;
-  text-align: center;
-
-  color: palevioletred;
 `;
 
 const Emojis = styled.Text`
