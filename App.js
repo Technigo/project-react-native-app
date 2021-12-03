@@ -1,19 +1,31 @@
 import React from "react";
-import styled from "styled-components/native";
 import ShakeApi from "./components/ShakeApi";
+import { StyleSheet, View, ImageBackground } from "react-native";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
+const image = {
+  uri: "https://i.pinimg.com/736x/19/7d/ba/197dba047b54c90a27f3aa796efc0b42.jpg",
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+    resizeMode: "cover",
+  },
+});
 
 const App = () => {
   return (
-    <Container>
-      <ShakeApi />
-    </Container>
+    <ImageBackground source={image} style={styles.image}>
+      <View style={styles.container}>
+        <ShakeApi />
+      </View>
+    </ImageBackground>
   );
 };
 
