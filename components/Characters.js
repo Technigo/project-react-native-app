@@ -6,7 +6,16 @@ import {
   SafeAreaView,
   View,
   Image,
+  StyleSheet,
 } from 'react-native';
+
+const styles = StyleSheet.create({
+  avatar: {
+    width: 50,
+    height: 50,
+  },
+});
+
 import { CHARACTERS_URL } from '../utils/urls';
 
 const Characters = () => {
@@ -40,7 +49,17 @@ const Characters = () => {
       <View>
         <FlatList
           data={characters}
-          renderItem={({ item }) => <Text>{item.name}</Text>}
+          renderItem={({ item }) => (
+            <>
+              <Text>{item.name}</Text>
+              <Image
+                style={styles.avatar}
+                source={{
+                  uri: item.image,
+                }}
+              />
+            </>
+          )}
           keyExtractor={(item) => item.id}
         />
       </View>
