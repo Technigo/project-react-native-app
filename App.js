@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { SensorComponent } from './components/SensorComponent';
+import { SpaceFact } from './components/SpaceFact';
 
 const Container = styled.View`
   flex: 1;
@@ -17,7 +18,8 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <SensorComponent></SensorComponent>
+      <SpaceFact />
+      {/* <SensorComponent></SensorComponent> */}
     </Container>
   );
 };
