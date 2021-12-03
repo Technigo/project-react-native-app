@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import ButtonApi from './components/ButtonApi'
+import RandomQuoteApi from './components/RandomQuoteApi'
 
 const Container = styled.View`
 	flex: 1;
@@ -15,9 +15,10 @@ const Title = styled.Text`
 `;
 
 const App = () => {
+
 	return (
 		<Container>
-			<ButtonApi/>
+			<RandomQuoteApi/>
 		</Container>
 	);
 };
