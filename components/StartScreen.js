@@ -4,9 +4,9 @@ import styled from "styled-components/native"
 
 //Styled components 🎨
 const TopTitle = styled.Text`
-  font-size: 36px;
+  font-size: 60px;
   color: #000;
-  margin-top: 30%;
+  margin-top: 20%;
 `
 
 const SubTitle = styled.Text`
