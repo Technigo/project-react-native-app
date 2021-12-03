@@ -10,8 +10,6 @@ import {
 } from "react-native"
 import { useState, useEffect } from "react"
 
-import Shake from "./Shake"
-
 const ModalInput = props => {
   const [modalVisible, setModalVisible] = useState(false)
   //   console.log(props.press)
@@ -23,36 +21,32 @@ const ModalInput = props => {
 
   return (
     <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.")
-          setModalVisible(!modalVisible)
-        }}
-      >
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <View style={styles.centeredView}>
           {props.answer ? (
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>Right guess!</Text>
+              <Text style={styles.modalText}>That was correct, good job!</Text>
+              <Text style={styles.modalTextStrong}>
+                This is {props.rightPokemon.toUpperCase()}!
+              </Text>
+              <Text style={styles.modalTextShake}>Shake for next question</Text>
+              <Image
+                style={styles.image}
+                source={require("../assets/shake.png")}
+              />
             </View>
           ) : (
             <View style={styles.modalView2}>
-              <Text style={styles.modalText}>Wrong guess!</Text>
+              <Text style={styles.modalText}>Oh no, that was wrong!</Text>
+              <Text style={styles.modalTextStrong}>
+                The right answer is {props.rightPokemon.toUpperCase()}!
+              </Text>
+              <Text style={styles.modalTextShake}>Shake for next question</Text>
+              <Image
+                style={styles.image}
+                source={require("../assets/shake.png")}
+              />
             </View>
-          )}
-
-          {/* <Pressable
-            style={[styles.button, styles.buttonClose]}
-            onPress={() => <>{setModalVisible(!modalVisible)}</>}
-          >
-            <Text style={styles.textStyle}>Next one</Text>
-          </Pressable> */}
-          {setModalVisible && (
-            <>
-              <Shake press={false} />
-            </>
           )}
         </View>
       </Modal>
@@ -62,14 +56,16 @@ const ModalInput = props => {
 
 const styles = StyleSheet.create({
   centeredView: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
+    marginTop: 400,
   },
   modalView: {
     margin: 20,
-    backgroundColor: "green",
+    minHeight: 230,
+    width: 310,
+    backgroundColor: "yellowgreen",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
@@ -82,30 +78,31 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-  },
+
   modalText: {
+    marginBottom: 10,
+    textAlign: "center",
+    fontWeight: "700",
+    fontSize: 16,
+  },
+
+  modalTextStrong: {
     marginBottom: 15,
     textAlign: "center",
   },
 
+  modalTextShake: {
+    marginBottom: 15,
+    textAlign: "center",
+    fontWeight: "700",
+    fontSize: 16,
+  },
+
   modalView2: {
     margin: 20,
-    backgroundColor: "red",
+    minHeight: 230,
+    width: 310,
+    backgroundColor: "#FD3A69",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
@@ -117,6 +114,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+
+  image: {
+    width: 50,
+    height: 50,
   },
 })
 

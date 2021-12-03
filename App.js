@@ -1,34 +1,87 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components/native"
-
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+} from "react-native"
+import { useFonts, ubuntu_400Regular } from "@expo-google-fonts/ubuntu"
 import Data from "./components/Data"
-import Shake from "./components/Shake"
+import AppLoading from "./components/AppLoading"
+import Start from "./components/Start"
 
 const Container = styled.View`
   flex: 1;
-  background-color: #d9cab3;
+  /* font-family: "unbuntu_400Regular"; */
   justify-content: center;
   align-items: center;
 `
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: #212121;
-  margin-bottom: 20px;
-`
+// const image = {require("../assets/stripes.jpg") }
 
 const App = () => {
   // const [currentTab, setCurrentTab] = useState("Shake")
+  // const [fontsLoaded] = useFonts({
+  //   ubuntu_400Regular,
+  // })
+  // if (!fontsLoaded) {
+  //   return <AppLoading />
+  // }
+  const [currentPage, setCurrentPage] = useState("start")
 
   return (
-    <Container>
-      {/* {currentTab === "Shake" ? <Shake /> : <Data />} */}
-      <Title>Who is this Pokemon?</Title>
-      {/* <Shake /> */}
-
-      <Data />
-    </Container>
+    <>
+      <View style={styles.container}>
+        {/* <Text style={{ fontFamily: "unbuntu_400Regular" }}>mycket fint</Text> */}
+        <ImageBackground
+          source={require("./assets/stripes.jpg")}
+          resizeMode="cover"
+          style={styles.image}
+        >
+          {/* <Pressable
+            style={styles.button}
+            onPress={() => setCurrentPage("data")}
+          >
+            <Text style={styles.text}>Start game!</Text>
+          </Pressable> */}
+          {/* {currentPage === "data" && <Data />} */}
+          <Data />
+        </ImageBackground>
+      </View>
+    </>
   )
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  text: {
+    color: "white",
+    fontSize: 42,
+    lineHeight: 84,
+    fontWeight: "bold",
+    textAlign: "center",
+    backgroundColor: "#000000c0",
+  },
+
+  button: {},
+})
+
 export default App
+
+{
+  /* <Container>
+
+
+
+
+<Data />
+</Container> */
+}
