@@ -67,9 +67,9 @@ const ButtonApi = () => {
       .finally(() => setLoading(false));
   };
 
-  if (loading || !fontsLoaded) {
-    return <ActivityIndicator />;
-  }
+  // if (loading || !fontsLoaded) {
+  //   return <ActivityIndicator />;
+  // }
 
   return (
     <ThinkBackground source={require('../assets/think_background.jpg')}>
