@@ -1,11 +1,8 @@
 import React from 'react'
-import styled from 'styled-components/native'
-// import { Ionicons } from '@expo/vector-icons'
-import { FontAwesome5 } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native'
 import { createAppContainer } from 'react-navigation'
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
-import { SafeAreaView, StyleSheet, StatusBar } from 'react-native'
+import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons'
 
 import HomeScreen from './screens/HomeScreen'
 import DiceOneScreen from './screens/DiceOneScreen'
@@ -47,16 +44,6 @@ const TabNavigator = createMaterialTopTabNavigator(
       navigationOptions: {
         tabBarLabel: 'Boring Nums',
         tabBarIcon: (tabInfo) => (
-          // <Ionicons
-          //   name='ios-videocam-outline'
-          //   size={tabInfo.focused ? 25 : 20}
-          //   color={tabInfo.tintColor}
-          // />
-          // <MaterialCommunityIcons
-          //   name='dice-multiple-outline'
-          //   size={tabInfo.focused ? 24 : 20}
-          //   color={tabInfo.tintColor}
-          // />
           <MaterialCommunityIcons
             name='dice-2'
             size={tabInfo.focused ? 24 : 20}
@@ -72,7 +59,6 @@ const TabNavigator = createMaterialTopTabNavigator(
 
       style: {
         backgroundColor: '#006600',
-        // marginTop: 28,
       },
     },
   }
@@ -91,9 +77,11 @@ const App = () => {
   )
 }
 
+// = StyleSheet
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // set top margin as the height of the statusbar of a device
     marginTop: StatusBar.currentHeight,
   },
 })

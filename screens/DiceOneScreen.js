@@ -7,9 +7,7 @@ import {
   Animated,
   Vibration,
 } from 'react-native'
-// import { Ionicons } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
 
 import SensorComponent from '../components/SensorComponent'
 
@@ -53,6 +51,7 @@ const DiceOneScreen = () => {
     }, 50)
   }
 
+  // = shake animation
   const anim = useRef(new Animated.Value(0))
 
   const shake = useCallback(() => {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Text } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
 import { Accelerometer } from 'expo-sensors'
-import styled from 'styled-components/native'
 
 // ==========================
 // = Functions
@@ -15,24 +14,6 @@ const isShaking = (data) => {
   // Increase this threshold if you need your user to shake harder
   return totalForce > 1.78
 }
-
-// ==========================
-// = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`
-
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
-`
-const ShakeDataView = styled.View``
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`
-const ShakeData = styled.Text``
 
 const SensorComponent = ({ onShake }) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -76,41 +57,21 @@ const SensorComponent = ({ onShake }) => {
     return () => _unsubscribe()
   }, [])
 
-  // whenever the device is shaking -> useEffect invoke function onShake/handleShake
+  // whenever the device is shaking -> useEffect, invoke function onShake/handleShake
   const shaking = isShaking(data)
   useEffect(() => {
     onShake(shaking)
   }, [shaking])
 
-  return (
-    isShaking(data) && (
-      <Text style={{ color: '#aa0000', fontSize: 20 }}>Shaking</Text>
-    )
-  )
+  return isShaking(data) && <Text style={styles.text}>Shaking</Text>
 }
 
-// <ShakeView>
-{
-  /* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */
-}
-{
-  /* {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-    </ShakeView> */
-}
-
-{
-  /* <ShakeDataView>
-<ShakeDataTitle>Shake Data</ShakeDataTitle>
-//toFixed(2) only shows two decimal places, otherwise it's quite a lot 
-<ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-<ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-<ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-</ShakeDataView> */
-}
+// = StyleSheet
+const styles = StyleSheet.create({
+  text: {
+    color: '#aa0000',
+    fontSize: 20,
+  },
+})
 
 export default SensorComponent

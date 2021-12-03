@@ -7,8 +7,7 @@ import {
   Animated,
   Vibration,
 } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
 
 import SensorComponent from '../components/SensorComponent'
 
@@ -40,7 +39,6 @@ const DiceTwoScreen = () => {
   const [diceNumber, setDiceNumber] = useState('')
 
   const handleShake = () => {
-    // setDiceNumber(rollDice().toString())
     shake()
     Vibration.vibrate()
     let counter = 0
@@ -53,6 +51,7 @@ const DiceTwoScreen = () => {
     }, 50)
   }
 
+  // = shake animation
   const anim = useRef(new Animated.Value(0))
 
   const shake = useCallback(() => {
@@ -60,13 +59,13 @@ const DiceTwoScreen = () => {
     Animated.loop(
       // runs the animation array in sequence
       Animated.sequence([
-        // shift element to the left by 2 units
+        // shift element to the left by 4 units
         Animated.timing(anim.current, {
           toValue: -4,
           duration: 50,
           useNativeDriver: true,
         }),
-        // shift element to the right by 2 units
+        // shift element to the right by 4 units
         Animated.timing(anim.current, {
           toValue: 4,
           duration: 50,
@@ -112,7 +111,6 @@ const DiceTwoScreen = () => {
             counter++
             if (counter === 10) {
               clearInterval(interval)
-              // Vibration.vibrate(PATTERN.cancel())
             }
           }, 50)
         }}
