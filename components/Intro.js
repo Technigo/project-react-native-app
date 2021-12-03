@@ -10,7 +10,7 @@ const FlexContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 750px;
 `;
 
 const Container = styled.View`
@@ -38,7 +38,7 @@ const ButtonText = styled.Text`
 `;
 
 const Background = styled.ImageBackground`
- height: 100%;
+ height: 750px;
 `;
 const image = { uri: "https://wallpaper.dog/large/985111.jpg" };
 
