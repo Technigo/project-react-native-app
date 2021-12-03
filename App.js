@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import GetWeather from './components/GetWeather';
+import RandomWeather from './components/RandomWeather';
 
 const Container = styled.View`
 	flex: 1;
