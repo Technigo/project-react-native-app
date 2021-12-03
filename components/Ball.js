@@ -9,9 +9,8 @@ const Container = styled.View`
   align-items: center;
 `;
 const Title = styled.Text`
-  margin-top: 50px;
+  margin: 20px;
   font-size: 30px;
-  font-weight: 900;
 `;
 
 const BallContainer = styled.View`
@@ -111,13 +110,12 @@ const Ball = () => {
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-    return totalForce > 1.0;
+    return totalForce > 1.3;
   };
 
-  const { x, y, z } = data;
   return (
     <Container>
-      <Title>Here you can find the answer on everything!</Title>
+      <Title>What´s upp? I will give you some advice</Title>
       <View>
         <Animated.View
           style={{
