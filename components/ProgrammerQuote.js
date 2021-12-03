@@ -5,14 +5,21 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   ImageBackground,
-  requireNativeComponent,
 } from "react-native";
 import { PROGRAMMING_API } from "../utils/urls";
 import styled from "styled-components/native";
+import {
+  useFonts,
+  RobotoMono_400Regular,
+} from "@expo-google-fonts/roboto-mono";
 
 const ProgrammerQuote = () => {
   const [quote, setQuote] = useState({});
   const [loading, setLoading] = useState(false);
+
+  const [fontsLoaded] = useFonts({
+    RobotoMono_400Regular,
+  });
 
   useEffect(() => {
     generateQuote();
@@ -25,7 +32,6 @@ const ProgrammerQuote = () => {
       .then((data) => setQuote(data))
       .finally(() => setLoading(false));
   };
-  console.log(quote);
 
   if (loading) {
     return <ActivityIndicator />;
@@ -33,17 +39,25 @@ const ProgrammerQuote = () => {
 
   return (
     <>
-      <BackgroundImage source={require("../assets/programmer.jpg")}>
+      <BackgroundImage source={require("../assets/programmer.png")}>
         <Wrapper>
           <ButtonWrapper>
-            <ButtonText>Click to generate a programmer quote!</ButtonText>
+            <ButtonText style={{ fontFamily: "RobotoMono_400Regular" }}>
+              Click to generate a programmer quote!
+            </ButtonText>
             <APIButton onPress={generateQuote}>
-              <Text>CLICK!</Text>
+              <Text style={{ fontFamily: "RobotoMono_400Regular" }}>
+                CLICK!
+              </Text>
             </APIButton>
           </ButtonWrapper>
           <TextWrapper>
-            <Quote>{quote.en}</Quote>
-            <Show>Author: {quote.author}</Show>
+            <Quote style={{ fontFamily: "RobotoMono_400Regular" }}>
+              {quote.en}
+            </Quote>
+            <Author style={{ fontFamily: "RobotoMono_400Regular" }}>
+              Author: {quote.author}
+            </Author>
           </TextWrapper>
         </Wrapper>
       </BackgroundImage>
@@ -54,10 +68,9 @@ const ProgrammerQuote = () => {
 export default ProgrammerQuote;
 
 const BackgroundImage = styled.ImageBackground`
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
-  filter: grayscale(100%);
 `;
 
 const Wrapper = styled.View`
@@ -84,7 +97,7 @@ const ButtonText = styled.Text`
 
 const APIButton = styled.TouchableOpacity`
   width: 60%;
-  background-color: #797979;
+  background-color: #d4d4d4;
   text-align: center;
   padding: 5%;
   margin-top: 10px;
@@ -96,9 +109,11 @@ const TextWrapper = styled.View`
 
 const Quote = styled.Text`
   font-size: 24px;
+  text-align: center;
 `;
 
-const Show = styled.Text`
+const Author = styled.Text`
   font-size: 20px;
   margin-top: 10px;
+  text-align: center;
 `;
