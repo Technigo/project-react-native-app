@@ -13,8 +13,11 @@ import Judith from "./components/Judith";
 import Frans from "./components/Frans";
 import Johannes from "./components/Johannes";
 import Rembrandt from "./components/Rembrandt";
+import ArtistPage from "./components/ArtistPage";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { keyframes } from "styled-components/native";
+import Drink from "./components/Drink";
+import Dinner from "./components/Dinner";
 
 const Container = styled.View`
   flex: 1;
@@ -103,6 +106,16 @@ function StartScreen({ navigation }) {
             <ButtonText>GO TO REMBRANDT</ButtonText>
           </ArtisButton>
         </ImageBoxSmall>
+        <ImageBoxSmall>
+          <ArtisButton onPress={() => navigation.navigate("Drink")}>
+            <ButtonText>GO TO DRINK</ButtonText>
+          </ArtisButton>
+        </ImageBoxSmall>
+        <ImageBoxSmall>
+          <ArtisButton onPress={() => navigation.navigate("Dinner")}>
+            <ButtonText>GO TO DINNER</ButtonText>
+          </ArtisButton>
+        </ImageBoxSmall>
         <DescriptiveText>
           Welcome to the Golden Age of Dutch painting. Thanks to the Rijksmuseum
           you can here enjoy their collection of four of my favourite Dutch
@@ -120,6 +133,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={StartScreen} />
+        <Stack.Screen name="Drink" component={Drink} />
+        <Stack.Screen name="Dinner" component={Dinner} />
         <Stack.Screen name="Judith" component={Judith} />
         <Stack.Screen name="Frans" component={Frans} />
         <Stack.Screen name="Johannes" component={Johannes} />

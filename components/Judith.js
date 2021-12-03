@@ -77,6 +77,7 @@ const Judith = () => {
     fetch(JUDITH_URL)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setData(data.artObjects);
       })
       .finally(() => setLoading(false), setShowButton(false));

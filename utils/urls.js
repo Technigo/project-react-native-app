@@ -1,3 +1,5 @@
+export const BASE_URL = (artist) =>
+  `https://www.rijksmuseum.nl/api/en/collection?key=qd9menfR&f.involvedMaker=${artist}`;
 export const JUDITH_URL =
   "https://www.rijksmuseum.nl/api/en/collection?key=qd9menfR&f.involvedMaker=Judith+Leyster";
 export const FRANS_URL =

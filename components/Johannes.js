@@ -73,7 +73,12 @@ const Johannes = () => {
 
   const getJohannes = () => {
     setLoading(true);
-    fetch(JOHANNES_URL)
+    fetch(JOHANNES_URL, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setData(data.artObjects);
