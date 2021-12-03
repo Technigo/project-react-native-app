@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 const ButtonText = styled.Text`
   font-size: 24px;
-  font-family: "SWFontHollow";
+  font-family: "SWFont";
   color: ${(props) => props.theme.colors.textYellow};
   line-height: 21px;
   padding: 5px;

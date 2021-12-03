@@ -6,6 +6,8 @@ import Theme from "./Theme";
 import StartingPage from "./components/StartingPage";
 import Planets from "./components/Planets";
 import Species from "./components/Species";
+import Starships from "./components/Starships";
+import Vehicles from "./components/Vehicles";
 import Loading from "./components/Loading";
 
 const Container = styled.View`
@@ -56,6 +58,18 @@ const App = () => {
           )}
           {currentPage === "Species" && (
             <Species
+              setCurrentPage={setCurrentPage}
+              setLoading={setLoading}
+            />
+          )}
+          {currentPage === "Starships" && (
+            <Starships
+              setCurrentPage={setCurrentPage}
+              setLoading={setLoading}
+            />
+          )}
+          {currentPage === "Vehicles" && (
+            <Vehicles
               setCurrentPage={setCurrentPage}
               setLoading={setLoading}
             />

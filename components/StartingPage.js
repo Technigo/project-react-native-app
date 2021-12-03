@@ -26,6 +26,11 @@ const StartingPage = ({ setCurrentPage }) => {
       <SmallContainer>
         <CategoryButton buttonText="Planets" onPressed={onPressed} />
         <CategoryButton buttonText="Species" onPressed={onPressed} />
+        <CategoryButton
+          buttonText="Starships"
+          onPressed={onPressed}
+        />
+        <CategoryButton buttonText="Vehicles" onPressed={onPressed} />
       </SmallContainer>
     </>
   );
