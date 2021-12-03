@@ -68,7 +68,7 @@ const ImgPokemon = styled.Image`
 `
 
 const AnswerButtonContainer = styled.View`
-  width: 320px;
+  width: 350px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -81,7 +81,7 @@ const AnswerButton = styled.TouchableOpacity`
   background-color: #000009;
   border-color: #fff338;
   border-width: 3px;
-  min-width: 140px;
+  min-width: 165px;
   margin: 2px;
   border-radius: 3px;
   text-align: center;
@@ -89,7 +89,7 @@ const AnswerButton = styled.TouchableOpacity`
   padding-bottom: 25px;
 `
 const ButtonText = styled.Text`
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   color: white;
 `
@@ -99,7 +99,7 @@ const RestartButton = styled.TouchableOpacity`
   justify-content: center;
   border-color: #fff338;
   border-width: 3px;
-  width: 290px;
+  width: 335px;
   margin-top: 0px;
   margin-bottom: 10px;
   border-radius: 3px;
@@ -194,7 +194,7 @@ const Data = () => {
 
   const fetchAllData = () => {
     setLoading(true)
-    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1080&offset=1080"`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=900&offset=900"`)
       .then(res => res.json())
       .then(pokemons => {
         const NoOfPokemons = 4

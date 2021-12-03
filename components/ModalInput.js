@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   modalView: {
     margin: 20,
     minHeight: 230,
-    width: 310,
+    width: 350,
     backgroundColor: "yellowgreen",
     borderRadius: 20,
     padding: 35,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   modalView2: {
     margin: 20,
     minHeight: 230,
-    width: 310,
+    width: 350,
     backgroundColor: "#FD3A69",
     borderRadius: 20,
     padding: 35,
