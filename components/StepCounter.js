@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Text, View, StyleSheet, TouchableHighlight } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { Pedometer } from "expo-sensors";
 import { ProgressChart } from "react-native-chart-kit";
 import { Header } from "./Header";
@@ -83,9 +83,9 @@ export const StepCounter = () => {
     backgroundGradientToOpacity: 0,
 
     color: (opacity = 1) => `rgba(0,94,124, ${opacity})`,
-    strokeWidth: 2, // optional, default 3
+    strokeWidth: 2,
     barPercentage: 0.5,
-    useShadowColorFromDataset: false, // optional
+    useShadowColorFromDataset: false,
   };
   const stepData = useSelector((state) => state.settings.steps);
 

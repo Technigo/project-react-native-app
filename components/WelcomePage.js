@@ -25,7 +25,7 @@ export const WelcomePage = () => {
   return (
     <Container>
       <FirstTitle>Hello</FirstTitle>
-      <SecondTitle>{nameData ? { namedata } : "You"}</SecondTitle>
+      <SecondTitle>{nameData ? { nameData } : "You"}</SecondTitle>
       <WalkLoader />
     </Container>
   );
