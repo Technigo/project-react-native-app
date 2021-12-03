@@ -5,6 +5,8 @@ import { Accelerometer } from 'expo-sensors';
 import { useFonts, Buda_300Light } from '@expo-google-fonts/buda';
 import { Poppins_400Regular } from '@expo-google-fonts/poppins';
 
+// Styled components
+
 const Heading = styled.Text`
   font-size: 35px;
   text-align: center;
@@ -29,6 +31,12 @@ const QuoteText = styled.Text`
 const ShakeText = styled.Text`
   font-size: 16px;
   padding-right: 12%;
+`;
+
+const Spinner = styled.ActivityIndicator`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
 
 const KanyeBackground = styled.ImageBackground`
@@ -95,7 +103,7 @@ const ShakeApi = () => {
   };
 
   if (loading || !fontsLoaded) {
-    return <ActivityIndicator />;
+    return <Spinner size="large" color="#c93e71" />;
   }
 
   return (

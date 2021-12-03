@@ -11,6 +11,7 @@ import styled from 'styled-components/native';
 import { useFonts, Buda_300Light } from '@expo-google-fonts/buda';
 import { Poppins_400Regular } from '@expo-google-fonts/poppins';
 
+// Styled components
 const Heading = styled.Text`
   font-size: 27px;
   text-align: center;
@@ -47,6 +48,12 @@ const ButtonText = styled.Text`
   font-size: 15px;
 `;
 
+const Spinner = styled.ActivityIndicator`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
 const ButtonApi = () => {
   const [quote, setQuote] = useState({});
   const [loading, setLoading] = useState(false);
@@ -68,7 +75,7 @@ const ButtonApi = () => {
   };
 
   if (loading || !fontsLoaded) {
-    return <ActivityIndicator />;
+    return <Spinner size="large" color="#FBC740" />;
   }
 
   return (
