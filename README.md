@@ -25,3 +25,5 @@ For improvement I think I need to rethink about the vibration I added whenever t
 ## View it live
 
 Expo:
+exp://exp.host/@katiewu1/Dice-Roller
+https://expo.dev/@katiewu1/Dice-Roller
