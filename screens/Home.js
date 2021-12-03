@@ -58,6 +58,8 @@ const ListContainer = styled.View`
   margin: 10px;
   height: 270px;
   border-radius: 10px;
+  border: 2px solid #161616;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 const TodosTitle = styled.Text`
@@ -131,12 +133,10 @@ export const Home = ({ navigation }) => {
       )}
 
       <View>
-        <NavButton onPress={() => navigation.navigate('Bored')}>
+        <NavButton onPress={() => navigation.navigate('Activities')}>
           <Text>No todos? go to activities</Text>
         </NavButton>
       </View>
-
-      {/* TODO  */}
     </FeedContainer>
     // </TouchableWithoutFeedback>
   );

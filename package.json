@@ -25,7 +25,9 @@
     "react-native-web": "0.17.1",
     "react-redux": "^7.2.6",
     "styled-components": "^5.3.3",
-    "uniqid": "^5.4.0"
+    "uniqid": "^5.4.0",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-reanimated": "~2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

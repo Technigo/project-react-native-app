@@ -4,17 +4,15 @@ import styled from 'styled-components/native';
 import { AntDesign } from '@expo/vector-icons';
 
 const HeaderContainer = styled.View`
-  height: 150px;
+  height: 100px;
   background-color: #79b4b7;
 `;
 
 const HeaderText = styled.Text`
-  position: relative;
-  height: 200px;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  padding-top: 20px;
+  padding-top: 40px;
   font-family: Arial;
 `;
 

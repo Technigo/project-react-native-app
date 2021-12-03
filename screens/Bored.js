@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  ActivityIndicator,
-  TouchableHighlight,
-  Image,
-} from 'react-native';
+import { View, Text, ActivityIndicator, Image } from 'react-native';
 import styled from 'styled-components/native';
 
 const QuoteText = styled.Text`
@@ -14,7 +8,6 @@ const QuoteText = styled.Text`
 
 const Container = styled.View`
   align-items: center;
-
   background: #faf0e6;
   height: 100vh;
 `;
@@ -35,12 +28,15 @@ const ApiButtonText = styled.Text`
 `;
 
 const ButtonContainer = styled.View`
-  height: 200px;
+  height: auto;
   background: #79b4b7;
   padding: 20px;
   text-align: center;
   margin: 2px;
   border-radius: 10px;
+  border: 2px solid black;
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 const NavButtonHome = styled.TouchableHighlight`
