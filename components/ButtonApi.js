@@ -23,10 +23,11 @@ const TextBox = styled.View`
   align-items: center;
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 40%;
+  margin-bottom: 25%;
 `;
 
 const QuoteText = styled.Text`
+  text-align: center;
   font-weight: 700;
   font-size: 25px;
   padding-bottom: 15px;
@@ -39,7 +40,7 @@ const APIbutton = styled.TouchableOpacity`
   border-radius: 6px;
   padding: 2% 3%;
   background-color: #fff;
-  margin: 10%;
+  margin-top: 10%;
 `;
 
 const ButtonText = styled.Text`
@@ -71,7 +72,7 @@ const ButtonApi = () => {
   }
 
   return (
-    <ThinkBackground source={require('../assets/think_back.jpg')}>
+    <ThinkBackground source={require('../assets/think_background.jpg')}>
       <Heading style={{ fontFamily: 'Poppins_400Regular' }}>
         Well-thought thoughts
       </Heading>

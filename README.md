@@ -1,12 +1,13 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The assignment was to build an app i React Native and style it. I decided to go woth the shake-funktion (accelerometer), mbut decided also to implement functionalities we learned during the week. The result is a quote-generator with two pages. You can navigate with a drawer. One page is updated when you shake the phone, and the other page is updated via a touchable opacity-button. Both fetches random quotes from api's.
+I have styled it with styled component.
+
+I had a compleatly different idéa from the beginning. I wanted to make a personalized dinner-eightball, but as the week went by i decided to go with API's we used in class. I had help from this weeks labs when I styled my project, but if I had more time I would use more resuable components in my app. It seems it would be perfect for that.
+
+I am very pleased that I have kept my cool, despit the code having millions of warnings this week. I have searched for soultions and made it work. I plan to go through my code and make more comments in order to remember it better.
 
 ## View it live
 
