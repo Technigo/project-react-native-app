@@ -12,8 +12,8 @@ const App = () => {
   return (
     <Container>
       <ScreenBackground source={require('./assets/rocket-background.png')}>
-      <Button title="Home" onPress={() => setCurrentTab('SpaceFact')} />
-      <Button title="Shake" onPress={() => setCurrentTab('SensorComponent')} />
+      <Button title="Take Off" onPress={() => setCurrentTab('SpaceFact')} />
+      <Button title="Space Shake" onPress={() => setCurrentTab('SensorComponent')} />
       {currentTab === 'SpaceFact' && <SpaceFact />}
       {currentTab === 'SensorComponent' && <SensorComponent />}
       </ScreenBackground>

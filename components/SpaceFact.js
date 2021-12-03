@@ -51,7 +51,7 @@ export const SpaceFact = () => {
   }
 
   return (
-     <ScreenBackground source={require('../assets/rocket-background.png')}>
+     <Container>
       <FactContainer>
         <FactButton
         key={spacefact.fact}>
@@ -59,19 +59,17 @@ export const SpaceFact = () => {
         </FactButton>
       </FactContainer>
         <ClickButton onPress={() => { getSpacefact()}}>
-          <Text>Take off</Text>
+          <Text>Press to find out cool space fact!</Text>
         </ClickButton>
-    </ScreenBackground>
+    </Container>
   )
 }
 
-const ScreenBackground = styled.ImageBackground`
-  height: 100%;
-  width: 100%;
+const Container = styled.View`
+margin: 0 auto;
 `
 
 const FactContainer = styled.View`
-flex: 1;
 max-width: 300px;
 padding: 30px;
 `
@@ -83,6 +81,9 @@ text-align: center;
 `
 
 const ClickButton = styled.TouchableOpacity`
+justify-content: center;
+align-items: center;
+text-align: center;
 background-color: #fff;
 padding: 10px;
 border: 2px solid #C8553D;
