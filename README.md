@@ -12,4 +12,4 @@ Had I had more time I would have liked to build one resuable component instead o
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@annaester/project-react-native-app

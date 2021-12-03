@@ -1,15 +1,5 @@
 import React, { useRef, useState } from "react";
-import {
-  View,
-  Text,
-  Button,
-  Image,
-  ScrollView,
-  StyleSheet,
-  ActivityIndicator,
-  TouchableOpacity,
-  Animated,
-} from "react-native";
+import { View, ScrollView, ActivityIndicator, Animated } from "react-native";
 import { FRANS_URL } from "../utils/urls";
 import styled from "styled-components/native";
 
@@ -45,14 +35,17 @@ const BioText = styled.Text`
 `;
 
 const ArtistImg = styled.Image`
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
 `;
 
 const TitleText = styled.Text`
+  color: rgba(232, 209, 78, 1);
+  font-style: italic;
   font-weight: bold;
   text-align: center;
-  width: 80%;
+  width: 350px;
+  padding: 10px;
 `;
 
 const ArtisButton = styled.TouchableOpacity`
@@ -87,50 +80,54 @@ const Frans = () => {
 
   return (
     <ArtistBox>
-      <FadeBox>
-        <BioText>
-          Frans Hals ca. 1582-1666, joined Haarlem’s artist guild in 1610. This
-          enabled him to set up his own studio, and take on pupils and
-          assistants, among them Judith Leyster. His younger brother Dirck Hals
-          was probably also an apprentice. Hals was famous for his loose manner
-          of painting, referred to by his contemporaries as 'the rough style'.
-          This style has been both admired and reviled down the centuries. Hals
-          tended to concentrate on portraits, and painted some superb civic
-          guard pieces. He died in 1666 and was buried at St Bavo's, Haarlem’s
-          principal church.
-        </BioText>
-      </FadeBox>
       <ScrollView
         contentContainerStyle={{
           alignItems: "center",
           justifyContent: "center",
-          // width: 300,
+          width: 350,
         }}
       >
+        <FadeBox>
+          <BioText>
+            Frans Hals ca. 1582-1666, joined Haarlem’s artist guild in 1610.
+            This enabled him to set up his own studio, and take on pupils and
+            assistants, among them Judith Leyster. His younger brother Dirck
+            Hals was probably also an apprentice. Hals was famous for his loose
+            manner of painting, referred to by his contemporaries as 'the rough
+            style'. This style has been both admired and reviled down the
+            centuries. Hals tended to concentrate on portraits, and painted some
+            superb civic guard pieces. He died in 1666 and was buried at St
+            Bavo's, Haarlem’s principal church.
+          </BioText>
+        </FadeBox>
         {showButton && (
           <ArtisButton onPress={getFrans}>
             <ButtonText>SEE HIS WORK</ButtonText>
           </ArtisButton>
         )}
         {data.length > 0 &&
-          data.map((art) => (
-            <View
-              key={art.id}
-              style={{
-                border: 1,
-                border: "solid",
-                padding: 5,
-                margin: 10,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <TitleText>{art.title}</TitleText>
-              {art?.webImage?.url && (
-                <ArtistImg source={{ uri: `${art?.webImage?.url}` }} />
-              )}
-            </View>
-          ))}
+          data
+            .filter((item) => item.hasImage === true)
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .map((art) => (
+              <View
+                key={art.id}
+                style={{
+                  padding: 5,
+                  margin: 10,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <TitleText>{art.title}</TitleText>
+                {art?.webImage?.url && (
+                  <ArtistImg
+                    source={{ uri: `${art?.webImage?.url}` }}
+                    style={{ resizeMode: "contain" }}
+                  />
+                )}
+              </View>
+            ))}
       </ScrollView>
     </ArtistBox>
   );

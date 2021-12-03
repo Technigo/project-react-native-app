@@ -1,15 +1,5 @@
 import React, { useRef, useState } from "react";
-import {
-  View,
-  Text,
-  Button,
-  Image,
-  ScrollView,
-  StyleSheet,
-  ActivityIndicator,
-  TouchableOpacity,
-  Animated,
-} from "react-native";
+import { View, ScrollView, ActivityIndicator, Animated } from "react-native";
 import { JOHANNES_URL } from "../utils/urls";
 import styled from "styled-components/native";
 
@@ -45,14 +35,17 @@ const BioText = styled.Text`
 `;
 
 const ArtistImg = styled.Image`
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
 `;
 
 const TitleText = styled.Text`
+  color: rgba(232, 209, 78, 1);
+  font-style: italic;
   font-weight: bold;
   text-align: center;
-  width: 80%;
+  width: 350px;
+  padding: 10px;
 `;
 
 const ArtisButton = styled.TouchableOpacity`
@@ -73,12 +66,7 @@ const Johannes = () => {
 
   const getJohannes = () => {
     setLoading(true);
-    fetch(JOHANNES_URL, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
+    fetch(JOHANNES_URL)
       .then((res) => res.json())
       .then((data) => {
         setData(data.artObjects);
@@ -92,47 +80,52 @@ const Johannes = () => {
 
   return (
     <ArtistBox>
-      <FadeBox>
-        <BioText>
-          Today Johannes Vermeer (1632-1675) is one of the most celebrated Dutch
-          17th century masters. Yet for centuries little importance was attached
-          to his name. Works now known as Vermeers were attributed to other
-          artists. It was only in the 1870s that he was rediscovered and 35
-          paintings identified as his. His later paintings are meticulous
-          compositions of interiors featuring one or two figures, usually women.
-        </BioText>
-      </FadeBox>
       <ScrollView
         contentContainerStyle={{
           alignItems: "center",
           justifyContent: "center",
-          // width: 300,
+          widht: 350,
         }}
       >
+        <FadeBox>
+          <BioText>
+            Today Johannes Vermeer (1632-1675) is one of the most celebrated
+            Dutch 17th century masters. Yet for centuries little importance was
+            attached to his name. Works now known as Vermeers were attributed to
+            other artists. It was only in the 1870s that he was rediscovered and
+            35 paintings identified as his. His later paintings are meticulous
+            compositions of interiors featuring one or two figures, usually
+            women.
+          </BioText>
+        </FadeBox>
         {showButton && (
           <ArtisButton onPress={getJohannes}>
             <ButtonText>SEE HIS WORK</ButtonText>
           </ArtisButton>
         )}
         {data.length > 0 &&
-          data.map((art) => (
-            <View
-              key={art.id}
-              style={{
-                border: 1,
-                border: "solid",
-                padding: 5,
-                margin: 10,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <TitleText>{art.title}</TitleText>
-              {art?.webImage?.url && (
-                <ArtistImg source={{ uri: `${art?.webImage?.url}` }} />
-              )}
-            </View>
-          ))}
+          data
+            .filter((item) => item.hasImage === true)
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .map((art) => (
+              <View
+                key={art.id}
+                style={{
+                  padding: 7,
+                  margin: 10,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <TitleText>{art.title}</TitleText>
+                {art?.webImage?.url && (
+                  <ArtistImg
+                    source={{ uri: `${art?.webImage?.url}` }}
+                    style={{ resizeMode: "contain" }}
+                  />
+                )}
+              </View>
+            ))}
       </ScrollView>
     </ArtistBox>
   );

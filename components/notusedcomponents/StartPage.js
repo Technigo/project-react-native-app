@@ -8,10 +8,10 @@ import {
   ImageBackground,
 } from "react-native";
 import styled from "styled-components/native";
-import Judith from "./Judith";
-import Frans from "./Frans";
-import Johannes from "./Johannes";
-import Rembrandt from "./Rembrandt";
+import Judith from "../Judith";
+import Frans from "../Frans";
+import Johannes from "../Johannes";
+import Rembrandt from "../Rembrandt";
 
 const StartBox = styled.View`
   display: flex;

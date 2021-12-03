@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { View, ScrollView, ActivityIndicator, Animated } from "react-native";
 import styled from "styled-components/native";
-import { BASE_URL } from "../utils/urls";
+import { BASE_URL } from "../../utils/urls";
 
 const ArtistBox = styled.View`
   flex: 1;
