@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity, ActivityIndicator } from "react-native";
+import { Text, View, TouchableOpacity, ActivityIndicator, Vibration } from "react-native";
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
+
+import Header from "./Header";
 
 const Container = styled.View`
     flex: 1;
@@ -76,6 +78,7 @@ const RollD6 = () => {
 
     const rollDiceD6 = () => {
         setloading(true);
+        Vibration.vibrate();
         fetch("http://roll.diceapi.com/json/d6")
             .then((res) => res.json())
             .then((data) => setDice(data.dice))
@@ -88,7 +91,7 @@ const RollD6 = () => {
 
     return (
         <Container>
-            <Title>Dice Roller</Title>
+            <Header />
 
             <Title>Shake to roll a D6 (6 sided dice)</Title>
 

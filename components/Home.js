@@ -2,6 +2,8 @@ import React from "react";
 import { Text, View } from "react-native";
 import styled from "styled-components/native";
 
+import Header from "./Header";
+
 const Container = styled.View`
     flex: 1;
     background-color: greenyellow;
@@ -9,9 +11,13 @@ const Container = styled.View`
     align-items: center;
 `;
 
-
 const Home = () => {
-    return(<Container><Text>Home</Text></Container>)
-}
+    return (
+        <Container>
+            <Header />
+            <Text>Home</Text>
+        </Container>
+    );
+};
 
-export default Home
+export default Home;
