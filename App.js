@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { settings } from "./reducers/Settings";
+// import AsyncStorage from '@react-native-community/async-storage';
 
 import { StepCounter } from "./components/StepCounter";
 import { WelcomePage } from "./components/WelcomePage";
@@ -43,7 +44,7 @@ const App = () => {
       ) : (
         <NavigationContainer>
           <Drawer.Navigator>
-            <Drawer.Screen name="Keep on walking" component={StepCounter} />
+            <Drawer.Screen name="Tracker" component={StepCounter} />
             <Drawer.Screen name="Settings" component={SettingsPage} />
             <Drawer.Screen name="About" component={About} />
           </Drawer.Navigator>

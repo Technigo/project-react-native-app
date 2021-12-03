@@ -36,20 +36,17 @@ const styles = StyleSheet.create({
 
 export const SettingsPage = () => {
   const dispatch = useDispatch();
-  //   console.log(stepData);
-  //   console.log(onStepChange);
-
   const [step, setStep] = useState();
   const [name, setName] = useState("");
+
   const onStepChange = () => {
     dispatch(settings.actions.setSteps(step), setStep(step));
   };
+
   const onNameChange = () => {
     dispatch(settings.actions.setUserName(name), setName(name));
   };
-  console.log("this is step" + step);
-  console.log("on change" + onStepChange);
-  console.log("store" + settings.actions.setSteps(step));
+
   return (
     <View style={styles.Container}>
       <Header />
