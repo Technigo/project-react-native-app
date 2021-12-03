@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Pedometer } from "expo-sensors";
 import styled from "styled-components/native";
+import { useFonts, PermanentMarker_400Regular } from '@expo-google-fonts/permanent-marker';
 
 const Title = styled.Text`
   font-size: 15px;
   margin: 10px;
   color: "rgb(rgb(0, 0, 0)";
 `;
+
+const Success= styled.Text `
+  font-size: 35px;
+  margin: 10px;`
 const TestImage = styled.Image`
   height: 50%;
   width: 250px;
@@ -37,6 +42,9 @@ const StepCounter = () => {
   const [steps, setSteps] = useState(0);
   const [previousSteps, setPreviousSteps] = useState(0);
   const [affirmation, setAffirmation] = useState({});
+  const [fontsLoaded] = useFonts({
+    PermanentMarker_400Regular,
+  });
 
   const end = new Date();
   const start = new Date();
@@ -64,14 +72,15 @@ const StepCounter = () => {
   }; // This fetch function fetches a random affirmation and stores it as setAffirmation
   //Conditionally renders, by using different name for Container, can change background color
 
-  if (previousSteps > 2000) {
+  if (previousSteps > 10000 && fontsLoaded) {
     return (
       <ScreenBackgroundEnd source={require("../assets/glitter.jpg")}>
-        <TestImage source={require("../assets/star.png")} />
-        <Title> You reached your daily goal! You are a Star!</Title>
+        <TestImage source={require("../assets/star.png")} resizeMode="contain"/>
+        <Success style={{fontFamily: 'PermanentMarker_400Regular'}}> You reached your daily goal! You are a Star!</Success>
+        <Success style={{fontFamily: 'PermanentMarker_400Regular'}}> {previousSteps} steps!!! </Success>
       </ScreenBackgroundEnd>
     );
-  } else if (previousSteps > 1000) {
+  } else if (previousSteps > 5000 && fontsLoaded) {
     return (
       <ScreenBackgroundMiddle source={require("../assets/blue-pink.jpg")}>
         <Title> You are (over) halfway to your target! Woohoo!</Title>
