@@ -21,7 +21,7 @@ export const Header = () => {
     <HeaderContainer>
       <HeaderText>
         TODO OR NOT TODO
-        <AntDesign name='meho' size={24} color='black' />
+        <AntDesign name='meho' size={24} color='#000' />
       </HeaderText>
     </HeaderContainer>
   );

@@ -23,7 +23,7 @@ const APIButton = styled.TouchableHighlight`
 `;
 
 const ApiButtonText = styled.Text`
-  color: white;
+  color: #fff;
   width: 100%;
 `;
 
@@ -34,7 +34,7 @@ const ButtonContainer = styled.View`
   text-align: center;
   margin: 2px;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 2px solid #000;
   width: 90%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;

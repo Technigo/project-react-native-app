@@ -21,7 +21,7 @@ export const TodoItem = ({ item, pressHandler }) => {
             <MaterialCommunityIcons
               name='delete-forever'
               size={24}
-              color='black'
+              color='#000'
             />
             {item.text}
           </Item>
