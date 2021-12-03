@@ -9,7 +9,7 @@ const QuoteText = styled.Text`
 const Container = styled.View`
   align-items: center;
   background: #faf0e6;
-  height: 100vh;
+  height: 100%;
 `;
 
 const APIButton = styled.TouchableHighlight`
