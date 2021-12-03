@@ -26,6 +26,7 @@ const Container = styled.View`
   background-color: #d5e9d3;
   justify-content: center;
   align-items: center;
+  padding: 30px;
 `;
 
 const InnerContainer = styled.View`

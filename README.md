@@ -1,13 +1,15 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project i wanted to try React Native out and se how i could use the sensors in the phone. I choose to build an App that gives you a new random trail suggestion when shaken.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I thought it was so awesome to see the screen on the phone updated while I was writing my code on the computer. The first thing I did was print the x, y and z variable on the screen to see how the numbers changed when I touched the phone.
+
+I had to be properly planned this week to get to the project due to the fact that I had so little time to spend this week. It was important that I put the time into the right things, so I started by planning what functions I wanted, then I ticked off one function after another.
+
+If I had more time, I would make sure to get a nicer design. And above that I would like a back button, which sets the store to "null" so that you get back to the start page and can choose a new location.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+XXX

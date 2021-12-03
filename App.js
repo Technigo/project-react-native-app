@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import styled from 'styled-components/native';
 import { trails } from './Components/reducers/trails';
 import { Main } from './Components/Main';
 import { PackList } from './Components/PackList';

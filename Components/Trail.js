@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 import { Accelerometer } from 'expo-sensors';
 import trails from '../.expo-shared/trails.json';
@@ -65,8 +65,9 @@ export const Trail = () => {
         trail!
       </Title>
       <SuggestionBox>
-        <Text>Trail name: {selectedTrail.trail}</Text>
-        <Text>Trail description: {selectedTrail.description}</Text>
+        <Title2>{selectedTrail.trail}</Title2>
+        <Text>{selectedTrail.description}</Text>
+        <BigGreen>{selectedTrail.trail_km}</BigGreen>
       </SuggestionBox>
     </View>
   );
@@ -76,6 +77,19 @@ const Title = styled.Text`
   font-size: 30px;
   text-align: center;
   color: #1e5f18;
+`;
+
+const Title2 = styled.Text`
+  font-size: 15px;
+  text-align: left;
+
+  color: palevioletred;
+`;
+
+const BigGreen = styled.Text`
+  font-size: 30px;
+  color: #1e5f18;
+  margin-top: 10;
 `;
 
 const SuggestionBox = styled.View`

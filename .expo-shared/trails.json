@@ -3,66 +3,66 @@
         {
             "trail": "xxx",
             "description": "herp",
-            "trail-km": "xkm"
+            "trail_km": "xkm"
         }
     ],
     "north": [
         {
             "trail": "yyy",
             "description": "derp",
-            "trail-km": "ykm"
+            "trail_km": "ykm"
         }
     ],
     "middle": [
         {
-                        "trail": "7-torpsleden",
+            "trail": "7-torpsleden",
             "description":"7-torpsleden är en 7,9 kilometer lång vandring i gränslandet mellan Sverige och Norge. Precis som namnet antyder passerar leden sju torp, och den följer de gamla stigar som trampats av finska nybyggare under århundraden.",
-            "trail-km": "7,9km"
+            "trail_km": "7,9km"
         },
         {
-                        "trail": "Danderyds kyrka – Såstaholm",
+            "trail": "Danderyds kyrka – Såstaholm",
             "description": "Vandringen går från Danderyds kyrka, bara en kilometer från Mörby Centrum, in i Rinkebyskogen. Här går du på vältrampade stigar, och längre norrut passerar du mängder av fornlämningar och runstenar. Mellan Rösjön och Vallentunasjön går du till stor del längs de gamla vikingalederna. Det är 15 kilometer lätt vandring, och vill du bo bra så tar du in på Såstaholms hotell i slutet på etappen.",
-            "trail-km": "15km"
+            "trail_km": "15km"
         },
         {
-                        "trail": "Grövelsjön – Storrödtjärn",
+            "trail": "Grövelsjön – Storrödtjärn",
             "description": "Från STF Grövelsjön Fjällstation går du åt nordost över Långfjället. På Långfjället passerar du en informationstavla om Linnés möte med falkfångare 1734. Här finns lämningar från ett gammalt falkfångarläger. Sträckans högsta punkt ligger redan efter fem kilometer, söder om Jakobshöjden. Härifrån får du storslagna vyer över Storvätteshogna – Svealands högsta fjäll som reser sig 1 204 meter över havet. Därefter sluttar leden svagt utför mot Hävlingen.",
-            "trail-km": "21km"
+            "trail_km": "21km"
         },
         {
-                        "trail": "Gåsvik – Sandviken",
+            "trail": "Gåsvik – Sandviken",
             "description": "På Roslagsledens kortaste sträcka, etapp 10 mellan Gåsvik och Sandviken, hinner du med både museibesök och en avstickare till Väddö gårdsmejeri.",
-            "trail-km": "9km"
+            "trail_km": "9km"
         },
         {
-                        "trail": "Halgåleden vid Brattfallet",
+            "trail": "Halgåleden vid Brattfallet",
             "description": "Det mäktiga Brattfallet är startpunkten för den knappt sju kilometer långa Halgåleden. Vandringen är bitvis krävande, med stora nivåskillnader, men bjuder på geologiska värden och storslagen utsikt över Klarälvsdalen.",
-            "trail-km": "6,8km"
+            "trail_km": "6,8km"
         },
         {
-                        "trail": "Järnleden",
             "description": "Järnleden sträcker sig mellan Hytte och Kristinehamn och följer en gammal transportled för järn. Landskapet är vackert och varierat och du passerar flera historiska platser, fornlämningar och sevärdheter. Leden är totalt 30 kilometer lång. Du kan välja att vandra hela eller delar av sträckan. Det finns etapper som passar perfekt för en kortare eller längre dagstur med lätt ryggsäck, med möjligheter att fylla på färskvatten eller fika längs vägen.",
-            "trail-km": "30km"
+            "trail": "Järnleden",
+            "trail_km": "30km"
         },
         {
-                        "trail": "Lövhagen – Domarudden",
+            "trail": "Lövhagen – Domarudden",
             "description": "På etappen mellan Lövhagen och Domarudden hittar du Roslagsledens trevligaste vindskydd och ett flygplan på botten av Stora Harsjön. Sträckan är tolv kilometer lång, men väldigt lättvandrad då den till stor del går på en mindre bilväg. Du passerar flera fina sjöar och naturreservat på vägen, och har många möjligheter att ta ett dopp. Glöm inte att stanna till vid ledens bäst belägna vindskydd vid Lilla Harsjön.",
-            "trail-km": "12km"
+            "trail_km": "12km"
         },
         {
-                        "trail": "Nynäs runt",
+            "trail": "Nynäs runt",
             "description": "Nynäs runt är en trevlig rundtur på 27 kilometer, lagom lång för en helgtur. Turen kombinerar ledetapperna 51–54, och via rundsligan 53:2 kan du göra en avstickare till Sävö. Du passerar bland annat Nynäs slott, museigården Långmaren och Karlfors kvarn. Dessutom finns det flera jättegrytor och klapperstensfält på vägen. Vandringen är kustnära, med flera fina utkikspunkter över sjö- och odlingslandskap.",
-            "trail-km": "27km"
+            "trail_km": "27km"
         },
         {
-                        "trail": "Nynäshamn – Rudans gård",
+            "trail": "Nynäshamn – Rudans gård",
             "description": "På Södertörn hittar du flera fina etapper av Sörmlandsleden, och det är lätt att utnyttja kollektivtrafiken för att få ihop en trevlig tur. Ett exempel är att vandra från Nynäshamn till Rudans gård i Handen, en sträcka på knappt 52 kilometer. På vägen passerar du det gamla torpet Paradiset, som delar namn med det omkringliggande naturreservatet.",
-            "trail-km": "51,1km"
+            "trail_km": "51,1km"
         },
         {
-                        "trail": "Sandviken – Grisslehamn",
+            "trail": "Sandviken – Grisslehamn",
             "description": "Etapp 11 mellan Sandviken och Grisslehamn är ledens nyaste, och enligt många också den finaste. Du vandrar längs med kusten och avslutar i sommarstaden Grisslehamn, där färsk fisk och sköna sängar väntar. Det är inga problem att ta etappen på en dag.",
-            "trail-km": "20km"
+            "trail_km": "20km"
         },
         {
             "trail": "Sundsbergsleden",
@@ -74,12 +74,12 @@
         {
             "trail": "gg",
             "description": "hej och hå",
-            "trail-km": "220km"
+            "trail_km": "220km"
         },
         {
             "trail": "Berp",
             "description": "hejja hejja",
-            "trail-km": "99980km"
+            "trail_km": "99980km"
         }
     ]
 }
