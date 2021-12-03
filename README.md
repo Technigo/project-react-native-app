@@ -11,4 +11,4 @@ I tried to implement a Lottie animation and followed the Expo documentation, but
 
 https://snack.expo.dev/@rephili/random-fox
 
-I have tested it on iOS (Iphone SE).
+I have tested it on iOS (iPhone SE).
