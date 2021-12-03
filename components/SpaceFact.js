@@ -45,7 +45,7 @@ export const SpaceFact = () => {
    },
     {
       fact: 'ONE DAY ON VENUS IS LONGER THAN ONE YEAR',
-      detils: 'Venus has a slow axis rotation which takes 243 Earth days to complete its day. The orbit of Venus around the Sun is 225 Earth days, making a year on Venus 18 days less than a day on Venus.'
+      details: 'Venus has a slow axis rotation which takes 243 Earth days to complete its day. The orbit of Venus around the Sun is 225 Earth days, making a year on Venus 18 days less than a day on Venus.'
     },
     {
       fact: 'THERE IS A PLANET MADE OF DIAMONDS',
@@ -62,15 +62,13 @@ export const SpaceFact = () => {
 
   return (
      <Container>
-      <FactContainer>
         <FactButton
         key={spacefact.fact}>
-          <Text>{spacefact.fact}</Text>
-          <Text>{spacefact.details}</Text>
+          <FactText>{spacefact.fact}</FactText>
+          <DetailsText>{spacefact.details}</DetailsText>
         </FactButton>
-      </FactContainer>
         <ClickButton onPress={() => { getSpacefact()}}>
-          <Text>Press to find out cool space fact!</Text>
+          <ButtonText>Press to find out cool space fact!</ButtonText>
         </ClickButton>
     </Container>
   )
@@ -79,16 +77,22 @@ export const SpaceFact = () => {
 const Container = styled.View`
 margin: 0 auto;
 `
-
-const FactContainer = styled.View`
-max-width: 300px;
-padding: 30px;
-`
-
 const FactButton= styled.TouchableOpacity`
 justify-content: center;
 align-items: center;
 text-align: center;
+max-width: 300px;
+padding: 30px;
+padding-bottom: 0;
+`
+const FactText = styled.Text`
+color: pink;
+font-size: 18px;
+margin-bottom: 5px;
+`
+const DetailsText = styled.Text`
+color: white;
+font-size: 16px;
 `
 
 const ClickButton = styled.TouchableOpacity`
@@ -97,9 +101,14 @@ align-items: center;
 text-align: center;
 background-color: #fff;
 padding: 10px;
-border: 2px solid #C8553D;
+border: 2px solid pink;
 margin: 15px;
 width: 240px;
 border-radius: 8px;
 box-shadow: 2px 2px 6px #959695;
+`
+
+const ButtonText = styled.Text`
+font-weight: 700;
+color: pink;
 `
