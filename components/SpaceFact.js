@@ -98,21 +98,23 @@ const ClickButton = styled.TouchableOpacity`
 justify-content: center;
 align-items: center;
 text-align: center;
-background-color: #fff;
+background-color: #0A97B0;
 padding-top: 30px;
 padding-bottom: 10px;
-border: 2px solid pink;
+border: 2px solid #fff;
 width: 240px;
 height: 100px;
 border-radius: 8px;
-box-shadow: 4px 4px 8px #959695;
+box-shadow: 2px 2px 6px #959695;
 `
 const ButtonTopText = styled.Text`
 font-weight: 900;
 font-size: 18px;
-color: pink;
+color: #fff;
 `
 const ButtonText = styled.Text`
 font-weight: 700;
-color: pink;
+font-size: 14px;
+padding: 0 5px 0 5px;
+color: #fff;
 `
