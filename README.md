@@ -11,4 +11,4 @@ I am very pleased that I have kept my cool, despit the code having millions of w
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@hejmaria/project-react-native-app
