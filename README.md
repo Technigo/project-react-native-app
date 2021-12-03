@@ -7,3 +7,5 @@ The assignment was to have an introduction to React Native. I choose to make a s
 I used Redux store to store the response from API. I used some React Native components to display the information and styled them with styled components.
 
 ## View it live
+
+https://expo.dev/@meeteyes/project-react-native-app
