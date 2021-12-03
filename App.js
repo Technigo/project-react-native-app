@@ -36,7 +36,7 @@ const App = () => {
       <View style={styles.container}>
         {/* <Text style={{ fontFamily: "unbuntu_400Regular" }}>mycket fint</Text> */}
         <ImageBackground
-          source={require("./assets/stripes.jpg")}
+          source={require("./assets/stripes.png")}
           resizeMode="cover"
           style={styles.image}
         >
