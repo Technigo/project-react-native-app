@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Text,
-  TouchableHighlight,
-  View,
-  Button,
-  FlatList,
-  Alert,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from 'react-native';
+import { Text, View, Alert } from 'react-native';
 
 import { Bored } from './Bored';
 import { TodoItem } from './TodoItem';
@@ -22,7 +13,7 @@ const FeedContainer = styled.View`
   display: flex;
   align-items: center;
   background: #faf0e6;
-  height: 100vh;
+  height: 100%;
 `;
 
 const TextInputField = styled.TextInput`
