@@ -111,7 +111,7 @@ const Ball = () => {
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-    return totalForce > 1.3;
+    return totalForce > 1.0;
   };
 
   const { x, y, z } = data;

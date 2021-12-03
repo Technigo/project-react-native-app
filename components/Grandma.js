@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 
 const Container = styled.View`
   flex: 1;
-  background-color: #770055;
+  background-color: #f5425d;
   align-items: center;
 `;
 
@@ -39,27 +39,15 @@ const Number = styled.Text`
   font-size: 70px;
 `;
 
-const Birds = () => {
+const Grandma = () => {
   const [newMeaning, setNewMeaning] = useState("");
   const meaning = [
-    "That was the most stupid question ever!",
-    "Please ask someone else",
-    "YES",
-    "NO",
-    "I here you",
-    "That is a god question",
-    "wondering the same!",
-    "Maybe",
-    "When the stars is Shining bright",
-    "If you like to",
-    "Cannot predict now.",
-    "Ask again later.",
-    "Oooh I need to think on that one!",
-    "You only live ones",
-    "No regrets",
-    "YOLO",
-    "absolutely not!",
-    "Yes, no, absolutely",
+    "Be careful my dear",
+    "it was better before",
+    "If you asking me zzzzzzzzz",
+    "it is not your fault dear",
+    "When you are in my age you will have the answer",
+    "Can you ask me again, I forgot",
   ];
   const showMeaning = () => {
     setNewMeaning(meaning[Math.floor(Math.random() * meaning.length)]);
@@ -80,4 +68,4 @@ const Birds = () => {
   );
 };
 
-export default Birds;
+export default Grandma;

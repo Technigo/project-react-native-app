@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <ViewContainer style={styles.container}>
-      <FirstText>Welcome!</FirstText>
+      <FirstText>What kind of questions do you have today?</FirstText>
       <LottieView
         source={require("../assets/ball.json")}
         style={{
