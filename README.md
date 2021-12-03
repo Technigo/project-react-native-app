@@ -12,4 +12,4 @@ If I had more time, I would make sure to get a nicer design. And above that I wo
 
 ## View it live
 
-XXX
+https://expo.dev/@hedvigm/trail-generator
