@@ -17,6 +17,10 @@ export default class Loading extends React.Component {
           ref={(animation) => {
             this.animation = animation;
           }}
+          style={{
+            width: 400,
+            height: 400,
+          }}
           source={require("../assets/Lotties/spinner.json")}
         />
       </Container>
