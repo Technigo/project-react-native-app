@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator, Image, ImageBackground  } from 'react-native';
+import { ActivityIndicator, Image, ImageBackground, Vibration  } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native'
+import { useFonts } from 'expo-font';
 
 // styled components
 const AnimalContainer = styled.View`
     border-radius: 10px;
     padding: 20px;
     margin: 0 10%;
-    /* background-color: lightgrey; */
     justify-content: center;
     align-items: center;
 `
 const TextContainer = styled.View`
+    margin: 10px 0 10px 0;
+    width: 280px;
+    justify-content: center;
+`
+const TitleText = styled.Text`
+    font-family: 'BubbleShine';
+    font-size: 60px;
+    text-align: center;
+    color: black;
+`
+const GenerateButton = styled.TouchableOpacity`
     background-color: orange;
     margin: 10px 0 10px 0;
     width: 280px;
@@ -20,13 +31,13 @@ const TextContainer = styled.View`
     border-radius: 10px;
     justify-content: center;
 `
-const TitleText = styled.Text`
+const ButtonText = styled.Text`
     text-align: center;
     color: white;
+    font-weight: 700;
 `
-const BottomText = styled.Text`
-    text-align: center;
-    color: white;
+const SmallText = styled.Text`
+    font-size: 8px;
 `
 
 // API URL
@@ -74,11 +85,12 @@ const ShakeFox = () => {
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
-    return totalForce > 1.78
+    return totalForce > 1.75
   }
 
   // Fetch random animal
   const generateAnimal = () => {
+      Vibration.vibrate(400, false)
       setLoading(true)
       fetch(RandomFox)
         .then((res) => res.json())
@@ -86,15 +98,24 @@ const ShakeFox = () => {
         .finally(() => setLoading(false))
   }
 
+  const [loaded] = useFonts({
+		BubbleShine: require('../assets/fonts/BubbleShine.ttf'),
+	  });
+	  
+	  if (!loaded) {
+		return null;
+	  }
+
   return (
-    <ImageBackground source={require('../assets/pixel-heart.png')} style={{width: '100%', height: '100%'}} imageStyle={{resizeMode: 'repeat'}}>
+    <ImageBackground source={require('../assets/wet_snow.png')} style={{width: '100%', height: '100%'}} imageStyle={{resizeMode: 'repeat'}}>
       <AnimalContainer>
             <TextContainer><TitleText>Random Foxes!</TitleText></TextContainer>
             {loading && <ActivityIndicator size="large" color="blue" />}
             <Image source = {{uri: animal.image}}
             style = {{ width: 280, height: 280, borderRadius: 10, margin: 10}}
             />
-            <TextContainer><BottomText>Shake for a new fox</BottomText></TextContainer>
+            <GenerateButton onPress={generateAnimal}><ButtonText>Shake phone or Click! for a new fox</ButtonText></GenerateButton>
+            <SmallText>Sometimes the foxes can take some time to load!</SmallText>
       </AnimalContainer>
       </ImageBackground>
     )
