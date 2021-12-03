@@ -1,26 +1,30 @@
 import React from 'react';
+import { ImageBackground, Text, View, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
+import Car from './components/Car';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+const image = {
+  uri: 'https://media.giphy.com/media/UT5C4hCvmlSzJ7QeQy/giphy.gif'
+};
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center'
+  }
+});
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
+  return (
+    <View style={styles.container}>
+      <ImageBackground source={image} resizeMode='cover' style={styles.image}>
+        <Car />
+      </ImageBackground>
+    </View>
+  );
 };
 
 export default App;
