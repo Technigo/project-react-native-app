@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ActivityIndicator, Image } from 'react-native'
+import { View, Text, ActivityIndicator } from 'react-native'
 
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
@@ -31,9 +31,6 @@ const MovieImage = styled.Image`
 const QuoteText = styled.Text`
 	padding: 3px;
 	font-weight: bold;
-	textShadowColor: #ffffff8C;
-  textShadowOffset: {width: -1, height: 1};
-  textShadowRadius: 10px;
 `
 
 const Dogs = () => {
@@ -104,7 +101,7 @@ const Dogs = () => {
 	}
 
 	if (loading || !fontsLoaded) {
-		return <ActivityIndicator />
+		return <ActivityIndicator size='small' color='#133337' />
 	}
 
 	return (

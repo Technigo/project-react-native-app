@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, ActivityIndicator, Image } from 'react-native'
+import { View, Text, ActivityIndicator } from 'react-native'
 
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
@@ -39,9 +39,6 @@ const MovieImage = styled.Image`
 const MovieText = styled.Text`
 	padding: 3px;
 	font-weight: bold;
-	textShadowColor: #ffffff8C;
-  textShadowOffset: {width: -1, height: 1};
-  textShadowRadius: 10px;
 `
 
 const Ghibli = () => {
@@ -109,29 +106,29 @@ const Ghibli = () => {
 	}
 
 	if (loading || !fontsLoaded) {
-		return <ActivityIndicator />
+		return <ActivityIndicator size='small' color='#133337' />
 	}
 
 	return (
 		<>
-		<ScreenBackground source={require('../assets/background.jpg')}>
-			<MainView>
-			<Animation source={require('../assets/ghibli.gif')} />
-				<View style={{backgroundColor: '#ffffff8C', margin: '5px', padding: '5px', border: 'solid 2px black'}}>
-					<MovieView>
-						<MovieImage source={{uri: `${movie.image}` }} />
-						<TextView>
-								<Text style={{fontWeight: 'bold', fontFamily: 'Montserrat_500Medium'}}>Title:</Text>
-								<MovieTitle style={{fontFamily: 'Montserrat_500Medium'}}> {movie.title}</MovieTitle>
-								<Text style={{fontWeight: 'bold', fontFamily: 'Montserrat_500Medium'}}>Original title:</Text>
-								<MovieTitle style={{fontFamily: 'Montserrat_500Medium'}}> {movie.original_title}</MovieTitle>
-								<Text style={{fontWeight: 'bold', fontFamily: 'Montserrat_500Medium'}}>Release date:</Text>
-								<MovieTitle style={{fontFamily: 'Montserrat_500Medium'}}> {movie.release_date}</MovieTitle>
-						</TextView>
-					</MovieView>
-				<MovieText style={{fontFamily: 'Montserrat_500Medium'}}>{movie.description}</MovieText>
-				</View>
-			</MainView>
+			<ScreenBackground source={require('../assets/background.jpg')}>
+				<MainView>
+				<Animation source={require('../assets/ghibli.gif')} />
+					<View style={{backgroundColor: '#ffffff8C', margin: '5px', padding: '5px', border: 'solid 2px black'}}>
+						<MovieView>
+							<MovieImage source={{uri: `${movie.image}` }} />
+							<TextView>
+									<Text style={{fontWeight: 'bold', fontFamily: 'Montserrat_500Medium'}}>Title:</Text>
+									<MovieTitle style={{fontFamily: 'Montserrat_500Medium'}}> {movie.title}</MovieTitle>
+									<Text style={{fontWeight: 'bold', fontFamily: 'Montserrat_500Medium'}}>Original title:</Text>
+									<MovieTitle style={{fontFamily: 'Montserrat_500Medium'}}> {movie.original_title}</MovieTitle>
+									<Text style={{fontWeight: 'bold', fontFamily: 'Montserrat_500Medium'}}>Release date:</Text>
+									<MovieTitle style={{fontFamily: 'Montserrat_500Medium'}}> {movie.release_date}</MovieTitle>
+							</TextView>
+						</MovieView>
+					<MovieText style={{fontFamily: 'Montserrat_500Medium'}}>{movie.description}</MovieText>
+					</View>
+				</MainView>
 			</ScreenBackground>
 		</>
 	)

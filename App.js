@@ -12,7 +12,7 @@ const Animation = styled.Image`
 `
 const Container = styled.View`
 	flex: 1;
-	background-color: papayawhip;
+	background-color: #fffbbb;
 	justify-content: center;
 	align-items: center;
 `
