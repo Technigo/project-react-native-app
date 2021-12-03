@@ -1,13 +1,12 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The goal for this week was to try out React Native and build my first mobile app. I decided to make an app for children who are curious about space. The app is using the accelerometer sensor - simply shake the phone or click the button to learn cool things about space.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I spent a lot of time looking for an appropriate API to use for this project. I wanted to fetch facts about space and generate that fact using onPress. In the end I created an array with 10 facts about space and a function that randomly generates that fact, when you click a button.
+As an other feature I'm using accelerometer sensor to detect when the phone is shaking, and then generates fact from the same array. I had problem with connecting my phone to Expo to be able to try out the shake sensor and time was running out. So this is still a working progress.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+-
