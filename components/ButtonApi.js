@@ -50,10 +50,10 @@ const ButtonText = styled.Text`
 const ButtonApi = () => {
   const [quote, setQuote] = useState({});
   const [loading, setLoading] = useState(false);
-  // const [fontsLoaded] = useFonts({
-  //   Buda_300Light,
-  //   Poppins_400Regular,
-  // });
+  const [fontsLoaded] = useFonts({
+    Buda_300Light,
+    Poppins_400Regular,
+  });
 
   useEffect(() => {
     generateQuote();
@@ -67,9 +67,9 @@ const ButtonApi = () => {
       .finally(() => setLoading(false));
   };
 
-  // if (loading || !fontsLoaded) {
-  //   return <ActivityIndicator />;
-  // }
+  if (loading || !fontsLoaded) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <ThinkBackground source={require('../assets/think_background.jpg')}>

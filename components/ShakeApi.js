@@ -46,10 +46,10 @@ const ShakeApi = () => {
   const [loading, setLoading] = useState(false);
   // subscription always leve with unsubscription
   const [subscription, setSubscription] = useState(null);
-  // const [fontsLoaded] = useFonts({
-  //   Buda_300Light,
-  //   Poppins_400Regular,
-  // });
+  const [fontsLoaded] = useFonts({
+    Buda_300Light,
+    Poppins_400Regular,
+  });
 
   useEffect(() => {
     generateQuote();
@@ -94,9 +94,9 @@ const ShakeApi = () => {
     return totalForce > 1.78;
   };
 
-  // if (loading || !fontsLoaded) {
-  //   return <ActivityIndicator />;
-  // }
+  if (loading || !fontsLoaded) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <KanyeBackground source={require('../assets/kanye_back.jpg')}>
