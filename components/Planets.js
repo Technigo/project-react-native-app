@@ -22,6 +22,7 @@ const InfoText = styled.Text`
   font-size: 24px;
   font-family: "SWFont";
   color: ${(props) => props.theme.colors.textYellow};
+  margin-bottom: 10px;
 `;
 
 const SmallContainer = styled.View`
@@ -75,7 +76,7 @@ const Planets = ({ setCurrentPage, setLoading }) => {
   };
 
   const generatePlanet = () => {
-    const randomNr = Math.floor(Math.random() * (60 - 1));
+    const randomNr = Math.floor(Math.random() * (60 - 1) + 1);
     setLoading(true);
     fetch(`https://swapi.dev/api/planets/${randomNr}`)
       .then((res) => res.json())
@@ -103,11 +104,16 @@ const Planets = ({ setCurrentPage, setLoading }) => {
         Shake your phone to learn about a new planet
       </TitleText>
       <SmallContainer>
-        <InfoText>Name: {planet.name}</InfoText>
-        <InfoText>Population: {planet.population}</InfoText>
-        <InfoText>Terrain: {planet.terrain}</InfoText>
-        <InfoText>Climate: {planet.climate}</InfoText>
-        <InfoText>Gravity: {planet.gravity}</InfoText>
+        <HollowText>Name:</HollowText>
+        <InfoText>{planet.name}</InfoText>
+        <HollowText>Population:</HollowText>
+        <InfoText>{planet.population}</InfoText>
+        <HollowText>Terrain:</HollowText>
+        <InfoText>{planet.terrain}</InfoText>
+        <HollowText>Climate:</HollowText>
+        <InfoText>{planet.climate}</InfoText>
+        <HollowText>Gravity:</HollowText>
+        <InfoText>{planet.gravity}</InfoText>
       </SmallContainer>
       <SmallContainer>
         {planet.films && planet.films.length > 0 && (
@@ -119,7 +125,7 @@ const Planets = ({ setCurrentPage, setLoading }) => {
           planet.films.map((API) => {
             return <AppearedIn API={API} key={API} />;
           })}
-      </SmallContainer>{" "}
+      </SmallContainer>
       <CenterContainer>
         <CategoryButton
           buttonText="StartPage"

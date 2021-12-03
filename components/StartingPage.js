@@ -25,6 +25,7 @@ const StartingPage = ({ setCurrentPage }) => {
       <Title>Hello there! What do you want to know more about?</Title>
       <SmallContainer>
         <CategoryButton buttonText="Planets" onPressed={onPressed} />
+        <CategoryButton buttonText="Species" onPressed={onPressed} />
       </SmallContainer>
     </>
   );
