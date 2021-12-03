@@ -1,7 +1,9 @@
 {
 	"expo": {
-		"name": "project-react-native-app",
-		"slug": "project-react-native-app",
+		"name": "Trail Generator",
+		"slug": "trail-generator",
+		"description": "Are you exited to explore the nature, shake the phone and it will provide you with a new trail every time! An app built with React Native by Technigo student Hedvig Mejstedt.",
+		"privacy": "public",
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
