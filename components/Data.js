@@ -194,7 +194,7 @@ const Data = () => {
 
   const fetchAllData = () => {
     setLoading(true)
-    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=100&offset=100"`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1080&offset=1080"`)
       .then(res => res.json())
       .then(pokemons => {
         const NoOfPokemons = 4
