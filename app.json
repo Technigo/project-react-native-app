@@ -1,7 +1,9 @@
 {
 	"expo": {
 		"name": "project-react-native-app",
-		"slug": "project-react-native-app",
+		"slug": "An essential quote-generating app",
+		"privacy": "public"
+		"description": "Need a qoute? Here's your app! Choose between the sayings of great thinkers and the shoughts of Kanye West. An app bulit with React Native by Technigo student Maria Petersson."
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
