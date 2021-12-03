@@ -6,7 +6,7 @@ import { Accelerometer } from "expo-sensors";
 const QuoteText = styled.Text`
   font-weight: bold;
   color: white;
-  font-size: 40px;
+  font-size: 45px;
   padding-bottom: 10px;
 `;
 
@@ -18,6 +18,30 @@ const AuthorText = styled.Text`
 const ApiButton = styled.TouchableHighlight`
   width: 50%;
   background-color: coral;
+`;
+
+const WrapLoading = styled.View`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const LoadingText = styled.Text`
+  font-weight: bold;
+  color: white;
+  font-size: 70px;
+  font-style: italic;
+`;
+
+const LoadingTextTwo = styled.Text`
+  font-weight: bold;
+  color: white;
+  font-size: 70px;
+  padding-bottom: 20px;
+  font-style: italic;
+  text-align: center;
+  padding-bottom: 20px;
 `;
 
 const ShakeApi = () => {
@@ -74,7 +98,13 @@ const ShakeApi = () => {
   };
 
   if (loading) {
-    return <ActivityIndicator />;
+    return (
+      <WrapLoading>
+        <LoadingText>SHAKE ME</LoadingText>
+        <LoadingTextTwo>TO GET ZENNED OUT</LoadingTextTwo>
+        <ActivityIndicator size="large" color="white" />
+      </WrapLoading>
+    );
   }
 
   const { x, y, z } = data;
