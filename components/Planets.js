@@ -5,16 +5,32 @@ import styled from "styled-components/native";
 import CategoryButton from "./CategoryButton";
 import AppearedIn from "./AppearedIn";
 
-const TopText = styled.Text`
+const HollowText = styled.Text`
   font-size: 24px;
   font-family: "SWFontHollow";
   color: ${(props) => props.theme.colors.textYellow};
+`;
+
+const TitleText = styled.Text`
+  font-size: 24px;
+  font-family: "SWFontHollow";
+  color: ${(props) => props.theme.colors.textYellow};
+  text-align: center;
 `;
 
 const InfoText = styled.Text`
   font-size: 24px;
   font-family: "SWFont";
   color: ${(props) => props.theme.colors.textYellow};
+`;
+
+const SmallContainer = styled.View`
+  margin-top: 15px;
+  margin-bottom: 15px;
+`;
+
+const CenterContainer = styled.View`
+  align-items: center;
 `;
 
 const Planets = ({ setCurrentPage, setLoading }) => {
@@ -83,17 +99,33 @@ const Planets = ({ setCurrentPage, setLoading }) => {
 
   return (
     <>
-      <TopText>Shake your phone to learn about a new planet</TopText>
-      <InfoText>Name: {planet.name}</InfoText>
-      <InfoText>Population: {planet.population}</InfoText>
-      <InfoText>Terrain: {planet.terrain}</InfoText>
-      <InfoText>Climate: {planet.climate}</InfoText>
-      <InfoText>Gravity: {planet.gravity}</InfoText>
-      {planet.films &&
-        planet.films.map((API) => {
-          return <AppearedIn API={API} key={API} />;
-        })}
-      <CategoryButton buttonText="StartPage" onPressed={onPressed} />
+      <TitleText>
+        Shake your phone to learn about a new planet
+      </TitleText>
+      <SmallContainer>
+        <InfoText>Name: {planet.name}</InfoText>
+        <InfoText>Population: {planet.population}</InfoText>
+        <InfoText>Terrain: {planet.terrain}</InfoText>
+        <InfoText>Climate: {planet.climate}</InfoText>
+        <InfoText>Gravity: {planet.gravity}</InfoText>
+      </SmallContainer>
+      <SmallContainer>
+        {planet.films && planet.films.length > 0 && (
+          <HollowText>
+            {planet.name} has appeared in the following movies:
+          </HollowText>
+        )}
+        {planet.films &&
+          planet.films.map((API) => {
+            return <AppearedIn API={API} key={API} />;
+          })}
+      </SmallContainer>{" "}
+      <CenterContainer>
+        <CategoryButton
+          buttonText="StartPage"
+          onPressed={onPressed}
+        />
+      </CenterContainer>
     </>
   );
 };

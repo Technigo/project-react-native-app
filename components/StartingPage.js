@@ -1,16 +1,19 @@
 import React from "react";
-import styled, { Text, View } from "styled-components/native";
+import styled from "styled-components/native";
 
 import CategoryButton from "./CategoryButton";
-
-const Container = styled.View`
-  width: 90%;
-`;
 
 const Title = styled.Text`
   font-size: 24px;
   font-family: "SWFontHollow";
   color: ${(props) => props.theme.colors.textYellow};
+  text-align: center;
+`;
+
+const SmallContainer = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StartingPage = ({ setCurrentPage }) => {
@@ -18,10 +21,12 @@ const StartingPage = ({ setCurrentPage }) => {
     setCurrentPage(category);
   };
   return (
-    <Container>
+    <>
       <Title>Hello there! What do you want to know more about?</Title>
-      <CategoryButton buttonText="Planets" onPressed={onPressed} />
-    </Container>
+      <SmallContainer>
+        <CategoryButton buttonText="Planets" onPressed={onPressed} />
+      </SmallContainer>
+    </>
   );
 };
 

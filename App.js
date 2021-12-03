@@ -15,6 +15,10 @@ const Container = styled.View`
   align-items: center;
 `;
 
+const InnerContainer = styled.View`
+  width: 90%;
+`;
+
 const App = () => {
   // state to handle which component is loaded
   const [currentPage, setCurrentPage] = useState("StartPage");
@@ -39,15 +43,17 @@ const App = () => {
     <Theme>
       <Container>
         {loading && <Loading />}
-        {currentPage === "StartPage" && (
-          <StartingPage setCurrentPage={setCurrentPage} />
-        )}
-        {currentPage === "Planets" && (
-          <Planets
-            setCurrentPage={setCurrentPage}
-            setLoading={setLoading}
-          />
-        )}
+        <InnerContainer>
+          {currentPage === "StartPage" && (
+            <StartingPage setCurrentPage={setCurrentPage} />
+          )}
+          {currentPage === "Planets" && (
+            <Planets
+              setCurrentPage={setCurrentPage}
+              setLoading={setLoading}
+            />
+          )}
+        </InnerContainer>
       </Container>
     </Theme>
   );
