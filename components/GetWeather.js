@@ -1,49 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { ActivityIndicator } from 'react-native'
 import { Accelerometer} from 'expo-sensors'
-import styled from 'styled-components/native'
+import { Container, APIButton, Title, WeatherImage, BtnText, StyledText } from './GetWeather.styles'
 import * as Location from 'expo-location';
 import data from '../geodata/geodata.json'
 
-const Container = styled.View `
-  padding-top: 2px;
-  height: 40%;
-  width: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-const APIButton = styled.TouchableOpacity`
-  text-align: center;
-  justify-content: center;
-	width: 50%;
-  max-width: 200px;
-	background-color: #06B3D1;
-  border-radius: 5px;
-  height: 40px;
-`
-const Title = styled.Text`
-	font-size: 30px;
-  font-weight: bold;
-	color: #ee7ec0;
-  text-align: center;
-`
-const WeatherImage = styled.Image `
-  width: 100%;
-	height: 100%;
-`
-const BtnText = styled.Text `
-  color: #e6f4f1;
-  font-size: 24px;
-  font-weight: 600;
-  text-align: center;
-`
-const StyledText = styled.Text `
-  font-size: 25px;
-  color: #00344e;
-  margin-bottom: 30px;
-  text-align: center;
-`
+
 
 const GetWeather = () => {
   const [latitude, setLatitude] = useState('')
@@ -167,7 +129,11 @@ const GetWeather = () => {
 		subscription && subscription.remove();
 		setSubscription(null);
 	};
-
+/**
+ * 
+ * @param {*} directions: object { x: la}
+ * @returns boolean
+ */
 	const isShakingEnough = (directions) => {
 		const totalForce = Math.abs(directions.x) + Math.abs(directions.y) + Math.abs(directions.z);
 		return totalForce > 1.78;
