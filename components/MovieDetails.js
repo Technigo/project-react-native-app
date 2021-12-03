@@ -1,64 +1,107 @@
 import React, { useState, useEffect } from 'react';
-import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import { Text, Image, View, StyleSheet, Button } from 'react-native';
+import {
+    Text,
+    Image,
+    View,
+    StyleSheet,
+    Button,
+    StatusBar,
+    ImageBackground,
+    ScrollView,
+    TouchableOpacity
+} from 'react-native';
 import { DETAILS_URL } from '../utils/urls';
+import { CurrentRenderContext } from '@react-navigation/core';
 
-const styles = StyleSheet.create({
-    moviePoster: {
-        width: '100%',
-        height: 350,
-    },
-});
 
 export const MovieDetails = ({ route, navigation }) => {
     const { movieId } = route.params;
     const [details, setDetails] = useState();
 
-	useEffect(() => {
-		fetch(DETAILS_URL(movieId))
-			.then((res) => res.json())
-			.then((data) => {
+    useEffect(() => {
+        fetch(DETAILS_URL(movieId))
+            .then((res) => res.json())
+            .then((data) => {
                 setDetails(data);
-				
-				});
-	}, [movieId]);
 
-return(
+            });
+    }, [movieId]);
 
-    // <div className="detailsPage">
-	// 	<i className="fas fa-chevron-circle-left" onClick={onButtonBackClick}></i>
-	// 	<button className="back-btn" onClick={onButtonBackClick}>Movies</button>
-	// 	{details && (
+    return (
 
-	// 	<div className="background" style={{ backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0) 70%, rgba(0,0,0,1) 100%), url(https://image.tmdb.org/t/p/w1280${details.backdrop_path})` }}>      {/* <gradient to get black fading /> */}
-	// 		<div className="summary">
-    //         <img src={`https://image.tmdb.org/t/p/w780${details.poster_path}`}  alt={details.title} />
-    //         	<div className="details">
-    //           	<h1>{details.title} <span className="rating">{details.vote_average}/10</span></h1>
-    //           	<p>{details.overview}</p>
-    //       		</div>
-	// 		</div>
-	// 	</div>
-	// 		)}
-	// </div>
+        <Container>
 
-<View>
+            {details && (
+                <View>
+                    <ScrollView style={styles.scrollView}>
+                        <ImageBackground source={{ uri: `https://image.tmdb.org/t/p/w780${details.poster_path}` }} resizeMode="cover" style={styles.background} />
+                        <GoBackButton onPress={() => navigation.goBack()}goBack Goback/>
+                        <Title>{details.title}</Title>
+                        <DetailsText>{details.overview}</DetailsText>
+                        <Rate>
+                            Rating {details.vote_average}/10
+                        </Rate>
+                    </ScrollView>
 
-    {details && (
-        <View>
-            <Button onPress={()=>navigation.goBack()} title="Back" />
-        <Text>{details.title}</Text>
-        <Image
-                            style={styles.moviePoster}
-                            source={{
-                                uri: `https://image.tmdb.org/t/p/w780${details.poster_path}`,
-                            }} />
-
-                            <Text>{details.overview}</Text>
-        </View>
-        )
-        }
-</View>
-)
+                </View>
+            )
+            }
+        </Container>
+    )
 };
+
+const styles = StyleSheet.create({
+    moviePoster: {
+        width: '100%',
+        height: 500,
+    }, container: {
+        flex: 1,
+        backgroundColor: "black",
+        paddingTop: StatusBar.currentHeight,
+    },
+    background: {
+        width: '100%',
+        height: 500,
+    },
+    scrollView: {
+        backgroundColor: 'black',
+        marginHorizontal: 10,
+    },
+});
+
+
+const Container = styled.SafeAreaView`
+	background-color: black;
+`;
+
+const GoBackButton = styled.TouchableOpacity`
+color: white;
+background-color: rgb(243,206,19);
+font-size: 25px;
+height: 50px;
+`;
+
+const Title = styled.Text`
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+	margin: 10px auto;
+	text-align:center;
+`;
+
+const DetailsText = styled.Text`
+	font-size: 16px;
+	font-weight: normal;
+	color: white;
+    padding: 0 5px 0 5px;
+	margin-bottom: 10px;
+`;
+
+const Rate = styled.Text`
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 20px;
+    padding: 0 5px 0 5px;
+    color: rgb(243,206,19);
+`;

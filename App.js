@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components/native';
-import { SensorComponent } from './components/SensorComponent';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -22,7 +21,9 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   return (
       <NavigationContainer>
+        
         <Tab.Navigator backBehavior="history">
+          
           <Tab.Screen name="Start" component={MovieList} initialParams={{ listId: 'default' }} />
           <Tab.Screen name="Christmas" component={MovieList} initialParams={{ listId: 'christmas' }} />
           <Tab.Screen name="Top Rated" component={MovieList} initialParams={{ listId: 'toprated' }} />

@@ -18,11 +18,13 @@ const styles = StyleSheet.create({
 export const MovieList = ({ route, navigation }) => {
 
     const { listId } = route.params;
-    let url=MOVIES_URL;
-if(listId ==='christmas'){
-url = CHRISTMAS_URL;}
-else if(listId === 'toprated'){
-url = TOP_RATED_URL;}
+    let url = MOVIES_URL;
+    if (listId === 'christmas') {
+        url = CHRISTMAS_URL;
+    }
+    else if (listId === 'toprated') {
+        url = TOP_RATED_URL;
+    }
 
     const [list, setList] = useState([]);
 
@@ -38,7 +40,7 @@ url = TOP_RATED_URL;}
                 list.map((movie) => (
                     <TouchableOpacity key={movie.id} onPress={() =>
                         navigation.navigate('Details', { movieId: movie.id })
-                      }>
+                    }>
                         <Image
                             style={styles.moviePoster}
                             source={{
