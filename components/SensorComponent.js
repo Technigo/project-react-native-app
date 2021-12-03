@@ -4,37 +4,6 @@ import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 
 export const SensorComponent = () => {
-  const [data, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
-  })
-  const [spacefact, setSpacefact] = useState({})
-  const [subscription, setSubscription] = useState(null)
-
-  useEffect(() => {
-    getSpacefact()
-  }, [])
-
-  useEffect(() => {
-    if (isShakingEnough(data)) {
-      getSpacefact()
-    }
-  }, [])
-
-  const subscribe = () => {
-    setSubscription(
-      Accelerometer.addListener((accelerometerData) => {
-        setData(accelerometerData)
-      })
-    )
-  }
-
-  const unsubscribe = () => {
-    subscription && subscription.remove()
-    setSubscription(null)
-  }
-
   const SpaceFactArray = [
         {
           fact: 'SPACE IS COMPLETELY SILENT',
@@ -84,8 +53,39 @@ export const SensorComponent = () => {
     setSpacefact(theSpacefact)
   }
 
-  const isShakingEnough = (data) => {
-    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
+  const [spacefact, setSpacefact] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  })
+
+  const [subscription, setSubscription] = useState(null)
+
+  useEffect(() => {
+    getSpacefact()
+  }, [])
+
+  useEffect(() => {
+    if (isShakingEnough(spacefact)) {
+      getSpacefact()
+    }
+  }, [spacefact])
+
+  const subscribe = () => {
+    setSubscription(
+      Accelerometer.addListener((accelerometerData) => {
+        setData(accelerometerData)
+      })
+    )
+  }
+
+  const unsubscribe = () => {
+    subscription && subscription.remove()
+    setSubscription(null)
+  }
+
+  const isShakingEnough = (spacefact) => {
+    const totalForce = Math.abs(spacefact.x) + Math.abs(spacefact.y) + Math.abs(spacefact.z)
     return totalForce > 1.78
   }
 
@@ -96,9 +96,6 @@ export const SensorComponent = () => {
          <FactText>{spacefact.fact}</FactText>
         <DetailsText>{spacefact.details}</DetailsText>
        </FactButton>
-       <ClickButton onPress={() => { getSpacefact()}}>
-          <ButtonText>Press to find out cool space fact!</ButtonText>
-       </ClickButton>
      </Container>
       )
     }
@@ -116,28 +113,10 @@ export const SensorComponent = () => {
     `
     const FactText = styled.Text`
     color: pink;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 5px;
     `
     const DetailsText = styled.Text`
     color: white;
-    font-size: 16px;
-    `
-    
-    const ClickButton = styled.TouchableOpacity`
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #fff;
-    padding: 10px;
-    border: 2px solid pink;
-    margin: 15px;
-    width: 240px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 6px #959695;
-    `
-    
-    const ButtonText = styled.Text`
-    font-weight: 700;
-    color: pink;
+    font-size: 18px;
     `

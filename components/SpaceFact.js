@@ -41,7 +41,7 @@ export const SpaceFact = () => {
     },
     {
       fact: 'THERE ARE MORE STARS IN THE UNIVERSE THAN GRAINS OF SANDS ON EARTH',
-      details: 'The universe extends far beyond our own galaxy, The Milky Way, which is why scientists can only estimate how many stars are in space. However, scientists estimate the universe contains approximately 1,000,000,000,000,000,000,000,000 stars, or a septillion.   While no one can actually count every single grain of sand on the earth, the estimated total from researchers at the University of Hawaii, is somewhere around seven quintillion, five hundred quadrillion grains. That is an awfully big sand castle!'
+      details: 'The universe extends far beyond our own galaxy, The Milky Way, which is why scientists can only estimate how many stars are in space. However, scientists estimate the universe contains approximately 1,000,000,000,000,000,000,000,000 stars, or a septillion. While no one can actually count every single grain of sand on the earth, the estimated total is somewhere around seven quintillion, five hundred quadrillion grains.'
    },
     {
       fact: 'ONE DAY ON VENUS IS LONGER THAN ONE YEAR',
@@ -68,7 +68,8 @@ export const SpaceFact = () => {
           <DetailsText>{spacefact.details}</DetailsText>
         </FactButton>
         <ClickButton onPress={() => { getSpacefact()}}>
-          <ButtonText>Press to find out cool space fact!</ButtonText>
+          <ButtonTopText>PRESS</ButtonTopText>
+          <ButtonText>to learn cool things about space!</ButtonText>
         </ClickButton>
     </Container>
   )
@@ -81,33 +82,36 @@ const FactButton= styled.TouchableOpacity`
 justify-content: center;
 align-items: center;
 text-align: center;
-max-width: 300px;
-padding: 30px;
-padding-bottom: 0;
+max-width: 240px;
+margin: 10px;
+margin-bottom: 5px;
 `
 const FactText = styled.Text`
 color: pink;
 font-size: 18px;
-margin-bottom: 5px;
 `
 const DetailsText = styled.Text`
 color: white;
 font-size: 16px;
 `
-
 const ClickButton = styled.TouchableOpacity`
 justify-content: center;
 align-items: center;
 text-align: center;
 background-color: #fff;
-padding: 10px;
+padding-top: 30px;
+padding-bottom: 10px;
 border: 2px solid pink;
-margin: 15px;
 width: 240px;
+height: 100px;
 border-radius: 8px;
-box-shadow: 2px 2px 6px #959695;
+box-shadow: 4px 4px 8px #959695;
 `
-
+const ButtonTopText = styled.Text`
+font-weight: 900;
+font-size: 18px;
+color: pink;
+`
 const ButtonText = styled.Text`
 font-weight: 700;
 color: pink;
