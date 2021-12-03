@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { ImageBackground } from 'react-native'
 import { SensorComponent } from './components/SensorComponent';
 import { SpaceFact } from './components/SpaceFact';
 
@@ -15,11 +16,17 @@ const Title = styled.Text`
   color: palevioletred;
 `;
 
+const ScreenBackground = styled.ImageBackground`
+  height: 100%;
+`
+
 const App = () => {
   return (
     <Container>
+      <ScreenBackground source={require('./assets/rocket-background.png')}>
       <SpaceFact />
       {/* <SensorComponent></SensorComponent> */}
+      </ScreenBackground>
     </Container>
   );
 };
