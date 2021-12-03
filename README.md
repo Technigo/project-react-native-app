@@ -1,13 +1,14 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+A mobile app made with React Native. The goal for this project was to learn some of the basics of React Native and the differences between React Native and React for the web, like how to use the sensors of the mobile, how to use external APIs and navigate from screen to screen. For this project I have implemented the shake sensor function, fetched data from an API and also created a button that allows the user to share the app.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I started by fetching the images from the API and adding the Accelerometer so that the user gets another image when shaking the mobile. Then I added the share button and did some basic styling.
+I tried to implement a Lottie animation and followed the Expo documentation, but unfortunately I didn't get it to work. If I had more time I would create a drawer navigator and maybe also add the option to share a specific image. I used styled components for the styling.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://snack.expo.dev/@rephili/random-fox
+
+I have tested it on iOS (Iphone SE).
