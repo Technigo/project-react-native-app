@@ -3,12 +3,6 @@ import { View, Text, ActivityIndicator, Image } from "react-native";
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
 
-const Section = styled.View`
-  height: 100%;
-  background-color: black;
-  align-items: center;
-`;
-
 const Header = styled.View`
   justify-content: center;
   align-items: center;

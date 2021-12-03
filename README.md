@@ -5,10 +5,11 @@ A mobile app made with React Native. The goal for this project was to learn some
 ## The problem
 
 I started by fetching the images from the API and adding the Accelerometer so that the user gets another image when shaking the mobile. Then I added the share button and did some basic styling.
-I tried to implement a Lottie animation and followed the Expo documentation, but unfortunately I didn't get it to work. If I had more time I would create a drawer navigator and maybe also add the option to share a specific image. I used styled components for the styling.
+I was planning on implementing a Lottie animation and followed the Expo documentation, but unfortunately I didn't get it to work. If I had more time I might create a drawer navigator and maybe add the option to share a specific image. I might also continue working on the animation issue. I used styled components for the styling.
 
 ## View it live
 
+I had some problems getting the expo commands to work, so the project can be found here as an Expo Snack:
 https://snack.expo.dev/@rephili/random-fox
 
 I have tested it on iOS (iPhone SE).
