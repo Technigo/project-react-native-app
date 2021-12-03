@@ -1,13 +1,8 @@
 # Project React Native App 📱
+This week I built my first App with React native. I used a Accelerometersensor to change content in a magic 8-ball when shaking it, For one off the balls I used a API and for the other balls i made my own Arrays and picked a random answer. I used Animation Api, Lottie animation and styled components. 
 
-Replace this readme with your own information about your project.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I had problem when I was going to publish but then I saw that I should write my Expo username and Expo password in the Terminal so then it worked corectly. 
 
-## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Here you can scan it : https://reactnative.dev/docs/panresponder
