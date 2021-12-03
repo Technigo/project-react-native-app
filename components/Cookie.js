@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Text } from "react-native";
 import styled from "styled-components/native";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -53,10 +52,16 @@ const QuoteText = styled.Text`
 const BackButton = styled.TouchableOpacity`
   width: 70px;
   height: 30px;
-  background-color: #ff4d4d;
+  background-color: #ffff66;
   padding: 3px;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+`;
+
+const BackText = styled.Text`
+  color: red;
+  font-size: 16px;
 `;
 
 const Cookie = () => {
@@ -74,7 +79,7 @@ const Cookie = () => {
               </QuoteContainer>
             </CookieImage>
             <BackButton title="Cookie" onPress={() => setPage("Home")}>
-              <Text>Go Back!</Text>
+              <BackText>Go Back!</BackText>
             </BackButton>
           </OuterContainer>
         </LinearBg>

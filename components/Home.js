@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import styled from "styled-components/native";
 
 import ShakeCookie from "./ShakeCookie";
@@ -30,13 +30,28 @@ const CoverImage = styled.ImageBackground`
 
 const HomeButton = styled.TouchableOpacity`
   width: 70%;
-  background-color: white;
-  color: red;
-  font-size: 14px;
+  height: 40px;
+  background-color: #ffff4d;
   padding: 3px;
-  border-radius: 2px;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
+`;
+
+const LinearBg = styled(LinearGradient).attrs({
+  colors: ["#ffff66", "#ffffb3"],
+  start: { x: 0, y: 0.5 },
+  end: { x: 1, y: 0.8 },
+})`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+const TextButton = styled.Text`
+  color: red;
+  font-size: 15px;
 `;
 
 const Home = () => {
@@ -49,7 +64,9 @@ const Home = () => {
           <OuterContainer>
             <Container>
               <HomeButton title="Home" onPress={() => setPage("Cookie")}>
-                <Text>Find your luck!</Text>
+                <LinearBg>
+                  <TextButton>Find your luck!</TextButton>
+                </LinearBg>
               </HomeButton>
             </Container>
           </OuterContainer>
