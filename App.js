@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 import HomePage from './components/HomePage';
 import Movies from './components/Movies';
+import TVShows from './components/TVShows';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -30,6 +31,7 @@ const App = () => {
 				}}>
         <Tab.Screen name="Home" component={HomePage} />
         <Tab.Screen name="Movies" component={Movies} />
+				<Tab.Screen name="TV SHOWS" component={TVShows} />
       </Tab.Navigator>
 		</NavigationContainer>
 	);

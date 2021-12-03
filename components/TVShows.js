@@ -16,9 +16,9 @@ import {
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { FETCH_URL } from '../utils/urls';
+import { TV_SHOWS } from '../utils/urls';
 
-const Movies = () => {
+const TVShows = () => {
 
 	const [movieList, setMovieList] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -31,7 +31,7 @@ const Movies = () => {
 	}, []);
 
 	const generateMovie = () => {
-		fetch(FETCH_URL)
+		fetch(TV_SHOWS)
 			.then((res) => res.json())
 			.then((json) => {
 				setMovieList(json.results);
@@ -44,7 +44,7 @@ const Movies = () => {
 	const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `Hey! :) I found a great movie for tonight! It called ${randomMovie.title}. Can you buy popcorn?`,
+        message: `Hey! :) I found a great tw show for tonight! It called ${randomMovie.title}. Can you buy popcorn?`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -115,7 +115,7 @@ const Movies = () => {
 	)
 };
 
-export default Movies;
+export default TVShows;
 
 // STYLING
 const styles = StyleSheet.create({
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
 	title: {
 		color: "white",
-		fontSize: 18,
+		fontSize: 20,
 		textAlign: "center"
 	},
 
@@ -180,4 +180,3 @@ const MovieImage = styled.Image`
 	width: 100%;
 	height: 400px;
 `;
-
