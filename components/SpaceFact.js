@@ -83,7 +83,6 @@ justify-content: center;
 align-items: center;
 text-align: center;
 max-width: 240px;
-margin: 10px;
 margin-bottom: 5px;
 `
 const FactText = styled.Text`
@@ -105,7 +104,6 @@ border: 2px solid #fff;
 width: 240px;
 height: 100px;
 border-radius: 8px;
-box-shadow: 2px 2px 6px #959695;
 `
 const ButtonTopText = styled.Text`
 font-weight: 900;

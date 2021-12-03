@@ -26,13 +26,7 @@ const Container = styled.View`
   background-color: papayawhip;
   justify-content: center;
   align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
-
+`
 const ScreenBackground = styled.ImageBackground`
   height: 100%;
   width: 100%;
