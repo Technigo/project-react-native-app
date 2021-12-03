@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, ImageBackground } from 'react-native'
 import { ShakeAPI } from './components/ShakeAPI'
 import { Header } from './components/Header'
 import { HomePage } from './components/HomePage'
+import { REACT_APP_API_KEY } from '@env'
 
 const image = { uri: 'https://i.imgur.com/9j8yIOX.jpg' }
 

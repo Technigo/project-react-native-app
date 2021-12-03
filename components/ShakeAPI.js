@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {
-  View,
-  Text,
-  ActivityIndicator,
-  Image,
-  StyleSheet,
-  ScrollView,
-} from 'react-native'
-import { LoadingSpinner } from './LoadingSpinner'
-import styled from 'styled-components/native'
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
+import { REACT_APP_API_KEY } from '@env'
 import { Accelerometer } from 'expo-sensors'
+import { LottieAnimation } from './LottieAnimation'
 
 const styles = StyleSheet.create({
   drinkCard: {
@@ -85,12 +78,12 @@ export const ShakeAPI = () => {
       method: 'GET',
       headers: {
         'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
-        'x-rapidapi-key': '61b601b020msh2610520cd8ce94ep162f13jsn7891eb6bc297',
+        'x-rapidapi-key': REACT_APP_API_KEY,
       },
     })
       .then((res) => res.json())
       .then((data) => setDrink(data))
-      .finally(() => setTimeout(() => setLoading(false), 3000))
+      .finally(() => setTimeout(() => setLoading(false), 4000))
   }
 
   const isShakingEnough = (data) => {
@@ -99,7 +92,7 @@ export const ShakeAPI = () => {
   }
 
   if (loading) {
-    return <LoadingSpinner />
+    return <LottieAnimation />
   }
 
   return (
