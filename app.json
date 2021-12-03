@@ -23,7 +23,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/askme.png",
+        "foregroundImage": "./assets/askme-icon.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.marysnopok.reactnative.magicball"
