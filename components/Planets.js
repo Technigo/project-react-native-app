@@ -100,9 +100,6 @@ const Planets = ({ setCurrentPage, setLoading }) => {
 
   return (
     <>
-      <TitleText>
-        Shake your phone to learn about a new planet
-      </TitleText>
       <SmallContainer>
         <HollowText>Name:</HollowText>
         <InfoText>{planet.name}</InfoText>
@@ -126,6 +123,9 @@ const Planets = ({ setCurrentPage, setLoading }) => {
             return <AppearedIn API={API} key={API} />;
           })}
       </SmallContainer>
+      <TitleText>
+        Shake your phone to learn about a new planet
+      </TitleText>
       <CenterContainer>
         <CategoryButton
           buttonText="StartPage"
