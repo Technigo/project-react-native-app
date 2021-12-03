@@ -41,18 +41,18 @@ export const StepCounter = () => {
       setCurrentStepCount(result.steps);
     });
 
-    Pedometer.isAvailableAsync().then(
-      (result) => {
-        setIsPedometerAvailable(result);
-      },
-      (error) => {
-        setIsPedometerAvailable(error);
-      }
-    );
+    // Pedometer.isAvailableAsync().then(
+    //   (result) => {
+    //     setIsPedometerAvailable(result);
+    //   },
+    //   (error) => {
+    //     setIsPedometerAvailable(error);
+    //   }
+    // );
 
-    const end = new Date();
-    const start = new Date();
-    start.setHours(0, 0, 0, 0);
+    const end = new Date(new Date().setHours(24, 0, 0, 0));
+    const start = new Date(new Date().setHours(0, 0, 0, 0));
+    // start.setHours(0, 0, 0, 0);
     console.log(start, "start");
     console.log(end, "end");
     start.setDate(end.getDate() - 1);

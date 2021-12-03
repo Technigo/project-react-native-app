@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
   },
   inputText: {
     fontSize: 16,
-    margin: 10,
+    marginTop: 10,
+    marginBottom: 10,
   },
 });
 
@@ -65,9 +66,7 @@ export const SettingsPage = () => {
         />
       </View>
       <View style={styles.inputContainer}>
-        <Text style={styles.inputText}>
-          Your name is {name}, do you want to change it?
-        </Text>
+        <Text style={styles.inputText}>What is your name?</Text>
         <TextInput
           style={styles.input}
           onChangeText={(text) => setName(text)}

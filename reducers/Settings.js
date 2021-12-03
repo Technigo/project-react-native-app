@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const settings = createSlice({
   name: "settings",
   initialState: {
-    username: "",
-    steps: null,
+    username: "You",
+    steps: 10000,
   },
   reducers: {
     setUserName: (state, action) => {

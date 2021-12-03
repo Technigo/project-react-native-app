@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
+import { useSelector } from "react-redux";
 
 const FirstTitle = styled.Text`
   font-size: 70px;
@@ -19,10 +20,11 @@ const Container = styled.View`
 `;
 
 export const WelcomePage = () => {
+  const nameData = useSelector((state) => state.settings.name);
   return (
     <Container>
       <FirstTitle>Hello</FirstTitle>
-      <SecondTitle>You</SecondTitle>
+      <SecondTitle>{nameData ? { namedata } : "You"}</SecondTitle>
     </Container>
   );
 };
