@@ -9,7 +9,6 @@ I was planning on implementing a Lottie animation and followed the Expo document
 
 ## View it live
 
-I had some problems getting the expo commands to work, so the project can be found here as an Expo Snack:
 https://snack.expo.dev/@rephili/random-fox
 
 I have tested it on iOS (iPhone SE).
