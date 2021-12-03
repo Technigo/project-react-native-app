@@ -1,13 +1,24 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+A mobile APP created using React Native. The App fetches and displays 2 different quotes API.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+# Features
 
-## The problem
+- Use of different components
+- Use of React Native
+- Use of hooks: useState, useEffect
+- Hamburger menu that changes to 3 different screens
+- API
+- Styled components
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+# Production Process
+
+- I started by planning the functionalities and layout for the project and dividing those into components.
+
+- After searching for an API, I ended up chosing 2 that provided with random quotes (one about movies and the other about programming). I decided to generate them by clicking a button.
+
+- Created a stack navigator containing 3 different pages (Home, Movie Quote and Programmer Quote)
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@brunsant/project-react-native-app

@@ -34,7 +34,7 @@ const ProgrammerQuote = () => {
   };
 
   if (loading) {
-    return <ActivityIndicator />;
+    return <ActivityIndicator size="large" color="black" />;
   }
 
   return (

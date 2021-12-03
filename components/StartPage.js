@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ActivityIndicator,
-  Button,
-  ImageBackground,
-} from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import styled from "styled-components/native";
 import {
   useFonts,

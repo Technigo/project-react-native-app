@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components/native";
-import { Button } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -10,7 +8,6 @@ import StartPage from "./components/StartPage";
 
 const App = () => {
   const Drawer = createDrawerNavigator();
-  const [currentTab, setCurrentTab] = useState("Start Page");
 
   return (
     <NavigationContainer>
