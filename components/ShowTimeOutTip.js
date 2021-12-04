@@ -3,7 +3,7 @@ import { Accelerometer } from 'expo-sensors'
 import styled from 'styled-components/native'
 
 const isShakingEnough = (data) => {
-  const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
+  const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
   return totalForce > 1.78
 }
 
@@ -41,7 +41,7 @@ export const ShowTimeOutTip = () => {
 
   const [todaysTip, setTodaysTip] = useState(null)
   const [subscription, setSubscription] = useState(null)
-  const [shakeViewVisible, setshakeViewVisible] = useState(false);
+  const [shakeViewVisible, setshakeViewVisible] = useState(false)
   
   let tips = [
 	  "Go for a walk",
