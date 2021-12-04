@@ -13,4 +13,4 @@ any house the app renders only the name (without the comma after).
 
 ## View it live
 
-exp://exp.host/@skrosen/project-react-native-app
+https://expo.dev/@skrosen/project-react-native-app
