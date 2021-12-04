@@ -19,7 +19,9 @@ const TestImage = styled.Image`
   width: 250px;
 `;
 const Affirmation = styled.Text`
-  font-size: 20px;
+  font-size: 30px;
+  margin: 100px 30px;
+  color: white;
 `;
 
 const StepsText= styled.Text`
@@ -50,7 +52,7 @@ const StepCounter = () => {
   const [previousSteps, setPreviousSteps] = useState(0);
   const [affirmation, setAffirmation] = useState({});
   const [fontsLoaded] = useFonts({
-    PermanentMarker_400Regular, Roboto_700Bold,
+    PermanentMarker_400Regular, Roboto_700Bold
   });
 
   const end = new Date();
@@ -79,7 +81,7 @@ const StepCounter = () => {
   }; // This fetch function fetches a random affirmation and stores it as setAffirmation
   //Conditionally renders, by using different name for Container, can change background color
 
-  if (previousSteps > 20000 && fontsLoaded) {
+  if (previousSteps > 12000 && fontsLoaded) {
     return (
       <ScreenBackgroundEnd source={require("../assets/glitter.jpg")}>
         <TestImage source={require("../assets/star.png")} resizeMode="contain"/>
@@ -93,16 +95,17 @@ const StepCounter = () => {
          <StepsText style={{fontFamily: 'PermanentMarker_400Regular'}}>{previousSteps} steps</StepsText>
         <Title style={{fontFamily: 'Roboto_700Bold'}}> You are (over) halfway to your target! Woohoo!</Title>
         <Title style={{fontFamily: 'Roboto_700Bold'}}> Keep going, reach for the stars! </Title>
-        <Title style={{fontFamily: 'Roboto_700Bold'}}> You have {target} remaining to reach your target!</Title>
+        <Title style={{fontFamily: 'Roboto_700Bold'}}> ({target} to go!)</Title>
       </ScreenBackgroundMiddle>
     );
   } else {
     return (// this screen is presented if the steps are under 5000. At 1000 steps an API is invoked to fetch an affirmation
       <>
-        <ScreenBackgroundStart source={require("../assets/pink-stripe.jpg")}>
-          <Title>{previousSteps} steps</Title>
-          <Title>{target} steps to reach your target!</Title>
-          <Affirmation>{affirmation.affirmation}</Affirmation>
+        <ScreenBackgroundStart source={require("../assets/pink-galaxy.jpg")}>
+          
+          <StepsText style={{color: '#525252'}}>{previousSteps} steps</StepsText>
+          <Title style={{color: '#525252'}}>({target} steps to go!)</Title> 
+          <Affirmation style={{color: '#525252'}}>{affirmation.affirmation}</Affirmation>
         </ScreenBackgroundStart>
       </>
     );
