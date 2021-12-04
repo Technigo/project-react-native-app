@@ -11,4 +11,4 @@ I started this project by checking the react-native documentation to work out ho
 Technology: React, React-native, styled-components
 ## View it live
 
-
+https://expo.dev/@kara_howes/project-react-native-app

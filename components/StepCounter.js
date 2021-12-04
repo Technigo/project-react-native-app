@@ -81,7 +81,7 @@ const StepCounter = () => {
   }; // This fetch function fetches a random affirmation and stores it as setAffirmation
   //Conditionally renders, by using different name for Container, can change background color
 
-  if (previousSteps > 12000 && fontsLoaded) {
+  if (previousSteps > 10000 && fontsLoaded) {
     return (
       <ScreenBackgroundEnd source={require("../assets/glitter.jpg")}>
         <TestImage source={require("../assets/star.png")} resizeMode="contain"/>
@@ -89,7 +89,7 @@ const StepCounter = () => {
         <Success style={{fontFamily: 'PermanentMarker_400Regular'}}> {previousSteps} steps!!! </Success>
       </ScreenBackgroundEnd>
     );
-  } else if (previousSteps > 10000 && fontsLoaded) {
+  } else if (previousSteps > 5000 && fontsLoaded) {
     return (
       <ScreenBackgroundMiddle source={require("../assets/cosmic.png")}>
          <StepsText style={{fontFamily: 'PermanentMarker_400Regular'}}>{previousSteps} steps</StepsText>
