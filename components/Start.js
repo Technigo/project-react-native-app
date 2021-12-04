@@ -32,7 +32,7 @@ const Title = styled.Text`
 
 const MyAppText = styled.Text`
 	font-family: RobotoCondensed_400Regular;	
-	font-size: 20px;
+	font-size: 24px;
 	text-align: center;
 	color: white;
 	padding: 15px 40px 0 40px;
