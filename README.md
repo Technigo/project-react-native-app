@@ -14,3 +14,18 @@ Challenges:
 ## View it live
 
 Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
+PALETTE
+
+#303054 blue
+#448933 dark green
+#A1D12B light green
+#F4F7ED light gray
+#D0D4A9 dark greenish gray
+#E5EC2E yellow
+#ECE58F beige
+#B5C1C3 elephant gray
+
+For character details:
+
+Gender, species, origin, location, image

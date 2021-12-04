@@ -1,24 +1,22 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import Characters from './components/Characters';
+import CharacterList from './components/CharacterList';
 
 const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
+  background-color: #303054;
+  padding: 60px 30px;
 `;
 
 const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
+  font-size: 40px;
+  color: #a1d12b;
 `;
 
 const App = () => {
   return (
     <Container>
-      <Title>CHARACTERS</Title>
-      <Characters />
+      <Title>Pick Your Rick</Title>
+      <CharacterList />
     </Container>
   );
 };
