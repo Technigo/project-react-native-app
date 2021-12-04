@@ -14,6 +14,14 @@ const Container = styled.View`
   padding: 10px;
   width: 100%;
   height: 100%;
+  text-align: center;
+`;
+
+const PresentationText = styled.Text`
+  font-family: "Raleway_800ExtraBold";
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 10px;
 `;
 
 const TitleText = styled.Text`
@@ -21,6 +29,26 @@ const TitleText = styled.Text`
   font-size: 30px;
   font-weight: 800;
   color: #7a59e4;
+  padding: 10px;
+`;
+
+const ShakeText = styled.Text`
+font-family: "Raleway_800ExtraBold";
+font-weight: bold;
+font-size: 20px
+color: black;
+background-color: white;
+margin-top: 30px;
+`;
+
+const Loader = styled.ActivityIndicator`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ShakeMovie = () => {
@@ -32,6 +60,7 @@ const ShakeMovie = () => {
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(false);
   const [subscription, setSubscription] = useState(null);
+  const [fontsLoaded] = useFonts({ Raleway_800ExtraBold });
 
   useEffect(() => {
     generateMovie();
@@ -72,42 +101,36 @@ const ShakeMovie = () => {
     setLoading(true);
     fetch(MOVIE_URL(randomMovie()))
       .then((res) => res.json())
-      .then((data) => setMovie(data))
-
+      .then((data) => {
+        if (data.adult === false) {
+          setMovie(data);
+        }
+      })
       .finally(() => setLoading(false));
   };
-
-  // How to filter the list and remove empty objects?
-  // const generateMovie = () => {
-  //   setLoading(true);
-  //   fetch(MOVIE_URL(randomMovie()))
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       let completeList = data.filter((movies) => movies.length > 0);
-  //       setMovie(completeList);
-  //     })
-
-  //     .finally(() => setLoading(false));
-  // };
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.78;
   };
   // gets a random number from the complete list of movies.
-  const randomMovie = () => {
-    const min = Math.ceil(1);
-    const max = Math.floor(907331);
-    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+  const randomMovie = (max, min) => {
+    return Math.random() * (907331 - 1 + 1) + 1; //The maximum is inclusive and the minimum is inclusive
   };
 
-  if (loading) {
-    return <ActivityIndicator size="large" />;
+  if (loading || !fontsLoaded) {
+    return <Loader size="large" color="#db7092" />;
+  } else if (!movie.title) {
+    return (
+      <Container>
+        <PresentationText>Something went wrong, shake it!</PresentationText>
+      </Container>
+    );
   }
 
   return (
     <Container>
-      <Text>Lets watch: </Text>
+      <PresentationText>Lets watch: </PresentationText>
       <TitleText>{movie.title}</TitleText>
       <Text>Overview: {movie.overview}</Text>
       {movie.homepage ? (
@@ -116,6 +139,7 @@ const ShakeMovie = () => {
         <Text>Nope</Text>
       )}
       <Text>Released: {movie.release_date}</Text>
+      <ShakeText>Shake again for a new movie!</ShakeText>
     </Container>
   );
 };

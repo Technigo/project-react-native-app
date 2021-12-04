@@ -14,13 +14,41 @@ const Container = styled.View`
   padding: 10px;
   width: 100%;
   height: 100%;
+  text-align: center;
+`;
+
+const PresentationText = styled.Text`
+  font-family: "Raleway_800ExtraBold";
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 10px;
 `;
 
 const TitleText = styled.Text`
   font-family: "Raleway_800ExtraBold";
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 800;
   color: #7958e4;
+  padding: 10px;
+`;
+
+const ShakeText = styled.Text`
+font-family: "Raleway_800ExtraBold";
+font-weight: bold;
+font-size: 20px
+color: black;
+background-color: white;
+margin-top: 30px;
+`;
+
+const Loader = styled.ActivityIndicator`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ShakeKanye = () => {
@@ -32,6 +60,7 @@ const ShakeKanye = () => {
   const [quote, setQuote] = useState({});
   const [loading, setLoading] = useState(false);
   const [subscription, setSubscription] = useState(null);
+  const [fontsLoaded] = useFonts({ Raleway_800ExtraBold });
 
   useEffect(() => {
     generateQuote();
@@ -81,14 +110,15 @@ const ShakeKanye = () => {
     return totalForce > 1.78;
   };
 
-  if (loading) {
-    return <ActivityIndicator size="large" />;
+  if (loading || !fontsLoaded) {
+    return <Loader size="large" color="#db7092" />;
   }
 
   return (
     <Container>
-      <Text>KA*YE WORDS OF WISDOM: </Text>
+      <PresentationText>KA*YE WORDS OF WISDOM: </PresentationText>
       <TitleText>{quote.quote}</TitleText>
+      <ShakeText>Shake again for a new wisdom!</ShakeText>
     </Container>
   );
 };

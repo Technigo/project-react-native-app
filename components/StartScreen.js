@@ -7,29 +7,14 @@ import {
   TouchableHighlight,
   ImageBackground,
   Image,
+  ActivityIndicator,
   Linking,
 } from "react-native";
 import styled from "styled-components/native";
 import {
   useFonts,
-  Raleway_100Thin,
-  Raleway_200ExtraLight,
-  Raleway_300Light,
   Raleway_400Regular,
-  Raleway_500Medium,
-  Raleway_600SemiBold,
-  Raleway_700Bold,
   Raleway_800ExtraBold,
-  Raleway_900Black,
-  Raleway_100Thin_Italic,
-  Raleway_200ExtraLight_Italic,
-  Raleway_300Light_Italic,
-  Raleway_400Regular_Italic,
-  Raleway_500Medium_Italic,
-  Raleway_600SemiBold_Italic,
-  Raleway_700Bold_Italic,
-  Raleway_800ExtraBold_Italic,
-  Raleway_900Black_Italic,
 } from "@expo-google-fonts/raleway";
 
 const Container = styled.View`
@@ -37,7 +22,6 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   background-color: papayawhip;
-
   width: 100%;
   height: 100%;
 `;
@@ -86,19 +70,34 @@ const ButtonText = styled.Text`
 const RoundImage = styled.Image`
   width: 200px;
   height: 200px;
-  border: 1px solid #205b32;
   align-self: center;
   border-radius: 100px;
 `;
 
 const CreditText = styled.Text`
-color: #205b32;
-font-size: 8px
-position: absolute;
-bottom: 0;
+  color: #205b32;
+  font-size: 8px;
+  position: absolute;
+  bottom: 0;
+`;
+
+const Loader = styled.ActivityIndicator`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
 `;
 
 const StartScreen = ({ navigation }) => {
+  const [fontsLoaded] = useFonts({ Raleway_800ExtraBold, Raleway_400Regular });
+
+  if (!fontsLoaded) {
+    return <Loader size="large" />;
+  }
+
   return (
     <Container>
       <GridBox>
