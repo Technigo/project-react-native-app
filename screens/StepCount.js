@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, TextInput, Button, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
 import { Pedometer } from 'expo-sensors'
 
 

@@ -1,126 +1,185 @@
-import React, { useState } from 'react'
-import { SafeAreaView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { SafeAreaView, StyleSheet, View, Text } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import { StepCount } from './StepCount'
 
 import { Card } from 'react-native-elements'
 
-export const CardItems = () => {
-    const [screen, setScreen] = useState();
-
-      // const onPressButton = (event) => {
-      //   setScreen(event.target)
-      // }
+export const CardItemOne = () => {
 
   return (
 
-    <SafeAreaView style={styles.container}>
-        
-        <TouchableOpacity title="Step on" onPress={() => setScreen(<StepCount />)}>
-          <Card borderRadius='8'>
-              <View style={styles.headingContainer}>
-                  <Ionicons style={styles.icon}
-                      name="planet"
-                  />
-                  <Text style={styles.paragraph}>
-                    Set your steps goal for today!
-                  </Text>
-                  <Ionicons style={styles.chevronicon}
-                      name="chevron-forward"
-                  />
-              </View>
-              <Text style={styles.body}>
-                Did you know that for the sake of your health, you need about 15 000 steps per day? 
+    <SafeAreaView >
+      <View title='Step on' borderRadius='8' style={[styles.container, styles.shadowProp]}>
+          <View style={styles.headingContainer}>
+          <View style={styles.icontext}>
+              <Ionicons style={styles.icon}
+                  name="planet-outline"
+              />
+              <Text style={styles.paragraph}>
+                Set your steps goal for today!
               </Text>
-          </Card>
-        </TouchableOpacity>
+           </View>   
+              <View>
+                <Ionicons style={styles.chevronicon}
+                    name="chevron-forward"
+                />
+              </View>
+          </View>
+          <Text style={styles.body}>
+            Did you know that for the sake of your health, you need about 15 000 steps per day? 
+          </Text>
+      </View>
+    </SafeAreaView>
 
-        <TouchableOpacity 
-          activeOpacity= '0.1'
-        >
-          <Card title="Random videos"
-            borderRadius='8'>
-              <View style={styles.headingContainer}>
+  )
+}
+
+export const CardItemTwo = () => {
+
+  return (
+    <SafeAreaView >
+        <View title="Random videos"
+          borderRadius='8' style={[styles.container, styles.shadowProp]}>
+            <View style={styles.headingContainer}>
+              <View style={styles.icontext}>
                   <Ionicons style={styles.icon}
-                      name="videocam"
+                      name="videocam-outline"
                   />
                   <Text style={styles.paragraph}>
                     Watch some random videos!
                   </Text>
+              </View>  
+              <View>  
                   <Ionicons style={styles.chevronicon}
                       name="chevron-forward"
                   />
-              </View>
-              <Text style={styles.body}>
-                Films are often seen primarily as a form of entertainment, but it's worth remembering cinema is also an art form.
-              </Text>
-          </Card>
-        </TouchableOpacity>
+              </View>    
+            </View>
+            <Text style={styles.body}>
+              Films are often seen primarily as a form of entertainment, but it's worth remembering cinema is also an art form.
+            </Text>
+        </View>
+    </SafeAreaView>
 
+  ) 
+}
 
-       <TouchableOpacity>
-          <Card title="Quotes"
-          borderRadius='8'>
+export const CardItemThree = () => {
+
+  return (
+
+      <SafeAreaView>
+          <View title="Quotes"
+            borderRadius='8'style={[styles.container, styles.shadowProp]}>
               <View style={styles.headingContainer}>
+                <View style={styles.icontext}>
                       <Ionicons style={styles.icon}
                           name="heart-half"
                       />
                       <Text style={styles.paragraph}>
                           Who doesn't LOVE quotes?
                       </Text>
+                  </View> 
+                  <View>   
                       <Ionicons style={styles.chevronicon}
                           name="chevron-forward"
                       />
+                  </View>    
               </View>
               <Text style={styles.body}>
                   Get som quotes, and maybe pass it on to someone who needs it?
               </Text>
-          </Card>
-        </TouchableOpacity>
+          </View>
+        </SafeAreaView>
 
-        <TouchableOpacity>
-          <Card title="Quotes"
-            borderRadius='8'>
-              <View style={styles.headingContainer}>
-                      <Ionicons style={styles.icon}
-                          name="book"
-                      />
-                      <Text style={styles.paragraph}>
-                          More Quotes, just by shaking!
-                      </Text>
-                      <Ionicons style={styles.chevronicon}
-                          name="chevron-forward"
-                      />
-              </View>
-              <Text style={styles.body}>
-                  Get som quotes, and maybe pass it on to someone who needs it?
+  )
+}
+
+export const CardItemFour = () => {
+
+  return (
+
+    <SafeAreaView >
+      <View title='Quotes' borderRadius='8' style={[styles.container, styles.shadowProp]}>
+        <View style={styles.headingContainer}>
+          <View style={styles.icontext}>
+              <Ionicons style={styles.icon}
+                  name="star-outline"
+              />
+              <Text style={styles.paragraph}>
+                  More Quotes, just by shaking!
               </Text>
-          </Card>
-        </TouchableOpacity>
-
+          </View>
+          <View>
+              <Ionicons style={styles.chevronicon}
+                  name="chevron-forward"
+              />
+          </View>
+        </View>
+          <Text style={styles.body}>
+              Get som quotes, and maybe pass it on to someone who needs it?
+          </Text>
+      </View>
     </SafeAreaView>
-  );
-};
+
+  )
+}
+
+export const CardItemFive = () => {
+
+  return (
+
+    <SafeAreaView >
+      <View title='Contact' borderRadius='8' style={[styles.container, styles.shadowProp]}>
+        <View style={styles.headingContainer}>
+          <View style={styles.icontext}>
+              <Ionicons style={styles.icon}
+                  name="chatbubbles-outline"
+              />
+                <Text style={styles.paragraph}>
+                    Feel free to contact me!
+                </Text>
+            </View>
+            <View>
+                <Ionicons style={styles.chevronicon}
+                    name="chevron-forward"
+                />
+            </View>
+            
+        </View>
+              <Text style={styles.body}>
+                  You will find my contact information here. Talk to you soon!
+              </Text>
+      </View>
+    </SafeAreaView>
+
+  )
+}
+
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 16,
-    minWidth: 100,
+    marginBottom: 8,
+    marginLeft: 16,
+    marginRight: 16,
+    padding: 16,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    minWidth: 50,
   },
   paragraph: {
     fontSize: 18,
     fontWeight: '300',
     color: '#333',
     textAlign: 'left',
-    minWidth: 280,
+    // minWidth: 280,
   },
   body: {
     fontSize: 16,
     fontWeight: 'normal',
     color: '#333',
     textAlign: 'left',
-    marginTop: 16,
-    maxWidth: 320,
+    marginTop: 8,
   },
   icon: {
     fontSize: 32,
@@ -130,11 +189,22 @@ const styles = StyleSheet.create({
   chevronicon: {
     fontSize: 24,
     color: '#333',
-    marginTop: 4,
-    textAlign: 'right',
+    marginTop: 2,
+    justifyContent: 'flex-end',
   },
   headingContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-  }
+      justifyContent: 'space-between'
+  },
+  icontext: {
+    flexDirection: 'row',
+    alignItems: 'center',
+},
+  shadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 3},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
 });

@@ -1,21 +1,137 @@
-const Drawer = createDrawerNavigator()
-	const [onHome, setOnHome] = useState(true)
+			{/* <Drawer.Navigator 
+			  screenOptions={{
+				drawerStyle: {
+					color: '#dedede',
+					activeTintColor: '#dedede',
+					backgroundColor: '#1a1a1a',
+					width: 343,
+				},
+			  }}> */}
 
-	return (
-		<>
-		{onHome ? 
-		(<Container>
-			<Animation source={require('./assets/morty.gif')} />
-			<Title>Are you ready to shake?</Title>
-			<StartButton onPress={() => setOnHome(false)}><EnterText>Enter</EnterText></StartButton>
-		</Container>) 
-		: (
-		<NavigationContainer >
-			<Drawer.Navigator initialRouteName="Ghibli">
-				<Drawer.Screen name="Ghibli - Shake your phone!" component={Ghibli} />
-				<Drawer.Screen name="Dogs - Shake your phone!" component={Dogs} />
-			</Drawer.Navigator>
-		</NavigationContainer>
-	)}
-	</>
-	)
+
+
+{/* <Drawer.Screen 
+					name="Home" 
+					component={HomeScreen}
+					options={{
+						title: 'Welcome!',
+						headerStyle: {
+						  backgroundColor: '#1a1a1a',
+						},
+						headerTintColor: '#fff',
+						headerTitleStyle: {
+						  fontWeight: 'bold',
+						},
+						drawerIcon: ({focused, size}) => (
+							<Ionicons
+								name="md-home"
+								size={size}
+								color={focused ? '#dedede' : '#868686'}
+							/>
+					),
+				}}/> */}
+
+				{/* <Drawer.Screen 
+					name="Random videos" 
+					component={RandomVideos}
+					options={{
+						title: 'Wanna watch something fun?',
+						headerStyle: {
+						  backgroundColor: '#1a1a1a',
+						},
+						headerTintColor: '#fff',
+						headerTitleStyle: {
+						  fontWeight: 'bold',
+						},
+						drawerIcon: ({focused, size}) => (
+						<Ionicons
+							name="videocam"
+							size={size}
+							color={focused ? '#dedede' : '#868686'}
+						/>
+					),
+				}}/> */}
+
+				{/* <Drawer.Screen 
+					name="Step on" 
+					component={StepCount}
+					options={{
+						title: 'Set your Stepgoal!',
+						headerStyle: {
+						  backgroundColor: '#1a1a1a',
+						},
+						headerTintColor: '#fff',
+						headerTitleStyle: {
+						  fontWeight: 'bold',
+						},
+						drawerIcon: ({focused, size}) => (
+						<Ionicons
+							name="planet"
+							size={size}
+							color={focused ? '#dedede' : '#868686'}
+						/>
+					),
+				}}/> */}
+
+				{/* <Drawer.Screen 
+					name="Click for Quote" 
+					component={ButtonApi}
+					options={{
+						title: 'Click the button!',
+						headerStyle: {
+						  backgroundColor: '#1a1a1a',
+						},
+						headerTintColor: '#fff',
+						headerTitleStyle: {
+						  fontWeight: 'bold',
+						},
+						drawerIcon: ({focused, size}) => (
+						<Ionicons
+							name="book"
+							size={size}
+							color={focused ? '#dedede' : '#868686'}
+						/>
+					),
+				}}/> */}
+
+				{/* <Drawer.Screen 
+					name="Shake for Quote" 
+					component={ShakeApi}
+					options={{
+						title: 'Shake your phone gently!',
+						headerStyle: {
+						  backgroundColor: '#1a1a1a',
+						},
+						headerTintColor: '#fff',
+						headerTitleStyle: {
+						  fontWeight: 'bold',
+						},
+						drawerIcon: ({focused, size}) => (
+							<Ionicons
+								name="heart-half"
+								size={size}
+								color={focused ? '#dedede' : '#868686'}
+							/>
+					),
+				}}/> */}
+
+				{/* <Drawer.Screen 
+					name="Contact" 
+					component={Contact} 
+					options={{
+						title: 'About me',
+						headerStyle: {
+						  backgroundColor: '#1a1a1a',
+						},
+						headerTintColor: '#fff',
+						headerTitleStyle: {
+						  fontWeight: 'bold',
+						},
+						drawerIcon: ({focused, size}) => (
+							<Ionicons
+								name="chatbubble"
+								size={size}
+								color={focused ? '#dedede' : '#868686'}
+							/>
+					),
+				}}/> */}
