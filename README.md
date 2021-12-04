@@ -4,7 +4,7 @@ A native mobile app published with Expo that provides the user with ideas for a 
 
 ## The problem
 
-This app was built with React Native and make use of the device accelerometer sensors. The styling was created with styled-components.
+This app was built with React Native and it makes use of the device accelerometer sensors to provide inspiration for taking a time out. The styling was created with styled-components.
 
 
 ## View it live
