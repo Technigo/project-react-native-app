@@ -2,37 +2,43 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { ShowTimeOutTip } from './ShowTimeOutTip'
 
-const Container = styled.View`
+const image = { uri: "https://images.pexels.com/photos/5477696/pexels-photo-5477696.jpeg" };
+
+const ImageBackground = styled.ImageBackground`
 	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
 	align-items: center;
+	padding-top: 75px;
+`
+
+const TextContainer = styled.View`
+	justify-content: center;	
+	background-color: black;
+	opacity: 0.70;
+	padding: 15px 25px 40px 25px;
+	width: 100%;
 `
 
 const Title = styled.Text`
 	font-size: 54px;
 	text-align: center;
-	color: palevioletred;
+	color: magenta;
 `
 
 const MyAppText = styled.Text`
-	font-size: 24px;
+	font-size: 20px;
 	text-align: center;
-`
-
-const TipContainer = styled.Text`
-	margin-top: 50px;
+	color: white;
+	padding: 15px 40px 0 40px;
 `
 
 export const Start = () => {
 	return (
-		<Container>
-			<Title>Time out!</Title>
-			<Title>⌛️⌛️⌛️</Title>
-			<MyAppText>Shake your phone to get a time out tip!</MyAppText>
-			<TipContainer>
-	            <ShowTimeOutTip />
-			</TipContainer>
-		</Container>
+		<ImageBackground source={image}>
+			<TextContainer>
+				<Title>Time out!</Title>
+				<MyAppText>Find inspiration for your time out by shaking your phone!</MyAppText>
+			</TextContainer>
+			<ShowTimeOutTip />
+		</ImageBackground>
 	)
 }
