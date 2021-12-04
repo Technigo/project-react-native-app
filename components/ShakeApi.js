@@ -57,10 +57,8 @@ const ShakeApi = () => {
 
   const getQuote = () => {
     setLoading(true);
-    // fetch("http://api.quotable.io/random")
     fetch("http://ron-swanson-quotes.herokuapp.com/v2/quotes")
       .then((res) => res.json())
-      //.then((quote) => console.log(quote))
       .then((data) => setQuote(data))
       .finally(() => setLoading(false));
   };

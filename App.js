@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
 
-// import ButtonApi from "./components/ButtonApi";
 import ShakeApi from "./components/ShakeApi";
 import Header from "./components/Header";
 import Footer from "./components/Footer";

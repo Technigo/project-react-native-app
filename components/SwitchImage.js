@@ -1,4 +1,3 @@
-import { Epilogue_500Medium } from "@expo-google-fonts/epilogue";
 import React from "react";
 import { Image } from "react-native";
 import styled from "styled-components/native";
