@@ -9,4 +9,4 @@ So I decided to go for the: Multiscreen / Navigation instead and reuse the movie
 This week I have used and read https://reactnavigation.org/ to get the app working. I found a little bit troubling in the beginning with Expo becuse I couldn't see my app in my phone, but solved it in the end by updating a lot of dependcies. 
 
 ## View it live
-
+https://expo.dev/@rosanna86/movieapp
