@@ -1,52 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 import { useFonts } from 'expo-font';
-
-
 import {
   View,
   StyleSheet,
   StatusBar,
-  ImageBackground,
   ScrollView,
 } from 'react-native';
 import { DETAILS_URL } from '../utils/urls';
 
-
 export const MovieDetails = ({ route, navigation }) => {
 
+  //added custom fonts
   const [loaded] = useFonts({
     AdventPro: require('../assets/fonts/AdventPro-SemiBold.ttf'),
-});
-
+  });
 
   const { movieId } = route.params;
   const [details, setDetails] = useState();
 
+  //here we fetch the data
   useEffect(() => {
     fetch(DETAILS_URL(movieId))
       .then((res) => res.json())
       .then((data) => {
         setDetails(data);
-
       });
   }, [movieId]);
 
+
+  //here we render the details page (very similar to the movie project)
   return (
 
     <Container>
 
       {details && (
-        <View>
-          <ScrollView style={styles.scrollView}>
+        <ScrollView style={styles.scrollView}>
+          <View>
             <MovieImage source={{ uri: `https://image.tmdb.org/t/p/w500${details.poster_path}` }} style={styles.image} />
             <Title>{details.title}</Title>
             <DetailsText>{details.overview}</DetailsText>
             <Rate>
               Rating {details.vote_average}/10
             </Rate>
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
       )
       }
     </Container>

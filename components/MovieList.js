@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
 import {
-    Text,
     Image,
-    View,
     StyleSheet,
-    Button,
     StatusBar,
-    ImageBackground,
-    ScrollView,
     TouchableOpacity
 } from 'react-native';
+
 import { MOVIES_URL, CHRISTMAS_URL, TOP_RATED_URL } from '../utils/urls';
 import { useFonts } from 'expo-font';
 
+//added custom fonts
 export const MovieList = ({ route, navigation }) => {
     const [loaded] = useFonts({
         AdventPro: require('../assets/fonts/AdventPro-Bold.ttf'),
@@ -38,6 +34,7 @@ export const MovieList = ({ route, navigation }) => {
             .then((data) => setList(data.results));
     }, []);
 
+      //here we render the main page (very similar to the movie project)
     return (
         <MoviesView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
             {
@@ -59,7 +56,7 @@ export const MovieList = ({ route, navigation }) => {
 }
 
 
-// = Styled components
+// Styled components
 const MoviesView = styled.ScrollView`
 background-color: black;
     `;
@@ -84,7 +81,7 @@ const styles = StyleSheet.create({
 });
 const MovieTitle = styled.Text`
       color: white;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       margin: 10px auto;
       text-align:center;

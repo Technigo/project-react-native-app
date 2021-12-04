@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styled from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -8,10 +7,11 @@ import { MovieListNavigationWrapper } from './components/MovieListNavigationWrap
 
 const Tab = createBottomTabNavigator();
 
+
+//here is the tab navigator (the one showed in the bottom with the icons)
 const App = () => {
   return (
     <NavigationContainer>
-
       <Tab.Navigator
         backBehavior="history"
         screenOptions={({ route }) => ({
@@ -35,7 +35,7 @@ const App = () => {
         })}
       >
 
-        <Tab.Screen name="Popular" component={MovieListNavigationWrapper} initialParams={{ listId: 'default' }} />
+        <Tab.Screen name="Popular" component={MovieListNavigationWrapper} initialParams={{ listId: 'default' }} /> 
         <Tab.Screen name="Christmas" component={MovieListNavigationWrapper} initialParams={{ listId: 'christmas' }} />
         <Tab.Screen name="Top Rated" component={MovieListNavigationWrapper} initialParams={{ listId: 'toprated' }} />
       </Tab.Navigator>
