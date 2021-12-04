@@ -35,7 +35,7 @@ const Movies = () => {
 			.then((res) => res.json())
 			.then((json) => {
 				setMovieList(json.results);
-				setLoading(true)
+				//setLoading(true)
 			})
 			.finally(() => setLoading(false))
 	};
