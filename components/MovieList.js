@@ -15,9 +15,6 @@ import {
 import { MOVIES_URL, CHRISTMAS_URL, TOP_RATED_URL } from '../utils/urls';
 import { useFonts } from 'expo-font';
 
-
-
-
 export const MovieList = ({ route, navigation }) => {
     const [loaded] = useFonts({
         AdventPro: require('../assets/fonts/AdventPro-Bold.ttf'),
@@ -46,7 +43,7 @@ export const MovieList = ({ route, navigation }) => {
             {
                 list.map((movie) => (
                     <TouchableOpacity key={movie.id} onPress={() =>
-                        navigation.navigate('Details', { movieId: movie.id })
+                        navigation.navigate('Details', { movieId: movie.id, screen: 'List' })
                     }>
                         <Image
                             style={styles.moviePoster}

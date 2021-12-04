@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { useFonts } from 'expo-font';
 
 
 import {
-  Text,
-  Image,
   View,
   StyleSheet,
-  Button,
   StatusBar,
   ImageBackground,
   ScrollView,
-  TouchableOpacity
 } from 'react-native';
 import { DETAILS_URL } from '../utils/urls';
 
@@ -44,15 +39,7 @@ export const MovieDetails = ({ route, navigation }) => {
       {details && (
         <View>
           <ScrollView style={styles.scrollView}>
-          <GoBackButton>
-              <Icon.Button
-                name="arrow-left"
-                backgroundColor="transparent"
-                size={20}
-                onPress={() => navigation.goBack()} g title="Back">
-              </Icon.Button>
-            </GoBackButton>
-            <ImageBackground source={{ uri: `https://image.tmdb.org/t/p/w780${details.poster_path}` }} resizeMode="cover" style={styles.background} />
+            <MovieImage source={{ uri: `https://image.tmdb.org/t/p/w500${details.poster_path}` }} style={styles.image} />
             <Title>{details.title}</Title>
             <DetailsText>{details.overview}</DetailsText>
             <Rate>
@@ -67,47 +54,28 @@ export const MovieDetails = ({ route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  moviePoster: {
-    width: '100%',
-    height: 500,
-  }, container: {
+  container: {
     flex: 1,
     backgroundColor: "black",
     paddingTop: StatusBar.currentHeight,
   },
-
-  background: {
-    width: '100%',
-    height: 500,
-  },
-
   scrollView: {
     backgroundColor: 'black',
-    marginHorizontal: 10,
   },
 });
 
-
-const Container = styled.SafeAreaView`
+const Container = styled.View`
+	flex: 1;
 	background-color: black;
-`;
-
-const GoBackButton = styled.TouchableOpacity`
-margin-top: 10px;
-padding-right: 0px;
-color: white;
-height: 40px;
-width:15%;
-border-radius: 50px;
 `;
 
 const Title = styled.Text`
 	color: white;
-	font-size: 25px;
+  text-transform: uppercase;
+	font-size: 24px;
 	font-weight: bold;
 	margin: 10px auto;
 	text-align:center;
-  text-transform: uppercase;
   font-family: 'AdventPro';
 `;
 
@@ -122,12 +90,16 @@ const DetailsText = styled.Text`
 `;
 
 const Rate = styled.Text`
-	font-size: 16px;
-	font-weight: 100;
-  text-transform: uppercase;
   text-align:center;
+	font-size: 16px;
+	font-weight: normal;
 	margin-bottom: 20px;
   padding: 0 5px 0 5px;
   color: rgb(243,206,19);
   font-family: 'AdventPro';
+`;
+
+const MovieImage = styled.Image`
+	width: 100%;
+	height: 500px;
 `;

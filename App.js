@@ -2,41 +2,44 @@ import * as React from 'react';
 import styled from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
+import { MovieListNavigationWrapper } from './components/MovieListNavigationWrapper';
 
-
-import { MovieList } from './components/MovieList';
-import { MovieDetails } from './components/MovieDetails';
-
-const Container = styled.View`
-  flex: 1;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
-      <NavigationContainer>
-        
-        <Tab.Navigator backBehavior="history">
-          
-          <Tab.Screen name="Start" component={MovieList} initialParams={{ listId: 'default' }} />
-          <Tab.Screen name="Christmas" component={MovieList} initialParams={{ listId: 'christmas' }} />
-          <Tab.Screen name="Top Rated" component={MovieList} initialParams={{ listId: 'toprated' }} />
-          <Tab.Screen options={{
-        tabBarButton: () => null,
-        tabBarVisible: false, // if you don't want to see the tab bar
-      }}
-      name="Details" component={MovieDetails}  />
-        </Tab.Navigator>
-      </NavigationContainer>
-    //  <Container>
-    //    <MovieList></MovieList>
-    //  </Container>
+    <NavigationContainer>
+
+      <Tab.Navigator
+        backBehavior="history"
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            if (route.name === 'Popular') {
+              return <Icon name="fire" size={20} color="white" />
+            } else if (route.name === 'Christmas') {
+              return <Icon name="tree" size={20} color="white" />
+            } else if (route.name === 'Top Rated') {
+              return <Icon name="thumbs-up" size={20} color="white" />
+            }
+          },
+          headerShown: false,
+          tabBarActiveTintColor: 'rgb(243,206,19);',
+          tabBarStyle: {
+            paddingTop: 0,
+            backgroundColor: 'rgba(34,36,40,1)',
+            position: 'absolute',
+            borderTopWidth: 0,
+          },
+        })}
+      >
+
+        <Tab.Screen name="Popular" component={MovieListNavigationWrapper} initialParams={{ listId: 'default' }} />
+        <Tab.Screen name="Christmas" component={MovieListNavigationWrapper} initialParams={{ listId: 'christmas' }} />
+        <Tab.Screen name="Top Rated" component={MovieListNavigationWrapper} initialParams={{ listId: 'toprated' }} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
