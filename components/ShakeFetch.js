@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Accelerometer } from 'expo-sensors'
+import { View, Button, ActivityIndicator, Image } from 'react-native'
+import LottieView from 'lottie-react-native'
 
-import { View, Text, Button, ActivityIndicator } from 'react-native'
 import { POKEMON_URL } from '../utils/urls'
 import { PokemonCardModal } from './PokemonCardModal'
 import { pokemonShake } from '../reducers/pokemonShake'
@@ -49,11 +50,11 @@ const ShakeFetch = () => {
 
   const randomNumber = () => {
     if (pokemon.id >= 251) {
-      return Math.round(Math.random() * 251)
-    } else if (pokemon.id <= 151) {
-      return Math.round(Math.random() * 493)
-    } else {
+      return Math.round(Math.random() * 151)
+    } else if (pokemon.id <= 30) {
       return Math.round(Math.random() * 898)
+    } else {
+      return Math.round(Math.random() * 251)
     }
   }
 
@@ -70,7 +71,7 @@ const ShakeFetch = () => {
       .finally(() =>
         setTimeout(() => {
           setLoading(false)
-        }, 500)
+        }, 1000)
       )
   }
 
@@ -81,18 +82,35 @@ const ShakeFetch = () => {
 
   if (loading) {
     return <ActivityIndicator />
+    // return (
+    //   <LottieView
+    //     source={require('../animations/loading.json')}
+    //     style={{
+    //       width: 100,
+    //       height: 100
+    //     }}
+    //     autoPlay
+    //   />
+    // )
   }
 
-  const { x, y, z } = data
+  // const { x, y, z } = data
+
+  // <Text>Data x: {x}</Text>
+  // <Text>Data y: {y}</Text>
+  // <Text>Data z: {z}</Text>
 
   return (
     <View>
-      {/* <Text>Data x: {x}</Text>
-      <Text>Data y: {y}</Text>
-      <Text>Data z: {z}</Text> */}
-
-      <Text>Shake!</Text>
-      <Button title="Click!" onPress={generatePokemon} />
+      {!pokemon.name && (
+        <>
+          <Image
+            source={require('../assets/pokeshake_logo.png')}
+            style={{ width: 200, height: 150 }}
+          />
+          <Button title="Click!" onPress={generatePokemon} />
+        </>
+      )}
       {pokemon.name && (
         <>
           <PokemonCardModal />

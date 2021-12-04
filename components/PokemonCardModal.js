@@ -3,10 +3,12 @@ import { Modal, StyleSheet, Text, Pressable, View, Image } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { pokemonShake } from '../reducers/pokemonShake'
+import { ListOfFavorites } from './ListOfFavorites'
 
 export const PokemonCardModal = () => {
   const dispatch = useDispatch()
   const pokemon = useSelector((store) => store.pokemonShake.pokemon)
+  const favorites = useSelector((store) => store.pokemonShake.favorites)
   const [imgUrl, setImgUrl] = useState()
   const [types, setTypes] = useState([])
   const [abilities, setAbilities] = useState([])
@@ -38,20 +40,12 @@ export const PokemonCardModal = () => {
 
   return (
     <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        // onRequestClose={() => {
-        //   Alert.alert('Modal has been closed.')
-        //   setModalVisible(!modalVisible)
-        // }}
-      >
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.nameTypeContainer}>
               <Text style={styles.name}>{caps}</Text>
-              <View style={styles.tagContainer}>
+              <View style={[styles.tagContainer, styles.tagJustifyEnd]}>
                 {types.map((type) => (
                   <Text key={type} style={[styles.tag, styles.tagTypes]}>
                     {type}
@@ -72,18 +66,25 @@ export const PokemonCardModal = () => {
             <Text style={styles.modalText}>
               Height: {pokemon.height * 10} cm Weight: {pokemon.weight / 10} kg
             </Text>
-            <View style={styles.tagContainer}>
+            <View style={[styles.tagContainer, styles.tagJustifyCenter]}>
               {abilities.map((ability) => (
                 <Text key={ability} style={[styles.tag, styles.tagAbilities]}>
                   {ability}
                 </Text>
               ))}
             </View>
-            <Pressable
-              style={[styles.button, styles.buttonFavorite]}
-              onPress={handleStoreFavorite}>
-              <Text style={styles.textStyle}>Add to favorites!</Text>
-            </Pressable>
+            {favorites.length < 6 && (
+              <Pressable
+                style={[styles.button, styles.buttonFavorite]}
+                onPress={handleStoreFavorite}>
+                <Text style={styles.textStyle}>Add to favorites!</Text>
+              </Pressable>
+            )}
+            {favorites.length === 6 && (
+              <Text style={styles.textStyle}>
+                You carry six Pokémon already.
+              </Text>
+            )}
           </View>
         </View>
       </Modal>
@@ -120,7 +121,8 @@ const styles = StyleSheet.create({
   },
   name: {
     fontWeight: 'bold',
-    fontSize: 25
+    fontSize: 23,
+    color: '#423c3c'
   },
   button: {
     borderRadius: 10,
@@ -146,9 +148,14 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap'
+  },
+  tagJustifyCenter: {
+    justifyContent: 'center'
+  },
+  tagJustifyEnd: {
+    justifyContent: 'flex-end'
   },
   tag: {
     padding: 8,

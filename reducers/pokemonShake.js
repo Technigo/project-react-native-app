@@ -12,16 +12,19 @@ export const pokemonShake = createSlice({
     },
     storeFavorite: (store, action) => {
       const pokemonIsStored = store.favorites.find(
-        (item) => item.pokemon === action.payload.pokemon
+        (item) => item.id === action.payload.id
       )
-      if (pokemonIsStored) {
-        console.log('Pokemon is already in list')
-      } else {
+      if (!pokemonIsStored) {
         store.favorites = [action.payload, ...store.favorites]
+      } else {
+        console.log('This pokemon is already in list')
       }
     },
     removeFavorite: (store, action) => {
-      // XXXX
+      console.log('Payload: ', action.payload)
+      store.favorites = store.favorites.filter(
+        (item) => item.id !== action.payload.id
+      )
     }
   }
 })
