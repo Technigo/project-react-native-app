@@ -1,13 +1,16 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment was to build a mobile app with focus area sensors, API:s &
+Sharing or Multiscreen/Navigation.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I use onClick, subscribe, useEffect and accelerometer to make sure that the user
+can both press a button as well as shake the smartphone to update the quotes.
+With more time I would like to implement navigation and add more sensory
+features and also make sure that if the person that is quoted does not belong to
+any house the app renders only the name (without the comma after).
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+exp://exp.host/@skrosen/project-react-native-app
