@@ -66,30 +66,34 @@ const GotApi = () => {
 		return totalForce > 1.78;
 	};
 
-	if (loading) {
-		return <ActivityIndicator />;
-	} else {
-		return (
-			<ScrollView style={style.quoteHeader}>
-				<ScrollView style={style.quoteContainer}>
-					<Text style={style.quoteText}>"{quote.sentence}"</Text>
-					<Text style={style.nameAndHouse}>
-						- {quote.character?.name}, {quote.character?.house?.name}
-					</Text>
-				</ScrollView>
-				<TouchableOpacity onPress={generateQuote} style={style.button}>
-					<Text style={style.buttonText}>
-						Shake phone or click here to generate GOT wisdom
-					</Text>
-				</TouchableOpacity>
+	return (
+		<ScrollView style={style.quoteHeader}>
+			{loading && <ActivityIndicator style={style.loader} />}
+			<ScrollView style={style.quoteContainer}>
+				<Text style={style.quoteText}>"{quote.sentence}"</Text>
+				<Text style={style.nameAndHouse}>
+					- {quote.character?.name}, {quote.character?.house?.name}
+				</Text>
 			</ScrollView>
-		);
-	}
+			<TouchableOpacity onPress={generateQuote} style={style.button}>
+				<Text style={style.buttonText}>
+					Shake phone or click here to generate GOT wisdom
+				</Text>
+			</TouchableOpacity>
+		</ScrollView>
+	);
 };
+
 export default GotApi;
 
 //Styling for GOT wisdoms
 const style = StyleSheet.create({
+	loader: {
+		display: "flex",
+		position: "absolute",
+		zIndex: 1,
+	},
+
 	quoteHeader: {
 		padding: 10,
 		margin: 0,
