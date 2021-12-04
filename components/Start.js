@@ -1,30 +1,37 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import AppLoading from 'expo-app-loading';
+import { useFonts, LuckiestGuy_400Regular } from '@expo-google-fonts/luckiest-guy'
+import { OpenSans_400Regular } from '@expo-google-fonts/open-sans'
+import { RobotoCondensed_400Regular } from '@expo-google-fonts/roboto-condensed'
 import { ShowTimeOutTip } from './ShowTimeOutTip'
 
-const image = { uri: "https://images.pexels.com/photos/5477696/pexels-photo-5477696.jpeg" };
+// const image = { uri: "https://images.pexels.com/photos/5477696/pexels-photo-5477696.jpeg" }
+const image = { uri: "https://images.pexels.com/photos/707676/pexels-photo-707676.jpeg" }
 
 const ImageBackground = styled.ImageBackground`
 	flex: 1;
 	align-items: center;
-	padding-top: 75px;
+	padding-top: 35%;
 `
 
 const TextContainer = styled.View`
 	justify-content: center;	
 	background-color: black;
-	opacity: 0.70;
-	padding: 15px 25px 40px 25px;
+	opacity: 0.75;
+	padding: 50px 25px 40px 25px;
 	width: 100%;
 `
 
 const Title = styled.Text`
-	font-size: 54px;
+	font-family: LuckiestGuy_400Regular;	
+	font-size: 60px;
 	text-align: center;
 	color: magenta;
 `
 
 const MyAppText = styled.Text`
+	font-family: RobotoCondensed_400Regular;	
 	font-size: 20px;
 	text-align: center;
 	color: white;
@@ -32,6 +39,15 @@ const MyAppText = styled.Text`
 `
 
 export const Start = () => {
+	let [fontsLoaded] = useFonts({
+		LuckiestGuy_400Regular,
+		RobotoCondensed_400Regular,
+	  });
+
+	if (!fontsLoaded) {
+	return <AppLoading />;
+	} else {
+	
 	return (
 		<ImageBackground source={image}>
 			<TextContainer>
@@ -40,5 +56,6 @@ export const Start = () => {
 			</TextContainer>
 			<ShowTimeOutTip />
 		</ImageBackground>
-	)
+	)}
 }
+

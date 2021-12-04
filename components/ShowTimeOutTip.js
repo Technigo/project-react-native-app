@@ -20,12 +20,14 @@ const ShakeText = styled.Text`
   width: 100%;
   background-color: black;
   opacity: 0.90;
-  padding-top: 15px;
+  padding-top: 40px;
   padding-bottom: 20px;
-  font-size: 40px;
-  font-weight: bold;
+  font-family: LuckiestGuy_400Regular;	
+  font-size: 36px;
   color: white;
   text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
 `
 
 export const ShowTimeOutTip = () => {
