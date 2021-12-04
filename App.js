@@ -2,17 +2,15 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore, createStore } from '@reduxjs/toolkit'
 import { StyleSheet, ImageBackground } from 'react-native'
-import { PersistGate } from 'redux-persist/integration/react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
+
 import { persistStore, persistReducer } from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { pokemonShake } from './reducers/pokemonShake'
 import ShakeFetch from './components/ShakeFetch'
 import { ListOfFavorites } from './components/ListOfFavorites'
-
-// import configureStore from './reducers/configureStore'
-// import persistConfig from './reducers/configureStore'
 
 const reducer = combineReducers({
   pokemonShake: pokemonShake.reducer
@@ -20,13 +18,11 @@ const reducer = combineReducers({
 
 // const store = configureStore({ reducer })
 
-// persist config
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   stateReconciler: autoMergeLevel2
 }
-// wrap persist API around root reducer and store
 const persistedReducer = persistReducer(persistConfig, pokemonShake)
 
 const store = createStore(persistedReducer)
