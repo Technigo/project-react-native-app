@@ -15,7 +15,7 @@ export const APIButton = styled.TouchableOpacity`
   max-width: 200px;
 	background-color: #06B3D1;
   border-radius: 5px;
-  height: 40px;
+  min-height: 40px;
 `
 export const Title = styled.Text`
 	font-size: 30px;

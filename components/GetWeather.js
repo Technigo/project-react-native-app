@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { ActivityIndicator } from 'react-native'
-import { Accelerometer} from 'expo-sensors'
 import { Container, APIButton, Title, WeatherImage, BtnText, StyledText } from './GetWeather.styles'
 import * as Location from 'expo-location';
-import data from '../geodata/geodata.json'
-
-
+import geodata from '../geodata/geodata.json'
 
 const GetWeather = () => {
   const [latitude, setLatitude] = useState('')
@@ -13,16 +10,10 @@ const GetWeather = () => {
   const [city, setCity] = useState('')
   const [weather, setWeather] = useState('')
   const [temperature, setTemperature] = useState()
-  const [directions, setDirections] = useState({
-		x: 0,
-		y: 0,
-		z: 0,
-	});
-  const [subscription, setSubscription] = useState(null);
   const [loading, setLoading] = useState(false)
 
   /* Getting the coordinates for every city in geodata.json*/
-  const cities = data.features.map(item => item.geometry.coordinates)
+  const cities = geodata.features.map(item => item.geometry.coordinates)
   /* Getting random city coordinates => https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/ */
   const randomCity = cities[Math.floor(Math.random() * cities.length)]
   const lon = randomCity[0]
@@ -31,23 +22,6 @@ const GetWeather = () => {
   useEffect(() => {
     getLocation()
   }, [])
-
-  useEffect(() => {
-		Accelerometer.setUpdateInterval(1000);
-		subscribe();
-		return () => unsubscribe();
-	}, []);
-
-	useEffect(() => {
-		if (isShakingEnough(directions)) {
-			setLongitude(lon)
-      setLatitude(lat)
-      getCity()
-      getWeather()
-      setLongitude('')
-      setLatitude('')
-		}
-	}, [directions]);
 
   /* First step is to get location-data on mounting the component*/
   const getLocation = () => {
@@ -89,7 +63,14 @@ const GetWeather = () => {
       .finally(() => setLoading(false))
   }
 
-  const onBtnPress = () => {
+  const onStartBtnPress = () => {
+    getCity()
+    getWeather()
+  }
+
+  const onRandomBtnPress = (lon, lat) => {
+    setLongitude(lon)
+    setLatitude(lat)
     getCity()
     getWeather()
   }
@@ -117,28 +98,6 @@ const GetWeather = () => {
     }
   };
 
-  const subscribe = () => {
-		setSubscription(
-			Accelerometer.addListener((accelerometerData) => {
-				setDirections(accelerometerData);
-			})
-		);
-	};
-
-	const unsubscribe = () => {
-		subscription && subscription.remove();
-		setSubscription(null);
-	};
-/**
- * 
- * @param {*} directions: object { x: la}
- * @returns boolean
- */
-	const isShakingEnough = (directions) => {
-		const totalForce = Math.abs(directions.x) + Math.abs(directions.y) + Math.abs(directions.z);
-		return totalForce > 1.78;
-	};
-
   if (loading) {
     return <ActivityIndicator />
   }
@@ -147,7 +106,7 @@ const GetWeather = () => {
     <Container>
       {!weather && (
         <APIButton 
-          onPress={onBtnPress}>
+          onPress={onStartBtnPress}>
           <BtnText>Get Weather</BtnText>
         </APIButton>)}
       {/* I'd use !! which I call bang bang operator to boolianize error. https://pretagteam.com/question/error-text-strings-must-be-rendered-within-a-text-component */}
@@ -158,10 +117,10 @@ const GetWeather = () => {
           source={ImagePicker(weather)}
           resizeMode="contain"
         />
-        <StyledText>Right now it's {weather.toLowerCase()} and {temperature}°C</StyledText>
+        <StyledText>Right now it's {weather.toLowerCase()} and {Math.round(temperature)}°C</StyledText>
         <APIButton
-          onPress={() => setWeather('')}>
-          <BtnText>Start over</BtnText>
+          onPress={() => onRandomBtnPress(lon, lat)}>
+          <BtnText>Get random weather</BtnText>
         </APIButton>
       </>
       )}
