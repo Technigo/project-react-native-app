@@ -2,8 +2,6 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, View, Text } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
-import { Card } from 'react-native-elements'
-
 export const CardItemOne = () => {
 
   return (
@@ -46,7 +44,7 @@ export const CardItemTwo = () => {
                       name="videocam-outline"
                   />
                   <Text style={styles.paragraph}>
-                    Watch some random videos!
+                    Watch a cute movie clip!
                   </Text>
               </View>  
               <View>  

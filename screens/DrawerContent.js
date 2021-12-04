@@ -113,7 +113,7 @@ export const DrawerContent = (props) => {
                             color={color}
                             />
                         )}
-                        label='Random videos'
+                        label='Cute video'
                         onPress={() => {props.navigation.navigate('Random videos')}}
                     /> 
 

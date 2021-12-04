@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Button, Text,  View, StyleSheet  } from 'react-native'
+import { Button, Text,  View, StyleSheet, TouchableOpacity  } from 'react-native'
 import { Video } from 'expo-av'
 
 
@@ -8,6 +8,7 @@ export const RandomVideos = () => {
     const [status, setStatus] = useState({});
 
     return (
+      
         <View>
             <Video
               ref={video}
@@ -20,17 +21,12 @@ export const RandomVideos = () => {
               isLooping
               onPlaybackStatusUpdate={status => setStatus(() => status)}
             />
-          <View style={styles.button}>
-              <Button
-                style={styles.buttonText}
-                title={status.isPlaying ? 'Pause' : 'Play'}
-                onPress={() =>
-                  status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
-              }
-              />
-          </View>
+            <TouchableOpacity 
+              style={styles.button} 
+              onPress={() => status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()}>
+                <Text style={styles.buttonText}> {status.isPlaying ? 'Pause' : 'Play'}</Text>
+            </TouchableOpacity>
         </View>
-
     )
 }
 
@@ -58,7 +54,8 @@ const styles = StyleSheet.create({
         display: 'flex',
     },
     buttonText: {
-        fontSize: 32,
+        fontSize: 18,
         color: '#1a1a1a',
+        textAlign: 'center'
   },
   })
