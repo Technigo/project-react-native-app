@@ -1,6 +1,6 @@
 # Project React Native App 📱
 
-A native mobile app built with React Native and published with Expo which provides the user with ideas for a time out. 
+A native mobile app published with Expo that provides the user with ideas for a time out. 
 
 ## The problem
 
