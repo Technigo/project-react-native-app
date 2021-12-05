@@ -10,8 +10,8 @@ const Container = styled.View`
 `;
 
 const QuoteText = styled.Text`
-  font-size: 22px;
-  color: #ecb977;
+  font-size: 30px;
+  color: #b19870;
   margin: 40px 50px;
   text-align: center;
   font-weight: bold;
@@ -19,8 +19,8 @@ const QuoteText = styled.Text`
 `;
 
 const ShakeText = styled.Text`
-  font-size: 18px;
-  color: #ecb977;
+  font-size: 16px;
+  color: #b19870;
   margin: 20px 50px;
   text-align: center;
   font-weight: bold;
@@ -93,7 +93,7 @@ const ShakeApi = () => {
 
   return (
     <Container>
-      <ShakeText>Shake for Ye-quote!</ShakeText>
+      <ShakeText>Shake for a Kanye-quote!</ShakeText>
       <QuoteText>"{quote.quote}"</QuoteText>
     </Container>
   );
