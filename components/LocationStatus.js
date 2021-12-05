@@ -75,9 +75,9 @@ const LocationStatus = () => {
         {' '}
         <Text style={styles.text}>Press Here</Text>
       </Buttons>
-      <TouchableOpacity style={styles.button} onPress={getLocation}>
+      {/* <TouchableOpacity style={styles.button} onPress={getLocation}>
         <Text>funkar det nu?</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   )
 }
