@@ -71,27 +71,27 @@ const ShakeFetch = () => {
       .finally(() =>
         setTimeout(() => {
           setLoading(false)
-        }, 1000)
+        }, 2000)
       )
   }
 
   const isShakingEnough = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
-    return totalForce > 1.78
+    return totalForce > 2
   }
 
   if (loading) {
-    return <ActivityIndicator />
-    // return (
-    //   <LottieView
-    //     source={require('../animations/loading.json')}
-    //     style={{
-    //       width: 100,
-    //       height: 100
-    //     }}
-    //     autoPlay
-    //   />
-    // )
+    // return <ActivityIndicator />
+    return (
+      <LottieView
+        source={require('../animations/loading.json')}
+        style={{
+          width: 300,
+          height: 300
+        }}
+        autoPlay
+      />
+    )
   }
 
   // const { x, y, z } = data
@@ -108,7 +108,7 @@ const ShakeFetch = () => {
             source={require('../assets/pokeshake_logo.png')}
             style={{ width: 200, height: 150 }}
           />
-          <Button title="Click!" onPress={generatePokemon} />
+          {/* <Button title="Click!" onPress={generatePokemon} /> */}
         </>
       )}
       {pokemon.name && (

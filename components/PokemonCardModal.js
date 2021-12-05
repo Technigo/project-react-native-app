@@ -73,18 +73,18 @@ export const PokemonCardModal = () => {
                 </Text>
               ))}
             </View>
-            {favorites.length < 6 && (
+            {/* {favorites.length < 6 && (
               <Pressable
                 style={[styles.button, styles.buttonFavorite]}
                 onPress={handleStoreFavorite}>
-                <Text style={styles.textStyle}>Add to favorites!</Text>
+                <Text style={styles.textStyle}>Add to team!</Text>
               </Pressable>
             )}
             {favorites.length === 6 && (
               <Text style={styles.textStyle}>
                 You carry six Pokémon already.
               </Text>
-            )}
+            )} */}
           </View>
         </View>
       </Modal>
