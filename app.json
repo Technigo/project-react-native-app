@@ -1,31 +1,37 @@
 {
-	"expo": {
-		"name": "project-react-native-app",
-		"slug": "project-react-native-app",
-		"version": "1.0.0",
-		"sdkVersion": "40.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/icon.png",
-		"splash": {
-			"image": "./assets/splash.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"updates": {
-			"fallbackToCacheTimeout": 0
-		},
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#FFFFFF"
-			}
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
-		}
-	}
+  "expo": {
+    "name": "project-react-native-app",
+	"description": "A car-driving app using accelerometer sensor",
+	"githubUrl": "https://github.com/loulunds/project-react-native-app",
+	"orientation": "portrait",
+    "slug": "Sunset Driving",
+    "version": "1.0.0",
+	"sdkVersion": "43.0.0",
+	"backgroundColor": "#7f2cf82",
+	"primaryColor" : "#7f2cf8",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
 }

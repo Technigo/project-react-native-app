@@ -43,7 +43,7 @@ const Car = () => {
         source={require('../assets/car.png')}
         style={{
           position: 'absolute',
-          top: (boardHeight + 120) / 2.0 - box / 2.0,
+          top: boardHeight / 2.0 - box / 2.0,
           left: (-1 * boardWidth * data.x + 240) / 2 - box / 2.0,
           width: boardWidth / 2.0,
           height: boardHeight / 1.3,
@@ -51,12 +51,12 @@ const Car = () => {
         }}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.paragraph}>Tilt your phone to move the car!</Text>
+        {/* <Text style={styles.paragraph}>Tilt your phone to move the car!</Text>
         <Text style={styles.paragraph}>
           x = {data.x.toFixed(2)}
           {', '}y = {data.y.toFixed(2)}
           {', '}z = {data.z.toFixed(2)}
-        </Text>
+        </Text> */}
       </View>
     </View>
   );
