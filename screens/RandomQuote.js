@@ -9,6 +9,7 @@ import {
 import { Accelerometer } from "expo-sensors";
 import { LinearGradient } from "expo-linear-gradient";
 import { Keyframe, Easing } from "react-native-reanimated";
+// import { Mobile } from "../components/Mobile";
 
 // Stylesheet
 
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
 		height: 300,
 		borderRadius: 150,
 		fontWeight: "700",
-		color: "#ffffff",
+		color: "#fff",
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
@@ -48,14 +49,14 @@ const styles = StyleSheet.create({
 		fontWeight: "700",
 		fontSize: 29,
 		lineHeight: 38,
-		color: "#ffffff",
+		color: "#fff",
 		textAlign: "center",
 	},
 	quoteText: {
 		fontWeight: "700",
 		fontSize: 19,
 		lineHeight: 28,
-		color: "#ffffff",
+		color: "#fff",
 		textAlign: "center",
 	},
 	shakeText: {
@@ -139,6 +140,7 @@ export const RandomQuote = () => {
 			</LinearGradient>
 			{/* <Text>Author: {quote.author}</Text> */}
 			<Text style={styles.shakeText}>Shake to start</Text>
+			{/* <Mobile /> */}
 		</LinearGradient>
 	);
 };

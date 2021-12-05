@@ -1,6 +1,6 @@
 import React from "react";
-import { Text } from "react-native";
 import styled from "styled-components/native";
+import { Text } from "react-native";
 
 const HomeContainer = styled.View`
 	display: flex;
@@ -16,6 +16,3 @@ export const Home = () => {
 		</HomeContainer>
 	);
 };
-
-// If I want to use a button to toggle the dreawer I can add navigation as a prop and add this button:
-// <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
