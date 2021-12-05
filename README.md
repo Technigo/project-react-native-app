@@ -1,13 +1,15 @@
 # Project React Native App 📱
+My reflections on how this week's project turned out:
+Loved this project. Wished that there was more time to make it a bit more real... and useful. 
+Watched a lot of tutorials that helped med a lot. 
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Things I'd like to have clarified or explained in more detail:
+A bit hard to grasp the expo thing. A lot of errors, and had to start over every five minutes. 
+Would be good to have known that if you have an apple device, you CAN not open someone elses expo-link. 
+Would have saved some time 😅
+But, I think I have learned a lot this week!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@hemmahosjessi/project-react-native-app
+
