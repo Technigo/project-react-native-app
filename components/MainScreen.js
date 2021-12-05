@@ -1,12 +1,10 @@
 // not used, to avoid repeted code I was thinking of having an mainscreen with all the styling, but it is not working
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
-import styled from "styled-components/native"; // use /native when you are styling core components
+import styled from "styled-components/native";
 import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { POEM_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
-
-// STYLED COMPONENTS
 
 const Container = styled.View`
   display: flex;

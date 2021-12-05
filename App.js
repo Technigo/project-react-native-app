@@ -1,25 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import styled from "styled-components/native";
 
-import ButtonAPI from "./components/ButtonAPI";
 import ShakeAPI from "./components/ShakeActivity";
 import ShakeMovie from "./components/ShakeMovie";
 import ShakePoem from "./components/ShakePoem";
 import ShakeKanye from "./components/ShakeKanye";
 import StartScreen from "./components/StartScreen";
 
-const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
-
-// v1 IIFE
-(() => {
-  console.log("Hello");
-})();
-
-//v2
 
 const App = () => {
   return (

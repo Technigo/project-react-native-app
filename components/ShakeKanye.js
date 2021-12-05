@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
-import styled from "styled-components/native"; // use /native when you are styling core components
+import styled from "styled-components/native";
 import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { KANYE_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
@@ -61,6 +61,16 @@ const ShakeKanye = () => {
   const [loading, setLoading] = useState(false);
   const [subscription, setSubscription] = useState(null);
   const [fontsLoaded] = useFonts({ Raleway_800ExtraBold });
+  const [copiedText, setCopiedText] = useState("");
+
+  const copyToClipboard = () => {
+    Clipboard.setString(quote);
+  };
+
+  const fetchCopiedText = async () => {
+    const text = await Clipboard.getString();
+    setCopiedText(text);
+  };
 
   useEffect(() => {
     generateQuote();

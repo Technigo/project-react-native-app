@@ -4,9 +4,7 @@ import styled from "styled-components/native"; // use /native when you are styli
 import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { BORED_URL } from "../utils/Urls";
 // import { Accelerometer } from "expo-sensors";
-import { useShakeStatus } from "./useShakeStatus";
-
-// STYLED COMPONENTS
+import { useShakeStatus } from "../hooks/useShakeStatus";
 
 const Container = styled.View`
   display: flex;
@@ -131,7 +129,7 @@ const ShakeActivity = () => {
   }
 
   return (
-    <Container style={{ fontFamily: "Raleway_800ExtraBold" }}>
+    <Container>
       <PresentationText>Lets...</PresentationText>
       <TitleText>{activity.activity}</TitleText>
       <Text>A {activity.type} type of activity</Text>

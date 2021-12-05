@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, Linking } from "react-native";
 import styled from "styled-components/native"; // use /native when you are styling core components
 import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { MOVIE_URL } from "../utils/Urls";
@@ -30,6 +30,16 @@ const TitleText = styled.Text`
   font-weight: 800;
   color: #7a59e4;
   padding: 10px;
+`;
+
+const OverviewText = styled.Text`
+  margin-top: 5px;
+  color: darkgrey;
+`;
+
+const UrlText = styled.Text`
+  text-decoration: underline;
+  margin-top: 5px;
 `;
 
 const ShakeText = styled.Text`
@@ -113,11 +123,13 @@ const ShakeMovie = () => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.78;
   };
+
   // gets a random number from the complete list of movies.
   const randomMovie = (max, min) => {
     return Math.random() * (907331 - 1 + 1) + 1; //The maximum is inclusive and the minimum is inclusive
   };
 
+  //Handling if loading and fontsloading + if there are no movie
   if (loading || !fontsLoaded) {
     return <Loader size="large" color="#db7092" />;
   } else if (!movie.title) {
@@ -130,15 +142,12 @@ const ShakeMovie = () => {
 
   return (
     <Container>
-      <PresentationText>Lets watch: </PresentationText>
+      <PresentationText>Lets watch:</PresentationText>
       <TitleText>{movie.title}</TitleText>
-      <Text>Overview: {movie.overview}</Text>
-      {movie.homepage ? (
-        <Text>Homepage: {movie.homepage}</Text>
-      ) : (
-        <Text>Nope</Text>
-      )}
-      <Text>Released: {movie.release_date}</Text>
+      <OverviewText>{movie.overview}</OverviewText>
+      <UrlText onPress={() => Linking.openURL(`${movie.homepage}`)}>
+        {movie.homepage}
+      </UrlText>
       <ShakeText>Shake again for a new movie!</ShakeText>
     </Container>
   );
