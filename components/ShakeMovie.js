@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator, Linking } from "react-native";
-import styled from "styled-components/native"; // use /native when you are styling core components
+import styled from "styled-components/native";
 import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { MOVIE_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
 
-// STYLED COMPONENTS
 const Container = styled.View`
   display: flex;
   align-items: center;
@@ -77,11 +76,8 @@ const ShakeMovie = () => {
   }, []);
 
   useEffect(() => {
-    // This function determines how often our program reads the accelerometer data in milliseconds
     Accelerometer.setUpdateInterval(1000);
-    // Start listening to the data when this SensorComponent is active
     subscribe();
-    // Stop listening to the data when we leave SensorComponent
     return () => unsubscribe();
   }, []);
 
@@ -94,14 +90,11 @@ const ShakeMovie = () => {
   const subscribe = () => {
     setSubscription(
       Accelerometer.addListener((accelerometerData) => {
-        // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
         setData(accelerometerData);
       })
     );
   };
 
-  // This will tell the device to stop reading Accelerometer data.
   const unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
@@ -124,9 +117,9 @@ const ShakeMovie = () => {
     return totalForce > 1.78;
   };
 
-  // gets a random number from the complete list of movies.
+  // gets a random number from the movies url.
   const randomMovie = (max, min) => {
-    return Math.random() * (907331 - 1 + 1) + 1; //The maximum is inclusive and the minimum is inclusive
+    return Math.random() * (907331 - 1 + 1) + 1;
   };
 
   //Handling if loading and fontsloading + if there are no movie

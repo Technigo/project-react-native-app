@@ -91,6 +91,7 @@ const Loader = styled.ActivityIndicator`
   justify-content: center;
 `;
 
+// Start screen with buttons to navigate to all games
 const StartScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({ Raleway_800ExtraBold, Raleway_400Regular });
 

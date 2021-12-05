@@ -5,7 +5,6 @@ import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { KANYE_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
 
-// STYLED COMPONENTS
 const Container = styled.View`
   display: flex;
   align-items: center;
@@ -61,27 +60,14 @@ const ShakeKanye = () => {
   const [loading, setLoading] = useState(false);
   const [subscription, setSubscription] = useState(null);
   const [fontsLoaded] = useFonts({ Raleway_800ExtraBold });
-  const [copiedText, setCopiedText] = useState("");
-
-  const copyToClipboard = () => {
-    Clipboard.setString(quote);
-  };
-
-  const fetchCopiedText = async () => {
-    const text = await Clipboard.getString();
-    setCopiedText(text);
-  };
 
   useEffect(() => {
     generateQuote();
   }, []);
 
   useEffect(() => {
-    // This function determines how often our program reads the accelerometer data in milliseconds
     Accelerometer.setUpdateInterval(1000);
-    // Start listening to the data when this SensorComponent is active
     subscribe();
-    // Stop listening to the data when we leave SensorComponent
     return () => unsubscribe();
   }, []);
 
@@ -94,14 +80,11 @@ const ShakeKanye = () => {
   const subscribe = () => {
     setSubscription(
       Accelerometer.addListener((accelerometerData) => {
-        // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
         setData(accelerometerData);
       })
     );
   };
 
-  // This will tell the device to stop reading Accelerometer data.
   const unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);

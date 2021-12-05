@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
-import styled from "styled-components/native"; // use /native when you are styling core components
+import styled from "styled-components/native";
 import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { POEM_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
-
-// STYLED COMPONENTS
 
 const Container = styled.View`
   display: flex;
@@ -22,7 +20,7 @@ const PresentationText = styled.Text`
   font-family: "Raleway_800ExtraBold";
   font-weight: bold;
   font-size: 28px;
-  margin-bottom: 10px;
+  margin: 10px;
 `;
 
 const TitleText = styled.Text`
@@ -30,7 +28,11 @@ const TitleText = styled.Text`
   font-size: 30px;
   font-weight: 800;
   color: #7ff9e1;
-  padding: 10px;
+  padding-top: 10px;
+`;
+
+const BodyText = styled.Text`
+  margin-top: 10px;
 `;
 
 const ShakeText = styled.Text`
@@ -68,11 +70,8 @@ const ShakePoem = () => {
   }, []);
 
   useEffect(() => {
-    // This function determines how often our program reads the accelerometer data in milliseconds
     Accelerometer.setUpdateInterval(1000);
-    // Start listening to the data when this SensorComponent is active
     subscribe();
-    // Stop listening to the data when we leave SensorComponent
     return () => unsubscribe();
   }, []);
 
@@ -85,14 +84,11 @@ const ShakePoem = () => {
   const subscribe = () => {
     setSubscription(
       Accelerometer.addListener((accelerometerData) => {
-        // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
         setData(accelerometerData);
       })
     );
   };
 
-  // This will tell the device to stop reading Accelerometer data.
   const unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
@@ -103,7 +99,6 @@ const ShakePoem = () => {
     fetch(POEM_URL)
       .then((res) => res.json())
       .then((data) => setPoem(data[0]))
-      // .then((data) => setPoem(data))
       .finally(() => setLoading(false));
   };
 
@@ -120,8 +115,8 @@ const ShakePoem = () => {
     <Container>
       <PresentationText>Read slowly: </PresentationText>
       <TitleText> {poem.title}</TitleText>
-      {/* <Text>Written by: {poem.poet}</Text> */}
-      <Text>{poem.content}</Text>
+      <Text>By: {poem.poet.name}</Text>
+      <BodyText>{poem.content}</BodyText>
       <ShakeText>Shake again for a new poem!</ShakeText>
     </Container>
   );

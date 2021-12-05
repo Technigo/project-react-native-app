@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
-import styled from "styled-components/native"; // use /native when you are styling core components
+import styled from "styled-components/native";
 import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { BORED_URL } from "../utils/Urls";
 // import { Accelerometer } from "expo-sensors";
@@ -55,7 +55,7 @@ const ShakeActivityCopy = () => {
   const [activity, setActivity] = useState({});
   const [loading, setLoading] = useState(false);
   const [fontsLoaded] = useFonts({ Raleway_800ExtraBold });
-  const shakesEnough = useShakeStatus();
+  const shakesEnough = useShakeStatus(false);
 
   useEffect(() => {
     generateActivity();
@@ -65,7 +65,7 @@ const ShakeActivityCopy = () => {
     if (shakesEnough === true) {
       generateActivity();
     }
-  }, []);
+  }, [shakesEnough]);
 
   const generateActivity = () => {
     setLoading(true);

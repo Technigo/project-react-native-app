@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
-import styled from "styled-components/native"; // use /native when you are styling core components
+import styled from "styled-components/native";
 import { useFonts, Raleway_800ExtraBold } from "@expo-google-fonts/raleway";
 import { BORED_URL } from "../utils/Urls";
 import { Accelerometer } from "expo-sensors";
@@ -65,8 +65,8 @@ const ShakeActivity = () => {
     generateActivity();
   }, []);
 
+  // This function determines how often our program reads the accelerometer data in milliseconds
   useEffect(() => {
-    // This function determines how often our program reads the accelerometer data in milliseconds
     Accelerometer.setUpdateInterval(1000);
     // Start listening to the data when this SensorComponent is active
     subscribe();
@@ -78,21 +78,23 @@ const ShakeActivity = () => {
       generateActivity();
     }
   }, [data]);
+
+  // Whenever this function is called, we have received new data
   const subscribe = () => {
     setSubscription(
       Accelerometer.addListener((accelerometerData) => {
-        // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
         setData(accelerometerData);
       })
     );
   };
+
   // This will tell the device to stop reading Accelerometer data.
   const unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
   };
 
+  // Fetch API-function and sets the activity and status on loading
   const generateActivity = () => {
     setLoading(true);
     fetch(BORED_URL)
@@ -106,6 +108,7 @@ const ShakeActivity = () => {
     return totalForce > 1.78;
   };
 
+  // If loading and fonts not loaded return Loader
   if (loading || !fontsLoaded) {
     return <Loader size="large" color="#db7092" />;
   }

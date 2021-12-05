@@ -4,7 +4,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import styled from "styled-components/native";
 
-import ShakeActivity from "./components/ShakeActivity";
+// import ShakeActivity from "./components/ShakeActivity";
 import ShakeMovie from "./components/ShakeMovie";
 import ShakePoem from "./components/ShakePoem";
 import ShakeKanye from "./components/ShakeKanye";
