@@ -12,7 +12,6 @@ const Start = () => {
         <Text style={styles.text}>Start game!</Text>
       </Pressable>
       <Image style={styles.image} source={require("../assets/1ab7.gif")} />
-      {change && <Data />}
     </View>
   )
 }
