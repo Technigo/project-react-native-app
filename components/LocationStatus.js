@@ -12,11 +12,11 @@ import {
 import styled from 'styled-components/native'
 import * as Location from 'expo-location'
 
-const Buttons = styled.TouchableOpacity`
-  width: 50%;
-  background-color: green;
-  justify-content: center;
-`
+// const Buttons = styled.TouchableOpacity`
+//   width: 50%;
+//   background-color: green;
+//   justify-content: center;
+// `
 
 const styles = StyleSheet.create({
   button: {
@@ -71,10 +71,10 @@ const LocationStatus = () => {
         title="Click to get location"
         onPress={getLocation}
       />
-      <Buttons onPress={getLocation}>
+      {/* <Buttons onPress={getLocation}>
         {' '}
         <Text style={styles.text}>Press Here</Text>
-      </Buttons>
+      </Buttons> */}
       {/* <TouchableOpacity style={styles.button} onPress={getLocation}>
         <Text>funkar det nu?</Text>
       </TouchableOpacity> */}
