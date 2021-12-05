@@ -1,6 +1,6 @@
 # Project React Native App 📱
 
-Buliding y first app. with fetching an API and trying out some function from the react native library.
+Buliding my first app. with fetching an API and trying out some function from the react native library.
 
 ## The problem
 
