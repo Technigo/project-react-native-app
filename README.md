@@ -4,4 +4,4 @@ I have created an APP using React Native which fetches the Harry Potter's API an
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@fatimaromero26/project-react-native-app
