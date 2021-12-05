@@ -10,8 +10,6 @@ const ContactContainer = styled.View`
 `;
 
 
-
-
 export const Contact = () => {
   const [Name, onChangeName] = React.useState(null);
   const [Email, onChangeEmail] = React.useState(null);
@@ -49,7 +47,7 @@ export const Contact = () => {
         placeholder="write your problem here...."
         keyboardType="default"
       />
-      <Button title="Send" onPress={() => navigation.anything()} />
+      <Button title="Send" onPress={() => navigation.navigate('ThankYou')} />
     </ContactContainer>
   );
 };

@@ -16,7 +16,7 @@ const App = () => {
 		<ImageBackground></ImageBackground>
       <Drawer.Navigator>
         <Drawer.Screen name="Home" component={Home} />
-		<Drawer.Screen name="About" component={About} />
+		    <Drawer.Screen name="About" component={About} />
         <Drawer.Screen name="Contact" component={Contact} />
         <Drawer.Screen name="Services" component={Services} />
       </Drawer.Navigator>
