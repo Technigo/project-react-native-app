@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, ActivityIndicator, TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
-import { Accelerometer } from 'expo-sensors'
+// import { Accelerometer } from 'expo-sensors'
 
 const Container = styled.View`
   width: 100%;
@@ -32,9 +32,9 @@ const Fortune = () => {
   const [loading, setLoading] = useState(false)
   //   const [subscription, setSubscription] = useState(null)
 
-  useEffect(() => {
-    generateFortune()
-  }, [])
+  // useEffect(() => {
+  //   generateFortune()
+  // }, [])
 
   //   useEffect(() => {
   //     Accelerometer.setUpdateInterval(1000)
@@ -63,11 +63,11 @@ const Fortune = () => {
 
   const generateFortune = () => {
     // setLoading(true)
-    fetch('http://fortunecookieapi.com/v1/fortunes/2')
+    fetch('http://yerkee.com/api')
       .then((res) => res.json())
-
-      .then((data) => console.log(data))
-    //   .finally(() => setLoading(false))
+      // .then((data) => console.log(data))
+      .then((data) => setFortune(data))
+    // .finally(() => setLoading(false))
   }
 
   //   const isShakingEnough = (data) => {
@@ -84,7 +84,7 @@ const Fortune = () => {
       <FortuneButton onPress={generateFortune}>
         <Text>See your fortune</Text>
       </FortuneButton>
-      <FortuneText> Random Fortune Cookie : {fortune?.message} </FortuneText>
+      <FortuneText> Random Fortune: {fortune?.message} </FortuneText>
     </Container>
   )
 }

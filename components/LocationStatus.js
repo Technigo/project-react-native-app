@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   View,
   Text,
@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   Button,
   Linking,
+  StyleSheet,
 } from 'react-native'
 
 import styled from 'styled-components/native'
@@ -17,25 +18,32 @@ const Buttons = styled.TouchableOpacity`
   justify-content: center;
 `
 
+const styles = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    backgroundColor: 'limegreen',
+    padding: 30,
+    margin: 10,
+  },
+  text: {
+    margin: 10,
+    textTransform: 'uppercase',
+    padding: 30,
+    textAlign: 'center',
+    fontSize: 25,
+    textShadowColor: 'green',
+    textShadowOffset: {
+      width: 2,
+      height: 2,
+    },
+  },
+})
+
 const LocationStatus = () => {
   const [loading, setLoading] = useState(false)
   const [location, setLocation] = useState({})
 
-  // useEffect(() => {
-  //   getLocation()
-  // }, [])
-
-  //   const getLocation = () => {
-  //     let { status } = Location.requestForegroundPermissionsAsync()
-  //     if (status !== 'granted') {
-  //       setErrorMsg('Permission to access location was denied')
-  //       return
-  //     }
-  //     let location = Location.getCurrentPositionAsync({})
-  //     setLocation(location)
-  //   }
-
-  //   v2 - Async await
+  //  Async await approach
   const getLocation = async () => {
     const data = await Location.requestForegroundPermissionsAsync()
     if (data.status !== 'granted') {
@@ -54,8 +62,22 @@ const LocationStatus = () => {
 
   return (
     <View>
-      <Text>Generate google map</Text>
-      <Button title="Click to get location" onPress={getLocation} />
+      <Text style={styles.text}>
+        Here you can get your exact location! Click the button below to open up
+        Google maps
+      </Text>
+      <Button
+        style={styles.button}
+        title="Click to get location"
+        onPress={getLocation}
+      />
+      <Buttons onPress={getLocation}>
+        {' '}
+        <Text style={styles.text}>Press Here</Text>
+      </Buttons>
+      <TouchableOpacity style={styles.button} onPress={getLocation}>
+        <Text>funkar det nu?</Text>
+      </TouchableOpacity>
     </View>
   )
 }

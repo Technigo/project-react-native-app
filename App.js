@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import API from './components/API'
-import Header from './components/Header'
+import ShakeForQoute from './components/ShakeForQoute'
+import Homepage from './components/Homepage'
 import LocationStatus from './components/LocationStatus'
 // import Fortune from './components/Fortune'
 
@@ -28,11 +28,11 @@ const App = () => {
   const Drawer = createDrawerNavigator()
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Header">
-        <Drawer.Screen name="Header" component={Header} />
-        <Drawer.Screen name="API" component={API} />
+      <Drawer.Navigator initialRouteName="Homepage">
+        <Drawer.Screen name="Home" component={Homepage} />
+        <Drawer.Screen name="Shake For Qoute" component={ShakeForQoute} />
         {/* <Drawer.Screen name="Fortune" component={Fortune} /> */}
-        <Drawer.Screen name="Location" component={LocationStatus} />
+        <Drawer.Screen name="Get your location!" component={LocationStatus} />
       </Drawer.Navigator>
     </NavigationContainer>
   )
