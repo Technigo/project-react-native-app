@@ -9,4 +9,4 @@ First go at building an app using React Native.
 
 ## View it live
 
-exp://exp.host/@annathunberg/project-react-native-app
+https://expo.dev/@annathunberg/project-react-native-app
