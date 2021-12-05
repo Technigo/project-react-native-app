@@ -1,13 +1,26 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+Create an app in React Native
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+with
+
+1. Sensors
+2. APIs
+
+App for learning to read. Shake it and new pokemons will appear
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Technologies used:
+React native,
+Expo,
+Using React Native sensor
+Using API
+Styled components and stylesheet
+
+If I had more time I would like to try MultiScreen/Navigation and finish the start page
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+exp://exp.host/@ajliin/Pokemon-name-quiz
+https://expo.dev/@ajliin/Pokemon-name-quiz
