@@ -1,32 +1,21 @@
-# Project React Native App 📱
+# Pick Your Rick - A Mobile React Native App 📱
 
-Replace this readme with your own information about your project.
+This is my first mobile app. The goal was to fetch from an API and style all displayed information according to the conventions of React Native.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## Features
 
-## The problem
+- Styled with the styled-components library
+- Fetching from Rick and Morty's API, which you can find on https://rickandmortyapi.com/
+- Filtered API fetch to display all the variants of a specific character (all versions of Rick that are currently alive)
+- React Hooks: useState, useEffect
+- From react-native: FlatList, ActivityIndicator, View
 
-Challenges:
+## Challenges and lessons learned
 
-- Fetching from the API, tested with different APIs
-- Rendering the list of fetched characters as a FlatList
-- Scrolling to the end of the page. Solved by adding a ListFooterComponent.
+- Fetching from APIs proved quite challenging. I tested with several ones that had different degrees of complexity, without success. This one was quite user-friendly and it's about one of my favorite shows, so I ended up choosing this one.
+- Rendering the list of fetched characters as a FlatList was the second biggest challenge. Putting the renderItem before the keyExtractor solved the problem.
+- Last but not least, scrolling to the end of the list was also difficult. In the beginning I thought it was a pagination problem, but it turned out to be just a matter of adding a ListFooterComponent.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-PALETTE
-
-#303054 blue
-#448933 dark green
-#A1D12B light green
-#F4F7ED light gray
-#D0D4A9 dark greenish gray
-#E5EC2E yellow
-#ECE58F beige
-#B5C1C3 elephant gray
-
-For character details:
-
-Gender, species, origin, location, image
+https://expo.dev/@isomoth/project-react-native-app

@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { FlatList, ActivityIndicator, View, Text } from 'react-native';
-import { CHARACTERS_URL_1 } from '../utils/urls';
-
-/* const ComponentContainer = styled.View`
-  flex: 1;
-`;
- */
-/* const ListContainer = styled.View`
-  flex: 1;
-`; */
+import { FlatList, ActivityIndicator, View } from 'react-native';
+import { CHARACTERS_URL } from '../utils/urls';
 
 const CharacterContainer = styled.View`
   display: flex;
@@ -58,7 +50,7 @@ const CharacterList = () => {
 
   const generateData = () => {
     setLoading(true);
-    fetch(CHARACTERS_URL_1)
+    fetch(CHARACTERS_URL)
       .then((res) => res.json())
       .then((data) => {
         setCharacters(data.results);
