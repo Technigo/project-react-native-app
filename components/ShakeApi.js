@@ -1,21 +1,62 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { Accelerometer } from "expo-sensors"
 import styled from "styled-components/native"
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ActivityIndicator,
-  Image,
-  ImageBackground,
-} from "react-native"
+import Icon from "react-native-vector-icons/AntDesign"
+import { ActivityIndicator, Image } from "react-native"
 
-export const ButtonApi = () => {
-  const [quote, setQuote] = useState({})
-  const [loading, setLoading] = useState(false)
+export const ShakeApi = () => {
+  // setting movement to 0
+  const [data, setData] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  })
+  const [loading, setLoading] = useState(false) // sets loading to false
+  const [quote, setQuote] = useState({}) // starts with an empty object with no quote
+  const [subscription, setSubscription] = useState(null)
+
+  // generates a quote
+  useEffect(() => {
+    generateQuote()
+  }, [])
+
+  useEffect(() => {
+    Accelerometer.setUpdateInterval(1000)
+    subscribe()
+    return () => unsubscribe()
+  }, [])
+
+  // determines if the shaking is enough to update the quote
+  useEffect(() => {
+    if (isShakingEnough(data)) {
+      generateQuote()
+    }
+  }, [data])
+
+  // saves the subscription to stop using the accelerometer
+  const subscribe = () => {
+    setSubscription(
+      Accelerometer.addListener((accelerometerData) => {
+        setData(accelerometerData)
+      })
+    )
+  }
+
+  // stops reading accelerometer data
+  const unsubscribe = () => {
+    subscription && subscription.remove()
+    setSubscription(null)
+  }
+
+  //  a mathematical calculation to see if the shaking is big enough
+  const isShakingEnough = (data) => {
+    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
+    return totalForce > 1.8
+  }
 
   const generateQuote = () => {
+    // fetches the quote from the API
     setLoading(true)
-
     fetch("https://friends-quotes-api.herokuapp.com/quotes/random")
       .then((res) => res.json())
       .then((data) => setQuote(data))
@@ -44,7 +85,7 @@ export const ButtonApi = () => {
         return require("../assets/ross.png")
         break
       default:
-        return require("../assets/bgfriendsclick.png")
+        return require("../assets/bgfriends.jpeg")
     }
   }
 
@@ -62,9 +103,7 @@ export const ButtonApi = () => {
             <QuoteText>"{quote.quote}"</QuoteText>
             <CharacterName> {quote.character}</CharacterName>
           </TextWrapper>
-          <ApiButton onPress={generateQuote}>
-            <Text> Get Your Quote </Text>
-          </ApiButton>
+          <Icon name="shake" size={30} color="#000" />
         </Wrapper>
       </Container>
     </>
@@ -74,7 +113,7 @@ export const ButtonApi = () => {
 }
 const Container = styled.View`
   flex: 1;
-  background-color: #f1f1f1;
+  background-color: #965eb9;
   justify-content: center;
   align-items: center;
 `
@@ -84,10 +123,11 @@ const Wrapper = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   margin: 0 auto;
   padding: 20px 3px;
   border-radius: 10px;
-  background-color: #965eb9;
+  background-color: #ffdf01;
 `
 const TextWrapper = styled.View`
   background-color: #3a3a3a1a;
@@ -97,23 +137,13 @@ const TextWrapper = styled.View`
 
 const QuoteText = styled.Text`
   font-weight: 700;
-  color: #ffdf00;
+  color: black;
   font-weight: 700;
   margin: 3px 20px;
   padding: 5px;
 `
 const CharacterName = styled.Text`
-  color: #ffdf00;
+  text-align: left;
   font-style: italic;
   margin: 3px 20px;
-  text-align: left;
-`
-const ApiButton = styled.TouchableOpacity`
-  width: 150px;
-  background-color: #ffdf00;
-  margin: 10px auto;
-  padding: 10px;
-  border-radius: 5px;
-  align-items: center;
-  display: flex;
 `
