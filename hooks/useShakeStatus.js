@@ -8,6 +8,7 @@ export const useShakeStatus = () => {
     y: 0,
     z: 0,
   });
+  const [shakesEnough, setShakesEnough] = useState(false);
 
   const [subscription, setSubscription] = useState(null);
 
@@ -19,7 +20,7 @@ export const useShakeStatus = () => {
 
   useEffect(() => {
     if (isShakingEnough(data)) {
-      generateActivity();
+      setShakesEnough(true);
     }
   }, [data]);
 
@@ -40,4 +41,6 @@ export const useShakeStatus = () => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.78;
   };
+
+  return shakesEnough;
 };

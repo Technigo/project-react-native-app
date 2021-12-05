@@ -4,11 +4,12 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import styled from "styled-components/native";
 
-import ShakeAPI from "./components/ShakeActivity";
+import ShakeActivity from "./components/ShakeActivity";
 import ShakeMovie from "./components/ShakeMovie";
 import ShakePoem from "./components/ShakePoem";
 import ShakeKanye from "./components/ShakeKanye";
 import StartScreen from "./components/StartScreen";
+import ShakeActivityCopy from "./components/ShakeActivityCopy";
 
 const Drawer = createDrawerNavigator();
 
@@ -18,7 +19,7 @@ const App = () => {
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={StartScreen} />
         <Drawer.Screen name="Movie" component={ShakeMovie} />
-        <Drawer.Screen name="Activity" component={ShakeAPI} />
+        <Drawer.Screen name="Activity" component={ShakeActivityCopy} />
         <Drawer.Screen name="Poem" component={ShakePoem} />
         <Drawer.Screen name="Ka*ye" component={ShakeKanye} />
       </Drawer.Navigator>
