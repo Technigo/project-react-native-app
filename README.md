@@ -9,3 +9,5 @@ A mobile app build in React Native
 - a multiscreen app by using React Navigation
 
 ## View it live
+
+https://expo.dev/@idaasp/project-react-native-app
