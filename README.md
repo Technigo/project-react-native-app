@@ -10,6 +10,7 @@ Challenges:
 
 - Fetching from the API, tested with different APIs
 - Rendering the list of fetched characters as a FlatList
+- Scrolling to the end of the page. Solved by adding a ListFooterComponent.
 
 ## View it live
 

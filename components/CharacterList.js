@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
-import { FlatList, ActivityIndicator, SafeAreaView, View } from 'react-native';
+import { FlatList, ActivityIndicator, View, Text } from 'react-native';
 import { CHARACTERS_URL_1 } from '../utils/urls';
+
+/* const ComponentContainer = styled.View`
+  flex: 1;
+`;
+ */
+/* const ListContainer = styled.View`
+  flex: 1;
+`; */
 
 const CharacterContainer = styled.View`
   display: flex;
@@ -82,6 +90,8 @@ const CharacterList = () => {
           </CharacterContainer>
         )}
         keyExtractor={(item) => item.id}
+        // Solution to let the flatlist scroll down to the last element
+        ListFooterComponent={<View style={{ height: 80 }} />}
       />
     </View>
   );

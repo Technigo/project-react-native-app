@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import CharacterList from './components/CharacterList';
+// import { NavigationContainer } from '@react-navigation/native';
 
 const Container = styled.View`
   background-color: #303054;
