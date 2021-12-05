@@ -5,6 +5,7 @@
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
+		"githubUrl": "https://github.com/ebbadelsol/project-react-native-app",
 		"splash": {
 			"image": "./assets/splash.png",
 			"resizeMode": "contain",
