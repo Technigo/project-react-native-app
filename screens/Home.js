@@ -7,12 +7,11 @@ import {
   Keyboard,
 } from 'react-native';
 
+import styled from 'styled-components/native';
+
 import { Bored } from './Bored';
 import { TodoItem } from './TodoItem';
 import { AddTodo } from './AddTodo';
-// import uniqid from 'uniqid';
-
-import styled from 'styled-components/native';
 
 // This is the main container for this screen
 const FeedContainer = styled.View`
@@ -67,7 +66,6 @@ const TodosTitle = styled.Text`
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
 export const Home = ({ navigation }) => {
-  const [user, setUser] = useState('');
   const [todos, setTodos] = useState([{ text: 'buy coffee', key: 1 }]);
 
   const pressHandler = key => {
@@ -85,10 +83,10 @@ export const Home = ({ navigation }) => {
       Alert.alert('OOPS!', 'Todo must be over 3 chars long', [
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
+          onPress: () => 'Cancel Pressed',
           style: 'cancel',
         },
-        { text: 'OK', onPress: () => console.log('OK Pressed') },
+        { text: 'OK', onPress: () => 'OK Pressed' },
       ]);
     }
   };
@@ -97,23 +95,9 @@ export const Home = ({ navigation }) => {
     <TouchableWithoutFeedback
       onPress={() => {
         Keyboard.dismiss();
-        console.log('dismissed keyboard');
       }}
     >
       <FeedContainer>
-        {/* <EnterName>Enter name here</EnterName>
-        <TextInputField
-          placeholder='Enter name here'
-          onChangeText={user => setUser(user)}
-          value={user}
-        ></TextInputField>
-
-        <View>
-          <Text>
-            {user ? <Text>Hello {user} 🌞 Here are today's todos</Text> : ''}
-          </Text>
-        </View> */}
-
         <AddTodo submitHandler={submitHandler} />
         {todos.length > 0 && (
           <ListContainer>
