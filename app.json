@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "project-react-native-app",
+    "name": "Sunset Driving",
 	"description": "A car-driving app using accelerometer sensor",
 	"githubUrl": "https://github.com/loulunds/project-react-native-app",
 	"orientation": "portrait",
-    "slug": "Sunset Driving",
+    "slug": "Sunset-Driving",
     "version": "1.0.0",
 	"sdkVersion": "43.0.0",
 	"backgroundColor": "#7f2cf82",
