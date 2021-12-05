@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import { Text, ActivityIndicator, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Text, ActivityIndicator, StyleSheet, View, TouchableOpacity, Image, SafeAreaView } from 'react-native'
 
 
 
@@ -21,20 +21,30 @@ export const ButtonApi = () => {
     }
 
     if (loading) {
-        return <ActivityIndicator/>
+        return (
+            <SafeAreaView  style={styles.activityindicator}>
+                <ActivityIndicator size="large" color="#1a1a1a"/>
+            </SafeAreaView>
+        )
     }
 
+
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.container}>
                 <Text style={styles.quote}>{quote.content}</Text>
                 <Text style={styles.author}>{quote.author}</Text>
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={generateQuote}>
+            <SafeAreaView style={styles.shadowProp}>
+                <Image source={require('../assets/bear.gif')} 
+                style={styles.containersmall}/> 
+            </SafeAreaView>
+
+            <TouchableOpacity style={[styles.button, styles.shadowProp]} onPress={generateQuote}>
                 <Text style={styles.buttonText}>Generate quote!</Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
 
     )
 }
@@ -48,12 +58,12 @@ const styles = StyleSheet.create({
     },
     button: {
         height: 56,
-        backgroundColor: "#87AAAA",
+        backgroundColor: "#9BCBCB",
         padding: 16,
         marginBottom: 32,
         borderRadius: 8,
         minWidth: 343,
-        marginBottom: 64,
+        marginBottom: 32,
       },
       buttonText: {
         fontSize: 18,
@@ -76,5 +86,27 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         textAlign: 'center',
         maxWidth: 343,
+      },
+      shadowProp: {
+        shadowColor: '#171717',
+        shadowOffset: {width: -2, height: 3},
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+      },
+      containersmall: {
+        flex: 1,
+        justifyContent: 'center',
+        marginBottom: 24,
+        marginLeft: 8,
+        marginRight: 8,
+        padding: 16,
+        borderRadius: 8,
+        width: 160,
+        maxHeight: 140,
+        alignItems: 'center',
+      },
+      activityindicator: {
+        flex: 1,
+        justifyContent: "center",
       }
 })

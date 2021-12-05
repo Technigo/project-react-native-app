@@ -22,7 +22,7 @@ export const RandomVideos = () => {
               onPlaybackStatusUpdate={status => setStatus(() => status)}
             />
             <TouchableOpacity 
-              style={styles.button} 
+              style={[styles.button, styles.shadowProp]} 
               onPress={() => status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()}>
                 <Text style={styles.buttonText}> {status.isPlaying ? 'Pause' : 'Play'}</Text>
             </TouchableOpacity>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     },
     button: {
         height: 56,
-        backgroundColor: "#87AAAA",
+        backgroundColor: "#9BCBCB",
         borderRadius: 8,
         marginLeft: 32,
         marginRight: 32,
@@ -57,5 +57,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#1a1a1a',
         textAlign: 'center'
+  },
+  shadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 3},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
   })

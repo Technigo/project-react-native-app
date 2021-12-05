@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native'
+import { SafeAreaView, StyleSheet, View, Text, Image} from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 export const CardItemOne = () => {
@@ -150,7 +150,27 @@ export const CardItemFive = () => {
               </Text>
       </View>
     </SafeAreaView>
+  )
+}
 
+
+export const CardSmallOne = () => {
+
+  return (
+      <SafeAreaView style={styles.shadowProp}>
+        <Image source={require('../assets/love.gif')} 
+        style={styles.containersmall}/> 
+      </SafeAreaView>
+  )
+}
+
+export const CardSmallTwo = () => {
+
+  return (
+    <SafeAreaView style={styles.shadowProp}>
+      <Image source={require('../assets/fox.gif')} 
+      style={styles.containersmall}/> 
+    </SafeAreaView>
   )
 }
 
@@ -182,7 +202,7 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 32,
     color: '#333',
-    marginRight: 16,
+    marginRight: 10,
   },
   chevronicon: {
     fontSize: 24,
@@ -204,5 +224,17 @@ const styles = StyleSheet.create({
     shadowOffset: {width: -2, height: 3},
     shadowOpacity: 0.2,
     shadowRadius: 3,
+  },
+  containersmall: {
+    flex: 1,
+    justifyContent: 'center',
+    marginBottom: 24,
+    marginLeft: 8,
+    marginRight: 8,
+    padding: 16,
+    borderRadius: 8,
+    width: 160,
+    height: 140,
+    alignItems: 'center',
   },
 });

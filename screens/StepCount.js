@@ -39,7 +39,7 @@ export const StepCount = () => {
         keyboardType="numeric"
         returnKeyType='done'
       />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={[styles.button, styles.shadowProp]} >
         <Text style={styles.buttonText}>Set goal!</Text>
       </TouchableOpacity>
       <View style={styles.goal}>
@@ -76,11 +76,11 @@ export const StepCount = () => {
         borderRadius: 8,
         minWidth: 343,
         textAlign: 'center',
-        fontSize: 18,
+        fontSize: 24,
       },
       button: {
         height: 56,
-        backgroundColor: "#87AAAA",
+        backgroundColor: "#9BCBCB",
         padding: 16,
         marginBottom: 32,
         borderRadius: 8,
@@ -96,9 +96,10 @@ export const StepCount = () => {
         color: '#333333',
       },
       pedometerText: {
-        fontSize: 32,
+        fontSize: 40,
         fontWeight: '700',
         marginTop: 8,
+        color: '#868686',
       },
       goal: {
         display: 'flex',
@@ -117,5 +118,11 @@ export const StepCount = () => {
         textAlign: 'center',
         marginBottom: 48,
         maxWidth: 343,
-      }
+      },
+      shadowProp: {
+        shadowColor: '#171717',
+        shadowOffset: {width: -2, height: 3},
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+      },
     })

@@ -1,37 +1,48 @@
 import React from 'react'
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native'
-import { CardItemOne, CardItemTwo, CardItemThree, CardItemFour, CardItemFive } from './CardItems'
+import { StyleSheet, View, TouchableOpacity, Text, ScrollView, SafeAreaView } from 'react-native'
+import { CardItemOne, CardItemTwo, CardItemThree, CardItemFour, CardItemFive, CardSmallOne, CardSmallTwo } from './CardItems'
 
 
 
 export const HomeScreen = ({navigation}) => {
 
     return (
-        <View style={styles.container}>
-          <View style={styles.backgroundContainer}>
-          <Text style={styles.heading}>Welcome to my first App</Text>
-          <Text style={styles.text}>Take look around, navigate here on the Homescreen or in the drawer navigation. Enjoy!</Text>
-              {/* <ImageBackground source={require('../assets/backgroundimage.png')} resizeMode="cover" style={styles.image}> */}
-                  {/* <Text style={styles.text}>Welcome!</Text> */}
-                  <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Step on')}>
-                    <CardItemOne/>
-                  </TouchableOpacity>
-                  <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Random videos')}>
-                    <CardItemTwo/>
-                  </TouchableOpacity>
-                  <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Click for Quote')}>
-                    <CardItemThree/>
-                  </TouchableOpacity>
-                  <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Shake for Quote')}>
-                    <CardItemFour/>
-                  </TouchableOpacity>
-                  <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Contact')}>
-                    <CardItemFive/>
-                  </TouchableOpacity>
-        
-              {/* </ImageBackground> */}
-          </View>
-        </View>
+        <SafeAreaView style={styles.container}>
+          <ScrollView>
+            <View style={styles.backgroundContainer}>
+            <Text style={styles.heading}>Welcome to my first App</Text>
+            <Text style={styles.text}>Take look around, navigate here on the Homescreen or in the drawer navigation. Enjoy!</Text>
+                {/* <ImageBackground source={require('../assets/backgroundimage.png')} resizeMode="cover" style={styles.image}> */}
+                    {/* <Text style={styles.text}>Welcome!</Text> */}
+                    <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Step on')}>
+                      <CardItemOne/>
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Random videos')}>
+                      <CardItemTwo/>
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Click for Quote')}>
+                      <CardItemThree/>
+                    </TouchableOpacity>
+
+                    <View style={styles.cardsmall}>
+                      <View>
+                        <CardSmallOne />
+                      </View>
+                      <View>
+                        <CardSmallTwo />
+                      </View>
+                    </View>
+
+                    <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Shake for Quote')}>
+                      <CardItemFour/>
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity= '0.1' onPress={() => navigation.navigate('Contact')}>
+                      <CardItemFive/>
+                    </TouchableOpacity>
+                {/* </ImageBackground> */}
+            </View>
+          </ScrollView>
+        </SafeAreaView>
     );
   };
   
@@ -40,14 +51,14 @@ export const HomeScreen = ({navigation}) => {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'relative',
+        // position: 'relative',
       },
       backgroundContainer: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        top: 0,
+        // position: 'absolute',
+        // bottom: 0,
+        // left: 0,
+        // right: 0,
+        // top: 0,
         paddingTop: 32,
       },
       heading: {
@@ -73,4 +84,9 @@ export const HomeScreen = ({navigation}) => {
         marginBottom: 32,
         textAlign: 'center'
       },
+      cardsmall: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 16,
+      }
   });

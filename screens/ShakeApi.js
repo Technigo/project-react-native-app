@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react"
 import { Accelerometer } from "expo-sensors"
-import { Text, View, ActivityIndicator, StyleSheet } from 'react-native'
+import { Text, View, ActivityIndicator, StyleSheet, Image, SafeAreaView } from 'react-native'
 
 
 
@@ -28,7 +28,7 @@ export const ShakeApi = () => {
 
 	useEffect(() => {
 		if (isShakingEnough(data)) {
-			generateQuote();
+			generateQuote()
 		}
 	}, [data])
 
@@ -55,6 +55,7 @@ export const ShakeApi = () => {
         .then((quote) => setQuote(quote))
         .finally(() => setLoading(false))
     }
+  
 
     const isShakingEnough = (data) => {
 		const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
@@ -62,17 +63,29 @@ export const ShakeApi = () => {
 	}
 
     if (loading) {
-        return <ActivityIndicator/>
+        return (
+        <SafeAreaView  style={styles.activityindicator}>
+          <ActivityIndicator size="large" color="#1a1a1a"/>
+        </SafeAreaView>
+        )
     }
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.container}>
             <Text style={styles.quote}>{quote.content}</Text>
             <Text style={styles.author}>{quote.author}</Text>
         </View>
+
+
+        <SafeAreaView style={styles.shadowProp}>
+          <Image source={require('../assets/shake.gif')} 
+          style={styles.containersmall}/> 
+        </SafeAreaView>
+
+
         <Text style={styles.howtodo}> Just shake your phone firmly and I will give you a quote.</Text>
-      </View>
+      </SafeAreaView>
 
     )
 }
@@ -106,8 +119,30 @@ const styles = StyleSheet.create({
       fontWeight: '500',
       textAlign: 'center',
       maxWidth: 343,
-      marginBottom: 64,
+      marginBottom: 32,
       color: '#1a1a1a',
-    }
+    },
+  shadowProp: {
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 3},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
+  containersmall: {
+    flex: 1,
+    justifyContent: 'center',
+    marginBottom: 24,
+    marginLeft: 8,
+    marginRight: 8,
+    padding: 16,
+    borderRadius: 8,
+    width: 160,
+    maxHeight: 140,
+    alignItems: 'center',
+  },
+  activityindicator: {
+    flex: 1,
+    justifyContent: "center",
+  }
 })
 

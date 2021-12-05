@@ -77,7 +77,7 @@ export const DrawerContent = (props) => {
                             color={color}
                             />
                         )}
-                        label='Step on'
+                        label='Step Counter'
                         onPress={() => {props.navigation.navigate('Step on')}}
                     />
 
