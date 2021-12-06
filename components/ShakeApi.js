@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Accelerometer } from "expo-sensors"
 import styled from "styled-components/native"
-import Icon from "react-native-vector-icons/AntDesign"
+//import Icon from "react-native-vector-icons/AntDesign"
+import { AntDesign } from "@expo/vector-icons"
 import { ActivityIndicator, Image } from "react-native"
 
 export const ShakeApi = () => {
@@ -103,7 +104,7 @@ export const ShakeApi = () => {
             <QuoteText>"{quote.quote}"</QuoteText>
             <CharacterName> {quote.character}</CharacterName>
           </TextWrapper>
-          <Icon name="shake" size={30} color="#000" />
+          <AntDesign name="shake" size={24} color="black" />
         </Wrapper>
       </Container>
     </>

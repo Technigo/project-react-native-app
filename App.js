@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import styled from "styled-components/native"
-import { Ionicons } from "@expo/vector-icons"
-import { useFonts } from "expo-font"
 import { Image, ImageBackground } from "react-native"
-
+//import Icon from "react-native-vector-icons/AntDesign"
+//import Icons from "react-native-vector-icons/fontAwesome5"
+import { AntDesign } from "@expo/vector-icons"
+import { FontAwesome } from "@expo/vector-icons"
 import { createDrawerNavigator } from "@react-navigation/drawer"
 import { NavigationContainer } from "@react-navigation/native"
 import { ButtonApi } from "./components/ButtonApi"
@@ -26,8 +27,25 @@ const App = () => {
       ) : (
         <NavigationContainer>
           <Drawer.Navigator initialRouteName="Shaker">
-            <Drawer.Screen name="Shaker" component={ShakeApi} />
-            <Drawer.Screen name="Clicker" component={ButtonApi} />
+            <Drawer.Screen
+              name="Friends Shaker"
+              component={ShakeApi}
+              options={{
+                drawerIcon: () => (
+                  <AntDesign name="shake" size={24} color="black" />
+                ),
+              }}
+            />
+
+            <Drawer.Screen
+              name="Friends Clicker"
+              component={ButtonApi}
+              options={{
+                drawerIcon: () => (
+                  <FontAwesome name="hand-pointer-o" size={24} color="black" />
+                ),
+              }}
+            />
           </Drawer.Navigator>
         </NavigationContainer>
       )}
