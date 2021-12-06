@@ -1,3 +1,3 @@
 ## View it live
 
-https://expo.fyi/project-page
+https://expo.dev/@johannamj/project-react-native-app
