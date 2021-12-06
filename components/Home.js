@@ -29,7 +29,7 @@ const Home = () => {
     dispatch(fetchDetail(id));
 
     if (recipeDetail) {
-      console.log('test', recipeDetail);
+      
       recipeDetail.map((item) => {
         Linking.openURL(item.strYoutube);
       });

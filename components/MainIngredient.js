@@ -42,6 +42,7 @@ const Input = styled.TextInput`
 const ButtonWrapper = styled.View`
   width: 250px;
   margin-top: 50px;
+  background: #e25e03;
 `;
 
 const backImage = {
@@ -77,11 +78,7 @@ const MainIngredient = ({ navigation }) => {
             />
 
             <ButtonWrapper>
-              <Button
-                title="Find recipe"
-                color="#e25e03"
-                onPress={submitInput}
-              />
+              <Button title="Find recipe" color="#fff" onPress={submitInput} />
             </ButtonWrapper>
           </Overlay>
         </Background>
