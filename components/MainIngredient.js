@@ -60,7 +60,7 @@ const MainIngredient = ({ navigation }) => {
 
   const submitInput = () => {
     dispatch(fetchMeals());
-    receivedRecipes === true && navigation.navigate('Home');
+    receivedRecipes === true && navigation.navigate(`Meals with ${ingredient}`);
   };
 
   return (
@@ -77,7 +77,6 @@ const MainIngredient = ({ navigation }) => {
             />
 
             <ButtonWrapper>
-              {console.log('value', ingredient)}
               <Button
                 title="Find recipe"
                 color="#e25e03"
