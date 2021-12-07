@@ -8,23 +8,24 @@ const Container = styled.View`
   align-items: center;
   justify-content: center;
   background-color: pink;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
-  height: 100%;
+  height: 50%;
   text-align: center;
+  margin: 15px auto;
 `;
 
 const BoredText = styled.Text`
   font-weight: 800;
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 20;
+  margin-bottom: 20px;
 `;
 
 const ShakeText = styled.Text`
   font-weight: 700;
   text-align: center;
-  margin-bottom: 10;
+  margin-bottom: 10px;
 `;
 
 const ShakeApi = () => {
