@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
-  ActivityIndicator,
   Vibration,
   StyleSheet,
   ImageBackground,
 } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
+
+import { QuoteLoader } from '../components/QuoteLoader';
 
 const image = {
   url: 'https://freerangestock.com/thumbnail/38788/vector-lightbulb-ideas.jpg',
@@ -58,7 +59,7 @@ export const RandomQuote = () => {
     fetch('http://api.quotable.io/random')
       .then((res) => res.json())
       .then((data) => setQuote(data))
-      .finally(() => setLoading(false));
+      .finally(() => setTimeout(() => setLoading(false), 1500));
   };
 
   const isShakingEnough = (data) => {
@@ -67,15 +68,19 @@ export const RandomQuote = () => {
   };
 
   if (loading) {
-    return <ActivityIndicator />;
+    return (
+      <View style={styles.quoteWrapper}>
+        <QuoteLoader />
+      </View>
+    );
   }
 
   return (
-    <View style={styles.QuoteWrapper}>
+    <View style={styles.quoteWrapper}>
       <ImageBackground source={image} resizeMode='cover' style={styles.image}>
-        <Text style={styles.QuoteHeader}>Shake to get quote</Text>
-        <View style={styles.QuoteContainer}>
-          <Text style={styles.QuoteText}>{quote.content}</Text>
+        <Text style={styles.quoteHeader}>Shake to get quote</Text>
+        <View style={styles.quoteContainer}>
+          <Text style={styles.quoteText}>{quote.content}</Text>
           <Text>- {quote.author}</Text>
         </View>
       </ImageBackground>
@@ -84,7 +89,7 @@ export const RandomQuote = () => {
 };
 
 const styles = StyleSheet.create({
-  QuoteWrapper: {
+  quoteWrapper: {
     display: 'flex',
     flex: 1,
     justifyContent: 'space-evenly',
@@ -98,11 +103,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
-  QuoteHeader: {
+  quoteHeader: {
     marginTop: -200,
     fontSize: 40,
   },
-  QuoteContainer: {
+  quoteContainer: {
     minHeight: 100,
     margin: 15,
     padding: 15,
@@ -111,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
-  QuoteText: {
+  quoteText: {
     fontWeight: '700',
     fontSize: 17,
   },
