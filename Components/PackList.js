@@ -34,7 +34,6 @@ const Title2 = styled.Text`
   font-size: 15px;
   text-align: center;
   margin-bottom: 10px;
-
   color: palevioletred;
 `;
 

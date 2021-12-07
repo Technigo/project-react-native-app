@@ -82,7 +82,6 @@ const Title = styled.Text`
 const Title2 = styled.Text`
   font-size: 15px;
   text-align: left;
-
   color: palevioletred;
 `;
 
@@ -93,6 +92,5 @@ const BigGreen = styled.Text`
 `;
 
 const SuggestionBox = styled.View`
-  /* border: 2px solid black; */
   padding: 20px 10px;
 `;

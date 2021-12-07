@@ -56,7 +56,6 @@ const Title = styled.Text`
 const Title2 = styled.Text`
   font-size: 15px;
   text-align: center;
-
   color: palevioletred;
 `;
 
