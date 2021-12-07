@@ -47,6 +47,15 @@ const TechnigoImage = styled.Image`
   height: 70px;
 `;
 
+const TechnigoContainer = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 40px;
+`;
+
 const Drawer = createDrawerNavigator();
 
 const App = () => {
@@ -63,8 +72,10 @@ const App = () => {
         <Button title="Shake API" onPress={() => setCurrentTab("Shake")} />
       </ButtonContainer>
 
-      <Container>
+      <TechnigoContainer>
         <TechnigoImage source={require("./assets/favicon.png")} resizeMode="contain" />
+      </TechnigoContainer>
+      <Container>
         {currentTab === "Button" && <ButtonApi />}
         {currentTab === "Shake" && <ShakeApi />}
       </Container>
