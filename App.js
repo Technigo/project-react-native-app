@@ -36,7 +36,7 @@ const Title = styled.Text`
 const ButtonContainer = styled.View`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   flex-direction: row;
   min-height: 65px;
@@ -50,7 +50,6 @@ const TechnigoImage = styled.Image`
 const TechnigoContainer = styled.View`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row;
   min-height: 40px;
