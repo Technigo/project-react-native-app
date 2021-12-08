@@ -11,24 +11,22 @@ const AuthorText = styled.Text`
 margin: 10px;
 `
 const EndText = styled.Text`
-margin: 30px;
-font-weight: 350;
+margin: 20px;
+font-weight: 300;
 color: yellow;
 `
 const APIButton = styled.TouchableHighlight`
-width: 105px;
+width: 120px;
 border: 3px solid yellow;
 border-radius: 20px;
 padding: 10px;
 font-weight: 600;
 background-color: white;
 color: yellow;
-
 `
 const InfoView = styled.View`
 justify-content: center;
 `
-
 const StyledView = styled.View`
 margin: 10px;
 padding: 18px;
@@ -37,10 +35,8 @@ justify-content: center;
 align-items: center;
 background-color: lightblue;
 `
-
 const ButtonApi = () => {
     const [quote, setQuote] = useState({})
-    //const [count, setCount] = useState(0);
     const [loading, setLoading] = useState(false)
     
     useEffect (() => {
