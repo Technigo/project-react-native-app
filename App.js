@@ -1,26 +1,33 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Button } from "react-native"
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import ButtonApi from "./components/ButtonApi"
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+export default function App() {
+	const [count, setCount] = useState(0);
 
-const App = () => {
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+    <View style={styles.container}>
+    	<ButtonApi /> 
+		<Text style={styles.counterText}> {count}</Text>
+    </View>
 	);
-};
+}
+//trying out Stylesheet for styling
+const styles = StyleSheet.create({
+	container: {
+    flex: 1,
+	backgroundImage: 'URL(https://images.unsplash.com/photo-1488188840666-e2308741a62f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80)',
+    backgroundColor: "powderblue",
+    alignItems: "center",
+	justifyContent: "center",
+    paddingTop: 60,
+    color: "darkblue",
+	},
 
-export default App;
+	counterText: {
+    color: "black",
+    padding: "20",
+	fontSize: "34",
+	},
+});
