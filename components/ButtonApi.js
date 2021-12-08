@@ -40,6 +40,7 @@ background-color: lightblue;
 
 const ButtonApi = () => {
     const [quote, setQuote] = useState({})
+    //const [count, setCount] = useState(0);
     const [loading, setLoading] = useState(false)
     
     useEffect (() => {
