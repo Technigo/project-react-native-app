@@ -1,25 +1,28 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { combineReducers, configureStore, createStore } from '@reduxjs/toolkit'
 import { StyleSheet, ImageBackground } from 'react-native'
-import { createDrawerNavigator } from '@react-navigation/drawer'
-import { NavigationContainer } from '@react-navigation/native'
-
-import { persistStore, persistReducer } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import { pokemonShake } from './reducers/pokemonShake'
-import ShakeFetch from './components/ShakeFetch'
-import { ListOfFavorites } from './components/ListOfFavorites'
-import { Background } from './components/Background'
+import { store } from './reducers/store'
+import RootNavigator from './navigation/RootNavigator'
 
-const reducer = combineReducers({
-  pokemonShake: pokemonShake.reducer
-})
+// import { combineReducers, configureStore, createStore } from '@reduxjs/toolkit'
+// import { createDrawerNavigator } from '@react-navigation/drawer'
+// import { NavigationContainer } from '@react-navigation/native'
+// import { persistStore, persistReducer } from 'redux-persist'
+// import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
+// import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const store = configureStore({ reducer })
+// import { pokemonShake } from './reducers/pokemonShake'
+// import ShakeFetch from './components/ShakeFetch'
+// import { ListOfFavorites } from './components/ListOfFavorites'
+// import { Background } from './components/Background'
+
+// const reducer = combineReducers({
+//   pokemonShake: pokemonShake.reducer
+// })
+
+// const store = configureStore({ reducer })
 
 // const persistConfig = {
 //   key: 'root',
@@ -55,30 +58,25 @@ const store = configureStore({ reducer })
 const App = () => {
   return (
     <Provider store={store}>
-      {/* <PersistGate loading={null} persistor={persistor}> */}
-      <ImageBackground
-        source={require('./assets/sunburst.jpg')}
-        resizeMode="cover"
-        style={styles.image}>
-        <ShakeFetch />
-        {/* <ListOfFavorites /> */}
-      </ImageBackground>
-      {/* </PersistGate> */}
+      <PersistGate loading={null} persistor={persistor}>
+        <RootNavigator />
+      </PersistGate>
     </Provider>
-
-    // return (
-    //   <Provider store={store}>
-    //     <PersistGate loading={null} persistor={persistor}>
-    //     <NavigationContainer>
-    //       <Drawer.Navigator initialRouteName="PokéShake">
-    //         <Drawer.Screen name="PokéShake" component={ShakeFetch} />
-    //         <Drawer.Screen name="My team" component={ListOfFavorites} />
-    //       </Drawer.Navigator>
-    //     </NavigationContainer>
-    //     <Background />
-    //     </PersistGate>
-    //   </Provider>
   )
+
+  // return (
+  //   <Provider store={store}>
+  //     {/* <PersistGate loading={null} persistor={persistor}> */}
+  //     <ImageBackground
+  //       source={require('./assets/sunburst.jpg')}
+  //       resizeMode="cover"
+  //       style={styles.image}>
+  //       <ShakeFetch />
+  //       {/* <ListOfFavorites /> */}
+  //     </ImageBackground>
+  //     {/* </PersistGate> */}
+  //   </Provider>
+  // )
 }
 
 const styles = StyleSheet.create({

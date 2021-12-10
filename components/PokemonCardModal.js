@@ -73,7 +73,7 @@ export const PokemonCardModal = () => {
                 </Text>
               ))}
             </View>
-            {/* {favorites.length < 6 && (
+            {favorites.length < 6 && (
               <Pressable
                 style={[styles.button, styles.buttonFavorite]}
                 onPress={handleStoreFavorite}>
@@ -84,7 +84,7 @@ export const PokemonCardModal = () => {
               <Text style={styles.textStyle}>
                 You carry six Pokémon already.
               </Text>
-            )} */}
+            )}
           </View>
         </View>
       </Modal>
