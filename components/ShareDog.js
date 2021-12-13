@@ -6,7 +6,7 @@ import styled from 'styled-components/native';
 const ShareButton = styled.TouchableOpacity`
   height: 40px;
   width: 120px;
-  border-radius: 10;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   background-color: #c7926c;

@@ -10,6 +10,7 @@ const Container = styled.View`
 	background-color: papayawhip;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 `
 
 const App = () => {

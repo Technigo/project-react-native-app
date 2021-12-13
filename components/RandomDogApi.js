@@ -25,7 +25,7 @@ const Paragraph = styled.Text`
 const NextButton = styled.TouchableOpacity`
   height: 40px;
   width: 110px;
-  border-radius: 10;
+  border-radius: 10px;
   background-color: #e2b868;
   justify-content: center;
   align-items: center;
