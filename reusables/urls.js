@@ -1,1 +1,1 @@
-export const API_URL = 'http://api.quotable.io/random'
+export const API_URL = 'https://random.dog/woof.json'
