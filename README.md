@@ -1,6 +1,6 @@
 # Project React Native App 📱
 
-For this week's project I build my first mobile application with React Native, using an external API to fetch random dogs. The app can be shared the styling is done using Styled Components. 
+For this week's project I build my first mobile application with React Native, using an external API to fetch random dogs. The app can be shared and the styling is done using Styled Components. 
 
 ## The problem
 
@@ -8,6 +8,7 @@ I had a hard time getting different APIs to work and in the end I found a random
 
 ## View it live
 
+exp://exp.host/@jenquach/project-react-native-app
 
 
 
