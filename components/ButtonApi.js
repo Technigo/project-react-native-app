@@ -8,12 +8,6 @@ import {
         StyleSheet
     } from 'react-native';
 
-import styled, { withTheme } from "styled-components/native";
-
-const QuoteText = styled.Text`
-    font-weight: 700;
-`;
-
 const ButtonApi = () => {
 
     const [quote, setQuote] = useState({})
@@ -42,16 +36,15 @@ const ButtonApi = () => {
 
     return(
         <View style={styles.view}>
+            <Text style={styles.qotd}>Quote of the Day:</Text>
+            <Text style={styles.qtext}>{quote.content}</Text>
+            <Text style={styles.qauthor}>- {quote.author}</Text>
             <Pressable
                 onPress={generateQuote}
-                style={styles.pressable}
+                style={styles.qpressable}
             >
-                <Text>Click to generate a quote</Text>
+                <Text>Quote Generator Button</Text>
             </Pressable>
-            <QuoteText style={styles.quotetext}>
-                {quote.content}
-            </QuoteText>
-            <Text style={styles.author}>- {quote.author}</Text>
         </View>
     )
 }
@@ -62,7 +55,18 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center'
     },
-    pressable: {
+    qotd: {
+        fontSize: 28,
+        fontWeight: 700,
+    },
+    qtext: {
+        marginTop: 8,
+        fontWeight: 700,
+    },
+    qauthor: {
+        marginBottom: 8,
+    },
+    qpressable: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -71,12 +75,7 @@ const styles = StyleSheet.create({
         color: 'white',
         backgroundColor: 'steelblue'
     },
-    quotetext: {
-        marginTop: 8,
-    },
-    author: {
-        marginBottom: 8,
-    }
+
 })
 
 export default ButtonApi
