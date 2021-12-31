@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Button } from 'react-native';
 import styled from 'styled-components/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+
+import ButtonApi from './components/ButtonApi';
+import ShakeApi from './components/ShakeApi';
 
 const Container = styled.View`
 	flex: 1;
@@ -13,14 +19,28 @@ const Title = styled.Text`
 	color: palevioletred;
 `;
 
+const Drawer = createDrawerNavigator();
+
 const App = () => {
+	const [currentTab, setCurrentTab] = useState('Button');
+
 	return (
 		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
+			<Button title="Button API" onPress={() => setCurrentTab('Button')} />
+			<Button title="Shake API" onPress={() => setCurrentTab('Shake')} />
+			{currentTab === 'Button' && <ButtonApi />}
+			{currentTab === 'Shake' && <ShakeApi />}
 		</Container>
 	);
+
+	// return (
+	// 	<NavigationContainer>
+	// 		<Drawer.Navigator initialRouteName="Button">
+	// 			<Drawer.Screen name="Button" component={ButtonApi} />
+	// 			<Drawer.Screen name="Shake" component={ShakeApi} />
+	// 		</Drawer.Navigator>
+	// 	</NavigationContainer>
+	// );
 };
 
 export default App;
