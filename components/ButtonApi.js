@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
+        ActivityIndicator,
         View,
         Text,
-        ActivityIndicator,
-        Button,
         Pressable,
         StyleSheet
     } from 'react-native';
@@ -76,7 +75,6 @@ const styles = StyleSheet.create({
         color: 'white',
         backgroundColor: 'steelblue'
     },
-
 })
 
 export default ButtonApi
