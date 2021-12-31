@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
         Linking,
         ActivityIndicator,
@@ -11,7 +11,6 @@ import * as Location from 'expo-location';
 const LocationApi = () => {
 
     const [loading, setLoading] = useState(false)
-    const [location, setLocation] = useState({})
 
     // v1 - Promise
     // const getLocation = () => {
@@ -27,19 +26,23 @@ const LocationApi = () => {
     //         Linking.openURL(
     //             `https://www.google.com/maps/place/${locationData.coords.latitude},${locationData.coords.longitude}`
     //         )
+    //     .finally(() => setLoading(false))
     //     })
     // }
 
     // v2 - Async await
     const getLocation = async () => {
+        setLoading(true)
         let data = await Location.requestForegroundPermissionsAsync();
         if (data.status !== 'granted') {
-            console.log('Permission to access location was denied!');
+            setLoading(false)
+            alert('Permission to access location was denied!');
         } else {
             let locationData = await Location.getCurrentPositionAsync({});
             Linking.openURL(
                 `https://www.google.com/maps/place/${locationData.coords.latitude},${locationData.coords.longitude}`
             )
+            setLoading(false)
         }
     }
 
