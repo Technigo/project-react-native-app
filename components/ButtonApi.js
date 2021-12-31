@@ -43,7 +43,7 @@ const ButtonApi = () => {
                 onPress={generateQuote}
                 style={styles.qpressable}
             >
-                <Text>Quote Generator Button</Text>
+                <Text>Quote Generator</Text>
             </Pressable>
         </View>
     )
@@ -51,17 +51,18 @@ const ButtonApi = () => {
 
 const styles = StyleSheet.create({
     view: {
-        width: '50%',
-        display: 'flex',
-        alignItems: 'center'
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 24
     },
     qotd: {
-        fontSize: 28,
-        fontWeight: 700,
+        fontSize: 24,
+        fontWeight: '700',
     },
     qtext: {
         marginTop: 8,
-        fontWeight: 700,
+        fontWeight: '700',
     },
     qauthor: {
         marginBottom: 8,
