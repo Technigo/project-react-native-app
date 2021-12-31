@@ -86,9 +86,10 @@ const ShakeApi = () => {
 
 const styles = StyleSheet.create({
     view: {
-        width: '50%',
-        display: 'flex',
-        alignItems: 'center'
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 24
     },
     qotd: {
         fontSize: 24,

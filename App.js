@@ -1,27 +1,22 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import ButtonApi from './components/ButtonApi';
 import ShakeApi from './components/ShakeApi';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Tab = createBottomTabNavigator();
 
 const App = () => {
 	return (
-		<Container>
-			<ButtonApi />
-			<ShakeApi />
-		</Container>
+		<NavigationContainer>
+			<Tab.Navigator>
+				<Tab.Screen name="Button" component={ButtonApi} />
+				<Tab.Screen name="Shake" component={ShakeApi} />
+			</Tab.Navigator>
+		</NavigationContainer>
 	);
 };
 
