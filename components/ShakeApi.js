@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
-    View,
-    Text,
-    ActivityIndicator,
-    StyleSheet
+        View,
+        Text,
+        ActivityIndicator,
+        StyleSheet
     } from 'react-native';
 
 import { Accelerometer } from 'expo-sensors';
