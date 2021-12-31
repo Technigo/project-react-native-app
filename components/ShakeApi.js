@@ -77,6 +77,7 @@ const ShakeApi = () => {
             <Text style={styles.qotd}>Quote of the Day:</Text>
             <Text style={styles.qtext}>{quote.content}</Text>
             <Text style={styles.qauthor}>- {quote.author}</Text>
+            <Text>Shake your device a bit to generate a new quote. :)</Text>
             <Text>Data X: {x}</Text>
             <Text>Data Y: {y}</Text>
             <Text>Data Z: {z}</Text>
