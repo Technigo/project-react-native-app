@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 import { Accelerometer } from 'expo-sensors';
+import { useFonts, Buda_300Light } from '@expo-google-fonts/buda';
 
 const QuoteText = styled.Text`
     font-weight: 700;
@@ -16,6 +17,9 @@ const ShakeApi = () => {
     const [quote, setQoute] = useState({});
     const [loading, setLoading] = useState(false);
     const [subscription, setSubscription] = useState(null);
+    const [fontsLoaded] = useFonts({
+      Buda_300Light,
+    });
     
 
     useEffect(() => {
@@ -66,7 +70,7 @@ const ShakeApi = () => {
         return totalForce > 1.78;
     }
 
-    if (loading) {
+    if (loading || !fontsLoaded) {
         return <ActivityIndicator/>
     }
 
@@ -74,7 +78,8 @@ const ShakeApi = () => {
 
     return (
     <View>
-        <QuoteText>Quote: {quote.content}</QuoteText>
+        <QuoteText style={{ fontFamily: 'Buda_300Light' }} >
+          Quote: {quote.content}</QuoteText>
         <Text>Author: {quote.author}</Text>
     </View>
     )};

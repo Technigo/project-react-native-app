@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ActivityIndicator, Button, Linking } from 'react-native';
+import { View, Text, TouchableOpacity, ActivityIndicator, Button, Linking, Image, ImageBackground} from 'react-native';
 import styled from 'styled-components/native';
 import * as Location from 'expo-location';
 
@@ -10,7 +10,15 @@ const QuoteText = styled.Text`
 const APIButton = styled.TouchableOpacity`
     width: 50%;
     background-color: green;
-`
+`;
+const TechnigoImage = styled.Image`
+    height: 100%;
+    width: 100%
+`;
+
+const ScreenBackground = styled.ImageBackground`
+    height: 100%
+`;
 
 const ButtonApi = () => {
     const [quote, setQoute] = useState({});
@@ -49,7 +57,8 @@ const ButtonApi = () => {
     //         console.log( 'Permission to access location was denied' );
     //     } else {
     //         const locationData = await Location.getCurrentPositionAsync({});
-    //         console.log('locationData', locationData)
+    //         Linking.openURL(`http://www.google.com/maps/place/${locationData.coords.latitude},${locationData.coords.longitude}`);
+    //     };
     //     }
     // }
 
@@ -63,7 +72,7 @@ const ButtonApi = () => {
     }
 
     return (
-    <View>
+    <ScreenBackground source={require('../assets/splash.png')}>
         <Text>Click button to generate quote!</Text>
         <APIButton onPress={generateQuote}>
             <Text>Click clock</Text>
@@ -71,7 +80,8 @@ const ButtonApi = () => {
         <QuoteText>Quote: {quote.content}</QuoteText>
         <Text>Author: {quote.author}</Text>
         <Button title="Get location" onPress={getLocation} />
-    </View>
+        <TechnigoImage source= {require('../assets/favicon.png')} resizeMode="contain"/>
+    </ScreenBackground>
     )};
 
 export default ButtonApi;
