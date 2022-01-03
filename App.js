@@ -1,41 +1,21 @@
 import React from 'react'
-import styled from 'styled-components/native'
-import { createDrawerNavigator } from '@react-navigation/drawer'
-import { NavigationContainer } from '@react-navigation/native'
+import styled from 'styled-components'
 
-import ButtonApi from './components/ButtonApi'
-import ShakeApi from './components/ShakeApi'
+import ButtonDice from './components/ButtonDice'
+import ShakeDice from './components/ShakeDice'
 
 const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-	padding: 40px;
-`
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
+  flex: 1;
+  background-color: papayawhip;
+  justify-content: center;
 `
 
 const App = () => {
-	const Drawer = createDrawerNavigator()
-
-	// return (
-	// 	<Container>
-	// 		<ShakeApi />
-	// 	</Container>
-	// )
-
-	return (
-		<NavigationContainer>
-		  <Drawer.Navigator initialRouteName="Button">
-			<Drawer.Screen name="Button" component={ButtonApi} />
-			<Drawer.Screen name="Shake" component={ShakeApi} />
-		  </Drawer.Navigator>
-		</NavigationContainer>
-	  )
+  return (
+    <Container>
+      <ShakeDice />
+    </Container>
+  )
 }
 
 export default App
