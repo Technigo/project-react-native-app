@@ -1,10 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
+  ImageBackground,
+} from "react-native";
 import styled from "styled-components/native";
+
+const Container = styled.View`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px;
+`;
 
 const ArtistText = styled.Text`
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 30px;
 `;
 
 const APIButton = styled.TouchableOpacity`
@@ -15,29 +28,27 @@ const APIButton = styled.TouchableOpacity`
   font-size: 2rem;
   color: white;
 `;
+const TextTitle = styled.Text`
+  font-size: 20px;
+`;
 
 const ButtonApi = () => {
   const [item, setItem] = useState(undefined);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    generateItems();
-  }, []);
 
   const generateItems = () => {
     const randomOffset = Math.floor(Math.random() * 1900);
 
     setLoading(true);
     fetch(
-      `https://api.smk.dk/api/v1/art/search/?keys=*&offset=${randomOffset}&rows=100&lang=en&filters=[has_image:true]`
+      `https://api.smk.dk/api/v1/art/search/?keys=*&offset=${randomOffset}&rows=1000&lang=en&filters=[has_image:true]`
     )
       .then((res) => res.json())
       .then((data) => {
-        const randomIndex = Math.floor(Math.random() * 99);
+        const randomIndex = Math.floor(Math.random() * 999);
         setItem(data.items[randomIndex]);
-        console.log(data.items[randomIndex]);
       })
-      .finally((data) => {
+      .finally(() => {
         setLoading(false);
       });
   };
@@ -46,32 +57,34 @@ const ButtonApi = () => {
     return <ActivityIndicator />;
   }
 
-  // Grafikers navn anført i trykpladen
   return (
-    <View>
-      <Text>Click button to generate an artwork!</Text>
+    <Container>
+      <TextTitle>Click the button to generate a random art piece </TextTitle>
       <APIButton onPress={generateItems}>
-        <Text>Clique</Text>
+        <Text>Ready?</Text>
       </APIButton>
       {item !== undefined && (
-        <div>
+        <View>
           <ArtistText>{item.artist[0]}</ArtistText>
-          <h3>Titles</h3>
+          <TextTitle>Title:</TextTitle>
           {item.titles.map((title) => (
-            <p key={title.title}>{title.title}</p>
+            <Text key={title.title}>{title.title}</Text>
           ))}
-          <img
-            width="300"
-            src={item.image_thumbnail}
-            alt={item.titles[0].title}
-          />
-          <h3>Technique</h3>
-          <p key="techniques">{item.techniques}</p>
-          <h3>Time period</h3>
-          <p key="timeperiod">{item.production_date[0].period}</p>
-        </div>
+          <ImageBackground>
+            <img
+              width="300"
+              height="500"
+              src={item.image_thumbnail}
+              alt={item.titles[0].title}
+            />
+          </ImageBackground>
+          <TextTitle>Technique/s:</TextTitle>
+          <Text key="Techniques">{item.techniques}</Text>
+          <TextTitle>Time period:</TextTitle>
+          <Text key="Time Period">{item.production_date[0].period}</Text>
+        </View>
       )}
-    </View>
+    </Container>
   );
 };
 

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/native";
 
 import ButtonApi from "./components/ButtonApi";
-import ShakeApi from "./components/ShakeApi";
 
 const Container = styled.View`
   flex: 1;
@@ -19,7 +18,6 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      {/* <ShakeApi /> */}
       <ButtonApi />
     </Container>
   );
