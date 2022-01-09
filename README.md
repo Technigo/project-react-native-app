@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I created my first mobile app using an art api where you get a random art piece from the danish national museum
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Hardest thing was to get the picture the right size. still needs some fixing
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+exp://exp.host/@elsajo/project-react-native-app
