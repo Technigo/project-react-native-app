@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import ButtonDice from './components/ButtonDice'
+// import ButtonDice from './components/ButtonDice'
 import ShakeDice from './components/ShakeDice'
 
 const Container = styled.View`
@@ -14,6 +14,7 @@ const App = () => {
   return (
     <Container>
       <ShakeDice />
+      {/* <ButtonDice /> */}
     </Container>
   )
 }

@@ -1,6 +1,6 @@
-import react, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { StatusBar } from "expo-status-bar"
-import { StyleSheet, Text, View, Image, Button } from "react-native"
+import { Text, View, Image, Button } from "react-native"
 
 const ButtonDice = () => {
   const endNrsDices = [
@@ -30,9 +30,6 @@ const ButtonDice = () => {
     setEndNrDice(diceSpin)
     setTimeout(() => setEndNrDice(endNrsDices[randomNr]), 3000)
     setTimeout(() => setBackgroundColor(backgroundColors[randomNr]), 3000)
-
-    // console.log(endNrsDices[randomNr])
-    // console.log(backgroundColors[randomNr])
   }
 
   return (
