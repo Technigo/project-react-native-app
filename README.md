@@ -1,12 +1,13 @@
 # Project React Native App 📱
 
-This is my first encounter with React-Native.
-The project I chose to to is a straight forward quote - page. That fetches random quotes through api.
+This is a displayer of random quotes! 
+It fetches random quotes through api, and displays them in a nice way for the user
 
-## The problem
+## The challenge
 
-It was challenging to learn a new "language", to display information from previous knowledge. But with patience and research I got a functional app, that looks good and works, with a completely new typescript, for me. It feels great to manage that.
+It was challenging to learn React-Native, due to that I recently learned React. It is similar in logic, but it has different ways of practise.
 
+With patience and research I got a functional app, that looks good and works, with a new typescript (for me). 
 
 ## View it live
 
