@@ -3,7 +3,7 @@ import { Modal, StyleSheet, Text, Pressable, View, Image } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { pokemonShake } from '../reducers/pokemonShake'
-import { ListOfFavorites } from './ListOfFavorites'
+import { ListOfFavorites } from '../pages/ListOfFavorites'
 
 export const PokemonCardModal = () => {
   const dispatch = useDispatch()
@@ -73,17 +73,15 @@ export const PokemonCardModal = () => {
                 </Text>
               ))}
             </View>
-            {favorites.length < 6 && (
+            {favorites.length < 20 && (
               <Pressable
                 style={[styles.button, styles.buttonFavorite]}
                 onPress={handleStoreFavorite}>
                 <Text style={styles.textStyle}>Add to team!</Text>
               </Pressable>
             )}
-            {favorites.length === 6 && (
-              <Text style={styles.textStyle}>
-                You carry six Pokémon already.
-              </Text>
+            {favorites.length === 20 && (
+              <Text style={styles.textStyle}>Your team is full!</Text>
             )}
           </View>
         </View>
@@ -97,7 +95,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22
+    marginTop: 22,
   },
   modalView: {
     margin: 8,
@@ -108,7 +106,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
@@ -117,45 +115,45 @@ const styles = StyleSheet.create({
     height: 550,
     borderColor: '#fcf095',
     borderWidth: 8,
-    backgroundColor: '#f8ad4a'
+    backgroundColor: '#f8ad4a',
   },
   name: {
     fontWeight: 'bold',
     fontSize: 23,
-    color: '#423c3c'
+    color: '#423c3c',
   },
   button: {
     borderRadius: 10,
     padding: 10,
-    elevation: 2
+    elevation: 2,
   },
   buttonFavorite: {
     backgroundColor: 'red',
-    marginBottom: 5
+    marginBottom: 5,
   },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   modalText: {
     marginBottom: 3,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#423c3c'
+    color: '#423c3c',
   },
   tagContainer: {
     width: '100%',
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   tagJustifyCenter: {
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   tagJustifyEnd: {
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   tag: {
     padding: 8,
@@ -164,13 +162,13 @@ const styles = StyleSheet.create({
     color: 'white',
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    fontSize: 11
+    fontSize: 11,
   },
   tagTypes: {
-    backgroundColor: 'lightseagreen'
+    backgroundColor: 'lightseagreen',
   },
   tagAbilities: {
-    backgroundColor: '#a43637'
+    backgroundColor: '#a43637',
   },
   imageContainer: {
     width: '90%',
@@ -182,16 +180,16 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 4
+    shadowRadius: 4,
   },
   nameTypeContainer: {
     width: '90%',
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 })

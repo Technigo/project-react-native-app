@@ -5,7 +5,7 @@ import { View, Button, ActivityIndicator, Image } from 'react-native'
 import LottieView from 'lottie-react-native'
 
 import { POKEMON_URL } from '../utils/urls'
-import { PokemonCardModal } from './PokemonCardModal'
+import { PokemonCardModal } from '../components/PokemonCardModal'
 import { pokemonShake } from '../reducers/pokemonShake'
 
 const ShakeFetch = () => {
@@ -13,7 +13,7 @@ const ShakeFetch = () => {
   const [data, setData] = useState({
     x: 0,
     y: 0,
-    z: 0
+    z: 0,
   })
   const [subscription, setSubscription] = useState(null)
   const [pokemon, setPokemon] = useState({})
@@ -39,7 +39,7 @@ const ShakeFetch = () => {
     setSubscription(
       Accelerometer.addListener((accelerometerData) => {
         setData(accelerometerData)
-      })
+      }),
     )
   }
 
@@ -71,7 +71,7 @@ const ShakeFetch = () => {
       .finally(() =>
         setTimeout(() => {
           setLoading(false)
-        }, 2000)
+        }, 2000),
       )
   }
 
@@ -87,7 +87,7 @@ const ShakeFetch = () => {
         source={require('../animations/loading.json')}
         style={{
           width: 300,
-          height: 300
+          height: 300,
         }}
         autoPlay
       />
@@ -108,7 +108,7 @@ const ShakeFetch = () => {
             source={require('../assets/pokeshake_logo.png')}
             style={{ width: 200, height: 150 }}
           />
-          {/* <Button title="Click!" onPress={generatePokemon} /> */}
+          <Button title="Click!" onPress={generatePokemon} />
         </>
       )}
       {pokemon.name && (

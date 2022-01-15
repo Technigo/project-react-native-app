@@ -44,7 +44,7 @@ const FetchPokemon = () => {
       .finally(() =>
         setTimeout(() => {
           setLoading(false)
-        }, 500)
+        }, 500),
       )
   }
 

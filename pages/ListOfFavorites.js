@@ -22,7 +22,7 @@ export const ListOfFavorites = () => {
           <Card key={pokemon.id}>
             <Image
               source={{
-                uri: `${pokemon.sprites.other['official-artwork'].front_default}`
+                uri: `${pokemon.sprites.other['official-artwork'].front_default}`,
               }}
               style={{ width: 150, height: 150 }}
             />
@@ -52,8 +52,8 @@ export const ListOfFavorites = () => {
 }
 
 const Wrapper = styled.View`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   text-align: center;
 `
 const PokeWrapper = styled.View`
