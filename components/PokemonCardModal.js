@@ -3,7 +3,6 @@ import { Modal, StyleSheet, Text, Pressable, View, Image } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { pokemonShake } from '../reducers/pokemonShake'
-import { ListOfFavorites } from '../pages/ListOfFavorites'
 
 export const PokemonCardModal = () => {
   const dispatch = useDispatch()
@@ -29,7 +28,7 @@ export const PokemonCardModal = () => {
   const pokedexPrefix = () => {
     if (pokemon.id < 10) {
       return 'Pokémon #00'
-    } else if (pokemon.id > 9 && pokemon.id < 100) {
+    } else if (pokemon.id >= 10 && pokemon.id <= 100) {
       return 'Pokémon #0'
     } else {
       return 'Pokémon #'
@@ -80,6 +79,11 @@ export const PokemonCardModal = () => {
                 <Text style={styles.textStyle}>Add to team!</Text>
               </Pressable>
             )}
+            {/* {favorites.map((item) => {
+              if (item === pokemon) {
+                return <Text style={styles.textStyle}>Team mate</Text>
+              }
+            })} */}
             {favorites.length === 20 && (
               <Text style={styles.textStyle}>Your team is full!</Text>
             )}

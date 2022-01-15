@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Accelerometer } from 'expo-sensors'
-import { View, Button, ActivityIndicator, Image } from 'react-native'
+import { StyleSheet, View, Button, Image, ImageBackground } from 'react-native'
 import LottieView from 'lottie-react-native'
 
 import { POKEMON_URL } from '../utils/urls'
@@ -64,7 +64,6 @@ const ShakeFetch = () => {
     fetch(POKEMON_URL(pokemonNumber))
       .then((res) => res.json())
       .then((pokemon) => {
-        console.log(pokemon)
         setPokemon(pokemon)
         dispatch(pokemonShake.actions.setCurrent(pokemon))
       })
@@ -81,16 +80,22 @@ const ShakeFetch = () => {
   }
 
   if (loading) {
-    // return <ActivityIndicator />
     return (
-      <LottieView
-        source={require('../animations/loading.json')}
-        style={{
-          width: 300,
-          height: 300,
-        }}
-        autoPlay
-      />
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('../assets/sunburst.jpg')}
+          resizeMode="cover"
+          style={styles.image}>
+          <LottieView
+            source={require('../animations/loading.json')}
+            style={{
+              width: 300,
+              height: 300,
+            }}
+            autoPlay
+          />
+        </ImageBackground>
+      </View>
     )
   }
 
@@ -101,22 +106,35 @@ const ShakeFetch = () => {
   // <Text>Data z: {z}</Text>
 
   return (
-    <View>
-      {!pokemon.name && (
-        <>
-          <Image
-            source={require('../assets/pokeshake_logo.png')}
-            style={{ width: 200, height: 150 }}
-          />
-          <Button title="Click!" onPress={generatePokemon} />
-        </>
-      )}
-      {pokemon.name && (
-        <>
-          <PokemonCardModal />
-        </>
-      )}
+    <View style={styles.container}>
+      <ImageBackground
+        source={require('../assets/sunburst.jpg')}
+        resizeMode="cover"
+        style={styles.image}>
+        {!pokemon.name && (
+          <>
+            <Image
+              source={require('../assets/pokeshake_logo.png')}
+              style={{ width: 200, height: 150 }}
+            />
+            <Button title="Click!" onPress={generatePokemon} />
+          </>
+        )}
+
+        {pokemon.name && <PokemonCardModal />}
+      </ImageBackground>
     </View>
   )
 }
 export default ShakeFetch
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+})
