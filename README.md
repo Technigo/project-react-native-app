@@ -1,8 +1,7 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+project-react-native-app
+An app which fetches quotes from a beloved American TV series 'The Office'. It updates a quote whenever an user shakes the phone.
 
 ## The problem
 
@@ -10,4 +9,4 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+exp://exp.host/@ruruahn/project-react-native-app?release-channel=default
