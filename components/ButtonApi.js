@@ -5,16 +5,18 @@ import * as Location from 'expo-location';
 
 const QuoteText = styled.Text`
     font-weight: 700;
+    color: white;
 `;
 
 const APIButton = styled.TouchableOpacity`
     width: 50%;
     background-color: green;
 `;
-const TechnigoImage = styled.Image`
-    height: 100%;
-    width: 100%
-`;
+
+// const TechnigoImage = styled.Image`
+//     height: 100%;
+//     width: 100%
+// `;
 
 const ScreenBackground = styled.ImageBackground`
     height: 100%
@@ -72,19 +74,18 @@ const ButtonApi = () => {
     }
 
     return (
-    <ScreenBackground source={require('../assets/splash.png')}>
-        <Text>Click button to generate quote!</Text>
+    <ScreenBackground source={require('../assets/typewriter.jpg')}>
+        <Text>Welcome to the quote machine!</Text>
         <APIButton onPress={generateQuote}>
-            <Text>Click clock</Text>
+            <Text>Generate quote</Text>
         </APIButton>
         <QuoteText>Quote: {quote.content}</QuoteText>
         <Text>Author: {quote.author}</Text>
         <Button title="Get location" onPress={getLocation} />
-        <TechnigoImage source= {require('../assets/favicon.png')} resizeMode="contain"/>
+        {/* <TechnigoImage source= {require()} resizeMode="contain"/> */}
     </ScreenBackground>
     )};
 
 export default ButtonApi;
 
-//50:13
 
