@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator, Button, Linking, Image, ImageBackground, Div} from 'react-native';
 import styled from 'styled-components/native';
-// import * as Location from 'expo-location';
 
 const QuoteText = styled.Text`
     font-weight: 700;
@@ -38,8 +37,6 @@ const Box = styled.View`
     align-items: center;
     flex-direction: column;
     padding: 50px;
-    // background-color: white;
-    // opacity: 0.5;
 `;
 
 const ButtonApi = () => {
@@ -59,32 +56,6 @@ const ButtonApi = () => {
         .finally(() => setLoading(false));
     };
 
-    // v1 - Promise
-    // const getLocation = () => {
-    //     Location.requestForegroundPermissionsAsync().then((data) => {
-    //         if (data.status !== 'granted') {
-    //             console.log('Permission to access location was denied');
-    //         } else {
-    //             return Location.getCurrentPositionAsync({});      
-    //             }
-    //     }).then((locationData) => {
-    //     Linking.openURL(`http://www.google.com/maps/place/${locationData.coords.latitude},${locationData.coords.longitude}`)
-    //     });
-    // };
-
-    // v2 - Async await
-    // const getLocation = async () => {
-    //     const data = await Location.requestForegroundPermissionsAsync();
-    //     if (data.status !== 'granted') {
-    //         console.log( 'Permission to access location was denied' );
-    //     } else {
-    //         const locationData = await Location.getCurrentPositionAsync({});
-    //         Linking.openURL(`http://www.google.com/maps/place/${locationData.coords.latitude},${locationData.coords.longitude}`);
-    //     };
-    //     }
-    // }
-
-
     fetch(URL)
         .then((res) => res.json())
         .then((data) => console.log(data));
@@ -100,11 +71,9 @@ const ButtonApi = () => {
         <APIButton onPress={generateQuote}>
             <ButtonText>Click me!</ButtonText>
         </APIButton>
-        <QuoteText>{quote.content}</QuoteText>
+        <QuoteText>"{quote.content}"</QuoteText>
         <WelcomeText>Author: {quote.author}</WelcomeText>
         </Box>
-        {/* <Button title="Get location" onPress={getLocation} /> */}
-        {/* <TechnigoImage source= {require()} resizeMode="contain"/> */}
     </ScreenBackground>
     )};
 

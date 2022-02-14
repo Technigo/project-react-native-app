@@ -1,13 +1,14 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I created an app in React native practicing using the mobile sensors, API´s and drawer navigation. The app can render a random quote with either a button or when you shake your mobile. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I used styled components and added a hamburger menu to switvh between the button- and the shake-version.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Go to https://expo.dev/@silvertejp89/project-react-native-app for a QR-code
+
+or open this link on your device: 
+exp://exp.host/@silvertejp89/project-react-native-app?release-channel=default

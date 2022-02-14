@@ -27,8 +27,6 @@ const Box = styled.View`
     align-items: center;
     flex-direction: column;
     padding: 50px;
-    // background-color: white;
-    // opacity: 0.5;
 `;
 
 //----------------------------
@@ -81,6 +79,7 @@ const ShakeApi = () => {
   };
 
 //----------------------------------------------
+
     const generateQuote = () => {
         setLoading(true);
         fetch('http://api.quotable.io/random')
@@ -90,7 +89,6 @@ const ShakeApi = () => {
     };
 
     //is deciding on how much movement is a shake:
-
     const isShakingEnough = (data) => {
         const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
         return totalForce > 1.78;
@@ -109,7 +107,7 @@ const ShakeApi = () => {
             Shake to generate quote!
           </WelcomeText>
           <QuoteText>
-            Quote: {quote.content}</QuoteText>
+            "{quote.content}"</QuoteText>
           <WelcomeText>Author: {quote.author}</WelcomeText>
       </Box>
     </ScreenBackground>
