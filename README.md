@@ -4,7 +4,7 @@ I created an app in React native practicing using the mobile sensors, API´s and
 
 ## The problem
 
-I used styled components and added a hamburger menu to switvh between the button- and the shake-version.
+I used styled components and added a hamburger menu to switch between the button- and the shake-version.
 
 ## View it live
 
