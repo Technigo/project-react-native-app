@@ -1,25 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ActivityIndicator, Button, Linking, Image, ImageBackground} from 'react-native';
+import { View, Text, TouchableOpacity, ActivityIndicator, Button, Linking, Image, ImageBackground, Div} from 'react-native';
 import styled from 'styled-components/native';
-import * as Location from 'expo-location';
+// import * as Location from 'expo-location';
 
 const QuoteText = styled.Text`
     font-weight: 700;
     color: white;
+    font-size: 20px;
 `;
 
 const APIButton = styled.TouchableOpacity`
     width: 50%;
+    padding: 10px;
+    margin: 5px;
     background-color: green;
+    text-align: center; 
+    border-radius: 20px;
 `;
 
-// const TechnigoImage = styled.Image`
-//     height: 100%;
-//     width: 100%
-// `;
+const WelcomeText = styled.Text`
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+`;
+
+const ButtonText = styled.Text`
+    font-weight: bold;
+`;
 
 const ScreenBackground = styled.ImageBackground`
-    height: 100%
+    justify-content: center;
+    height: 100%;
+`;
+
+const Box = styled.View`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    // background-color: white;
+    // opacity: 0.5;
 `;
 
 const ButtonApi = () => {
@@ -40,17 +60,17 @@ const ButtonApi = () => {
     };
 
     // v1 - Promise
-    const getLocation = () => {
-        Location.requestForegroundPermissionsAsync().then((data) => {
-            if (data.status !== 'granted') {
-                console.log('Permission to access location was denied');
-            } else {
-                return Location.getCurrentPositionAsync({});      
-                }
-        }).then((locationData) => {
-        Linking.openURL(`http://www.google.com/maps/place/${locationData.coords.latitude},${locationData.coords.longitude}`)
-        });
-    };
+    // const getLocation = () => {
+    //     Location.requestForegroundPermissionsAsync().then((data) => {
+    //         if (data.status !== 'granted') {
+    //             console.log('Permission to access location was denied');
+    //         } else {
+    //             return Location.getCurrentPositionAsync({});      
+    //             }
+    //     }).then((locationData) => {
+    //     Linking.openURL(`http://www.google.com/maps/place/${locationData.coords.latitude},${locationData.coords.longitude}`)
+    //     });
+    // };
 
     // v2 - Async await
     // const getLocation = async () => {
@@ -75,13 +95,15 @@ const ButtonApi = () => {
 
     return (
     <ScreenBackground source={require('../assets/typewriter.jpg')}>
-        <Text>Welcome to the quote machine!</Text>
+        <Box>
+        <WelcomeText>Welcome to the quote machine:</WelcomeText>
         <APIButton onPress={generateQuote}>
-            <Text>Generate quote</Text>
+            <ButtonText>Click me!</ButtonText>
         </APIButton>
-        <QuoteText>Quote: {quote.content}</QuoteText>
-        <Text>Author: {quote.author}</Text>
-        <Button title="Get location" onPress={getLocation} />
+        <QuoteText>{quote.content}</QuoteText>
+        <WelcomeText>Author: {quote.author}</WelcomeText>
+        </Box>
+        {/* <Button title="Get location" onPress={getLocation} /> */}
         {/* <TechnigoImage source= {require()} resizeMode="contain"/> */}
     </ScreenBackground>
     )};

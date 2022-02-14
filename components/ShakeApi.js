@@ -4,9 +4,35 @@ import styled from 'styled-components/native';
 import { Accelerometer } from 'expo-sensors';
 import { useFonts, Buda_300Light } from '@expo-google-fonts/buda';
 
+//------------------------------------------
 const QuoteText = styled.Text`
     font-weight: 700;
+    color: white;
+    font-size: 20px;
 `;
+
+const WelcomeText = styled.Text`
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+`;
+
+const ScreenBackground = styled.ImageBackground`
+    justify-content: center;
+    height: 100%;
+`;
+
+const Box = styled.View`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    // background-color: white;
+    // opacity: 0.5;
+`;
+
+//----------------------------
+
 
 const ShakeApi = () => {
     const [data, setData] = useState({
@@ -77,11 +103,16 @@ const ShakeApi = () => {
     const { x, y, z } = data; 
 
     return (
-    <View>
-        <QuoteText style={{ fontFamily: 'Buda_300Light' }} >
-          Quote: {quote.content}</QuoteText>
-        <Text>Author: {quote.author}</Text>
-    </View>
+    <ScreenBackground source={require('../assets/typewriter.jpg')}>
+      <Box>
+          <WelcomeText>
+            Shake to generate quote!
+          </WelcomeText>
+          <QuoteText>
+            Quote: {quote.content}</QuoteText>
+          <WelcomeText>Author: {quote.author}</WelcomeText>
+      </Box>
+    </ScreenBackground>
     )};
 
 export default ShakeApi;
