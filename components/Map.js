@@ -4,7 +4,6 @@ import { StyleSheet, Dimensions } from 'react-native'
 import styled from 'styled-components/native'
 
 const Container = styled.View`
-  /* flex: 1; */
   background-color: #fff;
   justify-content: center;
   align-items: center;
