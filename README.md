@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project was to build an app with React-Native using either sensors , or fetching data from an API, or navigation.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
+My app is mobile fortune cookie teller where you get a proverb every time that you shake your phone. The proverbs are stored in Redux store where I have a getRandomQuote reducer. Javascript's built in functions Math.floor() and Math.random() are used as randomizers. I use the Accelometer from expo-sensors to have access to the device accelometer sensor and associated listeners to respond to changes when shaking the device.
+The isShakingEnough function checks the total force when shaking and when it is bigger than 1.8, the UseEffect hook is triggered and the getQuote function is called, which dispatches an action to the redux store to get the random Quote.
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@themisk/project-react-native-app
