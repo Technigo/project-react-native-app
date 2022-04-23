@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { SensorComponent } from "./components/SensorComponent"
 
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
@@ -36,6 +37,7 @@ const App = () => {
 		<Provider store={store}>
 			<Container>
 				<Title>💖</Title>
+				<SensorComponent />
 				<FetchQuote />
 				<ShareExample />
 			</Container>

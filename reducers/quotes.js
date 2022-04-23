@@ -14,10 +14,10 @@ const quotes = createSlice({
 
 export const generateQuote = () => {
   return (dispatch) => {
-    
-      fetch('https://api.quotable.io/random?author=Confucius')
-        .then(res => res.json())
-        .then(quote => dispatch(quotes.actions.setQuote(quote.content)))
+    // how can I do so it fetches only once with each shake?
+    fetch('https://api.quotable.io/random?author=Confucius')
+      .then(res => res.json())
+      .then(quote => dispatch(quotes.actions.setQuote(quote.content)))
 
   }
 }
