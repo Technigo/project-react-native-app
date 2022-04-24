@@ -17,6 +17,6 @@ export default function Counter() {
 const styles = StyleSheet.create({
     counterText: {
 		fontSize: 50,
-		color: "darkgreen"
+		color: "#C68507",
 	}
 })
