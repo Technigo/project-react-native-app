@@ -1,26 +1,25 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from "react"
+import { StyleSheet, View } from "react-native"
+import Header from "./components/Header" 
+import Counter from "./components/Counter"
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
-
-const App = () => {
+export default function App() {
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
+		<View style={styles.container}>
+		<Header title="Hello" />
+		<Counter />
+		<Header title="Goodbye" />
+		</View>
+	)
+}
 
-export default App;
+
+//Styled components
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: "powderblue",
+		alignItems: "center",
+		justifyContent: "space-around"
+	},
+})
