@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import styled from 'styled-components/native';
 
 import { REMBRANDT_URL } from '../utils/urls';
+
+const ArtworkImage = styled.Image`
+  width: 50px;
+  height: 50px;
+`
 
 const ArtworkList = () => {
 
@@ -23,20 +29,12 @@ const ArtworkList = () => {
       return (
         <View key={artwork.id}>
           <Text>{artwork.title}</Text>
-          <Image style={styles.image} source={artwork.webImage}/>
+          <ArtworkImage source={artwork.webImage}/>
         </View>
       )
     })}
     </View>
   )
 };
-
-const styles = StyleSheet.create({
-	image: {
-    width: 50,
-    height: 50,
-	}
-})
-
 
 export default ArtworkList;
