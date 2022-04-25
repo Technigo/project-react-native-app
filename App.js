@@ -17,7 +17,7 @@ const App = () => {
 	return (
 		<Container>
 			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
+			<Title>Go to App.js and start coding and hello</Title>
 			<Title>💅💅💅</Title>
 		</Container>
 	);
