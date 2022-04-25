@@ -1,0 +1,39 @@
+import React, { useState, useEffect } from "react";
+import { View, Text } from "react-native"
+import styled from "styled-components/native";
+
+
+const ButtonApi = () => {
+    const [quote, setQuote] = useState({})
+
+    const generateQuote = () => {
+        fetch("https://api.quotable.io/random")
+        .then(res => res.json())
+        .then(data => setQuote(data))
+    }
+
+    const APIButton = styled.Button`
+        font-wieght: 700;
+        background-color: blue;
+        width: 50;
+    `
+
+    useEffect(() => {
+        generateQuote()
+    }, [])
+
+    return(
+        <View>
+            <Text>
+                {quote.content}
+            </Text>
+            <Text>
+                {quote.author}
+            </Text>
+        <APIButton title="Click me!" onPress={generateQuote}/>
+        
+        </View>
+    )
+}
+
+export default ButtonApi
