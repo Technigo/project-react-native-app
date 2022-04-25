@@ -15,7 +15,7 @@ const generateQuote = () => {
 }
 
 const APIButton = styled.Button`
-    font-wieght: 700;
+    font-weight: 700;
     background-color: blue;
     width: 50;
 `
