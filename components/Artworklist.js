@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
-//import styled from 'styled-components/native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 import { REMBRANDT_URL } from '../utils/urls';
 
@@ -22,11 +21,22 @@ const ArtworkList = () => {
     <View>
     {artworks.map((artwork) => {
       return (
-        <Text key={artwork.id}>{artwork.title}</Text>
+        <View key={artwork.id}>
+          <Text>{artwork.title}</Text>
+          <Image style={styles.image} source={artwork.webImage}/>
+        </View>
       )
     })}
     </View>
   )
 };
+
+const styles = StyleSheet.create({
+	image: {
+    width: 50,
+    height: 50,
+	}
+})
+
 
 export default ArtworkList;

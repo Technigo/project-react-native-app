@@ -1,21 +1,24 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import ArtworkList from './components/Artworklist';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
-
 const App = () => {
 	return (
-		<Container>
+		<View style={styles.container}>
+			<Text>Rembrandt</Text>
 			<ArtworkList />
-		</Container>
+		</View>
 	)
 };
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: 'papayawhip',
+		justifyContent: 'center',
+		alignItems: 'center',
+	}
+})
 
 export default App;
