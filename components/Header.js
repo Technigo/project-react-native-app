@@ -1,24 +1,18 @@
 import React from "react"
-import {Text, View, StyleSheet} from "react-native"
+import styled from "styled-components/native"
 
 export default function Header(props) {
     return ( 
-    <View style={styles.container}>
-    <Text style={styles.title}>{props.title}</Text>
-    </View>
+    <HeaderStyling>{props.title}</HeaderStyling>
     )
 }
 
 
-const styles = StyleSheet.create({
-    container: {
-        height: 50,
-        width: "100%",
-        backgroundColor: "white",
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    title: {
-        fontSize: 30
-    }
-})
+const HeaderStyling = styled.Text`
+        font-size: 40;
+        text-align: center;
+        width: "100%";
+        background-color: "white";
+        justify-content: "center";
+        align-items: "center";
+`
