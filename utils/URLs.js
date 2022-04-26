@@ -1,0 +1,31 @@
+export const RandomUglyCatAPI = () => {
+  const uglyCatAPIArray = [
+    'https://api.thecatapi.com/v1/images/search?breed_ids=sphy',
+    'https://api.thecatapi.com/v1/images/search?breed_ids=crex',
+    'https://api.thecatapi.com/v1/images/search?breed_ids=drex',
+    'https://api.thecatapi.com/v1/images/search?breed_ids=orie',
+    'https://api.thecatapi.com/v1/images/search?breed_ids=dons',
+  ]
+
+  return uglyCatAPIArray[Math.floor(Math.random() * (uglyCatAPIArray.length))]
+}
+
+export const RandomCuteCatAPI = () => {
+  const cuteCatAPIArray = [
+    'https://api.thecatapi.com/v1/images/search?breed_ids=mcoo',
+    'https://api.thecatapi.com/v1/images/search?breed_ids=sibe',
+    'https://api.thecatapi.com/v1/images/search?breed_ids=norw',
+    'https://api.thecatapi.com/v1/images/search?breed_ids=ragd',
+    'https://api.thecatapi.com/v1/images/search?breed_ids=birm',
+  ]
+
+  return cuteCatAPIArray[Math.floor(Math.random() * (cuteCatAPIArray.length))]
+}
+
+export const RandomCatFactAPI = 'https://cat-fact.herokuapp.com/facts/random?amount=20'
+
+export const RandomCatGifAPI = 'https://api.thecatapi.com/v1/images/search?mime_types=gif'
+
+export const RandomCatMemeAPI = ({ memeMood, memeText, memeColor }) => {
+  return `https://cataas.com/cat/${memeMood}/says/${memeText}?s=50&c=${memeColor}&json=true`
+}

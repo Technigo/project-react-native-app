@@ -1,17 +1,15 @@
 import React from 'react'
 import { Share, View, Button } from 'react-native'
 
-import { useSelector, useDispatch } from 'react-redux'
 
-const ShareExample = () => {
-  const quote = useSelector(store => store.quotes.quote)
+const ShareExample = ({shareURL, shareText, shareTitle}) => {
 
   const onShare = async () => {
 
     try {
       const result = await Share.share({
-        message: `${quote}`,
-        url: 'https://www.svt.se/'
+        message: shareText,
+        url: shareURL
       })
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -28,7 +26,7 @@ const ShareExample = () => {
   }
   return (
     <View style={{ marginTop: 50 }}>
-      <Button onPress={onShare} title="Share" />
+      <Button onPress={onShare} title={shareTitle} />
     </View>
   )
 }
