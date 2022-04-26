@@ -1,21 +1,18 @@
 import React from 'react';
-import { Text } from 'react-native';
 import styled from 'styled-components/native';
 
-import ArtworkList from './components/Artworklist';
+import Artworks from './components/Artworks';
 
 const Container = styled.View`
 	flex: 1;
 	background-color: papayawhip;
-	justify-content: center;
 	align-items: center;
 `;
 
 const App = () => {
 	return (
 		<Container>
-			<Text>Rembrandt</Text>
-			<ArtworkList />
+			<Artworks />
 		</Container>
 	);
 };
