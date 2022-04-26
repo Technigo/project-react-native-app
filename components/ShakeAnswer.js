@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/native';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
 import { Accelerometer } from 'expo-sensors';
 
 const styles = StyleSheet.create({
@@ -68,11 +68,12 @@ const ShakeAnswer = () => {
         _subscribe();
         return () => _unsubscribe();
       }, []);
-
+    
       const isShaking = (data) => {
           const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
           return totalForce > 2.5
       }
+
 
       useEffect(() => {
           if(isShaking(data)){
