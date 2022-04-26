@@ -27,6 +27,34 @@ export const Button = styled.TouchableOpacity`
     margin-top: 15px;
 `
 
+export const LikedInsults = styled.ScrollView`
+    flex: 1;
+    height: 100px;
+    width: 100%;
+`
+
+export const LikedInsult = styled.View`
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    width: 100%;
+    padding-right: 15px;
+`
+
+export const SafeArea = styled.SafeAreaView`
+    padding: 50px 0;
+`
+
+export const Header1 = styled.Text`
+    font-size: 30px;
+`
+
+export const InsultListItem = styled.Text`
+    flex: 1;
+    flex-wrap: wrap;
+`
+
 
 // export const base = {
 //     flex: 1,
