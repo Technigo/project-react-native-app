@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { Text, Button, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 // import styled from 'styled-components/native';
-import { Base, Typography } from '../styles';
-import { Container } from '../styles/styled-components/styled-components';
+// import { Base } from '../styles';
+import { Container, ButtonText, Button} from '../styles/styled-components';
 
 import helpers from '../modules/helpers';
 
@@ -33,23 +33,23 @@ export const Feed = ({ navigation }) => {
       {/* <Button title="Open drawer" onPress={() => navigation.openDrawer()} /> */}
       {/* <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} /> */}
 
-      <TouchableOpacity onPress={() => navigation.openDrawer()} style={Base.button}>
-        <Text style={Typography.button}>
+      <Button onPress={() => navigation.openDrawer()}>
+        <ButtonText>
           Open drawer
-        </Text>
-      </TouchableOpacity>
+        </ButtonText>
+      </Button>
 
-      <TouchableOpacity onPress={() => navigation.toggleDrawer()} style={Base.button}>
-        <Text style={Typography.button}>
+      <Button onPress={() => navigation.toggleDrawer()}>
+        <ButtonText>
           Toggle drawer
-        </Text>
-      </TouchableOpacity>
+        </ButtonText>
+      </Button>
 
-      <TouchableOpacity onPress={onPressInsult} style={Base.button}>
-        <Text style={Typography.button}>
-        Get insult
-        </Text>
-      </TouchableOpacity>
+      <Button onPress={onPressInsult}>
+        <ButtonText>
+          Get insult
+        </ButtonText>
+      </Button>
       {/* <Button title="Get insult" onPress={onPressInsult} /> */}
     </Container>
   );

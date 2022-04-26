@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 // import styled from 'styled-components/native';
-import { Base, Typography } from '../styles';
-import { Container } from '../styles/styled-components/styled-components';
+// import { Base, Typography } from '../styles';
+import { Container, Button, ButtonText } from '../styles/styled-components';
 
 // This is the main container for this screen
 // const NotificationsContainer = styled.View`
@@ -18,17 +18,17 @@ export const Notifications = ({ navigation }) => {
   return (
     <Container>
       <Text>Notifications Screen</Text>
-      <TouchableOpacity onPress={() => navigation.openDrawer()} style={Base.button}>
-        <Text style={Typography.button}>
+      <Button onPress={() => navigation.openDrawer()}>
+        <ButtonText>
           Open drawer
-        </Text>
-      </TouchableOpacity>
+        </ButtonText>
+      </Button>
 
-      <TouchableOpacity onPress={() => navigation.toggleDrawer()} style={Base.button}>
-        <Text style={Typography.button}>
+      <Button onPress={() => navigation.toggleDrawer()}>
+        <ButtonText>
           Toggle drawer
-        </Text>
-      </TouchableOpacity>
+        </ButtonText>
+      </Button>
     </Container>
   );
 };

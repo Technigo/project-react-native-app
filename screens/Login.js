@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 // import styled from 'styled-components/native';
-import { Base, Typography, Forms } from '../styles';
-import { Container, Input } from '../styles/styled-components/styled-components';
+// import { Typography } from '../styles';
+import { Container, Input, Button, ButtonText } from '../styles/styled-components';
 
 // const LoginContainer = styled.View`
 //     display: flex;
@@ -46,21 +46,21 @@ const Login = ({ navigation }) => {
                 autoCorrect={false}
             />
 
-            <TouchableOpacity style={Base.button}>
-                <Text style={Typography.button}>Log in</Text>
-            </TouchableOpacity>
+            <Button>
+                <ButtonText>Log in</ButtonText>
+            </Button>
 
-            <TouchableOpacity onPress={() => navigation.openDrawer()} style={Base.button}>
-                <Text style={Typography.button}>
+            <Button onPress={() => navigation.openDrawer()}>
+                <ButtonText>
                 Open drawer
-                </Text>
-            </TouchableOpacity>
+                </ButtonText>
+            </Button>
 
-            <TouchableOpacity onPress={() => navigation.toggleDrawer()} style={Base.button}>
-                <Text style={Typography.button}>
+            <Button onPress={() => navigation.toggleDrawer()}>
+                <ButtonText>
                 Toggle drawer
-                </Text>
-            </TouchableOpacity>
+                </ButtonText>
+            </Button>
             {/* {title === "Log in" &&
                 <TouchableOpacity style={Base.button} onPress={() => navigation.navigate("Register")}>
                     <Text style={Typography.button}>Register new user</Text>

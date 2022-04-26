@@ -10,13 +10,13 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
-import { Base } from './styles';
+// import { Base } from './styles';
 
 const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer style={Base.base}>
+    <NavigationContainer>
       <Drawer.Navigator useLegacyImplementation
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Feed" component={Feed} />
