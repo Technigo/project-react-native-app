@@ -26,22 +26,12 @@ const Home = ({ navigation }) => {
         // navigation.replace("Login");
       })
       .catch((error) => {
-        // An error happened.
+        alert(error.message);
       });
   };
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      // headerLeft: () => (
-      //   <View style={{ marginLeft: 20 }}>
-      //     <Avatar
-      //       rounded
-      //       source={{
-      //         uri: auth?.currentUser?.photoURL,
-      //       }}
-      //     />
-      //   </View>
-      // ),
       headerRight: () => (
         <TouchableOpacity
           style={{
@@ -63,7 +53,7 @@ const Home = ({ navigation }) => {
       />
       <Text>Home Screen</Text>
       <Text>All chat rooms will be here</Text>
-      <Text>User: {auth?.currentUser?.displayName}</Text>
+      <Text>User: {auth.currentUser.displayName}</Text>
     </View>
   );
 };

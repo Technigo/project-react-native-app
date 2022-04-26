@@ -16,16 +16,16 @@ import { GiftedChat } from "react-native-gifted-chat";
 const Chat = ({ navigation }) => {
   const [messages, setMessages] = useState([]);
 
-  const signOutNow = () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        navigation.replace("Login");
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  };
+  // const signOutNow = () => {
+  //   signOut(auth)
+  //     .then(() => {
+  //       // Sign-out successful.
+  //       navigation.replace("Login");
+  //     })
+  //     .catch((error) => {
+  //       // An error happened.
+  //     });
+  // };
 
   useLayoutEffect(() => {
     // navigation.setOptions({
@@ -77,12 +77,11 @@ const Chat = ({ navigation }) => {
   return (
     <GiftedChat
       messages={messages}
-      showAvatarForEveryMessage={true}
+      showAvatarForEveryMessage={false}
       onSend={(messages) => onSend(messages)}
       user={{
-        _id: auth?.currentUser?.email,
-        name: auth?.currentUser?.displayName,
-        avatar: auth?.currentUser?.photoURL,
+        _id: auth.currentUser.uid,
+        name: auth.currentUser.displayName,
       }}
     />
   );

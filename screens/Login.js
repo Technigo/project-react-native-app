@@ -1,33 +1,30 @@
 import React, { useState, useContext } from "react";
 import { Text, View, StyleSheet, Dimensions } from "react-native";
 import { Input, Button } from "react-native-elements";
-import { Title } from "react-native-paper";
-import Icon from "react-native-vector-icons/FontAwesome";
 import { auth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInAnonymously, updateProfile } from "firebase/auth";
 import { AuthContext } from "./AuthProvider";
 
 const { width, height } = Dimensions.get("screen");
 
 const Login = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const { user, setUser } = useContext(AuthContext);
-
-  const openSignupScreen = () => {
-    navigation.navigate("Signup");
-  };
+  const { userid, setUserid } = useContext(AuthContext);
 
   const signin = () => {
-    signInWithEmailAndPassword(auth, email, password)
+    signInAnonymously(auth, username)
       .then((userCredential) => {
-        setUser(email);
+        const user = userCredential.user;
+        updateProfile(user, {
+          displayName: username,
+        });
+        setUser(username);
+        setUserid(user.uid);
         // navigation.navigate("Home");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
+        alert(error.message);
       });
   };
 
@@ -35,29 +32,17 @@ const Login = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to The Chat</Text>
       <Input
-        placeholder="Enter your email"
-        labelName="Email"
-        // leftIcon={{ type: "material", name: "email" }}
-        value={email}
+        placeholder="Enter your username"
+        labelName="Username:"
+        value={username}
         style={styles.input}
-        onChangeText={(text) => setEmail(text)}
+        onChangeText={(text) => setUsername(text)}
         autoCapitalize="none"
       />
-      <Input
-        placeholder="Enter your password"
-        labelName="Password"
-        // leftIcon={{ type: "material", name: "lock" }}
-        value={password}
-        onChangeText={(text) => setPassword(text)}
-        secureTextEntry={true}
-        // onPress={signin}
-        style={styles.input}
-      />
-      <Button title="Login" style={styles.loginButton} onPress={signin} />
       <Button
-        title="New user? Join here!"
-        style={styles.signupButton}
-        onPress={openSignupScreen}
+        title="Start chatting!"
+        style={styles.loginButton}
+        onPress={signin}
       />
     </View>
   );
@@ -80,11 +65,6 @@ const styles = StyleSheet.create({
     height: height / 15,
   },
   loginButton: {
-    width: width / 1.5,
-    height: height / 15,
-    marginTop: 10,
-  },
-  signupButton: {
     width: width / 1.5,
     height: height / 15,
     marginTop: 10,

@@ -24,7 +24,7 @@ const HomeStack = ({ navigation }) => {
       <Drawer.Screen
         name="Chat"
         component={Chat}
-        options={{ headerTransparent: true }}
+        // options={{ headerTransparent: true }}
       />
     </Drawer.Navigator>
   );
