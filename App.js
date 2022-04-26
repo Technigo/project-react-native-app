@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { SensorComponent } from './components/SensorComponent';
+import ShakeApi, { SensorComponent } from './components/SensorComponent';
+import { Text } from 'react-native';
+import StartPage from './components/StartPage';
+import Quotes from './components/Quotes';
+import Loading from './components/Loading';
 
 const Container = styled.View`
   flex: 1;
@@ -17,7 +21,8 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <SensorComponent></SensorComponent>
+      <Quotes />
+      <ShakeApi></ShakeApi>
     </Container>
   );
 };
