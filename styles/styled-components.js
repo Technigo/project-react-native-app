@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 100%;
     width: 80%;
@@ -20,11 +20,16 @@ export const Input = styled.TextInput`
 `
 export const ButtonText = styled.Text`
     font-size: 18px;
-    color: hsl(220, 80%, 50%);
+    color: ${props => (props.accentColor ? 'white' : 'hsl(220, 80%, 50%)')};
     text-align: center;
+    font-size: ${props => (props.accentColor ? '20px' : '18px')};
 `
 export const Button = styled.TouchableOpacity`
-    margin-top: 15px;
+    width: 50%;
+    margin: 15px auto 0 auto;
+    background-color: ${props => (props.accentColor ? 'orange' : 'transparent')};
+    padding: ${props => (props.accentColor ? '5px' : '0')};
+    border-radius: ${props => (props.accentColor ? '10px' : '0')};
 `
 
 export const LikedInsults = styled.ScrollView`
@@ -48,6 +53,7 @@ export const SafeArea = styled.SafeAreaView`
 
 export const Header1 = styled.Text`
     font-size: 30px;
+    color: hsl(0, 0%, 20%);
 `
 
 export const InsultListItem = styled.Text`

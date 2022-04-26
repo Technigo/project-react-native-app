@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 // import styled from 'styled-components/native';
 // import { Typography } from '../styles';
-import { Container, Input, Button, ButtonText } from '../styles/styled-components';
+import { Container, Input, Button, ButtonText, Header1 } from '../styles/styled-components';
 
 // const LoginContainer = styled.View`
 //     display: flex;
@@ -21,46 +21,49 @@ const Login = ({ navigation }) => {
 
     return (
         <Container>
+            <Header1>Login</Header1>
+            <View style={{width: '100%'}}>
+                <Text>Email</Text>
+                <Input
+                    onChangeText={(content) => {
+                        setEmail(content)
+                    }}
+                    value={email}
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                    autoCompleteType="off"
+                    autoCorrect={false}
+                />
 
-            <Text>Email</Text>
-            <Input
-                onChangeText={(content) => {
-                    setEmail(content)
-                }}
-                value={email}
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCompleteType="off"
-                autoCorrect={false}
-            />
+                <Text>Password</Text>
+                <Input
+                    onChangeText={(content) => {
+                        setPassword(content)
+                    }}
+                    value={password}
+                    secureTextEntry={true}
+                    autoCapitalize="none"
+                    autoCompleteType="off"
+                    autoCorrect={false}
+                />
+            </View>
+            <View>
+                <Button>
+                    <ButtonText>Log in</ButtonText>
+                </Button>
 
-            <Text>Password</Text>
-            <Input
-                onChangeText={(content) => {
-                    setPassword(content)
-                }}
-                value={password}
-                secureTextEntry={true}
-                autoCapitalize="none"
-                autoCompleteType="off"
-                autoCorrect={false}
-            />
+                <Button onPress={() => navigation.openDrawer()}>
+                    <ButtonText>
+                    Open drawer
+                    </ButtonText>
+                </Button>
 
-            <Button>
-                <ButtonText>Log in</ButtonText>
-            </Button>
-
-            <Button onPress={() => navigation.openDrawer()}>
-                <ButtonText>
-                Open drawer
-                </ButtonText>
-            </Button>
-
-            <Button onPress={() => navigation.toggleDrawer()}>
-                <ButtonText>
-                Toggle drawer
-                </ButtonText>
-            </Button>
+                <Button onPress={() => navigation.toggleDrawer()}>
+                    <ButtonText>
+                    Toggle drawer
+                    </ButtonText>
+                </Button>
+            </View>
             {/* {title === "Log in" &&
                 <TouchableOpacity style={Base.button} onPress={() => navigation.navigate("Register")}>
                     <Text style={Typography.button}>Register new user</Text>
