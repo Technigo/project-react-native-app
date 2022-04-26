@@ -1,20 +1,12 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-
-import { Feed } from "./screens/Feed";
-import { Notifications } from "./screens/Notifications";
-
-const Drawer = createDrawerNavigator();
+import { AuthProvider } from "./screens/AuthProvider";
+import Routes from "./screens/Routes";
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Notifications" component={Notifications} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
   );
 };
 
