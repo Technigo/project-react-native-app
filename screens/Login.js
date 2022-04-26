@@ -43,6 +43,7 @@ const Login = ({ navigation }) => {
         title="Start chatting!"
         style={styles.loginButton}
         onPress={signin}
+        disabled={username.length < 4}
       />
     </View>
   );

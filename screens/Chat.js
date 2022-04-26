@@ -2,7 +2,6 @@ import React, { useCallback, useState, useLayoutEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Avatar } from "react-native-elements";
 import { auth, db } from "../firebase";
-import { signOut } from "firebase/auth";
 import {
   collection,
   addDoc,
@@ -10,22 +9,17 @@ import {
   query,
   orderBy,
   onSnapshot,
+  setDoc,
+  updateDoc,
+  increment,
+  FieldPath,
+  doc,
 } from "firebase/firestore";
-import { GiftedChat } from "react-native-gifted-chat";
+import { GiftedChat, Bubble } from "react-native-gifted-chat";
 
-const Chat = ({ navigation }) => {
+const Chat = ({ navigation, thread }) => {
   const [messages, setMessages] = useState([]);
-
-  // const signOutNow = () => {
-  //   signOut(auth)
-  //     .then(() => {
-  //       // Sign-out successful.
-  //       navigation.replace("Login");
-  //     })
-  //     .catch((error) => {
-  //       // An error happened.
-  //     });
-  // };
+  const threadid = thread._id;
 
   useLayoutEffect(() => {
     // navigation.setOptions({
@@ -51,7 +45,10 @@ const Chat = ({ navigation }) => {
     //   ),
     // });
 
-    const q = query(collection(db, "chats"), orderBy("createdAt", "desc"));
+    const q = query(
+      collection(db, "THREADS", threadid, "MESSAGES"),
+      orderBy("createdAt", "desc")
+    );
     const unsubscribe = onSnapshot(q, (snapshot) =>
       setMessages(
         snapshot.docs.map((doc) => ({
@@ -66,19 +63,60 @@ const Chat = ({ navigation }) => {
     return () => {
       unsubscribe();
     };
-  }, [navigation]);
+  }, []);
 
   const onSend = useCallback((messages = []) => {
     const { _id, createdAt, text, user } = messages[0];
 
-    addDoc(collection(db, "chats"), { _id, createdAt, text, user });
+    addDoc(collection(db, "THREADS", threadid, "MESSAGES"), {
+      _id,
+      createdAt,
+      text,
+      user,
+    });
+
+    // MAYBE ADD .then ???
+    // setDoc(
+    //   collection(db, "THREADS", threadid),
+    //   {
+    //     lastUpdated: Date.now(),
+    //     latestMessage: text,
+    //     numberOfMessages: increment(1),
+    //   },
+    //   { merge: true }
+    // );
   }, []);
+
+  // GiftedChat Styling
+
+  const renderBubble = (props) => {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle={{
+          right: {
+            backgroundColor: "black",
+          },
+        }}
+        // TextStyle isn't working? I wanted background of bubble to be transparent
+        textStyle={{
+          right: {
+            color: "#000000",
+          },
+        }}
+      />
+    );
+  };
 
   return (
     <GiftedChat
       messages={messages}
-      showAvatarForEveryMessage={false}
+      renderUsernameOnMessage={true}
+      renderAvatar={null}
+      placeholder="Type your message here..."
       onSend={(messages) => onSend(messages)}
+      alwaysShowSend
+      renderBubble={renderBubble}
       user={{
         _id: auth.currentUser.uid,
         name: auth.currentUser.displayName,

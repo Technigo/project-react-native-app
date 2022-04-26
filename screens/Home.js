@@ -52,8 +52,7 @@ const Home = ({ navigation }) => {
         onPress={() => navigation.navigate("Add Room")}
       />
       <Text>Home Screen</Text>
-      <Text>All chat rooms will be here</Text>
-      <Text>User: {auth.currentUser.displayName}</Text>
+      <Text>User: {user}</Text>
     </View>
   );
 };
