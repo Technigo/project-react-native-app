@@ -1,24 +1,28 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { GenerateButton } from './components/generatebutton';
+import { Facts } from './components/facts'
+
 
 const Container = styled.View`
 	flex: 1;
-	background-color: papayawhip;
+	background-color: black;
 	justify-content: center;
 	align-items: center;
+	padding: 40px;
 `;
 
 const Title = styled.Text`
 	font-size: 24px;
-	color: palevioletred;
+	color: grey;
 `;
 
 const App = () => {
 	return (
 		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
+			<Title>Best of Space!</Title>
+			<Facts />
+			<GenerateButton />
 		</Container>
 	);
 };
