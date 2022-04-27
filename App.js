@@ -1,26 +1,31 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React, { useEffect, useState } from "react";
+import Loading from "./components/Loading";
+import SensorCompnent from "./components/SensorComponents";
+import CatService from "./service/cat";
+import { CAT_API } from "./service/url";
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+const catService = new CatService(CAT_API);
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+export default function App() {
+  const [cats, setCats] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      catService
+        .getCat()
+        .then((data) => {
+          setCats(data);
+          setLoading(false);
+        })
+        .catch((e) => console.log(e)); //[todo] handle error screen
+    }, 1200);
+  }, [catService]);
 
-export default App;
+  if (loading || !cats.length) {
+    return <Loading />;
+  } else {
+    return <SensorCompnent cats={cats} />;
+  }
+}
