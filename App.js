@@ -17,11 +17,10 @@ const App = () => {
       <ImageBackground
         style={{ flex: 1 }}
         resizeMode="cover"
-        source={require("/assets/background.avif")}
+        source={require("./assets/running.jpg")}
       >
         <SensorComponent />
       </ImageBackground>
-      {/* <Header /> */}
     </Container>
   );
 };

@@ -13,14 +13,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   counterContainer: {
-    margin: 10,
     paddingTop: 50,
   },
   counterText: {
     padding: 5,
     fontSize: 20,
     color: "#FFAB93",
-    fontWeight: 500,
+    fontWeight: "bold",
   },
 });
 
