@@ -34,6 +34,17 @@ const ShakeDataTitle = styled.Text`
 const ShakeData = styled.Text``;
 
 export const SensorComponent = () => {
+  const generateQuote = () => {
+    fetch("https://api.quotable.io/random")
+    .then(response => response.json())
+    .then(data => setQuote(data))
+}
+
+useEffect(()=> {
+    generateQuote();
+}, []);
+
+
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -75,6 +86,12 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+//   useEffect(()=> {
+//     if (isShaking(data)) {
+//         generateQuote();
+//     }
+// }, [data])
+
   return (
     <ShakeView>
       {/* 
@@ -84,6 +101,8 @@ export const SensorComponent = () => {
         - Maybe change some styled props? 
       */}
       {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      {/* {isShaking(data) && <ShakeAlert>{quote.content}</ShakeAlert>} */}
+     
       <ShakeDataView>
         <ShakeDataTitle>Shake Data Test</ShakeDataTitle>
         {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
