@@ -26,14 +26,14 @@ const DrinksList = ({ route }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text>{route.params.title} Drinks</Text>
       <Text style={styles.titles}>Alcoholic Drinks:</Text>
       <ScrollView horizontal style={styles.wrapper}>
       {alcoholic.map((drink) => (
         <ImageBackground
-          source={drink.strDrinkThumb}
-          resizeMode="contain"
+          source={{ uri: drink.strDrinkThumb}}
+          resizeMode="cover"
           style={styles.image}
           key={drink.idDrink}>
           <Text style={styles.text}>{drink.strDrink}</Text>
@@ -44,23 +44,23 @@ const DrinksList = ({ route }) => {
       <ScrollView horizontal style={styles.wrapper}>
       {nonAlcoholic.map((drink) => (
         <ImageBackground
-          source={drink.strDrinkThumb}
-          resizeMode="contain"
+          source={{ uri: drink.strDrinkThumb}}
+          resizeMode="cover"
           style={styles.image}
           key={drink.idDrink}>
           <Text style={styles.text}>{drink.strDrink}</Text>
         </ImageBackground>
       ))}
       </ScrollView>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    height: "100%",
-    textAlign: "center"
+    flex: 1,
+    textAlign: "center",
+    padding: 10
   },
   wrapper: {
     display: "flex",
@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
     width: 300,
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
+    marginRight: 15
   },
   text: {
     color: "white",

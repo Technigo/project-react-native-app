@@ -13,7 +13,7 @@ const Home = ({ navigation }) => {
      <Button
       title="Go to Shake for a Random Drink"
       onPress={() =>
-        navigation.navigate('Random Drinks', { title: "Shake for a Random Drink" })
+        navigation.navigate('Random Drink', { title: "Shake for a Random Drink" })
       }
     />
     </View>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { View, StyleSheet } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -11,7 +10,7 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
 	return (
-		<NavigationContainer style={styles.container}>
+		<NavigationContainer>
 			<Stack.Navigator>
 				<Stack.Screen
 					name="Home"
@@ -19,18 +18,10 @@ const App = () => {
 					options={{ title: 'Welcome' }}
 				/>
 				<Stack.Screen name="Drinks List" component={Drinks} />
-				<Stack.Screen name="Random Drinks" component={RandomDrink} />
+				<Stack.Screen name="Random Drink" component={RandomDrink} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "papayawhip",
-		justifyContent: "center"
-	}
-});
 
 export default App;
