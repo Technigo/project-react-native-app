@@ -34,6 +34,13 @@ const ButtonText = styled.Text`
   padding: 13px;
 `;
 
+const ShakeText = styled.Text`
+  font-size: 25px;
+  padding: 13px;
+  margin-right: auto;
+  margin-left: auto;
+`;
+
 const ShakeApi = () => {
   let [fontsLoaded] = useFonts({
     Caveat_400Regular,
@@ -108,9 +115,12 @@ const ShakeApi = () => {
       </QuoteCharacter>
       <NextQuote onPress={generateQuote}>
         <ButtonText style={{ fontFamily: 'Caveat_400Regular' }}>
-          Give me a new quote!
+          Give me a new quote..
         </ButtonText>
       </NextQuote>
+      <ShakeText style={{ fontFamily: 'Caveat_400Regular' }}>
+        Or just shake your phone!
+      </ShakeText>
     </Container>
   );
 };

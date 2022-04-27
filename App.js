@@ -25,7 +25,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Start' component={StartPage} />
-        <Stack.Screen name='ShakeSensor' component={ShakeApi} />
+        <Stack.Screen name='Quotes' component={ShakeApi} />
       </Stack.Navigator>
     </NavigationContainer>
   );

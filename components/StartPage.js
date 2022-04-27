@@ -13,6 +13,7 @@ const StartWrapper = styled.View`
 const StartText = styled.Text`
   font-size: 25px;
   text-align: center;
+  margin: 10px;
 `;
 
 const ImageLogo = styled.Image`
@@ -39,18 +40,19 @@ const StartPage = ({ navigation }) => {
     Caveat_400Regular,
   });
   const navigateToShake = () => {
-    navigation.navigate('ShakeSensor');
+    navigation.navigate('Quotes');
   };
 
   return (
     <StartWrapper>
       <ImageLogo source={require('../assets/friends.png')} />
       <StartText style={{ fontFamily: 'Caveat_400Regular' }}>
-        Friends fan? Push the button to make your day better!
+        Are you a fan of Friends? And maybe want to get back to that real 90's
+        feeling?
       </StartText>
       <StartQuote onPress={() => navigateToShake()}>
         <ButtonText style={{ fontFamily: 'Caveat_400Regular' }}>
-          Give me a quote!
+          Let's go!
         </ButtonText>
       </StartQuote>
     </StartWrapper>
