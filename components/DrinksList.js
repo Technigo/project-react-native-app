@@ -10,7 +10,7 @@ const options = {
   crossDomain: "true"
 };
 
-const DrinksList = () => {
+const DrinksList = ({ route }) => {
   const [alcoholic, setAlcoholic] = useState([]);
   const [nonAlcoholic, setNonAlcoholic] = useState([]);
 
@@ -27,6 +27,7 @@ const DrinksList = () => {
 
   return (
     <View style={styles.container}>
+      <Text>{route.params.title} Drinks</Text>
       <Text style={styles.titles}>Alcoholic Drinks:</Text>
       <ScrollView horizontal style={styles.wrapper}>
       {alcoholic.map((drink) => (
