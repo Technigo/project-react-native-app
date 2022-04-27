@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { SensorComponent } from "./components/SensorComponent";
+import ButtonApi from './components/ButtonApi'
 
 const Container = styled.View`
   flex: 1;
@@ -18,6 +19,7 @@ const App = () => {
   return (
     <Container>
       <SensorComponent></SensorComponent>
+      <ButtonApi></ButtonApi>
     </Container>
   );
 };

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
 
+
+
 // ==========================
 // = Functions
 const isShaking = (data) => {
@@ -40,9 +42,9 @@ export const SensorComponent = () => {
 
   // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
   const [data, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
+    x: 0, //horisontal
+    y: 0, //vertical
+    z: 0, //depth
   });
 
   // This keeps track of whether we are listening to the Accelerometer data
@@ -77,6 +79,9 @@ export const SensorComponent = () => {
 
   return (
     <ShakeView>
+            
+
+
       {/* 
       If isShaking returns true:
         - We could render conditionally
