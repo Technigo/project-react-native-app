@@ -11,6 +11,14 @@ const Container = styled.View`
   align-items: flex-start;
 `;
 
+const QuoteWrapper = styled.View`
+  background-color: rgb(178, 184, 180);
+  margin-bottom: 10px;
+  border-radius: 10;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 const QuoteText = styled.Text`
   font-size: 30px;
   margin: 10px;
@@ -39,6 +47,7 @@ const ShakeText = styled.Text`
   padding: 13px;
   margin-right: auto;
   margin-left: auto;
+  width: 150px;
 `;
 
 const ShakeApi = () => {
@@ -107,12 +116,14 @@ const ShakeApi = () => {
 
   return (
     <Container>
-      <QuoteText style={{ fontFamily: 'Caveat_400Regular' }}>
-        {quote.quote}
-      </QuoteText>
-      <QuoteCharacter style={{ fontFamily: 'Caveat_400Regular' }}>
-        - {quote.character}
-      </QuoteCharacter>
+      <QuoteWrapper>
+        <QuoteText style={{ fontFamily: 'Caveat_400Regular' }}>
+          {quote.quote}
+        </QuoteText>
+        <QuoteCharacter style={{ fontFamily: 'Caveat_400Regular' }}>
+          - {quote.character}
+        </QuoteCharacter>
+      </QuoteWrapper>
       <NextQuote onPress={generateQuote}>
         <ButtonText style={{ fontFamily: 'Caveat_400Regular' }}>
           Give me a new quote..

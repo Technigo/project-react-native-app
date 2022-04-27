@@ -4,7 +4,6 @@ import ShakeApi from './components/ShakeApi';
 import StartPage from './components/StartPage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Quotes from './components/Quotes';
 
 const Container = styled.View`
   flex: 1;
@@ -20,7 +19,7 @@ const Title = styled.Text`
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
+const App = ({ navigation }) => {
   return (
     <NavigationContainer>
       <Stack.Navigator>

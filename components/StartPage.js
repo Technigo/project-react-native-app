@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import AppLoading from 'expo-app-loading';
 import { useFonts, Caveat_400Regular } from '@expo-google-fonts/caveat';
 
 const StartWrapper = styled.View`
@@ -23,6 +24,7 @@ const ImageLogo = styled.Image`
 
 const StartQuote = styled.TouchableOpacity`
   height: 60px;
+  width: 100px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
@@ -43,12 +45,16 @@ const StartPage = ({ navigation }) => {
     navigation.navigate('Quotes');
   };
 
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <StartWrapper>
       <ImageLogo source={require('../assets/friends.png')} />
       <StartText style={{ fontFamily: 'Caveat_400Regular' }}>
-        Are you a fan of Friends? And maybe want to get back to that real 90's
-        feeling?
+        Friends fan? Press the button to make your day better with some quotes
+        from our favourite characters.
       </StartText>
       <StartQuote onPress={() => navigateToShake()}>
         <ButtonText style={{ fontFamily: 'Caveat_400Regular' }}>
