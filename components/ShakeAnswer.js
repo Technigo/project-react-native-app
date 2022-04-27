@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components/native';
-import { View, Text, StyleSheet, Button } from 'react-native'
-import { Accelerometer } from 'expo-sensors';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { Accelerometer } from 'expo-sensors'
 
 const styles = StyleSheet.create({
   container: {
@@ -14,10 +13,12 @@ const styles = StyleSheet.create({
 	  fontSize: 20,
 	  fontWeight: "bold",
 	  textAlign: "center",
-	  backgroundColor: "#000000c0"
+	  backgroundColor: "#000000c0",
+    fontFamily: "monospace"
 	},
-  ButtonContainer: {
-    flex: 1,
+  ButtonText: {
+    color: 'white',
+    fontFamily: "monospace"
   }
   })
 
@@ -55,25 +56,25 @@ const ShakeAnswer = () => {
         z: 0,
       })
 
-      const [subscription, setSubscription] = useState(null);
+      const [subscription, setSubscription] = useState(null)
     
     
       const _subscribe = () => {
         setSubscription(
           Accelerometer.addListener(accelerometerData => {
-            setData(accelerometerData);
+            setData(accelerometerData)
           })
         )
       }
     
       const _unsubscribe = () => {
-        subscription && subscription.remove();
-        setSubscription(null);
+        subscription && subscription.remove()
+        setSubscription(null)
       };
     
       useEffect(() => {
         _subscribe();
-        return () => _unsubscribe();
+        return () => _unsubscribe()
       }, []);
     
       const isShaking = (data) => {
@@ -97,10 +98,11 @@ const ShakeAnswer = () => {
         <View style={styles.container}>
             <Text style={styles.text}>{answer}</Text>
             <View style= {{height: 100}}></View>
-              <Button title="Restart" color='black'onPress={() => Refresh()} />
+            <TouchableOpacity onPress={Refresh} accessibilityLabel="Restart from this button">
+              <Text style={styles.ButtonText}>RESTART</Text>
+            </TouchableOpacity>
         </View>
     )
 }
 
-// button color: color="#010464"
 export default ShakeAnswer
