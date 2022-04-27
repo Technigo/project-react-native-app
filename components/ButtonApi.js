@@ -7,7 +7,7 @@ const ButtonApi = () => {
     const [picture, setPicture ] = useState({})
 
     const generatePicture = () => {
-        fetch('https://pokeapi.co/api/v2/pokemon/58/')
+        fetch('https://randomfox.ca/floof/')
         .then(response => response.json())
         .then(data => setPicture(data))
         // console.log(data)
