@@ -39,10 +39,6 @@ const Artworkslist = () => {
     })}
     </ArtworkContainer>
   )
-
-  // return (
-  //   <Text>Hi</Text>
-  // )
 }
 
 export default Artworkslist;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Share } from 'react-native';
 import styled from 'styled-components/native';
 import { Accelerometer } from "expo-sensors";
 
@@ -19,7 +19,24 @@ const RandomArtwork = () => {
 
   const [randomArtwork, setRandomArtwork] = useState([])
   const [subscription, setSubscription] = useState(null);
-  //const [loading, setLoading] = useState(false)
+
+  const url = randomArtwork.webImage.url;
+  const title = "Rembrandt Artwork";
+  const message = "Look at this beautiful artwork";
+
+  const options = {
+  title,
+  url,
+  message,
+  };
+
+  const onShare = async (customOptions = options) => {
+    try {
+      await Share.share(customOptions);
+    } catch (err) {
+      console.log(err)
+    }
+  };
 
   const [data, setData] = useState({
     x: 0,
@@ -71,8 +88,7 @@ const RandomArtwork = () => {
       <View>
         <Text>{randomArtwork.longTitle}</Text>
         <ArtworkImage source={randomArtwork.webImage}/>
-        <Button title="read more" />
-        <Button title="share" />
+        <Button title="share" onPress={async () => { await onShare()}}/>
       </View>
     </ArtworkContainer>
   )
