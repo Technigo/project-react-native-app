@@ -11,8 +11,7 @@ height: 60px;
 const FooterText = styled.Text`
 text-align: center;
 font-size: 16px;
-font-size: 18px;
-  color: #C68507;
+color: #C68507;
 `
 
 

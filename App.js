@@ -39,6 +39,13 @@ console.log(dog)
 				source={dog.url} />
 
 				<DogInfo>{dog.breeds ? dog.breeds[0]?.name : ''}</DogInfo>
+				<DogInfo>{dog.breeds ? dog.breeds[0]?.bred_for : ''}</DogInfo>
+
+				<DogInfo>{dog.breeds ? dog.breeds[0]?.breed_group : ''}</DogInfo>
+				<DogInfo>{dog.breeds ? dog.breeds[0]?.life_span : ''}</DogInfo>
+				<DogInfo>{dog.breeds ? dog.breeds[0]?.temperament : ''}</DogInfo>
+				{/* <DogInfo>{dog.breeds ? dog.breeds[0]?.height : ''}</DogInfo> */}
+
 
 				<StyledButton onPress={generateDog}>
 					<TextButton>New doggie</TextButton>
@@ -68,7 +75,8 @@ font-weight: bold;
 `
 
 const DogInfo = styled.Text`
-font-size: 22px;
+font-size: 16px;
+color: #ad8850;
 `
 
 const WrapThis = styled.View`
@@ -86,6 +94,7 @@ height: 290px;
 justify-content: center;
 text-align: center;
 border-radius: 7%;
+margin-bottom: 5%;
 `
 
 const StyledButton = styled.TouchableOpacity`
