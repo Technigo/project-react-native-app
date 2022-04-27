@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
-import Quotes from './Quotes';
-import ShakeApi from './ShakeApi';
+import { useFonts, Caveat_400Regular } from '@expo-google-fonts/caveat';
 
 const StartWrapper = styled.View`
   flex: 1;
-  background-color: rgb(255, 227, 239);
+  background-color: rgb(219, 218, 213);
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 0px;
 `;
 
 const StartText = styled.Text`
@@ -23,7 +21,7 @@ const ImageLogo = styled.Image`
 `;
 
 const StartQuote = styled.TouchableOpacity`
-  height: 50px;
+  height: 60px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
@@ -32,11 +30,14 @@ const StartQuote = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  font-size: 20px;
+  font-size: 25px;
   padding: 13px;
 `;
 
 const StartPage = ({ navigation }) => {
+  let [fontsLoaded] = useFonts({
+    Caveat_400Regular,
+  });
   const navigateToShake = () => {
     navigation.navigate('ShakeSensor');
   };
@@ -44,11 +45,13 @@ const StartPage = ({ navigation }) => {
   return (
     <StartWrapper>
       <ImageLogo source={require('../assets/friends.png')} />
-      <StartText>
+      <StartText style={{ fontFamily: 'Caveat_400Regular' }}>
         Friends fan? Push the button to make your day better!
       </StartText>
       <StartQuote onPress={() => navigateToShake()}>
-        <ButtonText>Give me a quote!</ButtonText>
+        <ButtonText style={{ fontFamily: 'Caveat_400Regular' }}>
+          Give me a quote!
+        </ButtonText>
       </StartQuote>
     </StartWrapper>
   );

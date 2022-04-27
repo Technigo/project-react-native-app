@@ -5,7 +5,6 @@ import StartPage from './components/StartPage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Quotes from './components/Quotes';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
 
 const Container = styled.View`
   flex: 1;

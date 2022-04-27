@@ -2,27 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Button } from 'react-native';
 import styled from 'styled-components';
 import { Accelerometer } from 'expo-sensors';
+import { useFonts, Caveat_400Regular } from '@expo-google-fonts/caveat';
 
 const Container = styled.View`
   flex: 1;
-  background-color: rgb(255, 227, 239);
+  background-color: rgb(219, 218, 213);
   justify-content: center;
   align-items: flex-start;
 `;
 
 const QuoteText = styled.Text`
-  font-size: 25;
+  font-size: 30px;
   margin: 10px;
 `;
 
 const QuoteCharacter = styled.Text`
-  font-size: 20px;
+  font-size: 25px;
   margin: 10px;
-  font-style: italic;
 `;
 
 const NextQuote = styled.TouchableOpacity`
-  height: 50px;
+  height: 60px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
@@ -30,11 +30,14 @@ const NextQuote = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  font-size: 20px;
+  font-size: 25px;
   padding: 13px;
 `;
 
 const ShakeApi = () => {
+  let [fontsLoaded] = useFonts({
+    Caveat_400Regular,
+  });
   const [quote, setQuote] = useState({});
 
   const generateQuote = () => {
@@ -79,14 +82,11 @@ const ShakeApi = () => {
   };
 
   useEffect(() => {
-    // component mounts execute the function below
     subscribe();
 
-    // component unmounts execute the function in the return statement
     return () => unsubscribe();
   }, []);
 
-  //////////////////////////
   const isShaking = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.78;
@@ -100,13 +100,18 @@ const ShakeApi = () => {
 
   return (
     <Container>
-      <QuoteText>{quote.quote}</QuoteText>
-      <QuoteCharacter>- {quote.character}</QuoteCharacter>
+      <QuoteText style={{ fontFamily: 'Caveat_400Regular' }}>
+        {quote.quote}
+      </QuoteText>
+      <QuoteCharacter style={{ fontFamily: 'Caveat_400Regular' }}>
+        - {quote.character}
+      </QuoteCharacter>
       <NextQuote onPress={generateQuote}>
-        <ButtonText>Give me a new quote!</ButtonText>
+        <ButtonText style={{ fontFamily: 'Caveat_400Regular' }}>
+          Give me a new quote!
+        </ButtonText>
       </NextQuote>
     </Container>
   );
 };
-
 export default ShakeApi;
