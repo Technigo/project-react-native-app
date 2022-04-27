@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Quotes = () => {
+const Quotes = ({ navigation }) => {
   const [quote, setQuote] = useState({});
 
   const generateQuote = () => {
@@ -23,9 +24,6 @@ const Quotes = () => {
     <View>
       <Text>{quote.quote}</Text>
       <Text>{quote.character}</Text>
-      <APIButton onPress={generateQuote}>
-        <Text>Generate quote</Text>
-      </APIButton>
     </View>
   );
 };

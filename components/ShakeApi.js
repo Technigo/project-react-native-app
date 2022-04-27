@@ -1,7 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import styled from 'styled-components/native';
+import { View, Text, TouchableOpacity, Button } from 'react-native';
+import styled from 'styled-components';
 import { Accelerometer } from 'expo-sensors';
+
+const Container = styled.View`
+  flex: 1;
+  background-color: rgb(255, 227, 239);
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+const QuoteText = styled.Text`
+  font-size: 25;
+  margin: 10px;
+`;
+
+const QuoteCharacter = styled.Text`
+  font-size: 20px;
+  margin: 10px;
+  font-style: italic;
+`;
+
+const NextQuote = styled.TouchableOpacity`
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: rgb(255, 199, 223);
+`;
+
+const ButtonText = styled.Text`
+  font-size: 20px;
+  padding: 13px;
+`;
 
 const ShakeApi = () => {
   const [quote, setQuote] = useState({});
@@ -11,11 +42,7 @@ const ShakeApi = () => {
       .then((response) => response.json())
       .then((data) => setQuote(data));
   };
-  const APIButton = styled.TouchableOpacity`
-    font-weight: 700;
-    width: 50%;
-    background-color: tomato;
-  `;
+
   useEffect(() => {
     generateQuote();
   }, []);
@@ -72,13 +99,13 @@ const ShakeApi = () => {
   }, [data]);
 
   return (
-    <View>
-      {/* <Text>{data.x}</Text>
-            <Text>{data.y}</Text>
-            <Text>{data.z}</Text> */}
-      <Text>{quote.quote}</Text>
-      <Text>{quote.character}</Text>
-    </View>
+    <Container>
+      <QuoteText>{quote.quote}</QuoteText>
+      <QuoteCharacter>- {quote.character}</QuoteCharacter>
+      <NextQuote onPress={generateQuote}>
+        <ButtonText>Give me a new quote!</ButtonText>
+      </NextQuote>
+    </Container>
   );
 };
 

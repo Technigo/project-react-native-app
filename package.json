@@ -8,6 +8,10 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/caveat": "^0.2.2",
+    "@expo-google-fonts/raleway": "^0.2.2",
+    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/native-stack": "^6.6.2",
     "braces": "^3.0.2",
     "expo": "^44.0.0",
     "expo-sensors": "~11.1.0",
@@ -16,6 +20,8 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "~3.10.1",
     "react-native-web": "0.17.1",
     "styled-components": "^4.4.1"
   },
