@@ -3,6 +3,13 @@ import { View, Text } from "react-native"
 import styled from "styled-components/native";
 
 
+const APIButton = styled.Button`
+font-weight: 700;
+background-color: blue;
+width: 50%;
+`
+
+
 const ButtonApi = () => {
     const [quote, setQuote] = useState({})
 
@@ -12,18 +19,12 @@ const ButtonApi = () => {
         .then(data => setQuote(data))
     }
 
-    const APIButton = styled.Button`
-        font-weight: 700;
-        background-color: blue;
-        width: 50;
-    `
-
     useEffect(() => {
         generateQuote()
     }, [])
 
     return(
-        <View>
+        <View >
             <Text>
                 {quote.content}
             </Text>

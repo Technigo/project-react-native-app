@@ -3,24 +3,31 @@ import { View, Text, SliderComponent, Image } from "react-native"
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
 
+const Container = styled.View`
+width: 100%;
+height: 75%;
+`
+const StyledImage = styled.Image`
+  border-radius: 20px;
+`
+
+
 
 const ShakeApi = () => {
 
-const [advices, setAdvices] = useState({})
+    const [images, setImages] = useState({})
 
-const generateAdvice = () => {
+
+
+
+const generateImage = () => {
         fetch("https://randomfox.ca/floof/")
         .then(res => res.json())
-        .then(data => setAdvices(data))      
+        .then(data => setImages(data))      
 }
 
-const Container = styled.View`
-width: 100%;
-height: 100%;
-`
-
 useEffect(() => {
-    generateAdvice()
+    generateImage()
 }, [])
 
 const [data, setData] = useState({
@@ -69,34 +76,19 @@ const [data, setData] = useState({
 
   useEffect(() => {
     if(isShaking(data)){
-        generateAdvice()
+        generateImage()
     }
 }, [data])
 
  
   return (
-    <Container>
-    {/* <Text>
-        {data.x}
-    </Text>
-    <Text>
-        {data.y}
-    </Text>
-    <Text>
-        {data.z}
-    </Text> */}
-
+  <Container>
               
-    <Image 
-    style={{width: '100%', height: '100%'}}
-    source={{ uri: `${advices.image}` }} />
-    
-      {/* {advices.content} | {advices.author} */}
-      
+      <StyledImage 
+      style={{width: '100%', height: '100%'}}
+      source={{ uri: `${images.image}` }}></StyledImage>
 
-    
-
-</Container>
+  </Container>
   );
 }
 
