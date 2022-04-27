@@ -1,13 +1,12 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The assignment this week was to make an app with React Native, I chose to use the sensors and created a compass with it 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I went head first, I quickly noticed that React & React Native are quite similar so the logic & structure were easy to make.
+It was fun to learn YET another language.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@dopest0727/project-react-native-app?serviceType=classic&distribution=expo-go
