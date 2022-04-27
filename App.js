@@ -1,7 +1,12 @@
 import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import styled from 'styled-components/native';
 
-import Artworks from './components/Artworks';
+import Artworkslist from './components/Artworkslist';
+import RandomArtwork from './components/RandomArtwork';
+
+const Drawer = createDrawerNavigator();
 
 const Container = styled.View`
 	flex: 1;
@@ -11,9 +16,12 @@ const Container = styled.View`
 
 const App = () => {
 	return (
-		<Container>
-			<Artworks />
-		</Container>
+		<NavigationContainer style={Container}>
+		<Drawer.Navigator initialRouteName="Home">
+		  <Drawer.Screen name="Home" component={Artworkslist} />
+		  <Drawer.Screen name="Suprise Artwork" component={RandomArtwork} />
+		</Drawer.Navigator>
+	  </NavigationContainer>
 	);
 };
 

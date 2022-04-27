@@ -15,9 +15,9 @@ const ArtworkImage = styled.Image`
   height: 300px;
 `
 
-const Artworks = () => {
+const RandomArtwork = () => {
 
-  const [artworks, setArtworks] = useState([])
+  const [randomArtwork, setRandomArtwork] = useState([])
   const [subscription, setSubscription] = useState(null);
   //const [loading, setLoading] = useState(false)
 
@@ -27,14 +27,14 @@ const Artworks = () => {
     z: 0,
   });
 
-  const generateArtworks = () => {
+  const generateRandomArtwork = () => {
     fetch(REMBRANDT_URL)
     .then(res => res.json())
-    .then(data => setArtworks(data.artObjects[Math.floor(Math.random()*10)]))
+    .then(data => setRandomArtwork(data.artObjects[Math.floor(Math.random()*10)]))
   }
 
   useEffect(() => {
-    generateArtworks();
+    generateRandomArtwork();
   }, []);
 
   const subscribe = () => {
@@ -62,36 +62,20 @@ const Artworks = () => {
 
   useEffect(()=> {
     if (isShaking(data)) {
-        generateArtworks();
+        generateRandomArtwork();
     }
   }, [data])
-
-  console.log(artworks)
-
 
   return (
     <ArtworkContainer>
       <View>
-        <Text>{artworks.longTitle}</Text>
-        <ArtworkImage source={artworks.webImage}/>
+        <Text>{randomArtwork.longTitle}</Text>
+        <ArtworkImage source={randomArtwork.webImage}/>
         <Button title="read more" />
         <Button title="share" />
       </View>
     </ArtworkContainer>
   )
-
-  // return (
-  //   <ArtworkContainer>
-  //   {artworks.map((artwork) => {
-  //     return (
-  //       <View key={artwork.id}>
-  //         <Text>{artwork.title}</Text>
-  //         <ArtworkImage source={artwork.webImage}/>
-  //       </View>
-  //     )
-  //   })}
-  //   </ArtworkContainer>
-  // )
 };
 
-export default Artworks;
+export default RandomArtwork;
