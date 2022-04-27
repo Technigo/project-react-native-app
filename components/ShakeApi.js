@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native"
+import { View, Text, SliderComponent, Image } from "react-native"
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
 
 
 const ShakeApi = () => {
 
-const [quote, setQuote] = useState({})
+const [advices, setAdvices] = useState({})
 
-const generateQuote = () => {
-        fetch("https://api.quotable.io/random")
+const generateAdvice = () => {
+        fetch("https://randomfox.ca/floof/")
         .then(res => res.json())
-        .then(data => setQuote(data))
+        .then(data => setAdvices(data))      
 }
 
-const APIButton = styled.Button`
-    font-weight: 700;
-    background-color: blue;
-    width: 50;
+const Container = styled.View`
+width: 100%;
+height: 100%;
 `
 
 useEffect(() => {
-    generateQuote()
+    generateAdvice()
 }, [])
-
 
 const [data, setData] = useState({
     x: 0,
@@ -71,14 +69,13 @@ const [data, setData] = useState({
 
   useEffect(() => {
     if(isShaking(data)){
-        generateQuote()
+        generateAdvice()
     }
 }, [data])
 
  
-
   return (
-    <View>
+    <Container>
     {/* <Text>
         {data.x}
     </Text>
@@ -89,10 +86,17 @@ const [data, setData] = useState({
         {data.z}
     </Text> */}
 
-    <Text>{quote.content}</Text>
-    <Text>{quote.author}</Text>
+              
+    <Image 
+    style={{width: '100%', height: '100%'}}
+    source={{ uri: `${advices.image}` }} />
+    
+      {/* {advices.content} | {advices.author} */}
+      
 
-</View>
+    
+
+</Container>
   );
 }
 
