@@ -1,23 +1,27 @@
 import React from "react";
 import styled from "styled-components/native";
-import { SensorComponent } from "./components/SensorComponent";
+import SensorComponent from "./components/SensorComponent";
+import { ImageBackground } from "react-native";
+
+// import Header from "./components/Header";
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
   justify-content: center;
   align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
 `;
 
 const App = () => {
   return (
     <Container>
-      <SensorComponent></SensorComponent>
+      <ImageBackground
+        style={{ flex: 1 }}
+        resizeMode="cover"
+        source={require("/assets/background.avif")}
+      >
+        <SensorComponent />
+      </ImageBackground>
+      {/* <Header /> */}
     </Container>
   );
 };
