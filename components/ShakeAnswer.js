@@ -4,14 +4,21 @@ import { View, Text, StyleSheet, Button } from 'react-native'
 import { Accelerometer } from 'expo-sensors';
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: "center",
+  },
 	text: {
 	  color: "white",
 	  fontSize: 20,
-	  lineHeight: 84,
 	  fontWeight: "bold",
 	  textAlign: "center",
 	  backgroundColor: "#000000c0"
-	}
+	},
+  ButtonContainer: {
+    flex: 1,
+  }
   })
 
 
@@ -82,22 +89,18 @@ const ShakeAnswer = () => {
           }
       })
 
+      const Refresh = () => {
+        setAnswer('')
+      }
+
     return(
         <View style={styles.container}>
-            {/* <Text>{data.y}</Text>
-            <Text>{data.z}</Text>
-            <Text>{data.x}</Text> */}
-            {/* <Text>x: {round(x)} y: {round(y)} z: {round(z)}</Text> */}
             <Text style={styles.text}>{answer}</Text>
+            <View style= {{height: 100}}></View>
+              <Button title="Restart" color='black'onPress={() => Refresh()} />
         </View>
     )
 }
 
-// function round(n) {
-//     if (!n) {
-//       return 0;
-//     }
-//     return Math.floor(n * 100) / 100;
-//   }
-
+// button color: color="#010464"
 export default ShakeAnswer
