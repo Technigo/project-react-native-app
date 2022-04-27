@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Accelerometer } from "expo-sensors";
-import styled from "styled-components/native";
+import React, { useState, useEffect } from 'react';
+import { Accelerometer } from 'expo-sensors';
+import styled from 'styled-components/native';
+import { Image } from 'react-native';
 
 // ==========================
 // = Functions
 const isShaking = (data) => {
-  // x,y,z CAN be negative, force is directional
-  // We take the absolute value and add them together
-  // This gives us the total combined force on the device
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-
-  // If this force exceeds some threshold, return true, otherwise false
-  // Increase this threshold if you need your user to shake harder
   return totalForce > 1.78;
 };
 
@@ -22,7 +17,7 @@ const ShakeView = styled.View`
   flex-direction: column;
 `;
 
-const ShakeAlert = styled.Text`
+const Header = styled.Text`
   font-size: 36px;
   font-weight: bold;
   color: #aa0000;
@@ -32,6 +27,12 @@ const ShakeDataTitle = styled.Text`
   font-weight: bold;
 `;
 const ShakeData = styled.Text``;
+
+
+
+
+
+
 
 export const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -47,6 +48,8 @@ export const SensorComponent = () => {
 
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
+
+  
 
   const _subscribe = () => {
     // Save the subscription so we can stop using the accelerometer later
@@ -75,22 +78,31 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+//HANNAS HUNDAR
+  const [dog, setDog] = useState({})
+
+  // const [hasShaken, setShaken] = useState(false)
+
+  const generateDog = () => {
+    fetch("https://dog.ceo/api/breeds/image/random")
+    .then(res => res.json())
+    .then(data => setDog(data))
+  }
+
+  useEffect(() => {
+    if (isShaking(data)) {
+      generateDog();
+    }
+  }, [data])
+
+//HANNAS HUNDAR
+
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
+      <Header>Dog of the Day</Header>
+      {isShaking(data)} 
+      <Image style={{ width: 200, height: 200 }} 
+        source={{ uri: `${dog.message}` }} />
     </ShakeView>
   );
 };
