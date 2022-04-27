@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
-
+import { Text } from "react-native";
 // ==========================
 // = Functions
 const isShaking = (data) => {
@@ -33,7 +33,42 @@ const ShakeDataTitle = styled.Text`
 `;
 const ShakeData = styled.Text``;
 
+const answers = [
+  "Shit before you shower, then you don't have to wipe",
+  "It is certain",
+  "Without a doubt",
+  "Yes - definitely",
+  "Most likely",
+  "Yes",
+  "No",
+  "Don't count on it",
+  "Ask again later",
+  "Better not tell you now",
+  "My sources say no",
+  "Reply hazy, try again",
+  "Signs point to yes",
+  "I'm sorry what?",
+  "Going into a tunnel...try again",
+  "404 - answer not found",
+  "A communist joke isn't funny... unless everyone gets it",
+  "Perhaps",
+  "I have spoken",
+  "Look into my eyes and it's easy to see. One and one makes two, two and one makes three, it was destiny",
+  "Well that's just like your opinion man",
+  "Where's the money Lebowski?",
+  "Stay out of Malibu!",
+  "That rug really tied the room together",
+  "Tis but a scratch",
+];
+
 export const SensorComponent = () => {
+  const [answer, setAnswer] = useState();
+
+  const updateAnswer = () => {
+    const index = Math.floor(Math.random() * answers.length);
+    setAnswer(answers[index]);
+  };
+
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -75,22 +110,15 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+  useEffect(() => {
+    if (isShaking(data)) {
+      updateAnswer();
+    }
+  }, [data]);
+
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
+      <Text>{answer}</Text>
     </ShakeView>
   );
 };
