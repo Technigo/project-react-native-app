@@ -6,6 +6,7 @@ import LottieView from 'lottie-react-native'
 
 import { DOG_URL } from "./utils/urls"
 
+import Footer from './components/Footer'
 
 
 export default function App() {
@@ -22,38 +23,29 @@ export default function App() {
         generateDog()
     }, [])
 
+// console.log(dog?.breeds[0]?.name)
 console.log(dog)
 
 	return (
 		<StyledView>
 
-
-		{/* <LottieView 
-		source={require('./assets/animation.json')} 
+		{/* <LottieView
+		source={require('./assets/animation.json')}
 		autoPlay/> */}
 
-
-		{/* {dog[0].bred_for 
-			: 
-			<Text>{dog[0].bred_for</Text>
-			<Image source={dog.url} /> 
-			? 
-			<Text>{dog.weight}</Text>} */}
-
 			<WrapThis>
-			<Title>Dog Finder</Title>
+			<Title>Dog of the Day</Title>
 				<DogImage
 				source={dog.url} />
 
-				{/* <Text>{dog.weight}</Text>
-
-				<Text>{dog.bred_for}</Text> */}
-
+				<DogInfo>{dog.breeds ? dog.breeds[0]?.name : ''}</DogInfo>
 
 				<StyledButton onPress={generateDog}>
-				<TextButton>New doggie</TextButton>
+					<TextButton>New doggie</TextButton>
 				</StyledButton>
+
 			</WrapThis>
+			<Footer />
 		</StyledView>
 	)
 }
@@ -63,8 +55,8 @@ console.log(dog)
 const StyledView = styled.View`
 flex: 1;
 background-color: papayawhip;
-align-items: "center";
-justify-content: "space-around";
+align-items: center;
+justify-content: space-around;
 padding: 10px;
 `
 
@@ -75,21 +67,25 @@ margin-bottom: 1em;
 font-weight: bold;
 `
 
+const DogInfo = styled.Text`
+font-size: 22px;
+`
+
 const WrapThis = styled.View`
 background: #e7cba499;
 padding: 2em;
-border-radius: 40;
+border-radius: 10%;
 text-align: center;
 width: 100%;
 align-items: center;
 `
 
 const DogImage = styled.Image`
-width: 290;
-height: 290;
+width: 290px;
+height: 290px;
 justify-content: center;
 text-align: center;
-border-radius: 10px;
+border-radius: 7%;
 `
 
 const StyledButton = styled.TouchableOpacity`
