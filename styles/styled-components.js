@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
+    position: relative;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     height: 100%;
     width: 80%;
-    margin: 0 auto;
+    margin: 50px auto;
 `;
 
 export const Input = styled.TextInput`
@@ -32,16 +32,14 @@ export const Button = styled.TouchableOpacity`
     border-radius: ${props => (props.accentColor ? '10px' : '0')};
 `
 
-export const LikedInsults = styled.ScrollView`
-    flex: 1;
-    height: 100px;
+export const LikedPhrases = styled.ScrollView`
     width: 100%;
 `
 
-export const LikedInsult = styled.View`
+export const LikedPhrase = styled.View`
     flex: 1;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 15px;
     width: 100%;
     padding-right: 15px;
@@ -54,11 +52,18 @@ export const SafeArea = styled.SafeAreaView`
 export const Header1 = styled.Text`
     font-size: 30px;
     color: hsl(0, 0%, 20%);
+    margin: 40px 0;
 `
 
-export const InsultListItem = styled.Text`
+export const PhraseListItem = styled.Text`
     flex: 1;
     flex-wrap: wrap;
+`
+
+export const Burger = styled.TouchableOpacity`
+    position: absolute;
+    left: -20;
+    top: 0;
 `
 
 

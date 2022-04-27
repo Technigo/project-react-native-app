@@ -1,37 +1,49 @@
 import React, {useState} from 'react';
-import { Text, View } from 'react-native';
-import { Container, ButtonText, Button, Header1} from '../styles/styled-components';
+import { Text, View, ActivityIndicator } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
+
+
+import { Container, ButtonText, Button, Header1, Burger, SafeArea } from '../styles/styled-components';
 
 import helpers from '../modules/helpers';
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
 export const Feed = ({ navigation }) => {
-  const [insult, setInsult] = useState('')
+  const [phrase, setPhrase] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const onPressInsult = async () => {
-    setInsult(await helpers.getInsult())
+  const onPressphrase = async () => {
+    setLoading(true)
+    setPhrase(await helpers.getPhrase());
+    setLoading(false);
   }
 
   return (
+    // <SafeArea>
     <Container>
+      <Burger onPress={() => navigation.openDrawer()}>
+          <ButtonText>
+          <Entypo name='menu' size={30} color='#000' />
+          </ButtonText>
+      </Burger>
       <Header1>Feed Screen</Header1>
       <View style={{width: '100%'}}>
-        <Text>{insult}</Text>
-        <Button onPress={onPressInsult} accentColor={true}>
+        {loading ? <ActivityIndicator size="small" color="#0000ff" /> : <Text>{phrase}</Text>}
+        <Button onPress={onPressphrase} accentColor={true}>
           <ButtonText
             accentColor={true}>
-            New insult
+            New phrase
           </ButtonText>
         </Button>
       </View>
       
       <View style={{width: '100%'}}>
-        <Button onPress={() => navigation.openDrawer()}>
+        {/* <Burger onPress={() => navigation.openDrawer()}>
           <ButtonText>
             Open drawer
           </ButtonText>
-        </Button>
+        </Burger> */}
 
         <Button onPress={() => navigation.toggleDrawer()}>
           <ButtonText>

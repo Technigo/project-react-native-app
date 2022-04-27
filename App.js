@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+
+
+import { Home } from './screens/Home';
 import { Feed } from './screens/Feed';
 import { Likes } from './screens/Likes';
 import Login from './screens/Login';
@@ -15,13 +18,16 @@ import {
 const Drawer = createDrawerNavigator();
 
 const App = () => {
+  
+
   return (
     <NavigationContainer>
       <Drawer.Navigator useLegacyImplementation
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
+        <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Login" component={Login} />
         <Drawer.Screen name="Likes" component={Likes} />
+        <Drawer.Screen name="Login" component={Login} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
