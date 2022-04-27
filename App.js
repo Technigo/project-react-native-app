@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native'
 
 import InputField from './components/InputField'
+import Buttons from './components/Buttons'
 
 
 const styles = StyleSheet.create({
@@ -23,6 +24,7 @@ const App = () => {
 			<Text style={styles.title}>Dictionary</Text>
 			<Text style={styles.title}>📚📖📚</Text>
 			<InputField/>
+			<Buttons/>
 		</View>
 	);
 };
