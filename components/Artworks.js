@@ -21,44 +21,38 @@ const Artworks = () => {
   const generateArtworks = () => {
     fetch(REMBRANDT_URL)
     .then(res => res.json())
-    .then(data => setArtworks(data.artObjects))
+    .then(data => setArtworks(data.artObjects[Math.floor(Math.random()*10)]))
   }
 
   useEffect(() => {
     generateArtworks();
   }, []);
 
+  console.log(artworks)
   // const randomArtwork = artworks[Math.floor(Math.random()*artworks.length)];
   // console.log(randomArtwork)
 
-  // return (
-  //   <View>
-  //     <Text>
-  //       hi
-  //     </Text>
-  //   </View>
-  // )
+  return (
+    <ArtworkListContainer>
+      <View>
+        <Text>{artworks.longTitle}</Text>
+        <ArtworkImage source={artworks.webImage}/>
+      </View>
+    </ArtworkListContainer>
+  )
 
   // return (
   //   <ArtworkListContainer>
-  //     <View>
-  //       <Text>{randomArtwork.title}</Text>
-  //     </View>
+  //   {artworks.map((artwork) => {
+  //     return (
+  //       <View key={artwork.id}>
+  //         <Text>{artwork.title}</Text>
+  //         <ArtworkImage source={artwork.webImage}/>
+  //       </View>
+  //     )
+  //   })}
   //   </ArtworkListContainer>
   // )
-
-  return (
-    <ArtworkListContainer>
-    {artworks.map((artwork) => {
-      return (
-        <View key={artwork.id}>
-          <Text>{artwork.title}</Text>
-          <ArtworkImage source={artwork.webImage}/>
-        </View>
-      )
-    })}
-    </ArtworkListContainer>
-  )
 };
 
 export default Artworks;
