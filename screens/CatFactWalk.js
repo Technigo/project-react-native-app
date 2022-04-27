@@ -4,7 +4,7 @@ import { Pedometer } from 'expo-sensors'
 
 import styled from 'styled-components/native'
 
-import ShareExample from '../components/ShareExample'
+import ShareButton from '../components/ShareButton'
 
 import Loader from '../components/Loader'
 
@@ -134,7 +134,7 @@ const CatFactWalk = () => {
             {/* <CatImage source={{ uri: catURL }} /> */}
             {/* <OpenURLButton url={moreURL}>{`More about ${catBreed}`}</OpenURLButton> */}
             {/* <Text>{catFact}</Text> */}
-            <ShareExample shareText={`Did you know that? ${catFact}`} shareTitle='Share this cat fact' />
+            <ShareButton shareText={`Did you know that? ${catFact}`} shareTitle='Share this cat fact' />
           </>
         )}
       </Container>

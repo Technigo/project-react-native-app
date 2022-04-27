@@ -5,7 +5,7 @@ import LottieView from 'lottie-react-native';
 
 const Container = styled.View`
 	flex: 1;
-	/* background-color: blue; */
+	background-color: blue;
 	justify-content: center;
 	align-items: center;
 `

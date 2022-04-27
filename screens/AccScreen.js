@@ -84,11 +84,11 @@ const AccScreen = () => {
 `
 
   const Patate = () => {
-    if (x >= 0.20 && x <= 0.22 && y >= 0.55 && y <= 0.60) {
+    if (x >= 0.45 && x <= 0.55 && y >= 0.26 && y <= 0.38) {
       return <Text>BRAVO!</Text>
-    } else if (x >= 0.20 && x <= 0.22) {
+    } else if (x >= 0.45 && x <= 0.55) {
       return <Text>You are close X!</Text>
-    } else if (y >= 0.55 && y <= 0.60) {
+    } else if (y >= 0.26 && y <= 0.38) {
       return <Text>You are close Y!</Text>
     }
   }

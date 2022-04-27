@@ -26,7 +26,8 @@
     "react-native-radio-buttons-group": "^2.2.10",
     "react-native-web": "0.17.1",
     "react-redux": "^8.0.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "react-native-reanimated": "~2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

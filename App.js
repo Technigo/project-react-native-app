@@ -4,6 +4,8 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
+import ModalScreen from './screens/ModalScreen'
+
 import Home from './screens/Home';
 import CatButtonGif from './screens/CatButtonGif'
 import CatButtonMeme from './screens/CatButtonMeme'
@@ -51,6 +53,8 @@ const App = () => {
           })}
         >
           <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="ModalScreen" component={ModalScreen} />
+
           <Tab.Screen name="CatButtonGif" component={CatButtonGif} />
           <Tab.Screen name="CatButtonMeme" component={CatButtonMeme} />
           <Tab.Screen name="CatImageShake" component={CatImageShake} />

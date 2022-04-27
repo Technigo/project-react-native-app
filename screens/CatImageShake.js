@@ -5,7 +5,7 @@ import styled from 'styled-components/native'
 import { Accelerometer } from "expo-sensors"
 import OpenURLButton from '../components/OpenURLButton'
 
-import ShareExample from '../components/ShareExample'
+import ShareButton from '../components/ShareButton'
 
 import Loader from '../components/Loader'
 
@@ -176,7 +176,7 @@ const CatImageShake = () => {
         <>
           <CatImage source={{ uri: catURL }} />
           <OpenURLButton url={moreURL}>{`More about ${catBreed}`}</OpenURLButton>
-          <ShareExample shareURL={catURL} shareTitle='Share this cat picture' />
+          <ShareButton shareURL={catURL} shareTitle='Share this cat picture' />
         </>
       )}
     </Container>

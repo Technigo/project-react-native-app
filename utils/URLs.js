@@ -26,6 +26,6 @@ export const RandomCatFactAPI = 'https://cat-fact.herokuapp.com/facts/random?amo
 
 export const RandomCatGifAPI = 'https://api.thecatapi.com/v1/images/search?mime_types=gif'
 
-export const RandomCatMemeAPI = ({ memeMood, memeText, memeColor }) => {
-  return `https://cataas.com/cat/${memeMood}/says/${memeText}?s=50&c=${memeColor}&json=true`
+export const RandomCatMemeAPI = ({ memeAction, memeText, memeColor }) => {
+  return `https://cataas.com/cat/${memeAction}/says/${memeText}?s=50&c=${memeColor}&json=true`
 }

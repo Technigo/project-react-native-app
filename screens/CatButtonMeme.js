@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 
 import RadioGroup, { RadioButton } from 'react-native-radio-buttons-group'
 
-import ShareExample from '../components/ShareExample'
+import ShareButton from '../components/ShareButton'
 
 import OpenURLButton from '../components/OpenURLButton'
 
@@ -161,14 +161,14 @@ const CatButtonMeme = () => {
         layout="row"
       />
 
-      <SafeAreaView>
+      <View>
         <TextInput
           style={styles.input}
           onChangeText={inputText => setMemeText(inputText)}
           // value={memeText}
           placeholder="Type some text for your meme"
         />
-      </SafeAreaView>
+      </View>
       <RadioGroup
         radioButtons={colorRadioButtonsData}
         // onPress={onPressColorRadioButton} 
@@ -179,7 +179,7 @@ const CatButtonMeme = () => {
       {catMemeURL !== '' && (
         <>
           <CatImage source={{ uri: catMemeURL }} />
-          <ShareExample shareURL={catMemeURL} shareText={`I made a cat meme for you!`} shareTitle={`Share this cat meme`} />
+          <ShareButton shareURL={catMemeURL} shareText={`I made a cat meme for you!`} shareTitle={`Share this cat meme`} />
         </>
       )}
       {/* <Button title={catMemeURL === '' ? 'Generate a cat meme' : 'Generate another cat meme'} onPress={generateCatMeme} /> */}
@@ -191,7 +191,7 @@ const CatButtonMeme = () => {
       {/* <OpenURLButton url={catMemeURL}>{catMemeURL}</OpenURLButton> */}
 
       {/* <CatImage source={{ uri: catMemeURL }} />
-          <ShareExample shareURL={catMemeURL} shareText={`I made a cat meme for you!`} shareTitle={`Share this cat meme`} />
+          <Share shareURL={catMemeURL} shareText={`I made a cat meme for you!`} shareTitle={`Share this cat meme`} />
         </>
       )} */}
     </Container>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, View, StyleSheet, Text } from 'react-native'
 import styled from 'styled-components/native'
 
-import ShareExample from '../components/ShareExample'
+import ShareButton from '../components/ShareButton'
 
 import OpenURLButton from '../components/OpenURLButton'
 
@@ -72,7 +72,7 @@ const CatButtonGif = () => {
       {catGifURL !== '' && (
         <>
           <CatImage source={{ uri: catGifURL }} />
-          <ShareExample shareURL={catGifURL} shareText={`Look at this cat gif!`} shareTitle={`Share this cat gif`} />
+          <ShareButton shareURL={catGifURL} shareText={`Look at this cat gif!`} shareTitle={`Share this cat gif`} />
         </>
       )}
     </Container>
