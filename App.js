@@ -58,7 +58,6 @@ console.log(dog)
 	)
 }
 
-
 //Styled components
 
 const StyledView = styled.View`
@@ -82,6 +81,7 @@ padding: 2em;
 border-radius: 40;
 text-align: center;
 width: 100%;
+align-items: center;
 `
 
 const DogImage = styled.Image`
@@ -103,6 +103,4 @@ const TextButton = styled.Text`
   font-size: 18px;
   color: #C68507;
   `
-
-
 
