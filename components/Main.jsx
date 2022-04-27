@@ -51,7 +51,7 @@ const Main = () => {
     }, 3000); // TRIGGERS LONGER LOADING SCREEN
   }, []);
 
-  // Sets which compass text will be shown depending on the heading from the phone.
+  //  SETS TEXT BASED ON THE DIRECCTION ON THE PHONE
   const getCompassText = (heading) => {
     if ((heading >= 337 && heading <= 360) || (heading >= 0 && heading < 22)) {
       return "North";
