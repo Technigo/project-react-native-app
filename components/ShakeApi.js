@@ -1,37 +1,44 @@
 import React, {useState, useEffect} from "react";
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
-import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
 
 const styles = StyleSheet.create({
-    tinyLogo: {
-      width: 250,
-      height: 250,
-    },
+    container: {
+        padding: 25,
+        alignItems: "center",
+        justifyContent: "center",
+        },
+        tinyFrame: {
+        width: 300,
+        height: 300,
+        marginBottom: 25,
+        },
+        button: {
+            width: 175,
+            backgroundColor: "black",  
+            alignItems: "center",
+            padding: 10,
+        },
+        text: {
+            color: "white",
+        }
 });
 
-const APIButton = styled.TouchableOpacity`
-        font-weight: 700;
-        width: 50%;
-        background-color: tomato;
-    `
-  
 
 const ShakeApi = ()=> {
 
-    const [quote, setQuote] = useState({})
+    const [picture, setPicture] = useState({})
 
-    const generateQuote = () => {
+    const generatePicture = () => {
         fetch("https://randomfox.ca/floof/")
         .then(response => response.json())
-        .then(data => setQuote(data))
+        .then(data => setPicture(data))
     }
 
     useEffect(()=> {
-        generateQuote();
+        generatePicture();
     }, []);
 
-//////////////////////////
 
 const [data, setData] = useState({
     x: 0,
@@ -40,13 +47,7 @@ const [data, setData] = useState({
   });
   const [subscription, setSubscription] = useState(null);
 
-//   const _slow = () => {
-//     Accelerometer.setUpdateInterval(1000);
-//   };
 
-//   const _fast = () => {
-//     Accelerometer.setUpdateInterval(16);
-//   };
 const { x, y, z } = data;
 
   const subscribe = () => {
@@ -56,10 +57,6 @@ const { x, y, z } = data;
       })
     );
   };
-
-
-
-
 
   const unsubscribe = () => {
     subscription && subscription.remove();
@@ -75,10 +72,6 @@ const { x, y, z } = data;
   }, []);
 
 
-
-
-
-//////////////////////////
 const isShaking = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
     return totalForce > 1.78;
@@ -87,22 +80,19 @@ const isShaking = (data) => {
 
 useEffect(()=> {
     if (isShaking(data)) {
-        generateQuote();
+        generatePicture();
     }
 }, [data])
 
     return (
-        <View>
-            {/* <Text>{data.x}</Text>
-            <Text>{data.y}</Text>
-            <Text>{data.z}</Text> */}
-              <Image style={styles.tinyLogo} 
-              source={quote.image}/>
-        
-            <Text>{quote.link}</Text>
-            <APIButton onPress={generateQuote}>
-                <Text>Generate quote</Text>
-            </APIButton>
+        <View style={styles.container}>
+              <Image style={styles.tinyFrame} 
+                     source={picture.image}/>
+            <TouchableOpacity
+            style={styles.button}
+            onPress={generatePicture}>
+                <Text style={styles.text}>Or click me...</Text>
+            </TouchableOpacity>
         </View>
     )
 }
