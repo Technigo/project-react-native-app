@@ -1,25 +1,29 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import {StyleSheet, View, Text} from 'react-native'
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import InputField from './components/InputField'
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: 'pink',
+		justifyContent: 'center',
+		alignItems: 'center'
+	}, 
+	title: {
+		fontSize: 24,
+		color: 'blue'	
+	}
+})
 
 const App = () => {
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+		<View style={styles.container}>
+			<Text style={styles.title}>Dictionary</Text>
+			<Text style={styles.title}>📚📖📚</Text>
+			<InputField/>
+		</View>
 	);
 };
 
