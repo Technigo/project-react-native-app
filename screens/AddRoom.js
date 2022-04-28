@@ -83,7 +83,7 @@ const AddRoom = ({ navigation }) => {
             style={styles.input}
             maxLength={20}
             placeholder="Name your new room..."
-            // clearButtonMode="while-editing"
+            onSubmitEditing={createRoom}
           />
           {error.length > 0 && <Text style={styles.error}>{error}</Text>}
           <TouchableOpacity style={styles.loginbutton} onPress={createRoom}>

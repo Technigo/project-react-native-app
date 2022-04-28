@@ -8,7 +8,6 @@ import {
   Dimensions,
   ImageBackground,
 } from "react-native";
-import { Avatar } from "react-native-elements";
 import { auth, db } from "../firebase";
 import {
   collection,
@@ -54,24 +53,6 @@ const Chat = ({ thread }) => {
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
-    // navigation.setOptions({
-    //   headerLeft: () => (
-    //     <View style={{ marginLeft: 30, marginTop: 50 }}>
-    //       <Image source={next} style={{ height: 20, width: 20 }} />
-    //     </View>
-    //   ),
-    //   //   headerRight: () => (
-    //   //     <TouchableOpacity
-    //   //       style={{
-    //   //         marginRight: 10,
-    //   //       }}
-    //   //       onPress={signOutNow}
-    //   //     >
-    //   //       <Text>logout</Text>
-    //   //     </TouchableOpacity>
-    //   //   ),
-    // });
-
     const q = query(
       collection(db, "THREADS", threadid, "MESSAGES"),
       orderBy("createdAt", "desc")
@@ -207,7 +188,10 @@ const Chat = ({ thread }) => {
           borderWidth: 0,
         }}
       >
-        <Text style={styles.sendbutton}>➥</Text>
+        <View style={styles.sendbuttoncontainer}>
+          <Text style={styles.sendbutton}>Send</Text>
+          {/* <Text style={styles.sendbutton}>➥</Text> */}
+        </View>
       </Send>
     );
   };
@@ -365,24 +349,23 @@ const styles = StyleSheet.create({
     borderBottomColor: "white",
     paddingLeft: 10,
   },
-  loginbutton: {
-    width: width / 1.5,
-    height: height / 15,
-    // marginTop: 10,
-    borderWidth: 3,
-    borderLeftColor: "white",
-    borderTopColor: "white",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   buttontext: {
     textAlign: "center",
     fontSize: 18,
   },
+  sendbuttoncontainer: {
+    borderWidth: 3,
+    borderLeftColor: "white",
+    borderTopColor: "white",
+    marginRight: 7,
+    marginBottom: 7,
+    padding: 2,
+  },
   sendbutton: {
-    marginBottom: 6,
-    marginRight: 5,
-    fontSize: 30,
+    // marginBottom: 11,
+    // marginRight: 10,
+    fontSize: 16,
+    fontFamily: "DMMono_400Regular",
   },
   background: {
     height: "100%",

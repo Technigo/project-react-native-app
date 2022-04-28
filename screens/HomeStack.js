@@ -75,6 +75,7 @@ const HomeStack = ({ navigation }) => {
         name="Home"
         component={Home}
         options={{
+          title: "⌂ Home",
           headerTransparent: true,
           headerTitleStyle: { color: "rgba(0, 0, 0, 0)" },
         }}
@@ -83,6 +84,7 @@ const HomeStack = ({ navigation }) => {
         name="Add Room"
         component={AddRoom}
         options={{
+          title: "+ Add Room",
           headerTransparent: true,
           headerTitleStyle: { color: "rgba(0, 0, 0, 0)" },
         }}

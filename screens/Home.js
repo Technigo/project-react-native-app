@@ -1,13 +1,11 @@
-import React, { useContext, useLayoutEffect } from "react";
+import React, { useContext } from "react";
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
-  Button,
   Dimensions,
   ImageBackground,
-  Image,
 } from "react-native";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
@@ -19,6 +17,7 @@ import {
   DMMono_400Regular,
   DMMono_500Medium,
 } from "@expo-google-fonts/dm-mono";
+import Loading from "../components/Loading";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -44,7 +43,7 @@ const Home = ({ navigation }) => {
   });
 
   if (!loaded) {
-    return null;
+    return <Loading />;
   }
   return (
     <>
@@ -70,7 +69,7 @@ const Home = ({ navigation }) => {
             </TouchableOpacity>
           </View>
           <View style={styles.windowcontent}>
-            {/* <Text style={styles.title}>Hi {user}!</Text> */}
+            <Text style={styles.title}>Hi {user}!</Text>
             <View style={styles.asciicontainer}>
               <Text style={styles.ascii}>
                 &nbsp;&nbsp;&nbsp;._________________.
@@ -114,19 +113,28 @@ const Home = ({ navigation }) => {
             </View>
             <View>
               <Text style={styles.subtitle}>
-                Create a new room below or open navigation in the upper left to
-                check out the existing rooms!
+                Welcome to the World Wide Web!
               </Text>
               <Text style={styles.subtitle}>
-                Close the application to sign out.
+                Get ready to surf the web and chat with people all over the
+                world.
+              </Text>
+              <Text style={styles.subtitle}>
+                Use the navigation button in the upper left to check out the
+                rooms, or even create your very own room!
+              </Text>
+              <Text style={styles.subtitle}>
+                Signing out is simple - just close the program in the upper
+                right!
               </Text>
             </View>
-            <TouchableOpacity
+            {/* Possibly commenting out new room */}
+            {/* <TouchableOpacity
               style={styles.loginbutton}
               onPress={() => navigation.navigate("Add Room")}
             >
               <Text style={styles.buttontext}>New Room</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
       </ImageBackground>

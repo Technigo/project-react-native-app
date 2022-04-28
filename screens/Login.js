@@ -94,6 +94,7 @@ const Login = ({ navigation }) => {
             autoCorrect={false}
             keyboardAppearance="light"
             maxLength={20}
+            onSubmitEditing={signin}
           />
           {error.length > 0 && <Text style={styles.error}>{error}</Text>}
           <TouchableOpacity style={styles.loginbutton} onPress={signin}>
