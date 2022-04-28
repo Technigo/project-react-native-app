@@ -9,11 +9,6 @@ const Container = styled.View`
 	align-items: center;
 `;
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
-
 const App = () => {
 	return (
 		<Container>
