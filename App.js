@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Container = styled.View`
 	flex: 1;
@@ -15,11 +17,14 @@ const Title = styled.Text`
 
 const App = () => {
 	return (
+		<NavigationContainer>
 		<Container>
 			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
+			<Title>Test</Title>
+			<Text>Hello!</Text>
 			<Title>💅💅💅</Title>
 		</Container>
+		</NavigationContainer>
 	);
 };
 

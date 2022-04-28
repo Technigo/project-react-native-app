@@ -11,3 +11,7 @@ Describe how you approached to problem, and what tools and techniques you used t
 ## View it live
 
 Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
+Attributions:
+https://www.freepik.com/vectors/bookshelf Bookshelf vector created by macrovector - www.freepik.com
+https://www.freepik.com/vectors/hand-drawn-illustration Hand drawn illustration vector created by freepik - www.freepik.com
