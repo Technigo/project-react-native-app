@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 
-import { View, Text } from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import { Entypo } from '@expo/vector-icons';
 // import styled from 'styled-components/native';
 // import { Typography } from '../styles';
 import helpers from '../modules/helpers';
 
-import { Container, Input, Button, ButtonText, Header1, Burger, SafeArea } from '../styles/styled-components';
+import { Container, Input, Button, ButtonText, Header1, Burger, WhiteBackground } from '../styles/styled-components';
 
-const Login = ({ navigation, isLoggedIn, setIsLoggedIn }) => {
+const Login = ({ navigation, isLoggedIn, setIsLoggedIn, image }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -29,6 +29,8 @@ const Login = ({ navigation, isLoggedIn, setIsLoggedIn }) => {
 
     return (
         // <SafeArea>
+        <ImageBackground source={image} resizeMode='cover' style={{width: '100%', flex: 1}}>
+        <WhiteBackground>
             <Container>
                 <Burger onPress={() => navigation.openDrawer()}>
                     <ButtonText>
@@ -87,7 +89,8 @@ const Login = ({ navigation, isLoggedIn, setIsLoggedIn }) => {
                     </TouchableOpacity>
                 } */}
             </Container>
-        // </SafeArea>
+            </WhiteBackground>
+            </ImageBackground>
 
     )
 };

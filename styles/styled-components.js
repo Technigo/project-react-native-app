@@ -50,7 +50,7 @@ export const ButtonDisabled = styled.TouchableOpacity`
 
 export const LikedPhrases = styled.ScrollView`
     width: 100%;
-    border: 4px solid hsl(0, 0%, 88%);
+    border: 4px solid hsl(0, 0%, 50%);
     padding: 10px;
 `
 
@@ -84,6 +84,12 @@ export const Burger = styled.TouchableOpacity`
     top: 0;
 `
 
+export const WhiteBackground = styled.View`
+    background-color: hsla(0, 0%, 95%, .8);
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+`
 
 // export const base = {
 //     flex: 1,

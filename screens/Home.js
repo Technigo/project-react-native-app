@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, ImageBackground } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
-import { Container, ButtonText, Button, Header1, Burger} from '../styles/styled-components';
+import { Container, ButtonText, Button, Header1, Burger, WhiteBackground} from '../styles/styled-components';
 
 import helpers from '../modules/helpers';
 
+// import image from '../assets/office.jpg'
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
-export const Home = ({ navigation }) => {
+export const Home = ({ navigation, image }) => {
     const [phrase, setPhrase] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -19,7 +20,10 @@ export const Home = ({ navigation }) => {
     }
 
     return (
-        <Container>
+        <ImageBackground source={image} resizeMode='cover' style={{width: '100%', flex: 1}}>
+        <WhiteBackground>
+            <Container>
+            
             <Burger onPress={() => navigation.openDrawer()}>
                 <ButtonText>
                 <Entypo name='menu' size={30} color='#000' />
@@ -42,6 +46,8 @@ export const Home = ({ navigation }) => {
                 </ButtonText>
             </Button>
         </View>
-        </Container>
+        
+        </Container></WhiteBackground>
+        </ImageBackground>
     );
 };

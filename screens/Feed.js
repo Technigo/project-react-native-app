@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { Text, View, ActivityIndicator, ImageBackground } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
 
-import { Container, ButtonText, Button, Header1, Burger, SafeArea } from '../styles/styled-components';
+import { Container, ButtonText, Button, Header1, Burger, WhiteBackground } from '../styles/styled-components';
 
 import helpers from '../modules/helpers';
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
-export const Feed = ({ navigation, isLoggedIn, setPhrases }) => {
+export const Feed = ({ navigation, isLoggedIn, setPhrases, image }) => {
   const [phrase, setPhrase] = useState(null);
   const [loading, setLoading] = useState(false);
   const [disableButton, setDisableButton] = useState(true);
@@ -29,6 +29,8 @@ export const Feed = ({ navigation, isLoggedIn, setPhrases }) => {
   } 
 
   return (
+    <ImageBackground source={image} resizeMode='cover' style={{width: '100%', flex: 1}}>
+        <WhiteBackground>
     <Container>
       <Burger onPress={() => navigation.openDrawer()}>
           <ButtonText>
@@ -57,5 +59,7 @@ export const Feed = ({ navigation, isLoggedIn, setPhrases }) => {
         </Button>
       </View>
     </Container>
+    </WhiteBackground>
+    </ImageBackground>
   );
 };

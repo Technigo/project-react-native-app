@@ -12,7 +12,7 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-
+import image from './assets/office.jpg'
 // import { Base } from './styles';
 
 const Drawer = createDrawerNavigator();
@@ -29,6 +29,7 @@ const App = () => {
           {(screenProps) => <Home 
             {...screenProps}
             isLoggedIn={isLoggedIn} 
+            image={image}
           />}
         </Drawer.Screen>
         {/* <Drawer.Screen name="Feed" component={Feed} /> */}
@@ -36,7 +37,8 @@ const App = () => {
           {(screenProps) => <Feed 
             {...screenProps}
             isLoggedIn={isLoggedIn}
-            setPhrases={setPhrases}  
+            setPhrases={setPhrases}
+            image={image}
           />}
         </Drawer.Screen>
         {/* <Drawer.Screen name="Likes" component={Likes} /> */}
@@ -46,6 +48,7 @@ const App = () => {
             isLoggedIn={isLoggedIn}
             phrases={phrases}
             setPhrases={setPhrases}
+            image={image}
           />}
         </Drawer.Screen>
         <Drawer.Screen name="Login">
@@ -53,7 +56,7 @@ const App = () => {
             {...screenProps}
             isLoggedIn={isLoggedIn} 
             setIsLoggedIn={setIsLoggedIn}
-            
+            image={image}
           />}
         </Drawer.Screen>
       </Drawer.Navigator>

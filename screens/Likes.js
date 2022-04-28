@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { View, ImageBackground } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
 import helpers from '../modules/helpers';
@@ -12,10 +12,11 @@ import {
 	Header1,
 	LikedPhrase,
 	PhraseListItem, 
-	Burger
+	Burger,
+	WhiteBackground
 } from '../styles/styled-components';
 
-export const Likes = ({route, navigation, isLoggedIn, phrases, setPhrases}) => {
+export const Likes = ({route, navigation, isLoggedIn, phrases, image}) => {
 	const { reload } = route.params || false;
 	// const { phrases, setPhrases } = helpers.savedPhrases();
 
@@ -33,6 +34,8 @@ export const Likes = ({route, navigation, isLoggedIn, phrases, setPhrases}) => {
 	
 	return (
 		// <SafeArea>
+		<ImageBackground source={image} resizeMode='cover' style={{width: '100%', flex: 1}}>
+        <WhiteBackground>
 			<Container>
 				<Burger onPress={() => navigation.openDrawer()}>
 					<ButtonText>
@@ -40,7 +43,7 @@ export const Likes = ({route, navigation, isLoggedIn, phrases, setPhrases}) => {
 					</ButtonText>
 				</Burger>
 				<Header1>Saved Screen</Header1>
-				<View style={{height: '50%', width: '100%'}}>
+				<View style={{maxHeight: '50%', width: '100%'}}>
 					<LikedPhrases>
 						<View style={{flex: 1, width: '100%', height: '100%'}}>
 							{phrases?.map((phrase, index) => {
@@ -68,6 +71,7 @@ export const Likes = ({route, navigation, isLoggedIn, phrases, setPhrases}) => {
 				</Button>
 				
 			</Container>
-		// </SafeArea>
+		</WhiteBackground>
+		</ImageBackground>
 	);
 };
