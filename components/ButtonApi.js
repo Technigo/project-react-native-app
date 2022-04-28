@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { Text } from 'react-native'
 import styled from 'styled-components/native'
 
 const APIButton = styled.TouchableOpacity`
     background-color: rgb(255, 255, 255);        
-    width: 250%;        
+    width: 50%;        
     align-self: center;
     margin: 20px;
     padding: 10px;
