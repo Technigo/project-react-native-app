@@ -28,10 +28,30 @@ import {
   FieldPath,
   doc,
 } from "firebase/firestore";
-import { GiftedChat, Bubble, Time, Day } from "react-native-gifted-chat";
+import {
+  GiftedChat,
+  Bubble,
+  Time,
+  Day,
+  InputToolbar,
+  Send,
+} from "react-native-gifted-chat";
 import background from "../assets/image.jpg";
-const { width, height } = Dimensions.get("screen");
 import { useNavigation } from "@react-navigation/native";
+import {
+  useFonts,
+  DMMono_300Light,
+  DMMono_400Regular,
+  DMMono_500Medium,
+} from "@expo-google-fonts/dm-mono";
+
+import {
+  DMSans_400Regular,
+  DMSans_500Medium,
+  DMSans_700Bold,
+} from "@expo-google-fonts/dm-sans";
+
+const { width, height } = Dimensions.get("screen");
 
 const Chat = ({ thread }) => {
   const [messages, setMessages] = useState([]);
@@ -41,25 +61,20 @@ const Chat = ({ thread }) => {
   useLayoutEffect(() => {
     // navigation.setOptions({
     //   headerLeft: () => (
-    //     <View style={{ marginLeft: 20 }}>
-    //       <Avatar
-    //         rounded
-    //         source={{
-    //           uri: auth?.currentUser?.photoURL,
-    //         }}
-    //       />
+    //     <View style={{ marginLeft: 30, marginTop: 50 }}>
+    //       <Image source={next} style={{ height: 20, width: 20 }} />
     //     </View>
     //   ),
-    //   headerRight: () => (
-    //     <TouchableOpacity
-    //       style={{
-    //         marginRight: 10,
-    //       }}
-    //       onPress={signOutNow}
-    //     >
-    //       <Text>logout</Text>
-    //     </TouchableOpacity>
-    //   ),
+    //   //   headerRight: () => (
+    //   //     <TouchableOpacity
+    //   //       style={{
+    //   //         marginRight: 10,
+    //   //       }}
+    //   //       onPress={signOutNow}
+    //   //     >
+    //   //       <Text>logout</Text>
+    //   //     </TouchableOpacity>
+    //   //   ),
     // });
 
     const q = query(
@@ -112,6 +127,7 @@ const Chat = ({ thread }) => {
     return (
       <Bubble
         {...props}
+        // position={"left"}
         wrapperStyle={{
           left: {
             backgroundColor: "transparent",
@@ -120,10 +136,18 @@ const Chat = ({ thread }) => {
             backgroundColor: "transparent",
           },
         }}
-        // TextStyle isn't working? I wanted background of bubble to be transparent
         textStyle={{
+          left: {
+            color: "black",
+            fontFamily: "DMSans_400Regular",
+            fontSize: 14,
+            marginBottom: 2,
+          },
           right: {
             color: "black",
+            fontFamily: "DMSans_400Regular",
+            fontSize: 14,
+            marginBottom: 2,
           },
         }}
         usernameStyle={{
@@ -139,24 +163,69 @@ const Chat = ({ thread }) => {
         timeTextStyle={{
           left: {
             color: "black",
+            fontFamily: "DMMono_300Light",
           },
           right: {
             color: "black",
+            fontFamily: "DMMono_300Light",
           },
         }}
       />
     );
   };
-
   const renderDay = (props) => {
     return (
       <Day
         {...props}
-        textStyle={{ color: "black", fontWeight: "bold", fontSize: 13 }}
+        textStyle={{
+          color: "black",
+          fontFamily: "DMMono_500Medium",
+          fontSize: 14,
+        }}
+      />
+    );
+  };
+  const renderInputToolbar = (props) => {
+    return (
+      <InputToolbar
+        {...props}
+        containerStyle={{
+          borderWidth: 2,
+          borderTopWidth: 2,
+          borderTopColor: "black",
+          borderRightColor: "white",
+          borderBottomColor: "white",
+          backgroundColor: "#CDCDCD",
+          marginLeft: "1.5%",
+          marginRight: "1.5%",
+          marginBottom: "1.5%",
+        }}
+      />
+    );
+  };
+  const renderSend = (props) => {
+    return (
+      <Send
+        {...props}
+        containerStyle={{
+          borderWidth: 0,
+        }}
       />
     );
   };
 
+  const [loaded] = useFonts({
+    DMMono_300Light,
+    DMMono_400Regular,
+    DMMono_500Medium,
+    DMSans_400Regular,
+    DMSans_500Medium,
+    DMSans_700Bold,
+  });
+
+  if (!loaded) {
+    return null;
+  }
   return (
     // <View>
     <ImageBackground
@@ -166,20 +235,25 @@ const Chat = ({ thread }) => {
     >
       <View style={styles.windowcontainer}>
         <View style={styles.windowheader}>
+          <TouchableOpacity
+            style={styles.windowheaderbutton1}
+            onPress={() => navigation.toggleDrawer()}
+          >
+            <Text style={styles.windowheaderbuttontext}>➤</Text>
+          </TouchableOpacity>
           <Text style={styles.windowheadertext}>{thread.name}</Text>
           <TouchableOpacity
             style={styles.windowheaderbutton}
-            // NAVIGATION TO HOME ISN'T WORKING???
             onPress={() => navigation.navigate("Home")}
           >
-            <Text style={styles.windowheaderbuttontext}>_</Text>
+            <Text style={styles.windowheaderbuttontext}>𑁋</Text>
           </TouchableOpacity>
         </View>
         <GiftedChat
           messages={messages}
           // renderUsernameOnMessage={true}
           renderAvatar={null}
-          placeholder="Type your message here..."
+          placeholder=""
           onSend={(messages) => onSend(messages)}
           alwaysShowSend
           renderBubble={renderBubble}
@@ -188,6 +262,18 @@ const Chat = ({ thread }) => {
           renderDay={renderDay}
           multiline={false}
           bottomOffset={0}
+          // isKeyboardInternallyHandled={false}
+          renderInputToolbar={renderInputToolbar}
+          renderSend={renderSend}
+          textInputStyle={{
+            fontFamily: "DMSans_400Regular",
+          }}
+          textInputProps={{
+            marginTop: 5,
+            marginBottom: 1,
+          }}
+          placeholderTextColor="#6e6e6e"
+          listViewProps={{ marginBottom: "1.5%" }}
           user={{
             _id: auth.currentUser.uid,
             name: auth.currentUser.displayName,
@@ -212,7 +298,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     // borderColor: "#0055CF",
     width: width / 1.25,
-    height: height / 1.5,
+    height: height / 1.3,
     borderLeftColor: "white",
     borderTopColor: "white",
     // backgroundColor: "rgba(235, 232, 216, .5)",
@@ -231,24 +317,23 @@ const styles = StyleSheet.create({
   },
   windowheadertext: {
     color: "white",
-    marginLeft: 5,
+    marginLeft: 10,
     fontSize: 17,
     marginTop: "auto",
     marginBottom: "auto",
+    fontFamily: "DMMono_300Light",
   },
-  // windowheaderbutton1: {
-  //   height: 18,
-  //   width: 18,
-  //   backgroundColor: "#C0C0C0",
-  //   marginLeft: "auto",
-  //   // marginRight: "2%",
-  //   marginRight: "0%",
-  //   borderWidth: 1,
-  //   borderLeftColor: "white",
-  //   borderTopColor: "white",
-  //   marginTop: "auto",
-  //   marginBottom: "auto",
-  // },
+  windowheaderbutton1: {
+    height: 18,
+    width: 18,
+    backgroundColor: "#C0C0C0",
+    marginLeft: 5,
+    borderWidth: 1,
+    borderLeftColor: "white",
+    borderTopColor: "white",
+    marginTop: "auto",
+    marginBottom: "auto",
+  },
   windowheaderbutton: {
     height: 18,
     width: 18,
@@ -264,6 +349,7 @@ const styles = StyleSheet.create({
   windowheaderbuttontext: {
     textAlign: "center",
     fontWeight: "bold",
+    fontFamily: "DMMono_500Medium",
   },
   windowcontent: {
     flex: 1,

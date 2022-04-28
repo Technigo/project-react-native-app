@@ -14,6 +14,12 @@ import { auth } from "../firebase";
 import { signInAnonymously, updateProfile } from "firebase/auth";
 import { AuthContext } from "./AuthProvider";
 import background from "../assets/image.jpg";
+import {
+  useFonts,
+  DMMono_300Light,
+  DMMono_400Regular,
+  DMMono_500Medium,
+} from "@expo-google-fonts/dm-mono";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -55,6 +61,15 @@ const Login = ({ navigation }) => {
     Keyboard.dismiss();
   };
 
+  const [loaded] = useFonts({
+    DMMono_300Light,
+    DMMono_400Regular,
+    DMMono_500Medium,
+  });
+
+  if (!loaded) {
+    return null;
+  }
   return (
     <View style={styles.backgroundcontainer}>
       <ImageBackground
@@ -72,11 +87,11 @@ const Login = ({ navigation }) => {
               style={styles.windowheaderbutton}
               onPress={() => navigation.navigate("BlueScreen")}
             >
-              <Text style={styles.windowheaderbuttontext}>X</Text>
+              <Text style={styles.windowheaderbuttontext}>✖</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.windowcontent}>
-            <Text style={styles.title}>Welcome to The Chat</Text>
+            <Text style={styles.title}>The Room</Text>
             <Input
               placeholder="Enter your username"
               labelName="Username:"
@@ -89,13 +104,13 @@ const Login = ({ navigation }) => {
               keyboardAppearance="light"
               maxLength={20}
             />
-            {error.length > 0 && <Text>{error}</Text>}
+            {error.length > 0 && <Text style={styles.error}>{error}</Text>}
             <TouchableOpacity
               style={styles.loginbutton}
               onPress={signin}
               // disabled={username.length < 6}
             >
-              <Text style={styles.buttontext}>Start chatting!</Text>
+              <Text style={styles.buttontext}>Sign in</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -115,7 +130,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     // borderColor: "#0055CF",
     width: width / 1.25,
-    height: height / 1.5,
+    height: height / 1.3,
     borderLeftColor: "white",
     borderTopColor: "white",
     // backgroundColor: "rgba(235, 232, 216, .5)",
@@ -134,24 +149,23 @@ const styles = StyleSheet.create({
   },
   windowheadertext: {
     color: "white",
-    marginLeft: 5,
+    marginLeft: 10,
     fontSize: 17,
     marginTop: "auto",
     marginBottom: "auto",
+    fontFamily: "DMMono_300Light",
   },
-  // windowheaderbutton1: {
-  //   height: 18,
-  //   width: 18,
-  //   backgroundColor: "#C0C0C0",
-  //   marginLeft: "auto",
-  //   // marginRight: "2%",
-  //   marginRight: "0%",
-  //   borderWidth: 1,
-  //   borderLeftColor: "white",
-  //   borderTopColor: "white",
-  //   marginTop: "auto",
-  //   marginBottom: "auto",
-  // },
+  windowheaderbutton1: {
+    height: 18,
+    width: 18,
+    backgroundColor: "#C0C0C0",
+    marginLeft: 5,
+    borderWidth: 1,
+    borderLeftColor: "white",
+    borderTopColor: "white",
+    marginTop: "auto",
+    marginBottom: "auto",
+  },
   windowheaderbutton: {
     height: 18,
     width: 18,
@@ -166,7 +180,7 @@ const styles = StyleSheet.create({
   },
   windowheaderbuttontext: {
     textAlign: "center",
-    fontWeight: "bold",
+    fontFamily: "DMMono_500Medium",
   },
   windowcontent: {
     flex: 1,
@@ -179,6 +193,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     marginBottom: 20,
+    fontFamily: "DMMono_400Regular",
+    textAlign: "center",
   },
   input: {
     marginTop: 10,
@@ -189,6 +205,7 @@ const styles = StyleSheet.create({
     borderRightColor: "white",
     borderBottomColor: "white",
     paddingLeft: 10,
+    fontFamily: "DMMono_400Regular",
   },
   loginbutton: {
     width: width / 1.5,
@@ -203,6 +220,12 @@ const styles = StyleSheet.create({
   buttontext: {
     textAlign: "center",
     fontSize: 18,
+    fontFamily: "DMMono_400Regular",
+  },
+  error: {
+    fontFamily: "DMMono_400Regular",
+    textAlign: "center",
+    marginBottom: 20,
   },
   background: {
     height: "100%",

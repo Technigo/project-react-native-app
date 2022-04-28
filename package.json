@@ -8,6 +8,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/dm-mono": "^0.2.2",
+    "@expo-google-fonts/dm-sans": "^0.2.2",
+    "@expo-google-fonts/vt323": "^0.2.2",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-firebase/app": "^14.8.1",
     "@react-native-firebase/auth": "^14.8.1",
@@ -18,7 +21,9 @@
     "dotenv": "^16.0.0",
     "expo": "~43.0.0",
     "expo-constants": "^13.0.2",
+    "expo-font": "~10.0.3",
     "expo-status-bar": "~1.1.0",
+    "expo-updates": "~0.10.15",
     "firebase": "^9.6.11",
     "mem": "^9.0.1",
     "minimist": "^1.2.6",
@@ -35,8 +40,7 @@
     "react-native-screens": "~3.8.0",
     "react-native-vector-icons": "^9.1.0",
     "react-native-web": "0.17.1",
-    "styled-components": "^5.3.3",
-    "expo-updates": "~0.10.15"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

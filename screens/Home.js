@@ -7,12 +7,18 @@ import {
   Button,
   Dimensions,
   ImageBackground,
+  Image,
 } from "react-native";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { AuthContext } from "./AuthProvider";
-import { useHeaderHeight } from "@react-navigation/elements";
 import background from "../assets/image.jpg";
+import {
+  useFonts,
+  DMMono_300Light,
+  DMMono_400Regular,
+  DMMono_500Medium,
+} from "@expo-google-fonts/dm-mono";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -31,30 +37,17 @@ const Home = ({ navigation }) => {
       });
   };
 
-  // useLayoutEffect(() => {
-  //   navigation.setOptions({
-  //     headerRight: () => (
-  //       <TouchableOpacity
-  //         style={styles.windowheaderbutton}
-  //         onPress={signOutNow}
-  //       >
-  //         <Text style={styles.windowheaderbuttontext}>X</Text>
-  //       </TouchableOpacity>
-  //     ),
-  //   });
-  // }, [navigation]);
+  const [loaded] = useFonts({
+    DMMono_300Light,
+    DMMono_400Regular,
+    DMMono_500Medium,
+  });
 
+  if (!loaded) {
+    return null;
+  }
   return (
     <>
-      {/* <View style={styles.container}>
-      <Button
-        title="New Chatroom"
-        onPress={() => navigation.navigate("Add Room")}
-      />
-      <Text>Home Screen</Text>
-      <Text>User: {user}</Text>
-    </View> */}
-
       <View style={styles.backgroundcontainer}>
         <ImageBackground
           source={background}
@@ -63,67 +56,74 @@ const Home = ({ navigation }) => {
         >
           <View style={styles.windowcontainer}>
             <View style={styles.windowheader}>
+              <TouchableOpacity
+                style={styles.windowheaderbutton1}
+                onPress={() => navigation.toggleDrawer()}
+              >
+                <Text style={styles.windowheaderbuttontext}>➤</Text>
+              </TouchableOpacity>
               <Text style={styles.windowheadertext}>{user} online!</Text>
               <TouchableOpacity
                 style={styles.windowheaderbutton}
                 onPress={signOutNow}
               >
-                <Text style={styles.windowheaderbuttontext}>X</Text>
+                <Text style={styles.windowheaderbuttontext}>✖</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.windowcontent}>
-              <Text style={styles.title}>Hi {user}!</Text>
-              <View>
-                <Text style={styles.leftalign}>
+              {/* <Text style={styles.title}>Hi {user}!</Text> */}
+              <View style={styles.asciicontainer}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;._________________.
                 </Text>
 
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;|.---------------.|
                 </Text>
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
                 </Text>
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._
                   .-.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
                 </Text>
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._| |
                   |&nbsp;&nbsp;&nbsp;&nbsp;||
                 </Text>
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._|"|"|&nbsp;&nbsp;&nbsp;&nbsp;||
                 </Text>
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._|.-.|&nbsp;&nbsp;&nbsp;&nbsp;||
                 </Text>
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;||_______________||
                 </Text>
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;&nbsp;/.-.-.-.-.-.-.-.-.\
                 </Text>
-                <Text style={styles.leftalign}>
+                <Text style={styles.ascii}>
                   &nbsp;&nbsp;/.-.-.-.-.-.-.-.-.-.\
                 </Text>
-                <Text style={styles.leftalign}>
-                  &nbsp;/.-.-.-.-.-.-.-.-.-.-.\
-                </Text>
-                <Text style={styles.leftalign}>/______/__________\___o_\ </Text>
-                <Text style={styles.leftalign}>\_______________________/</Text>
+                <Text style={styles.ascii}>&nbsp;/.-.-.-.-.-.-.-.-.-.-.\</Text>
+                <Text style={styles.ascii}>/______/__________\___o_\ </Text>
+                <Text style={styles.ascii}>\_______________________/</Text>
               </View>
-
-              <Text>
-                Create a new chatroom below or use the navigation in the upper
-                left to check out the existing chatrooms!
-              </Text>
-              <Text>Close the application to sign out.</Text>
+              <View>
+                <Text style={styles.subtitle}>
+                  Create a new room below or open navigation in the upper left
+                  to check out the existing rooms!
+                </Text>
+                <Text style={styles.subtitle}>
+                  Close the application to sign out.
+                </Text>
+              </View>
               <TouchableOpacity
                 style={styles.loginbutton}
                 onPress={() => navigation.navigate("Add Room")}
               >
-                <Text style={styles.buttontext}>New Chatroom</Text>
+                <Text style={styles.buttontext}>New Room</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -153,12 +153,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#007F7F",
   },
+  contentcontainer: {},
   windowcontainer: {
     // flex: 1,
     borderWidth: 5,
     // borderColor: "#0055CF",
     width: width / 1.25,
-    height: height / 1.5,
+    height: height / 1.3,
     borderLeftColor: "white",
     borderTopColor: "white",
     // backgroundColor: "rgba(235, 232, 216, .5)",
@@ -177,8 +178,20 @@ const styles = StyleSheet.create({
   },
   windowheadertext: {
     color: "white",
-    marginLeft: 5,
+    marginLeft: 10,
     fontSize: 17,
+    marginTop: "auto",
+    marginBottom: "auto",
+    fontFamily: "DMMono_300Light",
+  },
+  windowheaderbutton1: {
+    height: 18,
+    width: 18,
+    backgroundColor: "#C0C0C0",
+    marginLeft: 5,
+    borderWidth: 1,
+    borderLeftColor: "white",
+    borderTopColor: "white",
     marginTop: "auto",
     marginBottom: "auto",
   },
@@ -187,7 +200,7 @@ const styles = StyleSheet.create({
     width: 18,
     backgroundColor: "#C0C0C0",
     marginLeft: "auto",
-    marginRight: 10,
+    marginRight: 5,
     borderWidth: 1,
     borderLeftColor: "white",
     borderTopColor: "white",
@@ -197,6 +210,7 @@ const styles = StyleSheet.create({
   windowheaderbuttontext: {
     textAlign: "center",
     fontWeight: "bold",
+    fontFamily: "DMMono_500Medium",
   },
   windowcontent: {
     flex: 1,
@@ -209,10 +223,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     marginBottom: 20,
+    fontFamily: "DMMono_500Medium",
   },
-  subtitle: {},
-  leftalign: {
+  subtitle: {
+    fontFamily: "DMMono_400Regular",
     textAlign: "left",
+    marginBottom: 10,
+  },
+  asciicontainer: {
+    marginBottom: 20,
+  },
+  ascii: {
+    textAlign: "left",
+    fontFamily: "DMMono_300Light",
   },
   loginbutton: {
     width: width / 1.5,
@@ -223,10 +246,12 @@ const styles = StyleSheet.create({
     borderTopColor: "white",
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 10,
   },
   buttontext: {
     textAlign: "center",
     fontSize: 18,
+    fontFamily: "DMMono_500Medium",
   },
   background: {
     height: "100%",

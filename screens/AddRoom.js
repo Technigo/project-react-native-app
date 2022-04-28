@@ -11,6 +11,12 @@ import { Input, Button } from "react-native-elements";
 import { db, auth } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import background from "../assets/image.jpg";
+import {
+  useFonts,
+  DMMono_300Light,
+  DMMono_400Regular,
+  DMMono_500Medium,
+} from "@expo-google-fonts/dm-mono";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -37,6 +43,15 @@ const AddRoom = ({ navigation }) => {
     }
   };
 
+  const [loaded] = useFonts({
+    DMMono_300Light,
+    DMMono_400Regular,
+    DMMono_500Medium,
+  });
+
+  if (!loaded) {
+    return null;
+  }
   return (
     <View style={styles.backgroundcontainer}>
       <ImageBackground
@@ -46,27 +61,34 @@ const AddRoom = ({ navigation }) => {
       >
         <View style={styles.windowcontainer}>
           <View style={styles.windowheader}>
+            <TouchableOpacity
+              style={styles.windowheaderbutton1}
+              onPress={() => navigation.toggleDrawer()}
+            >
+              <Text style={styles.windowheaderbuttontext}>➤</Text>
+            </TouchableOpacity>
             <Text style={styles.windowheadertext}>Create a new chatroom!</Text>
             <TouchableOpacity
               style={styles.windowheaderbutton}
               onPress={() => navigation.navigate("Home")}
             >
-              <Text style={styles.windowheaderbuttontext}>_</Text>
+              <Text style={styles.windowheaderbuttontext}>𑁋</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.windowcontent}>
-            <Text style={styles.title}>Create a new chat room!</Text>
+            <Text style={styles.title}>Create a new room!</Text>
             <Input
               labelName="Room Name"
               value={roomName}
               onChangeText={(text) => setRoomName(text)}
               style={styles.input}
               maxLength={20}
+              placeholder="Name your new room..."
               // clearButtonMode="while-editing"
             />
-            {error.length > 0 && <Text>{error}</Text>}
+            {error.length > 0 && <Text style={styles.error}>{error}</Text>}
             <TouchableOpacity style={styles.loginbutton} onPress={createRoom}>
-              <Text style={styles.buttontext}>Create chat room!</Text>
+              <Text style={styles.buttontext}>Add room</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -94,7 +116,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     // borderColor: "#0055CF",
     width: width / 1.25,
-    height: height / 1.5,
+    height: height / 1.3,
     borderLeftColor: "white",
     borderTopColor: "white",
     // backgroundColor: "rgba(235, 232, 216, .5)",
@@ -113,8 +135,20 @@ const styles = StyleSheet.create({
   },
   windowheadertext: {
     color: "white",
-    marginLeft: 5,
+    marginLeft: 10,
     fontSize: 17,
+    marginTop: "auto",
+    marginBottom: "auto",
+    fontFamily: "DMMono_300Light",
+  },
+  windowheaderbutton1: {
+    height: 18,
+    width: 18,
+    backgroundColor: "#C0C0C0",
+    marginLeft: 5,
+    borderWidth: 1,
+    borderLeftColor: "white",
+    borderTopColor: "white",
     marginTop: "auto",
     marginBottom: "auto",
   },
@@ -123,7 +157,7 @@ const styles = StyleSheet.create({
     width: 18,
     backgroundColor: "#C0C0C0",
     marginLeft: "auto",
-    marginRight: 10,
+    marginRight: 5,
     borderWidth: 1,
     borderLeftColor: "white",
     borderTopColor: "white",
@@ -133,6 +167,7 @@ const styles = StyleSheet.create({
   windowheaderbuttontext: {
     textAlign: "center",
     fontWeight: "bold",
+    fontFamily: "DMMono_500Medium",
   },
   windowcontent: {
     flex: 1,
@@ -145,6 +180,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     marginBottom: 20,
+    fontFamily: "DMMono_400Regular",
   },
   input: {
     marginTop: 10,
@@ -155,6 +191,7 @@ const styles = StyleSheet.create({
     borderRightColor: "white",
     borderBottomColor: "white",
     paddingLeft: 10,
+    fontFamily: "DMMono_400Regular",
   },
   loginbutton: {
     width: width / 1.5,
@@ -169,6 +206,12 @@ const styles = StyleSheet.create({
   buttontext: {
     textAlign: "center",
     fontSize: 18,
+    fontFamily: "DMMono_400Regular",
+  },
+  error: {
+    fontFamily: "DMMono_400Regular",
+    textAlign: "center",
+    marginBottom: 20,
   },
   background: {
     height: "100%",

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./Home";
 import Chat from "./Chat";
 import AddRoom from "./AddRoom";
 import Loading from "../components/Loading";
-
 import { auth, db } from "../firebase";
 import {
   collection,
@@ -15,6 +13,7 @@ import {
   orderBy,
   onSnapshot,
 } from "firebase/firestore";
+import { useFonts, DMMono_500Medium } from "@expo-google-fonts/dm-mono";
 
 const Drawer = createDrawerNavigator();
 
@@ -42,7 +41,11 @@ const HomeStack = ({ navigation }) => {
     };
   }, [navigation]);
 
-  if (loading) {
+  const [fontsloaded] = useFonts({
+    DMMono_500Medium,
+  });
+
+  if (!fontsloaded || loading) {
     return <Loading />;
   }
   return (
@@ -63,10 +66,9 @@ const HomeStack = ({ navigation }) => {
           borderRightColor: "white",
           borderBottomColor: "white",
         },
-        // drawerContentStyle: {
-        //   padding: 0,
-        // },
+        drawerLabelStyle: { fontFamily: "DMMono_500Medium", fontSize: 15 },
         drawerPosition: "left",
+        headerLeft: () => <></>,
       }}
     >
       <Drawer.Screen

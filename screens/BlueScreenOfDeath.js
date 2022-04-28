@@ -6,10 +6,18 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
+import { useFonts, VT323_400Regular } from "@expo-google-fonts/vt323";
 
 const { width, height } = Dimensions.get("screen");
 
 const BlueScreen = ({ navigation }) => {
+  const [loaded] = useFonts({
+    VT323_400Regular,
+  });
+
+  if (!loaded) {
+    return null;
+  }
   return (
     <View style={styles.background}>
       <View style={styles.container}>
@@ -59,14 +67,21 @@ const styles = StyleSheet.create({
   },
   windowstext: {
     textAlign: "center",
+    color: "#0000AA",
+    fontFamily: "VT323_400Regular",
+    fontSize: 20,
   },
   leftalign: {
     textAlign: "left",
     color: "#AAAAAA",
     marginBottom: 10,
+    fontFamily: "VT323_400Regular",
+    fontSize: 20,
   },
   centeralign: {
     textAlign: "center",
     color: "#AAAAAA",
+    fontFamily: "VT323_400Regular",
+    fontSize: 20,
   },
 });
