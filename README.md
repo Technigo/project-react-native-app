@@ -7,4 +7,4 @@ For this project I did a magic 8-ball concept. I used an array of different answ
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@steppbysteph/project-react-native-app?serviceType=classic&distribution=expo-go
