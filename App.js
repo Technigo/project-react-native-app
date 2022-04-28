@@ -4,7 +4,7 @@ import ButtonApi from './components/ButtonApi';
 
 const Container = styled.View`
 	flex: 1;
-	background-color: papayawhip;
+	background-color: #cfe2f3;
 	justify-content: center;
 	align-items: center;
 `;

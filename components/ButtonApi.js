@@ -2,14 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 
+const APIButton = styled.TouchableOpacity`
+    background-color: rgb(255, 255, 255);        
+    width: 250%;        
+    align-self: center;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 25px;
+`
+
+const ParentContainer = styled.View`
+    margin: 20px;
+`
+
+const HeaderText = styled.Text`
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+`
+
 const ButtonApi = () => {
     const [quote, setQuote] = useState({});
-
-    const APIButton = styled.TouchableOpacity`
-    background-color: rgb(255, 255, 255);
-    justify-content: center;
-    width: 150;
-`
 
     const generateQuote = () => {
         fetch('https://api.quotable.io/random')
@@ -22,15 +35,15 @@ const ButtonApi = () => {
     }, [])
 
     return (
-        <View>
-            <Text>{quote.author}</Text>
+        <ParentContainer>
+            <HeaderText>{quote.author}</HeaderText>
             <Text>{quote.content}</Text>
             <APIButton
                 onPress={generateQuote}
             >
                 <Text>New quote</Text>
             </APIButton>
-        </View>
+        </ParentContainer>
     )
 }
 
