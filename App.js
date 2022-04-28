@@ -18,16 +18,44 @@ import {
 const Drawer = createDrawerNavigator();
 
 const App = () => {
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [phrases, setPhrases] = useState([]);
 
   return (
     <NavigationContainer>
       <Drawer.Navigator useLegacyImplementation
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Likes" component={Likes} />
-        <Drawer.Screen name="Login" component={Login} />
+        <Drawer.Screen name="Home">
+          {(screenProps) => <Home 
+            {...screenProps}
+            isLoggedIn={isLoggedIn} 
+          />}
+        </Drawer.Screen>
+        {/* <Drawer.Screen name="Feed" component={Feed} /> */}
+        <Drawer.Screen name="Feed">
+          {(screenProps) => <Feed 
+            {...screenProps}
+            isLoggedIn={isLoggedIn}
+            setPhrases={setPhrases}  
+          />}
+        </Drawer.Screen>
+        {/* <Drawer.Screen name="Likes" component={Likes} /> */}
+        <Drawer.Screen name="Likes">
+          {(screenProps) => <Likes 
+            {...screenProps}
+            isLoggedIn={isLoggedIn}
+            phrases={phrases}
+            setPhrases={setPhrases}
+          />}
+        </Drawer.Screen>
+        <Drawer.Screen name="Login">
+          {(screenProps) => <Login 
+            {...screenProps}
+            isLoggedIn={isLoggedIn} 
+            setIsLoggedIn={setIsLoggedIn}
+            
+          />}
+        </Drawer.Screen>
       </Drawer.Navigator>
     </NavigationContainer>
   );
