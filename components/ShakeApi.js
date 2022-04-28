@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
             backgroundColor: "black",  
             alignItems: "center",
             padding: 10,
+            borderRadius: 25,
         },
         text: {
             color: "white",
@@ -86,13 +87,15 @@ useEffect(()=> {
 
     return (
         <View style={styles.container}>
-              <Image style={styles.tinyFrame} 
-                     source={picture.image}/>
-            <TouchableOpacity
-            style={styles.button}
-            onPress={generatePicture}>
-                <Text style={styles.text}>Or click me...</Text>
-            </TouchableOpacity>
+            <Image style={styles.tinyFrame} 
+                    source={picture.image}/>
+                <Text style={styles.text}>{picture.link}</Text>
+
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={generatePicture}>
+                    <Text style={styles.text}>Or click me</Text>
+                </TouchableOpacity>
         </View>
     )
 }

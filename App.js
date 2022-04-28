@@ -5,14 +5,14 @@ import ShakeApi from	'./components/ShakeApi';
 
 const Container = styled.View`
   flex: 1;
-  background-color: powderblue;
   justify-content: center;
   align-items: center;
+  background: powderblue;
 `;
 
 const Title = styled.Text`
   font-size: 24px;
-  color: palevioletred;
+  color: black;
 `;
 
 const App = () => {
