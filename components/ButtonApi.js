@@ -21,13 +21,13 @@ const ButtonApi = () => {
         <View>
             <Text style={styles.firstText}>Click on the button below to read some wise quotes and maybe you'll find your way to epiphany there. </Text>
             
-            <Text style={styles.quote}>{quote.content}</Text>
+            <Text style={styles.quote}>"{quote.content}"</Text>
             <Text style={styles.author}>{quote.author}</Text>
             <TouchableOpacity
                 style={styles.button}
                 onPress={generateQuote}
             >
-                <Text>Generate quote</Text>
+                <Text style={styles.btnText}>Generate quote</Text>
             </TouchableOpacity>  
            
         </View>
@@ -36,30 +36,32 @@ const ButtonApi = () => {
 
 
 const styles = StyleSheet.create({
-    view: {
-        
-    },
     firstText: {
         marginBottom: 10,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 18
     },
     quote: {
         fontStyle: 'italic',
-        marginTop: 20,
+        marginTop: 17,
         marginBottom: 10,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 18
     },
     author: {
         textAlign: 'center'
     },
     button: {
         alignItems: "center",
-        backgroundColor: "tomato",
+        backgroundColor: 'tomato',
         padding: 15,
         marginBottom: 30,
         marginTop: 20,
-        alignSelf: 'center',
+        alignSelf: 'center'
     },
+    btnText: {
+        color: 'papayawhip'
+    }
 });
 
 export default ButtonApi;

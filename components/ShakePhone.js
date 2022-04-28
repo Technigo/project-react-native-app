@@ -70,7 +70,7 @@ const ShakePhone = () => {
     return (
         <View style={styles.view}>
             <Header />
-            <Text style={styles.preText}>My answer is: </Text>
+            {/* <Text style={styles.preText}>My answer is: </Text> */}
             <Text style={styles.answer}>{answer}</Text>
             <ButtonApi />
         </View>     
@@ -84,20 +84,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 24
     },
-    preText: {
-        textAlign: 'center',
-        fontSize: 18
-
-    },
     answer: {
         fontSize: 24,
         fontWeight: '700',
         textAlign: 'center',
-        marginBottom: 70
+        marginBottom: 60,
+        backgroundColor: 'brown',
+        padding: 15,
+        color: 'papayawhip'
     },
-    author: {
-        marginBottom: 8,
-    }
 })
 
 export default ShakePhone;

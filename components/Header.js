@@ -26,11 +26,13 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'black',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 18
     },
     name: {
         color: "tomato",
-        fontWeight: '700'
+        fontWeight: '700',
+        fontSize: 18
       },
     shake: {
         color: "tomato"
