@@ -13,15 +13,15 @@ const Container = styled.View`
 
 const App = () => {
   return (
-    <Container>
-      <ImageBackground
-        style={{ flex: 1 }}
-        resizeMode="cover"
-        source={require("./assets/running.jpg")}
-      >
+    <ImageBackground
+      style={{ flex: 1 }}
+      resizeMode="cover"
+      source={require("./assets/running.jpg")}
+    >
+      <Container>
         <SensorComponent />
-      </ImageBackground>
-    </Container>
+      </Container>
+    </ImageBackground>
   );
 };
 
