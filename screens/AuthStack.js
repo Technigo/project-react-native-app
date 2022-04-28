@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Signup from "../screens/Signup";
 import Login from "../screens/Login";
+import BlueScreen from "./BlueScreenOfDeath";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,11 @@ const AuthStack = ({ navigation }) => {
       <Stack.Screen
         name="Signup"
         component={Signup}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="BlueScreen"
+        component={BlueScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

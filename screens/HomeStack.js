@@ -34,11 +34,9 @@ const HomeStack = ({ navigation }) => {
         }))
       )
     );
-
     if (loading) {
       setLoading(false);
     }
-
     return () => {
       unsubscribe();
     };
@@ -52,17 +50,31 @@ const HomeStack = ({ navigation }) => {
       <Drawer.Screen
         name="Home"
         component={Home}
-        options={{ headerTransparent: true }}
+        options={{
+          headerTransparent: true,
+          headerTitleStyle: { color: "rgba(0, 0, 0, 0)" },
+        }}
       />
       <Drawer.Screen
         name="Add Room"
         component={AddRoom}
-        options={{ headerTransparent: true }}
+        options={{
+          headerTransparent: true,
+          headerTitleStyle: { color: "rgba(0, 0, 0, 0)" },
+        }}
       />
       {threads.map((thread) => {
         return (
-          <Drawer.Screen key={thread._id} name={thread.name} setParams={thread}>
-            {(props) => <Chat thread={thread} />}
+          <Drawer.Screen
+            key={thread._id}
+            name={thread.name}
+            setParams={thread}
+            options={{
+              headerTransparent: true,
+              headerTitleStyle: { color: "rgba(0, 0, 0, 0)" },
+            }}
+          >
+            {(props) => <Chat key={thread._id} thread={thread} />}
           </Drawer.Screen>
         );
       })}
