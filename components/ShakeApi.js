@@ -65,10 +65,6 @@ const [data, setData] = useState({
   }, []);
 
  
-
-
-  //////////////////////
-
   const isShaking = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
     return totalForce > 1.78
@@ -81,14 +77,15 @@ const [data, setData] = useState({
 }, [data])
 
  
-  return (
+  return (  
   <Container>
-              
+      
       <StyledImage 
       style={{width: '100%', height: '100%'}}
       source={{ uri: `${images.image}` }}></StyledImage>
 
   </Container>
+
   );
 }
 
