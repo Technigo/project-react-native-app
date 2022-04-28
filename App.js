@@ -1,24 +1,26 @@
 import React from "react"
-import { View } from "react-native"
 import styled from "styled-components/native"
+import { ImageBackground } from "react-native"
 
 import StepCounter from "./components/StepCounter"
 
 const App = () => {
   return (
     <Container>
-      <View>
-        <StepCounter />
-      </View>
+      <StepCounter />
+      <ImageBackground
+        style={{ flex: 1 }}
+        resizeMode="cover"
+        source={require("./assets/walking.jpg")}
+      ></ImageBackground>
     </Container>
   )
 }
 
 const Container = styled.View`
   flex: 1;
-  background-color: blueviolet;
   justify-content: center;
-  align-items: center;
+  text-align: center;
 `
 
 export default App

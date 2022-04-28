@@ -20,12 +20,15 @@ const StepCounter = () => {
 }
 
 const Text = styled.Text`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   font-size: 14px;
-  line-height: 40px;
   background-color: rgba(0, 0, 0, 0.75);
   opacity: 0.6;
-  width: 100%;
+  margin-top: 80%;
+  text-align: center;
 `
 
 export default StepCounter
