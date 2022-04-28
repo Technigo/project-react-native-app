@@ -43,5 +43,10 @@
     "@types/styled-components-react-native": "^5.1.2",
     "babel-preset-expo": "^8.5.1"
   },
-  "private": true
+  "private": true,
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  }
 }

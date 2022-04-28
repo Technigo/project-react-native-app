@@ -61,6 +61,7 @@ const AddRoom = ({ navigation }) => {
               value={roomName}
               onChangeText={(text) => setRoomName(text)}
               style={styles.input}
+              maxLength={20}
               // clearButtonMode="while-editing"
             />
             {error.length > 0 && <Text>{error}</Text>}

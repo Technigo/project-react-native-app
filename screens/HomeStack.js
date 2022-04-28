@@ -46,7 +46,29 @@ const HomeStack = ({ navigation }) => {
     return <Loading />;
   }
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      screenOptions={{
+        drawerStyle: {
+          // backgroundColor: "rgba(0, 0, 0, 0)",
+          backgroundColor: "#C0C0C0",
+          width: 200,
+          borderRightWidth: 2,
+        },
+        drawerType: "front",
+        drawerActiveBackgroundColor: "#00007F",
+        drawerActiveTintColor: "white",
+        drawerInactiveTintColor: "black",
+        drawerItemStyle: {
+          borderWidth: 3,
+          borderRightColor: "white",
+          borderBottomColor: "white",
+        },
+        // drawerContentStyle: {
+        //   padding: 0,
+        // },
+        drawerPosition: "left",
+      }}
+    >
       <Drawer.Screen
         name="Home"
         component={Home}

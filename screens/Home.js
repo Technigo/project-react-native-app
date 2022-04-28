@@ -72,11 +72,53 @@ const Home = ({ navigation }) => {
               </TouchableOpacity>
             </View>
             <View style={styles.windowcontent}>
-              <Text style={styles.title}>Welcome to The Chat</Text>
+              <Text style={styles.title}>Hi {user}!</Text>
+              <View>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;._________________.
+                </Text>
+
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;|.---------------.|
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._
+                  .-.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._| |
+                  |&nbsp;&nbsp;&nbsp;&nbsp;||
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._|"|"|&nbsp;&nbsp;&nbsp;&nbsp;||
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._|.-.|&nbsp;&nbsp;&nbsp;&nbsp;||
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;||_______________||
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;&nbsp;/.-.-.-.-.-.-.-.-.\
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;&nbsp;/.-.-.-.-.-.-.-.-.-.\
+                </Text>
+                <Text style={styles.leftalign}>
+                  &nbsp;/.-.-.-.-.-.-.-.-.-.-.\
+                </Text>
+                <Text style={styles.leftalign}>/______/__________\___o_\ </Text>
+                <Text style={styles.leftalign}>\_______________________/</Text>
+              </View>
+
               <Text>
                 Create a new chatroom below or use the navigation in the upper
                 left to check out the existing chatrooms!
               </Text>
+              <Text>Close the application to sign out.</Text>
               <TouchableOpacity
                 style={styles.loginbutton}
                 onPress={() => navigation.navigate("Add Room")}
@@ -167,6 +209,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     marginBottom: 20,
+  },
+  subtitle: {},
+  leftalign: {
+    textAlign: "left",
   },
   loginbutton: {
     width: width / 1.5,
