@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Item, SafeAreaView, FlatList, Image, Button, View, ScrollView } from "react-native";
+import {
+  Item,
+  SafeAreaView,
+  FlatList,
+  Image,
+  Button,
+  View,
+  ScrollView,
+  Pressable,
+  Text,
+} from "react-native";
 import styled from "styled-components/native";
 import * as WebBrowser from "expo-web-browser";
 
@@ -10,8 +20,12 @@ const Container = styled.View`
 `;
 
 const Title = styled.Text`
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
+`;
+
+const Subtitle = styled.Text`
+  font-size: 18px;
 `;
 
 const Recipe = styled.Text`
@@ -32,79 +46,93 @@ const Tags = styled.View`
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
-  const [page, setPage] = useState(1);
+  const [pageIndex, setPageIndex] = useState(1);
+  const [mainPageIndex, setMainPage] = useState(1);
+  const [selectedId, setSelectedId] = useState();
 
-  // const OTTOLENGHI_URL =
-  // "https://content.guardianapis.com/food/series/yotam-ottolenghi-recipes?ids=food&&show-fields=thumbnail&api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5";
-
-  // const FEAST_URL = "https://content.guardianapis.com/theguardian/feast?api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&show-fields=thumbnail"
-
-  // const VEGGIE_URL = "https://content.guardianapis.com/food/vegetables?api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&show-fields=thumbnail"
-  // const DESSERT_URL = "https://content.guardianapis.com/food/dessert?api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&show-fields=thumbnail"
-
-  const API = {
-    ottolenghi: {
-      title: "Yotam Ottolenghi",
-      url: `https://content.guardianapis.com/food/series/yotam-ottolenghi-recipes?ids=food&&show-fields=thumbnail&api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&page=${page}`,
-    },
-    nigelSlater: {
-      title: "Nigel Slater",
-      url: `https://content.guardianapis.com/food/series/nigel-slater-recipes?ids=food&&show-fields=thumbnail&api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&page=${page}`,
-    },
-    dessert: {
-      title: "Dessert",
-      url: `https://content.guardianapis.com/food/dessert?ids=food&&show-fields=thumbnail&api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&page=${page}`,
-    },
-    vegetarian: {
-      title: "Vegetarian",
-      url: `https://content.guardianapis.com/food/vegetarian?api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&show-fields=thumbnail&page=${page}`,
-    },
-    mainCourse: {
-      title: "Main Course",
-      url: `https://content.guardianapis.com/food/main-course?ids=food&&show-fields=thumbnail&api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&page=${page}`,
-    },
-    sideDishes: {
-      title: "Side Dishes",
-      url: `https://content.guardianapis.com/food/side-dishes?api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&show-fields=thumbnail&page=${page}`,
-    },
-    feast: {
+  // {
+  //   title: "Yotam Ottolenghi",
+  //   url: `https://content.guardianapis.com/food/series/yotam-ottolenghi-recipes?ids=food&&show-fields=thumbnail&api-key=${KEY}&pageIndex=${pageIndex}`,
+  // },
+  // {
+  //   title: "Nigel Slater",
+  //   url: `https://content.guardianapis.com/food/series/nigel-slater-recipes?ids=food&&show-fields=thumbnail&api-key=${KEY}&pageIndex=${pageIndex}`,
+  // },
+  // {
+  const KEY = "2a13c9c5-db5c-48f4-b672-22e4e94ea6b5";
+  const API = [
+    {
       title: "Feast",
-      url: `https://content.guardianapis.com/theguardian/feast?api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&show-fields=thumbnail&page=${page}`,
+      url: `https://content.guardianapis.com/theguardian/feast?api-key=${KEY}&show-fields=thumbnail&pageIndex=${pageIndex}`,
     },
-    baking: {
+    {
+      title: "Main Course",
+      url: `https://content.guardianapis.com/food/main-course?api-key=${KEY}&show-fields=thumbnail&pageIndex=${mainPageIndex}`,
+    },
+    {
+      title: "Side Dishes",
+      url: `https://content.guardianapis.com/food/side-dishes?api-key=${KEY}&show-fields=thumbnail&pageIndex=${pageIndex}`,
+    },
+    {
+      title: "Dessert",
+      url: `https://content.guardianapis.com/food/dessert?api-key=${KEY}&show-fields=thumbnail&pageIndex=${pageIndex}`,
+    },
+    {
+      title: "Vegetarian",
+      url: `https://content.guardianapis.com/food/vegetarian?api-key=${KEY}&show-fields=thumbnail&pageIndex=${pageIndex}`,
+    },
+    {
       title: "Baking",
-      url: `https://content.guardianapis.com/food/baking?ids=food&&show-fields=thumbnail&api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&page=${page}`,
+      url: `https://content.guardianapis.com/food/baking?api-key=${KEY}&show-fields=thumbnail&pageIndex=${pageIndex}`,
     },
-  };
+  ];
 
-  const BASE_URL =
-    "https://content.guardianapis.com/food/dessert?api-key=2a13c9c5-db5c-48f4-b672-22e4e94ea6b5&show-fields=thumbnail";
+  const BASE_URL = `https://content.guardianapis.com/food?api-key=${KEY}&show-fields=thumbnail`;
 
-  const dateFormatter = (date) => {
-    return new window.Date(date).toLocaleString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
+  // use callback and spread syntax to keep previous results and add new
+  // consider object with pageIndex index to have more control over the data
 
   const getRecipes = (url) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) =>
+        // setRecipes((previousRecipes) => [...previousRecipes, formatData(data.response.results)])
+        // setRecipes((previousRecipes) => [
+        //   ...previousRecipes,
+        //   data.response.results.map((item) => ({
+        //     id: item.id,
+        //     title: item.webTitle,
+        //     date: new window.Date(item.webPublicationDate).toLocaleString("en-US", {
+        //       weekday: "long",
+        //       year: "numeric",
+        //       month: "long",
+        //       day: "numeric",
+        //     }),
+        //     thumbnail: item.fields.thumbnail,
+        //     url: item.webUrl,
+        //   })),
+        // ])
         setRecipes(
-          data.response.results.map((recipe) => ({
-            id: recipe.id,
-            title: recipe.webTitle,
-            date: dateFormatter(recipe.webPublicationDate),
-            thumbnail: recipe.fields.thumbnail,
-            url: recipe.webUrl,
+          data.response.results.map((item) => ({
+            id: item.id,
+            title: item.webTitle,
+            date: new window.Date(item.webPublicationDate).toLocaleString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }),
+            thumbnail: item.fields.thumbnail,
+            url: item.webUrl,
           }))
         )
       )
       .catch((error) => console.log(error));
   };
+
+  useEffect(() => {
+    getRecipes(BASE_URL);
+  }, []);
 
   const renderItem = ({ item }) => {
     return (
@@ -116,30 +144,44 @@ const App = () => {
         />
         <Recipe>{item.title}</Recipe>
         <Date>{item.date}</Date>
-        <Button
-          title="Link to recipe"
-          onPress={() => {
-            WebBrowser.openBrowserAsync(item.url);
-          }}
-        />
+        <Button title="Link to recipe" onPress={() => WebBrowser.openBrowserAsync(item.url)} />
       </>
     );
   };
 
-  useEffect(() => {
-    getRecipes(BASE_URL);
-  }, []);
-
   return (
     <Container>
-      <Title>Recipes from The Guardian</Title>
+      <Subtitle>RECIPES FROM</Subtitle>
+      <Title>The Guardian</Title>
       <Tags>
-        <Button title={API.sideDishes.title} onPress={() => getRecipes(API.sideDishes.url)} />
-        <Button title={API.vegetarian.title} onPress={() => getRecipes(API.vegetarian.url)} />
-        <Button title={API.feast.title} onPress={() => getRecipes(API.feast.url)} />
+        {API.map((tag, index) => {
+          return (
+            <Pressable
+              key={index}
+              onPress={() => {
+                setSelectedId(index);
+                getRecipes(tag.url);
+              }}
+              style={{
+                margin: 3,
+                padding: 5,
+                backgroundColor: index === selectedId ? "blue" : "red",
+              }}
+            >
+              <Text style={{ color: index === selectedId ? "white" : "black" }}>{tag.title}</Text>
+            </Pressable>
+          );
+        })}
       </Tags>
-      <SafeAreaView>
+      <SafeAreaView style={{ height: 625 }}>
         <FlatList data={recipes} renderItem={renderItem} keyExtractor={(item) => item.id} />
+        <Button
+          title="Load more recipes"
+          onPress={() => {
+            setMainPage(mainPageIndex + 1);
+            getRecipes(API[0].url);
+          }}
+        />
       </SafeAreaView>
     </Container>
   );
