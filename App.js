@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
+import { Pedometer } from "expo-sensors";
+/* import {StatusBar} from "expo-status-bar"; */
+/* import { ImageBackground} from "react-native"; */
 
 
 import { SensorComponent } from "./components/SensorComponent";
 import { Header } from "./components/Header";
-
-
+/* import StepCounter from "./components/StepCounter"; */
 
 
 const Container = styled.View`
@@ -30,13 +32,49 @@ const Title2= styled.Text`
 
 
 const App = () => {
+
+  const [StepAvailability, setStepAvailability] =
+  useState("");
+
+  const [stepCounter, updateStepCounter] = useState(0)
+
+useEffect(()=>{
+  subscribe();
+},[])
+
+
+subscribe = () => {
+    const subscription=Pedometer.watchStepCount((result)=>{
+      updateStepCounter(result.steps);
+    })
+
+    Pedometer.isAvailableAsync().then(
+      (result) => {
+    setStepAvailability(String(result));
+      }, 
+      (error) => {
+        setStepAvailability(error);
+      }
+    );
+  }
+  
+  
+
   return (
 
     <Container>
-
-<Title>how many steps? </Title>
-<Title2>track yourself</Title2>
+{/*       <ImageBackground
+      style= {{flex:1}}
+      resizeMode="cover"
+      source={require ('./assets/walking.jpg')}
+      
+      ></ImageBackground> */}
 <Header></Header>
+<Title>how many steps? </Title>
+<Title2>{StepAvailability}</Title2>
+
+<Title>{stepCounter}</Title>
+
       <SensorComponent>
     </SensorComponent>
 
