@@ -31,44 +31,28 @@ const helpers = {
         // console.log(result)
         return result.phrase;
     },
-    getLikes: function getLikes() {
-        const [likes, setLikes] = useState([
-            "hello",
-            "hello2",
-            "hello3",
-            "hello4",
-            "hello5","hello",
-            "hello2",
-            "hello3",
-            "hello4",
-            "hello5","hello",
-            "hello2",
-            "hello3",
-            "hello4",
-            "hello5","hello",
-            "hello2",
-            "hello3",
-            "hello4",
-            "hello5","hello",
-            "hello2",
-            "hello3",
-            "hello4",
-            "hello5","hello",
-            "hello2",
-            "hello3",
-            "hello4",
-            "hello5",
-        ]);
-        return likes;
-    },
-    LoggedIn: function Loggedin() {
-        const [isLoggedIn, setIsLoggedIn] = useState(false);
-        return {isLoggedIn, setIsLoggedIn};
-    },
-
-    toggleIsLoggedIn: function toggleIsLoggedIn() {
-        this.LoggedInObject.isLoggedIn = !this.LoggedInObject.isLoggedIn;
-    }
+    // savedPhrases: function savedPhrases() {
+    //     const [phrases, setPhrases] = useState([]);
+    //     return {phrases, setPhrases};
+    // },
+    // getSavedPhrases: function getSavedPhrases() {
+    //     const {phrases, setPhrases} = helpers.savedPhrases()
+    //     return phrases;
+    // },
+    // LoggedIn: function Loggedin() {
+    //     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    //     return {isLoggedIn, setIsLoggedIn};
+    // },
+    // toggleIsLoggedIn: function toggleIsLoggedIn() {
+    //     const {isLoggedIn, setIsLoggedIn} = helpers.LoggedIn();
+    //     setIsLoggedIn(!isLoggedIn);
+    //     // this.LoggedIn.isLoggedIn = !this.LoggedIn.isLoggedIn;
+    // },
+    // handleSavePhrase: function handleSavePhrase(phrase) {
+    //     const {phrases, setPhrases} = helpers.savedPhrases();
+    //     console.log(phrases)
+    //     // setPhrases(phrases => [...phrases, phrase]);
+    // }
     // addDelivery: async function addDelivery(delivery: Delivery) {
     //     try {
     //         delivery.api_key = config.api_key;

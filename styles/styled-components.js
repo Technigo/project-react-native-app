@@ -24,23 +24,41 @@ export const ButtonText = styled.Text`
     text-align: center;
     font-size: ${props => (props.accentColor ? '20px' : '18px')};
 `
+
+export const ButtonTextDisabled = styled.Text`
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-size: ${props => (props.accentColor ? '20px' : '18px')};
+`
+
 export const Button = styled.TouchableOpacity`
-    width: 50%;
+    min-width: 50%;
     margin: 15px auto 0 auto;
     background-color: ${props => (props.accentColor ? 'orange' : 'transparent')};
     padding: ${props => (props.accentColor ? '5px' : '0')};
     border-radius: ${props => (props.accentColor ? '10px' : '0')};
 `
 
+export const ButtonDisabled = styled.TouchableOpacity`
+    min-width: 50%;
+    margin: 15px auto 0 auto;
+    background-color: gray;
+    padding: ${props => (props.accentColor ? '5px' : '0')};
+    border-radius: ${props => (props.accentColor ? '10px' : '0')};
+`
+
 export const LikedPhrases = styled.ScrollView`
     width: 100%;
+    border: 4px solid hsl(0, 0%, 88%);
+    padding: 10px;
 `
 
 export const LikedPhrase = styled.View`
     flex: 1;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     width: 100%;
     padding-right: 15px;
 `

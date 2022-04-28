@@ -9,18 +9,26 @@ import helpers from '../modules/helpers';
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
-export const Feed = ({ navigation }) => {
+export const Feed = ({ navigation, isLoggedIn, setPhrases }) => {
   const [phrase, setPhrase] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [disableButton, setDisableButton] = useState(true);
 
   const onPressphrase = async () => {
     setLoading(true)
     setPhrase(await helpers.getPhrase());
     setLoading(false);
+    setDisableButton(false);
   }
 
+  const onSavePhrase = () => {
+    if (phrase) {
+      setPhrases(phrases => [...phrases, phrase]);
+      setDisableButton(true);
+    }
+  } 
+
   return (
-    // <SafeArea>
     <Container>
       <Burger onPress={() => navigation.openDrawer()}>
           <ButtonText>
@@ -36,22 +44,17 @@ export const Feed = ({ navigation }) => {
             New phrase
           </ButtonText>
         </Button>
+        <Button disabled={(disableButton || !isLoggedIn)} onPress={onSavePhrase} accentColor={true}>
+          <ButtonText accentColor={true}>Save</ButtonText>
+        </Button>
       </View>
       
       <View style={{width: '100%'}}>
-        {/* <Burger onPress={() => navigation.openDrawer()}>
-          <ButtonText>
-            Open drawer
-          </ButtonText>
-        </Burger> */}
-
         <Button onPress={() => navigation.toggleDrawer()}>
           <ButtonText>
             Toggle drawer
           </ButtonText>
         </Button>
-
-        
       </View>
     </Container>
   );

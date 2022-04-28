@@ -8,22 +8,23 @@ import helpers from '../modules/helpers';
 
 import { Container, Input, Button, ButtonText, Header1, Burger, SafeArea } from '../styles/styled-components';
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation, isLoggedIn, setIsLoggedIn }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {isLoggedIn, setIsLoggedIn} = helpers.LoggedIn();
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
+    // const {isLoggedIn, setIsLoggedIn} = helpers.LoggedIn();
 
     const handleInlog = () => {
         setEmail("");
         setPassword("");
-        // helpers.toggleIsLoggedIn();
         setIsLoggedIn(!isLoggedIn);
-        // setIsLoggedIn(!isLoggedIn);
-        if (!isLoggedIn) {
-            navigation.navigate('Likes');
-        }
-        
+
+        // if (!isLoggedIn) {
+        //     navigation.navigate('Likes');
+        // }
+        // console.log("logged in");
+        // // setIsLoggedIn(true);
+        // console.log(isLoggedIn);
     }   
 
     return (

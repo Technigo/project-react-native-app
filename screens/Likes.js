@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
@@ -15,8 +15,22 @@ import {
 	Burger
 } from '../styles/styled-components';
 
-export const Likes = ({navigation}) => {
-	const likes = helpers.getLikes();
+export const Likes = ({route, navigation, isLoggedIn, phrases, setPhrases}) => {
+	const { reload } = route.params || false;
+	// const { phrases, setPhrases } = helpers.savedPhrases();
+
+	// if (reload) {
+	// 	reloadPhrases();
+	// };
+
+	// function reloadPhrases() {
+	// 	setPhrases(helpers.getSavedPhrases());
+	// };
+
+	// useEffect(() => {
+	// 	reloadPhrases()
+	// }, []);
+	
 	return (
 		// <SafeArea>
 			<Container>
@@ -25,11 +39,11 @@ export const Likes = ({navigation}) => {
 						<Entypo name='menu' size={30} color='#000' />
 					</ButtonText>
 				</Burger>
-				<Header1>Likes Screen</Header1>
+				<Header1>Saved Screen</Header1>
 				<View style={{height: '50%', width: '100%'}}>
 					<LikedPhrases>
 						<View style={{flex: 1, width: '100%', height: '100%'}}>
-							{likes?.map((phrase, index) => {
+							{phrases?.map((phrase, index) => {
 								return (
 									<LikedPhrase key={index}>
 										<PhraseListItem>
@@ -41,11 +55,11 @@ export const Likes = ({navigation}) => {
 						</View>
 					</LikedPhrases>
 				</View>
-				<Button onPress={() => navigation.openDrawer()}>
+				{/* <Button onPress={() => navigation.openDrawer()}>
 					<ButtonText>
 						Open
 					</ButtonText>
-				</Button>
+				</Button> */}
 
 				<Button onPress={() => navigation.toggleDrawer()}>
 					<ButtonText>
