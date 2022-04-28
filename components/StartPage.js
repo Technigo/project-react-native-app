@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native';
 import styled from 'styled-components/native';
+import { Answer } from './Answer'
 import { SensorComponent } from './SensorComponent'
 
 const StartPage = ({navigation}) => {
@@ -9,6 +10,7 @@ const StartPage = ({navigation}) => {
             <Text style={styles.title}>Ask me something!</Text>
             
             <Text style={styles.title}>Shake me to to get an answer</Text>
+            <SensorComponent navigation={navigation}/>
            
         </View>
     )

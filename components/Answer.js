@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { Accelerometer } from "expo-sensors";
 
 
-const Answer = ()=> {
+const Answer = ({navigation})=> {
 
     const [answer, setAnswer] = useState({})
 
@@ -13,56 +12,10 @@ const Answer = ()=> {
         .then(response => response.json())
         .then(data => setAnswer(data))
     }
-    //un comment this ig you want answer right away
-    // useEffect(()=> {
-    //     generateAnswer();
-    // }, []);
 
-//////////////////////////
-
-const [data, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
-  });
-  const [subscription, setSubscription] = useState(null);
-
-
-const { x, y, z } = data;
-
-  const subscribe = () => {
-    setSubscription(
-      Accelerometer.addListener(accelerometerData => {
-        setData(accelerometerData);
-      })
-    );
-  };
-
-  const unsubscribe = () => {
-    subscription && subscription.remove();
-    setSubscription(null);
-  };
-
-  useEffect(() => {
-      // component mounts execute the function below
-    subscribe();
-
-    // component unmounts execute the function in the return statement
-    return () => unsubscribe();
-  }, []);
-
-
-const isShaking = (data) => {
-    const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-    return totalForce > 1.78;
-}
-
-
-useEffect(()=> {
-    if (isShaking(data)) {
-        generateAnswer();
-    }
-}, [data])
+      useEffect (()=> { 
+        generateAnswer()
+      },[]);
 
     return (
         <View style={styles.container}>
@@ -70,7 +23,12 @@ useEffect(()=> {
             <Text>{data.y}</Text>
             <Text>{data.z}</Text> */}
             <Text style={styles.title}>{answer.content}</Text>
-            <Text style={styles.title}>{answer.author}</Text>
+            <Text style={styles.title}>{answer.author}</Text> 
+            <Text>Now that you are inspired, do you want to hear a dad joke?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Joke')} style={styles.btn}>
+              <Text>Joke</Text>
+            </TouchableOpacity>
+           
         </View>
     )
 }
@@ -91,5 +49,16 @@ const styles = StyleSheet.create({
         padding: 20,
         textAlign: 'center'
     },
+    btn: {
+      padding: 20,
+      width: 100,
+      alignSelf: "center",
+      textAlign: 'center',
+      borderWidth: 1,
+      backgroundColor: 'lightblue'
+
+
+
+    }
     
 })
