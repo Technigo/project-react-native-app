@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Share, Button, View, Text, Touchabelopacity, Image } from "react-native";
 import styled from "styled-components/native"
-import { Header } from "./Header";
+import { ActivityHeader } from "./ActivityHeader";
 
 const APIButton=styled.TouchableOpacity`
 font-weight:700;
@@ -44,9 +44,6 @@ const Container = styled.View`
 const Wrapper = styled.View`
 	flex: 1;
     background-color:#E4C2C1;
-    
-
-	
     
 `;
 
@@ -100,7 +97,7 @@ const something=quote.type==="recreational"||quote.type==="social"
 return(
         <Wrapper>
         <Container>
-        <Header/>
+        <ActivityHeader/>
         {something?
         <Title>💥How about trying something {quote.type}?</Title>:<Title>💥How about trying some {quote.type}?</Title>}
         <Title>👉🏼 For exampel: {quote.activity}!</Title>

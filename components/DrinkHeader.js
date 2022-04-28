@@ -6,16 +6,16 @@ const Title = styled.Text`
     font-weight:900;
 	color: white;
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:70px;
     border: 2px solid #B6666F;
     padding:10px;
 `;
 
 
-export const Header=()=>
+export const DrinkHeader=()=>
 
 {
-return(<Title>Looking for something new to do?</Title>)
+return(<Title>SHAKE FOR DRINK!</Title>)
 
 
 
