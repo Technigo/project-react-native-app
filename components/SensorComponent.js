@@ -63,7 +63,7 @@ export const SensorComponent = ({navigation}) => {
   //useEffect with a function that if device is shaken navigate to Inspiration component. 
   useEffect(()  => {
     if(isShaking(data)){
-      navigation.navigate('Answer')
+      navigation.navigate('Quote')
     }
   }, [data])
 

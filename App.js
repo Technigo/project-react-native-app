@@ -2,7 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import StartPage from './components/StartPage'
-import Answer from './components/Answer'
+import Quote from './components/Quote'
 import Joke from './components/Joke'
 
 const Drawer = createDrawerNavigator();
@@ -15,29 +15,29 @@ const App = () => {
         <Drawer.Screen name="Start" component={StartPage}
         options={{
           headerTitleStyle: {
-            color: 'thistle',
+            color: '#6d5c45',
           },
           headerStyle: {
-            backgroundColor: '#833471',
+            backgroundColor: '#E6BA95',
           },
         }} />
-        <Drawer.Screen name="Answer" component={Answer}
+        <Drawer.Screen name="Quote" component={Quote}
         options={{
           headerTitleStyle: {
-            color: 'thistle',
+            color: '#6d5c45',
           },
           headerStyle: {
-            backgroundColor: '#833471',
+            backgroundColor: '#E6BA95',
           },
         }} 
         />
         <Drawer.Screen name="Joke" component={Joke}
         options={{
           headerTitleStyle: {
-            color: 'thistle',
+            color: '#6d5c45',
           },
           headerStyle: {
-            backgroundColor: '#833471',
+            backgroundColor: '#E6BA95',
           },
         }} />
       </Drawer.Navigator>
