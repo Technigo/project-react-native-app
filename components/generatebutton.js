@@ -1,44 +1,39 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
+import React, { useState, useDispatch } from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Constants from "expo-constants";
-import { Facts } from "./facts";
 
+export const GenerateButton = ({ handlePress }) => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          handlePress();
+        }}
+      >
+        <Text style={styles.text}>New image!</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-export const GenerateButton = () => {
-    // const [count, setCount] = useState(0);
-    // const newItem = Facts();
-    //onPress I will generate the fetched information
-    return (
-      <View style={styles.container}> 
-        <TouchableOpacity
-          style={styles.button}
-          // onPress={newItem()}
-        >
-          <Text>New image!</Text>
-        </TouchableOpacity>
-    
-      </View>
-    );
-  }
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      paddingTop: Constants.statusBarHeight,
-
-      padding: 8,
-      alignItems: 'center',
-    },
-    counterText: {
-      color: 'pink',
-      fontSize: 20,
-    },
-    button: {
-      padding: 8,
-      margin: 10,
-      backgroundColor: 'pink',
-      borderRadius: 2,
-    }
-  });
-  
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    padding: 8,
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 20,
+    color: "#ced7e0",
+  },
+  button: {
+    padding: 12,
+    margin: 10,
+    borderColor: "#001736",
+    borderRadius: 10,
+    fontSize: 40,
+  },
+});

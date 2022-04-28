@@ -1,30 +1,25 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import { GenerateButton } from './components/generatebutton';
-import { Facts } from './components/facts'
-
+import React from "react";
+import styled from "styled-components/native";
+import { GenerateButton } from "./components/generatebutton";
+import { Facts } from "./components/facts";
+import { Startpage } from "./components/startpage";
 
 const Container = styled.View`
-	flex: 1;
-	background-color: black;
-	justify-content: center;
-	align-items: center;
-	padding: 40px;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: grey;
+  flex: 1;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
 `;
 
 const App = () => {
-	return (
-		<Container>
-			<Title>Best of Space!</Title>
-			<Facts />
-			<GenerateButton />
-		</Container>
-	);
+  return (
+    <Container>
+      <Startpage />
+      <Facts />
+      {/* <GenerateButton /> */}
+    </Container>
+  );
 };
 
 export default App;
