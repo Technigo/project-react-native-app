@@ -82,6 +82,24 @@ const Login = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={styles.windowcontent}>
+          <View style={styles.asciicontainer}>
+            <Text style={styles.ascii}>&nbsp;_________</Text>
+            <Text style={styles.ascii}>|&nbsp;&nbsp;_____&nbsp;&nbsp;|\</Text>
+            <Text style={styles.ascii}>|&nbsp;|\ ___|&nbsp;|&nbsp;\</Text>
+            <Text style={styles.ascii}>
+              |&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|
+            </Text>
+            <Text style={styles.ascii}>|&nbsp;|&nbsp;|___|&nbsp;|&nbsp;|</Text>
+            <Text style={styles.ascii}>\&nbsp;|&nbsp;|____\|&nbsp;|</Text>
+            <Text style={styles.ascii}>&nbsp;\|_________|</Text>
+            {/* ______          
+  /\_____\  
+ _\ \__/_/_     
+/\_\ \_____\     
+\ \ \/ / / /    
+ \ \/ /\/ /  
+  \/_/\/_/     */}
+          </View>
           <Text style={styles.title}>The Room</Text>
           <Input
             placeholder="Enter your username"
@@ -171,6 +189,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     fontFamily: "DMMono_400Regular",
     textAlign: "center",
+  },
+  asciicontainer: {
+    marginBottom: 20,
+  },
+  ascii: {
+    textAlign: "left",
+    fontFamily: "DMMono_300Light",
   },
   input: {
     marginTop: 10,

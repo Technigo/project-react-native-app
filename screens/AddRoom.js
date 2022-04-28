@@ -75,7 +75,45 @@ const AddRoom = ({ navigation }) => {
           </TouchableOpacity>
         </View>
         <View style={styles.windowcontent}>
-          <Text style={styles.title}>Create a new room!</Text>
+          {/* <Text style={styles.title}>Create a new room!</Text> */}
+          <View style={styles.asciicontainer}>
+            <Text style={styles.ascii}>(IIIIIIIIIIIIIIIIIII)</Text>
+            <Text style={styles.ascii}>)'.'.'.':;:;:'.'.'.'(</Text>
+            <Text style={styles.ascii}>('.'.'.;'&nbsp;|&nbsp;`:.'.'.')</Text>
+            <Text style={styles.ascii}>
+              )'.'.';'&nbsp;&nbsp;|&nbsp;&nbsp;`:'.'.'(
+            </Text>
+            <Text style={styles.ascii}>
+              ('.'.;'&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;`:.'.')
+            </Text>
+            <Text style={styles.ascii}>)'.';'____|____`:'.'(</Text>
+            <Text style={styles.ascii}>
+              (==@'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`@==)
+            </Text>
+            <Text style={styles.ascii}>
+              )'.:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:.'(
+            </Text>
+            <Text style={styles.ascii}>
+              ('.'.&nbsp;&nbsp;&nbsp;()@()&nbsp;&nbsp;&nbsp;.'.')
+            </Text>
+            <Text style={styles.ascii}>
+              )'.'.&nbsp;&nbsp;()@()@)&nbsp;&nbsp;.'.'(
+            </Text>
+            <Text style={styles.ascii}>
+              ('.'.&nbsp;&nbsp;&nbsp;_\|/_&nbsp;&nbsp;&nbsp;.'.')
+            </Text>
+            <Text style={styles.ascii}>
+              )'.'.&nbsp;&nbsp;|-----|&nbsp;&nbsp;.'.'(
+            </Text>
+            <Text style={styles.ascii}>('.'.___\___/___.'.')</Text>
+            <Text style={styles.ascii}>)'.'============='.'(</Text>
+            <Text style={styles.ascii}>
+              ('.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.')
+            </Text>
+            <Text style={styles.ascii}>
+              &nbsp;~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~
+            </Text>
+          </View>
           <Input
             labelName="Room Name"
             value={roomName}
@@ -163,6 +201,13 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginBottom: 20,
     fontFamily: "DMMono_400Regular",
+  },
+  asciicontainer: {
+    marginBottom: 20,
+  },
+  ascii: {
+    textAlign: "left",
+    fontFamily: "DMMono_300Light",
   },
   input: {
     marginTop: 10,
