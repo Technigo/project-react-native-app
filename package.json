@@ -13,6 +13,7 @@
     "expo-status-bar": "~1.1.0",
     "mem": "^9.0.1",
     "minimist": "^1.2.6",
+    "moment": "^2.29.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.2",
