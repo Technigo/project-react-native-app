@@ -1,6 +1,10 @@
+import { createDrawerNavigator } from '@react-navigation/drawer'
 import React, { useState, useEffect } from 'react'
 import { TouchableOpacity, Text } from 'react-native'
+import Loadingspinner from './components/Loadingspinner'
 import styled from 'styled-components/native'
+
+// const Drawer = createDrawerNavigator()
 
 const Container = styled.View`
 	flex: 1;
@@ -13,12 +17,15 @@ const Title = styled.Text`
 	font-size: 24px;
 	color: #eabd91;
 	padding: 2em;
+	text-align: center;
 `
 
 const Heading = styled.Text`
 	font-size: 28px;
 	color: #eabd91;
 	display: flex;
+	position: absolute;
+	top: 3em;
 `
 
 const ButtonAPI = styled.TouchableOpacity`
@@ -35,36 +42,40 @@ const ButtonText = styled.Text`
 `
 
 const App = () => {
-	const [joke, setJoke] = useState([])
+	const [activity, setActivity] = useState([])
 	const [loading, setLoading] = useState(false)
 
-	const getJoke = () => {
+	const getActivity = () => {
 		setLoading(true)
-		fetch('https://dad-jokes.p.rapidapi.com/random/joke', {
-			method: 'GET',
-			headers: {
-				'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com',
-				'X-RapidAPI-Key': 'db35346aa2msh919f5d80553974bp1ec615jsn5e12fad1cdd0',
-			},
-		})
+		{
+			loading && <Loadingspinner />
+		}
+		fetch('https://www.boredapi.com/api/activity')
 			.then((response) => response.json())
-			.then((data) => setJoke(data.body))
+			.then((data) => setActivity(data))
 			.catch((error) => console.log(error))
 			.finally(() => setLoading(false))
 	}
 
+	// function MyDrawer() {
+	// 	return (
+	// 		<Drawer.Navigator initialRouteName='Feed'>
+	// 			<Drawer.Screen name='Feed' component={Feed} options={{ drawerLabel: 'Home' }} />
+	// 			<Drawer.Screen name='Notifications' component={Notifications} options={{ drawerLabel: 'Updates' }} />
+	// 			<Drawer.Screen name='Profile' component={Profile} options={{ drawerLabel: 'Profile' }} />
+	// 		</Drawer.Navigator>
+	// 	)
+	// }
+
 	return (
 		<Container>
-			<Heading>Are you up for a dad joke?</Heading>
-			{joke.map((item) => (
-				<Title>{item.setup}</Title>
-			))}
-			<ButtonAPI onPress={getJoke}>
+			<Heading>Are you bored and need some inspiration?</Heading>
+
+			<Title>{activity.activity}</Title>
+
+			<ButtonAPI onPress={getActivity}>
 				<ButtonText>TAP</ButtonText>
 			</ButtonAPI>
-			{joke.map((item) => (
-				<Title>{item.punchline}</Title>
-			))}
 		</Container>
 	)
 }
