@@ -14,6 +14,7 @@ const AuthStack = ({ navigation }) => {
         component={Login}
         options={{ headerShown: false }}
       />
+      {/* Signup is Legacy from Email/Password login - Saved for future reference */}
       <Stack.Screen
         name="Signup"
         component={Signup}

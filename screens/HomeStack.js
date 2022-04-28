@@ -98,7 +98,7 @@ const HomeStack = ({ navigation }) => {
               headerTitleStyle: { color: "rgba(0, 0, 0, 0)" },
             }}
           >
-            {(props) => <Chat key={thread._id} thread={thread} />}
+            {() => <Chat key={thread._id} thread={thread} />}
           </Drawer.Screen>
         );
       })}

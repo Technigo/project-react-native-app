@@ -6,8 +6,6 @@ import {
   Dimensions,
   ImageBackground,
   TouchableOpacity,
-  Alert,
-  Keyboard,
 } from "react-native";
 import { Input } from "react-native-elements";
 import { auth } from "../firebase";
@@ -25,8 +23,8 @@ const { width, height } = Dimensions.get("screen");
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState("");
-  const { user, setUser } = useContext(AuthContext);
-  const { userid, setUserid } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
+  const { setUserid } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   const signin = () => {
@@ -42,6 +40,7 @@ const Login = ({ navigation }) => {
           });
           setUser(username);
           setUserid(user.uid);
+          // This line was for when I had email and password login
           // navigation.navigate("Home");
         })
         .catch((error) => {
@@ -57,10 +56,6 @@ const Login = ({ navigation }) => {
     }
   };
 
-  const dismissKeyboard = () => {
-    Keyboard.dismiss();
-  };
-
   const [loaded] = useFonts({
     DMMono_300Light,
     DMMono_400Regular,
@@ -71,69 +66,51 @@ const Login = ({ navigation }) => {
     return null;
   }
   return (
-    <View style={styles.backgroundcontainer}>
-      <ImageBackground
-        source={background}
-        resizeMode="cover"
-        style={styles.background}
-      >
-        <View style={styles.windowcontainer}>
-          <View style={styles.windowheader}>
-            <Text style={styles.windowheadertext}>0961742853</Text>
-            {/* <TouchableOpacity style={styles.windowheaderbutton1}>
-              <Text style={styles.windowheaderbuttontext}>_</Text>
-            </TouchableOpacity> */}
-            <TouchableOpacity
-              style={styles.windowheaderbutton}
-              onPress={() => navigation.navigate("BlueScreen")}
-            >
-              <Text style={styles.windowheaderbuttontext}>✖</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.windowcontent}>
-            <Text style={styles.title}>The Room</Text>
-            <Input
-              placeholder="Enter your username"
-              labelName="Username:"
-              value={username}
-              style={styles.input}
-              onChangeText={(text) => typeUsername(text)}
-              autoCapitalize="none"
-              spellCheck={false}
-              autoCorrect={false}
-              keyboardAppearance="light"
-              maxLength={20}
-            />
-            {error.length > 0 && <Text style={styles.error}>{error}</Text>}
-            <TouchableOpacity
-              style={styles.loginbutton}
-              onPress={signin}
-              // disabled={username.length < 6}
-            >
-              <Text style={styles.buttontext}>Sign in</Text>
-            </TouchableOpacity>
-          </View>
+    <ImageBackground
+      source={background}
+      resizeMode="cover"
+      style={styles.background}
+    >
+      <View style={styles.windowcontainer}>
+        <View style={styles.windowheader}>
+          <Text style={styles.windowheadertext}>0961742853</Text>
+          <TouchableOpacity
+            style={styles.windowheaderbutton}
+            onPress={() => navigation.navigate("BlueScreen")}
+          >
+            <Text style={styles.windowheaderbuttontext}>✖</Text>
+          </TouchableOpacity>
         </View>
-      </ImageBackground>
-    </View>
+        <View style={styles.windowcontent}>
+          <Text style={styles.title}>The Room</Text>
+          <Input
+            placeholder="Enter your username"
+            labelName="Username:"
+            value={username}
+            style={styles.input}
+            onChangeText={(text) => typeUsername(text)}
+            autoCapitalize="none"
+            spellCheck={false}
+            autoCorrect={false}
+            keyboardAppearance="light"
+            maxLength={20}
+          />
+          {error.length > 0 && <Text style={styles.error}>{error}</Text>}
+          <TouchableOpacity style={styles.loginbutton} onPress={signin}>
+            <Text style={styles.buttontext}>Sign in</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ImageBackground>
   );
 };
 const styles = StyleSheet.create({
-  backgroundcontainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#007F7F",
-  },
   windowcontainer: {
-    // flex: 1,
     borderWidth: 5,
-    // borderColor: "#0055CF",
     width: width / 1.25,
     height: height / 1.3,
     borderLeftColor: "white",
     borderTopColor: "white",
-    // backgroundColor: "rgba(235, 232, 216, .5)",
     backgroundColor: "#C0C0C0",
   },
   windowheader: {
@@ -143,9 +120,7 @@ const styles = StyleSheet.create({
     marginLeft: "1.5%",
     marginRight: "1.5%",
     marginTop: "1.5%",
-    // justifyContent: "center",
     flexDirection: "row",
-    // alignContent: "center",
   },
   windowheadertext: {
     color: "white",
@@ -210,7 +185,6 @@ const styles = StyleSheet.create({
   loginbutton: {
     width: width / 1.5,
     height: height / 15,
-    // marginTop: 10,
     borderWidth: 3,
     borderLeftColor: "white",
     borderTopColor: "white",
@@ -234,6 +208,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#007F7F",
   },
 });
 

@@ -5,7 +5,7 @@ import AuthStack from "./AuthStack";
 import { AuthContext } from "./AuthProvider";
 
 const Routes = () => {
-  const { user, setUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <NavigationContainer>

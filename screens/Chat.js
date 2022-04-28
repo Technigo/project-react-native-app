@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useState,
-  useLayoutEffect,
-  useContext,
-} from "react";
+import React, { useCallback, useState, useLayoutEffect } from "react";
 import {
   View,
   Text,
@@ -12,7 +7,6 @@ import {
   Keyboard,
   Dimensions,
   ImageBackground,
-  Image,
 } from "react-native";
 import { Avatar } from "react-native-elements";
 import { auth, db } from "../firebase";
@@ -37,7 +31,7 @@ import {
   InputToolbar,
   Send,
 } from "react-native-gifted-chat";
-import background from "../assets/image.jpg";
+import Loading from "../components/Loading";
 import { useNavigation } from "@react-navigation/native";
 import {
   useFonts,
@@ -45,12 +39,12 @@ import {
   DMMono_400Regular,
   DMMono_500Medium,
 } from "@expo-google-fonts/dm-mono";
-
 import {
   DMSans_400Regular,
   DMSans_500Medium,
   DMSans_700Bold,
 } from "@expo-google-fonts/dm-sans";
+import background from "../assets/image.jpg";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -109,7 +103,7 @@ const Chat = ({ thread }) => {
       user,
     });
 
-    // MAYBE ADD .then ??? or do a callback function?
+    // MAYBE ADD .then ??? or do a callback function? Want to update thread so I can sort by latest msgs
     // setDoc(
     //   collection(db, "THREADS", threadid),
     //   {
@@ -128,6 +122,7 @@ const Chat = ({ thread }) => {
     return (
       <Bubble
         {...props}
+        // Commented out because it changed margins. Wasn't able to find out where I could align all the chats.
         // position={"left"}
         wrapperStyle={{
           left: {
@@ -227,10 +222,9 @@ const Chat = ({ thread }) => {
   });
 
   if (!loaded) {
-    return null;
+    return <Loading />;
   }
   return (
-    // <View>
     <ImageBackground
       source={background}
       resizeMode="cover"
@@ -297,14 +291,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#007F7F",
   },
   windowcontainer: {
-    // flex: 1,
     borderWidth: 5,
-    // borderColor: "#0055CF",
     width: width / 1.25,
     height: height / 1.3,
     borderLeftColor: "white",
     borderTopColor: "white",
-    // backgroundColor: "rgba(235, 232, 216, .5)",
     backgroundColor: "#C0C0C0",
   },
   windowheader: {
@@ -314,9 +305,7 @@ const styles = StyleSheet.create({
     marginLeft: "1.5%",
     marginRight: "1.5%",
     marginTop: "1.5%",
-    // justifyContent: "center",
     flexDirection: "row",
-    // alignContent: "center",
   },
   windowheadertext: {
     color: "white",
@@ -402,8 +391,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#007F7F",
     alignItems: "center",
     justifyContent: "center",
-    // flex: 1,
-    // alignItems: "center",
-    // justifyContent: "center",
   },
 });

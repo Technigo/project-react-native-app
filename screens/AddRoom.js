@@ -7,16 +7,17 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import { Input, Button } from "react-native-elements";
+import { Input } from "react-native-elements";
+import Loading from "../components/Loading";
 import { db, auth } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
-import background from "../assets/image.jpg";
 import {
   useFonts,
   DMMono_300Light,
   DMMono_400Regular,
   DMMono_500Medium,
 } from "@expo-google-fonts/dm-mono";
+import background from "../assets/image.jpg";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -37,7 +38,6 @@ const AddRoom = ({ navigation }) => {
         latestMessage: "",
         numberOfMessages: 0,
       });
-
       navigation.navigate("Home");
       setRoomName("");
     }
@@ -50,76 +50,60 @@ const AddRoom = ({ navigation }) => {
   });
 
   if (!loaded) {
-    return null;
+    return <Loading />;
   }
   return (
-    <View style={styles.backgroundcontainer}>
-      <ImageBackground
-        source={background}
-        resizeMode="cover"
-        style={styles.background}
-      >
-        <View style={styles.windowcontainer}>
-          <View style={styles.windowheader}>
-            <TouchableOpacity
-              style={styles.windowheaderbutton1}
-              onPress={() => navigation.toggleDrawer()}
-            >
-              <Text style={styles.windowheaderbuttontext}>➤</Text>
-            </TouchableOpacity>
-            <Text style={styles.windowheadertext}>Create a new chatroom!</Text>
-            <TouchableOpacity
-              style={styles.windowheaderbutton}
-              onPress={() => navigation.navigate("Home")}
-            >
-              <Text style={styles.windowheaderbuttontext}>𑁋</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.windowcontent}>
-            <Text style={styles.title}>Create a new room!</Text>
-            <Input
-              labelName="Room Name"
-              value={roomName}
-              onChangeText={(text) => setRoomName(text)}
-              style={styles.input}
-              maxLength={20}
-              placeholder="Name your new room..."
-              // clearButtonMode="while-editing"
-            />
-            {error.length > 0 && <Text style={styles.error}>{error}</Text>}
-            <TouchableOpacity style={styles.loginbutton} onPress={createRoom}>
-              <Text style={styles.buttontext}>Add room</Text>
-            </TouchableOpacity>
-          </View>
+    <ImageBackground
+      source={background}
+      resizeMode="cover"
+      style={styles.background}
+    >
+      <View style={styles.windowcontainer}>
+        <View style={styles.windowheader}>
+          <TouchableOpacity
+            style={styles.windowheaderbutton1}
+            onPress={() => navigation.toggleDrawer()}
+          >
+            <Text style={styles.windowheaderbuttontext}>➤</Text>
+          </TouchableOpacity>
+          <Text style={styles.windowheadertext}>Create a new chatroom!</Text>
+          <TouchableOpacity
+            style={styles.windowheaderbutton}
+            onPress={() => navigation.navigate("Home")}
+          >
+            <Text style={styles.windowheaderbuttontext}>𑁋</Text>
+          </TouchableOpacity>
         </View>
-      </ImageBackground>
-    </View>
+        <View style={styles.windowcontent}>
+          <Text style={styles.title}>Create a new room!</Text>
+          <Input
+            labelName="Room Name"
+            value={roomName}
+            onChangeText={(text) => setRoomName(text)}
+            style={styles.input}
+            maxLength={20}
+            placeholder="Name your new room..."
+            // clearButtonMode="while-editing"
+          />
+          {error.length > 0 && <Text style={styles.error}>{error}</Text>}
+          <TouchableOpacity style={styles.loginbutton} onPress={createRoom}>
+            <Text style={styles.buttontext}>Add room</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ImageBackground>
   );
 };
 
 export default AddRoom;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  backgroundcontainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#007F7F",
-  },
   windowcontainer: {
-    // flex: 1,
     borderWidth: 5,
-    // borderColor: "#0055CF",
     width: width / 1.25,
     height: height / 1.3,
     borderLeftColor: "white",
     borderTopColor: "white",
-    // backgroundColor: "rgba(235, 232, 216, .5)",
     backgroundColor: "#C0C0C0",
   },
   windowheader: {
@@ -129,9 +113,7 @@ const styles = StyleSheet.create({
     marginLeft: "1.5%",
     marginRight: "1.5%",
     marginTop: "1.5%",
-    // justifyContent: "center",
     flexDirection: "row",
-    // alignContent: "center",
   },
   windowheadertext: {
     color: "white",
@@ -196,7 +178,6 @@ const styles = StyleSheet.create({
   loginbutton: {
     width: width / 1.5,
     height: height / 15,
-    // marginTop: 10,
     borderWidth: 3,
     borderLeftColor: "white",
     borderTopColor: "white",
@@ -220,5 +201,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#007F7F",
   },
 });

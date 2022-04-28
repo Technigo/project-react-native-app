@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet, Dimensions } from "react-native";
-import { Input, Button, Icon } from "react-native-elements";
+import { Input, Button } from "react-native-elements";
 import { IconButton } from "react-native-paper";
 
 import { auth } from "../firebase";
@@ -33,7 +33,6 @@ const Signup = ({ navigation }) => {
           });
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage);
       });

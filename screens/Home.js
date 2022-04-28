@@ -48,87 +48,88 @@ const Home = ({ navigation }) => {
   }
   return (
     <>
-      <View style={styles.backgroundcontainer}>
-        <ImageBackground
-          source={background}
-          resizeMode="cover"
-          style={styles.background}
-        >
-          <View style={styles.windowcontainer}>
-            <View style={styles.windowheader}>
-              <TouchableOpacity
-                style={styles.windowheaderbutton1}
-                onPress={() => navigation.toggleDrawer()}
-              >
-                <Text style={styles.windowheaderbuttontext}>➤</Text>
-              </TouchableOpacity>
-              <Text style={styles.windowheadertext}>{user} online!</Text>
-              <TouchableOpacity
-                style={styles.windowheaderbutton}
-                onPress={signOutNow}
-              >
-                <Text style={styles.windowheaderbuttontext}>✖</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.windowcontent}>
-              {/* <Text style={styles.title}>Hi {user}!</Text> */}
-              <View style={styles.asciicontainer}>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;._________________.
-                </Text>
-
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;|.---------------.|
-                </Text>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
-                </Text>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._
-                  .-.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
-                </Text>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._| |
-                  |&nbsp;&nbsp;&nbsp;&nbsp;||
-                </Text>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._|"|"|&nbsp;&nbsp;&nbsp;&nbsp;||
-                </Text>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._|.-.|&nbsp;&nbsp;&nbsp;&nbsp;||
-                </Text>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;||_______________||
-                </Text>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;&nbsp;/.-.-.-.-.-.-.-.-.\
-                </Text>
-                <Text style={styles.ascii}>
-                  &nbsp;&nbsp;/.-.-.-.-.-.-.-.-.-.\
-                </Text>
-                <Text style={styles.ascii}>&nbsp;/.-.-.-.-.-.-.-.-.-.-.\</Text>
-                <Text style={styles.ascii}>/______/__________\___o_\ </Text>
-                <Text style={styles.ascii}>\_______________________/</Text>
-              </View>
-              <View>
-                <Text style={styles.subtitle}>
-                  Create a new room below or open navigation in the upper left
-                  to check out the existing rooms!
-                </Text>
-                <Text style={styles.subtitle}>
-                  Close the application to sign out.
-                </Text>
-              </View>
-              <TouchableOpacity
-                style={styles.loginbutton}
-                onPress={() => navigation.navigate("Add Room")}
-              >
-                <Text style={styles.buttontext}>New Room</Text>
-              </TouchableOpacity>
-            </View>
+      <ImageBackground
+        source={background}
+        resizeMode="cover"
+        style={styles.background}
+      >
+        <View style={styles.windowcontainer}>
+          <View style={styles.windowheader}>
+            <TouchableOpacity
+              style={styles.windowheaderbutton1}
+              onPress={() => navigation.toggleDrawer()}
+            >
+              <Text style={styles.windowheaderbuttontext}>➤</Text>
+            </TouchableOpacity>
+            <Text style={styles.windowheadertext}>{user} online!</Text>
+            <TouchableOpacity
+              style={styles.windowheaderbutton}
+              onPress={signOutNow}
+            >
+              <Text style={styles.windowheaderbuttontext}>✖</Text>
+            </TouchableOpacity>
           </View>
-        </ImageBackground>
-      </View>
+          <View style={styles.windowcontent}>
+            {/* <Text style={styles.title}>Hi {user}!</Text> */}
+            <View style={styles.asciicontainer}>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;._________________.
+              </Text>
+
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;|.---------------.|
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._
+                .-.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._| |
+                |&nbsp;&nbsp;&nbsp;&nbsp;||
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._|"|"|&nbsp;&nbsp;&nbsp;&nbsp;||
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;-._|.-.|&nbsp;&nbsp;&nbsp;&nbsp;||
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;||_______________||
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;&nbsp;/.-.-.-.-.-.-.-.-.\
+              </Text>
+              <Text style={styles.ascii}>
+                &nbsp;&nbsp;/.-.-.-.-.-.-.-.-.-.\
+              </Text>
+              <Text style={styles.ascii}>&nbsp;/.-.-.-.-.-.-.-.-.-.-.\</Text>
+              <Text style={styles.ascii}>/______/__________\___o_\ </Text>
+              <Text style={styles.ascii}>\_______________________/</Text>
+            </View>
+            <View>
+              <Text style={styles.subtitle}>
+                Create a new room below or open navigation in the upper left to
+                check out the existing rooms!
+              </Text>
+              <Text style={styles.subtitle}>
+                Close the application to sign out.
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.loginbutton}
+              onPress={() => navigation.navigate("Add Room")}
+            >
+              <Text style={styles.buttontext}>New Room</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ImageBackground>
     </>
   );
 };
@@ -136,33 +137,12 @@ const Home = ({ navigation }) => {
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    // marginTop: headerHeight,
-    backgroundColor: "#C0C0C0",
-    borderLeftColor: "white",
-    borderWidth: 5,
-    borderRightColor: "black",
-    borderTopWidth: 0,
-  },
-  backgroundcontainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#007F7F",
-  },
-  contentcontainer: {},
   windowcontainer: {
-    // flex: 1,
     borderWidth: 5,
-    // borderColor: "#0055CF",
     width: width / 1.25,
     height: height / 1.3,
     borderLeftColor: "white",
     borderTopColor: "white",
-    // backgroundColor: "rgba(235, 232, 216, .5)",
     backgroundColor: "#C0C0C0",
   },
   windowheader: {
@@ -172,9 +152,7 @@ const styles = StyleSheet.create({
     marginLeft: "1.5%",
     marginRight: "1.5%",
     marginTop: "1.5%",
-    // justifyContent: "center",
     flexDirection: "row",
-    // alignContent: "center",
   },
   windowheadertext: {
     color: "white",
@@ -240,7 +218,6 @@ const styles = StyleSheet.create({
   loginbutton: {
     width: width / 1.5,
     height: height / 15,
-    // marginTop: 10,
     borderWidth: 3,
     borderLeftColor: "white",
     borderTopColor: "white",
@@ -260,5 +237,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#007F7F",
   },
 });
