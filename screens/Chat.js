@@ -12,6 +12,7 @@ import {
   Keyboard,
   Dimensions,
   ImageBackground,
+  Image,
 } from "react-native";
 import { Avatar } from "react-native-elements";
 import { auth, db } from "../firebase";
@@ -210,7 +211,9 @@ const Chat = ({ thread }) => {
         containerStyle={{
           borderWidth: 0,
         }}
-      />
+      >
+        <Text style={styles.sendbutton}>➥</Text>
+      </Send>
     );
   };
 
@@ -386,6 +389,11 @@ const styles = StyleSheet.create({
   buttontext: {
     textAlign: "center",
     fontSize: 18,
+  },
+  sendbutton: {
+    marginBottom: 6,
+    marginRight: 5,
+    fontSize: 30,
   },
   background: {
     height: "100%",
