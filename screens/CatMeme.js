@@ -28,6 +28,7 @@ const CatMeme = () => {
     value: 'red',
     color: 'red',
     size: '32',
+    selected: memeColor === 'red' ? true : false,  
     onPress: (id) => setMemeColor(id)
   }, {
     id: 'blue',
@@ -35,6 +36,7 @@ const CatMeme = () => {
     value: 'blue',
     color: 'blue',
     size: '32',
+    selected: memeColor === 'blue' ? true : false,  
     onPress: (id) => setMemeColor(id)
   }, {
     id: 'gold',
@@ -42,6 +44,7 @@ const CatMeme = () => {
     value: 'gold',
     color: 'gold',
     size: '32',
+    selected: memeColor === 'gold' ? true : false,  
     onPress: (id) => setMemeColor(id)
   }, {
     id: 'green',
@@ -49,6 +52,7 @@ const CatMeme = () => {
     value: 'green',
     color: 'green',
     size: '32',
+    selected: memeColor === 'green' ? true : false,  
     onPress: (id) => setMemeColor(id)
   }]
 
@@ -59,6 +63,7 @@ const CatMeme = () => {
     label: 'Sleeping',
     value: 'sleeping',
     layout: "column",
+    selected: memeAction === 'sleeping' ? true : false, 
     containerStyle: { width: '15%' },
     onPress: (id) => setMemeAction(id)
   }, {
@@ -66,6 +71,7 @@ const CatMeme = () => {
     label: 'Jumping',
     value: 'jump',
     layout: "column",
+    selected: memeAction === 'jump' ? true : false,
     containerStyle: { width: '15%' },
     onPress: (id) => setMemeAction(id)
   }, {
@@ -73,6 +79,7 @@ const CatMeme = () => {
     label: 'Flying',
     value: 'flying',
     layout: "column",
+    selected: memeAction === 'flying' ? true : false,
     containerStyle: { width: '15%' },
     onPress: (id) => setMemeAction(id)
   }, {
@@ -80,6 +87,7 @@ const CatMeme = () => {
     label: 'Evil',
     value: 'evil',
     layout: "column",
+    selected: memeAction === 'evil' ? true : false, 
     containerStyle: { width: '15%' },
     onPress: (id) => setMemeAction(id)
   }]

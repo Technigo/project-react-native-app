@@ -3,10 +3,10 @@ import { Button, View, Pressable, TouchableOpacity, StyleSheet, Text } from 'rea
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
 import { Ionicons } from '@expo/vector-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faCat, faBullseye } from '@fortawesome/free-solid-svg-icons/faCat'
 
-import ShareButton from '../components/ShareButton'
 
-import OpenURLButton from '../components/OpenURLButton'
 
 import ModalComponent from '../components/ModalComponent'
 
@@ -70,19 +70,22 @@ const CatGif = () => {
   })
 
   const subscribe = () => {
-    // setData({
-    //   x: 0,
-    //   y: 0,
-    //   z: 0,
-    // })
-    // setTopPosition(50)
-    // setLeftPosition(50)
+    setData({
+      x: 0,
+      y: 0,
+      z: 0,
+    })
+    setTopPosition(50)
+    setLeftPosition(50)
     checkTarget()
     setSubscription(
       Accelerometer.addListener(accelerometerData => {
+        console.log(accelerometerData.y)
+        console.log(topPosition)
+        console.log(leftPosition)
         setData(accelerometerData)
-        setTopPosition(topPosition - (accelerometerData.y * 50))
-        setLeftPosition(leftPosition + (accelerometerData.x * 50))
+        setTopPosition(50 - (accelerometerData.y * 50))
+        setLeftPosition(50 + (accelerometerData.x * 50))
         // setTopPosition(50)
         // setLeftPosition(50)
 
@@ -109,26 +112,21 @@ const CatGif = () => {
 	color: red;
 `
 
-  const MovingIcon = styled(Ionicons)`
-    z-index: 2;
-    color: tomato;
-    font-size: 60px;
-    position: absolute;
-    top: ${topPosition}%;
-    left: ${leftPosition}%;
-    /* transform: translate(-50%, -50%); */
-`
-
   const FixedIcon = styled(Ionicons)`
-    z-index: 1;
+    z-index: 2;
     color: gray;
     font-size: 100px;
     position: absolute;
     top: 30%;
     left: 70%;
-    /* transform: translate(-50%, -50%); */
 `
 
+  const MovingIconContainer = styled(View)`
+    z-index: 1;
+    position: absolute;
+    top: ${topPosition}%;
+    left: ${leftPosition}%;
+`
 
 
 
@@ -156,11 +154,14 @@ const CatGif = () => {
   }
 
 
-  // if (isLoading) {
-  //   return <Loader isLoading={isLoading} />
-  // }
   const startOver = () => {
-    setOnTarget(false)
+    setData({
+      x: 0,
+      y: 0,
+      z: 0,
+    })
+    setTopPosition(50)
+    setLeftPosition(50)
     setCatGifURL('')
     setModalVisible(!modalVisible)
     setOnTarget(false)
@@ -179,8 +180,10 @@ const CatGif = () => {
         <Title>{onTarget ? 'good' : 'bad'}</Title>
         {subscription &&
           <>
-            <FixedIcon name="ios-cloud-outline" />
-            <MovingIcon name="ios-logo-octocat" />
+            <FixedIcon name="ios-cloud" />
+            <MovingIconContainer>
+              <FontAwesomeIcon icon={faCat} size={50} color='tomato' />
+            </MovingIconContainer>
           </>
         }
 

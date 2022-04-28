@@ -3,6 +3,8 @@ import { Button, View, StyleSheet, Text } from 'react-native'
 import styled from 'styled-components/native'
 import { useFonts, Sacramento } from '@expo-google-fonts/inter';
 import AppLoading from 'expo-app-loading';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faCat } from '@fortawesome/free-solid-svg-icons/faCat'
 
 // This is the main container for this screen
 // const FeedContainer = styled.View`
@@ -44,12 +46,13 @@ const Home = () => {
 
   return (
     <Container>
-      <Title>Welcome to the</Title>
+      <FontAwesomeIcon icon={faCat} size={100} color='white' />
       <View>
       <BigTitle>Cat</BigTitle>
       <BigTitle>Randomizer</BigTitle>
       </View>
-      <Title>Choose a screen</Title>
+      {/* <Title>Choose a screen</Title> */}
+      <FontAwesomeIcon icon={faCat} size={100} color='white' />
 
     </Container>
   )

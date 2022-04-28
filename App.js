@@ -8,7 +8,6 @@ import CatMeme from './screens/CatMeme'
 
 import Home from './screens/Home';
 import CatGif from './screens/CatGif'
-import CatFactWalk from './screens/CatFactWalk';
 
 import { Ionicons } from '@expo/vector-icons'
 // import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -31,17 +30,14 @@ const App = () => {
                 iconName = focused
                   ? 'ios-information-circle'
                   : 'ios-information-circle-outline'
-              } else if (route.name === 'Meme') {
+              } else if (route.name === 'Design a meme') {
                 iconName = focused ? 'ios-build' : 'ios-build-outline'
-              } else if (route.name === 'Image') {
+              } else if (route.name === 'Shake a cutie') {
                 iconName = focused ? 'ios-shuffle' : 'ios-shuffle-outline'
-              } else if (route.name === 'CatFactWalk') {
-                iconName = focused ? 'ios-walk' : 'ios-walk-outline'
-              } else if (route.name === 'Gif') {
+              } else if (route.name === 'Cloud the cat') {
                 iconName = focused ? 'ios-game-controller' : 'ios-game-controller-outline'
               }
 
-              // You can return any component that you like here!
               return <Ionicons name={iconName} size={size} color={color} />
             },
             tabBarActiveTintColor: 'tomato',
@@ -49,10 +45,9 @@ const App = () => {
           })}
         >
           <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="Meme" component={CatMeme} />
-          <Tab.Screen name="Gif" component={CatGif} />
-          <Tab.Screen name="Image" component={CatImage} />
-          <Tab.Screen name="CatFactWalk" component={CatFactWalk} />
+          <Tab.Screen name="Design a meme" component={CatMeme} />
+          <Tab.Screen name="Cloud the cat" component={CatGif} />
+          <Tab.Screen name="Shake a cutie" component={CatImage} />
 
         </Tab.Navigator>
       </NavigationContainer>

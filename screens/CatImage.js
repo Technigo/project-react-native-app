@@ -137,6 +137,7 @@ const CatImage = () => {
   }, [])
 
   const generateUglyCat = () => {
+    unsubscribe()
     setModalVisible(true)
     setIsLoading(true)
     fetch(RandomUglyCatAPI())
@@ -147,11 +148,11 @@ const CatImage = () => {
         setCatInfoURL(data[0].breeds[0].wikipedia_url)
         setIsLoading(false)
         setMessage('Come on, try a bit harder for a cute cat!')
-        unsubscribe()
       })
   }
 
   const generateNiceCat = () => {
+    unsubscribe()
     setModalVisible(true)
     setIsLoading(true)
     fetch(RandomCuteCatAPI())
@@ -162,13 +163,17 @@ const CatImage = () => {
         setCatInfoURL(data[0].breeds[0].wikipedia_url)
         setIsLoading(false)
         setMessage('Try again for another nice cat!')
-        unsubscribe()
-
       })
   }
 
 
   const startOver = () => {
+    unsubscribe()
+    setData({
+      x: 0,
+      y: 0,
+      z: 0,
+    })
     setCatURL('')
     setCatBreed('')
     setMessage('')
@@ -178,10 +183,12 @@ const CatImage = () => {
 
 
   const shakeForACat = () => {
-    if (!isShakingEnough(data) && isShaking(data)) {
-      generateUglyCat()
-    } else if (isShakingEnough(data)) {
-      generateNiceCat()
+    if(catURL === '') {
+      if (isShakingEnough(data)) {
+        generateNiceCat()
+      } else if (isShaking(data)) {
+        generateUglyCat()
+      }  
     }
   }
 
@@ -197,9 +204,7 @@ const CatImage = () => {
         <ModalComponent message={message} catInfoURL={catInfoURL} catBreed={catBreed} startOver={startOver} setModalVisible={setModalVisible} modalVisible={modalVisible} shareURL={catURL} shareText={`Look at this ${catBreed}!`} shareTitle={`Share this cat picture`} />
 
         <TouchableOpacity onPress={subscribe}>
-          {/* <Title>Start</Title> */}
-
-          <Title>{subscription ? 'Start shaking now!' : 'Click here to start'}</Title>
+          <Title>{subscription ? 'Start shaking now!' : 'Click here to start!'}</Title>
         </TouchableOpacity>
 
       </Container>
