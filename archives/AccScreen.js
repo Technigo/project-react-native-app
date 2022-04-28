@@ -18,22 +18,29 @@ const AccScreen = () => {
   const [leftPosition, setLeftPosition] = useState(50)
 
 
-  const _slow = () => {
+  const slow = () => {
     Accelerometer.setUpdateInterval(1000)
   }
 
-  const _medium = () => {
+  const medium = () => {
     Accelerometer.setUpdateInterval(800)
   }
 
 
-  const _fast = () => {
+  const fast = () => {
     Accelerometer.setUpdateInterval(200)
 
     // Accelerometer.setUpdateInterval(16)
   }
 
-  const _subscribe = () => {
+  const subscribe = () => {
+    // setData({
+    //   x: 0,
+    //   y: 0,
+    //   z: 0,
+    // })
+    // setTopPosition(50)
+    // setLeftPosition(50)
     setSubscription(
       Accelerometer.addListener(accelerometerData => {
         setData(accelerometerData)
@@ -46,14 +53,14 @@ const AccScreen = () => {
     )
   }
 
-  const _unsubscribe = () => {
+  const unsubscribe = () => {
     subscription && subscription.remove()
     setSubscription(null)
   }
 
   useEffect(() => {
-    _subscribe()
-    return () => _unsubscribe()
+    unsubscribe()
+    return () => subscribe()
   }, [])
 
   const { x, y, z } = data
@@ -83,7 +90,7 @@ const AccScreen = () => {
     /* transform: translate(-50%, -50%); */
 `
 
-  const Patate = () => {
+  const onTarget = () => {
     if (x >= 0.45 && x <= 0.55 && y >= 0.26 && y <= 0.38) {
       return <Text>BRAVO!</Text>
     } else if (x >= 0.45 && x <= 0.55) {
@@ -95,7 +102,7 @@ const AccScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Title>{Patate()}</Title>
+      <Title>{onTarget()}</Title>
       <FixedIcon name="ios-cloud-outline" />
       <MovingIcon name="ios-logo-octocat" />
       <Text style={styles.text}>Accelerometer: (in Gs where 1 G = 9.81 m s^-2)</Text>
@@ -103,16 +110,16 @@ const AccScreen = () => {
         x: {round(x)} y: {round(y)} z: {round(z)}
       </Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={subscription ? _unsubscribe : _subscribe} style={styles.button}>
+        <TouchableOpacity onPress={subscription ? unsubscribe : subscribe} style={styles.button}>
           <Text>{subscription ? 'On' : 'Off'}</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={_slow} style={[styles.button, styles.middleButton]}>
+        <TouchableOpacity onPress={slow} style={[styles.button, styles.middleButton]}>
           <Text>Slow</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={_medium} style={[styles.button, styles.middleButton]}>
+        <TouchableOpacity onPress={medium} style={[styles.button, styles.middleButton]}>
           <Text>Medium</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={_fast} style={styles.button}>
+        <TouchableOpacity onPress={fast} style={styles.button}>
           <Text>Fast</Text>
         </TouchableOpacity>
       </View>

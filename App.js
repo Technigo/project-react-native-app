@@ -4,19 +4,17 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import ModalScreen from './screens/ModalScreen'
+import CatMeme from './screens/CatMeme'
 
 import Home from './screens/Home';
-import CatButtonGif from './screens/CatButtonGif'
-import CatButtonMeme from './screens/CatButtonMeme'
+import CatGif from './screens/CatGif'
 import CatFactWalk from './screens/CatFactWalk';
-import CatImageShake from './screens/CatImageShake'
-import AccScreen from './screens/AccScreen'
 
 import { Ionicons } from '@expo/vector-icons'
 // import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import * as Sharing from 'expo-sharing'
+import CatImage from './screens/CatImage'
 
 
 const Tab = createBottomTabNavigator()
@@ -33,15 +31,13 @@ const App = () => {
                 iconName = focused
                   ? 'ios-information-circle'
                   : 'ios-information-circle-outline'
-              } else if (route.name === 'CatButtonGif') {
-                iconName = focused ? 'ios-star' : 'ios-star-outline'
-              } else if (route.name === 'CatButtonMeme') {
-                iconName = focused ? 'ios-happy' : 'ios-happy-outline'
-              } else if (route.name === 'CatImageShake') {
+              } else if (route.name === 'Meme') {
+                iconName = focused ? 'ios-build' : 'ios-build-outline'
+              } else if (route.name === 'Image') {
                 iconName = focused ? 'ios-shuffle' : 'ios-shuffle-outline'
               } else if (route.name === 'CatFactWalk') {
                 iconName = focused ? 'ios-walk' : 'ios-walk-outline'
-              } else if (route.name === 'AccScreen') {
+              } else if (route.name === 'Gif') {
                 iconName = focused ? 'ios-game-controller' : 'ios-game-controller-outline'
               }
 
@@ -53,13 +49,10 @@ const App = () => {
           })}
         >
           <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="ModalScreen" component={ModalScreen} />
-
-          <Tab.Screen name="CatButtonGif" component={CatButtonGif} />
-          <Tab.Screen name="CatButtonMeme" component={CatButtonMeme} />
-          <Tab.Screen name="CatImageShake" component={CatImageShake} />
+          <Tab.Screen name="Meme" component={CatMeme} />
+          <Tab.Screen name="Gif" component={CatGif} />
+          <Tab.Screen name="Image" component={CatImage} />
           <Tab.Screen name="CatFactWalk" component={CatFactWalk} />
-          <Tab.Screen name="AccScreen" component={AccScreen} />
 
         </Tab.Navigator>
       </NavigationContainer>

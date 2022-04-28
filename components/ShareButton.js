@@ -1,29 +1,30 @@
 import React from 'react'
 import { Share, View, Button } from 'react-native'
 
-
 const ShareButton = ({ shareURL, shareText, shareTitle }) => {
 
-  const onShare = async () => {
+const onShare = async () => {
 
-    try {
-      const result = await Share.share({
-        message: shareText,
-        url: shareURL
-      })
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
+  try {
+    const result = await Share.share({
+      message: shareText,
+      url: shareURL,
+      title: shareURL
+    })
+    if (result.action === Share.sharedAction) {
+      if (result.activityType) {
+        // shared with activity type of result.activityType
+      } else {
+        // shared
       }
-    } catch (error) {
-      alert(error.message)
+    } else if (result.action === Share.dismissedAction) {
+      // dismissed
     }
+  } catch (error) {
+    alert(error.message)
   }
+}
+
   return (
     <View style={{ marginTop: 50 }}>
       <Button onPress={onShare} title={shareTitle} />

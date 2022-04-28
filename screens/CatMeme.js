@@ -11,7 +11,7 @@ import { RandomCatMemeAPI } from '../utils/URLs'
 
 import ModalComponent from '../components/ModalComponent'
 
-const ModalScreen = () => {
+const CatMeme = () => {
 
 
   const [memeText, setMemeText] = useState('Too lazy to make a meme...')
@@ -201,4 +201,4 @@ const Title = styled.Text`
 
 
 
-export default ModalScreen
+export default CatMeme

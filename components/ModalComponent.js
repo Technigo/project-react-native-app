@@ -2,22 +2,14 @@ import React, { useState, useEffect } from "react"
 import { Alert, Modal, StyleSheet, Text, Pressable, Image, View, Button, SafeAreaView, TextInput } from "react-native"
 
 import styled from 'styled-components/native'
+import OpenURLButton from './OpenURLButton'
 
 
 import ShareButton from './ShareButton'
 
 
 
-const ModalComponent = ({startOver, modalVisible, setModalVisible, shareTitle, shareText, shareURL}) => {
-
-
-  // const startOver = () => {
-  //   setCatMemeURL('')
-  //   setMemeAction('')
-  //   setMemeText('Too lazy to make a meme...')
-  //   setMemeColor('sienna')
-  //   setModalVisible(!modalVisible)
-  // }
+const ModalComponent = ({message, catInfoURL, catBreed, startOver, modalVisible, setModalVisible, shareTitle, shareText, shareURL}) => {
 
   return (
     
@@ -33,10 +25,12 @@ const ModalComponent = ({startOver, modalVisible, setModalVisible, shareTitle, s
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
+              <Text>{message}</Text>
               <ContainerImage>
                 <CatImage source={{ uri: shareURL }} />
               </ContainerImage>
               <ShareButton shareURL={shareURL} shareText={shareText} shareTitle={shareTitle} />
+              {catBreed !== undefined && <OpenURLButton url={catInfoURL}>{`More about ${catBreed}`}</OpenURLButton>}
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={startOver}
