@@ -1,12 +1,9 @@
 # Project React Native App 📱
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week was to create our own app using React Native and practice on styling using StyleSheet.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+For this project I did a magic 8-ball concept. I used an array of different answers and when shaking the phone the answers are displayed randomly in the screen. This is achieved by importing Accelerometer from expo-sensor. By installing Expo Go we could see changes on both browser and cellphone but most importantly try the Accelerometer on the phone.   
 
 ## View it live
 
