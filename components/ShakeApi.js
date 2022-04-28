@@ -25,13 +25,14 @@ const styles = StyleSheet.create({
         }
 });
 
+const url = `https://randomfox.ca/floof/`
 
 const ShakeApi = ()=> {
 
     const [picture, setPicture] = useState({})
 
     const generatePicture = () => {
-        fetch("https://randomfox.ca/floof/")
+        fetch(url)
         .then(response => response.json())
         .then(data => setPicture(data))
     }
@@ -88,7 +89,7 @@ useEffect(()=> {
     return (
         <View style={styles.container}>
             <Image style={styles.tinyFrame} 
-                    source={picture.image}/>
+                    uri={picture.url}/>
                 <Text style={styles.text}>{picture.link}</Text>
 
                 <TouchableOpacity
