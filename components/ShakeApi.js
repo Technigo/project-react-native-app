@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Button } from 'react-native';
 import styled from 'styled-components';
 import { Accelerometer } from 'expo-sensors';
 import { useFonts, Caveat_400Regular } from '@expo-google-fonts/caveat';
@@ -12,7 +11,6 @@ const Container = styled.View`
 `;
 
 const QuoteWrapper = styled.View`
-  background-color: rgb(178, 184, 180);
   margin-bottom: 10px;
   border-radius: 10;
   margin-left: auto;
@@ -29,25 +27,14 @@ const QuoteCharacter = styled.Text`
   margin: 10px;
 `;
 
-const NextQuote = styled.TouchableOpacity`
-  height: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
-  background-color: rgb(255, 199, 223);
-`;
-
-const ButtonText = styled.Text`
-  font-size: 25px;
-  padding: 13px;
-`;
-
 const ShakeText = styled.Text`
   font-size: 25px;
   padding: 13px;
   margin-right: auto;
   margin-left: auto;
-  width: 150px;
+  width: 230px;
+  border-radius: 20px;
+  background-color: rgb(255, 199, 223);
 `;
 
 const ShakeApi = () => {
@@ -66,8 +53,6 @@ const ShakeApi = () => {
     generateQuote();
   }, []);
 
-  //////////////////////////
-
   const [data, setData] = useState({
     x: 0,
     y: 0,
@@ -75,13 +60,6 @@ const ShakeApi = () => {
   });
   const [subscription, setSubscription] = useState(null);
 
-  //   const _slow = () => {
-  //     Accelerometer.setUpdateInterval(1000);
-  //   };
-
-  //   const _fast = () => {
-  //     Accelerometer.setUpdateInterval(16);
-  //   };
   const { x, y, z } = data;
 
   const subscribe = () => {
@@ -124,13 +102,8 @@ const ShakeApi = () => {
           - {quote.character}
         </QuoteCharacter>
       </QuoteWrapper>
-      <NextQuote onPress={generateQuote}>
-        <ButtonText style={{ fontFamily: 'Caveat_400Regular' }}>
-          Give me a new quote..
-        </ButtonText>
-      </NextQuote>
       <ShakeText style={{ fontFamily: 'Caveat_400Regular' }}>
-        Or just shake your phone!
+        Shake for a new quote!
       </ShakeText>
     </Container>
   );
