@@ -1,25 +1,29 @@
-import React from "react";
-import styled from "styled-components/native";
-import { SensorComponent } from "./components/SensorComponent";
+import React from 'react'
+import { ImageBackground } from 'react-native'
+import styled from 'styled-components/native'
+import { SensorComponent } from './components/SensorComponent'
+
+import Pug from './assets/Pug.jpg'
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: black;
   justify-content: center;
   align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
+`
 
 const App = () => {
   return (
     <Container>
-      <SensorComponent></SensorComponent>
+      <ImageBackground
+        source={Pug}
+        style={{ width: 425, height: 700 }}
+        resizeMode='cover'
+      >
+        <SensorComponent></SensorComponent>
+      </ImageBackground>
     </Container>
-  );
-};
+  )
+}
 
-export default App;
+export default App
