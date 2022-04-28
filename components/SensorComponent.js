@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import { Image } from 'react-native';
+import { Image, Share, Button, TouchableOpacity, Text } from 'react-native';
 
 // ==========================
-// = Functions
+// = Function
 const isShaking = (data) => {
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
   return totalForce > 1.78;
@@ -15,73 +15,80 @@ const isShaking = (data) => {
 const ShakeView = styled.View`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
+
+const Wrapper = styled.View`
+  background-color: white;
+  margin-top: 30%;
+  align-items: center;
+`
 
 const Header = styled.Text`
   font-size: 36px;
   font-weight: bold;
-  color: #aa0000;
+  color: #f54284;
+  margin-top: 20px;
 `;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
+
+const Shake = styled.Text`
+  font-size: 20px;
   font-weight: bold;
+  color: pink;
+  margin-bottom: 20px;
 `;
-const ShakeData = styled.Text``;
+
+const ImageContainer = styled.View`
+  margin: 5%;
+`;
 
 
 
+// const ShakeDataView = styled.View``;
+// const ShakeDataTitle = styled.Text`
+//   font-weight: bold;
+// `;
+// const ShakeData = styled.Text``;
 
-
-
+// ==========================
+// = Function
+  //När ny data kommer in, kallas Accelerometer-eventet. Frekvensen är kontrollerad av setUpdateInterval(millisekunder).
+  //Subscribe = för att sluta använda Accelerometer(oklart). Tar man bort unsubscribe blir det segt och dra mycket batteri.
+  //useEffecten lyssnar när SensorComponent är aktiv.
 
 export const SensorComponent = () => {
-  // This function determines how often our program reads the accelerometer data in milliseconds
-  // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
+  
   Accelerometer.setUpdateInterval(400);
 
-  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
   const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
   });
 
-  // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null);
 
-  
-
   const _subscribe = () => {
-    // Save the subscription so we can stop using the accelerometer later
     setSubscription(
-      // This is what actually starts reading the data
       Accelerometer.addListener((accelerometerData) => {
-        // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
         setData(accelerometerData);
       })
     );
   };
 
-  // This will tell the device to stop reading Accelerometer data.
-  // If we don't do this our device will become slow and drain a lot of battery
   const _unsubscribe = () => {
     subscription && subscription.remove();
     setSubscription(null);
   };
 
   useEffect(() => {
-    // Start listening to the data when this SensorComponent is active
     _subscribe();
-
-    // Stop listening to the data when we leave SensorComponent
     return () => _unsubscribe();
   }, []);
 
-//HANNAS HUNDAR
+// ==========================
+  //HANNAS HUNDAR
   const [dog, setDog] = useState({})
-
-  // const [hasShaken, setShaken] = useState(false)
 
   const generateDog = () => {
     fetch("https://dog.ceo/api/breeds/image/random")
@@ -95,14 +102,50 @@ export const SensorComponent = () => {
     }
   }, [data])
 
+
 //HANNAS HUNDAR
+
+//DELA Social
+
+const onShare = async () => {
+  try {
+    const result = await Share.share({
+      message:
+        "React Native | A framework for building native apps using React",
+    });
+    if (result.action === Share.sharedAction) {
+      if (result.activityType) {
+        // shared with activity type of result.activityType
+      } else {
+        // shared
+      }
+    } else if (result.action === Share.dismissedAction) {
+      // dismissed
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+}; 
+
+//DELA Social
 
   return (
     <ShakeView>
+      <Wrapper>
       <Header>Dog of the Day</Header>
-      {isShaking(data)} 
-      <Image style={{ width: 200, height: 200 }} 
+      <ImageContainer>
+        <Image style={{ width: 300, height: 300 }} 
         source={{ uri: `${dog.message}` }} />
+      </ImageContainer>
+      <Shake>Shake it!</Shake>
+      {/* <Button onPress={ShareDog} title="Share">
+        <Text>Share</Text>
+      </Button> */}
+
+        <TouchableOpacity onPress={onShare}>
+            <Text>Dela&nbsp;&#8595;</Text>
+        </TouchableOpacity> 
+      </Wrapper>
     </ShakeView>
   );
 };
