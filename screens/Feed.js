@@ -9,7 +9,7 @@ import helpers from '../modules/helpers';
 
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
-export const Feed = ({ navigation, isLoggedIn, setPhrases, image }) => {
+const Feed = ({ navigation, isLoggedIn, setPhrases, image }) => {
   const [phrase, setPhrase] = useState(null);
   const [loading, setLoading] = useState(false);
   const [disableButton, setDisableButton] = useState(true);
@@ -63,3 +63,5 @@ export const Feed = ({ navigation, isLoggedIn, setPhrases, image }) => {
     </ImageBackground>
   );
 };
+
+export default Feed;

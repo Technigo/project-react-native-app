@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-
-
-import { Home } from './screens/Home';
-import { Feed } from './screens/Feed';
-import { Likes } from './screens/Likes';
-import Login from './screens/Login';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import image from './assets/office.jpg'
-// import { Base } from './styles';
+
+import Home from './screens/Home';
+import Feed from './screens/Feed';
+import Likes from './screens/Likes';
+import Login from './screens/Login';
+
+import image from './assets/office2.jpg'
 
 const Drawer = createDrawerNavigator();
 

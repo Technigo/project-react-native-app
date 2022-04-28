@@ -16,7 +16,7 @@ import {
 	WhiteBackground
 } from '../styles/styled-components';
 
-export const Likes = ({route, navigation, isLoggedIn, phrases, image}) => {
+const Likes = ({route, navigation, isLoggedIn, phrases, image}) => {
 	const { reload } = route.params || false;
 	// const { phrases, setPhrases } = helpers.savedPhrases();
 
@@ -75,3 +75,5 @@ export const Likes = ({route, navigation, isLoggedIn, phrases, image}) => {
 		</ImageBackground>
 	);
 };
+
+export default Likes;

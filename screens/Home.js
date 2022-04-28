@@ -9,7 +9,7 @@ import helpers from '../modules/helpers';
 // import image from '../assets/office.jpg'
 // The prop "navigation" is important if you are trying to open/toggle the drawer
 //  directly via Javascript
-export const Home = ({ navigation, image }) => {
+const Home = ({ navigation, image }) => {
     const [phrase, setPhrase] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -51,3 +51,5 @@ export const Home = ({ navigation, image }) => {
         </ImageBackground>
     );
 };
+
+export default Home;
