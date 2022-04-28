@@ -29,11 +29,12 @@ const Artworkslist = () => {
 
   return (
     <ArtworkContainer>
+    <Text>REMBRANDT RANDOMIZER</Text>
     {artworks.map((artwork) => {
       return (
-        <View key={artwork.id}>
-          <Text>{artwork.title}</Text>
-          <ArtworkImage source={artwork.headerImage}/>
+        <View key={artwork?.id}>
+          <Text>{artwork?.title}</Text>
+          <ArtworkImage source={artwork?.headerImage}/>
         </View>
       )
     })}

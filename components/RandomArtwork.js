@@ -17,10 +17,21 @@ const ArtworkImage = styled.Image`
 
 const RandomArtwork = () => {
 
+  const generateRandomArtwork = () => {
+    fetch(REMBRANDT_URL)
+    .then(res => res.json())
+    .then(data => setRandomArtwork(data.artObjects[Math.floor(Math.random()*10)]))
+  }
+
+  useEffect(() => {
+    generateRandomArtwork();
+  }, []);
+
+
   const [randomArtwork, setRandomArtwork] = useState([])
   const [subscription, setSubscription] = useState(null);
 
-  const url = randomArtwork.webImage.url;
+  const url = randomArtwork?.webImage?.url;
   const title = "Rembrandt Artwork";
   const message = "Look at this beautiful artwork";
 
@@ -43,16 +54,6 @@ const RandomArtwork = () => {
     y: 0,
     z: 0,
   });
-
-  const generateRandomArtwork = () => {
-    fetch(REMBRANDT_URL)
-    .then(res => res.json())
-    .then(data => setRandomArtwork(data.artObjects[Math.floor(Math.random()*10)]))
-  }
-
-  useEffect(() => {
-    generateRandomArtwork();
-  }, []);
 
   const subscribe = () => {
     setSubscription(
@@ -86,9 +87,10 @@ const RandomArtwork = () => {
   return (
     <ArtworkContainer>
       <View>
-        <Text>{randomArtwork.longTitle}</Text>
-        <ArtworkImage source={randomArtwork.webImage}/>
+        <Text>{randomArtwork?.longTitle}</Text>
+        <ArtworkImage source={randomArtwork?.webImage}/>
         <Button title="share" onPress={async () => { await onShare()}}/>
+        <Text>Shake me for surprise</Text>
       </View>
     </ArtworkContainer>
   )
