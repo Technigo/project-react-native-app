@@ -1,13 +1,13 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+App built with React Native
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I chose to make an app which fetches image and information about space and presents it with image and title. More info about the picture is shown in a textbox that is shown when clicking a button. Another button shows a new image with info.
+Added a share-function but didn´t manage to make it work. I think it´s because I have mapped the fetched information. If I had more time I would have tried another approach.
+I chose to style with CSS in Js.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+

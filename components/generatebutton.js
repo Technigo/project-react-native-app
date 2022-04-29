@@ -1,6 +1,25 @@
-import React, { useState, useDispatch } from "react";
+import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import Constants from "expo-constants";
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 0,
+  },
+  text: {
+    fontSize: 20,
+    color: "#ced7e0",
+    margin: 0,
+  },
+  button: {
+    padding: 12,
+    backgroundColor: "#1d1124",
+    borderRadius: 10,
+    fontSize: 40,
+  },
+});
 
 export const GenerateButton = ({ handlePress }) => {
   return (
@@ -16,24 +35,3 @@ export const GenerateButton = ({ handlePress }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
-    padding: 8,
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 20,
-    color: "#ced7e0",
-  },
-  button: {
-    padding: 12,
-    margin: 10,
-    borderColor: "#001736",
-    borderRadius: 10,
-    fontSize: 40,
-  },
-});

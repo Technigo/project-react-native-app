@@ -1,24 +1,28 @@
 import React from "react";
-import styled from "styled-components/native";
-import { GenerateButton } from "./components/generatebutton";
 import { Facts } from "./components/facts";
-import { Startpage } from "./components/startpage";
+import img from "./assets/space.jpeg";
+import { ImageBackground, StyleSheet, View } from "react-native";
 
-const Container = styled.View`
-  flex: 1;
-  background-color: black;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-`;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 40,
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+  },
+});
 
 const App = () => {
   return (
-    <Container>
-      <Startpage />
-      <Facts />
-      {/* <GenerateButton /> */}
-    </Container>
+    <ImageBackground source={img} style={styles.image} resizeMode="cover">
+      <View style={styles.container}>
+        <Facts />
+      </View>
+    </ImageBackground>
   );
 };
 

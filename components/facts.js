@@ -18,53 +18,53 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    // paddingTop: StatusBar.currentHeight,
-    height: 200,
-    marginBottom: 20,
+    paddingTop: StatusBar.currentHeight,
+    margin: 0,
+    height: 300,
   },
-
   title: {
-    fontSize: 24,
-    color: "grey",
+    fontSize: 38,
+    color: "#ced7e0",
+    paddingBottom: 20,
   },
-
   image: {
     width: 300,
     height: 300,
     margin: 10,
+    resizeMode: "contain",
   },
-
   text: {
-    color: "white",
+    color: "#ced7e0",
     padding: 10,
+    fontSize: 14,
   },
-
   imgtext: {
-    color: "white",
-    fontSize: 20,
+    color: "#ced7e0",
+    fontSize: 24,
     textAlign: "center",
   },
-
   moreText: {
     color: "#ced7e0",
+    fontSize: 14,
   },
-
   factBox: {
     flex: 1,
     alignItems: "center",
   },
-
-  scroll: {
-    // backgroundColor: "#001736",
-    marginHorizontal: 20,
-    height: 300,
+  btnBox: {
+    flexDirection: "row",
+    marginBottom: 10,
+    marginTop: 10,
   },
-
+  scroll: {
+    marginHorizontal: 20,
+    backgroundColor: "#1d1124",
+  },
   button: {
     padding: 8,
     margin: 10,
-    backgroundColor: "transparent",
-    borderRadius: 2,
+    backgroundColor: "#1d1124",
+    borderRadius: 10,
   },
 });
 
@@ -87,8 +87,7 @@ export const Facts = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message:
-          "React Native | A framework for building native apps using React",
+        message: `More about space`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -106,28 +105,30 @@ export const Facts = () => {
 
   return (
     <View style={styles.wrapping}>
-      {/* <Text style={styles.title}>Best of Space!</Text> */}
+      <Text style={styles.title}>About Space</Text>
       {fact.map((item) => (
         <View key={item.url} style={styles.factBox}>
           <Image style={styles.image} source={{ uri: item.url }} />
           <Text style={styles.imgtext}>{item.title}</Text>
-          <TouchableOpacity style={styles.button} onPress={onShare}>
-            <Text style={styles.moreText}>Dela&nbsp;&#8595;</Text>
-          </TouchableOpacity>
+          <View style={styles.btnBox}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                setVisible(!visible);
+              }}
+            >
+              <Text style={styles.moreText}>Learn more..&nbsp;&#8595;</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={onShare}>
+              <Text style={styles.moreText}>Share</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.container}>
             <ScrollView style={styles.scroll}>
               {visible && <Text style={styles.text}>{item.explanation}</Text>}
             </ScrollView>
           </View>
           <GenerateButton handlePress={newItem}></GenerateButton>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setVisible(!visible);
-            }}
-          >
-            <Text style={styles.moreText}>Learn more..&nbsp;&#8595;</Text>
-          </TouchableOpacity>
         </View>
       ))}
     </View>
