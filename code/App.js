@@ -1,7 +1,84 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, FlatList, Pressable, Text } from "react-native";
-import styled from "styled-components/native";
 import * as WebBrowser from "expo-web-browser";
+import TagPressable from "./src/components/TagPressable";
+import styled from "styled-components/native";
+import { API } from "./src/api/api";
+
+const App = () => {
+  const [recipes, setRecipes] = useState([]);
+  const [selectedId, setSelectedId] = useState(0);
+  const [isLoading, setLoading] = useState(false);
+
+  // use callback and spread syntax to keep previous results and add new
+  // consider object with pageIndex index to have more control over the data
+
+  const getRecipes = (url) => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setRecipes(
+          data.response.results.map((item) => ({
+            id: item.id,
+            title: item.webTitle,
+            date: new window.Date(item.webPublicationDate).toLocaleString("en-UK", {
+              weekday: "short",
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            }),
+            thumbnail: item.fields.thumbnail,
+            url: item.webUrl,
+          }))
+        );
+        setLoading(false);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => getRecipes(API[0].url), []);
+
+  const renderItem = ({ item }) => {
+    return (
+      <Article key={item.id}>
+        <Thumbnail source={{ uri: item.thumbnail }} />
+        <Date>{item.date}</Date>
+        <Pressable onPress={() => WebBrowser.openBrowserAsync(item.url)}>
+          <Recipe>{item.title + " >"}</Recipe>
+        </Pressable>
+      </Article>
+    );
+  };
+
+  return (
+    <Container>
+      <Subtitle>RECIPES FROM</Subtitle>
+      <Title>The Guardian</Title>
+      <Tags style={{ marginBottom: 10 }}>
+        {API.map((tag, index) => {
+          const isSelected = index === selectedId
+          return (
+            <TagPressable
+              key={index}
+              tag={tag}
+              index={index}
+              isSelected={isSelected}
+              setLoading={setLoading}
+              setSelectedId={setSelectedId}
+              getRecipes={getRecipes}
+            />
+          );
+        })}
+      </Tags>
+      <SafeAreaView style={{ height: 550 }}>
+        {isLoading && <Loader />}
+        <FlatList data={recipes} renderItem={renderItem} key={(item) => item.id} />
+      </SafeAreaView>
+    </Container>
+  );
+};
+
+export default App;
 
 const Container = styled.View`
   width: 325px;
@@ -67,125 +144,3 @@ const Loader = styled.ActivityIndicator`
   align-items: center;
   justify-content: center;
 `;
-
-const App = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [selectedId, setSelectedId] = useState(0);
-  const [isLoading, setLoading] = useState(false);
-
-  const KEY = "2a13c9c5-db5c-48f4-b672-22e4e94ea6b5";
-  const API = [
-    {
-      title: "Feast",
-      url: `https://content.guardianapis.com/theguardian/feast?api-key=${KEY}&show-fields=thumbnail`,
-    },
-    {
-      title: "Main Course",
-      url: `https://content.guardianapis.com/food/main-course?api-key=${KEY}&show-fields=thumbnail`,
-    },
-    {
-      title: "Side Dishes",
-      url: `https://content.guardianapis.com/food/side-dishes?api-key=${KEY}&show-fields=thumbnail`,
-    },
-    {
-      title: "Dessert",
-      url: `https://content.guardianapis.com/food/dessert?api-key=${KEY}&show-fields=thumbnail`,
-    },
-    {
-      title: "Vegetarian",
-      url: `https://content.guardianapis.com/food/vegetarian?api-key=${KEY}&show-fields=thumbnail`,
-    },
-    {
-      title: "Baking",
-      url: `https://content.guardianapis.com/food/baking?api-key=${KEY}&show-fields=thumbnail`,
-    },
-  ];
-
-  // use callback and spread syntax to keep previous results and add new
-  // consider object with pageIndex index to have more control over the data
-
-  const getRecipes = (url) => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setRecipes(
-          data.response.results.map((item) => ({
-            id: item.id,
-            title: item.webTitle,
-            date: new window.Date(item.webPublicationDate).toLocaleString("en-UK", {
-              weekday: "short",
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            }),
-            thumbnail: item.fields.thumbnail,
-            url: item.webUrl,
-          }))
-        );
-        setLoading(false);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  useEffect(
-    () =>
-      getRecipes(
-        `https://content.guardianapis.com/theguardian/feast?api-key=${KEY}&show-fields=thumbnail`
-      ),
-    []
-  );
-
-  const renderItem = ({ item }) => {
-    return (
-      <Article key={item.id}>
-        <Thumbnail source={{ uri: item.thumbnail }} />
-        <Date>{item.date}</Date>
-        <Pressable onPress={() => WebBrowser.openBrowserAsync(item.url)}>
-          <Recipe>{item.title + " >"}</Recipe>
-        </Pressable>
-      </Article>
-    );
-  };
-
-  return (
-    <Container>
-      <Subtitle>RECIPES FROM</Subtitle>
-      <Title>The Guardian</Title>
-      <Tags style={{ marginBottom: 10 }}>
-        {API.map((tag, index) => {
-          const isSelected = index === selectedId;
-          return (
-            <Pressable
-              key={index}
-              onPress={() => {
-                setLoading(true);
-                setSelectedId(index);
-                getRecipes(tag.url);
-              }}
-              style={{
-                margin: 4,
-                padding: 8,
-                backgroundColor: isSelected ? "rgb(6,41,97)" : "rgb(208,223,236)",
-              }}
-            >
-              <Text
-                style={{
-                  color: isSelected ? "white" : "rgb(6,41,97)",
-                  fontFamily: "Verdana",
-                }}
-              >
-                {tag.title}
-              </Text>
-            </Pressable>
-          );
-        })}
-      </Tags>
-      <SafeAreaView style={{ height: 550 }}>
-        {isLoading && <Loader />}
-        <FlatList data={recipes} renderItem={renderItem} key={(item) => item.id} />
-      </SafeAreaView>
-    </Container>
-  );
-};
-
-export default App;
