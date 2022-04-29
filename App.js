@@ -17,10 +17,10 @@ const Container = styled.View`
 const App = () => {
 	return (
 		<NavigationContainer style={Container}>
-		<Drawer.Navigator initialRouteName="Home">
-		  <Drawer.Screen name="Home" component={Artworkslist} />
-		  <Drawer.Screen name="Surprise Shake Artwork" component={RandomArtwork} />
-		</Drawer.Navigator>
+			<Drawer.Navigator initialRouteName="Home">
+				<Drawer.Screen name="Home" component={Artworkslist} />
+				<Drawer.Screen name="Surprise Artwork" component={RandomArtwork} />
+			</Drawer.Navigator>
 	  </NavigationContainer>
 	);
 };
