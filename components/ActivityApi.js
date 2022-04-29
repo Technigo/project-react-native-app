@@ -1,6 +1,5 @@
-import React, {useState} from 'react'   
+import React, { useState } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
-
 
 
 const styles = StyleSheet.create({
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
         width: 170,
         padding: 5,
         borderRadius: 50,
-        margin: 15,   
+        margin: 15,
     },
     buttonText: {
         fontSize: 18,
@@ -36,21 +35,21 @@ const ActivityApi = () => {
 
     const generateActivity = () => {
         fetch('http://www.boredapi.com/api/activity')
-        .then(response => response.json())
-        .then((data) => setActivity(data))
+            .then(response => response.json())
+            .then((data) => setActivity(data))
     }
 
     return (
-        <View style={styles.container}>       
-                <TouchableOpacity 
+        <View style={styles.container}>
+            <TouchableOpacity
                 style={styles.button}
                 onPress={generateActivity}>
                 <Text style={styles.buttonText}>Find activity!</Text>
-            </TouchableOpacity> 
+            </TouchableOpacity>
             <Text style={styles.activityText}> {activity.activity}</Text>
         </View>
     )
 }
-    
+
 
 export default ActivityApi
