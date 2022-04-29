@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, Button } from "react-native"
-import styled from "styled-components/native";
+import LottieView from 'lottie-react-native';
+import AppLoading from 'expo-app-loading';
+import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
 
 
-const APIButton = styled.Button`
-font-weight: 700;
-background-color: blue;
-width: 50%;
-`
-
-
-const ButtonApi = () => {
-    // const [quote, setQuote] = useState({})
+const Facts = () => {
     const [color, setColor] = useState({color: 'pink',});
   
   // Add random background color with the press of a button
@@ -28,36 +22,30 @@ const ButtonApi = () => {
       console.log("New color: "+color.color);
     }
 
-    // const generateQuote = () => {
-    //     fetch("https://api.quotable.io/random")
-    //     .then(res => res.json())
-    //     .then(data => setQuote(data))
-    // }
+    let [fontsLoaded] = useFonts({
+      Inter_900Black,
+    });
 
-    // useEffect(() => {
-    //     generateQuote()
-    // }, [])
+    if (!fontsLoaded) {
+      return <AppLoading />;
+    }
 
     return(
         <View style={[styles.container, {backgroundColor: color.color }]}>
-            {/* <Text>
-                {quote.content}
-            </Text>
-            <Text>
-                {quote.author}
-            </Text>
-        <APIButton title="Click me!" onPress={generateQuote}/> */}
+           
+          <LottieView
+          source={require('../assets/animation.json')}
+          autoPlay/>
 
-        
-
-          <Text style={{ textAlign:"center" }}>Fox families live in underground dens. 
+          <Text style={{ textAlign:"center" }}>
+            Fox families live in underground dens. 
               These underground dens also provide shelter from predators, such as coyotes, wolves, and bears. 
               Humans, however, pose the largest threat to foxes.</Text>
             <Text style={{ textAlign:"center" }}>Foxes stink. They have a sickly, musty scent that comes from the glands at the base of their tails. 
               If you start smelling this around your home or in your crawl space, it may be an indicator that foxes are near.</Text>
             <Text style={{ textAlign:"center" }}>When you are reading this you might think: "Foxes have alot of similarities with developers.</Text>
-            
-          <Button title="Color" onPress={randomHex}/>
+
+          <Button title="Change background" onPress={randomHex}/>
 
         
         </View>
@@ -69,7 +57,7 @@ var styles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 }
 
-export default ButtonApi
+export default Facts

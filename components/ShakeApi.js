@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, SliderComponent, Image } from "react-native"
+import { View, Text, Image, Button } from "react-native"
 import styled from "styled-components/native";
 import { Accelerometer } from "expo-sensors";
+
 
 const Container = styled.View`
 width: 100%;
@@ -13,17 +14,18 @@ const StyledImage = styled.Image`
 
 
 
-const ShakeApi = () => {
+const ShakeApi = ({ navigation }) => {
 
     const [images, setImages] = useState({})
-
-
 
 
 const generateImage = () => {
         fetch("https://randomfox.ca/floof/")
         .then(res => res.json())
-        .then(data => setImages(data))      
+        .then(data => setImages(data))
+        .catch((error) => {
+          console.log(error)
+        })      
 }
 
 useEffect(() => {
@@ -37,13 +39,6 @@ const [data, setData] = useState({
   });
   const [subscription, setSubscription] = useState(null);
 
-  // const _slow = () => {
-  //   Accelerometer.setUpdateInterval(1000);
-  // };
-
-  // const _fast = () => {
-  //   Accelerometer.setUpdateInterval(16);
-  // };
   const { x, y, z } = data;
 
   const subscribe = () => {
@@ -78,17 +73,22 @@ const [data, setData] = useState({
 
  
   return (  
-  <Container>
-      
-      <StyledImage 
-      style={{width: '100%', height: '100%'}}
-      source={{ uri: `${images.image}` }}></StyledImage>
+    <Container>
+        
+        <StyledImage 
+        style={{width: '100%', height: '100%'}}
+        source={{ uri: `${images.image}` }}></StyledImage>
+  
+        <Button
+        onPress={() => navigation.navigate('Facts')}
+        title="Read fox facts"
+        />
+  
+    </Container>
+  
+    );
 
-      <Text>Enjoy your Fox Randomizer</Text>
-
-  </Container>
-
-  );
+ 
 }
 
 export default ShakeApi
