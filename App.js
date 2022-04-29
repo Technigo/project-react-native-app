@@ -1,14 +1,17 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
-// import styled from 'styled-components/native'
 import ApiFetch from './components/ApiFetch'
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>A clever quote on your coding journey</Text>
-      <ApiFetch />
+      <ScrollView style={styles.scrollView}>
+        <Text style={styles.title}>A clever quote on your coding journey</Text>
+        <View style={styles.quoteContainer}>
+          <ApiFetch />
+        </View>
+      </ScrollView>
     </View>
   )
 }
@@ -16,14 +19,25 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     backgroundColor: 'papayawhip',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'space-around',
+    paddingTop: 90
   },
   title: {
-    fontSize: 30,
+    fontSize: 16,
     color: 'palevioletred',
-    margin: 80
+    alignItems: 'center',
+    marginLeft: 30
+  },
+  quoteContainer: {
+    marginTop: 30,
+    alignItems: 'center',
+    padding: 40
+  },
+  scrollView: {
+    marginHorizontal: 20
   }
 })
 
