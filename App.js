@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components/native";
 import { SensorComponent } from "./components/SensorComponent";
-import { ScrollView } from 'react-native'
+import { ScrollView, ImageBackground } from 'react-native'
+import Cat from './assets/cat.jpg'
+import { useFonts, Teko_400Regular } from '@expo-google-fonts/teko'
+import AppLoading from 'expo-app-loading'
 
 const Container = styled.View`
   flex: 1;
-  background-color: powderblue;
   justify-content: center;
   align-items: center;
 `;
@@ -18,27 +20,43 @@ const Header = styled.View`
   align-items: center;
   margin-bottom: 50px;
   margin-top: 100px;
-  position: relative;
 `
 
 const Title = styled.Text`
   font-size: 30px;
   font-weight: 700;
+  text-align: center;
 `
 
 const App = () => {
+
+  let [fontsLoaded] = useFonts({
+    Teko_400Regular,
+  })
+  
+  if (!fontsLoaded) {
+    return <AppLoading />
+  }
+
   return (
-    
-  <Container>
-    <ScrollView>
+    <ImageBackground
+      source={Cat}
+      style={{ width: 390, height: 850 }}
+      resizeMode='cover'
+      > 
       <Container>
-      <Header>
-        <Title>SHAKE FOR A CAT FACT</Title>
-      </Header>
-      <SensorComponent />
+        <ScrollView>
+          <Container>
+            <Header>
+              <Title 
+                style={{ fontFamily: 'Teko_400Regular', 
+                fontSize: 40 }}>SHAKE FOR A CAT FACT</Title>
+            </Header>
+            <SensorComponent />
+          </Container>
+        </ScrollView>
       </Container>
-    </ScrollView>
-  </Container>
+    </ImageBackground>
     
   );
 };

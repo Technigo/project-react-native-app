@@ -18,7 +18,7 @@ const isShaking = (data) => {
 // ==========================
 // = Styled components
 const ShakeCatFactContainer = styled.View`
-    padding: 30px; 
+    padding: 25px; 
     width: 85%;
     text-align: center; 
     background-color: pink;
@@ -90,6 +90,8 @@ export const SensorComponent = () => {
     }
   }, [data])
 
+  // ========================
+  
 
   return (
     <ShakeCatFactContainer>
