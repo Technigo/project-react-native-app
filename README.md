@@ -9,4 +9,4 @@ But at the begining I wanted to do a step counter, but I didn't managed to get t
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@emmabe/project-react-native-app?serviceType=classic&distribution=expo-go 
