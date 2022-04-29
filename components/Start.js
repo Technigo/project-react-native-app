@@ -4,6 +4,18 @@ import LottieView from 'lottie-react-native'
 
 import animation from '../assets/animation.json'
 
+
+const Start = () => {
+
+    return (
+        <View style={styles.container}>
+            <LottieView source={animation} autoPlay />
+            <Text style={styles.title}>Are you <Text style={styles.highlight}>bored</Text> ?</Text>
+            <Text style={styles.subtitle}>Click the button and let's do something</Text>
+        </View>
+    )
+}
+
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
@@ -26,16 +38,5 @@ const styles = StyleSheet.create({
         marginTop: 70
     },
 })
-
-const Start = () => {
-
-    return (
-        <View style={styles.container}>
-            <LottieView source={animation} autoPlay />
-            <Text style={styles.title}>Are you <Text style={styles.highlight}>bored</Text> ?</Text>
-            <Text style={styles.subtitle}>Click the button and let's do something</Text>
-        </View>
-    )
-}
 
 export default Start

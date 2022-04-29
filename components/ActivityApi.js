@@ -2,6 +2,27 @@ import React, { useState } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 
+const ActivityApi = () => {
+    const [activity, setActivity] = useState({})
+
+    const generateActivity = () => {
+        fetch('http://www.boredapi.com/api/activity')
+            .then(response => response.json())
+            .then((data) => setActivity(data))
+    }
+
+    return (
+        <View style={styles.container}>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={generateActivity}>
+                <Text style={styles.buttonText}>Find activity!</Text>
+            </TouchableOpacity>
+            <Text style={styles.activityText}> {activity.activity}</Text>
+        </View>
+    )
+}
+
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
@@ -29,27 +50,6 @@ const styles = StyleSheet.create({
         marginTop: 30
     }
 })
-
-const ActivityApi = () => {
-    const [activity, setActivity] = useState({})
-
-    const generateActivity = () => {
-        fetch('http://www.boredapi.com/api/activity')
-            .then(response => response.json())
-            .then((data) => setActivity(data))
-    }
-
-    return (
-        <View style={styles.container}>
-            <TouchableOpacity
-                style={styles.button}
-                onPress={generateActivity}>
-                <Text style={styles.buttonText}>Find activity!</Text>
-            </TouchableOpacity>
-            <Text style={styles.activityText}> {activity.activity}</Text>
-        </View>
-    )
-}
 
 
 export default ActivityApi
