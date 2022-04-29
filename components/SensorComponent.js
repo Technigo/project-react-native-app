@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
 import { Text } from "react-native";
+
 // ==========================
 // = Functions
 const isShaking = (data) => {
@@ -12,7 +13,7 @@ const isShaking = (data) => {
 
   // If this force exceeds some threshold, return true, otherwise false
   // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.78;
+  return totalForce > 1.85;
 };
 
 // ==========================
@@ -20,18 +21,31 @@ const isShaking = (data) => {
 const ShakeView = styled.View`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
+const Header = styled.Text`
+  font-size: 25px;
   font-weight: bold;
-  color: #aa0000;
+  color: #b8a51a;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background: black;
+  padding: 5px;
 `;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
+
+const StyledText = styled.Text`
+  margin-top: 70%
+  font-size: 25px;
+  color: #0af2a9;
+  width: 70%
+  text-align: center;
   font-weight: bold;
+ 
+  padding: 5px;
+ 
 `;
-const ShakeData = styled.Text``;
 
 const answers = [
   "Shit before you shower, then you don't have to wipe",
@@ -118,7 +132,8 @@ export const SensorComponent = () => {
 
   return (
     <ShakeView>
-      <Text>{answer}</Text>
+      <Header>Ask your question and shake</Header>
+      <StyledText>{answer}</StyledText>
     </ShakeView>
   );
 };

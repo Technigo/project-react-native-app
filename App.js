@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
+import { ImageBackground } from "react-native";
 import { SensorComponent } from "./components/SensorComponent";
+import Background from "./assets/Background.jpg";
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: black;
   justify-content: center;
   align-items: center;
 `;
@@ -17,7 +19,13 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <SensorComponent></SensorComponent>
+      <ImageBackground
+        source={Background}
+        style={{ width: 425, height: 700 }}
+        resizeMode="cover"
+      >
+        <SensorComponent></SensorComponent>
+      </ImageBackground>
     </Container>
   );
 };
