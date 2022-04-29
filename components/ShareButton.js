@@ -1,7 +1,10 @@
 import React from 'react'
-import { Share, View, Button } from 'react-native'
+import { Share, View, Text, TouchableOpacity } from 'react-native'
+import styled from 'styled-components/native'
 
-const ShareButton = ({ shareURL, shareText, shareTitle }) => {
+import { SecondaryButton, SecondaryButtonText } from '../styles/GlobalStyles'
+
+const ShareButton = ({ shareURL, shareText }) => {
 
 const onShare = async () => {
 
@@ -26,10 +29,11 @@ const onShare = async () => {
 }
 
   return (
-    <View style={{ marginTop: 50 }}>
-      <Button onPress={onShare} title={shareTitle} />
-    </View>
+    <SecondaryButton onPress={onShare}>
+      <SecondaryButtonText>Share</SecondaryButtonText>
+    </SecondaryButton>
   )
 }
 
 export default ShareButton
+

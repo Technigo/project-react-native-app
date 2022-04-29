@@ -1,35 +1,20 @@
-import React, { useState } from 'react'
-import { Button, View, StyleSheet, Text } from 'react-native'
+import React from 'react'
+import { View } from 'react-native'
 import styled from 'styled-components/native'
-import { useFonts, Sacramento } from '@expo-google-fonts/inter';
-import AppLoading from 'expo-app-loading';
+import { useFonts } from '@expo-google-fonts/inter'
+import AppLoading from 'expo-app-loading'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCat } from '@fortawesome/free-solid-svg-icons/faCat'
 
-// This is the main container for this screen
-// const FeedContainer = styled.View`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100%;
-// `
+import { Container } from '../styles/GlobalStyles'
 
-const Container = styled.View`
-	flex: 1;
-	/* background-color: papayawhip; */
-	justify-content: space-around;
-	align-items: center;
-  padding: 0 30px;
-  background-color: tomato;
+const ContainerHome = styled(Container)`
+  background-color: #e63946;
+
 `
 
 const Title = styled.Text`
-	font-size: 24px;
-	color: gray;
-`
-
-const BigTitle = styled.Text`
-	font-size: 60px;
+	font-size: 70px;
   font-family: 'Sacramento';
 	color: white;
   text-align: center;
@@ -38,23 +23,20 @@ const BigTitle = styled.Text`
 const Home = () => {
   let [fontsLoaded] = useFonts({
     'Sacramento': require('../assets/Sacramento-Regular.ttf'),
-  });
+  })
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return <AppLoading />
   }
 
   return (
-    <Container>
-      <FontAwesomeIcon icon={faCat} size={100} color='white' />
+    <ContainerHome>
+      <FontAwesomeIcon icon={faCat} size={200} color="#1d3557" />
       <View>
-      <BigTitle>Cat</BigTitle>
-      <BigTitle>Randomizer</BigTitle>
+        <Title>Cat</Title>
+        <Title>Randomizer</Title>
       </View>
-      {/* <Title>Choose a screen</Title> */}
-      <FontAwesomeIcon icon={faCat} size={100} color='white' />
-
-    </Container>
+    </ContainerHome>
   )
 }
 

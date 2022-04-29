@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Button, View, Pressable, TouchableOpacity, StyleSheet, Text } from 'react-native'
+import { Button, Vibration, View, Pressable, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Text, TouchableHighlight } from 'react-native'
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
 import { Ionicons } from '@expo/vector-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCat, faBullseye } from '@fortawesome/free-solid-svg-icons/faCat'
+import { faCat } from '@fortawesome/free-solid-svg-icons/faCat'
 
-
+import { Container, PrimaryButton, PrimaryButtonText } from '../styles/GlobalStyles'
 
 import ModalComponent from '../components/ModalComponent'
 
@@ -14,6 +14,7 @@ import ModalComponent from '../components/ModalComponent'
 import Loader from '../components/Loader'
 
 import { RandomCatGifAPI } from '../utils/URLs'
+import Instructions from '../components/Instructions'
 // import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const CatImage = styled.Image`
@@ -21,29 +22,12 @@ const CatImage = styled.Image`
   height: 375px;
 `
 
-// This is the main container for this screen
-// const FeedContainer = styled.View`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100%;
-// `
-
-const Container = styled.View`
-	flex: 1;
-	/* background-color: papayawhip; */
-	justify-content: center;
-	align-items: center;
-`
-
 const Title = styled.Text`
 	font-size: 24px;
 	color: black;
 `
 
-const CatGif = () => {
-
-
+const CloudTheCat = () => {
 
   const [data, setData] = useState({
     x: 0,
@@ -57,13 +41,34 @@ const CatGif = () => {
 
   const [onTarget, setOnTarget] = useState(false)
 
+  const tryAgainButtonText = 'Try again'
+
   const checkTarget = () => {
-    if (x >= 0.45 && x <= 0.55 && y >= 0.26 && y <= 0.38) {
+    if (x >= 0.40 && x <= 0.60 && y >= 0.21 && y <= 0.43) {
       setOnTarget(true)
+      // Vibration.vibrate()
     } else {
       setOnTarget(false)
+      // Vibration.cancel()
     }
   }
+
+
+  ///////////////
+  // const shouldVibrate = () => {
+  //   if (x >= 0.45 && x <= 0.55 && y >= 0.26 && y <= 0.38) {
+  //     Vibration.vibrate()
+  //   } else {
+  //     Vibration.cancel()
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   shouldVibrate()
+  // })
+  ///////////////
+
+
 
   useEffect(() => {
     checkTarget()
@@ -80,15 +85,9 @@ const CatGif = () => {
     checkTarget()
     setSubscription(
       Accelerometer.addListener(accelerometerData => {
-        console.log(accelerometerData.y)
-        console.log(topPosition)
-        console.log(leftPosition)
         setData(accelerometerData)
         setTopPosition(50 - (accelerometerData.y * 50))
         setLeftPosition(50 + (accelerometerData.x * 50))
-        // setTopPosition(50)
-        // setLeftPosition(50)
-
       })
     )
   }
@@ -116,9 +115,6 @@ const CatGif = () => {
     z-index: 2;
     color: gray;
     font-size: 100px;
-    position: absolute;
-    top: 30%;
-    left: 70%;
 `
 
   const MovingIconContainer = styled(View)`
@@ -128,6 +124,12 @@ const CatGif = () => {
     left: ${leftPosition}%;
 `
 
+  const FixedIconContainer = styled(TouchableOpacity)`
+    z-index: 3;
+    position: absolute;
+    top: 30%;
+    left: 70%;
+`
 
 
 
@@ -167,70 +169,56 @@ const CatGif = () => {
     setOnTarget(false)
   }
 
-
+const instructionsText = 'Tilt your phone to hide the cat behind the cloud before touching the cloud: if you got it, you will be rewarded!'
 
   return (
     isLoading ? <Loader isLoading={isLoading} /> : (
       <Container>
-        <ModalComponent startOver={startOver} setModalVisible={setModalVisible} modalVisible={modalVisible} shareURL={catGifURL} shareText={`Look at this cat gif!`} shareTitle={`Share this cat gif`} />
-
-        <TouchableOpacity onPress={subscription ? unsubscribe : subscribe} style={[styles.button, styles.buttonOpen]}>
-          <Text>{subscription ? 'Stop' : 'Start'}</Text>
-        </TouchableOpacity>
-        <Title>{onTarget ? 'good' : 'bad'}</Title>
+        <ModalComponent tryAgainButtonText={tryAgainButtonText} startOver={startOver} setModalVisible={setModalVisible} modalVisible={modalVisible} shareURL={catGifURL} shareText={`Look at this cat gif!`} />
+        {(!subscription && !onTarget && !modalVisible) &&
+          <>
+            <Instructions instructionsText={instructionsText} />
+            <PrimaryButton onPress={subscription ? unsubscribe : subscribe}>
+              <PrimaryButtonText>Click here to start!</PrimaryButtonText>
+            </PrimaryButton>
+          </>
+        }
         {subscription &&
           <>
-            <FixedIcon name="ios-cloud" />
+            <Text>{onTarget ? 'good' : 'bad'}</Text>
+            <FixedIconContainer onPressIn={unsubscribe}>
+              <View>
+                <FixedIcon name="ios-cloud" />
+              </View>
+            </FixedIconContainer>
             <MovingIconContainer>
-              <FontAwesomeIcon icon={faCat} size={50} color='tomato' />
+              <FontAwesomeIcon icon={faCat} size={50} color='#e63946' />
             </MovingIconContainer>
           </>
         }
 
-        {(onTarget && !subscription) &&
-          <Pressable
-            style={[styles.button, styles.buttonOpen]}
-            onPress={generateCatGif}
-          >
-            <Text style={styles.textStyle}>Generate a cat gif</Text>
-          </Pressable>
+        {/* <View>
+          <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
+          <Button
+            title="Vibrate with pattern close"
+            onPress={() => Vibration.vibrate(PATTERN_CLOSE)}
+          />
+          <Button
+            title="Vibrate with pattern on target"
+            onPress={() => Vibration.vibrate(PATTERN_ON_TARGET)}
+          />
+        </View> */}
+
+
+
+        {(!subscription && onTarget && !modalVisible) &&
+          <PrimaryButton onPress={generateCatGif}>
+            <PrimaryButtonText>I want a gif!</PrimaryButtonText>
+          </PrimaryButton>
         }
-
-
-
       </Container>
     )
   )
 }
 
-
-const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
-  },
-  buttonOpen: {
-    backgroundColor: "red",
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-})
-
-
-export default CatGif
+export default CloudTheCat

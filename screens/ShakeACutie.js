@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react"
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 
 import { Accelerometer } from "expo-sensors"
-import OpenURLButton from '../components/OpenURLButton'
 
-import ShareButton from '../components/ShareButton'
-
+import ModalComponent from '../components/ModalComponent'
+import Instructions from '../components/Instructions'
 import Loader from '../components/Loader'
+
+import { Container, PrimaryButton, PrimaryButtonText } from '../styles/GlobalStyles'
 
 import { RandomCuteCatAPI, RandomUglyCatAPI } from '../utils/URLs'
 
@@ -51,26 +52,6 @@ const ShakeDataTitle = styled.Text`
 `
 const ShakeData = styled.Text``
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: black;
-`
-
-const CatImage = styled.Image`
-  width: 100%;
-  height: 375px;
-`
-
-
-const Container = styled.View`
-	flex: 1;
-	/* background-color: papayawhip; */
-	justify-content: center;
-	align-items: center;
-`
-
-
-
 // This is the main container for this screen
 const NotificationsContainer = styled.View`
   display: flex;
@@ -79,40 +60,18 @@ const NotificationsContainer = styled.View`
   height: 100%;
 `
 
-const CatImageShake = () => {
+const ShakeACutie = () => {
 
   const [isLoading, setIsLoading] = useState(false)
-  const [message, setMessage] = useState('Shake to generate a random cat')
   const [catURL, setCatURL] = useState('')
   const [catInfoURL, setCatInfoURL] = useState('')
   const [catBreed, setCatBreed] = useState('')
+  const [tryAgainButtonText, setTryAgainButtonText] = useState('')
 
-  const generateUglyCat = () => {
-    setIsLoading(true)
-    fetch(RandomUglyCatAPI())
-      .then(res => res.json())
-      .then(data => {
-        setCatURL(data[0].url)
-        setCatBreed(data[0].breeds[0].name)
-        setCatInfoURL(data[0].breeds[0].wikipedia_url)
-        setIsLoading(false)
-        setMessage('Come on, shake more for a cuter cat!')
-      })
-  }
 
-  const generateNiceCat = () => {
-    setIsLoading(true)
-    fetch(RandomCuteCatAPI())
-      .then(res => res.json())
-      .then(data => {
-        setCatURL(data[0].url)
-        setCatBreed(data[0].breeds[0].name)
-        setCatInfoURL(data[0].breeds[0].wikipedia_url)
-        setIsLoading(false)
-        setMessage('Shake again for another nice cat!')
-      })
-  }
 
+
+  const [modalVisible, setModalVisible] = useState(false)
 
 
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -129,7 +88,7 @@ const CatImageShake = () => {
   // This keeps track of whether we are listening to the Accelerometer data
   const [subscription, setSubscription] = useState(null)
 
-  const _subscribe = () => {
+  const subscribe = () => {
     // Save the subscription so we can stop using the accelerometer later
     setSubscription(
       // This is what actually starts reading the data
@@ -143,64 +102,114 @@ const CatImageShake = () => {
 
   // This will tell the device to stop reading Accelerometer data.
   // If we don't do this our device will become slow and drain a lot of battery
-  const _unsubscribe = () => {
+  const unsubscribe = () => {
     subscription && subscription.remove()
     setSubscription(null)
   }
 
   useEffect(() => {
     // Start listening to the data when this SensorComponent is active
-    _subscribe()
+    unsubscribe()
 
     // Stop listening to the data when we leave SensorComponent
-    return () => _unsubscribe()
+    return () => subscribe()
   }, [])
 
+  const generateUglyCat = () => {
+    unsubscribe()
+    setModalVisible(true)
+    setIsLoading(true)
+    fetch(RandomUglyCatAPI())
+      .then(res => res.json())
+      .then(data => {
+        setCatURL(data[0].url)
+        setCatBreed(data[0].breeds[0].name)
+        setCatInfoURL(data[0].breeds[0].wikipedia_url)
+        setIsLoading(false)
+        setTryAgainButtonText('Ouch! Try harder now?')
+      })
+  }
 
-  const moreURL = catInfoURL
-
-
-  if (isLoading) {
-    return <Loader isLoading={isLoading} />
+  const generateNiceCat = () => {
+    unsubscribe()
+    setModalVisible(true)
+    setIsLoading(true)
+    fetch(RandomCuteCatAPI())
+      .then(res => res.json())
+      .then(data => {
+        setCatURL(data[0].url)
+        setCatBreed(data[0].breeds[0].name)
+        setCatInfoURL(data[0].breeds[0].wikipedia_url)
+        setIsLoading(false)
+        setTryAgainButtonText('Well done! Try again?')
+      })
   }
 
 
+  const startOver = () => {
+    unsubscribe()
+    setData({
+      x: 0,
+      y: 0,
+      z: 0,
+    })
+    setCatURL('')
+    setCatBreed('')
+    setTryAgainButtonText('')
+    setCatInfoURL('')
+    setModalVisible(!modalVisible)
+  }
+
+
+  const shakeForACat = () => {
+    if (catURL === '') {
+      if (isShakingEnough(data)) {
+        generateNiceCat()
+      } else if (isShaking(data)) {
+        generateUglyCat()
+      }
+    }
+  }
+
+  useEffect(() => {
+    shakeForACat()
+  })
+
+  const instructionsText = 'Shake your phone to see if you will get some cute cat or an ugly one!'
+
+
   return (
-    <Container>
-      {!isShakingEnough(data) && (isShaking(data) && generateUglyCat())}
-      {isShakingEnough(data) && generateNiceCat()}
+    isLoading ? <Loader isLoading={isLoading} /> : (
 
-      <Title>{message}</Title>
+      <Container>
 
-      {catURL !== '' && (
-        <>
-          <CatImage source={{ uri: catURL }} />
-          <OpenURLButton url={moreURL}>{`More about ${catBreed}`}</OpenURLButton>
-          <ShareButton shareURL={catURL} shareTitle='Share this cat picture' />
-        </>
-      )}
-    </Container>
+        <ModalComponent tryAgainButtonText={tryAgainButtonText} catInfoURL={catInfoURL} catBreed={catBreed} startOver={startOver} setModalVisible={setModalVisible} modalVisible={modalVisible} shareURL={catURL} shareText={`Look at this ${catBreed}!`} />
 
-    // <ShakeView>
-    //   {/* 
-    //   If isShaking returns true:
-    //     - We could render conditionally
-    //     - Maybe we want to dispatch some redux event when device shakes?
-    //     - Maybe change some styled props? 
-    //   */}
-    //   {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-    //   {isShaking(data) && generateCat()}
+        {(!subscription && !modalVisible) &&
+          <>
+            <Instructions instructionsText={instructionsText} />
 
-    //   <ShakeDataView>
+            <PrimaryButton onPress={subscribe}>
+              {/* fix it so it's not a button anymore when it's time to shake */}
+              {/* and fix it so it's not subscribing anymore when leaving screen if I pressed the button */}
+              <PrimaryButtonText>Click here to start!</PrimaryButtonText>
+            </PrimaryButton>
+          </>
+        }
 
-    //     <ShakeDataTitle>Shake Data</ShakeDataTitle>
-    //     {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-    //     <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-    //     <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-    //     <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-    //   </ShakeDataView>
-    // </ShakeView>
+        {(subscription && !modalVisible) &&
+          <ShakingText>Start shaking now!</ShakingText>}
+
+      </Container>
+    )
   )
 }
 
-export default CatImageShake
+export default ShakeACutie
+
+
+const ShakingText = styled.Text`
+  color: #e63946;
+  font-size: 32px;
+  font-style: italic;
+`
