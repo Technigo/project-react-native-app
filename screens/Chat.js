@@ -274,8 +274,8 @@ const Chat = ({ thread }) => {
           renderUsername={renderBubble}
           renderDay={renderDay}
           multiline={false}
-          bottomOffset={90}
-          // bottomOffset={0}
+          // bottomOffset={90}
+          bottomOffset={0}
           // isKeyboardInternallyHandled={false}
           renderInputToolbar={renderInputToolbar}
           renderSend={renderSend}
