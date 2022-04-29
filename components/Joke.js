@@ -18,21 +18,24 @@ const Joke = ({navigation}) => {
 
     return (
         <ImageBackground source={image} resizeMode="cover" style={styles.background}>
+            <View style={styles.container}>
+                <Text style={styles.title}>{joke.fallback}</Text>
 
-        <View style={styles.container}>
-            <Text style={styles.title}>{joke.fallback}</Text>
-            <LottieView source={require('../assets/haha2.json')} style={{width: 200,
-            height: 200}} autoPlay loop />
-            <TouchableOpacity onPress={() => navigation.navigate('Start')} style={styles.btn}>
-                <Text style={styles.title3}>Restart</Text>
-            </TouchableOpacity>
-        </View>
+                <LottieView source={require('../assets/haha.json')} style={{width: 200,
+                height: 200}} autoPlay loop />
+
+                <TouchableOpacity onPress={() => navigation.navigate('Start')} style={styles.btn}>
+                    <Text style={styles.title3}>Restart</Text>
+                </TouchableOpacity>
+            </View>
         </ImageBackground>
 
     )
 }
 
 export default Joke
+
+/////////////           STYLING        /////////////////
 
 const styles = StyleSheet.create({
     container: {
@@ -64,15 +67,7 @@ const styles = StyleSheet.create({
         padding: 5,
         textAlign: 'center'
     },
-    emoji: {
-        width: 300,
-        height: 200
-    },
     background: {
         flex: 1,
-    },
-    lottie: {
-       margin: 20
     }
-  
 })

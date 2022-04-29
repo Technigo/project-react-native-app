@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import StartPage from './components/StartPage'
 import Quote from './components/Quote'
 import Joke from './components/Joke'
