@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Share } from "react-native";
 import styled from "styled-components/native"
-import { ActivityHeader } from "./ActivityHeader";
+import { Header } from "./Header";
 
 const APIButton=styled.TouchableOpacity`
   font-weight:700;
@@ -41,7 +41,7 @@ const Wrapper = styled.View`
 `;
 
 
-export const ButtonApi=()=>{
+export const ActivityApi=()=>{
 
   const [activity, setActivity]=useState({})
   
@@ -81,7 +81,7 @@ const generateActivity=()=>{
   return(
     <Wrapper>
       <Container>
-        <ActivityHeader/>
+        <Header title={"LOOKING FOR SOMETHING TO DO?"}/>
           <APIButton onPress={generateActivity}>
             <ButtonText>Hit me up!</ButtonText>
           </APIButton>{something?

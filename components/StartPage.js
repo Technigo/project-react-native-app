@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { ButtonApi } from "./ButtonApi";
-import { ShakeApi } from './ShakeApi';
+import { ActivityApi } from "./ActivityApi";
+import { DrinkApi } from './DrinkApi';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
-import { StartHeader } from './StartHeader';
+import { Header } from './Header';
 
 
 function HomeScreen({ navigation }) {
@@ -36,7 +36,7 @@ function HomeScreen({ navigation }) {
 
      return (
 	  <Wrapper style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-	    <StartHeader title={`WELCOME!${"\n"}👇 Pick your activity👇`}/>
+	    <Header title={`WELCOME!${"\n"}👇 Pick your activity👇`}/>
 		  <APIButton onPress={() => navigation.navigate('Find something to do')}>
             <ButtonText>Find something to do!</ButtonText>
           </APIButton>
@@ -55,8 +55,8 @@ function HomeScreen({ navigation }) {
 		<NavigationContainer>
 		  <Drawer.Navigator initialRouteName="Find something todo">
 		    <Drawer.Screen name="Home" component={HomeScreen} />
-		    <Drawer.Screen name="Find something to do" component={ButtonApi} />
-		    <Drawer.Screen name="Pick a drink" component={ShakeApi} />
+		    <Drawer.Screen name="Find something to do" component={ActivityApi} />
+		    <Drawer.Screen name="Pick a drink" component={DrinkApi} />
 		  </Drawer.Navigator>
 	   </NavigationContainer>
    

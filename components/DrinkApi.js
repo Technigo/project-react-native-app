@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 import { Image } from "react-native";
 import styled from "styled-components/native"
 import {Accelerometer} from 'expo-sensors'
-import { DrinkHeader } from "./DrinkHeader";
+import { Header } from "./Header";
 
-export const ShakeApi=()=>{
+export const DrinkApi=()=>{
 
 const Container = styled.View`
   flex: 1;
@@ -67,7 +67,7 @@ const [data, setData] = useState({
 
 const isShaking=(data)=>{
     const totalForce=Math.abs(data.x)+Math.abs(data.y)+Math.abs(data.z)
-    return totalForce>2.5;
+    return totalForce>2.1;
 }
 useEffect(()=>{
     if(isShaking(data)){
@@ -79,7 +79,7 @@ useEffect(()=>{
   return(
   <Wrapper>
      <Container>
-      <DrinkHeader/>
+      <Header  title={"SHAKE FOR DRINK!"}/>
         <Image style={{borderWidth: 5,borderRadius:20, opacity:0.6, width: 200, height: 200 }} 
                source={{ uri:`${drink.strDrinkThumb}`}} />
         <Title>How about a {drink.strDrink}?</Title>
