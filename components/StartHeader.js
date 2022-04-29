@@ -6,12 +6,13 @@ const Title = styled.Text`
     font-weight:900;
 	color: white;
     text-align:center;
-    margin-bottom:30px;
-    border: 2px solid #B6666F;
+    margin-bottom:20px;
     padding:10px;
 `;
 
 
-export const ActivityHeader=()=>{
-  return(<Title>LOOKING FOR SOMETHING TO DO?</Title>)
+export const StartHeader=({title})=>{
+  return(
+    <Title>{title}</Title>
+      )
 }

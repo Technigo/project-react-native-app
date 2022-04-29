@@ -1,43 +1,42 @@
 import React, {useState, useEffect} from "react";
-import { View, Text, Touchabelopacity, Image } from "react-native";
+import { Image } from "react-native";
 import styled from "styled-components/native"
 import {Accelerometer} from 'expo-sensors'
 import { DrinkHeader } from "./DrinkHeader";
+
 export const ShakeApi=()=>{
 
-    const Container = styled.View`
-	flex: 1;
-   
-	justify-content: center;
-	align-items: center;
-    text-align:center;
-    margin:30px;
-    
+const Container = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  margin:30px;
 `;
+
 const Wrapper = styled.View`
-	flex: 1;
-    background-color:#E4C2C1;
-    
+  flex: 1;
+  background-color:#E4C2C1;
 `;
 
 const Title = styled.Text`
-	font-size: 24px;
-  
-	color: palevioletred;
-    text-align:center;
-    margin-top:50px;
+  font-size: 24px;
+  color: palevioletred;
+  text-align:center;
+  margin-top:50px;
+  font-weight:700;
 `;
 
-    const [quote, setQuote]=useState({})
+const [drink, setDrink]=useState({})
 
-const generateQuote=()=>{
+const generateDrink=()=>{
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 .then(response=>response.json())
-.then(data=>setQuote(data.drinks[0]))
+.then(data=>setDrink(data.drinks[0]))
 
 }
 
-useEffect(()=>{generateQuote()}, [])
+useEffect(()=>{generateDrink()}, [])
 ///////
 const [data, setData] = useState({
     x: 0,
@@ -45,17 +44,7 @@ const [data, setData] = useState({
     z: 0,
   });
   const [subscription, setSubscription] = useState(null);
-
- // const _slow = () => {
- //   Accelerometer.setUpdateInterval(1000);
- // };
-
- // const _fast = () => {
-  //  Accelerometer.setUpdateInterval(16);
-//  };
-
-const { x, y, z } = data;
-
+  const { x, y, z } = data;
   const subscribe = () => {
     setSubscription(
       Accelerometer.addListener(accelerometerData => {
@@ -76,37 +65,25 @@ const { x, y, z } = data;
     return () => unsubscribe();
   }, []);
 
-
-
-
-
-/////
-
 const isShaking=(data)=>{
     const totalForce=Math.abs(data.x)+Math.abs(data.y)+Math.abs(data.z)
-    return totalForce>1.78;
+    return totalForce>2.5;
 }
-
 useEffect(()=>{
     if(isShaking(data)){
-        generateQuote();
+        generateDrink();
     }
 }, [data])
 
 
-return(
-
-<Wrapper>
-<Container>
-    <DrinkHeader/>
-
-<Image style={{borderWidth: 5,borderRadius:20, opacity:0.5, width: 200, height: 200 }} 
-        source={{ uri:`${quote.strDrinkThumb}`}} />
-<Title>How about a {quote.strDrink}?</Title>
-</Container>
-</Wrapper>
-)
-
-
-
+  return(
+  <Wrapper>
+     <Container>
+      <DrinkHeader/>
+        <Image style={{borderWidth: 5,borderRadius:20, opacity:0.6, width: 200, height: 200 }} 
+               source={{ uri:`${drink.strDrinkThumb}`}} />
+        <Title>How about a {drink.strDrink}?</Title>
+     </Container>
+   </Wrapper>
+  )
 }

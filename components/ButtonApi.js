@@ -1,28 +1,23 @@
 import React, {useState, useEffect} from "react";
-import { Share, Button, View, Text, Touchabelopacity, Image } from "react-native";
+import { Share } from "react-native";
 import styled from "styled-components/native"
 import { ActivityHeader } from "./ActivityHeader";
 
 const APIButton=styled.TouchableOpacity`
-font-weight:700;
-width:40%;
-margin:auto;
-text-align:center;
-
-background-color:#B6666F;
-margin-bottom: 10px;
-margin-top: 40px;
-padding:10px;
-color:white;
-border-radius:5px;
+  font-weight:700;
+  width:40%;
+  margin:auto;
+  text-align:center;
+  background-color:#B6666F;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  padding:10px;
+  color:white;
+  border-radius:5px;
 `
-
-
-
 const Title = styled.Text`
 	font-size: 24px;
-  
-	color: palevioletred;
+    color: palevioletred;
     text-align:center;
     margin-bottom:30px;
 `;
@@ -34,8 +29,7 @@ const ButtonText = styled.Text`
 `;
 const Container = styled.View`
 	flex: 1;
-   
-	justify-content: center;
+    justify-content: center;
 	align-items: center;
     text-align:center;
     margin:30px;
@@ -43,20 +37,19 @@ const Container = styled.View`
 `;
 const Wrapper = styled.View`
 	flex: 1;
-    background-color:#E4C2C1;
-    
+    background-color:#E4C2C1;   
 `;
 
 
-
 export const ButtonApi=()=>{
-const [quote, setQuote]=useState({})
 
-const onShare = async () => {
+  const [activity, setActivity]=useState({})
+  
+  const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `Hey! I have an idea for a ${quote.type} activity for you! ${quote.activity} !`,
-        title: `${quote.activity}!`,
+        message: `Hey! I have an idea for a ${activity.type} activity for you! ${activity.activity} !`,
+        title: `I have an acticity tip for you!`,
         
       });
       if (result.action === Share.sharedAction) {
@@ -73,45 +66,32 @@ const onShare = async () => {
     }
   };
 
+const generateActivity=()=>{
 
-
-
-
-const generateQuote=()=>{
-
-fetch("https://www.boredapi.com/api/activity")
-.then(response=>response.json())
-.then(data=>setQuote(data))
+  fetch("https://www.boredapi.com/api/activity")
+  .then(response=>response.json())
+  .then(data=>setActivity(data))
 
 }
 
+  useEffect(()=>{generateActivity()}, [])
 
+  const something=activity.type==="recreational"||activity.type==="social"
 
-
-useEffect(()=>{generateQuote()}, [])
-
-
-
-const something=quote.type==="recreational"||quote.type==="social"
-
-return(
-        <Wrapper>
-        <Container>
+  return(
+    <Wrapper>
+      <Container>
         <ActivityHeader/>
-        {something?
-        <Title>💥How about trying something {quote.type}?</Title>:<Title>💥How about trying some {quote.type}?</Title>}
-        <Title>👉🏼 For exampel: {quote.activity}!</Title>
-        <APIButton onPress={generateQuote}>
-        <ButtonText>Hit me up!</ButtonText>
-        </APIButton>
-        <APIButton onPress={onShare}>
-        <ButtonText>Share this activity</ButtonText>
-
-        </APIButton>
-        </Container>
+          <APIButton onPress={generateActivity}>
+            <ButtonText>Hit me up!</ButtonText>
+          </APIButton>{something?
+            <Title>💥How about trying something {activity.type}?</Title>:
+            <Title>💥How about trying some {activity.type}?</Title>}
+            <Title>👉🏼 For exampel: {activity.activity}!</Title>
+          <APIButton onPress={onShare}>
+            <ButtonText>Share this activity</ButtonText>
+          </APIButton>
+      </Container>
     </Wrapper>
-)
-
-
-
+  )
 }

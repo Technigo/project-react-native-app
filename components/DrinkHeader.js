@@ -12,11 +12,7 @@ const Title = styled.Text`
 `;
 
 
-export const DrinkHeader=()=>
-
-{
-return(<Title>SHAKE FOR DRINK!</Title>)
-
-
-
+export const DrinkHeader=()=>{
+  return(
+    <Title>SHAKE FOR DRINK!</Title>)
 }
