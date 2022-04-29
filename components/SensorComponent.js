@@ -17,21 +17,21 @@ const isShaking = (data) => {
 
 // ==========================
 // = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
+const ShakeCatFactContainer = styled.View`
+    padding: 25px; 
+    width: 85%;
+    text-align: center; 
+    background-color: pink;
+    margin-top: 0;
+`
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
-`;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
+const ShakeCatFactText = styled.Text`
+    font-weight: 700;
+    font-size: 20px; 
+    line-height: 25px; 
+    padding: 5px;
+    text-align: center;
+`
 
 export const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -75,22 +75,27 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+  // ==========================
+  const [catFact, setCatFact] = useState({})
+
+  const generateCatFact = () => {
+    fetch("https://meowfacts.herokuapp.com/")
+    .then(res => res.json())
+    .then(data => setCatFact(data))
+  }
+
+  useEffect(() => {
+    if (isShaking(data)) {
+      generateCatFact();
+    }
+  }, [data])
+
+  // ========================
+  
+
   return (
-    <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
-    </ShakeView>
+    <ShakeCatFactContainer>
+      <ShakeCatFactText>{catFact.data}</ShakeCatFactText>
+    </ShakeCatFactContainer>
   );
 };
