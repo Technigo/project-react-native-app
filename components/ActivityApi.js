@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'   
+import React, {useState} from 'react'   
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 
@@ -10,29 +10,25 @@ const styles = StyleSheet.create({
         width: '70%'
     },
     button: {
-        backgroundColor: 'red',
+        backgroundColor: '#ED254E',
         width: 170,
         padding: 5,
-        borderRadius: 15,
-        margin: 15
+        borderRadius: 50,
+        margin: 15,   
     },
     buttonText: {
-        fontSize: 16,
+        fontSize: 18,
         alignSelf: 'center',
         padding: 5,
         textTransform: 'uppercase',
     },
-    activityContainer: {
-        backgroundColor: 'rgba(243, 236, 236, 0.1)',
-        padding: 40,
-    },
     activityText: {
         color: 'black',
-        fontSize: 18,
+        fontSize: 22,
         fontWeight: '700',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginTop: 30
     }
-  
 })
 
 const ActivityApi = () => {
@@ -44,7 +40,6 @@ const ActivityApi = () => {
         .then((data) => setActivity(data))
     }
 
-  
     return (
         <View style={styles.container}>       
                 <TouchableOpacity 
@@ -52,12 +47,8 @@ const ActivityApi = () => {
                 onPress={generateActivity}>
                 <Text style={styles.buttonText}>Find activity!</Text>
             </TouchableOpacity> 
-            <View style={styles.activityContainer}>
-            <Text style={styles.activityText}>{activity.activity}</Text>
-            </View> 
+            <Text style={styles.activityText}> {activity.activity}</Text>
         </View>
-
-
     )
 }
     
