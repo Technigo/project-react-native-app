@@ -8,17 +8,20 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/native-stack": "^6.6.2",
+    "@react-navigation/stack": "^6.2.1",
     "braces": "^3.0.2",
     "expo": "~43.0.0",
+    "expo-sensors": "~11.0.3",
     "expo-status-bar": "~1.1.0",
     "mem": "^9.0.1",
     "minimist": "^1.2.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-video": "^5.2.0",
     "react-native-web": "0.17.1",
-    "styled-components": "^5.3.3",
-    "expo-sensors": "~11.0.3"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
