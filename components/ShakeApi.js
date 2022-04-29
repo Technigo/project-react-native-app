@@ -84,6 +84,8 @@ const [data, setData] = useState({
       style={{width: '100%', height: '100%'}}
       source={{ uri: `${images.image}` }}></StyledImage>
 
+      <Text>Enjoy your Fox Randomizer</Text>
+
   </Container>
 
   );

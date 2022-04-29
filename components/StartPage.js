@@ -4,18 +4,20 @@ import { Text, View, Button } from "react-native";
 import Header from "./Header";
 
 const StartPage = ({ navigation }) => {
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-       <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    </View>
+    
 
 
     return(
-    <View>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Header />
-        <Text>This is my startpage!</Text>
+        <Text>This is my startpage. Should I add an emoji?</Text>
+
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+       <Button
+        onPress={() => navigation.navigate('Shake')}
+        title="Go to shake"
+      />
+      </View>
     </View>
     )
 }
