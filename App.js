@@ -23,16 +23,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'papayawhip',
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingTop: 90
+    paddingTop: 100
   },
   title: {
     fontSize: 16,
     color: 'palevioletred',
     alignItems: 'center',
-    marginLeft: 30
+    marginLeft: 30,
+    fontFamily: 'Optima-Bold'
   },
   quoteContainer: {
-    marginTop: 30,
+    marginTop: 20,
     alignItems: 'center',
     padding: 40
   },
