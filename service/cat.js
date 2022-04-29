@@ -10,7 +10,6 @@ export default class CatService {
   }
 
   async getCat() {
-    console.log("request sent");
     const requestOptions = {
       method: "GET",
       headers: this.headers,
