@@ -13,6 +13,7 @@ const Container = styled.View`
 const Title = styled.Text`
   font-size: 24px;
   color: black;
+  font-weight: bold;
 `;
 
 const App = () => {

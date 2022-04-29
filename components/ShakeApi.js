@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         },
         button: {
-            width: 175,
+            width: 125,
             backgroundColor: "black",  
             alignItems: "center",
             padding: 10,
@@ -34,7 +34,8 @@ const ShakeApi = ()=> {
     const generatePicture = () => {
         fetch(url)
         .then(response => response.json())
-        .then(data => setPicture(data))
+        .then(result => {setPicture(result)
+        })
     }
 
     useEffect(()=> {
@@ -89,13 +90,13 @@ useEffect(()=> {
     return (
         <View style={styles.container}>
             <Image style={styles.tinyFrame} 
-                    uri={picture.url}/>
-                <Text style={styles.text}>{picture.link}</Text>
+                    source={{ uri: picture.image}}/>
+                
 
                 <TouchableOpacity
                     style={styles.button}
                     onPress={generatePicture}>
-                    <Text style={styles.text}>Or click me</Text>
+                    <Text style={styles.text}>Or click me!</Text>
                 </TouchableOpacity>
         </View>
     )
