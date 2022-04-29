@@ -1,4 +1,6 @@
 {
+  "name": "myapp",
+  "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -8,21 +10,21 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "braces": "^3.0.2",
-    "expo": "~43.0.0",
-    "expo-status-bar": "~1.1.0",
-    "mem": "^9.0.1",
-    "minimist": "^1.2.6",
+    "expo": "~44.0.0",
+    "expo-sensors": "~11.1.0",
+    "expo-sharing": "~10.1.0",
+    "expo-status-bar": "~1.2.0",
+    "lottie-react-native": "5.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-native": "0.64.2",
+    "react-native": "0.64.3",
+    "react-native-svg": "^12.3.0",
+    "react-native-view-shot": "3.1.2",
     "react-native-web": "0.17.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@types/styled-components-react-native": "^5.1.2",
-    "babel-preset-expo": "^8.5.1"
+    "@babel/core": "^7.12.9"
   },
   "private": true
 }
