@@ -1,26 +1,29 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from "react";
+import { Facts } from "./components/facts";
+import img from "./assets/space.jpeg";
+import { ImageBackground, StyleSheet, View } from "react-native";
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 40,
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+  },
+});
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
+  return (
+    <ImageBackground source={img} style={styles.image} resizeMode="cover">
+      <View style={styles.container}>
+        <Facts />
+      </View>
+    </ImageBackground>
+  );
 };
 
 export default App;
