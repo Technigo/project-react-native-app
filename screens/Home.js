@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   windowcontainer: {
     borderWidth: 5,
     width: width / 1.25,
-    height: height / 1.3,
+    height: height / 1.2,
     borderLeftColor: "white",
     borderTopColor: "white",
     backgroundColor: "#C0C0C0",
