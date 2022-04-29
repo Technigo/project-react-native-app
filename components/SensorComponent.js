@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Accelerometer } from "expo-sensors";
-import styled from "styled-components/native";
+import React, { useState, useEffect } from 'react';
+import { Accelerometer } from 'expo-sensors';
+import styled from 'styled-components/native';
+import { Image, TouchableOpacity, Share, Button } from 'react-native';
 
 // ==========================
 // = Functions
@@ -20,18 +21,29 @@ const isShaking = (data) => {
 const ShakeView = styled.View`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
+const Header = styled.Text`
+  font-size: 23px;
+  color: white;
   font-weight: bold;
-  color: #aa0000;
+  text-align: center;
+  padding-bottom: 20px;
 `;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
+
+const Name = styled.Text`
+  font-size: 20px;
+  color: white;
   font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
 `;
-const ShakeData = styled.Text``;
+
+// const ShareButton = styled.TouchableOpacity`
+//   margin: 20px;
+//   color: red;
+// `;
 
 export const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -75,22 +87,49 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, []);
 
+  const [animal, setAnimal] = useState({});
+
+  const generateAnimal = () => {
+    fetch('https://zoo-animal-api.herokuapp.com/animals/rand')
+      .then((res) => res.json())
+      .then((data) => setAnimal(data));
+  };
+
+  useEffect(() => {
+    if (isShaking(data)) {
+      generateAnimal();
+    }
+  }, [data]);
+
+  const toShare = async () => {
+    try {
+      const result = await Share.share({
+        message: 'Hey, come take a look at a random animal!',
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+        } else {
+        }
+      } else if (result.action === Share.dismissedAction) {
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
+      <Header>Shake for a new animal</Header>
+      <Name>{animal.name}</Name>
+      <Image
+        style={{ width: 250, height: 250 }}
+        source={{ uri: `${animal.image_link}` }}
+      />
+      {/* <ShareButton>
+        <TouchableOpacity onPress={toShare}>
+          <Text>Share a random animal</Text>
+        </TouchableOpacity>
+      </ShareButton> */}
     </ShakeView>
   );
 };
