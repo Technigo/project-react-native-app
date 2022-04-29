@@ -1,26 +1,20 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components/native'
+import RandomActivity from './components/RandomActivity'
 
 const Container = styled.View`
 	flex: 1;
-	background-color: papayawhip;
+	background-color: #111111;
 	justify-content: center;
 	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+`
 
 const App = () => {
 	return (
 		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
+			<RandomActivity />
 		</Container>
-	);
-};
+	)
+}
 
-export default App;
+export default App
