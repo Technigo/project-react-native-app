@@ -9,7 +9,7 @@ It has been a struggle to understand react-native framework which was different 
   - implement diverse react-native APIs
   - experiment with sensor methods (which was really fun!)
 
-Things that I need to study more: 
+Things that I need to investigate more: 
 - using styled component with react-native components, syntax is not clear
 - be responsive portrait & landscape screen
 - control default components (button, alert, nav style - can I modify it or is it better to follow OS standard?)
