@@ -10,4 +10,5 @@ If I had more time I would like to add menu and user can choose click option or 
 ## View it live
 
 https://expo.dev/@toal13/dad-joke-react-native-app?serviceType=classic&distribution=expo-go
+
 (Link does not work on iOS by default)
