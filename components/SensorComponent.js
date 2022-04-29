@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Accelerometer } from "expo-sensors";
 import styled from "styled-components/native";
+import { View, Text} from "react-native";
 
-// ==========================
-// = Functions
+
 const isShaking = (data) => {
-  // x,y,z CAN be negative, force is directional
-  // We take the absolute value and add them together
-  // This gives us the total combined force on the device
   const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
-
-  // If this force exceeds some threshold, return true, otherwise false
-  // Increase this threshold if you need your user to shake harder
   return totalForce > 1.78;
 };
 
@@ -34,11 +28,23 @@ const ShakeDataTitle = styled.Text`
 const ShakeData = styled.Text``;
 
 export const SensorComponent = () => {
-  // This function determines how often our program reads the accelerometer data in milliseconds
-  // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
+
+  const [quote, setQuote] = useState({});
+
+  const generateQuote = () => {
+    fetch("https://api.quotable.io/random")
+      .then(response => response.json())
+      .then(data => setQuote(data))
+  }
+  useEffect(() => {
+    generateQuote();
+  }, [data]);
+
+
+
   Accelerometer.setUpdateInterval(400);
 
-  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
+
   const [data, setData] = useState({
     x: 0,
     y: 0,
@@ -83,14 +89,17 @@ export const SensorComponent = () => {
         - Maybe we want to dispatch some redux event when device shakes?
         - Maybe change some styled props? 
       */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
+      {isShaking(data) &&generateQuote()}
       <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
+       
+       
       </ShakeDataView>
+      <View>
+           
+            <Text> {quote.content} </Text>
+            <Text> {quote.author} </Text>
+
+        </View>
     </ShakeView>
   );
 };
