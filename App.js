@@ -1,24 +1,19 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import { SensorComponent } from './components/SensorComponent';
+import ShakeApi from './components/ShakeApi';
+import StartPage from './components/StartPage';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
+const Stack = createNativeStackNavigator();
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
-
-const App = () => {
+const App = ({ navigation }) => {
   return (
-    <Container>
-      <SensorComponent></SensorComponent>
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Start' component={StartPage} />
+        <Stack.Screen name='Quotes' component={ShakeApi} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
