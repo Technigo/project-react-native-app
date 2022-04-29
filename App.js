@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
+// import Albums from './components/Albums';
+//import RandomDrink from './components/RandomDrink';
+import RandomQuote from './components/RandomQuote';
 
 const Container = styled.View`
 	flex: 1;
@@ -8,17 +11,10 @@ const Container = styled.View`
 	align-items: center;
 `;
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
-
 const App = () => {
 	return (
 		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
+			<RandomQuote />
 		</Container>
 	);
 };

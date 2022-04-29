@@ -1,0 +1,823 @@
+{
+  "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb/albums?offset=0&limit=20&include_groups=album,single,compilation,appears_on&locale=en-US,en;q=0.9,sv;q=0.8",
+  "items" : [ {
+    "album_group" : "album",
+    "album_type" : "album",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/65BL1WmHblGCNmhzfgYEyD"
+    },
+    "href" : "https://api.spotify.com/v1/albums/65BL1WmHblGCNmhzfgYEyD",
+    "id" : "65BL1WmHblGCNmhzfgYEyD",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273703add8a8bef1eb6a0fad4f7",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02703add8a8bef1eb6a0fad4f7",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851703add8a8bef1eb6a0fad4f7",
+      "width" : 64
+    } ],
+    "name" : "InnerSpeaker (10 Year Anniversary Edition)",
+    "release_date" : "2021-04-30",
+    "release_date_precision" : "day",
+    "total_tracks" : 13,
+    "type" : "album",
+    "uri" : "spotify:album:65BL1WmHblGCNmhzfgYEyD"
+  }, {
+    "album_group" : "album",
+    "album_type" : "album",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/31qVWUdRrlb8thMvts0yYL"
+    },
+    "href" : "https://api.spotify.com/v1/albums/31qVWUdRrlb8thMvts0yYL",
+    "id" : "31qVWUdRrlb8thMvts0yYL",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b27358267bd34420a00d5cf83a49",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e0258267bd34420a00d5cf83a49",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d0000485158267bd34420a00d5cf83a49",
+      "width" : 64
+    } ],
+    "name" : "The Slow Rush",
+    "release_date" : "2020-02-14",
+    "release_date_precision" : "day",
+    "total_tracks" : 12,
+    "type" : "album",
+    "uri" : "spotify:album:31qVWUdRrlb8thMvts0yYL"
+  }, {
+    "album_group" : "album",
+    "album_type" : "album",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/79dL7FLiJFOO0EoehUHQBv"
+    },
+    "href" : "https://api.spotify.com/v1/albums/79dL7FLiJFOO0EoehUHQBv",
+    "id" : "79dL7FLiJFOO0EoehUHQBv",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b2739e1cfc756886ac782e363d79",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e029e1cfc756886ac782e363d79",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d000048519e1cfc756886ac782e363d79",
+      "width" : 64
+    } ],
+    "name" : "Currents",
+    "release_date" : "2015-07-17",
+    "release_date_precision" : "day",
+    "total_tracks" : 13,
+    "type" : "album",
+    "uri" : "spotify:album:79dL7FLiJFOO0EoehUHQBv"
+  }, {
+    "album_group" : "album",
+    "album_type" : "album",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/44RrnCW7pMIEiiAR3LIAVL"
+    },
+    "href" : "https://api.spotify.com/v1/albums/44RrnCW7pMIEiiAR3LIAVL",
+    "id" : "44RrnCW7pMIEiiAR3LIAVL",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b2735ffecc5ae83629c80685c6c5",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e025ffecc5ae83629c80685c6c5",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d000048515ffecc5ae83629c80685c6c5",
+      "width" : 64
+    } ],
+    "name" : "Live Versions",
+    "release_date" : "2014-05-16",
+    "release_date_precision" : "day",
+    "total_tracks" : 9,
+    "type" : "album",
+    "uri" : "spotify:album:44RrnCW7pMIEiiAR3LIAVL"
+  }, {
+    "album_group" : "album",
+    "album_type" : "album",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "JP", "PK" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/2PYZRakUH5TdOHjGKqKtWv"
+    },
+    "href" : "https://api.spotify.com/v1/albums/2PYZRakUH5TdOHjGKqKtWv",
+    "id" : "2PYZRakUH5TdOHjGKqKtWv",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b27386534bb667dfa3e69ef20128",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e0286534bb667dfa3e69ef20128",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d0000485186534bb667dfa3e69ef20128",
+      "width" : 64
+    } ],
+    "name" : "Lonerism",
+    "release_date" : "2012-01-01",
+    "release_date_precision" : "day",
+    "total_tracks" : 13,
+    "type" : "album",
+    "uri" : "spotify:album:2PYZRakUH5TdOHjGKqKtWv"
+  }, {
+    "album_group" : "album",
+    "album_type" : "album",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/3C2MFZ2iHotUQOSBzdSvM7"
+    },
+    "href" : "https://api.spotify.com/v1/albums/3C2MFZ2iHotUQOSBzdSvM7",
+    "id" : "3C2MFZ2iHotUQOSBzdSvM7",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273370c12f82872c9cfaee80193",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02370c12f82872c9cfaee80193",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851370c12f82872c9cfaee80193",
+      "width" : 64
+    } ],
+    "name" : "Lonerism",
+    "release_date" : "2012-01-01",
+    "release_date_precision" : "day",
+    "total_tracks" : 12,
+    "type" : "album",
+    "uri" : "spotify:album:3C2MFZ2iHotUQOSBzdSvM7"
+  }, {
+    "album_group" : "album",
+    "album_type" : "album",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/1DNSmmRLfv97Yjq7MTFWng"
+    },
+    "href" : "https://api.spotify.com/v1/albums/1DNSmmRLfv97Yjq7MTFWng",
+    "id" : "1DNSmmRLfv97Yjq7MTFWng",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273176e82d09ac75d62810f0056",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02176e82d09ac75d62810f0056",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851176e82d09ac75d62810f0056",
+      "width" : 64
+    } ],
+    "name" : "InnerSpeaker",
+    "release_date" : "2010-05-21",
+    "release_date_precision" : "day",
+    "total_tracks" : 11,
+    "type" : "album",
+    "uri" : "spotify:album:1DNSmmRLfv97Yjq7MTFWng"
+  }, {
+    "album_group" : "album",
+    "album_type" : "album",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "CA", "MX", "US" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/5RA5hhLlbw31QfQRX11pwo"
+    },
+    "href" : "https://api.spotify.com/v1/albums/5RA5hhLlbw31QfQRX11pwo",
+    "id" : "5RA5hhLlbw31QfQRX11pwo",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273cd6ec171d9acdb315ff81610",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02cd6ec171d9acdb315ff81610",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851cd6ec171d9acdb315ff81610",
+      "width" : 64
+    } ],
+    "name" : "InnerSpeaker",
+    "release_date" : "2010-05-21",
+    "release_date_precision" : "day",
+    "total_tracks" : 11,
+    "type" : "album",
+    "uri" : "spotify:album:5RA5hhLlbw31QfQRX11pwo"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/0PUdc9WBtlyjG9Ba9DPmKa"
+    },
+    "href" : "https://api.spotify.com/v1/albums/0PUdc9WBtlyjG9Ba9DPmKa",
+    "id" : "0PUdc9WBtlyjG9Ba9DPmKa",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b27322b9cdd0c4ce8cee5857f6a4",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e0222b9cdd0c4ce8cee5857f6a4",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d0000485122b9cdd0c4ce8cee5857f6a4",
+      "width" : 64
+    } ],
+    "name" : "The Slow Rush B-Sides & Remixes",
+    "release_date" : "2022-02-18",
+    "release_date_precision" : "day",
+    "total_tracks" : 8,
+    "type" : "album",
+    "uri" : "spotify:album:0PUdc9WBtlyjG9Ba9DPmKa"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/6icQOAFXDZKsumw3YXyusw"
+      },
+      "href" : "https://api.spotify.com/v1/artists/6icQOAFXDZKsumw3YXyusw",
+      "id" : "6icQOAFXDZKsumw3YXyusw",
+      "name" : "Lil Yachty",
+      "type" : "artist",
+      "uri" : "spotify:artist:6icQOAFXDZKsumw3YXyusw"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/3Gl28UI0f8xU2DAhaXWz04"
+    },
+    "href" : "https://api.spotify.com/v1/albums/3Gl28UI0f8xU2DAhaXWz04",
+    "id" : "3Gl28UI0f8xU2DAhaXWz04",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273ee75da7dafabbdf2737299a6",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02ee75da7dafabbdf2737299a6",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851ee75da7dafabbdf2737299a6",
+      "width" : 64
+    } ],
+    "name" : "Breathe Deeper (Lil Yachty Remix)",
+    "release_date" : "2021-10-06",
+    "release_date_precision" : "day",
+    "total_tracks" : 1,
+    "type" : "album",
+    "uri" : "spotify:album:3Gl28UI0f8xU2DAhaXWz04"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/6LEeAFiJF8OuPx747e1wxR"
+      },
+      "href" : "https://api.spotify.com/v1/artists/6LEeAFiJF8OuPx747e1wxR",
+      "id" : "6LEeAFiJF8OuPx747e1wxR",
+      "name" : "Blood Orange",
+      "type" : "artist",
+      "uri" : "spotify:artist:6LEeAFiJF8OuPx747e1wxR"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/2twIktE58aJg5kF95rTpch"
+    },
+    "href" : "https://api.spotify.com/v1/albums/2twIktE58aJg5kF95rTpch",
+    "id" : "2twIktE58aJg5kF95rTpch",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273eeb811f27fc8b8d6d6b845d7",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02eeb811f27fc8b8d6d6b845d7",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851eeb811f27fc8b8d6d6b845d7",
+      "width" : 64
+    } ],
+    "name" : "Borderline (Blood Orange Remix)",
+    "release_date" : "2020-09-25",
+    "release_date_precision" : "day",
+    "total_tracks" : 2,
+    "type" : "album",
+    "uri" : "spotify:album:2twIktE58aJg5kF95rTpch"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/35qrfQOhXIFZoLq9gNEUXM"
+    },
+    "href" : "https://api.spotify.com/v1/albums/35qrfQOhXIFZoLq9gNEUXM",
+    "id" : "35qrfQOhXIFZoLq9gNEUXM",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273fa7a70488b4f92bab4fc207b",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02fa7a70488b4f92bab4fc207b",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851fa7a70488b4f92bab4fc207b",
+      "width" : 64
+    } ],
+    "name" : "Is It True (Four Tet Remix)",
+    "release_date" : "2020-08-21",
+    "release_date_precision" : "day",
+    "total_tracks" : 2,
+    "type" : "album",
+    "uri" : "spotify:album:35qrfQOhXIFZoLq9gNEUXM"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/12Zk1DFhCbHY6v3xep2ZjI"
+      },
+      "href" : "https://api.spotify.com/v1/artists/12Zk1DFhCbHY6v3xep2ZjI",
+      "id" : "12Zk1DFhCbHY6v3xep2ZjI",
+      "name" : "070 Shake",
+      "type" : "artist",
+      "uri" : "spotify:artist:12Zk1DFhCbHY6v3xep2ZjI"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/01vW1gstMnLr5gWd03tlC5"
+    },
+    "href" : "https://api.spotify.com/v1/albums/01vW1gstMnLr5gWd03tlC5",
+    "id" : "01vW1gstMnLr5gWd03tlC5",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273f40d97c74e741a846ba792dd",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02f40d97c74e741a846ba792dd",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851f40d97c74e741a846ba792dd",
+      "width" : 64
+    } ],
+    "name" : "Guilty Conscience (Tame Impala Remix)",
+    "release_date" : "2020-07-24",
+    "release_date_precision" : "day",
+    "total_tracks" : 3,
+    "type" : "album",
+    "uri" : "spotify:album:01vW1gstMnLr5gWd03tlC5"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/12Zk1DFhCbHY6v3xep2ZjI"
+      },
+      "href" : "https://api.spotify.com/v1/artists/12Zk1DFhCbHY6v3xep2ZjI",
+      "id" : "12Zk1DFhCbHY6v3xep2ZjI",
+      "name" : "070 Shake",
+      "type" : "artist",
+      "uri" : "spotify:artist:12Zk1DFhCbHY6v3xep2ZjI"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/0YklB1LaVFTWaEub2I3tiW"
+    },
+    "href" : "https://api.spotify.com/v1/albums/0YklB1LaVFTWaEub2I3tiW",
+    "id" : "0YklB1LaVFTWaEub2I3tiW",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273dbae99e91239940d1ba97b64",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02dbae99e91239940d1ba97b64",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851dbae99e91239940d1ba97b64",
+      "width" : 64
+    } ],
+    "name" : "Guilty Conscience (Tame Impala Remix)",
+    "release_date" : "2020-07-24",
+    "release_date_precision" : "day",
+    "total_tracks" : 1,
+    "type" : "album",
+    "uri" : "spotify:album:0YklB1LaVFTWaEub2I3tiW"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/4GvOygVQquMaPm8oAc0vXi"
+      },
+      "href" : "https://api.spotify.com/v1/artists/4GvOygVQquMaPm8oAc0vXi",
+      "id" : "4GvOygVQquMaPm8oAc0vXi",
+      "name" : "The Streets",
+      "type" : "artist",
+      "uri" : "spotify:artist:4GvOygVQquMaPm8oAc0vXi"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BG", "BH", "BI", "BJ", "BO", "BR", "BS", "BT", "BW", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/6PN5GiZFVTLJc9Vbv9Bok9"
+    },
+    "href" : "https://api.spotify.com/v1/albums/6PN5GiZFVTLJc9Vbv9Bok9",
+    "id" : "6PN5GiZFVTLJc9Vbv9Bok9",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273760cc36398e5cc923d54d31c",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02760cc36398e5cc923d54d31c",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851760cc36398e5cc923d54d31c",
+      "width" : 64
+    } ],
+    "name" : "Call My Phone Thinking I'm Doing Nothing Better",
+    "release_date" : "2020-04-13",
+    "release_date_precision" : "day",
+    "total_tracks" : 1,
+    "type" : "album",
+    "uri" : "spotify:album:6PN5GiZFVTLJc9Vbv9Bok9"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/65siSh34OjZPMx0obk0YRj"
+    },
+    "href" : "https://api.spotify.com/v1/albums/65siSh34OjZPMx0obk0YRj",
+    "id" : "65siSh34OjZPMx0obk0YRj",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b2733daf1e477cbdcb84220b006a",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e023daf1e477cbdcb84220b006a",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d000048513daf1e477cbdcb84220b006a",
+      "width" : 64
+    } ],
+    "name" : "Patience",
+    "release_date" : "2019-03-22",
+    "release_date_precision" : "day",
+    "total_tracks" : 1,
+    "type" : "album",
+    "uri" : "spotify:album:65siSh34OjZPMx0obk0YRj"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+      },
+      "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+      "id" : "28j8lBWDdDSHSSt5oPlsX2",
+      "name" : "ZHU",
+      "type" : "artist",
+      "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/7mjgGNr0d9YXywp7luOqHh"
+    },
+    "href" : "https://api.spotify.com/v1/albums/7mjgGNr0d9YXywp7luOqHh",
+    "id" : "7mjgGNr0d9YXywp7luOqHh",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273ce5a1e1aec0db799726d2f01",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02ce5a1e1aec0db799726d2f01",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851ce5a1e1aec0db799726d2f01",
+      "width" : 64
+    } ],
+    "name" : "My Life",
+    "release_date" : "2018-03-05",
+    "release_date_precision" : "day",
+    "total_tracks" : 1,
+    "type" : "album",
+    "uri" : "spotify:album:7mjgGNr0d9YXywp7luOqHh"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/04uXkrNhFJ1iWEo88MGPva"
+    },
+    "href" : "https://api.spotify.com/v1/albums/04uXkrNhFJ1iWEo88MGPva",
+    "id" : "04uXkrNhFJ1iWEo88MGPva",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273bf2fe3810d8a6696d3f1b5db",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02bf2fe3810d8a6696d3f1b5db",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851bf2fe3810d8a6696d3f1b5db",
+      "width" : 64
+    } ],
+    "name" : "Currents B-Sides & Remixes",
+    "release_date" : "2017-11-16",
+    "release_date_precision" : "day",
+    "total_tracks" : 5,
+    "type" : "album",
+    "uri" : "spotify:album:04uXkrNhFJ1iWEo88MGPva"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/59P1jE5PoltfBZCYcyvbOm"
+    },
+    "href" : "https://api.spotify.com/v1/albums/59P1jE5PoltfBZCYcyvbOm",
+    "id" : "59P1jE5PoltfBZCYcyvbOm",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b2735efbb161bf5b66c862a6f5ae",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e025efbb161bf5b66c862a6f5ae",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d000048515efbb161bf5b66c862a6f5ae",
+      "width" : 64
+    } ],
+    "name" : "Lonerism B-Sides & Remixes",
+    "release_date" : "2013-03-01",
+    "release_date_precision" : "day",
+    "total_tracks" : 5,
+    "type" : "album",
+    "uri" : "spotify:album:59P1jE5PoltfBZCYcyvbOm"
+  }, {
+    "album_group" : "single",
+    "album_type" : "single",
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb",
+      "id" : "5INjqkS1o8h1imAzPqGZBb",
+      "name" : "Tame Impala",
+      "type" : "artist",
+      "uri" : "spotify:artist:5INjqkS1o8h1imAzPqGZBb"
+    } ],
+    "available_markets" : [ "AD", "AE", "AG", "AL", "AM", "AO", "AR", "AT", "AU", "AZ", "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BN", "BO", "BR", "BS", "BT", "BW", "BY", "BZ", "CA", "CD", "CG", "CH", "CI", "CL", "CM", "CO", "CR", "CV", "CW", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FJ", "FM", "FR", "GA", "GB", "GD", "GE", "GH", "GM", "GN", "GQ", "GR", "GT", "GW", "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IN", "IQ", "IS", "IT", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD", "ME", "MG", "MH", "MK", "ML", "MN", "MO", "MR", "MT", "MU", "MV", "MW", "MX", "MY", "MZ", "NA", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NZ", "OM", "PA", "PE", "PG", "PH", "PK", "PL", "PS", "PT", "PW", "PY", "QA", "RO", "RS", "RW", "SA", "SB", "SC", "SE", "SG", "SI", "SK", "SL", "SM", "SN", "SR", "ST", "SV", "SZ", "TD", "TG", "TH", "TJ", "TL", "TN", "TO", "TR", "TT", "TV", "TW", "TZ", "UA", "UG", "US", "UY", "UZ", "VC", "VE", "VN", "VU", "WS", "XK", "ZA", "ZM", "ZW" ],
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/album/6BVGmeEAi8RRI0eBENKDdM"
+    },
+    "href" : "https://api.spotify.com/v1/albums/6BVGmeEAi8RRI0eBENKDdM",
+    "id" : "6BVGmeEAi8RRI0eBENKDdM",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b27306dccfdc28a4b7738c2524db",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e0206dccfdc28a4b7738c2524db",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d0000485106dccfdc28a4b7738c2524db",
+      "width" : 64
+    } ],
+    "name" : "InnerSpeaker B-Sides & Remixes",
+    "release_date" : "2011-05-27",
+    "release_date_precision" : "day",
+    "total_tracks" : 7,
+    "type" : "album",
+    "uri" : "spotify:album:6BVGmeEAi8RRI0eBENKDdM"
+  } ],
+  "limit" : 20,
+  "next" : "https://api.spotify.com/v1/artists/5INjqkS1o8h1imAzPqGZBb/albums?offset=20&limit=20&include_groups=album,single,compilation,appears_on&locale=en-US,en;q=0.9,sv;q=0.8",
+  "offset" : 0,
+  "previous" : null,
+  "total" : 331
+}
