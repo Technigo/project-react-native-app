@@ -10,4 +10,4 @@ I chose to style with CSS in Js.
 
 ## View it live
 
-
+https://expo.dev/@thereese/project-react-native-app
