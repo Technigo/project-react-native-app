@@ -15,12 +15,9 @@ const ButtonApi = () => {
         generateQuote();
     }, []);
 
-
-
     return (
         <View>
             <Text style={styles.firstText}>Click on the button below to read some wise quotes and maybe you'll find your way to epiphany there. </Text>
-            
             <Text style={styles.quote}>"{quote.content}"</Text>
             <Text style={styles.author}>{quote.author}</Text>
             <TouchableOpacity
@@ -29,7 +26,6 @@ const ButtonApi = () => {
             >
                 <Text style={styles.btnText}>Generate quote</Text>
             </TouchableOpacity>  
-           
         </View>
     )
 }

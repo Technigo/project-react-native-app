@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, TextComponent } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Accelerometer } from "expo-sensors";
 
 import Header from "./Header";
@@ -70,7 +70,6 @@ const ShakePhone = () => {
     return (
         <View style={styles.view}>
             <Header />
-            {/* <Text style={styles.preText}>My answer is: </Text> */}
             <Text style={styles.answer}>{answer}</Text>
             <ButtonApi />
         </View>     

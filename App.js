@@ -17,8 +17,6 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       backgroundColor: 'papayawhip',
   },
-
-
 });
 
 export default App;
