@@ -6,6 +6,7 @@ const FooterView = styled.View`
 width: 100%;
 flex-direction: column;
 height: 60px;
+margin-top: 20px;
 `
 
 const FooterText = styled.Text`
