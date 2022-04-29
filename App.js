@@ -7,6 +7,7 @@ import Joke from './components/Joke'
 
 const Drawer = createDrawerNavigator();
 
+
 const App = () => {
   
   return(
@@ -15,7 +16,7 @@ const App = () => {
         <Drawer.Screen name="Start" component={StartPage}
         options={{
           headerTitleStyle: {
-            color: '#6d5c45',
+            color: '#3d3d3d',
           },
           headerStyle: {
             backgroundColor: '#E6BA95',
@@ -24,7 +25,7 @@ const App = () => {
         <Drawer.Screen name="Quote" component={Quote}
         options={{
           headerTitleStyle: {
-            color: '#6d5c45',
+            color: '#3d3d3d',
           },
           headerStyle: {
             backgroundColor: '#E6BA95',
@@ -34,7 +35,7 @@ const App = () => {
         <Drawer.Screen name="Joke" component={Joke}
         options={{
           headerTitleStyle: {
-            color: '#6d5c45',
+            color: '#3d3d3d',
           },
           headerStyle: {
             backgroundColor: '#E6BA95',

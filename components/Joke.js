@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, ImageBackground } from "react-native";
+import LottieView from 'lottie-react-native';
+
+
+const image = { uri: "https://i.postimg.cc/WbknmQ4T/Untitled-Artwork.png" };
+
 
 const Joke = ({navigation}) => {
 
@@ -12,15 +17,18 @@ const Joke = ({navigation}) => {
     }, [])
 
     return (
+        <ImageBackground source={image} resizeMode="cover" style={styles.background}>
+
         <View style={styles.container}>
             <Text style={styles.title}>{joke.fallback}</Text>
-            <Image 
-                style={styles.emoji}
-                source={require('../assets/laughing.png')}/>
+            <LottieView source={require('../assets/haha2.json')} style={{width: 200,
+            height: 200}} autoPlay loop />
             <TouchableOpacity onPress={() => navigation.navigate('Start')} style={styles.btn}>
                 <Text style={styles.title3}>Restart</Text>
             </TouchableOpacity>
         </View>
+        </ImageBackground>
+
     )
 }
 
@@ -35,7 +43,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#ae936f',
+        color: '#3d3d3d',
         padding: 5,
         margin: 10,
         textAlign: 'center'
@@ -52,12 +60,19 @@ const styles = StyleSheet.create({
     title3: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#6d5c45',
+        color: '#3d3d3d',
         padding: 5,
         textAlign: 'center'
     },
     emoji: {
         width: 300,
         height: 200
+    },
+    background: {
+        flex: 1,
+    },
+    lottie: {
+       margin: 20
     }
+  
 })

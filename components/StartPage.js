@@ -1,23 +1,28 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, ImageBackground } from 'react-native';
 import styled from 'styled-components/native';
 import LottieView from 'lottie-react-native';
 
 import { Quote } from './Quote'
 import { SensorComponent } from './SensorComponent'
 
+const image = { uri: "https://i.postimg.cc/WbknmQ4T/Untitled-Artwork.png" };
+
+
 const StartPage = ({navigation}) => {
     return (
+        <ImageBackground source={image} resizeMode="cover" style={styles.background}>
         <View style={styles.container}>
+             
             <Text style={styles.title}>Hello, let's have some fun!</Text>
-            {/* <LottieView source={require('../assets/lottieShake.json')} autoPlay loop /> */}
+            
             <Image 
                 style={styles.shake}
                 source={require('../assets/shake.png')}/>
             <Text style={styles.title}>Shake me to to get an inspirational quote</Text>
             <SensorComponent navigation={navigation}/>
-           
         </View>
+        </ImageBackground>
     )
 }
 
@@ -33,7 +38,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#DAB88B',
+        color: '#3d3d3d',
         margin: 20,
         padding: 20,
         textAlign: 'center'
@@ -41,6 +46,9 @@ const styles = StyleSheet.create({
     shake: {
         width: 300,
         height: 300,
+    },
+    background: {
+        flex: 1,
     }
     
 })

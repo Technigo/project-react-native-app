@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from "react-native";
 import styled from "styled-components/native";
+import {useFonts, InriaSerif_400Regular_Italic} from '@expo-google-fonts/inria-serif';
+
+const image = { uri: "https://i.postimg.cc/WbknmQ4T/Untitled-Artwork.png" };
+
 
 
 const Quote = ({navigation})=> {
@@ -17,28 +21,37 @@ const Quote = ({navigation})=> {
         generateQuote()
       },[]);
 
+      let [fontsLoaded] = useFonts({
+        InriaSerif_400Regular_Italic,
+      });
+
     return (
+      <ImageBackground source={image} resizeMode="cover" style={styles.background}>
+
         <View style={styles.container}>
           <View>
-            <Text style={styles.title}>Inspirational quote:</Text>
+            {/* <Text style={styles.title}>Inspirational quote:</Text> */}
             <View style={styles.border}>
               <Text style={styles.title2}>{quote.content}</Text>
               <Text style={styles.title2}>- {quote.author}</Text> 
             </View>
           </View>
             
-          <Image 
+          {/* <Image 
                 style={styles.bulb}
-                source={require('../assets/light-bulb.png')}/>
+                source={require('../assets/light-bulb.png')}/> */}
 
-            <View style={styles.joke}>
-              <Text style={styles.title}>Now that you are inspired, do you want to hear a dad joke?</Text>
+            <View style={styles.btnWrapper}>
+              <TouchableOpacity onPress={() => generateQuote()} style={styles.btn}>
+                <Text style={styles.title3}>New quote</Text>
+              </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('Joke')} style={styles.btn}>
-                <Text style={styles.title3}>Joke</Text>
+                <Text style={styles.title3}>Joke?</Text>
               </TouchableOpacity>
             </View>
            
         </View>
+        </ImageBackground>
     )
 }
 
@@ -50,46 +63,46 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
     },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#ae936f',
-        padding: 5,
-        margin: 10,
-        textAlign: 'center'
-    },
     title2: {
-      fontSize: 24,
-      color: '#6d5c45',
-      padding: 5,
-      margin: 10,
-      textAlign: 'center'
+      marginRight: 50,
+      marginBottom: 10,
+      marginLeft: 10,
+      fontSize: 36,
+      fontFamily: 'InriaSerif_400Regular_Italic'
   },
   title3: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#6d5c45',
+    color: '#3d3d3d',
     padding: 5,
     textAlign: 'center'
 },
     btn: {
       padding: 20,
-      margin: 50,
-      width: 100,
+      margin: 20,
+      width: 150,
       alignSelf: "center",
       textAlign: 'center',
       backgroundColor: '#E6BA95',
       borderRadius: 10
     },
     border: {
-      borderWidth: 1,
-      borderColor: '#E6BA95',
-      borderRadius: 10,
-      margin: 10,
+      marginRight: 80,
+     marginBottom: 10,
+     marginLeft: 5,
+     fontSize: 24
     },
     bulb: {
       width: 150,
       height: 150,
-  }
+    },
+    background: {
+      flex: 1,
+    },
+    btnWrapper: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+    }
+
     
 })
