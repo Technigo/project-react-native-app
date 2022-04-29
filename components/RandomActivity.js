@@ -21,6 +21,7 @@ const RandomActivity = () => {
 
 	return (
 		<>
+			<Heading>Are you bored and need some inspiration?</Heading>
 			<ButtonAPI onPress={getActivity}>
 				<ButtonText>TAP</ButtonText>
 			</ButtonAPI>
@@ -36,15 +37,29 @@ const RandomActivity = () => {
 const Title = styled.Text`
 	font-size: 24px;
 	color: #eabd91;
-	padding: 2em;
+	padding: 32px;
 	text-align: center;
+	position: absolute;
+	bottom: 75px;
+`
+const Heading = styled.Text`
+	display: flex;
+	color: #eabd91;
+	font-size: 32px;
+	padding: 15px;
+	position: absolute;
+	text-align: center;
+	position: absolute;
+	top: 75px;
 `
 
 const ButtonAPI = styled.TouchableOpacity`
 	width: 200px;
 	height: 200px;
-	border-radius: 50%;
+	border-radius: 100px;
 	background: #eabc91;
+	position: absolute;
+	bottom: 200px;
 `
 
 const ButtonText = styled.Text`
