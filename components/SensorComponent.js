@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import { Image, Share, Button, TouchableOpacity, Text } from 'react-native';
+import { Image, Share, TouchableOpacity, Text } from 'react-native';
 
 // ==========================
 // = Function
@@ -42,18 +42,15 @@ const ImageContainer = styled.View`
   margin: 5%;
 `;
 
-
-
-// const ShakeDataView = styled.View``;
-// const ShakeDataTitle = styled.Text`
-//   font-weight: bold;
-// `;
-// const ShakeData = styled.Text``;
+const StyledButton = styled.TouchableOpacity`
+  margin: 10px;
+  color: pink;
+`
 
 // ==========================
 // = Function
   //När ny data kommer in, kallas Accelerometer-eventet. Frekvensen är kontrollerad av setUpdateInterval(millisekunder).
-  //Subscribe = för att sluta använda Accelerometer(oklart). Tar man bort unsubscribe blir det segt och dra mycket batteri.
+  //Subscribe = för att sluta använda Accelerometer(oklart). Tar man bort unsubscribe blir det segt och drar mycket batteri.
   //useEffecten lyssnar när SensorComponent är aktiv.
 
 export const SensorComponent = () => {
@@ -102,25 +99,20 @@ export const SensorComponent = () => {
     }
   }, [data])
 
-
 //HANNAS HUNDAR
 
 //DELA Social
-
 const onShare = async () => {
   try {
     const result = await Share.share({
       message:
-        "React Native | A framework for building native apps using React",
+        "I think you should get a dog",
     });
     if (result.action === Share.sharedAction) {
       if (result.activityType) {
-        // shared with activity type of result.activityType
       } else {
-        // shared
       }
     } else if (result.action === Share.dismissedAction) {
-      // dismissed
     }
   } catch (error) {
     alert(error.message);
@@ -132,20 +124,19 @@ const onShare = async () => {
   return (
     <ShakeView>
       <Wrapper>
-      <Header>Dog of the Day</Header>
-      <ImageContainer>
-        <Image style={{ width: 300, height: 300 }} 
-        source={{ uri: `${dog.message}` }} />
-      </ImageContainer>
-      <Shake>Shake it!</Shake>
-      {/* <Button onPress={ShareDog} title="Share">
-        <Text>Share</Text>
-      </Button> */}
-
-        <TouchableOpacity onPress={onShare}>
-            <Text>Dela&nbsp;&#8595;</Text>
-        </TouchableOpacity> 
+        <Header>Dog of the Day</Header>
+        <ImageContainer>
+          <Image style={{ width: 300, height: 300 }} 
+          source={{ uri: `${dog.message}` }} />
+        </ImageContainer>
+        <Shake>Shake it!</Shake>
+        <StyledButton>
+          <TouchableOpacity onPress={onShare}>
+            <Text>Tell a friend to get a dog</Text>
+          </TouchableOpacity> 
+        </StyledButton>
       </Wrapper>
     </ShakeView>
   );
 };
+

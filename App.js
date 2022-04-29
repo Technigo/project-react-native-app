@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/native";
 import { ImageBackground } from 'react-native'
 import { SensorComponent } from "./components/SensorComponent";
-
 import Grass from './assets/Grass.jpg'
 
 
@@ -12,12 +11,6 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
-
 
 const App = () => {
   return (
