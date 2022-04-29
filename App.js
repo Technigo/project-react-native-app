@@ -1,15 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-// import Albums from './components/Albums';
-//import RandomDrink from './components/RandomDrink';
-import RandomQuote from './components/RandomQuote';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import RandomQuote from './components/RandomQuote';
 
 const App = () => {
 	return (
@@ -19,4 +11,10 @@ const App = () => {
 	);
 };
 
+const Container = styled.View`
+	flex: 1;
+	background-color: #3d405b;
+	justify-content: center;
+	align-items: center;
+`;
 export default App;
