@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from "./components/Home";
 import Drinks from "./components/DrinksList";
-import RandomDrink from './components/RandomDrink';
+import RandomDrinks from './components/RandomDrinks';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,10 +15,10 @@ const App = () => {
 				<Stack.Screen
 					name="Home"
 					component={HomeScreen}
-					options={{ title: 'Welcome' }}
+					options={{ title: 'Home' }}
 				/>
 				<Stack.Screen name="Drinks List" component={Drinks} />
-				<Stack.Screen name="Random Drink" component={RandomDrink} />
+				<Stack.Screen name="Random Drinks" component={RandomDrinks} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
