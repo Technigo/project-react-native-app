@@ -1,12 +1,10 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Aim: building my firts mobile app using React Native!
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I decided to use to seperate API:s to display random info, based on that i created one component with shakesensor and one where i applied a sharefunction. I then added the navigationbar to navigate between the api-components. If i would have had more time i would have worked more on the styling and also fintuned the accelerometer a bit more.
 
 ## View it live
 
