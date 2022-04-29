@@ -1,4 +1,9 @@
-import React, { useCallback, useState, useLayoutEffect } from "react";
+import React, {
+  useCallback,
+  useState,
+  useLayoutEffect,
+  useEffect,
+} from "react";
 import {
   View,
   Text,
@@ -51,6 +56,33 @@ const Chat = ({ thread }) => {
   const [messages, setMessages] = useState([]);
   const threadid = thread._id;
   const navigation = useNavigation();
+
+  // SUPPOSEDLY SHOULD SOLVE KEYBOARD ISSUE ON IOS?
+  const [paddingBottom, setPaddingBottom] = useState(0);
+
+  // useEffect(() => {
+  //   if (Platform.OS !== "android" || __DEV__) {
+  //     return;
+  //   }
+
+  //   const keyboardShowListener = Keyboard.addListener(
+  //     "keyboardDidShow",
+  //     (event) => {
+  //       setPaddingBottom(
+  //         event.endCoordinates.height + Constants.statusBarHeight
+  //       );
+  //     }
+  //   );
+
+  //   const keyboardHideListener = Keyboard.addListener("keyboardDidHide", () => {
+  //     setPaddingBottom(0);
+  //   });
+
+  //   return () => {
+  //     keyboardShowListener.remove();
+  //     keyboardHideListener.remove();
+  //   };
+  // }, []);
 
   useLayoutEffect(() => {
     const q = query(
@@ -242,7 +274,8 @@ const Chat = ({ thread }) => {
           renderUsername={renderBubble}
           renderDay={renderDay}
           multiline={false}
-          bottomOffset={0}
+          bottomOffset={90}
+          // bottomOffset={0}
           // isKeyboardInternallyHandled={false}
           renderInputToolbar={renderInputToolbar}
           renderSend={renderSend}
@@ -281,6 +314,7 @@ const styles = StyleSheet.create({
     borderLeftColor: "white",
     borderTopColor: "white",
     backgroundColor: "#C0C0C0",
+    // paddingBottom: paddingBottom,
   },
   windowheader: {
     backgroundColor: "#00007F",
