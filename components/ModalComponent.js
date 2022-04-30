@@ -1,58 +1,23 @@
-import React, { useState, useEffect } from "react"
-import { Alert, Modal, StyleSheet, Text, Pressable, Image, View, Button, SafeAreaView } from "react-native"
-
+import React from "react"
+import { Alert, Modal, StyleSheet, View, StatusBar } from "react-native"
 import styled from 'styled-components/native'
-import OpenURLButton from './OpenURLButton'
-
-import { Container, PrimaryButton, PrimaryButtonText } from '../styles/GlobalStyles'
 
 import ShareButton from './ShareButton'
+import OpenURLButton from './OpenURLButton'
+import { PrimaryButton } from './Buttons'
 
+import { Container } from '../styles/GlobalStyles'
 
-
-const ModalComponent = ({ tryAgainButtonText, catInfoURL, catBreed, startOver, modalVisible, setModalVisible, shareText, shareURL }) => {
-
-  return (
-
-
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={() => {
-        Alert.alert("Modal has been closed.")
-        setModalVisible(!modalVisible)
-      }}
-    >
-      <ContainerModal>
-        <View style={styles.modalView}>
-
-          <ContainerImage>
-            <CatImage source={{ uri: shareURL }} />
-          </ContainerImage>
-          <SecondaryButtonsContainer>
-          <ShareButton shareURL={shareURL} shareText={shareText} />
-          {catBreed !== undefined && <OpenURLButton url={catInfoURL}>{`More about ${catBreed}`}</OpenURLButton>}
-          </SecondaryButtonsContainer>
-          <PrimaryButton onPress={startOver}>
-            <PrimaryButtonText>{tryAgainButtonText}</PrimaryButtonText>
-          </PrimaryButton>
-
-        </View>
-      </ContainerModal>
-    </Modal>
-  )
-}
-
-const ContainerModal = styled(Container)`
-background-color: #e63946;
-    justify-content: center;
+//--------- Local styles ---------
+const ModalContainer = styled(Container)`
+  background-color: #e63946;
+  justify-content: center;
 `
 
 const styles = StyleSheet.create({
   modalView: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: "#fff",
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
@@ -69,19 +34,59 @@ const styles = StyleSheet.create({
   }
 })
 
-const ContainerImage = styled.View`
+const PictureContainer = styled.View`
   width: 330px;
   height: 330px;
-
 `
 
-const CatImage = styled.Image`
+const Picture = styled.Image`
   resize-mode: contain;
   height: 330px;
 `
 
-const SecondaryButtonsContainer = styled.View`
+const SecondaryButtonsBox = styled.View`
   flex-direction: row;
 `
+//--------------------------------
+
+const ModalComponent = ({
+  tryAgainButtonText,
+  catInfoURL,
+  catBreed,
+  tryAgain,
+  modalVisible,
+  setModalVisible,
+  shareText,
+  shareURL
+}) => {
+
+  return (
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={() => {
+        Alert.alert("Modal has been closed.")
+        setModalVisible(!modalVisible)
+      }}>
+      <StatusBar hidden />
+      <ModalContainer>
+        <View style={styles.modalView}>
+          <PictureContainer>
+            <Picture source={{ uri: shareURL }} />
+          </PictureContainer>
+          <SecondaryButtonsBox>
+            <ShareButton shareURL={shareURL} shareText={shareText} />
+            {catBreed !== undefined && <OpenURLButton url={catInfoURL} />}
+          </SecondaryButtonsBox>
+          <PrimaryButton
+            onPress={tryAgain}
+            primaryButtonText={tryAgainButtonText}
+          />
+        </View>
+      </ModalContainer>
+    </Modal>
+  )
+}
 
 export default ModalComponent

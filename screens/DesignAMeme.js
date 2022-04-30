@@ -1,32 +1,41 @@
-import React, { useState, useEffect } from "react"
-import { StyleSheet, Text, Pressable, Image, View, Button, SafeAreaView, TextInput } from "react-native"
-
+import React, { useState } from "react"
+import { Vibration } from "react-native"
 import styled from 'styled-components/native'
-
 import RadioGroup from 'react-native-radio-buttons-group'
 
-import Loader from '../components/Loader'
-
-import Instructions from '../components/Instructions'
-
-import { Container, PrimaryButton, PrimaryButtonText } from '../styles/GlobalStyles'
-
 import { RandomCatMemeAPI } from '../utils/URLs'
-
+import Loader from '../components/Loader'
 import ModalComponent from '../components/ModalComponent'
+import Instructions from '../components/Instructions'
+import { PrimaryButton } from '../components/Buttons'
+
+import { Container, ScreenIcon } from '../styles/GlobalStyles'
+
+//--------- Local styles ---------
+const InputContainer = styled.View`
+  align-items: center;
+  margin-top: 20px;
+`
+
+const TextInputField = styled.TextInput`
+  height: 40px;
+  margin: 12px;
+  border: 2px solid #e63946;
+  border-radius: 30px;
+  padding: 10px;
+  color: #1d3557;
+  width: 275px;
+`
+//--------------------------------
 
 const DesignAMeme = () => {
 
-
   const [memeText, setMemeText] = useState('Too lazy to make a meme...')
-
   const [isLoading, setIsLoading] = useState(false)
-
   const [catMemeURL, setCatMemeURL] = useState('')
-
+  const [memeAction, setMemeAction] = useState('')
   const [memeColor, setMemeColor] = useState('sienna')
-
-  const tryAgainButtonText = 'Try again'
+  const [modalVisible, setModalVisible] = useState(false)
 
   const colorRadioButtonsData = [{
     id: 'red',
@@ -57,8 +66,6 @@ const DesignAMeme = () => {
     selected: memeColor === 'green' ? true : false,
     onPress: (id) => setMemeColor(id)
   }]
-
-  const [memeAction, setMemeAction] = useState('')
 
   const actionRadioButtonsData = [{
     id: 'sleeping',
@@ -95,8 +102,8 @@ const DesignAMeme = () => {
     onPress: (id) => setMemeAction(id)
   }]
 
-
   const generateCatMeme = () => {
+    Vibration.vibrate()
     setModalVisible(true)
     setIsLoading(true)
     fetch(RandomCatMemeAPI({ memeAction, memeText, memeColor }))
@@ -105,10 +112,9 @@ const DesignAMeme = () => {
         setCatMemeURL(`https://cataas.com/${data.url}`)
         setIsLoading(false)
       })
-      .then(console.log(catMemeURL))
   }
 
-  const startOver = () => {
+  const tryAgain = () => {
     setCatMemeURL('')
     setMemeAction('')
     setMemeText('Too lazy to make a meme...')
@@ -116,67 +122,56 @@ const DesignAMeme = () => {
     setModalVisible(!modalVisible)
   }
 
-  const [modalVisible, setModalVisible] = useState(false)
-
-  const instructionsText = 'You are the designer here: select an action and a text color and type your meme!'
+  const instructionsText =
+    'Select an action and a text color, and type your meme!'
+  const tryAgainButtonText = 'Try again'
 
   return (
     isLoading ? <Loader isLoading={isLoading} /> : (
       <Container>
-        <ModalComponent tryAgainButtonText={tryAgainButtonText} startOver={startOver} setModalVisible={setModalVisible} modalVisible={modalVisible} shareURL={catMemeURL} shareText={`I made a cat meme for you!`} />
+
         {!modalVisible &&
           <>
             <Instructions instructionsText={instructionsText} />
+            <ScreenIcon name="ios-build" />
             <InputContainer>
-            <TextInputField
-                onChangeText={input => input !== '' && setMemeText(input)}
-                defaultValue={memeText}
+              <TextInputField
                 clearButtonMode="while-editing"
+                defaultValue={memeText}
                 maxLength={30}
+                onChangeText={input => input !== '' && setMemeText(input)}
                 placeholder="Type some text for your meme"
               />
 
               <RadioGroup
-                radioButtons={actionRadioButtonsData}
                 layout="row"
+                radioButtons={actionRadioButtonsData}
               />
 
               <RadioGroup
-                radioButtons={colorRadioButtonsData}
                 layout="row"
+                radioButtons={colorRadioButtonsData}
               />
             </InputContainer>
-
-            <View>
-              <PrimaryButton
-                onPress={generateCatMeme}
-              >
-                <PrimaryButtonText>Show me a meme!</PrimaryButtonText>
-              </PrimaryButton>
-            </View>
-
+            <PrimaryButton
+              onPress={generateCatMeme}
+              primaryButtonText="Show me a meme!"
+            />
           </>
         }
+
+        <ModalComponent
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          shareURL={catMemeURL}
+          shareText={`I made a cat meme for you!`}
+          tryAgain={tryAgain}
+          tryAgainButtonText={tryAgainButtonText}
+        />
+
       </Container>
     )
   )
 }
-
-
-const InputContainer = styled.View`
-  align-items: center;
-`
-
-const TextInputField = styled.TextInput`
-  height: 40px;
-  margin: 12px;
-  border: 2px solid #e63946;
-  border-radius: 30px;
-  padding: 10px;
-  color: #1d3557;
-  width: 275px;
-`
-
-
 
 export default DesignAMeme

@@ -1,13 +1,15 @@
-# Project React Native App 📱
+# Week 16: Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project was to build a first mobile app using react Native.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I decided at the beginning to explore all options: sensors, fetch an external API, navigation. Since I got it right quite fast, I decided to combine everything in my project. I used different APIs to fetch cat images and I made three screens with tab navigation: one where the user can design their own meme, one where the user has to shake enough in order to get a nice picture, and finally a game where hitting a target is rewarded with a gif. All results can be shared. I added some details also: vibration when picture is fetched, status bar hidden when result is displayed, open external url.
+
+I styled it quite simply, I wanted it to look clean and almost professional, even if the subject isn't (cat pictures).
+
+I used accelerometer for the last two screens, but if I had more time, I would have explored DeviceMotion for the game.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Project deployed here: [Cat Randomizer](exp://exp.host/@nadialefebvre/cat-randomizer?release-channel=default)

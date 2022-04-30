@@ -8,17 +8,18 @@ import { faCat } from '@fortawesome/free-solid-svg-icons/faCat'
 
 import { Container } from '../styles/GlobalStyles'
 
+//--------- Local styles ---------
 const ContainerHome = styled(Container)`
   background-color: #e63946;
-
 `
 
 const Title = styled.Text`
 	font-size: 70px;
   font-family: 'Sacramento';
-	color: white;
+	color: #fff;
   text-align: center;
 `
+//--------------------------------
 
 const Home = () => {
   let [fontsLoaded] = useFonts({
@@ -31,7 +32,11 @@ const Home = () => {
 
   return (
     <ContainerHome>
-      <FontAwesomeIcon icon={faCat} size={200} color="#1d3557" />
+      <FontAwesomeIcon
+        icon={faCat}
+        size={200}
+        color="#1d3557"
+      />
       <View>
         <Title>Cat</Title>
         <Title>Randomizer</Title>

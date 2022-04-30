@@ -20,8 +20,8 @@ const App = () => {
 
             if (route.name === 'Home') {
               iconName = focused
-                ? 'ios-information-circle'
-                : 'ios-information-circle-outline'
+                ? 'ios-home'
+                : 'ios-home-outline'
             } else if (route.name === 'Design a meme') {
               iconName = focused
                 ? 'ios-build'
@@ -46,6 +46,8 @@ const App = () => {
         <Tab.Screen name="Design a meme" component={DesignAMeme} />
         <Tab.Screen name="Cloud the cat" component={CloudTheCat} />
         <Tab.Screen name="Shake a cutie" component={ShakeACutie} />
+        {/* <Tab.Screen name="Walk for fact" component={WalkForFact} /> */}
+
       </Tab.Navigator>
     </NavigationContainer>
   )

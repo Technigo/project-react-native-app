@@ -1,78 +1,48 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Vibration, View, Pressable, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Text, TouchableHighlight } from 'react-native'
+import { Vibration } from 'react-native'
 import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
-import { Ionicons } from '@expo/vector-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCat } from '@fortawesome/free-solid-svg-icons/faCat'
 
-import { Container, PrimaryButton, PrimaryButtonText } from '../styles/GlobalStyles'
-
-import ModalComponent from '../components/ModalComponent'
-
-
-import Loader from '../components/Loader'
-
 import { RandomCatGifAPI } from '../utils/URLs'
+import Loader from '../components/Loader'
+import ModalComponent from '../components/ModalComponent'
 import Instructions from '../components/Instructions'
-// import { TouchableOpacity } from 'react-native-gesture-handler'
+import { PrimaryButton, SecondaryButton } from '../components/Buttons'
 
-const CatImage = styled.Image`
-  width: 100%;
-  height: 375px;
-`
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: black;
-`
+import { Container, ScreenIcon } from '../styles/GlobalStyles'
 
 const CloudTheCat = () => {
 
+  const [isLoading, setIsLoading] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false)
   const [data, setData] = useState({
     x: 0,
     y: 0,
     z: 0,
   })
   const [subscription, setSubscription] = useState(null)
-
   const [topPosition, setTopPosition] = useState(50)
   const [leftPosition, setLeftPosition] = useState(50)
-
+  const [catGifURL, setCatGifURL] = useState('')
   const [onTarget, setOnTarget] = useState(false)
 
-  const tryAgainButtonText = 'Try again'
-
-  const checkTarget = () => {
-    if (x >= 0.40 && x <= 0.60 && y >= 0.21 && y <= 0.43) {
-      setOnTarget(true)
-      // Vibration.vibrate()
-    } else {
-      setOnTarget(false)
-      // Vibration.cancel()
-    }
-  }
-
-
-  ///////////////
-  // const shouldVibrate = () => {
-  //   if (x >= 0.45 && x <= 0.55 && y >= 0.26 && y <= 0.38) {
-  //     Vibration.vibrate()
-  //   } else {
-  //     Vibration.cancel()
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   shouldVibrate()
-  // })
-  ///////////////
-
-
-
-  useEffect(() => {
-    checkTarget()
-  })
+  //--------- Local styles ---------
+  const FixedIcon = styled(ScreenIcon)`
+    z-index: 2;
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    color: gray;
+  `
+  const MovingIconContainer = styled.View`
+    z-index: 1;
+    position: absolute;
+    top: ${topPosition}%;
+    left: ${leftPosition}%;
+  `
+  //--------------------------------
 
   const subscribe = () => {
     setData({
@@ -104,42 +74,20 @@ const CloudTheCat = () => {
 
   const { x, y, z } = data
 
+  const checkTarget = () => {
+    if (x >= 0.43 && x <= 0.63 && y >= 0.42 && y <= 0.62) {
+      setOnTarget(true)
+    } else {
+      setOnTarget(false)
+    }
+  }
 
-
-  const Title = styled.Text`
-	font-size: 24px;
-	color: red;
-`
-
-  const FixedIcon = styled(Ionicons)`
-    z-index: 2;
-    color: gray;
-    font-size: 100px;
-`
-
-  const MovingIconContainer = styled(View)`
-    z-index: 1;
-    position: absolute;
-    top: ${topPosition}%;
-    left: ${leftPosition}%;
-`
-
-  const FixedIconContainer = styled(TouchableOpacity)`
-    z-index: 3;
-    position: absolute;
-    top: 30%;
-    left: 70%;
-`
-
-
-
-  const [modalVisible, setModalVisible] = useState(false)
-
-  const [isLoading, setIsLoading] = useState(false)
-
-  const [catGifURL, setCatGifURL] = useState('')
+  useEffect(() => {
+    checkTarget()
+  })
 
   const generateCatGif = () => {
+    Vibration.vibrate()
     setModalVisible(true)
     setIsLoading(true)
     fetch(RandomCatGifAPI, {
@@ -155,8 +103,7 @@ const CloudTheCat = () => {
       })
   }
 
-
-  const startOver = () => {
+  const tryAgain = () => {
     setData({
       x: 0,
       y: 0,
@@ -169,53 +116,58 @@ const CloudTheCat = () => {
     setOnTarget(false)
   }
 
-const instructionsText = 'Tilt your phone to hide the cat behind the cloud before touching the cloud: if you got it, you will be rewarded!'
+  const instructionsText =
+    'Tilt your phone to hide the cat behind the cloud and you will be rewarded!'
+  const tryAgainButtonText = 'Try again'
 
   return (
     isLoading ? <Loader isLoading={isLoading} /> : (
       <Container>
-        <ModalComponent tryAgainButtonText={tryAgainButtonText} startOver={startOver} setModalVisible={setModalVisible} modalVisible={modalVisible} shareURL={catGifURL} shareText={`Look at this cat gif!`} />
+
         {(!subscription && !onTarget && !modalVisible) &&
           <>
             <Instructions instructionsText={instructionsText} />
-            <PrimaryButton onPress={subscription ? unsubscribe : subscribe}>
-              <PrimaryButtonText>Click here to start!</PrimaryButtonText>
-            </PrimaryButton>
+            <ScreenIcon name="ios-game-controller" />
+            <PrimaryButton
+              onPress={subscription ? unsubscribe : subscribe}
+              primaryButtonText="Click here to start!"
+            />
           </>
         }
+
         {subscription &&
           <>
-            <Text>{onTarget ? 'good' : 'bad'}</Text>
-            <FixedIconContainer onPressIn={unsubscribe}>
-              <View>
-                <FixedIcon name="ios-cloud" />
-              </View>
-            </FixedIconContainer>
+            <SecondaryButton
+              onPress={unsubscribe}
+              secondaryButtonText="Check if i got it!"
+            />
+            <FixedIcon name="ios-cloud" />
             <MovingIconContainer>
-              <FontAwesomeIcon icon={faCat} size={50} color='#e63946' />
+              <FontAwesomeIcon
+                color='#e63946'
+                icon={faCat}
+                size={50}
+              />
             </MovingIconContainer>
           </>
         }
 
-        {/* <View>
-          <Button title="Vibrate once" onPress={() => Vibration.vibrate()} />
-          <Button
-            title="Vibrate with pattern close"
-            onPress={() => Vibration.vibrate(PATTERN_CLOSE)}
-          />
-          <Button
-            title="Vibrate with pattern on target"
-            onPress={() => Vibration.vibrate(PATTERN_ON_TARGET)}
-          />
-        </View> */}
-
-
-
         {(!subscription && onTarget && !modalVisible) &&
-          <PrimaryButton onPress={generateCatGif}>
-            <PrimaryButtonText>I want a gif!</PrimaryButtonText>
-          </PrimaryButton>
+          <PrimaryButton
+            onPress={generateCatGif}
+            primaryButtonText="I want my gif!"
+          />
         }
+
+        <ModalComponent
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          shareURL={catGifURL}
+          shareText={`Look at this cat gif!`}
+          tryAgain={tryAgain}
+          tryAgainButtonText={tryAgainButtonText}
+        />
+
       </Container>
     )
   )

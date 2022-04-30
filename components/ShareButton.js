@@ -1,39 +1,26 @@
 import React from 'react'
-import { Share, View, Text, TouchableOpacity } from 'react-native'
-import styled from 'styled-components/native'
+import { Share } from 'react-native'
 
-import { SecondaryButton, SecondaryButtonText } from '../styles/GlobalStyles'
+import { SecondaryButton } from './Buttons'
 
 const ShareButton = ({ shareURL, shareText }) => {
 
-const onShare = async () => {
+  const onShare = async () => {
 
-  try {
-    const result = await Share.share({
-      message: shareText,
-      url: shareURL,
-      title: shareURL
-    })
-    if (result.action === Share.sharedAction) {
-      if (result.activityType) {
-        // shared with activity type of result.activityType
-      } else {
-        // shared
-      }
-    } else if (result.action === Share.dismissedAction) {
-      // dismissed
+    try {
+      const result = await Share.share({
+        message: shareText,
+        url: shareURL,
+        title: shareURL
+      })
+    } catch (error) {
+      alert(error.message)
     }
-  } catch (error) {
-    alert(error.message)
   }
-}
 
   return (
-    <SecondaryButton onPress={onShare}>
-      <SecondaryButtonText>Share</SecondaryButtonText>
-    </SecondaryButton>
+    <SecondaryButton onPress={onShare} secondaryButtonText="Share" />
   )
 }
 
 export default ShareButton
-
