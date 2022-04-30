@@ -7,7 +7,7 @@ Also, some of the books will come from a very big book marketplace and local boo
 
 ## View it live
 https://expo.dev/@rawisaurus/Your-personal-book-shopping-helper
-If you have issue opening the link above try https://snack.expo.dev/@rawisaurus/your-new-personal-book-shopping-helper-
+If you have issue opening the link above try https://snack.expo.dev/@rawisaurus/book-finder
 Or screen recording [here](https://drive.google.com/file/d/1FoizBW3yFT5B9cDbsT9lAIqeCZlYxRft/view?usp=sharing)
 
 
