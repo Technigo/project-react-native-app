@@ -49,11 +49,6 @@ const ShakeACutie = () => {
     setSubscription(null)
   }
 
-  useEffect(() => {
-    unsubscribe()
-    return () => subscribe()
-  }, [])
-
   const isShaking = (data) => {
     const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z)
     return totalForce > 1.78
@@ -64,42 +59,73 @@ const ShakeACutie = () => {
     return totalForce > 3
   }
 
-  let buttonText = ''
-  let fetchAPI = ''
+  // useEffect(() => {
+  //   unsubscribe()
+  //   return () => subscribe()
+  // }, [])
 
-  const shakeForACat = () => {
+  // let buttonText = ''
+  // let fetchAPI = ''
+
+  if (subscription) {
     if (catURL === '') {
       if (isShakingEnough(data)) {
-        fetchAPI = RandomCuteCatAPI()
-        buttonText = 'Well done! Try again?'
-        generateCat()
+        //fetchAPI = RandomCuteCatAPI()
+        //buttonText = 'Well done! Try again?'
+        //generateCat()
+        Vibration.vibrate()
+        unsubscribe()
+        setModalVisible(true)
+        setIsLoading(true)
+        fetch(RandomCuteCatAPI())
+          .then(res => res.json())
+          .then(data => {
+            setCatURL(data[0].url)
+            setCatBreed(data[0].breeds[0].name)
+            setCatInfoURL(data[0].breeds[0].wikipedia_url)
+            setIsLoading(false)
+            setTryAgainButtonText('Well done! Try again?')
+          })
       } else if (isShaking(data)) {
-        fetchAPI = RandomUglyCatAPI()
-        buttonText = 'Ouch! Try harder now?'
-        generateCat()
+        // fetchAPI = RandomUglyCatAPI()
+        // buttonText = 'Ouch! Try harder now?'
+        //generateCat()
+        Vibration.vibrate()
+        unsubscribe()
+        setModalVisible(true)
+        setIsLoading(true)
+        fetch(RandomUglyCatAPI())
+          .then(res => res.json())
+          .then(data => {
+            setCatURL(data[0].url)
+            setCatBreed(data[0].breeds[0].name)
+            setCatInfoURL(data[0].breeds[0].wikipedia_url)
+            setIsLoading(false)
+            setTryAgainButtonText('Ouch! Try harder now?')
+          })
       }
     }
   }
 
-  useEffect(() => {
-    shakeForACat()
-  })
+  // useEffect(() => {
+  //   shakeForACat()
+  // })
 
-  const generateCat = () => {
-    Vibration.vibrate()
-    unsubscribe()
-    setModalVisible(true)
-    setIsLoading(true)
-    fetch(fetchAPI)
-      .then(res => res.json())
-      .then(data => {
-        setCatURL(data[0].url)
-        setCatBreed(data[0].breeds[0].name)
-        setCatInfoURL(data[0].breeds[0].wikipedia_url)
-        setIsLoading(false)
-        setTryAgainButtonText(buttonText)
-      })
-  }
+  // const generateCat = () => {
+  //Vibration.vibrate()
+  // unsubscribe()
+  // setModalVisible(true)
+  // setIsLoading(true)
+  // fetch(fetchAPI)
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     setCatURL(data[0].url)
+  //     setCatBreed(data[0].breeds[0].name)
+  //     setCatInfoURL(data[0].breeds[0].wikipedia_url)
+  //     setIsLoading(false)
+  //     setTryAgainButtonText(buttonText)
+  //   })
+  // }
 
   const tryAgain = () => {
     unsubscribe()

@@ -46,7 +46,6 @@ const App = () => {
         <Tab.Screen name="Design a meme" component={DesignAMeme} />
         <Tab.Screen name="Cloud the cat" component={CloudTheCat} />
         <Tab.Screen name="Shake a cutie" component={ShakeACutie} />
-        {/* <Tab.Screen name="Walk for fact" component={WalkForFact} /> */}
 
       </Tab.Navigator>
     </NavigationContainer>
