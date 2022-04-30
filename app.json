@@ -1,7 +1,7 @@
 {
 	"expo": {
 		"name": "Book finder App",
-		"slug": "Your personal book-shopping helper",
+		"slug": "Your-personal-book-shopping-helper",
 		"privacy": "public",
 		"description": "An application that allows you to scan a book's isbn and link you to the link to buy it.",
 		"version": "1.0.0",
