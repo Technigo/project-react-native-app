@@ -6,8 +6,9 @@ Also, some of the books will come from a very big book marketplace and local boo
 
 
 ## View it live
+https://expo.dev/@rawisaurus/Your-personal-book-shopping-helper
+Or screen recording [here](https://drive.google.com/file/d/1FoizBW3yFT5B9cDbsT9lAIqeCZlYxRft/view?usp=sharing)
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
 
 ## Note
 I have another version of this app using openlibrary API. The only limit is that they only have English books!
