@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components/native';
+
 import { BarCodeScanner } from 'expo-barcode-scanner';
+
 import { View, Text, Button, StyleSheet } from 'react-native'
+
 import BookDetail from './BookDetail';
+
 
 const AddBooks = () => {
     const [hasPermission, setHasPermission] = useState(null)
@@ -76,10 +79,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        height: 300,
+        height: 150,
         width: 300,
         overflow: 'hidden',
-        borderRadius: 30,
     },
     data: {
         fontSize: 20,

@@ -1,47 +1,71 @@
-import React, { useEffect, useState } from 'react'
-import { Text, Image } from 'react-native'
+import React from 'react'
+import {  Linking, Button } from 'react-native'
+import {Container, ScreenWrapper, ButtonWrapper, ButtonImg}from './Styles'
 
-const BookDetail = ({isbn}) => {
-    const [book, setBook] = useState(null);
-    const getBook = () => {
-        fetch(
-            `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&jscmd=details&format=json`
-        )
-            .then((data) => data.json())
-            .then((response) => {
-                const isbnKey = Object.keys(response);
+const BookDetail = ({ isbn }) => {
 
-                const responseDetails = response[isbnKey].details;
+    //I have another version of this app using openlibrary API. The only limit is that they only have English books!
+    //To make the scanning smooth, I remove the api for now
+    // const [book, setBook] = useState(null);
+    // const getBook = () => {
+    //     fetch(
+    //         `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&jscmd=details&format=json`
+    //     )
+    //         .then((data) => data.json())
+    //         .then((response) => {
+    //             const isbnKey = Object.keys(response);
 
-                const newBook = {
-                    title: responseDetails.title,
-                    authors: responseDetails.authors.map((author) => author.name),
-                    thumbnail: response[isbnKey].thumbnail_url
-                };
+    //             const responseDetails = response[isbnKey].details;
 
-                setBook(newBook);
-            });
-    };
+    //             const newBook = {
+    //                 title: responseDetails.title,
+    //                 authors: responseDetails.authors.map((author) => author.name),
+    //                 thumbnail: response[isbnKey].thumbnail_url
+    //             };
 
-    useEffect(() => {
-        getBook();
-    }, []);
+    //             setBook(newBook);
+    //         })
+    // } 
 
+    // useEffect(() => {
+    //     getBook();
+    // }, []);
+
+    // return (
+    //     <>
+    //         {
+    //             book ?
+    //                 (
+    //                     <>
+    //                         <Text>{book.title}</Text>
+    //                         <Text>{book.authors}</Text>
+    //                         <Text style={{ color: 'blue' }}
+    //                             onPress={() => Linking.openURL(`https://www.bookdepository.com/search/advanced/${isbn}`)}>
+    //                             Buy this book
+    //                         </Text>
+    //                     </>
+    //                 )
+    //                 : null
+    //         }
+
+
+    //     </>
+    // );
     return (
-        <>
-            {
-                book ?
-                    (
-                     <>
-                    <Text>{book.title}</Text>
-                    <Text>{book.authors}</Text>
-                    </>
-                    )
-                    : null
-            }
+        <Container>
+  <ScreenWrapper>
+  <ButtonWrapper>
+  <ButtonImg source={require('../assets/images/add-books.jpg')} />
+  <Button 
+   title="TAB HERE TO VIEW DETAILS"
+   color="black"
+   onPress={() => Linking.openURL(`https://www.bookdepository.com/search/advanced/${isbn}`)}
+   accessibilityLabel="view details button"
+   />
+  </ButtonWrapper>
+  </ScreenWrapper>
+</Container>
+    )
 
-
-        </>
-    );
 }
 export default BookDetail
