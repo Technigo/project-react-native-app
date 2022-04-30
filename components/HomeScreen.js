@@ -11,7 +11,7 @@ const HomeScreen = ({navigation}) => {
       <ButtonWrapper>
       <ButtonImg source={require('../assets/images/bookshelf.jpg')} />
       <Button 
-       title="TAB HERE TO SCAN ISBN"
+       title="TAP HERE TO SCAN ISBN"
        color="black"
        onPress={() => 
         navigation.navigate('Add books', {name: 'Add books'})  

@@ -6,6 +6,8 @@ const BookDetail = ({ isbn }) => {
 
     //I have another version of this app using openlibrary API. The only limit is that they only have English books!
     //To make the scanning smooth, I remove the api for now
+    //Run the fetch here: https://codesandbox.io/s/google-book-api-playaround-0rneby?file=/src/App.js
+    
     // const [book, setBook] = useState(null);
     // const getBook = () => {
     //     fetch(
