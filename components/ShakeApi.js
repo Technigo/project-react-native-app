@@ -1,17 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, Button } from "react-native"
-import styled from "styled-components/native";
+import { View, Text, Image, Button, StyleSheet } from "react-native"
 import { Accelerometer } from "expo-sensors";
-
-
-const Container = styled.View`
-width: 100%;
-height: 75%;
-`
-const StyledImage = styled.Image`
-  border-radius: 20px;
-`
-
 
 
 const ShakeApi = ({ navigation }) => {
@@ -73,23 +62,42 @@ const [data, setData] = useState({
 
  
   return (  
-    <Container>
+    <View style={styles.container}>
         
-        <StyledImage 
-        style={{width: '100%', height: '100%'}}
-        source={{ uri: `${images.image}` }}></StyledImage>
-  
+        <Image 
+        style={{ width: '100%', height: '80%', }}
+        source={{ uri: `${images.image}` }}/>
+
+      <Text style={{ textAlign: "center", }}>Shake your phone</Text>  
+
+      <View style={styles.button}>
         <Button
         onPress={() => navigation.navigate('Facts')}
         title="Read fox facts"
         />
+      </View>
   
-    </Container>
+    </View>
   
     );
 
- 
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: '100%',
+    width: '100%',
+    // flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    backgroundColor: '#caf0f8',
+  }, 
+  button: {
+    margin: 60,
+  }
+})
+
+
 
 export default ShakeApi
 

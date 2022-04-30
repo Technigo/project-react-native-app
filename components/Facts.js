@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Button } from "react-native"
+import { View, Text, Button, StyleSheet } from "react-native"
 import LottieView from 'lottie-react-native';
 import AppLoading from 'expo-app-loading';
-import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
+import { useFonts, Inter_500Medium } from '@expo-google-fonts/inter';
 
 
 const Facts = () => {
@@ -10,7 +10,6 @@ const Facts = () => {
   
   // Add random background color with the press of a button
     const randomHex =() =>{
-      console.log("Func Called");
       let letters = "0123456789ABCDEF";
       let random = "#";
       for (let i = 0; i < 6; i++) {
@@ -19,11 +18,10 @@ const Facts = () => {
       setColor({
         color: random,
       });
-      console.log("New color: "+color.color);
     }
 
     let [fontsLoaded] = useFonts({
-      Inter_900Black,
+      Inter_500Medium,
     });
 
     if (!fontsLoaded) {
@@ -37,27 +35,35 @@ const Facts = () => {
           source={require('../assets/animation.json')}
           autoPlay/>
 
-          <Text style={{ textAlign:"center" }}>
+          <Text style={{ fontFamily: "Inter_500Medium", fontSize: 18, padding: 10 }}>
             Fox families live in underground dens. 
               These underground dens also provide shelter from predators, such as coyotes, wolves, and bears. 
-              Humans, however, pose the largest threat to foxes.</Text>
-            <Text style={{ textAlign:"center" }}>Foxes stink. They have a sickly, musty scent that comes from the glands at the base of their tails. 
-              If you start smelling this around your home or in your crawl space, it may be an indicator that foxes are near.</Text>
-            <Text style={{ textAlign:"center" }}>When you are reading this you might think: "Foxes have alot of similarities with developers.</Text>
+              Humans, however, pose the largest threat to foxes. {'\n'}</Text>
+              
+            <Text style={{ fontFamily: "Inter_500Medium", fontSize: 18, padding: 10 }}>Foxes stink. They have a sickly, musty scent that comes from the glands at the base of their tails. 
+              If you start smelling this around your home or in your crawl space, it may be an indicator that foxes are near. {'\n'}</Text>
+              
+            <Text style={{ fontFamily: "Inter_500Medium", fontSize: 18, padding: 10 }}>When you are reading this you might think: "Foxes have alot of similarities with developers."</Text>
 
-          <Button title="Change background" onPress={randomHex}/>
-
+          <View style={styles.button}>
+            <Button 
+            title="Change background" 
+            onPress={randomHex}/>
+          </View>
         
         </View>
     )
 }
 
-var styles = {
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  }
-}
+  }, 
+  button: {
+    margin: 100,
+  },
+})
 
 export default Facts
