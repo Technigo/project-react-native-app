@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import { SensorComponent } from './components/SensorComponent';
 import { ImageBackground, StyleSheet } from 'react-native';
 import background from './assets/background.jpg';

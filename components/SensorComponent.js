@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
 import styled from 'styled-components/native';
-import { Image, TouchableOpacity, Share, Button } from 'react-native';
+import { Image, Share, Text, ActivityIndicator } from 'react-native';
 
 // ==========================
 // = Functions
@@ -25,11 +25,14 @@ const ShakeView = styled.View`
 `;
 
 const Header = styled.Text`
-  font-size: 23px;
+  font-size: 28px;
   color: white;
   font-weight: bold;
   text-align: center;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  background-color: black;
+  padding: 0 5px 4px 5px;
+  border-radius: 5px;
 `;
 
 const Name = styled.Text`
@@ -37,13 +40,19 @@ const Name = styled.Text`
   color: white;
   font-weight: bold;
   text-align: center;
-  padding-bottom: 10px;
+  margin-bottom: 40px;
+  background-color: black;
+  padding: 0 3px 3px 4px;
+  border-radius: 5px;
 `;
 
-// const ShareButton = styled.TouchableOpacity`
-//   margin: 20px;
-//   color: red;
-// `;
+const ShareButton = styled.TouchableOpacity`
+  margin-top: 50px;
+  background-color: grey;
+  border-radius: 25px;
+  padding: 7px;
+  align-items: center;
+`;
 
 export const SensorComponent = () => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -88,11 +97,14 @@ export const SensorComponent = () => {
   }, []);
 
   const [animal, setAnimal] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const generateAnimal = () => {
+    setLoading(true);
     fetch('https://zoo-animal-api.herokuapp.com/animals/rand')
       .then((res) => res.json())
-      .then((data) => setAnimal(data));
+      .then((data) => setAnimal(data))
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -117,19 +129,21 @@ export const SensorComponent = () => {
     }
   };
 
+  if (loading) {
+    return <ActivityIndicator size="large" color="#fff" />;
+  }
+
   return (
     <ShakeView>
       <Header>Shake for a new animal</Header>
       <Name>{animal.name}</Name>
       <Image
-        style={{ width: 250, height: 250 }}
+        style={{ width: 250, height: 300 }}
         source={{ uri: `${animal.image_link}` }}
       />
-      {/* <ShareButton>
-        <TouchableOpacity onPress={toShare}>
-          <Text>Share a random animal</Text>
-        </TouchableOpacity>
-      </ShareButton> */}
+      <ShareButton onPress={toShare}>
+        <Text style={{ color: 'white', fontWeight: 'bold' }}>SHARE ➡️</Text>
+      </ShareButton>
     </ShakeView>
   );
 };
