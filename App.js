@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { View, Text, Button, Image, Wrapper, ScrollView } from "react-native"
 import styled from 'styled-components/native'
 
-import LottieView from 'lottie-react-native'
+// import LottieView from 'lottie-react-native'
 
 import { DOG_URL } from "./utils/urls"
 
@@ -24,42 +24,51 @@ export default function App() {
     }, [])
 
 
-
-console.log(dog)
+	// console.log('hundAPI', dog[0]?.breed)
+	console.log('just dog', dog)
+	// console.log('just dog', dog[0].breeds)
 
 	return (
 
 		<StyledView>
 			<ScrollView>
 			<StyledView>
-		<LottieView source={require('./assets/animation.json')}
+
+
+		{/* <LottieView source={require('./assets/animation.json')}
  		style={{width: 80, height: 80, zIndex: 1, marginTop: 10}}
-		autoPlay 
-		loop /><Title>Dog of the Day</Title>
+		autoPlay
+		loop /> */}
 
-			<WrapThis>
-			
-				<DogImage
-				source={{uri: dog.url}} />
+<Title>Dog of the Day</Title>
+
+	<WrapThis>
+
+		<DogImage
+		source={{uri: dog.url}} />
 
 
+		<DogWrapper>
+			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.name : ''} </DogInfo> : ''}
+			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.bred_for : ''} </DogInfo> : ''}
+			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.breed_group : ''} </DogInfo> : ''}
+			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.life_span : ''} </DogInfo> : ''}
+			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.temperament : ''} </DogInfo> : ''}
+		</DogWrapper>
 
-<DogWrapper>
+				{/* // <DogInfo>{dog.breeds[0]?.name}</DogInfo>
+				// <DogInfo>{dog.breeds[0]?.bred_for}</DogInfo>
 
-				<DogInfo>{dog.breeds[0]?.name}</DogInfo>
-				<DogInfo>{dog.breeds[0]?.bred_for}</DogInfo>
+				// <DogInfo>{dog.breeds[0]?.breed_group}</DogInfo>
+				// <DogInfo>{dog.breeds[0]?.life_span}</DogInfo>
+				// <DogInfo>{dog.breeds[0]?.temperament}</DogInfo> */}
 
-				<DogInfo>{dog.breeds[0]?.breed_group}</DogInfo>
-				<DogInfo>{dog.breeds[0]?.life_span}</DogInfo>
-				<DogInfo>{dog.breeds[0]?.temperament}</DogInfo>
-
-</DogWrapper>
 
 				<StyledButton onPress={generateDog}>
 					<TextButton>New doggie</TextButton>
 				</StyledButton>
-			
-			</WrapThis>
+
+		</WrapThis>
 			<Footer />
 			</StyledView>
 			</ScrollView>
@@ -96,7 +105,7 @@ font-size: 16px;
 color: #ad8850;
 `
 
-const WrapThis = styled.View`
+const WrapThis = styled.Text`
 background: #e7cba499;
 padding: 10px;
 border-radius: 1;
@@ -104,10 +113,9 @@ text-align: center;
 align-items: center;
 margin-top: 30px;
 width: 100%;
-align-items: center;
 `
 
-const DogWrapper = styled.View`
+const DogWrapper = styled.Text`
 text-align: left;
 width: 320;
 `
@@ -126,5 +134,5 @@ const StyledButton = styled.TouchableOpacity`
   background-color: white;
   border-radius: 10px;
   padding: 10px;
-  margin-top: 25px
+  margin-top: 25px;
 `
