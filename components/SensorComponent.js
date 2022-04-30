@@ -13,7 +13,8 @@ const Container = styled.View`
   text-align: center;
   margin-bottom: 20px;
   overflow-wrap:break-word;
-  border: white 1px;
+  margin-left: 20px;
+  margin-right:20px;
 `;
 
 
@@ -23,8 +24,8 @@ text-align: center;
 border: solid 2px; 
 width: 50%;
 border-radius:5px;
-padding:10px;
-margin-top: 80px;
+padding:8px;
+margin-top: 60px;
 margin-left: 80px;
 box-shadow: 5px 5px #000;
 background-color: grey;
