@@ -4,8 +4,6 @@ This week I have created an app in React native. Shake your phone to get random 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
 In the app I display three pages using navigation and I fetch random pictures of foxes using an API. To get a new picture you should shake your phone. The app also displayes Lottie animations. I started with planning what my app should include and how I wanted it to look. If I had more time I would have put more useful information in the app.
 
 ## View it live
