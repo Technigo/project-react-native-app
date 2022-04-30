@@ -1,7 +1,9 @@
 {
 	"expo": {
-		"name": "project-react-native-app",
-		"slug": "project-react-native-app",
+		"name": "Book finder App",
+		"slug": "Your-personal-book-shopping-helper",
+		"privacy": "public",
+		"description": "An application that allows you to scan a book's isbn and link you to the link to buy it.",
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
