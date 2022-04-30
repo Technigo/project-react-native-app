@@ -30,7 +30,6 @@ margin-left: 80px;
 box-shadow: 5px 5px #000;
 background-color: grey;
 overflow-wrap:break-word;
-
 `
   ;
 
@@ -81,11 +80,12 @@ export const SensorComponent = () => {
       {isShaking(data) && generateQuote()}
       <View>
         <Text> {quote.content} </Text>
+        <Text> {quote.blank} </Text>
         <Text> {quote.author} </Text>
-        </View>
-        <Button onPress={generateQuote}>
-          <Text>New quote</Text>
-        </Button>
+      </View>
+      <Button onPress={generateQuote}>
+        <Text>New quote</Text>
+      </Button>
     </Container>
   );
 };
