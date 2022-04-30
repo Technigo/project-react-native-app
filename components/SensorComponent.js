@@ -14,7 +14,7 @@ const Container = styled.View`
   justify-content: center;
   font-family: monospace;
   margin-bottom: 20px;
-  font-weight: 30px;
+  overflow-wrap:break-word;
 `;
 
 const Button = styled.TouchableOpacity`
@@ -23,10 +23,12 @@ border: solid 2px;
 width: 50%;
 border-radius:5px;
 padding:8px;
-position:relative;
+margin-left: 200px;
 justify-content: center;
 margin-top: 20px;
+font-family: monospace;
 box-shadow: 5px 5px #000;
+background-color: pink;
 `
   ;
 

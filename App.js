@@ -7,6 +7,7 @@ const Container = styled.View`
   background-color: #2C3D4F;
   justify-content: center;
   font-family: monspace;
+  color:red;
 `;
 
 
