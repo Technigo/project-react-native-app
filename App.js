@@ -10,7 +10,6 @@ const Container = styled.View`
 `;
 
 
-
 const App = () => {
   return (
     <Container>
