@@ -9,16 +9,6 @@ import { DOG_URL } from "./utils/urls"
 import Footer from './components/Footer'
 
 
-{/* <LottieView
-source={require('./assets/animation.json')}
-autoPlay
-loop
-mode="normal"
-src="https://assets10.lottiefiles.com/private_files/lf30_pcBP5A.json"
-style={{ */}
-
-
-
 export default function App() {
 
 	const [dog, setDog] = useState({})
@@ -32,6 +22,8 @@ export default function App() {
     useEffect(() => {
         generateDog()
     }, [])
+
+
 
 console.log(dog)
 
@@ -50,17 +42,16 @@ console.log(dog)
 				<DogImage
 				source={{uri: dog.url}} />
 
-			{/* {dog.breed !== 'undefined' ? <DogInfo>{dog.breeds ? ('Breed: ') + dog.breeds[0]?.name : ''}</DogInfo> : '' */}
 
 
 <DogWrapper>
 
-				<DogInfo>{dog.breeds ? ('Breed: ') + dog.breeds[0]?.name : ''}</DogInfo>
-				<DogInfo>{dog.breeds ? ('Bred for: ') + dog.breeds[0]?.bred_for : ''}</DogInfo>
+				<DogInfo>{dog.breeds[0]?.name}</DogInfo>
+				<DogInfo>{dog.breeds[0]?.bred_for}</DogInfo>
 
-				<DogInfo>{dog.breeds ? ('Breed Group: ') + dog.breeds[0]?.breed_group : ''}</DogInfo>
-				<DogInfo>{dog.breeds ? ('Life span: ') + dog.breeds[0]?.life_span : ''}</DogInfo>
-				<DogInfo>{dog.breeds ? ('Temperament: ') + dog.breeds[0]?.temperament : ''}</DogInfo>
+				<DogInfo>{dog.breeds[0]?.breed_group}</DogInfo>
+				<DogInfo>{dog.breeds[0]?.life_span}</DogInfo>
+				<DogInfo>{dog.breeds[0]?.temperament}</DogInfo>
 
 </DogWrapper>
 
@@ -118,11 +109,11 @@ align-items: center;
 
 const DogWrapper = styled.View`
 text-align: left;
-width: 300;
+width: 320;
 `
 
 const DogImage = styled.Image`
-width: 300;
+width: 320;
 z-index: 2;
 height: 200;
 justify-content: center;
