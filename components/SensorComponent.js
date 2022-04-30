@@ -10,27 +10,27 @@ const isShaking = (data) => {
 
 const Container = styled.View`
   display: flex;
-  text-align
-  justify-content: center;
+  text-align: center;
   font-family: monospace;
   margin-bottom: 20px;
+  
   overflow-wrap:break-word;
 `;
 
 const Button = styled.TouchableOpacity`
-display:flex;
+display: flex;
+text-align: center;
 border: solid 2px; 
-width: 50%;
+width: 20%;
 border-radius:5px;
-padding:8px;
-margin-left: 200px;
-justify-content: center;
-margin-top: 20px;
-font-family: monospace;
+padding:10px;
+margin-top: 30px;
 box-shadow: 5px 5px #000;
-background-color: pink;
+background-color: grey;
+
 `
   ;
+
 
 export const SensorComponent = () => {
   const [quote, setQuote] = useState({});
@@ -80,7 +80,7 @@ export const SensorComponent = () => {
       <View>
         <Text> {quote.content} </Text>
         <Text> {quote.author} </Text>
-        <Button onPress={TouchableOpacity}>
+        <Button onPress={generateQuote}>
           <Text>New quote</Text>
         </Button>
 
