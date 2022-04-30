@@ -1,24 +1,24 @@
-import React from "react";
-import styled from "styled-components/native";
-import { SensorComponent } from "./components/SensorComponent";
+import React from 'react';
+import { SensorComponent } from './components/SensorComponent';
+import { ImageBackground, StyleSheet } from 'react-native';
+import background from './assets/background.jpg';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: papayawhip;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'black',
+  },
+});
 
 const App = () => {
   return (
-    <Container>
+    <ImageBackground
+      source={background}
+      resizeMode="cover"
+      style={styles.image}>
       <SensorComponent></SensorComponent>
-    </Container>
+    </ImageBackground>
   );
 };
 
