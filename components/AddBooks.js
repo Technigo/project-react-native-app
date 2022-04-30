@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { View, Text, Button, StyleSheet } from 'react-native'
+import BookDetail from './BookDetail';
 
-const AddBooks = ({ navigation, route }) => {
+const AddBooks = () => {
     const [hasPermission, setHasPermission] = useState(null)
     const [scanned, setScanned] = useState(false)
-    const [text, setText] = useState('Not yet scanned')
+    const [isbn, setIsbn] = useState(null)
 
 
     const askForCameraPermission = () => {
@@ -21,7 +22,7 @@ const AddBooks = ({ navigation, route }) => {
 
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true)
-        setText(data)
+        setIsbn(data)
         console.log(type)
     };
 
@@ -44,16 +45,23 @@ const AddBooks = ({ navigation, route }) => {
         )
     }
 
-    return (
-        <View style={styles.container}>
-            <BarCodeScanner
-                onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-                style={styles.barcodebox}
-            />
-            <Text style={styles.data}>{text}</Text>
-            {scanned && <Button title={'Scan again?'} onPress={()=> setScanned(false)} /> }
-        </View>
-    )
+    if (!isbn) {
+        return (
+            <View style={styles.container}>
+                <BarCodeScanner
+                    onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                    style={styles.barcodebox}
+                />
+                <Text style={styles.data}>{isbn}</Text>
+                {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} />}
+            </View>
+        )
+    }
+
+    if (isbn)
+        return (
+            <BookDetail isbn={isbn} />
+        )
 }
 
 export default AddBooks

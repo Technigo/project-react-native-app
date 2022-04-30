@@ -58,7 +58,7 @@ const HomeScreen = ({navigation}) => {
        title="BOOKSHELF"
        color="black"
        onPress={() => 
-        navigation.navigate('Bookshelf', {name: 'Bookshelf'})  
+        navigation.navigate('BookDetail', {name: 'BookDetail'})  
       }
        accessibilityLabel="go to bookshelf button"
        />
