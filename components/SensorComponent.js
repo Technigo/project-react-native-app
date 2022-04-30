@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Pedometer } from "expo-sensors";
 import styled from "styled-components/native";
+import { watchStepCount } from "expo-sensors/build/Pedometer";
 
 // = Styled components
-const ShakeView = styled.View`
+const StepView = styled.View`
   display: flex;
   flex-direction: column;
 `;
@@ -18,11 +19,13 @@ const StepText = styled.Text`
 const ShakeAlert= styled.Text`
   font-size: 40px;
   font-weight: bold;
-  color: #97BFB4;
+  color: #F5EEDC;
 `;
 
-const ShakeDataView = styled.View``;
+const ShakeDataView = styled.View`
+margin-bottom:150px;`;
 ;
+
 const ShakeData = styled.Text``;
 
 // = Functions
@@ -35,7 +38,7 @@ export const SensorComponent= () => {
 
   useEffect(()=>{
     subscribe()
-   
+
   },[])
 
   const subscribe = () => {
@@ -43,9 +46,15 @@ export const SensorComponent= () => {
       updateStepCounter(result.steps);
     })
 
+    const _unsubscribe = () => {
+      subscription && subscription.remove();
+      watchStepCount(null);
+    }
+    
+
     Pedometer.isAvailableAsync().then(
       (result) => {
-    setStepAvailability(String(result));
+    setStepAvailability((result));
       }, 
       (error) => {
         setStepAvailability(error);
@@ -53,14 +62,20 @@ export const SensorComponent= () => {
     );
   }
 
-  return (
-    <ShakeView>
-      <ShakeDataView>
-      <ShakeAlert>{StepAvailability}</ShakeAlert>
 
+
+  return (
+    <StepView>
+      <ShakeDataView>
+      
 <StepText>{stepCounter}</StepText>
+
 <ShakeAlert>steps... so far!!!</ShakeAlert>
+<ShakeAlert>
+  
+
+  {StepAvailability}</ShakeAlert>
       </ShakeDataView>
-    </ShakeView>
+    </StepView>
   );
 };
