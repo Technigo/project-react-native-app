@@ -9,7 +9,7 @@ const Container = styled.View`
 const MainText = styled.Text`
   font-size: 20px;
   padding: 10px;
-  font-weight: 700;
+  font-weight: 900;
   text-align: center;
   color: black;
   background-color: #87e5f5;
