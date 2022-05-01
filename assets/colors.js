@@ -1,6 +1,8 @@
 export const Colors = {
-    primary: 'teal',
-    secondary: '#000',
-    textColor: 'palevioletred',
-    backgroundColor: 'papayawhip'
+    white: '#fff',
+    black: '#000',
+    grain: '#D7CEC7',
+    blackboard: '#565656',
+    oxblood: '#76323F',
+    tan: '#C09F80'
 }

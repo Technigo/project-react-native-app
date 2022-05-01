@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Colors } from '../assets/colors'
 
-const StyledButton = ({ title, onPress }) => {
+const DirectionButton = ({ title, onPress }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: Colors.oxblood
+    backgroundColor: Colors.blackboard,
   },
   text: {
     fontSize: 16,
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StyledButton
+export default DirectionButton

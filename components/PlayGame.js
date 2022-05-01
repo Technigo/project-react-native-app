@@ -4,8 +4,10 @@ import ScalableText from 'react-native-text'
 import { useSelector, useDispatch } from 'react-redux'
 
 import StyledButton from './StyledButton'
+import DirectionButton from './DirectionButton'
 
 import game, { getNextPosition } from '../reducers/game'
+import { Colors } from '../assets/colors'
 
 const PlayGame = () => {
 
@@ -20,29 +22,16 @@ const PlayGame = () => {
 
     const handleRestart = () => dispatch(game.actions.restartGame())
 
-    let restartButton
-
-    if (currentPosition.actions.length === 0) {
-        restartButton = (
-            <TouchableOpacity
-                style={styles.submitButton}
-                onPress={handleRestart}
-            >
-                <Text>Restart</Text>
-            </TouchableOpacity>
-        )
-    }
-
     return (
         <>
             <ScalableText style={styles.currentText}>{currentPosition.description}</ScalableText>
 
             {currentPosition.actions.map((action, index) => {
                 return (
-                    <View key={index}>
+                    <View style={styles.actionsContainer} key={index}>
                         <ScalableText style={styles.actionText}>{action.description}</ScalableText>
                         <View style={styles.buttonContainer}>
-                            <StyledButton
+                            <DirectionButton
                               title={`Go ${action.direction.toLowerCase()}`}
                               onPress={() => handleAction(action.direction)}
                              />
@@ -50,8 +39,11 @@ const PlayGame = () => {
                     </View>
                 )
             })}
-            {/* Restart button is displayed when there are no actions left */}
-            {restartButton}
+    
+            <StyledButton 
+              title="Restart"
+              onPress={handleRestart}
+            />
         </>
     )
 }
@@ -61,18 +53,25 @@ const styles = StyleSheet.create({
     currentText: {
         marginHorizontal: 20,
         marginBottom: 10,
-        fontSize: 24,
+        fontSize: 22,
         fontWeight: 'bold',
-        color: '#fff',
+        color: Colors.oxblood
     },
+    actionsContainer: {
+        backgroundColor: Colors.tan,
+        marginHorizontal: 20,
+        marginVertical: 10,
+        padding: 10,
+        borderRadius: 30
+    },  
     actionText: {
         marginHorizontal: 20,
-        marginVertical: 20,
-        fontSize: 18,
-        color: '#fff',
+        marginVertical: 10,
+        fontSize: 16,
+        color: Colors.black,
     },
     buttonContainer: {
-        alignItems: 'center',
+        alignItems: 'center'
     },
 });
 

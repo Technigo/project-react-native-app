@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native'
 import StyledButton from '../components/StyledButton'
 
+import { Colors } from '../assets/colors'
+
 const DOG_URL = 'https://dog.ceo/api/breed/samoyed/images/random'
 
 const DogScreen = () => {
@@ -35,19 +37,20 @@ const DogScreen = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'papayawhip',
+		backgroundColor: Colors.grain,
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	title: {
 		fontSize: 34,
-		color: 'palevioletred'
+        fontWeight: 'bold',
+		color: Colors.blackboard
 	},
 	image: {
-		width: 150,
-		height: 150,
+		width: 200,
+		height: 200,
         margin: 40,
-        borderRadius: 150 / 2
+        borderRadius: 200 / 2
 	}
 })
 

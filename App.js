@@ -4,6 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from '@expo/vector-icons/Ionicons'
 import { FontAwesome5 } from '@expo/vector-icons';
 
+import { Colors } from './assets/colors';
+
 import StartScreen from './screens/StartScreen'
 import DogScreen from './screens/DogScreen'
 import GameScreen from './screens/GameScreen'
@@ -43,8 +45,8 @@ const App = () => {
 							);
 						}
 					},
-					tabBarInactiveTintColor: 'gray',
-					tabBarActiveTintColor: 'tomato',
+					tabBarInactiveTintColor: 'darkgrey',
+					tabBarActiveTintColor: 'black'
 				})}
 			>
 				<Tab.Screen name="Home" component={StartScreen} />

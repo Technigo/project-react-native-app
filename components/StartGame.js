@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import StyledButton from './StyledButton'
 
 import game, { startGame } from '../reducers/game'
+import { Colors } from '../assets/colors'
 
 
 const StartGame = () => {
@@ -22,8 +23,8 @@ const StartGame = () => {
     }
 
     return (
-        <>
-            <ScalableText style={styles.h1}>Welcome to the Labyrinth!</ScalableText>
+        <View style={styles.container}>
+            <ScalableText style={styles.welcomeText}>The Labyrinth</ScalableText>
             <ScalableText style={styles.label}>What's your name?</ScalableText>
             <TextInput
                 style={styles.input}
@@ -36,38 +37,41 @@ const StartGame = () => {
                 title="Start the game"
             >
             </StyledButton>
-        </>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#008080',
+        marginHorizontal: 20,
+        backgroundColor: Colors.grain,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    h1: {
-        fontSize: 24,
+    welcomeText: {
+        fontSize: 30,
+        fontWeight: 'bold',
+		color: Colors.blackboard,
         textAlign: 'center',
-        color: '#fff',
         marginBottom: 10
     },
     label: {
-        fontSize: 16,
+        fontSize: 15,
+        fontWeight: 'bold',
         textAlign: 'center',
-        color: '#fff',
+        color: Colors.oxblood,
         marginBottom: 5
     },
     input: {
-        height: 30,
-        backgroundColor: '#fff',
+        height: 35,
+        backgroundColor: Colors.white,
         marginHorizontal: 30,
         marginVertical: 15,
         borderWidth: 1,
         borderRadius: 10,
         padding: 10,
-        alignSelf: 'stretch'
+        minWidth: 150
     },
 });
 

@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 import Loader from './Loader';
 import StartGame from './StartGame';
 import PlayGame from './PlayGame';
+import { Colors } from '../assets/colors';
 
 const Game = () => {
-    
+
     const username = useSelector(store => store.game.username)
     const isLoading = useSelector(store => store.game.loading)
 
@@ -25,8 +26,7 @@ const Game = () => {
 const styles = StyleSheet.create({
     screenContainer: {
         flex: 1,
-        // marginHorizontal: 20,
-        backgroundColor: '#483d8b',
+        backgroundColor: Colors.grain,
         alignItems: 'center',
         justifyContent: 'center',
     },
