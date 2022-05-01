@@ -1,13 +1,13 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Task to create an app in React Native. Due to stressful week I went very basic and createad a step counter by using sensor "Pedometer". 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Challenging to understand what libraries and dependencies to use. Had problems in the begining to even start the project due to technical issues. If I would have had more time this week I would have put more energy into styling and make the app a bit more complex. 
 
 ## View it live
+https://expo.dev/@jennyfiskaare/project-react-native-app-step-tracker-jenny-fiskaare?serviceType=classic&distribution=expo-go
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+
+
