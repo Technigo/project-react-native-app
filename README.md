@@ -10,4 +10,5 @@ I have used React Native Navigation for the tabs at the bottom.
 
 
 ## View it live
+https://expo.dev/@joannaringqvist/project-react-native-app?serviceType=classic&distribution=expo-go
 
