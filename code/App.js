@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { SafeAreaView, FlatList, Pressable } from "react-native";
+import React, { useEffect, useState, useRef } from "react";
+import { FlatList, Pressable, Button } from "react-native";
 import * as WebBrowser from "expo-web-browser";
-import TagPressable from "./src/components/TagPressable";
 import styled from "styled-components/native";
 import { API } from "./src/api/api";
+import TagPressable from "./src/components/TagPressable";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [selectedId, setSelectedId] = useState(0);
   const [isLoading, setLoading] = useState(false);
+
+  const flatListRef = useRef();
+
+  const scrollToTop = () => {
+    flatListRef?.current?.scrollToOffset({ animated: true, offset: 0 });
+  };
 
   const handleOnPress = (url, index) => {
     setLoading(true);
@@ -59,7 +65,6 @@ const App = () => {
       <Title>The Guardian</Title>
       <Tags>
         {API.map((tag, index) => {
-          // const isSelected = index === selectedId;
           return (
             <TagPressable
               key={index}
@@ -74,7 +79,15 @@ const App = () => {
       </Tags>
       <SafeAreaViewStyled>
         {isLoading && <Loader />}
-        <FlatList data={recipes} renderItem={renderItem} key={(item) => item.id} />
+        <FlatList
+          data={recipes}
+          renderItem={renderItem}
+          key={(item) => item.id}
+          ref={flatListRef}
+        />
+        <Pressable onPress={() => scrollToTop()}>
+          <PressToTop>▲ Back to top</PressToTop>
+        </Pressable>
       </SafeAreaViewStyled>
     </Container>
   );
@@ -149,4 +162,8 @@ const Loader = styled.ActivityIndicator`
 
 const SafeAreaViewStyled = styled.SafeAreaView`
   height: 550px;
+`;
+
+const PressToTop = styled(Subtitle)`
+  text-align: center;
 `;
