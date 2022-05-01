@@ -3,8 +3,6 @@ import { View, Button, Share } from 'react-native';
 import styled from 'styled-components/native';
 import { Accelerometer } from "expo-sensors";
 
-import Loader from './Loader';
-
 import { REMBRANDT_URL } from '../utils/urls';
 
 const ArtworkContainer = styled.ScrollView`
@@ -40,7 +38,6 @@ text-align: center;
 const RandomArtwork = () => {
   const [randomArtwork, setRandomArtwork] = useState([])
   const [subscription, setSubscription] = useState(null);
-  const [loading, setLoading] = useState(false)
 
   const [data, setData] = useState({
     x: 0,
@@ -109,16 +106,13 @@ const RandomArtwork = () => {
 
   return (
     <ArtworkContainer>
-      {loading
-      ? <Loader />
-      : <View>
-          <ArtworkImage source={randomArtwork?.webImage}/>
-          <TitleText>{randomArtwork?.longTitle}</TitleText>
-          <LocationText>{randomArtwork?.productionPlaces}</LocationText>
-          <Button title="share" onPress={async () => { await onShare()}}/>
-          <ShakeText>or shake me for next!</ShakeText>
-        </View>
-      }
+      <View>
+        <ArtworkImage source={randomArtwork?.webImage}/>
+        <TitleText>{randomArtwork?.longTitle}</TitleText>
+        <LocationText>{randomArtwork?.productionPlaces}</LocationText>
+        <Button title="share" onPress={async () => { await onShare()}}/>
+        <ShakeText>or shake me for next!</ShakeText>
+      </View>
     </ArtworkContainer>
   )
 };

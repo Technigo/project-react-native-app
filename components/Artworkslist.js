@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components/native';
-
-import Loader from './Loader';
 
 import { REMBRANDT_URL } from '../utils/urls';
 
@@ -38,7 +36,6 @@ const ArtworkImage = styled.Image`
 
 const Artworkslist = () => {
   const [artworks, setArtworks] = useState([])
-  const [loading, setLoading] = useState(false)
 
   const generateArtworks = () => {
     setLoading(true)
@@ -54,9 +51,7 @@ const Artworkslist = () => {
 
   return (
     <HomeView>
-      {loading
-      ? <Loader />
-      : <ArtworkContainer>
+      <ArtworkContainer>
         <HeaderText>Rembrandt Randomizer</HeaderText>
         {artworks.map((artwork) => {
           return (
@@ -67,7 +62,6 @@ const Artworkslist = () => {
           )
         })}
         </ArtworkContainer>
-      }
     </HomeView>
   )
 }
