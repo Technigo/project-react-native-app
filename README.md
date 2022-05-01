@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The focus area for this task was building an app that fetches some information and displays it to the user in a nice way. The main purpose of pursuing this focus area is to explore the differences between React Native and React for the web, including:
+- Fetching information from different API endpoints using The Guardian's open API
+- Displaying the data as a flatlist for better performance
+- Conditionally rendering a "back to top" button based on what the user is viewing that scrolls to top with animation
+- Adding functionality to open up recipes in the web browser in app
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+For viewing it is recommended to open the project in Expo Snack's iOS simulator: https://snack.expo.dev/e5_rsu2CL
