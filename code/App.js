@@ -13,10 +13,7 @@ const App = () => {
 
   const flatListRef = useRef();
 
-  const scrollToTop = () => {
-    flatListRef?.current?.scrollToOffset({ animated: true, offset: 0 });
-    setShowButton(false);
-  };
+  const scrollToTop = () => flatListRef?.current?.scrollToOffset({ animated: true, offset: 0 });
 
   const handleOnPress = (url, index) => {
     setLoading(true);
@@ -87,7 +84,9 @@ const App = () => {
           renderItem={renderItem}
           key={(item) => item.id}
           ref={flatListRef}
-          onEndReached={() => setShowButton(true)}
+          onScroll={(e) =>
+            e.nativeEvent.contentOffset.y > 600 ? setShowButton(true) : setShowButton(false)
+          }
         />
       </SafeAreaViewStyled>
       {showButton && (
