@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Image, Button } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
+import StyledButton from '../components/StyledButton';
 
 const DOG_URL = 'https://dog.ceo/api/breed/samoyed/images/random'
 
@@ -26,7 +27,7 @@ const DogScreen = () => {
             {dogImage && 
                 <Image source={{ uri: dogImage}} style={styles.image} />
             }
-			<Button onPress={getDogImage} title="Update image" />	
+             <StyledButton title="Update image" onPress={getDogImage} />
 		</View>
 	);
 };
@@ -39,12 +40,14 @@ const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	title: {
-		fontSize: 24,
+		fontSize: 34,
 		color: 'palevioletred'
 	},
 	image: {
-		width: 66,
-		height: 66
+		width: 150,
+		height: 150,
+        margin: 40,
+        borderRadius: 150 / 2
 	}
 })
 
