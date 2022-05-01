@@ -1,26 +1,55 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Ionicons } from '@expo/vector-icons'
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import Home from './screens/Home'
+import DesignAMeme from './screens/DesignAMeme'
+import CloudTheCat from './screens/CloudTheCat'
+import ShakeACutie from './screens/ShakeACutie'
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Tab = createBottomTabNavigator()
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName
 
-export default App;
+            if (route.name === 'Home') {
+              iconName = focused
+                ? 'ios-home'
+                : 'ios-home-outline'
+            } else if (route.name === 'Design a meme') {
+              iconName = focused
+                ? 'ios-build'
+                : 'ios-build-outline'
+            } else if (route.name === 'Shake a cutie') {
+              iconName = focused
+                ? 'ios-shuffle'
+                : 'ios-shuffle-outline'
+            } else if (route.name === 'Cloud the cat') {
+              iconName = focused
+                ? 'ios-game-controller'
+                : 'ios-game-controller-outline'
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />
+          },
+          tabBarActiveTintColor: '#e63946',
+          tabBarInactiveTintColor: 'gray',
+        })}
+      >
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Design a meme" component={DesignAMeme} />
+        <Tab.Screen name="Cloud the cat" component={CloudTheCat} />
+        <Tab.Screen name="Shake a cutie" component={ShakeACutie} />
+
+      </Tab.Navigator>
+    </NavigationContainer>
+  )
+}
+
+export default App
