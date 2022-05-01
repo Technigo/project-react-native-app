@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, FlatList, Pressable, Text } from "react-native";
+import { SafeAreaView, FlatList, Pressable } from "react-native";
 import * as WebBrowser from "expo-web-browser";
 import TagPressable from "./src/components/TagPressable";
 import styled from "styled-components/native";
@@ -10,8 +10,11 @@ const App = () => {
   const [selectedId, setSelectedId] = useState(0);
   const [isLoading, setLoading] = useState(false);
 
-  // use callback and spread syntax to keep previous results and add new
-  // consider object with pageIndex index to have more control over the data
+  const handleOnPress = (url, index) => {
+    setLoading(true);
+    setSelectedId(index);
+    getRecipes(url);
+  };
 
   const getRecipes = (url) => {
     fetch(url)
@@ -54,26 +57,25 @@ const App = () => {
     <Container>
       <Subtitle>RECIPES FROM</Subtitle>
       <Title>The Guardian</Title>
-      <Tags style={{ marginBottom: 10 }}>
+      <Tags>
         {API.map((tag, index) => {
-          const isSelected = index === selectedId
+          // const isSelected = index === selectedId;
           return (
             <TagPressable
               key={index}
-              tag={tag}
+              title={tag.title}
+              url={tag.url}
               index={index}
-              isSelected={isSelected}
-              setLoading={setLoading}
-              setSelectedId={setSelectedId}
-              getRecipes={getRecipes}
+              isSelected={index === selectedId}
+              onPress={handleOnPress}
             />
           );
         })}
       </Tags>
-      <SafeAreaView style={{ height: 550 }}>
+      <SafeAreaViewStyled>
         {isLoading && <Loader />}
         <FlatList data={recipes} renderItem={renderItem} key={(item) => item.id} />
-      </SafeAreaView>
+      </SafeAreaViewStyled>
     </Container>
   );
 };
@@ -101,13 +103,17 @@ const Subtitle = styled.Text`
   color: rgb(128, 128, 128);
 `;
 
-const Recipe = styled.Text`
-  font-family: Georgia;
-  font-size: 17px;
-  letter-spacing: -0.2px;
+const Tags = styled.View`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+`;
 
-  font-weight: bold;
-  color: rgb(125, 0, 104);
+const Thumbnail = styled.Image`
+  width: 325px;
+  height: 325px;
+  border-radius: 5px;
 `;
 
 const Date = styled.Text`
@@ -116,10 +122,12 @@ const Date = styled.Text`
   color: rgb(128, 128, 128);
 `;
 
-const Tags = styled.View`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+const Recipe = styled.Text`
+  font-family: Georgia;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: -0.2px;
+  color: rgb(125, 0, 104);
 `;
 
 const Article = styled.View`
@@ -127,12 +135,6 @@ const Article = styled.View`
   margin-bottom: 20px;
   border-bottom-width: 0.5px;
   border-color: rgb(208, 223, 236);
-`;
-
-const Thumbnail = styled.Image`
-  width: 325px;
-  height: 325px;
-  border-radius: 5px;
 `;
 
 const Loader = styled.ActivityIndicator`
@@ -143,4 +145,8 @@ const Loader = styled.ActivityIndicator`
   bottom: 0;
   align-items: center;
   justify-content: center;
+`;
+
+const SafeAreaViewStyled = styled.SafeAreaView`
+  height: 550px;
 `;

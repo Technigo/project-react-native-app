@@ -1,30 +1,23 @@
 import React from "react";
-import { Pressable, Text } from "react-native";
+import styled from "styled-components";
 
-const TagPressable = ({ index, isSelected, setLoading, setSelectedId, getRecipes, tag }) => {
+const TagPressable = ({ url, title, index, onPress, isSelected }) => {
   return (
-    <Pressable
-      onPress={() => {
-        setLoading(true);
-        setSelectedId(index);
-        getRecipes(tag.url);
-      }}
-      style={{
-        margin: 4,
-        padding: 8,
-        backgroundColor: isSelected ? "rgb(6,41,97)" : "rgb(208,223,236)",
-      }}
-    >
-      <Text
-        style={{
-          color: isSelected ? "white" : "rgb(6,41,97)",
-          fontFamily: "Verdana",
-        }}
-      >
-        {tag.title}
-      </Text>
-    </Pressable>
+    <PressableTag isSelected={isSelected} onPress={() => onPress(url, index)}>
+      <TagTitle isSelected={isSelected}>{title}</TagTitle>
+    </PressableTag>
   );
 };
 
 export default TagPressable;
+
+const PressableTag = styled.Pressable`
+  margin: 4px;
+  padding: 8px;
+  background-color: ${(props) => (props.isSelected ? "rgb(6,41,97)" : "rgb(208,223,236)")};
+`;
+
+const TagTitle = styled.Text`
+  color: ${(props) => (props.isSelected ? "white" : "rgb(6,41,97)")};
+  font-family: "Verdana";
+`;
