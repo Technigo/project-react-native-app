@@ -11,7 +11,6 @@ const DogScreen = () => {
 		fetch(DOG_URL)
 		  .then(response => response.json())
 		  .then(data => {
-			  console.log(data.message)
 			  setDogImage(data.message)
 		  })
 	}
@@ -23,7 +22,7 @@ const DogScreen = () => {
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>A random samoyed!</Text>
+			<Text style={styles.title}>Samoyed randomizer!</Text>
             {dogImage && 
                 <Image source={{ uri: dogImage}} style={styles.image} />
             }
