@@ -1,5 +1,5 @@
 export const RandomCatMemeAPI = ({ memeAction, memeText, memeColor }) => {
-  return `https://cataas.com/cat/${memeAction}/says/${memeText}?s=30&c=${memeColor}&json=true`
+  return `https://cataas.com/cat/${memeAction}/says/${memeText}?s=40&c=${memeColor}&json=true`
 }
 
 export const RandomCatGifAPI = 'https://api.thecatapi.com/v1/images/search?mime_types=gif'

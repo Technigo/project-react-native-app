@@ -59,73 +59,29 @@ const ShakeACutie = () => {
     return totalForce > 3
   }
 
-  // useEffect(() => {
-  //   unsubscribe()
-  //   return () => subscribe()
-  // }, [])
-
-  // let buttonText = ''
-  // let fetchAPI = ''
-
-  if (subscription) {
-    if (catURL === '') {
-      if (isShakingEnough(data)) {
-        //fetchAPI = RandomCuteCatAPI()
-        //buttonText = 'Well done! Try again?'
-        //generateCat()
-        Vibration.vibrate()
-        unsubscribe()
-        setModalVisible(true)
-        setIsLoading(true)
-        fetch(RandomCuteCatAPI())
-          .then(res => res.json())
-          .then(data => {
-            setCatURL(data[0].url)
-            setCatBreed(data[0].breeds[0].name)
-            setCatInfoURL(data[0].breeds[0].wikipedia_url)
-            setIsLoading(false)
-            setTryAgainButtonText('Well done! Try again?')
-          })
-      } else if (isShaking(data)) {
-        // fetchAPI = RandomUglyCatAPI()
-        // buttonText = 'Ouch! Try harder now?'
-        //generateCat()
-        Vibration.vibrate()
-        unsubscribe()
-        setModalVisible(true)
-        setIsLoading(true)
-        fetch(RandomUglyCatAPI())
-          .then(res => res.json())
-          .then(data => {
-            setCatURL(data[0].url)
-            setCatBreed(data[0].breeds[0].name)
-            setCatInfoURL(data[0].breeds[0].wikipedia_url)
-            setIsLoading(false)
-            setTryAgainButtonText('Ouch! Try harder now?')
-          })
-      }
+  useEffect(() => {
+    if (isShakingEnough(data)) {
+      generateCat(RandomCuteCatAPI(), 'Well done! Try again?')
+    } else if (isShaking(data)) {
+      generateCat(RandomUglyCatAPI(), 'Ouch! Try harder now?')
     }
+  }, [data])
+
+  const generateCat = (fetchAPI, buttonText) => {
+    Vibration.vibrate()
+    unsubscribe()
+    setModalVisible(true)
+    setIsLoading(true)
+    fetch(fetchAPI)
+      .then(res => res.json())
+      .then(data => {
+        setCatURL(data[0].url)
+        setCatBreed(data[0].breeds[0].name)
+        setCatInfoURL(data[0].breeds[0].wikipedia_url)
+        setIsLoading(false)
+        setTryAgainButtonText(buttonText)
+      })
   }
-
-  // useEffect(() => {
-  //   shakeForACat()
-  // })
-
-  // const generateCat = () => {
-  //Vibration.vibrate()
-  // unsubscribe()
-  // setModalVisible(true)
-  // setIsLoading(true)
-  // fetch(fetchAPI)
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     setCatURL(data[0].url)
-  //     setCatBreed(data[0].breeds[0].name)
-  //     setCatInfoURL(data[0].breeds[0].wikipedia_url)
-  //     setIsLoading(false)
-  //     setTryAgainButtonText(buttonText)
-  //   })
-  // }
 
   const tryAgain = () => {
     unsubscribe()
