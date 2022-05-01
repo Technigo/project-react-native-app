@@ -12,7 +12,6 @@ const Container = styled.View`
   display: flex;
   text-align: center;
   margin-bottom: 20px;
-  overflow-wrap:break-word;
   margin-left: 20px;
   margin-right:20px;
 `;
@@ -76,14 +75,12 @@ export const SensorComponent = () => {
 
   return (
     <Container>
-     
       {isShaking(data) && generateQuote()}
       <View>
         <Text> {quote.content} </Text>
         <Text> {quote.blank} </Text>
         <Text> {quote.author} </Text>
       </View>
-     
       <Button onPress={generateQuote}>
         <Text>New quote</Text>
       </Button>
