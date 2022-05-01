@@ -49,7 +49,7 @@ const Feed = ({
 						<Entypo name='menu' size={30} color='#000' />
 						</ButtonText>
 					</Burger>
-					<Header1>Feed Screen</Header1>
+					<Header1>Feed</Header1>
 					<Content>
 						{loading ? <ActivityIndicator size="small" color="hsl(200, 100%, 50%)" />: 
 							<Header2>
