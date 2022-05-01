@@ -1,59 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { Pedometer } from "expo-sensors";
+import React from "react";
+
 import styled from "styled-components/native";
 
 const Container = styled.View`
   flex: 1;
-  justify-content: space-evenly;
+  justify-content: center;
 `;
 
 const Title = styled.Text`
   font-size: 40px;
-  color: palevioletred;
-  margin: 10px;
-  text-align: center;
-`;
-const Image = styled.Image`
-  height: 350px;
-  width: 350px;
-`;
-const Text = styled.Text`
-  font-size: 30px;
-  color: palevioletred;
+  color: black;
+  margin: 50px;
   text-align: center;
   margin-top: 0px;
 `;
+const Image = styled.Image`
+  height: 250px;
+  width: 250px;
+  align-items: center;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+`;
 
-const HomeScreen = () => {
-  const [pedometer, setpedometer] = useState("");
-  const [stepCount, setStepCount] = useState(0);
-
-  const Distance = (stepCount / 1300).toFixed(3);
-  useEffect(() => {
-    subscribe();
-  }, []);
-
-  const subscribe = () => {
-    Pedometer.watchStepCount((result) => {
-      setStepCount(result.steps);
-    });
-    Pedometer.isAvailableAsync().then(
-      (result) => {
-        setpedometer(String(result));
-      },
-      (error) => {
-        setpedometer(error);
-      }
-    );
-  };
-
+const Text = styled.Text`
+  font-size: 30px;
+  color: black;
+  text-align: center;
+  margin: 10px;
+`;
+const HomeScreen = (navigation) => {
   return (
     <Container>
-      <Title>Track your steps </Title>
-
+      <Title>Welcome </Title>
+      <Text>Walking briskly, even for a minute, counts as exercise</Text>
       <Image source={require("../assets/run-img.png")} />
-      <Text>Steps: {stepCount}</Text>
-      <Text> Distance covered: {Distance} </Text>
+      <Text>Take your first step today to a healthy lifestyle</Text>
     </Container>
   );
 };
