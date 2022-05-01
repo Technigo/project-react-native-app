@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
@@ -21,7 +21,13 @@ import {
 	Header2
 } from '../styles/styled-components';
 
-const Likes = ({route, navigation, isLoggedIn, phrases, setPhrases, image}) => {
+const Likes = ({ 
+	navigation, 
+	isLoggedIn, 
+	phrases, 
+	setPhrases, 
+	image 
+}) => {
 	return (
 		<BackgroundImage source={image} resizeMode='cover'>
 			<WhiteBackground>
@@ -53,10 +59,10 @@ const Likes = ({route, navigation, isLoggedIn, phrases, setPhrases, image}) => {
 												})}
 											</Content>
 										: <Header2>Go to feed to generate phrases to save</Header2> 
-										}
-									
+									}
 								</LikedPhrases>
-							:   <Header2>You are not logged in</Header2>}	
+							:   <Header2>You are not logged in</Header2>
+						}	
 					</View>
 				</Container>
 			</WhiteBackground>

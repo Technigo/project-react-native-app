@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import { ScrollView } from 'react-native';
+import React from 'react';
 import { Entypo } from '@expo/vector-icons';
 
 import { 
@@ -25,9 +24,7 @@ const Home = ({ navigation, image }) => {
                         <Entypo name='menu' size={30} color='#000' />
                         </ButtonText>
                     </Burger>
-                    {/* <Header1>Corporate </Header1> */}
                     <Content>
-                        
                             <Header1>
                                 Welcome to the corporate jargon generator!
                             </Header1>

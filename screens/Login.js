@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 import { Entypo } from '@expo/vector-icons';
 import helpers from '../modules/helpers';
 
@@ -17,7 +17,12 @@ import {
     Content
 } from '../styles/styled-components';
 
-const Login = ({ navigation, isLoggedIn, setIsLoggedIn, image }) => {
+const Login = ({ 
+    navigation,
+    isLoggedIn, 
+    setIsLoggedIn, 
+    image 
+}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [valid, setValid] = useState(true);

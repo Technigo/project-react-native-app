@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-
 
 import { 
 	Container, 
@@ -17,7 +16,12 @@ import {
 
 import helpers from '../modules/helpers';
 
-const Feed = ({ navigation, isLoggedIn, setPhrases, image }) => {
+const Feed = ({ 
+	navigation, 
+	isLoggedIn, 
+	setPhrases, 
+	image 
+}) => {
 	const [phrase, setPhrase] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [disableButton, setDisableButton] = useState(true);
