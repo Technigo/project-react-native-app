@@ -1,25 +1,59 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Ionicons from '@expo/vector-icons/Ionicons'
+import { FontAwesome5 } from '@expo/vector-icons';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import { Colors } from './assets/colors';
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+import StartScreen from './screens/StartScreen'
+import DogScreen from './screens/DogScreen'
+import GameScreen from './screens/GameScreen'
+
+const Tab = createBottomTabNavigator()
 
 const App = () => {
+
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+		<NavigationContainer>
+			<Tab.Navigator
+				screenOptions={({ route }) => ({
+					tabBarIcon: ({ focused, color, size }) => {
+						if (route.name === 'Home') {
+							return (
+								<Ionicons
+									name='home'
+									size={size}
+									color={color}
+								/>
+							);
+						} else if (route.name === 'Game') {
+							return (
+								<Ionicons
+									name='ios-game-controller'
+									size={size}
+									color={color}
+								/>
+							);
+						} else if (route.name === 'Dogs') {
+							return (
+								<FontAwesome5
+									name='dog'
+									size={size}
+									color={color}
+								/>
+							);
+						}
+					},
+					tabBarInactiveTintColor: 'darkgrey',
+					tabBarActiveTintColor: 'black'
+				})}
+			>
+				<Tab.Screen name="Home" component={StartScreen} />
+				<Tab.Screen name="Game" component={GameScreen} />
+				<Tab.Screen name="Dogs" component={DogScreen} />
+			</Tab.Navigator>
+		</NavigationContainer>
 	);
 };
 
