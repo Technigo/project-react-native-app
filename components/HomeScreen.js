@@ -7,13 +7,6 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const Title = styled.Text`
-  font-size: 40px;
-  color: black;
-  margin: 50px;
-  text-align: center;
-  margin-top: 0px;
-`;
 const Image = styled.Image`
   height: 250px;
   width: 250px;
@@ -32,7 +25,6 @@ const Text = styled.Text`
 const HomeScreen = (navigation) => {
   return (
     <Container>
-      <Title>Welcome </Title>
       <Text>Walking briskly, even for a minute, counts as exercise</Text>
       <Image source={require("../assets/run-img.png")} />
       <Text>Take your first step today to a healthy lifestyle</Text>

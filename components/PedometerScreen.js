@@ -26,17 +26,17 @@ const PedometerScreen = () => {
   const [stepCount, setStepCount] = useState(0);
 
   const Distance = (stepCount / 1300).toFixed(3);
-  const _unsubscribe = () => {
-    _subscription && _subscription.remove();
-    _subscription = null;
-  };
 
   useEffect(() => {
     subscribe();
     return () => _unsubscribe();
   }, []);
+  const _unsubscribe = () => {
+    subscription && _subscription.remove();
+    subscription = null;
+  };
   const subscribe = () => {
-    Pedometer.watchStepCount((result) => {
+    const subscription = Pedometer.watchStepCount((result) => {
       setStepCount(result.steps);
     });
     Pedometer.isAvailableAsync().then(
