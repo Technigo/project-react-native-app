@@ -8,4 +8,7 @@ Challenging to understand what libraries and dependencies to use. Had problems i
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+exp://exp.host/@jennyfiskaare/project-react-native-app-step-tracker-jenny-fiskaare?release-channel=default
+
+
+
