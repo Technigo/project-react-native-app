@@ -1,97 +1,89 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text } from "react-native";
 import { Entypo } from '@expo/vector-icons';
-// import styled from 'styled-components/native';
-// import { Typography } from '../styles';
 import helpers from '../modules/helpers';
 
-import { Container, Input, Button, ButtonText, Header1, Burger, WhiteBackground } from '../styles/styled-components';
+import { 
+    Container, 
+    Input, 
+    Button, 
+    ButtonText, 
+    Header1, 
+    Burger, 
+    WhiteBackground,
+    InvalidInput,
+    BackgroundImage,
+    Content
+} from '../styles/styled-components';
 
 const Login = ({ navigation, isLoggedIn, setIsLoggedIn, image }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
-    // const {isLoggedIn, setIsLoggedIn} = helpers.LoggedIn();
+    const [valid, setValid] = useState(true);
 
     const handleInlog = () => {
-        setEmail("");
-        setPassword("");
-        setIsLoggedIn(!isLoggedIn);
-
-        // if (!isLoggedIn) {
-        //     navigation.navigate('Likes');
-        // }
-        // console.log("logged in");
-        // // setIsLoggedIn(true);
-        // console.log(isLoggedIn);
+        if (helpers.checkValidEmail(email) && helpers.checkValidPassword(password) && !isLoggedIn) {
+            setValid(true);
+            setIsLoggedIn(!isLoggedIn);
+            setEmail("");
+            setPassword("");
+        } else if (isLoggedIn) {
+            setIsLoggedIn(!isLoggedIn);
+            setValid(true);
+        } else {
+            setValid(false);
+        }
     }   
 
     return (
-        // <SafeArea>
-        <ImageBackground source={image} resizeMode='cover' style={{width: '100%', flex: 1}}>
-        <WhiteBackground>
-            <Container>
-                <Burger onPress={() => navigation.openDrawer()}>
-                    <ButtonText>
-                        <Entypo name='menu' size={30} color='#000' />
-                    </ButtonText>
-                </Burger>
-                <Header1>{isLoggedIn ? 'You are already logged in' : 'Log in'}</Header1>
-                {!isLoggedIn && (
-                    <View style={{width: '100%'}}>
-                        <Text>Email</Text>
-                        <Input
-                            onChangeText={(content) => {
-                                setEmail(content)
-                            }}
-                            value={email}
-                            keyboardType="email-address"
-                            autoCapitalize="none"
-                            autoCompleteType="off"
-                            autoCorrect={false}
-                        />
-
-                        <Text>Password</Text>
-                        <Input
-                            onChangeText={(content) => {
-                                setPassword(content)
-                            }}
-                            value={password}
-                            secureTextEntry={true}
-                            autoCapitalize="none"
-                            autoCompleteType="off"
-                            autoCorrect={false}
-                        />
-                    </View>
-                )}
-                <View>
-                    {/* <Button onPress={toggleIsLoggedIn}> */}
-                    <Button onPress={handleInlog}>
-                        <ButtonText>{isLoggedIn ? 'Log out' : 'Log in'}</ButtonText>
-                    </Button>
-
-                    {/* <Button onPress={() => navigation.openDrawer()}>
+        <BackgroundImage source={image} resizeMode='cover'>
+            <WhiteBackground>
+                <Container>
+                    <Burger onPress={() => navigation.openDrawer()}>
                         <ButtonText>
-                        Open drawer
+                            <Entypo name='menu' size={30} color='#000' />
                         </ButtonText>
-                    </Button> */}
-
-                    <Button onPress={() => navigation.toggleDrawer()}>
-                        <ButtonText>
-                        Toggle drawer
-                        </ButtonText>
-                    </Button>
-                </View>
-                {/* {title === "Log in" &&
-                    <TouchableOpacity style={Base.button} onPress={() => navigation.navigate("Register")}>
-                        <Text style={Typography.button}>Register new user</Text>
-                    </TouchableOpacity>
-                } */}
-            </Container>
+                    </Burger>
+                    <Header1>{isLoggedIn ? 'You are logged in' : 'Log in'}</Header1>
+                    {!isLoggedIn && (
+                        <Content>
+                            <Text>Email</Text>
+                            <Input
+                                onChangeText={(content) => {
+                                    setEmail(content)
+                                }}
+                                value={email}
+                                keyboardType="email-address"
+                                autoCapitalize="none"
+                                autoCompleteType="off"
+                                autoCorrect={false}
+                                style={{borderColor: (helpers.checkValidEmail(email) ? 'green' : 'red')}}
+                            />
+                            <Text>Password</Text>
+                            <Input
+                                onChangeText={(content) => {
+                                    setPassword(content)
+                                }}
+                                value={password}
+                                secureTextEntry={true}
+                                autoCapitalize="none"
+                                autoCompleteType="off"
+                                autoCorrect={false}
+                                style={{borderColor: (helpers.checkValidPassword(password) ? 'green' : 'red')}}
+                            />
+                            
+                        </Content>
+                    )}
+                    <Content>
+                        {!valid && <InvalidInput>Email or password missing or invalid</InvalidInput>}
+                        <Button onPress={handleInlog}>
+                            <ButtonText>{isLoggedIn ? 'Log out' : 'Log in'}</ButtonText>
+                        </Button>
+                    </Content>
+                </Container>
             </WhiteBackground>
-            </ImageBackground>
-
+        </BackgroundImage>
     )
 };
 

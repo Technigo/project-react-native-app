@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Animated, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createDrawerNavigator,
@@ -7,12 +8,25 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
+import { 
+  useFonts, 
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black, 
+} from '@expo-google-fonts/inter';
+
 import Home from './screens/Home';
 import Feed from './screens/Feed';
 import Likes from './screens/Likes';
 import Login from './screens/Login';
 
-import image from './assets/office2.jpg'
+import image from './assets/office.jpg'
 
 const Drawer = createDrawerNavigator();
 
@@ -20,10 +34,45 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [phrases, setPhrases] = useState([]);
 
+  let [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+
+  if (!fontsLoaded) {
+    return <ActivityIndicator size="small" color="#0000ff" />;
+  }
+
+  function CustomDrawerContent(props) {
+    return (
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+        <DrawerItem
+          label="Close drawer"
+          onPress={() => props.navigation.closeDrawer()}
+        />
+        {/* <DrawerItem
+          label="Toggle drawer"
+          onPress={() => props.navigation.toggleDrawer()}
+        /> */}
+      </DrawerContentScrollView>
+    );
+  }
+
   return (
     <NavigationContainer>
       <Drawer.Navigator useLegacyImplementation
-      drawerContent={(props) => <CustomDrawerContent {...props} />}>
+        drawerContent={
+          (props) => <CustomDrawerContent {...props} 
+        />}
+      >
         <Drawer.Screen name="Home">
           {(screenProps) => <Home 
             {...screenProps}
@@ -31,7 +80,6 @@ const App = () => {
             image={image}
           />}
         </Drawer.Screen>
-        {/* <Drawer.Screen name="Feed" component={Feed} /> */}
         <Drawer.Screen name="Feed">
           {(screenProps) => <Feed 
             {...screenProps}
@@ -40,8 +88,7 @@ const App = () => {
             image={image}
           />}
         </Drawer.Screen>
-        {/* <Drawer.Screen name="Likes" component={Likes} /> */}
-        <Drawer.Screen name="Likes">
+        <Drawer.Screen name="Saved">
           {(screenProps) => <Likes 
             {...screenProps}
             isLoggedIn={isLoggedIn}
@@ -63,86 +110,4 @@ const App = () => {
   );
 };
 
-function CustomDrawerContent(props) {
-  return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-      <DrawerItem
-        label="Close drawer"
-        onPress={() => props.navigation.closeDrawer()}
-      />
-      <DrawerItem
-        label="Toggle drawer"
-        onPress={() => props.navigation.toggleDrawer()}
-      />
-    </DrawerContentScrollView>
-  );
-}
-
 export default App;
-
-// import * as React from 'react';
-// import { View, Text, Button } from 'react-native';
-// import { NavigationContainer } from '@react-navigation/native';
-// import {
-//   createDrawerNavigator,
-//   DrawerContentScrollView,
-//   DrawerItemList,
-//   DrawerItem,
-// } from '@react-navigation/drawer';
-
-// function Feed({ navigation }) {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Feed Screen</Text>
-//       <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-//       <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-//     </View>
-//   );
-// }
-
-// function Notifications() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Notifications Screen</Text>
-//     </View>
-//   );
-// }
-
-// function CustomDrawerContent(props) {
-//   return (
-//     <DrawerContentScrollView {...props}>
-//       <DrawerItemList {...props} />
-//       <DrawerItem
-//         label="Close drawer"
-//         onPress={() => props.navigation.closeDrawer()}
-//       />
-//       <DrawerItem
-//         label="Toggle drawer"
-//         onPress={() => props.navigation.toggleDrawer()}
-//       />
-//     </DrawerContentScrollView>
-//   );
-// }
-
-// const Drawer = createDrawerNavigator();
-
-// function MyDrawer() {
-//   return (
-//     <Drawer.Navigator
-//       useLegacyImplementation
-//       drawerContent={(props) => <CustomDrawerContent {...props} />}
-//     >
-//       <Drawer.Screen name="Feed" component={Feed} />
-//       <Drawer.Screen name="Notifications" component={Notifications} />
-//     </Drawer.Navigator>
-//   );
-// }
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//       <MyDrawer />
-//     </NavigationContainer>
-//   );
-// }

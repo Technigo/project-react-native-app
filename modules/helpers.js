@@ -1,72 +1,25 @@
-import { useState } from "react";
-import * as Sharing from 'expo-sharing';
-import { Linking } from "react-native";
-
-
-
 const helpers = {
     getPhrase: async function getPhrase() {
-        // const [isSharingAvailable, setIsSharingAvailable] = useState(false);
-
-        // const checkSharingAvailability = () => {
-        //     Sharing-Sharing.isAvailableAsync().then(isAvailable => {
-        //         setIsSharingAvailable(isAvailable);
-        //     });
-        // };
-
-        // const share = () => {
-        //     if (isSharingAvailable) {
-        //         console.log("sharing is available")
-        //     } else {
-        //         console.log("sharing is not available")
-        //     }
-        // }
-
-        // const generateLinkToShare = () => {
-            
-        // }
         const response = await fetch(`https://corporatebs-generator.sameerkumar.website/`);
-
         const result = await response.json();
-        // console.log(result)
         return result.phrase;
     },
-    // savedPhrases: function savedPhrases() {
-    //     const [phrases, setPhrases] = useState([]);
-    //     return {phrases, setPhrases};
-    // },
-    // getSavedPhrases: function getSavedPhrases() {
-    //     const {phrases, setPhrases} = helpers.savedPhrases()
-    //     return phrases;
-    // },
-    // LoggedIn: function Loggedin() {
-    //     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    //     return {isLoggedIn, setIsLoggedIn};
-    // },
-    // toggleIsLoggedIn: function toggleIsLoggedIn() {
-    //     const {isLoggedIn, setIsLoggedIn} = helpers.LoggedIn();
-    //     setIsLoggedIn(!isLoggedIn);
-    //     // this.LoggedIn.isLoggedIn = !this.LoggedIn.isLoggedIn;
-    // },
-    // handleSavePhrase: function handleSavePhrase(phrase) {
-    //     const {phrases, setPhrases} = helpers.savedPhrases();
-    //     console.log(phrases)
-    //     // setPhrases(phrases => [...phrases, phrase]);
-    // }
-    // addDelivery: async function addDelivery(delivery: Delivery) {
-    //     try {
-    //         delivery.api_key = config.api_key;
-    //         await fetch(`${config.base_url}/deliveries`, {
-    //             body: JSON.stringify(delivery),
-    //             headers: {
-    //                 'content-type': 'application/json'
-    //             },
-    //             method: 'POST'
-    //         });
-    //     } catch (error) {
-    //         console.log("Could not add delivery:", delivery)
-    //     }
-    // },
+    removePhrase: function removePhrase(phrase, phrases, setPhrases) {
+        const updatePhrases = phrases.filter((ph) => ph !== phrase);
+        setPhrases(updatePhrases);
+    },
+    checkValidEmail: function checkValidEmail(email) {
+        if (email.includes("@") && email.length > 2) {
+            return true
+        }
+        return false
+    },
+    checkValidPassword: function checkValidPassword(password) {
+        if (password.length > 2) {
+            return true
+        }
+        return false
+    }
 };
 
 export default helpers;

@@ -1,54 +1,53 @@
 import React, {useState} from 'react';
-import { Text, View, ActivityIndicator, ImageBackground } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
-import { Container, ButtonText, Button, Header1, Burger, WhiteBackground} from '../styles/styled-components';
+import { 
+    Container, 
+    ButtonText, 
+    BackgroundImage, 
+    Header1,
+    Header2,
+    Burger, 
+    WhiteBackground,
+    Content,
+    Instructions,
+    InstructionsContainer
+} from '../styles/styled-components';
 
-import helpers from '../modules/helpers';
-
-// import image from '../assets/office.jpg'
-// The prop "navigation" is important if you are trying to open/toggle the drawer
-//  directly via Javascript
 const Home = ({ navigation, image }) => {
-    const [phrase, setPhrase] = useState(null);
-    const [loading, setLoading] = useState(false);
-
-    const onPressphrase = async () => {
-        setLoading(true)
-        setPhrase(await helpers.getPhrase());
-        setLoading(false);
-    }
-
     return (
-        <ImageBackground source={image} resizeMode='cover' style={{width: '100%', flex: 1}}>
-        <WhiteBackground>
-            <Container>
-            
-            <Burger onPress={() => navigation.openDrawer()}>
-                <ButtonText>
-                <Entypo name='menu' size={30} color='#000' />
-                </ButtonText>
-            </Burger>
-        <Header1>Home Screen</Header1>
-        <View style={{width: '100%', marginBottom: 40}}>
-            <Text>Welcome to the corporate jargon generator.</Text>
-            <Text>Are you maybe fresh out of school or have you recently started a new job in an office enviroment? This is the help you need. Go to feed and generate yourself a phrase with some corporate bs that will make it seem like you grew up in an office. You can also create an account and save your favourite phrases to have for later!</Text>
-        </View>
-        <View style={{width: '100%'}}>
-            {/* <Button onPress={() => navigation.openDrawer()}>
-                <ButtonText>
-                    Open drawer
-                </ButtonText>
-            </Button> */}
-            <Button onPress={() => navigation.toggleDrawer()}>
-                <ButtonText>
-                    Toggle drawer
-                </ButtonText>
-            </Button>
-        </View>
-        
-        </Container></WhiteBackground>
-        </ImageBackground>
+        <BackgroundImage source={image} resizeMode='cover'>
+            <WhiteBackground>
+                <Container>
+                    <Burger onPress={() => navigation.openDrawer()}>
+                        <ButtonText>
+                        <Entypo name='menu' size={30} color='#000' />
+                        </ButtonText>
+                    </Burger>
+                    {/* <Header1>Corporate </Header1> */}
+                    <Content>
+                        
+                            <Header1>
+                                Welcome to the corporate jargon generator!
+                            </Header1>
+                            <InstructionsContainer>
+                            <Header2>
+                                Instructions:
+                            </Header2>
+                            <Header2>Feed:</Header2>
+                            <Instructions>Generate a new phrase. If you are logged in you may also save the phrase.</Instructions>
+                            
+                            <Header2>Saved:</Header2>
+                            <Instructions>See a list with all your saved phrases.</Instructions>
+
+                            <Header2>Login:</Header2>
+                            <Instructions>Valid email consists of minimum 2 characters including an '@', password minimum 3 characters.</Instructions>
+                        </InstructionsContainer>
+                    </Content>
+                </Container>
+            </WhiteBackground>
+        </BackgroundImage>
     );
 };
 
