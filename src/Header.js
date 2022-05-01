@@ -7,11 +7,12 @@ const Logo = styled.Text`
     width: 200px;
     letter-spacing: 2px;
     align-self: flex-start;
+    font-family:'Bulj'
 `
 
 const Header = () => {
     return (
-        <Logo style={{fontFamily:'Bulj'}}> Helsinki .</Logo>
+        <Logo> Helsinki .</Logo>
     )
 }
 

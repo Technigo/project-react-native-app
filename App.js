@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native';
 //import * as Speech from 'expo-speech';
 import { Dimensions } from 'react-native';
-import Tack from './src/Tack';
+import Stacks from './src/Stacks';
 
 
 const App = ( ) => {
@@ -23,7 +23,7 @@ const App = ( ) => {
 			 <SafeAreaView style={{flex: 1}}>
 					<Header />
 					
-					<Tack />
+					<Stacks />
 
 			 </SafeAreaView>
 		

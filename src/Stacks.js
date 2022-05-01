@@ -8,7 +8,7 @@ import Saved from './Saved';
 const Stack = createNativeStackNavigator();
 
 
-const Tack = () => {
+const Stacks = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
@@ -18,7 +18,6 @@ const Tack = () => {
                     options={{
                         title:'',
                         headerStyle: {
-                            backgroundColor:'red',
                             height: 0                    
                         }
                     }} 
@@ -32,4 +31,4 @@ const Tack = () => {
     )
 }
 
-export default Tack
+export default Stacks

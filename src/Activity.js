@@ -21,6 +21,7 @@ const ActivityList = styled.View`
     background-color: #fff;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 10px;
+
 `
 
 const Container = styled.View`
@@ -34,6 +35,7 @@ const Container = styled.View`
 const Slider = styled.ScrollView`
     width: ${props => props.width}px;
     align-self: flex-start;
+    height: 450px;
 `
 
 const ActivityImg = styled.Image`
@@ -185,7 +187,7 @@ const Activity = ( {navigation} ) => {
                         <ButtonText>See more</ButtonText>
                         </CtaButton>
                         <TouchableOpacity onPress={() => onShare(item.id)}>
-                            <Image source={require('../assets/share.svg')}   style={{ width: 24, height: 24 }}/>
+                            <Image source={require('../assets/share.png')}  style={{ width: 28, height: 28 }}/>
                         </TouchableOpacity>
                         {/* <SaveBtn onPress={() => storeValue(item)} ><Text>❤️</Text></SaveBtn> */}
                     </BtnContainer>
@@ -193,8 +195,8 @@ const Activity = ( {navigation} ) => {
                 </ActivityList>
     ))}
         </Slider>
-        <ActivityHeading>Saved Activities</ActivityHeading>
-        <Slider 
+        {/* <ActivityHeading>Saved Activities</ActivityHeading> */}
+        {/* <Slider 
             horizontal 
             pagingEnabled 
             showsHorizontalScrollIndicator={false} 
@@ -223,7 +225,7 @@ const Activity = ( {navigation} ) => {
                     </Container>
                     </ActivityList>
             ))} 
-        </Slider>
+        </Slider> */}
 
     </Background>
 
