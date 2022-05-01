@@ -24,10 +24,6 @@ export default function App() {
     }, [])
 
 
-	// console.log('hundAPI', dog[0]?.breed)
-	console.log('just dog', dog)
-
-
 	return (
 
 		<StyledView>
