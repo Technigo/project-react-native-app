@@ -16,6 +16,6 @@ If I had more time, I would have explored DeviceMotion instead of Accelerometer 
 
 Project deployed here: [Cat Randomizer](https://expo.dev/@nadialefebvre/cat-randomizer)
 
-## View it live - Snack (for Android and iOS users)
+## View it live - Snack (for Android and iOS)
 
 Project deployed here (Web version not working because of loader animation): [Cat Randomizer - Snack](https://snack.expo.dev/@nadialefebvre/cat-randomizer---snack)
