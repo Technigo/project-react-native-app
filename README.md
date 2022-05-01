@@ -7,8 +7,7 @@ Task to create an app in React Native. Due to stressful week I went very basic a
 Challenging to understand what libraries and dependencies to use. Had problems in the begining to even start the project due to technical issues. If I would have had more time this week I would have put more energy into styling and make the app a bit more complex. 
 
 ## View it live
-
-exp://exp.host/@jennyfiskaare/project-react-native-app-step-tracker-jenny-fiskaare?release-channel=default
+https://expo.dev/@jennyfiskaare/project-react-native-app-step-tracker-jenny-fiskaare?serviceType=classic&distribution=expo-go
 
 
 
