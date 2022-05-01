@@ -9,11 +9,13 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [selectedId, setSelectedId] = useState(0);
   const [isLoading, setLoading] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const flatListRef = useRef();
 
   const scrollToTop = () => {
     flatListRef?.current?.scrollToOffset({ animated: true, offset: 0 });
+    setShowButton(false);
   };
 
   const handleOnPress = (url, index) => {
@@ -41,6 +43,7 @@ const App = () => {
           }))
         );
         setLoading(false);
+        scrollToTop();
       })
       .catch((error) => console.log(error));
   };
@@ -84,11 +87,14 @@ const App = () => {
           renderItem={renderItem}
           key={(item) => item.id}
           ref={flatListRef}
+          onEndReached={() => setShowButton(true)}
         />
+      </SafeAreaViewStyled>
+      {showButton && (
         <Pressable onPress={() => scrollToTop()}>
           <PressToTop>▲ Back to top</PressToTop>
         </Pressable>
-      </SafeAreaViewStyled>
+      )}
     </Container>
   );
 };
@@ -161,7 +167,7 @@ const Loader = styled.ActivityIndicator`
 `;
 
 const SafeAreaViewStyled = styled.SafeAreaView`
-  height: 550px;
+  height: 540px;
 `;
 
 const PressToTop = styled(Subtitle)`
