@@ -1,6 +1,6 @@
-node_modules/**/*
-.expo/*
+node_modules
 npm-debug.*
+code/.expo/web*
 *.jks
 *.p8
 *.p12
@@ -9,6 +9,7 @@ npm-debug.*
 *.orig.*
 web-build/
 web-report/
+process.txt
 
 # macOS
 .DS_Store
