@@ -24,8 +24,10 @@ const DogScreen = () => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>A random samoyed!</Text>
-			<Image source={{ uri: dogImage}} style={styles.image} />
-			<Button onPress={getDogImage} title="Get new image" />	
+            {dogImage && 
+                <Image source={{ uri: dogImage}} style={styles.image} />
+            }
+			<Button onPress={getDogImage} title="Update image" />	
 		</View>
 	);
 };
