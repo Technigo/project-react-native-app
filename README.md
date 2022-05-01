@@ -14,7 +14,7 @@ If I had more time, I would have explored DeviceMotion instead of Accelerometer 
 
 ## View it live - Expo Go app (only Android)
 
-Project deployed here (Expo Go app needed for running it, only on Android): [Cat Randomizer](exp://exp.host/@nadialefebvre/cat-randomizer?release-channel=default)
+Project deployed here: [Cat Randomizer](https://expo.dev/@nadialefebvre/cat-randomizer)
 
 ## View it live - Snack (for Android and iOS users)
 
