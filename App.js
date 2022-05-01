@@ -1,26 +1,20 @@
-import React from 'react';
-import styled from 'styled-components/native';
-
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, View, Text, Image, Button } from 'react-native';
+import StartScreen from './screens/StartScreen';
+import DogScreen from './screens/DogScreen';
+import GameScreen from './screens/GameScreen';
 
 const App = () => {
+
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+		<>
+		<StartScreen />
+		<DogScreen />
+		<GameScreen />
+		</>
 	);
 };
+
+
 
 export default App;
