@@ -4,43 +4,40 @@ import styled from 'styled-components/native'
 import { Accelerometer } from 'expo-sensors'
 
 const Container = styled.View`
-  flex: 1;
-  background-color: #1c1e1e;
-  align-items: center;
+  margin: 20px;
 `
 
-const ConfuciusQuote = styled.Text`
-  font-size: 1 em;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 1em;
+const Quote = styled.Text`
+  font-size: 20px;
+  background-color: #87e5f5;
+  color: black;
+  padding: 20px;
+  line-height: 30px;
+  border-radius: 8px;
+  font-weight: 900;
 `
 
-const Confucius = styled.Text`
-  color: #white;
-  background-color: blue;
-  padding: 1em;
-  border-radius: 7%;
+const Author = styled.Text`
+  font-size: 16px;
+  text-align: center;
+  font-weight: 900;
+  background-color: #87e5f5;
+  color: black;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 8px;
 `
 
 const Button = styled.TouchableOpacity`
   width: 100%;
-  background-color: #d885a3;
-  padding: 1em;
-  border-radius: 5%;
-  margin-top: 20px;
+  background-color: #87e5f5;
+  padding: 20px;
+  border-radius: 8px;
 `
 
 const ButtonText = styled.Text`
-  font-size: 1em;
+  font-size: 20px;
   color: white;
-`
-const BackgroundImage = styled.ImageBackground`
-  flex: 1;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
 `
 
 const ShakePai = () => {
@@ -99,16 +96,13 @@ const ShakePai = () => {
   return (
     <>
       <Container>
-        <BackgroundImage
-          source={require('../assets/Confucius.jpg')}
-        ></BackgroundImage>
         {isShaking(data) && generateQuote()}
-        <ConfuciusQuote>"{quote.content}"</ConfuciusQuote>
-        <Confucius>{quote.author}</Confucius>
+        <Quote>"{quote.content}"</Quote>
+        <Author>{quote.author}</Author>
       </Container>
       <View>
         <Button onPress={generateQuote}>
-          <ButtonText>What would Confucius say</ButtonText>
+          <ButtonText>Press button for a quote</ButtonText>
         </Button>
       </View>
     </>
