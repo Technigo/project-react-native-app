@@ -1,25 +1,56 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons'
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import HomeScreen from './screens/HomeScreen';
+import FeaturedScreen from './screens/FeaturedScreen';
+import LovedScreen from './screens/LovedScreen';
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Tab = createBottomTabNavigator();
 
 const App = () => {
+
+	const [lovedAnimals, setNewLoved] = useState([]);
+
+	const onPressHeart = (animal) => {
+		console.log('lovedAnimals', lovedAnimals);
+		if (!lovedAnimals.includes(animal)) {
+			lovedAnimals.push(animal);
+		}
+    }
+
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+
+		<NavigationContainer>
+			<Tab.Navigator
+				screenOptions={({ route }) => ({
+				tabBarIcon: ({ focused, color, size }) => {
+					let iconName;
+
+					if (route.name === 'Home') {
+					iconName = focused
+						? 'ios-home'
+						: 'ios-home-outline';
+					} else if (route.name === 'Featured') {
+						iconName = focused ? 'ios-happy' : 'ios-happy-outline';
+					} else if (route.name === 'Loved') {
+						iconName = focused ? 'ios-heart' : 'ios-heart-outline'
+					}
+					return <Ionicons name={iconName} size={size} color={color} />;
+				},
+				tabBarActiveTintColor: 'black',
+				tabBarInactiveTintColor: 'black',
+				tabBarActiveBackgroundColor: 'white',
+				tabBarInactiveBackgroundColor: 'white'
+				})}
+			>
+				<Tab.Screen name="Home" component={HomeScreen} initialParams={{ onPressHeart:onPressHeart }} />
+				<Tab.Screen name="Featured" component={FeaturedScreen} />
+				<Tab.Screen name="Loved" component={LovedScreen} initialParams={{ lovedAnimals:lovedAnimals }} options={{ tabBarBadge: lovedAnimals.length }} />
+			</Tab.Navigator>
+		</NavigationContainer>
+
 	);
 };
 
