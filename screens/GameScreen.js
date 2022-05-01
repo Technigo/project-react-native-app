@@ -1,12 +1,24 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, Button } from 'react-native';
+import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit'
+
+import Game from '../components/Game'
+
+import game from '../reducers/game'
+
+const reducer = {
+    game: game.reducer
+}
+
+const store = configureStore({ reducer })
 
 const GameScreen = () => {
-  return (
-    <View>
-        <Text>GameScreen</Text>
-    </View>
-  )
+
+    return (
+        <Provider store={store}>
+            <Game />
+        </Provider>
+    )
 }
 
 export default GameScreen

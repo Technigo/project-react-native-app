@@ -1,8 +1,10 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-import StyledButton from '../components/StyledButton';
+import { Colors } from '../assets/colors'
+
+import StyledButton from '../components/StyledButton'
 
 const StartScreen = ({ navigation }) => {
     return (
@@ -18,13 +20,13 @@ const StartScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'papayawhip',
+		backgroundColor: Colors.backgroundColor,
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	title: {
 		fontSize: 34,
-		color: 'palevioletred'
+		color: Colors.textColor
 	},
 	image: {
 		width: 66,

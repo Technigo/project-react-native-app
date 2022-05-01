@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, StyleSheet, Pressable } from 'react-native'
+import { Colors } from '../assets/colors'
 
 const StyledButton = ({title, onPress}) => {
   return (
@@ -18,7 +19,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
+    backgroundColor: Colors.primary
   },
   text: {
     fontSize: 16,

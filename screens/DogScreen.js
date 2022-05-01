@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
-import StyledButton from '../components/StyledButton';
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, View, Text, Image } from 'react-native'
+import StyledButton from '../components/StyledButton'
 
 const DOG_URL = 'https://dog.ceo/api/breed/samoyed/images/random'
 
 const DogScreen = () => {
 
-	const [dogImage, setDogImage] = useState({})
+	const [dogImage, setDogImage] = useState(null)
 
 	const getDogImage = () => {
 		fetch(DOG_URL)
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
 	}
 })
 
-export default DogScreen;
+export default DogScreen
