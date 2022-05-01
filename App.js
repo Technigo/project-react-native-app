@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { View, Text, Button, Image, Wrapper, ScrollView } from "react-native"
 import styled from 'styled-components/native'
 
-// import LottieView from 'lottie-react-native'
+import LottieView from 'lottie-react-native'
 
 import { DOG_URL } from "./utils/urls"
 
@@ -26,7 +26,7 @@ export default function App() {
 
 	// console.log('hundAPI', dog[0]?.breed)
 	console.log('just dog', dog)
-	// console.log('just dog', dog[0].breeds)
+
 
 	return (
 
@@ -35,33 +35,31 @@ export default function App() {
 			<StyledView>
 
 
-		{/* <LottieView source={require('./assets/animation.json')}
+		<LottieView source={require('./assets/animation.json')}
  		style={{width: 80, height: 80, zIndex: 1, marginTop: 10}}
 		autoPlay
-		loop /> */}
+		loop />
 
 <Title>Dog of the Day</Title>
 
 	<WrapThis>
 
-		<DogImage
-		source={{uri: dog.url}} />
 
+			<DogImage
+			source={{uri: dog.url}} />
 
-		<DogWrapper>
-			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.name : ''} </DogInfo> : ''}
-			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.bred_for : ''} </DogInfo> : ''}
-			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.breed_group : ''} </DogInfo> : ''}
-			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.life_span : ''} </DogInfo> : ''}
-			{dog.breed ? <DogInfo>{dog.breeds ? dog.breeds[0]?.temperament : ''} </DogInfo> : ''}
+<DogWrapper>
+			{dog.breeds ? <DogInfo>{dog.breeds ? dog.breeds[0]?.name : ''} </DogInfo> : null}{'\n'}
+
+			{dog.breeds ? <DogInfo>{dog.breeds ? dog.breeds[0]?.bred_for : null} </DogInfo> : ''}{'\n'}
+
+			{dog.breeds ? <DogInfo>{dog.breeds ? dog.breeds[0]?.breed_group : null} </DogInfo> : ''}{'\n'}
+
+			{dog.breeds ? <DogInfo>{dog.breeds ? dog.breeds[0]?.life_span : ''} </DogInfo> : ''}{'\n'}
+			
+			{dog.breeds ? <DogInfo>{dog.breeds ? dog.breeds[0]?.temperament : ''} </DogInfo> : ''}
+
 		</DogWrapper>
-
-				{/* // <DogInfo>{dog.breeds[0]?.name}</DogInfo>
-				// <DogInfo>{dog.breeds[0]?.bred_for}</DogInfo>
-
-				// <DogInfo>{dog.breeds[0]?.breed_group}</DogInfo>
-				// <DogInfo>{dog.breeds[0]?.life_span}</DogInfo>
-				// <DogInfo>{dog.breeds[0]?.temperament}</DogInfo> */}
 
 
 				<StyledButton onPress={generateDog}>
@@ -85,6 +83,13 @@ padding: 0px;
 border-radius: 10;
 `
 
+const StyledButton = styled.TouchableOpacity`
+  background-color: white;
+  border-radius: 10;
+  padding: 10px;
+  margin-top: 20px;
+`
+
 const TextButton = styled.Text`
 font-size: 16px;
 color: #C68507;
@@ -105,34 +110,25 @@ font-size: 16px;
 color: #ad8850;
 `
 
-const WrapThis = styled.Text`
+const WrapThis = styled.View`
 background: #e7cba499;
 padding: 10px;
 border-radius: 1;
 text-align: center;
 align-items: center;
 margin-top: 30px;
-width: 100%;
 `
 
 const DogWrapper = styled.Text`
 text-align: left;
-width: 320;
+width: 320px;
 `
 
 const DogImage = styled.Image`
-width: 320;
-z-index: 2;
-height: 200;
+width: 320px;
+height: 320px;
 justify-content: center;
 border-radius: 7;
-margin-top: 10%;
-margin-bottom: 5%;
-`
-
-const StyledButton = styled.TouchableOpacity`
-  background-color: white;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 25px;
+margin-top: 10px;
+margin-bottom: 20px;
 `

@@ -1,13 +1,12 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week I've created my first app in React Native. I chose the focus area API:s where the user is able to fetch data from a dog API to show different dog breeds and their characters.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I got stuck a few times this week, especially when it come to styling in React Native. The syntax is also different and many new things to learn. I discussed my problems during Townhall, with my team and wrote questions in Stack Overflow. A special thanks to Ida and Rawi who helped me alot!
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Here is the app without animations (not compatible with browser in React Native, only in mobile)
+https://snack.expo.dev/@emmajosefina/dog-generator
