@@ -1,13 +1,19 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week's project was to build our first mobile app in React Native.
+We had three focus areas to choose between, I worked with "Sensors" and built a step counter.
+I also for the first time worked with React natives style components.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Working with React Native has been very different from what we have done before.
+I learned that you need to use a lot of dependencies to make it work, write the styling differently
+and only focus on the output in a mobile.
+In this bootcamp we only have this project with React native but
+It has been fun and challenging, I think this is something I would like to explore more.
+I have done some research and find it very inspiring with all the things you could build.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+This project is using expo go and can unfortunately only be viewed in android
+https://expo.dev/@mimmisen/step-counter-react-native-app
