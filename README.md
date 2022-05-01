@@ -8,4 +8,4 @@ The app uses https://corporatebs-generator.sameerkumar.website/ to fetch phrases
 
 ## View it live
 
-exp://exp.host/@amanda_tange/project-react-native-app?release-channel=default
+https://expo.dev/@amanda_tange/project-react-native-app
