@@ -11,9 +11,9 @@ const Start = () => {
 <View style={styles.main}>
     <View style={styles.container}>
    
-    <Text style={styles.header}>Shake for fun</Text>
-  
+    <Text style={styles.header}>/ Shake for fun /</Text>
     <ArtFetch />
+  
     </View>
     </View>
   )
@@ -29,9 +29,10 @@ container: {
   display: 'flex',
   flexDirection: 'column',
   paddingTop: 40,
+  marginTop: 25,
   alignItems: 'center',
-  width: 320,
-  height: 450,
+  width: 340,
+  height: 420,
   borderWidth: 3,
   borderColor: 'black',
   borderRadius: 10,
@@ -42,9 +43,10 @@ container: {
 
   header: {
     fontFamily: 'Optima-Italic',
-    fontSize: 28,
+    fontSize: 20,
     textAlign: 'center',
-    paddingBottom: 80,
+    paddingBottom: 65,
+    color: 'tomato',
 
   },
 

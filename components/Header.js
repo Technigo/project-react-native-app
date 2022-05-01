@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 container: {
   width: 375,
   height: 120,
-  marginTop: 40,
+  marginTop: 50,
   
   display: 'flex',
   flexDirection: 'column',
@@ -38,6 +38,7 @@ header: {
 headTwo: {
   fontFamily: 'Optima-Italic',
   fontSize: 37,
+  color: 'tomato',
 }
 })
 
