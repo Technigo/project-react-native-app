@@ -9,7 +9,7 @@ const StepCounter = () => {
 
   // you walk approximately 1300 steps in 1 km
   const distance = stepCount / 1300;
-  // the toFixed shorten to only 4 in this case the decimals of the steps
+  // the toFixed shorten decimals to 2
   const distanceCovered = distance.toFixed(2);
 
   // you burn approximately 60 calories in 1 km
@@ -39,14 +39,13 @@ const StepCounter = () => {
     <View style={{ justifyContent: "center", height: "100%" }}>
       <View>
         <Text style={styles.titleText}>
-          Hey,{"\n"}
-          welcome to your daily step Tracker!
+          Welcome to your{"\n"} daily step Tracker!
         </Text>
       </View>
       <ImageBackground
         style={styles.ImageBackground}
         resizeMode='cover'
-        source={require("../assets/run.jpg")}
+        source={require("../assets/run-purple.jpg")}
       >
         <View style={styles.textContainer}>
           <Text style={styles.titleText}>
@@ -57,15 +56,15 @@ const StepCounter = () => {
             <CircularProgress
               value={stepCount}
               maxValue={6500}
-              radius={140}
+              radius={185}
               textColor={"#000"}
-              activeStrokeColor={"#a8a8a8"}
-              inActiveStrokeColor={"rgb(99, 121, 230, 0.5)"}
+              activeStrokeColor={"#383D75"}
+              inActiveStrokeColor={"#B47EE7"}
               inActiveStrokeOpacity={0.5}
               inActiveStrokeWidth={40}
               activeStrokeWidth={40}
               title={"Step Count"}
-              titleColor={"#a8a8a8"}
+              titleColor={"#383D75"}
               titleStyle={{ fontWeight: "bold" }}
             />
           </View>
@@ -75,7 +74,7 @@ const StepCounter = () => {
       <View style={styles.descriptionContainer}>
         <Image
           style={styles.roadImg}
-          source={require("../assets/road3.0.png")}
+          source={require("../assets/road-pink.png")}
         />
         <View style={styles.iconContainer}>
           <Image
@@ -124,27 +123,28 @@ const styles = StyleSheet.create({
   },
 
   titleText: {
-    color: "#000",
-    backgroundColor: "rgba(255,255,255,0.5)",
+    color: "#383D75",
     alignSelf: "center",
     fontWeight: "bold",
     fontSize: 30,
+    margin: 8,
+    textAlign: "center",
   },
 
   descriptionContainer: {
-    // flex: 0.5,
     justifyContent: "center",
-    backgroundColor: "#6379E6",
+    backgroundColor: "#383D75",
     borderRadius: 20,
     padding: 8,
     margin: 8,
+    marginTop: 12,
     height: 200,
   },
 
   roadImg: {
     position: "absolute",
     height: 250,
-    top: 0,
+    top: -12,
     bottom: 0,
     left: 210,
     right: 0,
@@ -162,7 +162,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     color: "white",
     fontWeight: "400",
-
     fontSize: 18,
   },
 
