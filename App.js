@@ -1,5 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { SensorComponent } from './components/SensorComponent';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Drawer = createDrawerNavigator();	
 
 const Container = styled.View`
 	flex: 1;
@@ -15,11 +20,11 @@ const Title = styled.Text`
 
 const App = () => {
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+		<NavigationContainer>
+		<Drawer.Navigator>
+		<Drawer.Screen name="Start" component={SensorComponent} />
+		</Drawer.Navigator>
+		</NavigationContainer>
 	);
 };
 
