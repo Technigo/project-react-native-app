@@ -8,7 +8,7 @@ export const Header = () => {
         <View>
             <Title>Hi there!</Title>
             <UnderTitle>Hope you're having a wonderful day!</UnderTitle>
-            <UnderTitle>If not, please shake your phone gently to recieve some puppy love</UnderTitle>
+            <UnderTitle>If not, please shake your phone gently or click the button below to recieve some puppy love</UnderTitle>
         </View>
     );
 };
