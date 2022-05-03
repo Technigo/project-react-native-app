@@ -19,7 +19,7 @@ const Title = styled.Text`
     font-size: 28px;
     color: palevioletred;
     text-align: center;
-    margin: 30px 0;
+    margin: 80px 0 10px 0;
     font-weight: 700;
 `;
 
@@ -27,4 +27,5 @@ const UnderTitle = styled.Text`
     font-size: 16px;
     color: palevioletred;
     text-align: center;
+    padding: 2px;
 `;

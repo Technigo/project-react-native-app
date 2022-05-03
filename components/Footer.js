@@ -16,7 +16,7 @@ export const Footer = () => {
 //----------------------------------------------//
 
 const FooterContainer = styled.View`
-    max-width: 50%;
+    max-width: 80%;
 `;
 
 const FooterText = styled.Text`
@@ -24,14 +24,13 @@ const FooterText = styled.Text`
     color: palevioletred;
     text-align: center;
     margin-bottom: 0;
-    `;
+`;
     
-    const FooterLink = styled.Text`
+const FooterLink = styled.Text`
     font-size: 16px;
     font-weight: 700;
     text-align: center;
     color: palevioletred;
     margin-bottom: 0;
     padding: 20px;
-
 `;
