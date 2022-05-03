@@ -33,7 +33,7 @@ const ShakeDataTitle = styled.Text`
 `;
 const ShakeData = styled.Text``;
 
-export const SensorComponent = () => {
+export const SensorComponent = ({navigation}) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
   // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
   Accelerometer.setUpdateInterval(400);
@@ -75,9 +75,15 @@ export const SensorComponent = () => {
     return () => _unsubscribe();
   }, [data]);
 
+    useEffect(()  => {
+        if(isShaking(data)){
+          navigation.navigate('Dice')
+        }
+      }, [data])
+
   return (
-    <ShakeView>
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-    </ShakeView>
+    <>
+    {isShaking(data)}
+  </>
   );
 };
