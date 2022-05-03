@@ -1,24 +1,77 @@
-import React from 'react';
-import { Text, Button } from 'react-native';
-import styled from 'styled-components/native';
+import React, {useState} from 'react';
+import { ActivityIndicator } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
 
-// This is the main container for this screen
-const FeedContainer = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-`;
+import { 
+	Container, 
+	ButtonText, 
+	Button, 
+	Header1, 
+	Burger, 
+	WhiteBackground, 
+	BackgroundImage,
+	Content,
+	Header2
+} from '../styles/styled-components';
 
-// The prop "navigation" is important if you are trying to open/toggle the drawer
-//  directly via Javascript
-export const Feed = ({ navigation }) => {
-  return (
-    <FeedContainer>
-      <Text>Feed Screen</Text>
-      {/* Here is an example of how to open/toggle the drawer via javascript */}
-      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-    </FeedContainer>
-  );
+import helpers from '../modules/helpers';
+
+const Feed = ({ 
+	navigation, 
+	isLoggedIn, 
+	setPhrases, 
+	image 
+}) => {
+	const [phrase, setPhrase] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const [disableButton, setDisableButton] = useState(true);
+
+	const onPressphrase = async () => {
+		setLoading(true)
+		setPhrase(await helpers.getPhrase());
+		setLoading(false);
+		setDisableButton(false);
+	}
+
+	const onSavePhrase = () => {
+		if (phrase) {
+		setPhrases(phrases => [...phrases, phrase]);
+		setDisableButton(true);
+		}
+	} 
+
+	return (
+		<BackgroundImage source={image} resizeMode='cover'>
+			<WhiteBackground>
+				<Container>
+					<Burger onPress={() => navigation.openDrawer()}>
+						<ButtonText>
+						<Entypo name='menu' size={30} color='#000' />
+						</ButtonText>
+					</Burger>
+					<Header1>Feed</Header1>
+					<Content>
+						{loading ? <ActivityIndicator size="small" color="hsl(200, 100%, 50%)" />: 
+							<Header2>
+								{phrase}
+							</Header2>
+						}
+						<Button onPress={onPressphrase} accentColor={true}>
+						<ButtonText
+							accentColor={true}>
+							New phrase
+						</ButtonText>
+						</Button>
+						<Button disabled={(disableButton || !isLoggedIn)} onPress={onSavePhrase} accentColorDisabled={(disableButton || !isLoggedIn)}>
+							<ButtonText accentColor={true}>
+								Save
+							</ButtonText>
+						</Button>
+					</Content>
+				</Container>
+			</WhiteBackground>
+		</BackgroundImage>
+	);
 };
+
+export default Feed;

@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is a react native app with drawer navigation that allows the user to log in, generate, and save phrases of corporate jargon. The login does not use authentication but the email and password inputs are controlled an need to contain at least 3 characters and an '@' in the email, to be 'valid'.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The app uses https://corporatebs-generator.sameerkumar.website/ to fetch phrases which happens in a separate object with helper function to kind of mimic redux reducers. Most of the functionality is rendered conditionally based on the logged in status. The function to save a phrase and see saved phrases are possible only after login. There is no storage and any saved phrases will be lost on reload. The login function does not require a real email and password but there is requirements on their format, '@' in email and min 3 chars for both inputs. These requirements are also checked in a helper function. Had I had more time I would like to have implemented some form of authentication on the email and/or use AsyncStorage to be able to save the saved phrases. The styling would also be something I would like to improve since it is fairly underdeveloped as it is now :)
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@amanda_tange/project-react-native-app
