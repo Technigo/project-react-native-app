@@ -1,13 +1,11 @@
-# Project React Native App 📱
+# Project React Native App
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Built a react native application to search for cocktails by their name on the home screen, display a list of 
+alcoholic and non alcoholic drinks on another screen, and integrated a shake sensor to display random drinks
+when the user shakes their phone. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
-## View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+First, I fetched the data from the cocktail api to display all drinks. Then integrated the shake sensor with
+Accelerometer from expo-sensors. Lastly, I created a navigation containing three different screens to display
+different information and styled the application with react native styled components.

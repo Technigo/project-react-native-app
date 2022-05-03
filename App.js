@@ -1,25 +1,26 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import HomeScreen from "./components/Home";
+import Drinks from "./components/DrinksList";
+import RandomDrinks from './components/RandomDrinks';
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Stack = createNativeStackNavigator();
 
 const App = () => {
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen
+					name="Home"
+					component={HomeScreen}
+					options={{ title: 'Home' }}
+				/>
+				<Stack.Screen name="Drinks List" component={Drinks} />
+				<Stack.Screen name="Random Drinks" component={RandomDrinks} />
+			</Stack.Navigator>
+		</NavigationContainer>
 	);
 };
 
