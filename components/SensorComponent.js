@@ -83,7 +83,7 @@ export const SensorComponent = ({navigation}) => {
 
   return (
     <>
-    {isShaking(data)}
+    {isShaking(data) && <ShakeAlert></ShakeAlert>}
   </>
   );
 };
