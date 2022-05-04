@@ -3,7 +3,6 @@ In this project, we focused on building a mobile application by using React Nati
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 React Native and Expo were new concepts for me, and I found it pretty interesting and challenging to learn. First, I made a plan what type of sections, elements I wanted to have.It includes list of Helsinki's activities (data from API), image slider using ScrollView from react native, navigation function to access to multiple pages with a button to go back by using React Native Navigation, sharing function using Expo Share.
 
