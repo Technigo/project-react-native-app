@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
-import styled from 'styled-components/native'
-import { SensorComponent } from './SensorComponent'
 
 import Dice1 from '../assets/dice1.png';
 import Dice2 from '../assets/dice2.png';

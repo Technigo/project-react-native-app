@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -7,7 +6,6 @@ import Dice from './components/Dice';
 import EntryPage from './components/EntryPage';
 
 const Drawer = createDrawerNavigator();	
-
 
 const App = () => {
 	return (		

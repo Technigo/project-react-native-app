@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Accelerometer } from 'expo-sensors';
-import styled from 'styled-components/native';
 
 // ==========================
 // = Functions
@@ -17,21 +16,6 @@ const isShaking = (data) => {
 
 // ==========================
 // = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
-`;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
 
 export const SensorComponent = ({navigation}) => {
   // This function determines how often our program reads the accelerometer data in milliseconds
@@ -78,6 +62,12 @@ export const SensorComponent = ({navigation}) => {
     useEffect(()  => {
         if(isShaking(data)){
           navigation.navigate('Dice')
+        }
+      }, [data])
+
+      useEffect(()  => {
+        if(isShaking(data)){
+          
         }
       }, [data])
 
