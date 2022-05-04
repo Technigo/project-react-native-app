@@ -1,25 +1,20 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import Dice from './components/Dice';
+import EntryPage from './components/EntryPage';
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Drawer = createDrawerNavigator();	
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+	return (		
+	<NavigationContainer>
+		<Drawer.Navigator initialRouteName="Home">
+			<Drawer.Screen name="Start" component={EntryPage} />
+			<Drawer.Screen name="Dice" component={Dice} />
+		</Drawer.Navigator>	
+	</NavigationContainer>
 	);
 };
 
