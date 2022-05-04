@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components/native";
-import { Text } from "react-native";
 import { ScrollView, Dimensions, View, Image, Button, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import LottieView from 'lottie-react-native';
 import  {Share}  from "react-native";
 
 

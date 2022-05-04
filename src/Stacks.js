@@ -3,7 +3,7 @@ import React from 'react'
 import Activity from './Activity';
 import Header from './Header';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Saved from './Saved';
+import ActivityDetail from './ActivityDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +23,7 @@ const Stacks = () => {
                     }} 
                  
                 />
-                <Stack.Screen name="Activity Details" component={Saved} />
+                <Stack.Screen name="Activity Details" component={ActivityDetail} />
 
          
             </Stack.Navigator>

@@ -46,7 +46,7 @@ const ButtonText = styled.Text`
 `
 
 
-const Saved = ( {route}  ) => {
+const ActivityDetail = ( {route}  ) => {
 
 
     return (
@@ -67,4 +67,4 @@ const Saved = ( {route}  ) => {
     )
 }
 
-export default Saved
+export default ActivityDetail
