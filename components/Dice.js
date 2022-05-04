@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   }
 });
 
+
 const DiceApi = ({navigation}) => {
 
   const [roll,setRoll] = useState(Dice1);
