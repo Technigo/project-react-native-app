@@ -75,7 +75,11 @@ useEffect(()=> {
       <ShakeDataView>
         <ShakeData>
             <Image
-              style={{width: 250, height: 250}}
+              style={{
+                width: 300,
+                height: 300,
+                resizeMode: 'contain'
+              }}
               source={{ uri: quote.image }}
             />
             </ShakeData>
