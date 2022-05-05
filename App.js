@@ -1,25 +1,27 @@
 import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import styled from 'styled-components/native';
+
+import Artworkslist from './components/Artworkslist';
+import RandomArtwork from './components/RandomArtwork';
+
+const Drawer = createDrawerNavigator();
 
 const Container = styled.View`
 	flex: 1;
 	background-color: papayawhip;
-	justify-content: center;
 	align-items: center;
-`;
-
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
 `;
 
 const App = () => {
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
+		<NavigationContainer style={Container}>
+			<Drawer.Navigator initialRouteName="Home">
+				<Drawer.Screen name="Home" component={Artworkslist} />
+				<Drawer.Screen name="Surprise Artwork" component={RandomArtwork} />
+			</Drawer.Navigator>
+	  </NavigationContainer>
 	);
 };
 
