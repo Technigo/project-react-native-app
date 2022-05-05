@@ -105,7 +105,7 @@ const RandomArtwork = () => {
   return (
     <ArtworkContainer>
       <View>
-        <ArtworkImage source={randomArtwork?.webImage?.url}/>
+        <ArtworkImage source={randomArtwork?.webImage}/>
         <TitleText>{randomArtwork?.longTitle}</TitleText>
         <LocationText>{randomArtwork?.productionPlaces}</LocationText>
         <Button title="share" onPress={async () => { await onShare()}}/>

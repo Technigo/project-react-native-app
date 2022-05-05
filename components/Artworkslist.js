@@ -54,7 +54,7 @@ const Artworkslist = () => {
         {artworks.map((artwork) => {
           return (
             <View key={artwork?.id}>
-              <ArtworkImage source={artwork?.webImage?.url}/>
+              <ArtworkImage source={artwork?.webImage}/>
               <TitleText>{artwork?.title}</TitleText>
             </View>
           )
