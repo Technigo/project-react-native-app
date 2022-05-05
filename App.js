@@ -7,12 +7,13 @@ const Container = styled.View`
 	background-color: lightgrey;
 	justify-content: center;
 	align-items: center;
-	margin: 20px;
-`;
+	padding-top: 20px;
+	`;
 
 const Title = styled.Text`
 	font-size: 24px;
 	color: darkgreen;
+
 `;
 
 
