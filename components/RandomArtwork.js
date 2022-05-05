@@ -46,11 +46,9 @@ const RandomArtwork = () => {
   });
 
   const generateRandomArtwork = () => {
-    setLoading(true)
     fetch(REMBRANDT_URL)
     .then(res => res.json())
     .then(data => setRandomArtwork(data.artObjects[Math.floor(Math.random()*20)]))
-    setLoading(false)
   }
 
   useEffect(() => {

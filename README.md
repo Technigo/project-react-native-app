@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week I made an app with the work title Rembrant Randomizer, using React Native and an API fetch from Rijksmuseum, Netherlands. For this app I used React Native Navigation, styled components and expo sensors. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This week was an interesting challenge since I have never done an app before! It took me some time to figure out what approaches would suit me and the project best. When I get more time I will add an loader and also display for info on each artwork. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@sofiaringstedt/project-react-native-app?serviceType=classic&distribution=expo-go

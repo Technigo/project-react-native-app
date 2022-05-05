@@ -38,11 +38,9 @@ const Artworkslist = () => {
   const [artworks, setArtworks] = useState([])
 
   const generateArtworks = () => {
-    setLoading(true)
     fetch(REMBRANDT_URL)
     .then(res => res.json())
     .then(data => setArtworks(data.artObjects))
-    setLoading(false)
   }
 
   useEffect(() => {
