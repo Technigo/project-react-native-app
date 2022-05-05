@@ -31,7 +31,7 @@ const TechyApi = () => {
     border-radius: 10px;
     border: 2px solid darkgreen;
     padding; 5px;
-    font-color: white;
+    color: white;
     `;
 
     
