@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     shake: {
-        width: 300,
-        height: 300,
+        width: 200,
+        height: 200,
     },
     background: {
         flex: 1,

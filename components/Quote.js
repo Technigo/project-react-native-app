@@ -54,12 +54,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-around',
         alignItems: 'center',
+        margin: 0,
     },
     title2: {
       marginRight: 50,
       marginBottom: 10,
       marginLeft: 10,
-      fontSize: 36,
+      fontSize: 26,
       fontFamily: 'InriaSerif_400Regular_Italic'
     },
     title3: {
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
       btn: {
         padding: 20,
         margin: 20,
-        width: 150,
+        width: 140,
         alignSelf: "center",
         textAlign: 'center',
         backgroundColor: '#E6BA95',
