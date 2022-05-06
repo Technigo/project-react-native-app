@@ -9,7 +9,7 @@ const HeaderContainer = styled.View`
 
 const HeaderTitle = styled.Text`
   padding-top: 60px;
-  font-size: 40px;
+  font-size: 36px;
   text-transform: capitalize;
   font-weight: 700;
   text-align: center;

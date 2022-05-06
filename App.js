@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import styled from 'styled-components/native'
 import ShakeAPI from './components/ShakeAPI'
 import Header from './components/Header'

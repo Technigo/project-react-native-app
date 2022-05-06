@@ -9,10 +9,10 @@ const Container = styled.View`
 `
 
 const QuoteContent = styled.Text`
-  font-size: 20px; 
+  font-size: 18px; 
   background-color: #655D8A;
   color: white;
-  padding: 40px;
+  padding: 30px;
   line-height: 30px;
 `
 
