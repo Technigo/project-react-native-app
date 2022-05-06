@@ -1,13 +1,11 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is my first project using React Native, yay! 🥳
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I chose to follow our learning material for this week and create an app using an external API to fetch random quotes. These quotes are handed the user by either shaking the phone (using the Accelerometer for this) or clicking a button (using core component Touchable Opacity). This week was fun and I think we have been introduced to React Native in a good way. I can't wait to explore it even further! :) If I had more time I think I would have tried out a few more core components and also fetching data from another API. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@camillahallberg/project-react-native-app?serviceType=classic&distribution=expo-go
