@@ -11,22 +11,25 @@ const TechyApi = () => {
         .then((data) => setTechwords(data))
     }
 
-    const Container = styled.View`
-	flex: 1;
+const Container = styled.View`
+    flex: 1;
 	justify-content: center;
 	align-items: center;
 	margin: 20px;
-    
     width: 80%;
     padding-left: 20px;
-    padding-right: 20px;    
+    padding-right: 20px;  
+    `;
+
+    const Quote = styled.Text`
+	font-size: 20px;
+	color: black;
+    font-style: italic;
 `;
 
-
-
-    const APIButton= styled.TouchableOpacity`
+const APIButton= styled.TouchableOpacity`
     font-weight: 700;
-    width: 50%;
+    width: 40%;
     background-color: green;
     margin-top: 20px;
     border-radius: 10px;
@@ -42,16 +45,13 @@ useEffect(() => {
 
 return (
         <Container>
-            <Text>{techwords.message}</Text>
+            <Quote>
+            {techwords.message}</Quote>
           <APIButton onPress={generateTechWords}>
           <Text>New sentence</Text>
           </APIButton>
           </Container>                           
-      
-    
 )
 }
-
-
 
 export default TechyApi;
