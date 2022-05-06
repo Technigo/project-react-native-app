@@ -22,7 +22,7 @@ const Container = styled.View`
     `;
 
     const Quote = styled.Text`
-	font-size: 20px;
+	font-size: 15px;
 	color: black;
     font-style: italic;
 `;
