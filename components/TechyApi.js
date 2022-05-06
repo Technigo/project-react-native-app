@@ -16,18 +16,19 @@ const TechyApi = () => {
 	justify-content: center;
 	align-items: center;
 	margin: 20px;
-    background-color: yellow;
-    width: 40%;
-    padding-left: 20px;
-    padding-right: 20px;
     
+    width: 80%;
+    padding-left: 20px;
+    padding-right: 20px;    
 `;
+
+
 
     const APIButton= styled.TouchableOpacity`
     font-weight: 700;
     width: 50%;
     background-color: green;
-    margin: 20px;
+    margin-top: 20px;
     border-radius: 10px;
     border: 2px solid darkgreen;
     padding; 5px;
