@@ -1,26 +1,15 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import Shakecomponent from './components/ShakeComponent'
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
 
-export default App;
+	return (
+		<>
+			<Shakecomponent />
+		</>
+	)
+}
+
+export default App
