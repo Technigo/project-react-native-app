@@ -33,7 +33,7 @@ const Header = () => {
     } else {
         return (
             <View style={styles.container}>
-                <Text style={styles.questionTitle}>Nothing to do? Give a shake for some ideas to pass the time!</Text>
+                <Text style={styles.questionTitle}>Nothing to do? Give the phone a shake for ideas!</Text>
             </View>
         )
     }
@@ -41,8 +41,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     container: {
-        position: "absolute",
-        top: 100,
+        marginTop: "5%",
     },
     questionTitle: {
         fontSize: 22,
@@ -50,6 +49,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         paddingHorizontal: 30,
         fontFamily: "WorkSans_500Medium",
+        color: "#000000ac"
     },
 })
 

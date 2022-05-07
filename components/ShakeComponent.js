@@ -13,12 +13,20 @@ import {
     WorkSans_700Bold,
     WorkSans_800ExtraBold,
     WorkSans_900Black,
+    WorkSans_100Thin_Italic,
+    WorkSans_200ExtraLight_Italic,
+    WorkSans_300Light_Italic,
+    WorkSans_400Regular_Italic,
+    WorkSans_500Medium_Italic,
     WorkSans_600SemiBold_Italic,
+    WorkSans_700Bold_Italic,
+    WorkSans_800ExtraBold_Italic,
+    WorkSans_900Black_Italic,
 } from "@expo-google-fonts/work-sans"
 
 import Loader from "./Loader"
 import Header from "./Header"
-import Footer from './Footer'
+import Footer from "./Footer"
 
 
 const isShaking = (data) => {
@@ -37,7 +45,15 @@ const Shakecomponent = () => {
         WorkSans_700Bold,
         WorkSans_800ExtraBold,
         WorkSans_900Black,
+        WorkSans_100Thin_Italic,
+        WorkSans_200ExtraLight_Italic,
+        WorkSans_300Light_Italic,
+        WorkSans_400Regular_Italic,
+        WorkSans_500Medium_Italic,
         WorkSans_600SemiBold_Italic,
+        WorkSans_700Bold_Italic,
+        WorkSans_800ExtraBold_Italic,
+        WorkSans_900Black_Italic,
     })
 
     Accelerometer.setUpdateInterval(400)
@@ -89,33 +105,42 @@ const Shakecomponent = () => {
     }
 
     const changeImage = () => {
-        if (fetchedData.type === "social") {
-            return <Image source={require("../assets/social.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }}  />
-        } else if (fetchedData.type === "cooking") {
-            return <Image source={require("../assets/cooking.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }} />
-        } else if (fetchedData.type === "busywork") {
-            return <Image source={require("../assets/busywork.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }} />
-        } else if (fetchedData.type === "education") {
-            return <Image source={require("../assets/education.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }} />
-        } else if (fetchedData.type === "diy") {
-            return <Image source={require("../assets/diy.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }} />
-        } else if (fetchedData.type === "recreational") {
-            return <Image source={require("../assets/recreational.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }} />
-        } else if (fetchedData.type === "charity") {
-            return <Image source={require("../assets/charity.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }} />
-        } else if (fetchedData.type === "music") {
-            return <Image source={require("../assets/music.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }} />
-        } else {
-            return <Image source={require("../assets/relaxing.png")} 
-                        style={{ resizeMode: "contain", height: 300, width: 300 }} />
+        switch (fetchedData.type) {
+            case "social":
+                return <Image source={require("../assets/social.png")} 
+                        style={{ resizeMode: "contain", height: 280, width: 280 }}  />
+                break
+            case "cooking":
+                return <Image source={require("../assets/cooking.png")} 
+                            style={{ resizeMode: "contain", height: 280, width: 280 }} />
+                break
+            case "busywork":
+                return <Image source={require("../assets/busywork.png")} 
+                        style={{ resizeMode: "contain", height: 280, width: 280 }} />
+                break
+            case "education":
+                return <Image source={require("../assets/education.png")} 
+                        style={{ resizeMode: "contain", height: 280, width: 280 }} />
+                break
+            case "diy":
+                return <Image source={require("../assets/diy.png")} 
+                        style={{ resizeMode: "contain", height: 280, width: 280 }} />
+                break
+            case "recreational":
+                return <Image source={require("../assets/recreational.png")} 
+                        style={{ resizeMode: "contain", height: 280, width: 280 }} />
+                break
+            case "charity":
+                return <Image source={require("../assets/charity.png")} 
+                        style={{ resizeMode: "contain", height: 280, width: 280 }} />
+                break
+            case "music":
+                return <Image source={require("../assets/music.png")} 
+                        style={{ resizeMode: "contain", height: 280, width: 280 }} />
+                break
+            default:
+                return <Image source={require("../assets/relaxing.png")} 
+                        style={{ resizeMode: "contain", height: 280, width: 280 }} />
         }
     }
 
@@ -127,54 +152,88 @@ const Shakecomponent = () => {
         return <AppLoading /> 
     } else {
         return (
-            <>
-                <Header />
-                <View style={styles.container}>
+            <View style={styles.mainContainer}>
+            <Header />
+           
+            <View style={styles.contentContainer}>
 
-                    <View style={styles.titleBackground}>
-                        <Text style={styles.mainTitle}>{fetchedData.activity}</Text>
-                    </View>
-
-                    {changeImage()}
-
-                    <View>
-                        <Text style={styles.text}>{fetchedData.participants > 1 ? "Grab your friends with you for this one!" : ""}</Text>
-                        <Text style={styles.text}>{fetchedData.price <= 0 ? "No money needed for this activity!" : ""}</Text>
-                    </View>
+                <View style={styles.titleBackground}>
+                    <Text style={styles.mainTitle}>{fetchedData.activity}</Text>
                 </View>
 
-                <Footer />
-            </>
-            
+                {changeImage()}
+
+                <View>
+                    <Text style={styles.text}>{fetchedData.participants > 1 ? "Grab your friends with you for this one!" : ""}</Text>
+                    <Text style={styles.text}>{fetchedData.price <= 0 ? "No money needed for this activity!" : ""}</Text>
+                </View>
+
+            </View>
+
+            <Footer />
+            </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    mainContainer: {
+        flex: 1,
+        justifyContent: "center",
         alignItems: "center",
-        justifyContent: "space-evenly",
-        paddingHorizontal: 20,
-        marginTop: 90,
+        backgroundColor: "#f8f8ff",
+    },
+    contentContainer: {
+        alignItems: "center",
+        maxHeight: "75%",
+        padding: 30,
+        marginTop: 50,
+        marginHorizontal: 20,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        backgroundColor: "#EDC9F9",
+        shadowColor: "#000",
+        shadowOffset: {
+	        width: 0,
+	        height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
     titleBackground: {
-        backgroundColor: "pink",
+        maxHeight: "25%",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        backgroundColor: "#88c6d3",
         borderRadius: 8,
-        padding: 18,
-        marginBottom: 25,
-        paddingHorizontal: 25,
+        marginBottom: 20,
+        padding: 15,
+        shadowColor: "#000",
+        shadowOffset: {
+	        width: 0,
+	        height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
     mainTitle: {
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: "bold",
         textAlign: "center",
         textTransform: "uppercase",
         fontFamily: "WorkSans_700Bold",
+        width: 260,
+        color: "white",
     },
     text: {
         fontSize: 16,
         textAlign: "center",
-        fontFamily: "WorkSans_400Regular",
+        fontFamily: "WorkSans_400Regular_Italic",
         marginTop: 5,
     },
 })

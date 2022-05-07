@@ -1,13 +1,17 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+In this project I created a mobile app using react Native.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I chose to use an external API in my app and fetch and display data from it. I used the Accelometer from expo sensors which detects the phones movement. The movement of the phone (passing a certain threshold) activates the function which fetches new data from the API. I also added a vibration effect which activates on every new render.
+
+I added a loader from the Lottie files and used switch statement to render different images depending on the content of the data. 
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Link to my deployed project:
+
+https://expo.dev/@tiiliu/project-react-native-app?serviceType=classic&distribution=expo-go

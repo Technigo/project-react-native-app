@@ -27,13 +27,11 @@ const Footer = () => {
 
 const styles = StyleSheet.create({
     container: {
-        height: 80,
-        paddingHorizontal: 60,
-        position: "absolute",
-        bottom: 0,
+        textAlign: "center",
+        marginTop: "15%",
+
     },
     name: {
-        textAlign: "center",
         fontSize: 12,
         fontFamily: "WorkSans_400Regular",
     }
