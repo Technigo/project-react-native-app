@@ -1,96 +1,134 @@
 import React, { useState, useEffect } from "react";
-import { Accelerometer } from "expo-sensors";
-import styled from "styled-components/native";
+import { Pedometer } from 'expo-sensors';
+import CircularProgress from "react-native-circular-progress-indicator";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from 'react-native';
 
-// ==========================
-// = Functions
-const isShaking = (data) => {
-  // x,y,z CAN be negative, force is directional
-  // We take the absolute value and add them together
-  // This gives us the total combined force on the device
-  const totalForce = Math.abs(data.x) + Math.abs(data.y) + Math.abs(data.z);
 
-  // If this force exceeds some threshold, return true, otherwise false
-  // Increase this threshold if you need your user to shake harder
-  return totalForce > 1.78;
-};
+const SensorComponent = () => {
+  const [PedometerAvailability, setPedometerAvailability] = useState("");
+  const [stepCount, updateStepCount] = useState(0);
 
-// ==========================
-// = Styled components
-const ShakeView = styled.View`
-  display: flex;
-  flex-direction: column;
-`;
+  let Dist = stepCount /1300;
+  let DistanceCovered = Dist.toFixed(4)
 
-const ShakeAlert = styled.Text`
-  font-size: 36px;
-  font-weight: bold;
-  color: #aa0000;
-`;
-const ShakeDataView = styled.View``;
-const ShakeDataTitle = styled.Text`
-  font-weight: bold;
-`;
-const ShakeData = styled.Text``;
-
-export const SensorComponent = () => {
-  // This function determines how often our program reads the accelerometer data in milliseconds
-  // https://docs.expo.io/versions/latest/sdk/accelerometer/#accelerometersetupdateintervalintervalms
-  Accelerometer.setUpdateInterval(400);
-
-  // The accelerometer returns three numbers (x,y,z) which represent the force currently applied to the device
-  const [data, setData] = useState({
-    x: 0,
-    y: 0,
-    z: 0,
-  });
-
-  // This keeps track of whether we are listening to the Accelerometer data
-  const [subscription, setSubscription] = useState(null);
-
-  const _subscribe = () => {
-    // Save the subscription so we can stop using the accelerometer later
-    setSubscription(
-      // This is what actually starts reading the data
-      Accelerometer.addListener((accelerometerData) => {
-        // Whenever this function is called, we have received new data
-        // The frequency of this function is controlled by setUpdateInterval
-        setData(accelerometerData);
-      })
-    );
-  };
-
-  // This will tell the device to stop reading Accelerometer data.
-  // If we don't do this our device will become slow and drain a lot of battery
-  const _unsubscribe = () => {
-    subscription && subscription.remove();
-    setSubscription(null);
-  };
+  let cal = DistanceCovered * 60;
+  let caloriesBurnt = cal.toFixed(4)
 
   useEffect(() => {
-    // Start listening to the data when this SensorComponent is active
-    _subscribe();
-
-    // Stop listening to the data when we leave SensorComponent
-    return () => _unsubscribe();
+    subscribe();
   }, []);
 
-  return (
-    <ShakeView>
-      {/* 
-      If isShaking returns true:
-        - We could render conditionally
-        - Maybe we want to dispatch some redux event when device shakes?
-        - Maybe change some styled props? 
-      */}
-      {isShaking(data) && <ShakeAlert>Shaking</ShakeAlert>}
-      <ShakeDataView>
-        <ShakeDataTitle>Shake Data</ShakeDataTitle>
-        {/* toFixed(2) only shows two decimal places, otherwise it's quite a lot */}
-        <ShakeData>X: {data.x.toFixed(2)}</ShakeData>
-        <ShakeData>Y: {data.y.toFixed(2)}</ShakeData>
-        <ShakeData>Z: {data.z.toFixed(2)}</ShakeData>
-      </ShakeDataView>
-    </ShakeView>
-  );
-};
+  subscribe = () => {
+    const subscription = Pedometer.watchStepCount((result) => { 
+        updateStepCount(result.steps);
+      })
+  
+
+    Pedometer.isAvailableAsync().then(
+      (result) => {
+        setPedometerAvailability(String(result));
+      },
+      (error) => {
+        setPedometerAvailability(error);
+      }
+    )
+ };
+  
+    return (
+      <View style={styles.container}>
+
+        <View style={{ flex:1, justifyContent: "center"}}>
+        <Text style={styles.headingDesign}>
+          Is Pedometer available on the device: {PedometerAvailability}
+          </Text>
+    
+        <View style={{flex:3}}>
+          <CircularProgress
+          value={stepCount}
+          maxValue={10000}
+          radius={210}
+          textColor={'#FFA500'}
+          activeStrokeColor={'#000000'}
+          inActiveStrokeColor={'#C0C0C0'}
+          inActiveStrokeOpacity={0.5}
+          inActiveStrokeWidth={40}
+          activeStrokeWidth={40}
+          title={'Step Count'}
+          titleColor={'#800000'}
+          titleStyle={{fontWeight: "bold"}}
+          />
+
+        </View>
+        <View style={{flex:1}}>
+
+        <View style={{flex:1}}>
+          <Text style={[styles.textDesign, {
+            paddingLeft : 20, marginLeft : "23%" 
+          }, 
+          ]}>
+            Target : 10000 steps(5km)
+          </Text>
+        </View>
+
+        <View style={{flex:1}}>
+          <Text style={[styles.textDesign, {
+            width: "93%", paddingLeft: 20, marginLeft: "-3.5%" 
+          }, 
+          ]}>
+            Distance Covered : {DistanceCovered} km
+          </Text>
+        </View>
+
+        <View style={{flex:1}}>
+          <Text style={[styles.textDesign, {
+            paddingLeft: 10, marginLeft: "23%" 
+          }, 
+          ]}>
+            Calories Burnt : {caloriesBurnt}
+          </Text>
+        </View>
+
+        </View>
+
+        </View>
+     
+        <StatusBar style="auto"/>
+      </View>
+    );
+}
+
+const styles = StyleSheet.create({ 
+  container: {
+    flex: 1,
+    backgroundColor: "#C0C0C0",
+  },
+
+  headingDesign: {
+    color: "white",
+    backgroundColor: "rgba(155,89,182,0.5)",
+    alignSelf: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+    fontFamily: "Papyrus",
+  },
+
+  textDesign: {
+    backgroundColor: "rgba(155,89,182,0.5)",
+    height: 50,
+    width: "85%",
+    borderColor: "white",
+    borderWidth: 1,
+    borderRadius: 20,
+    overflow: "hidden",
+    fontSize: 25,
+    color: "white",
+    fontWeight: "bold",
+    fontFamily: "Papyrus"
+  }
+ }); 
+
+
+export default SensorComponent;
+
+
