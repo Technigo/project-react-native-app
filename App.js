@@ -1,26 +1,52 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
+import StartPage from './components/StartPage'
+import Quote from './components/Quote'
+import Joke from './components/Joke'
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const Drawer = createDrawerNavigator();
+
 
 const App = () => {
-	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
+  
+  return(
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Start" component={StartPage}
+        options={{
+          headerTitleStyle: {
+            color: '#3d3d3d',
+          },
+          headerStyle: {
+            backgroundColor: '#E6BA95',
+          },
+        }} />
+        <Drawer.Screen name="Quote" component={Quote}
+        options={{
+          headerTitleStyle: {
+            color: '#3d3d3d',
+          },
+          headerStyle: {
+            backgroundColor: '#E6BA95',
+          },
+        }} 
+        />
+        <Drawer.Screen name="Joke" component={Joke}
+        options={{
+          headerTitleStyle: {
+            color: '#3d3d3d',
+          },
+          headerStyle: {
+            backgroundColor: '#E6BA95',
+          },
+        }} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  )
+
+}
 
 export default App;
+
