@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import TechyApi from './components/TechyApi';
-import { ImageBackground } from 'react-native';
+
 
 const Container = styled.View`
 	flex: 1;
@@ -39,8 +39,7 @@ const App = () => {
 			<Technician source={require('./assets/technicians-at-work.jpg')} />
 			<ContainerText>
 				<Title>Want to sound like you know what you are talking about? 
-				Try these techy expressions:
-				👩‍💻👩‍💻👩‍💻</Title>					
+				Try these techy expressions: 👩‍💻</Title>					
 			</ContainerText>
 				<TechyApi/> 		
 		</Container>

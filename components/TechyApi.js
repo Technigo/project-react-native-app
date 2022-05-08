@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text } from 'react-native';
 import styled from 'styled-components/native';
 
 const TechyApi = () => {
@@ -18,7 +18,8 @@ const Container = styled.View`
 	margin: 20px;
     width: 80%;
     padding-left: 20px;
-    padding-right: 20px;  
+    padding-right: 20px;
+    
     `;
 
     const Quote = styled.Text`
@@ -30,12 +31,11 @@ const Container = styled.View`
 const APIButton= styled.TouchableOpacity`
     font-weight: 700;
     width: 40%;
-    background-color: green;
+    background-color: lightgrey;
     margin-top: 20px;
     border-radius: 10px;
-    border: 2px solid darkgreen;
-    padding; 5px;
-    color: white;
+    border: 2px solid darkgrey;
+    padding: 5px;
     `;
 
     
