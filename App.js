@@ -1,26 +1,59 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components/native';
+import Activity from './src/Activity';
+import Header from './src/Header';
+import { useFonts } from 'expo-font';
+import { SafeAreaView } from 'react-native';
+import { ScrollView } from 'react-native';
+//import * as Speech from 'expo-speech';
+import { Dimensions } from 'react-native';
+import Stacks from './src/Stacks';
 
-const Container = styled.View`
-	flex: 1;
-	background-color: papayawhip;
-	justify-content: center;
-	align-items: center;
-`;
 
-const Title = styled.Text`
-	font-size: 24px;
-	color: palevioletred;
-`;
+const App = ( ) => {
 
-const App = () => {
+    let [fontsLoaded] = useFonts({
+        'Bulj': require('./assets/fonts/Bulj.ttf')
+    })
+
+
+
 	return (
-		<Container>
-			<Title>This is your cool app!</Title>
-			<Title>Go to App.js and start coding</Title>
-			<Title>💅💅💅</Title>
-		</Container>
-	);
-};
 
+			 <SafeAreaView style={{flex: 1}}>
+					<Header />
+					
+					<Stacks />
+
+			 </SafeAreaView>
+		
+	);
+
+	}
 export default App;
+
+
+// const storeVakue = async () => {
+// 	try {
+// 		await AsyncStorage.setItem('value', 'hello')
+// 	}
+// 		catch (error) {
+// 			console.log(error)
+// 		}
+
+// }
+// storeVakue()
+
+// const getValue = async () => {
+// 	try {
+// 		const data = await AsyncStorage.getItem('value');
+
+// 		if (data !== null) {
+// 			console.log(data)
+// 		}
+// 		}
+// catch(error) {
+// 	 console.log(error)
+// }
+// }
+
