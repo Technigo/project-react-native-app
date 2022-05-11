@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Pedometer } from 'expo-sensors';
-import CircularProgress from "react-native-circular-progress-indicator";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from 'react-native';
+import CircularProgress from "react-native-circular-progress-indicator";
 
 
 const SensorComponent = () => {
@@ -19,7 +18,7 @@ const SensorComponent = () => {
     subscribe();
   }, []);
 
-  subscribe = () => {
+  const subscribe = () => {
     const subscription = Pedometer.watchStepCount((result) => { 
         updateStepCount(result.steps);
       })
@@ -46,11 +45,11 @@ const SensorComponent = () => {
         <View style={{flex:3}}>
           <CircularProgress
           value={stepCount}
-          maxValue={10000}
+          maxValue={6500}
           radius={210}
-          textColor={'#FFA500'}
+          textColor={'#800000'}
           activeStrokeColor={'#000000'}
-          inActiveStrokeColor={'#C0C0C0'}
+          inActiveStrokeColor={'800000'}
           inActiveStrokeOpacity={0.5}
           inActiveStrokeWidth={40}
           activeStrokeWidth={40}
@@ -67,7 +66,7 @@ const SensorComponent = () => {
             paddingLeft : 20, marginLeft : "23%" 
           }, 
           ]}>
-            Target : 10000 steps(5km)
+            Target : 6500 steps(5km)
           </Text>
         </View>
 
@@ -92,8 +91,7 @@ const SensorComponent = () => {
         </View>
 
         </View>
-     
-        <StatusBar style="auto"/>
+    
       </View>
     );
 }
@@ -102,6 +100,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#C0C0C0",
+    opacity: 0.5,
   },
 
   headingDesign: {

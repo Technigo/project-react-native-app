@@ -16,7 +16,7 @@ const App = () => {
     <ImageBackground
     style={{ flex: 1 }}
     resizeMode="cover"
-    source={require("./assets/steps.jpg")}
+    source={require('./assets/steps.jpg')}
    >
     <Container>
       <SensorComponent/>
