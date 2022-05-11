@@ -1,13 +1,12 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week we should build a mobile app. 
+We had one week to be done with the assignment and learn all the new tools used. 
 
 ## The problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I found an API that I wanted to use. I used styled components and had a button with TouchableOpacity to generate the technical quotes from the API.  
 
 ## View it live
+You can see the app here: 
+https://snack.expo.dev/@sjolanders/native-app
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
