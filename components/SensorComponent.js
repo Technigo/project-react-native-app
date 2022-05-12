@@ -5,7 +5,7 @@ import CircularProgress from "react-native-circular-progress-indicator";
 
 
 const SensorComponent = () => {
-  const [PedometerAvailability, setPedometerAvailability] = useState("");
+  const [pedometerAvailability, setPedometerAvailability] = useState("");
   const [stepCount, updateStepCount] = useState(0);
 
   let Dist = stepCount /1300;
@@ -21,7 +21,7 @@ const SensorComponent = () => {
   const subscribe = () => {
     const subscription = Pedometer.watchStepCount((result) => { 
         updateStepCount(result.steps);
-      })
+      });
   
 
     Pedometer.isAvailableAsync().then(
@@ -29,26 +29,27 @@ const SensorComponent = () => {
         setPedometerAvailability(String(result));
       },
       (error) => {
-        PedometerAvailability(error);
+        setPedometerAvailability(error);
       }
-    )
+    );
  };
   
     return (
       <View style={styles.container}>
-        <Text style={styles.headingDesign}>Time to go up and walk!</Text>
+
+        <Text style={styles.headingDesign}>Time to get up and go out for a walk!</Text>
 
         <View>
           <CircularProgress
           value={stepCount}
           maxValue={6500}
-          radius={210}
+          radius={190}
           textColor={'#800000'}
           activeStrokeColor={'#000000'}
           inActiveStrokeColor={'#800000'}
           inActiveStrokeOpacity={0.5}
-          inActiveStrokeWidth={40}
-          activeStrokeWidth={40}
+          inActiveStrokeWidth={50}
+          activeStrokeWidth={50}
           title={'Step Count'}
           titleColor={'#800000'}
           titleStyle={{fontWeight: "bold"}}
@@ -59,8 +60,7 @@ const SensorComponent = () => {
         <View>
           <Text style={styles.textDesign}> Target : 6500 steps (5km)</Text>
       
-          <Text style={styles.textDesign}>
-            Distance Covered : {DistanceCovered} km </Text>
+          <Text style={styles.textDesign}> Distance Covered : {DistanceCovered} km </Text>
         
           <Text style={styles.textDesign}> Calories Burnt : {caloriesBurnt} </Text>
           </View>
@@ -83,15 +83,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     fontFamily: "Papyrus",
-    margin: 10,
+    margin: 20,
+    padding: 5,
   },
 
   textDesign: {
     backgroundColor: "#800000",
-    height: 45,
-    width: "85%",
+    height: 50,
+    width: "95%",
     borderColor: "#000",
-    borderWidth: 2,
+    borderWidth: 3,
     borderRadius: 20,
     overflow: "hidden",
     fontSize: 25,
@@ -99,7 +100,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Papyrus",
     alignSelf: "center",
-    margin: 5,
+    marginTop: 15,
+    padding: 5,
   }
  }); 
 
