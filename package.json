@@ -21,7 +21,8 @@
     "react-native-reanimated": "^2.3.0-alpha.3",
     "react-native-svg": "12.1.1",
     "react-native-web": "0.17.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "expo-updates": "~0.10.15"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
