@@ -1,25 +1,30 @@
 import React from "react";
 import styled from "styled-components/native";
-import { SensorComponent } from "./components/SensorComponent";
+import  SensorComponent  from "./components/SensorComponent";
+import { ImageBackground } from "react-native";
+
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
   justify-content: center;
   align-items: center;
 `;
 
-const Title = styled.Text`
-  font-size: 24px;
-  color: palevioletred;
-`;
 
 const App = () => {
   return (
+    <ImageBackground
+    style={{ flex: 1 }}
+    resizeMode="cover"
+    source={require('./assets/steps.jpg')}
+   >
     <Container>
-      <SensorComponent></SensorComponent>
-    </Container>
+      <SensorComponent/>
+      </Container>
+      </ImageBackground>
   );
 };
 
 export default App;
+
+

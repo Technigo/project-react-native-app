@@ -1,13 +1,14 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this weeks project I had the chance to test out some React Native and build my first mobile app.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+This weeks project and approach was different from the other react weeks. It was exciting to build my very own mobile app. I choose to build a step counter!
+
+The hardest part this week was the expo go and all the new error message that come along with that page and app! 
+I solved it with the help of townhall session, stackOverflow and friends in the bootcamp. 
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://expo.dev/@tessan90/project-react-native-app?serviceType=classic&distribution=expo-go
