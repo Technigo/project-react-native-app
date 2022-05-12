@@ -29,27 +29,23 @@ const SensorComponent = () => {
         setPedometerAvailability(String(result));
       },
       (error) => {
-        setPedometerAvailability(error);
+        PedometerAvailability(error);
       }
     )
  };
   
     return (
       <View style={styles.container}>
+        <Text style={styles.headingDesign}>Time to go up and walk!</Text>
 
-        <View style={{ flex:1, justifyContent: "center"}}>
-        <Text style={styles.headingDesign}>
-          Is Pedometer available on the device: {PedometerAvailability}
-          </Text>
-    
-        <View style={{flex:3}}>
+        <View>
           <CircularProgress
           value={stepCount}
           maxValue={6500}
           radius={210}
           textColor={'#800000'}
           activeStrokeColor={'#000000'}
-          inActiveStrokeColor={'800000'}
+          inActiveStrokeColor={'#800000'}
           inActiveStrokeOpacity={0.5}
           inActiveStrokeWidth={40}
           activeStrokeWidth={40}
@@ -57,41 +53,18 @@ const SensorComponent = () => {
           titleColor={'#800000'}
           titleStyle={{fontWeight: "bold"}}
           />
-
-        </View>
-        <View style={{flex:1}}>
-
-        <View style={{flex:1}}>
-          <Text style={[styles.textDesign, {
-            paddingLeft : 20, marginLeft : "23%" 
-          }, 
-          ]}>
-            Target : 6500 steps(5km)
-          </Text>
-        </View>
-
-        <View style={{flex:1}}>
-          <Text style={[styles.textDesign, {
-            width: "93%", paddingLeft: 20, marginLeft: "-3.5%" 
-          }, 
-          ]}>
-            Distance Covered : {DistanceCovered} km
-          </Text>
-        </View>
-
-        <View style={{flex:1}}>
-          <Text style={[styles.textDesign, {
-            paddingLeft: 10, marginLeft: "23%" 
-          }, 
-          ]}>
-            Calories Burnt : {caloriesBurnt}
-          </Text>
-        </View>
-
-        </View>
-
-        </View>
+          </View>
     
+
+        <View>
+          <Text style={styles.textDesign}> Target : 6500 steps (5km)</Text>
+      
+          <Text style={styles.textDesign}>
+            Distance Covered : {DistanceCovered} km </Text>
+        
+          <Text style={styles.textDesign}> Calories Burnt : {caloriesBurnt} </Text>
+          </View>
+      
       </View>
     );
 }
@@ -105,25 +78,28 @@ const styles = StyleSheet.create({
 
   headingDesign: {
     color: "white",
-    backgroundColor: "rgba(155,89,182,0.5)",
+    backgroundColor: "#800000",
     alignSelf: "center",
     fontSize: 20,
     fontWeight: "bold",
     fontFamily: "Papyrus",
+    margin: 10,
   },
 
   textDesign: {
-    backgroundColor: "rgba(155,89,182,0.5)",
-    height: 50,
+    backgroundColor: "#800000",
+    height: 45,
     width: "85%",
-    borderColor: "white",
-    borderWidth: 1,
+    borderColor: "#000",
+    borderWidth: 2,
     borderRadius: 20,
     overflow: "hidden",
     fontSize: 25,
     color: "white",
     fontWeight: "bold",
-    fontFamily: "Papyrus"
+    fontFamily: "Papyrus",
+    alignSelf: "center",
+    margin: 5,
   }
  }); 
 
