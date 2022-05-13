@@ -5,15 +5,19 @@ import styled from "styled-components/native";
 import { URL } from "./utils/urls";
 
 const Container = styled.View`
-  flex: 3;
-  justify-content: center;
+  flex: 1;
   align-items: center;
-  margin: 40px;
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
   padding: 0;
 `;
+const QuoteContainer = styled.View`
+margin-top: 200px;
+`
 const Quote = styled.Text`
-  font-size: 35;
-  line-height: 45;
+  font-size: 25;
+  line-height: 30;
   text-align: left;
 `;
 const AuthorContainer = styled.View`
@@ -24,25 +28,28 @@ const AuthorContainer = styled.View`
 `;
 const Author = styled.Text`
   font-style: italic;
-  font-size: 15;
+  font-size: 12;
 `;
 const Button = styled.TouchableOpacity`
   background-color: #ffaf7b;
   padding: 20px;
   border-radius: 10px;
-  width: 170px;
+  width: 110px;
   align-items: center;
   position: absolute;
-  bottom: 28px;
-  margin-bottom: 10px;
+  top:10px;
+  right: -20px;
+  margin-bottom: 5px;
 `;
 const ButtonText = styled.Text`
-font-size: 15;
+font-size: 12;
 font-weight: 500;
 `
 const SmallText = styled.Text`
 position: absolute;
-  bottom: 10px;
+font-size: 10;
+top: 75px;
+right: -20px;
 `
 
 const isShaking = (data) => {
@@ -93,8 +100,10 @@ export const SensorComponent = () => {
 
   return (
     <Container>
+      <QuoteContainer>
       {isShaking(data) && DisplayQuote()}
       <Quote>{quote.content}</Quote>
+      </QuoteContainer>
       <AuthorContainer>
         <Author>-{quote.author}</Author>
       </AuthorContainer>
