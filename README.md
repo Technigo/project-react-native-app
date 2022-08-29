@@ -1,3 +1,10 @@
+# Weekly project for Technigo's bootcamp, week 16
+Task: build a mobile app
+
+Tech: JavaScript, Styled components, React, React Native
+
+----
+
 # Week 16: Project React Native App 📱
 
 This week's project was to build a first mobile app using react Native.
