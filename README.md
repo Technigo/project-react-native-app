@@ -1,4 +1,6 @@
-# Week 16: Project React Native App 📱
+# Week 16: Project Cat Randomizer
+
+Weekly project for Technigo's bootcamp, week 16: build a mobile app
 
 This week's project was to build a first mobile app using react Native.
 
