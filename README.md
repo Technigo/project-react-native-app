@@ -21,3 +21,7 @@ Project deployed here: [Cat Randomizer](https://expo.dev/@nadialefebvre/cat-rand
 ## View it live - Snack (for Android and iOS)
 
 Project deployed here (Web version not working because of loader animation): [Cat Randomizer - Snack](https://snack.expo.dev/@nadialefebvre/cat-randomizer---snack)
+
+<div align="center">
+  <img src="screenshot.jpg" />
+</div>
