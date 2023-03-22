@@ -1,4 +1,4 @@
-# Week 16: Project Cat Randomizer
+# Project Cat Randomizer
 
 Weekly project for Technigo's bootcamp, week 16: build a mobile app
 
